@@ -1,10 +1,10 @@
 {
-  "observed_at": "2026-09-08T21:03:17.045753+00:00",
+  "observed_at": "2026-09-08T21:25:35.194995+00:00",
   "source_uri": "https://www.covers.com/sport/baseball/mlb/odds",
-  "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
-  "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+  "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
+  "source_page_updated_at": "2026-09-08T21:25:00+00:00",
   "source_page_update_raw": [
-    "Last updated Sep 08, 2026, 5:03 PM ET"
+    "Last updated Sep 08, 2026, 5:25 PM ET"
   ],
   "source_fanduel_cells": 27,
   "structured_events": 15,
@@ -19,7 +19,7 @@
   "research_status": "unproven",
   "notifications_sent": 0,
   "schedule_source_uri": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-09-08&hydrate=probablePitcher",
-  "schedule_sha256": "c4911b8e7f8559a7aff538ed4ee8c2a09609519d0951aea048b0ee5ab2e0d911",
+  "schedule_sha256": "720ea936bfb57eb02c42689ecba607d5b0a73ece3e3dbfc8af754362fa67a9d2",
   "model_id": "a7ceefe2db3c13ea",
   "model_training_through": "2025-08-16",
   "feature_snapshots": 15,

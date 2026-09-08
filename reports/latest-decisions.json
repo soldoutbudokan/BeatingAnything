@@ -1,12 +1,12 @@
 [
   {
-    "prediction_id": "9a14fc119748628b64515c6609ee6587854de188f837429de185cca675ad809a",
+    "prediction_id": "2661a6fc097e09cf8e8225064e9414b6c4d985af2a065c0bc52b1b6e13b03f8c",
     "event_id": "mlb:824792",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.955010Z",
-    "quote_id": "6fa4c81ca89c29c4b6f59778b92b023e7823122a8d375d3fe9b322e5625b5af3",
+    "created_at": "2026-09-08T21:25:35.952652Z",
+    "quote_id": "c775452fa50d14005d19074fa03d962083adc0dc98fce5e2e2490aa73d3b7433",
     "probability_home": 0.5235928157700804,
     "reasons": [
       "edge_below_threshold"
@@ -39,12 +39,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "369702",
       "source_line_time_raw": "1788898474",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T20:14:34+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -56,23 +56,23 @@
     "expected_value": -0.037657487855562444,
     "market_probability_home": 0.5242214532871973,
     "starts_at": "2026-09-08T22:35:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "24863d4794e8df25d0db8cb5df5154766ce8e3625096b199c250dbf92bb180ae"
+    "decision_id": "52a5f0a58ce3009b7ae9391d8c54f58d587eb47cff9b20619f39698df70dd55e"
   },
   {
-    "prediction_id": "6d5603974ac4523fbfdb135068752daddb1df80c741f350bf1f0aa1960789b41",
+    "prediction_id": "5083da7df8e962d43c89366c3ef2e25c18dd9fe2c50ceecb726a25cf4a8ed03c",
     "event_id": "mlb:824228",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.955733Z",
-    "quote_id": "80106e181c796011cb6b91558691c11fee2fc33a6d1f76451fac740c05fadbaf",
+    "created_at": "2026-09-08T21:25:36.040583Z",
+    "quote_id": "ca40a07823227650e0ef60a0ba2db9758a1341d4a4aa6b571d62902a6d53ad87",
     "probability_home": 0.5403710792970017,
     "reasons": [
       "edge_below_threshold"
@@ -105,12 +105,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "367939",
       "source_line_time_raw": "1788894283",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T19:04:43+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -122,23 +122,23 @@
     "expected_value": -0.034779266523703445,
     "market_probability_home": 0.5427435387673957,
     "starts_at": "2026-09-08T22:40:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "920ea731c30ae24d735b51a7cf8927df21c46b4698588314c3989576bb33a641"
+    "decision_id": "534d772ea6c810211187fb7b557008fcc0cddf9835577189ff802316821cdfdd"
   },
   {
-    "prediction_id": "59491bb66fd17836f5951a4442b23953c56f0d5c171836268f1c4002d982eb40",
+    "prediction_id": "c2d873d45ef729c1dea377289581ae4c8698b5b9ae623b39b8e8ad15b53c3381",
     "event_id": "mlb:823414",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.956206Z",
-    "quote_id": "68db906381966f6758c457314a98b393f64ed240859554fe9a4ea306d16cc2a1",
+    "created_at": "2026-09-08T21:25:36.144835Z",
+    "quote_id": "7484d8d10a0cac0cf57a0582ca3c28f50f0b6c293bcc0c2bf140b265c083ea79",
     "probability_home": 0.57207485842948,
     "reasons": [
       "edge_below_threshold"
@@ -171,12 +171,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "368148",
       "source_line_time_raw": "1788802342",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-07T17:32:22+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -188,23 +188,23 @@
     "expected_value": -0.02505552295821012,
     "market_probability_home": 0.5634920634920635,
     "starts_at": "2026-09-08T22:40:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "9848170d0981dd770dcbd54e39d2e152637ae6f139a674775130cf081767a634"
+    "decision_id": "c7c5c42c7f3d44d2f8f0b774401a283858cb51a45b5c45800a4cbf71138dcb9e"
   },
   {
-    "prediction_id": "e4803010c75cce4a70886d036c5ef524ea0bd6ae9aac9436be17ae2283c26147",
+    "prediction_id": "c40d798054ee59a497bebaa5349c315439865db320f3ecfb5ed609523f400bd2",
     "event_id": "mlb:823821",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.956540Z",
-    "quote_id": "e8a911d045f5aba2799fce1731b88212c9275b26ade88f6934664985d13d8f4b",
+    "created_at": "2026-09-08T21:25:36.261318Z",
+    "quote_id": "7c304fa45e91564bd8656ea427ec4419220f252368c1d6507e3790485d125dc5",
     "probability_home": 0.5103641670892846,
     "reasons": [
       "edge_below_threshold"
@@ -237,12 +237,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "368395",
       "source_line_time_raw": "1788898842",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T20:20:42+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -254,23 +254,23 @@
     "expected_value": -0.03395354086671143,
     "market_probability_home": 0.5089094796863863,
     "starts_at": "2026-09-08T22:40:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "160f2a3baa170624bcb413047f942eb8f6e768baf3be8975afa3ccbe6078ffad"
+    "decision_id": "17249e7ebb7b9f3bfb673861f249480d28e17b848b3b2e161acb2127cda6b06d"
   },
   {
-    "prediction_id": "5ca950eacdd2c4f1899280a9a93ef05fcacb3e82daec4b2109a5429f330d699a",
+    "prediction_id": "f454df12b97d09aeb861d87ee08bcd2862f92ddc9b1754c39d97c598e2ab83f9",
     "event_id": "mlb:824714",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.956839Z",
-    "quote_id": "021fcc6850429966a46423f9feb327e05bc119f78263519cab5d86ed8e3f307b",
+    "created_at": "2026-09-08T21:25:36.355090Z",
+    "quote_id": "161ba324c4a7fd382e21f45965a3d6aec4a7d8928df3942e445c9f0f9f1c980a",
     "probability_home": 0.5700232656304729,
     "reasons": [
       "edge_below_threshold"
@@ -303,12 +303,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "368943",
       "source_line_time_raw": "1788850270",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T06:51:10+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -320,23 +320,23 @@
     "expected_value": -0.03412724434836534,
     "market_probability_home": 0.5671302866874822,
     "starts_at": "2026-09-08T22:45:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "dd5aa3d86bc3f7e18fce31036a86e1ed9182a045cc32035cc56c8701f871ddd5"
+    "decision_id": "1f45a9dab36a48fc3d979522ca7cf980099b35e80f70aebcbe3501985c1204e4"
   },
   {
-    "prediction_id": "12e072bead542b0c54326605b822f41b3aeae6fd4fc25a7ebd9d94019cf85433",
+    "prediction_id": "652ce773e7c66595fbef367c8431e187654c89b67d6124ad69fb47d3bee74b46",
     "event_id": "mlb:823500",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.957194Z",
-    "quote_id": "f43030f9799a767f3be5fa5a26ad89502b625ac5b80a455db755a0f5f7c569f1",
+    "created_at": "2026-09-08T21:25:36.417911Z",
+    "quote_id": "0826afb4f082389328397259b89d0e929634aeefe9b4f296a23c8af10ec191c9",
     "probability_home": 0.7603125147064469,
     "reasons": [
       "edge_below_threshold"
@@ -369,12 +369,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "368602",
       "source_line_time_raw": "1788897534",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T19:58:54+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -386,23 +386,23 @@
     "expected_value": -0.028489564541762324,
     "market_probability_home": 0.7532188841201716,
     "starts_at": "2026-09-08T23:05:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "e64ceed7a373bc2cca5f50c5ce9344b7d332ea973255def8a9019de03b62b4f2"
+    "decision_id": "e8273bb6bc026fae7a879fcb25bc26cea87654ae54461f394e5670c84ef1e4ec"
   },
   {
-    "prediction_id": "934d01525b3dd40a2a955ac8f8d8e5f2bc964ec57a86b295c60c20f1eabcf44c",
+    "prediction_id": "74b94b285c1686dc8fd7ef0ab9621a9e7c7f77ea4eed4b52f4860c5d4711da30",
     "event_id": "mlb:824875",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.957486Z",
-    "quote_id": "1bda082858baceb5209d555924a2d495a70d157db875cb0547ce1e85f66246dd",
+    "created_at": "2026-09-08T21:25:36.420662Z",
+    "quote_id": "deca8ae099a658f726b57305198d2bb7637d64c463abad33602c31ed0f48ab24",
     "probability_home": 0.5227911484377786,
     "reasons": [
       "edge_below_threshold"
@@ -435,12 +435,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "369937",
       "source_line_time_raw": "1788802749",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-07T17:39:09+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -452,23 +452,23 @@
     "expected_value": -0.02652682704689502,
     "market_probability_home": 0.515396797466127,
     "starts_at": "2026-09-08T23:15:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "ff1763de3ef7acde824f3cf618087753ee3337b7b545b03f170b42a53f9d03ac"
+    "decision_id": "3abd1b48175e2849c077ff238ec7411dfafd3c5a62e2504c9d30f3b54e6d1e55"
   },
   {
-    "prediction_id": "ffc8cd8c6552336409634663da7a09c34e57706cc437dc7bb798bb42541b3fb1",
+    "prediction_id": "0277a170524588ad5ce6310639e45fe2eebe6111016e361ee977be5bb4d96d99",
     "event_id": "mlb:824551",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.957782Z",
-    "quote_id": "0f3d342bce7fc92169cb1bf2747981ec4f85d77b58ecc9cb1d999fb910efde01",
+    "created_at": "2026-09-08T21:25:36.422920Z",
+    "quote_id": "b15278f4e0e316c8a2cd00e6d1515a410075af3988773df44d275e2839ac70f9",
     "probability_home": 0.5711600868535723,
     "reasons": [
       "edge_below_threshold"
@@ -501,12 +501,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "368728",
       "source_line_time_raw": "1788851091",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T07:04:51+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -518,23 +518,23 @@
     "expected_value": -0.037634374205624654,
     "market_probability_home": 0.5707105961189446,
     "starts_at": "2026-09-08T23:40:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "f7ec9cd1f98734e1683996d1fb18c871821acb0079681dcd66c6074cfb378cf9"
+    "decision_id": "a62bf9efcdca594299df0947019adcb541bf9ac4598a6c329e2b02292c974364"
   },
   {
-    "prediction_id": "493f457d0b8ce05785c5511302aa87cad583a9d88bc34136259e242f7d1e1c6d",
+    "prediction_id": "c0518bc54d9f5ab14dd1d1801f8d248169c0afb26ef80ecbd41d9e5abf36d32e",
     "event_id": "mlb:824063",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.958102Z",
-    "quote_id": "95fef9a77f44302e13f0b426f782dc34709e146dc4dbb3ae54ef4d937ea38e3d",
+    "created_at": "2026-09-08T21:25:36.515569Z",
+    "quote_id": "367731f0209aaa03b43b1ae013519b7808e55127d8638a84157757bbff66044d",
     "probability_home": 0.478169563295675,
     "reasons": [
       "edge_below_threshold"
@@ -567,12 +567,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "369437",
       "source_line_time_raw": "1788818742",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-07T22:05:42+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -584,23 +584,23 @@
     "expected_value": -0.034097482142736446,
     "market_probability_home": 0.4757785467128028,
     "starts_at": "2026-09-08T23:40:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "62c44718b3503bd82e7540f8c0192753ab0a5cb3f30bd6fc7ec92aef26ccf50d"
+    "decision_id": "81714394f26167c4ee42502197b36a3a60eab82c6ff2f6a197556889b1e743d4"
   },
   {
-    "prediction_id": "c7d413a5fe57f3601b719ea29115e98392d0ed70a3b317118748ed4709b50e5d",
+    "prediction_id": "38f6773c3554cbe28445cb07749e65d49a4e320bcbfd45b14210a647c94ca047",
     "event_id": "mlb:823738",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.958395Z",
-    "quote_id": "305e692cc56976fcf75fe8a3cbf970ca7954be4a22c93624f6df40f5894f87c6",
+    "created_at": "2026-09-08T21:25:36.517782Z",
+    "quote_id": "cdd80c2992cd16e65809ca6e3a3d054c7ab10aee76e60ce801441bf76f000a34",
     "probability_home": 0.6609995396902422,
     "reasons": [
       "edge_below_threshold"
@@ -633,12 +633,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "369878",
       "source_line_time_raw": "1788900192",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T20:43:12+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -650,23 +650,23 @@
     "expected_value": -0.03155881394220339,
     "market_probability_home": 0.6564885496183206,
     "starts_at": "2026-09-08T23:40:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "7517e5bb293150fb8fd4369bbaba9e47348ea1f0431af07822e450a2b16ea7f7"
+    "decision_id": "affe68ab129a34144e0ec57b6080057a0d510653b8f2aa3056537940ea67e1f5"
   },
   {
-    "prediction_id": "c2e399933015a460ff0664ae4584b1897901209b8b4920954d4cfd3a99ae4cec",
+    "prediction_id": "7a4a17abbe2a98b413347f76a8de1e7c90a96ac542ddafd2768e924737d2536b",
     "event_id": "mlb:823092",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.958671Z",
-    "quote_id": "53ede7d7fe2425f885968f8110a0734d4b77d6f766bb291e27a8364684626d24",
+    "created_at": "2026-09-08T21:25:36.520710Z",
+    "quote_id": "b64782d58a6cfe77ce9e68b301246268a48a26e7250d4f7f26bc05fbae090854",
     "probability_home": 0.5452920776756398,
     "reasons": [
       "edge_below_threshold"
@@ -699,12 +699,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "368428",
       "source_line_time_raw": "1788895842",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T19:30:42+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -716,23 +716,23 @@
     "expected_value": -0.02692504622586933,
     "market_probability_home": 0.5506567324679316,
     "starts_at": "2026-09-09T01:40:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "69df117dd560accb986670e189dddb30cac25880665f4c6da1b696da12522606"
+    "decision_id": "4bdedb917c540392be99989244b487ea0da19ff507319e9b1cacf2f0d61a9430"
   },
   {
-    "prediction_id": "e246d2d9883c98bd37c530152d2693d93199460d3413cf72f9da6cfab482d14e",
+    "prediction_id": "d0dcec37353eb88bacaa86b031a9c3c4e7e8bf603419b6e09e897ea4954dabdc",
     "event_id": "mlb:823250",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.958977Z",
-    "quote_id": "ea925fdd281b9ef7706bd1a4492e69bbeed663f8459024eb700792bf12bee8ee",
+    "created_at": "2026-09-08T21:25:36.522866Z",
+    "quote_id": "b2350e8cc739064da7d5fbc446822ee93ed01a4016c70fdb933d02205b73ad0c",
     "probability_home": 0.6293342784808628,
     "reasons": [
       "edge_below_threshold"
@@ -765,12 +765,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "368723",
       "source_line_time_raw": "1788879693",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T15:01:33+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -782,23 +782,23 @@
     "expected_value": -0.02863622234475527,
     "market_probability_home": 0.6220187393526406,
     "starts_at": "2026-09-09T01:40:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "dd62a3e136959552bebe8aede4084703ef810dec131dac9771a6537858fb0aa0"
+    "decision_id": "72c3edbdd43294d2ac1f44a39206458bd77e9c24414ade70d0e1e5ca1484e153"
   },
   {
-    "prediction_id": "c24a95282aeab29a8b47f7151cf77b3628d1c200fecf4e64e77e7d7c9938594c",
+    "prediction_id": "ec19ab0a7ccac1a21463fe5913b4410da2af25ce3e567e5d1ef2ee5a1f494e54",
     "event_id": "mlb:824957",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.959268Z",
-    "quote_id": "73e3f938eacbdda355fa249f03ddfa1d06e0c08be5bb63bd691649ccffcb3281",
+    "created_at": "2026-09-08T21:25:36.525026Z",
+    "quote_id": "1f1753779e4bac2bae754cc442e9a306d1ed0e43f9070f1b60a636e00e2608d0",
     "probability_home": 0.38364383123740836,
     "reasons": [
       "edge_below_threshold"
@@ -831,12 +831,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "369274",
       "source_line_time_raw": "1788875929",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T13:58:49+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -848,23 +848,23 @@
     "expected_value": -0.03321754528173093,
     "market_probability_home": 0.3816793893129771,
     "starts_at": "2026-09-09T01:40:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "e8fbc0b8a31917a28b02a8a1088b3b9465125bfd67fd64e041ea36816071d0a1"
+    "decision_id": "b95a316406d53387a0a8b52bff39de8296a02ed809a1bc291ae8b65653ed7ce0"
   },
   {
-    "prediction_id": "8592462bf726d67d348d73044763f905b7303c358854c3da6c108747d3f17362",
+    "prediction_id": "ce236fc03f682d145004486b58ee1696e62f95784742a7732acccd997ec31489",
     "event_id": "mlb:823174",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.959576Z",
-    "quote_id": "f4b9d181782e7193829ff851954c699b57ac6d415ccbe7de5392befc7a3f9a01",
+    "created_at": "2026-09-08T21:25:36.614522Z",
+    "quote_id": "e02d015881272e5562be13d40a0f0c90c7c7f1f05ca3676025303090989f3953",
     "probability_home": 0.4980586640965586,
     "reasons": [
       "edge_below_threshold"
@@ -897,12 +897,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "368145",
       "source_line_time_raw": "1788880118",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T15:08:38+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -914,23 +914,23 @@
     "expected_value": -0.03329816788966822,
     "market_probability_home": 0.5,
     "starts_at": "2026-09-09T01:45:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "0282cb57bb4ba17eef97f378fe46a28eb8314918e8102b74eac941dc509c71e8"
+    "decision_id": "bbcd1b521e69d0dfd9b443c9d50e78964f9d81b4081eaec33149c301276a28e0"
   },
   {
-    "prediction_id": "79e2d25510b4717fc01d89bb3f2b4eaff7b277ed53ea2202b2611367ad6c5686",
+    "prediction_id": "88988b961c2f21d274138bf5ef21e5a5ef5b12f812a89af4e7295fdb1be33bca",
     "event_id": "mlb:823901",
     "model_id": "a7ceefe2db3c13ea",
     "artifact_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
     "cohort_id": "aggregator-observation-v1",
-    "created_at": "2026-09-08T21:03:24.959898Z",
-    "quote_id": "63156e94534084da0338ea5f01a067c9bb091406a2b11593f5e55d78a5c3da48",
+    "created_at": "2026-09-08T21:25:36.625372Z",
+    "quote_id": "f1aaa88211a454b28b56b753b341ceb42ad9060757a134b8d67b67bc64499f0d",
     "probability_home": 0.7414428804378113,
     "reasons": [
       "edge_below_threshold"
@@ -963,12 +963,12 @@
       "bookmaker_jurisdiction": "Unverified; public page naturally returned CA/ON settings",
       "historical": false,
       "provider": "Covers public odds page",
-      "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+      "response_sha256": "3ad52d500772e589f4a07ab973ec3a72a9087336db32c252fbaf5858bfcc40cc",
       "source_event_id": "369177",
       "source_line_time_raw": "1788898360",
       "source_line_time_semantics": "Unverified line-change time; not a freshness heartbeat",
       "source_line_time_utc": "2026-09-08T20:12:40+00:00",
-      "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+      "source_page_updated_at": "2026-09-08T21:25:00+00:00",
       "synthetic": false,
       "uri": "https://www.covers.com/sport/baseball/mlb/odds",
       "verification_method": "Explicit FanDuel label and paired market; aggregator execution unverified",
@@ -980,13 +980,13 @@
     "expected_value": -0.03387745882345805,
     "market_probability_home": 0.7369226063016213,
     "starts_at": "2026-09-09T02:10:00Z",
-    "quote_observed_at": "2026-09-08T21:03:17.045753Z",
+    "quote_observed_at": "2026-09-08T21:25:35.194995Z",
     "forward_eligible": false,
     "eligibility_reasons": [
       "unverified_entry",
       "forward_trial_not_registered",
       "decision_blocked"
     ],
-    "decision_id": "b5804cbf87f29304a8b8eaba1825c8dfe629fae2c0974965737cf426a0284830"
+    "decision_id": "9e906950214b9b7e92a8478b3b5deef065bcdce858b2ac6b6c77c85ae8b01e68"
   }
 ]
