@@ -1,0 +1,144 @@
+{
+  "alerts_enabled": false,
+  "candidate_features": {
+    "calibration": [
+      "market_logit"
+    ],
+    "consensus": [
+      "market_logit",
+      "consensus_gap"
+    ],
+    "structure": [
+      "market_logit",
+      "consensus_gap",
+      "structure_gap"
+    ]
+  },
+  "experiment": "N1",
+  "leagues": [
+    "E1",
+    "E2",
+    "D2",
+    "F2",
+    "I2",
+    "SP2"
+  ],
+  "market": "regular-season full-time total goals 2.5",
+  "models": {
+    "calibration": {
+      "coef": [
+        0.011030523681111348,
+        0.026829646391917854
+      ],
+      "mean": [
+        -0.13463819988306835
+      ],
+      "penalty": 0.1,
+      "scale": [
+        0.281398675594912
+      ]
+    },
+    "consensus": {
+      "coef": [
+        0.008324160179843056,
+        0.007315859303177931,
+        0.0024268094690163876
+      ],
+      "mean": [
+        -0.13463819988306835,
+        0.002613308833669036
+      ],
+      "penalty": 1.0,
+      "scale": [
+        0.281398675594912,
+        0.025745410757043626
+      ]
+    },
+    "structure": {
+      "coef": [
+        0.008320885213050966,
+        0.0072379191651065,
+        0.002482939773462116,
+        -0.0027361344268314945
+      ],
+      "mean": [
+        -0.13463819988306835,
+        0.002613308833669036,
+        -0.3093305441801451
+      ],
+      "penalty": 1.0,
+      "scale": [
+        0.281398675594912,
+        0.025745410757043626,
+        0.16636422373190846
+      ]
+    }
+  },
+  "no_pinnacle_fields": true,
+  "protocol_sha256": "21c3d81b4fb9db4f38423435e0121719549835d1fc4e05880741a304f5a0e85f",
+  "selected_candidate": "calibration",
+  "selected_penalties": {
+    "calibration": 0.1,
+    "consensus": 1.0,
+    "structure": 1.0
+  },
+  "source_bookmaker": "Bet365",
+  "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+  "source_price_type": "untimestamped_early_snapshot",
+  "source_sha256": {
+    "D2-1920": "da603d509ba86c367a497e5fbd639e55a77b27876e5c42705b430e00a8ff9372",
+    "D2-2021": "86d041bd91c19d693b10f1ff8d0577eab878e631e63766b6de5585e4ef222ea1",
+    "D2-2122": "104c12866adbba0558ec4bfc727a85d3b04daba5ce01e093fa28bcf1335b5a56",
+    "D2-2223": "9384d3f661faddaeeb34ae990f34e5f79dcbe4b8b3325aa69fee8cc14bc36c01",
+    "D2-2324": "411b732f28d0d4101ee8d6da8d0cd61eff1081e83d80ceb844c9cb5c66ffc779",
+    "D2-2425": "781b239e26992c92dcace32d59ce2aeb91dfa24fb308b088cb4d6bc404e56ea1",
+    "D2-2526": "8bfb275286d7d620c20c7fdb164e4447e114be3de94b8372b7ac3773d71581ef",
+    "E1-1920": "f31450c623c0b74b89692584a85924cc652d33ec89757acf4b2dda5e26261d57",
+    "E1-2021": "cf93295e310c60e5b97ae7466d772f8ec6a908ad401e38fceb7e8617369d5073",
+    "E1-2122": "a181451be4801b9f838daf5f6aaf21e9f09d36042be9e6c15388e71001e772ea",
+    "E1-2223": "cd38ab0586ea8cb4d573c363ff70749117f116da5b2741e5b0ea37da05860b1b",
+    "E1-2324": "5737f6cc95c95092b28317f41d3123e2fb09345434efc1c84bbdf15830849ab3",
+    "E1-2425": "f34c340446c916374be66bdc2fb25b87ee7f2662712ca009653d03ac705535f9",
+    "E1-2526": "98954c319950f19158624b17a154ef1c56eb7b8d169ef317f28f06d11d0b9a74",
+    "E2-1920": "9059ede04b5c294511be583b9c85ae2acdf940c3442dd288082a3b0cd7892f94",
+    "E2-2021": "b6cd8d6280f54fc86cab646c74b65d40b31a2300f56a00a8df9e9d3549304cec",
+    "E2-2122": "bc3cb4de64d290f682be5941e7512f46216b0758e274ad205547a634d9d70270",
+    "E2-2223": "c6c1b7366815c4888e62d7f14443f8052291b4ec8702674c1c0caf04ddf9ace5",
+    "E2-2324": "48e5c8d7f3fbb2a0d3ac956f066b129743789b34fe3db41dbcb31363c22fc303",
+    "E2-2425": "d4c0ebde3806714fe01a43935409e803ca35118d746d635480eaf9574d561c49",
+    "E2-2526": "4c96eff8a2f20c5e26015af8609c4f90478ff055f58ab6e137cc3445bf4c67ee",
+    "F2-1920": "4bd1d80273c3d488281c390cf82ac7fc9a315a6e9b67e970d6bd5003ac9d60c1",
+    "F2-2021": "41de477b2939c204d24c7475365dcbddb6602321584a801916f3b09807994f00",
+    "F2-2122": "bc8bdef7a2c73f97e78726bd7a550c851a02b9848f4825230bbec803ab77b41b",
+    "F2-2223": "14915d41e6e31375f4ea082eb1be888d209b91166e277a157acf15d5d1b29d19",
+    "F2-2324": "1a8f4ac24e6c345b67b6837bc8ca3c853fe2d18c0aad933175286b6e219bb0a4",
+    "F2-2425": "0cb8c06cb611e63cd3f393c2a61e4e224efc8bac3d7f6f5532e498e0cb5a3f37",
+    "F2-2526": "dcedf4dd66f3e0ac8efb8ccd2e5489882068e5630c041702b15c1d0fe70c6017",
+    "I2-1920": "6c953bdefef757bb702c80683d859aa8dc0a2926424f8052a5acd519294983a2",
+    "I2-2021": "818657ec29ace24bdb83e86714d329cb330527f0ca8694086967b1c8e957aa20",
+    "I2-2122": "ec660d62521407d28954db8a136d59a2fd54a036e082b0d82341df6bbb7189ac",
+    "I2-2223": "00a504d72d16705e8e22e0647138ff185119d1cf0ca12be20ee6e1220857ef70",
+    "I2-2324": "b51d65f34c5a7949af3ec030f2fa587f8145ced9bffa1e64291a228f1bdad80b",
+    "I2-2425": "ec5aa4ff25da520a1c03a4f6cf7bc87d318acd25b22270fa9e0080d95ac81b7d",
+    "I2-2526": "ed4bcece92bb8b09aa94768bc77d3529fa29339ec70fa7867a9fbc3ca0954731",
+    "SP2-1920": "7ec2137c792b81257647b9a03c0664d5dd1a75cee029281ce654cd43bfb50af1",
+    "SP2-2021": "f700d763d539e61ec9c23638907354cd9cd6f9156a5846d4ff82ef3fc1d14427",
+    "SP2-2122": "6f586b7d80dee6785ca248597cf2962145fdd72113588b807159b03baa5df831",
+    "SP2-2223": "1b233ea48be17ae413b05fd132f8a26ac7f1bc69a4bc9ee2a3470b9909b410a8",
+    "SP2-2324": "e09c2d18bd41c1f735aba730d31d0db778c0b7086973ae979a52dd814f1d345a",
+    "SP2-2425": "60a8a03e5a477a10bcea5e31379df089d1927b6e388e333e115274dba78b79a3",
+    "SP2-2526": "4986060e5c1d55626aef24c4bbeaaea2278b27a0b7696927405705aaa57405de"
+  },
+  "status": "research_unproven",
+  "training_last_date": "2026-05-31",
+  "training_rows": 17967,
+  "training_seasons": [
+    "1920",
+    "2021",
+    "2122",
+    "2223",
+    "2324",
+    "2425",
+    "2526"
+  ]
+}

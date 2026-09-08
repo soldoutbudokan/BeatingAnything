@@ -1,6 +1,17 @@
 # BeatingAnything
 
-**No betting edge demonstrated.** This repository contains a completed MLB moneyline experiment and a working process for collecting FanDuel-labeled observations, generating forecasts and recording outcomes.
+**No betting edge demonstrated.** Active research has moved to smaller models and markets with a longer season ahead. Completed failures remain visible; no betting alert or wager is enabled.
+
+The next experiment models **ATP Challenger total games at 21.5**, reconstructing serving and match-length tendencies from historical set scores. The [tennis protocol](docs/protocol-tennis-v1.md) was committed before holdout acquisition. Its exact scoring kernel accounts for service order and tiebreaks. Historical data collection and the frozen backtest are in progress; this is not a profitable-model claim.
+
+The completed [six-league soccer totals experiment](reports/soccer-research-report.md) tested three small pricing models on **7,741 holdout/replication forecasts**. None produced a bet at the fixed 3% EV threshold. Unlike the earlier MLB archive, its source provides usable same-line historical closing benchmarks. All 42 pinned files match primary source downloads. See [metrics](reports/soccer-metrics.json), [protocol](docs/protocol-narrow-v1.md), [pre-result review](docs/narrow-review-before-results.md) and [source investigation](docs/odds-source-investigation.md).
+
+```bash
+python -m beating.soccer run
+python -m beating.soccer_evaluate
+```
+
+## Archived MLB experiment
 
 On 4,141 historical test games, the physical model scored log loss **0.6771583** against **0.6772104** for FanDuel's paired, no-vig opening probabilities. The model-minus-market difference is −0.0000521, with a 97.5% weekly-block interval of [−0.0003879, +0.0002895]. It improves in 2024 and worsens in 2025. Both learned models produce **zero bets** at the fixed 3% expected-value threshold. ROI is undefined and historical CLV is unavailable; both remain `null` in the results.
 
@@ -38,7 +49,7 @@ Each cycle builds a dated official MLB feature snapshot, then collects fresh pai
 
 Every Covers quote remains **unverified for execution**. Missing inputs, stale quotes, started games and identity mismatches block decisions. The 3% EV, 1.20–6.00 selected-price and 0–8% overround rules are fixed. The runner makes no wager and executes no webhook. An eventual betting alert requires a verified current offer and separately reviewed prospective evidence meeting the [promotion gates](docs/monitoring.md). No such evidence exists yet.
 
-The included **FanDuel forward paper watch** workflow is configured for minutes 7, 22, 37 and 52 of each hour. It runs only while the repository is public, uses a standard hosted runner, and commits text ledgers and reports without Actions artifact uploads or caches. [GitHub documents standard runner use in public repositories as free](https://docs.github.com/en/billing/concepts/product-billing/github-actions). This configuration does not establish that cloud runs have completed; inspect Actions history. [Scheduled runs can be delayed or dropped](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule), so collection does not guarantee intraday execution or closing-tick capture.
+The MLB paper workflow is now **manual only**, following the request to move away from a season nearing its end. Existing ledgers remain intact. Standard public-repository runners were used; no paid service or wager was used. The separate conditional bet watch continues to require the unchanged prospective evidence gates and must remain quiet while no model qualifies.
 
 ## Audit trail
 

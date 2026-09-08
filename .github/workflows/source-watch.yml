@@ -1,12 +1,6 @@
-name: FanDuel forward paper watch
+name: Archived MLB paper watch (manual)
 on:
-  schedule:
-    - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/source-watch.yml'
-      - 'beating/forward.py'
 jobs:
   observe:
     # Standard hosted runners in public repos are free. Stop if repo becomes private.

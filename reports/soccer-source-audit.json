@@ -1,0 +1,2941 @@
+{
+  "accepted_rows": 17968,
+  "closing_capture_timestamps_available": false,
+  "closing_label_documentation": "https://football-data.co.uk/data.php",
+  "early_price_capture_timestamps_available": false,
+  "execution_verified": false,
+  "experiment": "N1",
+  "fanduel_historical_prices": false,
+  "feature_acceptance": [
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E1",
+      "season": "1920",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 551,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 1
+      },
+      "league": "E1",
+      "season": "2021",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E1",
+      "season": "2122",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E1",
+      "season": "2223",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E1",
+      "season": "2324",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E1",
+      "season": "2425",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E1",
+      "season": "2526",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 398,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 2
+      },
+      "league": "E2",
+      "season": "1920",
+      "source_rows": 400
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 551,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 1
+      },
+      "league": "E2",
+      "season": "2021",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E2",
+      "season": "2122",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E2",
+      "season": "2223",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E2",
+      "season": "2324",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E2",
+      "season": "2425",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 552,
+      "feature_rejection_counts": {},
+      "league": "E2",
+      "season": "2526",
+      "source_rows": 552
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 306,
+      "feature_rejection_counts": {},
+      "league": "D2",
+      "season": "1920",
+      "source_rows": 306
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 302,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 4
+      },
+      "league": "D2",
+      "season": "2021",
+      "source_rows": 306
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 306,
+      "feature_rejection_counts": {},
+      "league": "D2",
+      "season": "2122",
+      "source_rows": 306
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 306,
+      "feature_rejection_counts": {},
+      "league": "D2",
+      "season": "2223",
+      "source_rows": 306
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 306,
+      "feature_rejection_counts": {},
+      "league": "D2",
+      "season": "2324",
+      "source_rows": 306
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 306,
+      "feature_rejection_counts": {},
+      "league": "D2",
+      "season": "2425",
+      "source_rows": 306
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 306,
+      "feature_rejection_counts": {},
+      "league": "D2",
+      "season": "2526",
+      "source_rows": 306
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 280,
+      "feature_rejection_counts": {},
+      "league": "F2",
+      "season": "1920",
+      "source_rows": 280
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 374,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 6
+      },
+      "league": "F2",
+      "season": "2021",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 376,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 4
+      },
+      "league": "F2",
+      "season": "2122",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 378,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 2
+      },
+      "league": "F2",
+      "season": "2223",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 377,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 2
+      },
+      "league": "F2",
+      "season": "2324",
+      "source_rows": 379
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 306,
+      "feature_rejection_counts": {},
+      "league": "F2",
+      "season": "2425",
+      "source_rows": 306
+    },
+    {
+      "accepted_missing_settlement": 1,
+      "feature_accepted": 305,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 1
+      },
+      "league": "F2",
+      "season": "2526",
+      "source_rows": 306
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 373,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 7
+      },
+      "league": "I2",
+      "season": "1920",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 374,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 6
+      },
+      "league": "I2",
+      "season": "2021",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 379,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 1
+      },
+      "league": "I2",
+      "season": "2122",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 380,
+      "feature_rejection_counts": {},
+      "league": "I2",
+      "season": "2223",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 378,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 2
+      },
+      "league": "I2",
+      "season": "2324",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 380,
+      "feature_rejection_counts": {},
+      "league": "I2",
+      "season": "2425",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 380,
+      "feature_rejection_counts": {},
+      "league": "I2",
+      "season": "2526",
+      "source_rows": 380
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 460,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 2
+      },
+      "league": "SP2",
+      "season": "1920",
+      "source_rows": 462
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 454,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 8
+      },
+      "league": "SP2",
+      "season": "2021",
+      "source_rows": 462
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 460,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 2
+      },
+      "league": "SP2",
+      "season": "2122",
+      "source_rows": 462
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 459,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 3
+      },
+      "league": "SP2",
+      "season": "2223",
+      "source_rows": 462
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 461,
+      "feature_rejection_counts": {
+        "invalid_early_prices": 1
+      },
+      "league": "SP2",
+      "season": "2324",
+      "source_rows": 462
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 462,
+      "feature_rejection_counts": {},
+      "league": "SP2",
+      "season": "2425",
+      "source_rows": 462
+    },
+    {
+      "accepted_missing_settlement": 0,
+      "feature_accepted": 462,
+      "feature_rejection_counts": {},
+      "league": "SP2",
+      "season": "2526",
+      "source_rows": 462
+    }
+  ],
+  "forecast_rows": 7741,
+  "protocol_sha256": "21c3d81b4fb9db4f38423435e0121719549835d1fc4e05880741a304f5a0e85f",
+  "source_rows": 18023,
+  "sources": [
+    {
+      "bytes": 254740,
+      "duplicate_identities": 0,
+      "league": "E1",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "f31450c623c0b74b89692584a85924cc652d33ec89757acf4b2dda5e26261d57",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/1920/E1.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:25.754707+00:00",
+      "rows": 552,
+      "season": "1920",
+      "sha256": "f31450c623c0b74b89692584a85924cc652d33ec89757acf4b2dda5e26261d57",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/championship/season-1920.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 255966,
+      "duplicate_identities": 0,
+      "league": "E1",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "cf93295e310c60e5b97ae7466d772f8ec6a908ad401e38fceb7e8617369d5073",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2021/E1.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:25.789854+00:00",
+      "rows": 552,
+      "season": "2021",
+      "sha256": "cf93295e310c60e5b97ae7466d772f8ec6a908ad401e38fceb7e8617369d5073",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/championship/season-2021.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 551,
+        "B365>2.5": 551,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 255881,
+      "duplicate_identities": 0,
+      "league": "E1",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "a181451be4801b9f838daf5f6aaf21e9f09d36042be9e6c15388e71001e772ea",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2122/E1.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:25.938833+00:00",
+      "rows": 552,
+      "season": "2122",
+      "sha256": "a181451be4801b9f838daf5f6aaf21e9f09d36042be9e6c15388e71001e772ea",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/championship/season-2122.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 255779,
+      "duplicate_identities": 0,
+      "league": "E1",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "cd38ab0586ea8cb4d573c363ff70749117f116da5b2741e5b0ea37da05860b1b",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2223/E1.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:25.927020+00:00",
+      "rows": 552,
+      "season": "2223",
+      "sha256": "cd38ab0586ea8cb4d573c363ff70749117f116da5b2741e5b0ea37da05860b1b",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/championship/season-2223.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 251182,
+      "duplicate_identities": 0,
+      "league": "E1",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "5737f6cc95c95092b28317f41d3123e2fb09345434efc1c84bbdf15830849ab3",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2324/E1.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:25.783239+00:00",
+      "rows": 552,
+      "season": "2324",
+      "sha256": "5737f6cc95c95092b28317f41d3123e2fb09345434efc1c84bbdf15830849ab3",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/championship/season-2324.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 286983,
+      "duplicate_identities": 0,
+      "league": "E1",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "f34c340446c916374be66bdc2fb25b87ee7f2662712ca009653d03ac705535f9",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2425/E1.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:25.868797+00:00",
+      "rows": 552,
+      "season": "2425",
+      "sha256": "f34c340446c916374be66bdc2fb25b87ee7f2662712ca009653d03ac705535f9",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/championship/season-2425.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 294390,
+      "duplicate_identities": 0,
+      "league": "E1",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "98954c319950f19158624b17a154ef1c56eb7b8d169ef317f28f06d11d0b9a74",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2526/E1.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:39.602615+00:00",
+      "rows": 552,
+      "season": "2526",
+      "sha256": "98954c319950f19158624b17a154ef1c56eb7b8d169ef317f28f06d11d0b9a74",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/championship/season-2526.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 184870,
+      "duplicate_identities": 0,
+      "league": "E2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "9059ede04b5c294511be583b9c85ae2acdf940c3442dd288082a3b0cd7892f94",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/1920/E2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": "https://www.gillinghamfootballclub.com/news/2020/june/l1-decision",
+        "expected_teams": 23,
+        "full_round_robin_rows": 506,
+        "maximum_team_appearances": 36,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 106,
+        "missing_directed_fixtures": [
+          [
+            "AFC Wimbledon",
+            "Coventry"
+          ],
+          [
+            "AFC Wimbledon",
+            "Milton Keynes Dons"
+          ],
+          [
+            "AFC Wimbledon",
+            "Sunderland"
+          ],
+          [
+            "AFC Wimbledon",
+            "Tranmere"
+          ],
+          [
+            "Accrington",
+            "Bristol Rvs"
+          ],
+          [
+            "Accrington",
+            "Coventry"
+          ],
+          [
+            "Accrington",
+            "Doncaster"
+          ],
+          [
+            "Accrington",
+            "Fleetwood Town"
+          ],
+          [
+            "Accrington",
+            "Wycombe"
+          ],
+          [
+            "Blackpool",
+            "Burton"
+          ],
+          [
+            "Blackpool",
+            "Coventry"
+          ],
+          [
+            "Blackpool",
+            "Doncaster"
+          ],
+          [
+            "Blackpool",
+            "Rochdale"
+          ],
+          [
+            "Blackpool",
+            "Sunderland"
+          ],
+          [
+            "Bolton",
+            "Doncaster"
+          ],
+          [
+            "Bolton",
+            "Gillingham"
+          ],
+          [
+            "Bolton",
+            "Lincoln"
+          ],
+          [
+            "Bolton",
+            "Peterboro"
+          ],
+          [
+            "Bolton",
+            "Rotherham"
+          ],
+          [
+            "Bristol Rvs",
+            "Burton"
+          ],
+          [
+            "Bristol Rvs",
+            "Ipswich"
+          ],
+          [
+            "Bristol Rvs",
+            "Lincoln"
+          ],
+          [
+            "Bristol Rvs",
+            "Rochdale"
+          ],
+          [
+            "Burton",
+            "Doncaster"
+          ],
+          [
+            "Burton",
+            "Portsmouth"
+          ],
+          [
+            "Burton",
+            "Shrewsbury"
+          ],
+          [
+            "Burton",
+            "Sunderland"
+          ],
+          [
+            "Burton",
+            "Wycombe"
+          ],
+          [
+            "Coventry",
+            "Burton"
+          ],
+          [
+            "Coventry",
+            "Oxford"
+          ],
+          [
+            "Coventry",
+            "Peterboro"
+          ],
+          [
+            "Coventry",
+            "Shrewsbury"
+          ],
+          [
+            "Coventry",
+            "Wycombe"
+          ],
+          [
+            "Doncaster",
+            "AFC Wimbledon"
+          ],
+          [
+            "Doncaster",
+            "Ipswich"
+          ],
+          [
+            "Doncaster",
+            "Tranmere"
+          ],
+          [
+            "Fleetwood Town",
+            "Bolton"
+          ],
+          [
+            "Fleetwood Town",
+            "Lincoln"
+          ],
+          [
+            "Fleetwood Town",
+            "Rotherham"
+          ],
+          [
+            "Fleetwood Town",
+            "Southend"
+          ],
+          [
+            "Gillingham",
+            "Accrington"
+          ],
+          [
+            "Gillingham",
+            "Bristol Rvs"
+          ],
+          [
+            "Gillingham",
+            "Coventry"
+          ],
+          [
+            "Gillingham",
+            "Fleetwood Town"
+          ],
+          [
+            "Gillingham",
+            "Tranmere"
+          ],
+          [
+            "Ipswich",
+            "Bolton"
+          ],
+          [
+            "Ipswich",
+            "Milton Keynes Dons"
+          ],
+          [
+            "Ipswich",
+            "Portsmouth"
+          ],
+          [
+            "Ipswich",
+            "Rochdale"
+          ],
+          [
+            "Ipswich",
+            "Southend"
+          ],
+          [
+            "Lincoln",
+            "AFC Wimbledon"
+          ],
+          [
+            "Lincoln",
+            "Coventry"
+          ],
+          [
+            "Lincoln",
+            "Doncaster"
+          ],
+          [
+            "Lincoln",
+            "Rochdale"
+          ],
+          [
+            "Lincoln",
+            "Wycombe"
+          ],
+          [
+            "Milton Keynes Dons",
+            "Accrington"
+          ],
+          [
+            "Milton Keynes Dons",
+            "Blackpool"
+          ],
+          [
+            "Milton Keynes Dons",
+            "Fleetwood Town"
+          ],
+          [
+            "Milton Keynes Dons",
+            "Gillingham"
+          ],
+          [
+            "Oxford",
+            "Bolton"
+          ],
+          [
+            "Oxford",
+            "Bristol Rvs"
+          ],
+          [
+            "Oxford",
+            "Fleetwood Town"
+          ],
+          [
+            "Oxford",
+            "Milton Keynes Dons"
+          ],
+          [
+            "Oxford",
+            "Portsmouth"
+          ],
+          [
+            "Peterboro",
+            "Blackpool"
+          ],
+          [
+            "Peterboro",
+            "Bristol Rvs"
+          ],
+          [
+            "Peterboro",
+            "Milton Keynes Dons"
+          ],
+          [
+            "Peterboro",
+            "Shrewsbury"
+          ],
+          [
+            "Peterboro",
+            "Tranmere"
+          ],
+          [
+            "Portsmouth",
+            "Accrington"
+          ],
+          [
+            "Portsmouth",
+            "Blackpool"
+          ],
+          [
+            "Portsmouth",
+            "Bristol Rvs"
+          ],
+          [
+            "Portsmouth",
+            "Doncaster"
+          ],
+          [
+            "Rochdale",
+            "AFC Wimbledon"
+          ],
+          [
+            "Rochdale",
+            "Burton"
+          ],
+          [
+            "Rochdale",
+            "Oxford"
+          ],
+          [
+            "Rochdale",
+            "Peterboro"
+          ],
+          [
+            "Rochdale",
+            "Southend"
+          ],
+          [
+            "Rochdale",
+            "Tranmere"
+          ],
+          [
+            "Rotherham",
+            "Doncaster"
+          ],
+          [
+            "Rotherham",
+            "Gillingham"
+          ],
+          [
+            "Rotherham",
+            "Portsmouth"
+          ],
+          [
+            "Rotherham",
+            "Southend"
+          ],
+          [
+            "Rotherham",
+            "Sunderland"
+          ],
+          [
+            "Shrewsbury",
+            "AFC Wimbledon"
+          ],
+          [
+            "Shrewsbury",
+            "Blackpool"
+          ],
+          [
+            "Shrewsbury",
+            "Bolton"
+          ],
+          [
+            "Shrewsbury",
+            "Ipswich"
+          ],
+          [
+            "Shrewsbury",
+            "Wycombe"
+          ],
+          [
+            "Southend",
+            "Bolton"
+          ],
+          [
+            "Southend",
+            "Portsmouth"
+          ],
+          [
+            "Southend",
+            "Shrewsbury"
+          ],
+          [
+            "Southend",
+            "Sunderland"
+          ],
+          [
+            "Southend",
+            "Wycombe"
+          ],
+          [
+            "Sunderland",
+            "Accrington"
+          ],
+          [
+            "Sunderland",
+            "Peterboro"
+          ],
+          [
+            "Sunderland",
+            "Shrewsbury"
+          ],
+          [
+            "Tranmere",
+            "Fleetwood Town"
+          ],
+          [
+            "Tranmere",
+            "Lincoln"
+          ],
+          [
+            "Tranmere",
+            "Milton Keynes Dons"
+          ],
+          [
+            "Tranmere",
+            "Oxford"
+          ],
+          [
+            "Tranmere",
+            "Rotherham"
+          ],
+          [
+            "Wycombe",
+            "AFC Wimbledon"
+          ],
+          [
+            "Wycombe",
+            "Gillingham"
+          ],
+          [
+            "Wycombe",
+            "Oxford"
+          ],
+          [
+            "Wycombe",
+            "Rotherham"
+          ]
+        ],
+        "note": "Curtailed 2019/20 regular season with 23 participating clubs.",
+        "observed_rows": 400,
+        "observed_teams": 23
+      },
+      "retrieved_at": "2026-09-08T22:13:39.588609+00:00",
+      "rows": 400,
+      "season": "1920",
+      "sha256": "9059ede04b5c294511be583b9c85ae2acdf940c3442dd288082a3b0cd7892f94",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/league-one/season-1920.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 399,
+        "Avg>2.5": 399,
+        "AvgC<2.5": 400,
+        "AvgC>2.5": 400,
+        "B365<2.5": 398,
+        "B365>2.5": 398,
+        "B365A": 398,
+        "B365C<2.5": 400,
+        "B365C>2.5": 400,
+        "B365D": 398,
+        "B365H": 398
+      }
+    },
+    {
+      "bytes": 255775,
+      "duplicate_identities": 0,
+      "league": "E2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "b6cd8d6280f54fc86cab646c74b65d40b31a2300f56a00a8df9e9d3549304cec",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2021/E2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:39.760284+00:00",
+      "rows": 552,
+      "season": "2021",
+      "sha256": "b6cd8d6280f54fc86cab646c74b65d40b31a2300f56a00a8df9e9d3549304cec",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/league-one/season-2021.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 551
+      }
+    },
+    {
+      "bytes": 256198,
+      "duplicate_identities": 0,
+      "league": "E2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "bc3cb4de64d290f682be5941e7512f46216b0758e274ad205547a634d9d70270",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2122/E2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:39.746981+00:00",
+      "rows": 552,
+      "season": "2122",
+      "sha256": "bc3cb4de64d290f682be5941e7512f46216b0758e274ad205547a634d9d70270",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/league-one/season-2122.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 255895,
+      "duplicate_identities": 0,
+      "league": "E2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "c6c1b7366815c4888e62d7f14443f8052291b4ec8702674c1c0caf04ddf9ace5",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2223/E2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:39.889225+00:00",
+      "rows": 552,
+      "season": "2223",
+      "sha256": "c6c1b7366815c4888e62d7f14443f8052291b4ec8702674c1c0caf04ddf9ace5",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/league-one/season-2223.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 250001,
+      "duplicate_identities": 0,
+      "league": "E2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "48e5c8d7f3fbb2a0d3ac956f066b129743789b34fe3db41dbcb31363c22fc303",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2324/E2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:39.784094+00:00",
+      "rows": 552,
+      "season": "2324",
+      "sha256": "48e5c8d7f3fbb2a0d3ac956f066b129743789b34fe3db41dbcb31363c22fc303",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/league-one/season-2324.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 286638,
+      "duplicate_identities": 0,
+      "league": "E2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "d4c0ebde3806714fe01a43935409e803ca35118d746d635480eaf9574d561c49",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2425/E2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:51.405016+00:00",
+      "rows": 552,
+      "season": "2425",
+      "sha256": "d4c0ebde3806714fe01a43935409e803ca35118d746d635480eaf9574d561c49",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/league-one/season-2425.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 288636,
+      "duplicate_identities": 0,
+      "league": "E2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "4c96eff8a2f20c5e26015af8609c4f90478ff055f58ab6e137cc3445bf4c67ee",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2526/E2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 24,
+        "full_round_robin_rows": 552,
+        "maximum_team_appearances": 46,
+        "minimum_team_appearances": 46,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 552,
+        "observed_teams": 24
+      },
+      "retrieved_at": "2026-09-08T22:13:51.571425+00:00",
+      "rows": 552,
+      "season": "2526",
+      "sha256": "4c96eff8a2f20c5e26015af8609c4f90478ff055f58ab6e137cc3445bf4c67ee",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/league-one/season-2526.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 552,
+        "Avg>2.5": 552,
+        "AvgC<2.5": 552,
+        "AvgC>2.5": 552,
+        "B365<2.5": 552,
+        "B365>2.5": 552,
+        "B365A": 552,
+        "B365C<2.5": 552,
+        "B365C>2.5": 552,
+        "B365D": 552,
+        "B365H": 552
+      }
+    },
+    {
+      "bytes": 139025,
+      "duplicate_identities": 0,
+      "league": "D2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "da603d509ba86c367a497e5fbd639e55a77b27876e5c42705b430e00a8ff9372",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/1920/D2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 18,
+        "full_round_robin_rows": 306,
+        "maximum_team_appearances": 34,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 306,
+        "observed_teams": 18
+      },
+      "retrieved_at": "2026-09-08T22:13:51.501522+00:00",
+      "rows": 306,
+      "season": "1920",
+      "sha256": "da603d509ba86c367a497e5fbd639e55a77b27876e5c42705b430e00a8ff9372",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/bundesliga-2/season-1920.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 306,
+        "Avg>2.5": 306,
+        "AvgC<2.5": 306,
+        "AvgC>2.5": 306,
+        "B365<2.5": 306,
+        "B365>2.5": 306,
+        "B365A": 306,
+        "B365C<2.5": 306,
+        "B365C>2.5": 306,
+        "B365D": 306,
+        "B365H": 306
+      }
+    },
+    {
+      "bytes": 140043,
+      "duplicate_identities": 0,
+      "league": "D2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "86d041bd91c19d693b10f1ff8d0577eab878e631e63766b6de5585e4ef222ea1",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2021/D2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 18,
+        "full_round_robin_rows": 306,
+        "maximum_team_appearances": 34,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 306,
+        "observed_teams": 18
+      },
+      "retrieved_at": "2026-09-08T22:13:51.685207+00:00",
+      "rows": 306,
+      "season": "2021",
+      "sha256": "86d041bd91c19d693b10f1ff8d0577eab878e631e63766b6de5585e4ef222ea1",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/bundesliga-2/season-2021.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 306,
+        "Avg>2.5": 306,
+        "AvgC<2.5": 306,
+        "AvgC>2.5": 306,
+        "B365<2.5": 302,
+        "B365>2.5": 302,
+        "B365A": 303,
+        "B365C<2.5": 306,
+        "B365C>2.5": 306,
+        "B365D": 303,
+        "B365H": 303
+      }
+    },
+    {
+      "bytes": 140192,
+      "duplicate_identities": 0,
+      "league": "D2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "104c12866adbba0558ec4bfc727a85d3b04daba5ce01e093fa28bcf1335b5a56",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2122/D2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 18,
+        "full_round_robin_rows": 306,
+        "maximum_team_appearances": 34,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 306,
+        "observed_teams": 18
+      },
+      "retrieved_at": "2026-09-08T22:13:52.025854+00:00",
+      "rows": 306,
+      "season": "2122",
+      "sha256": "104c12866adbba0558ec4bfc727a85d3b04daba5ce01e093fa28bcf1335b5a56",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/bundesliga-2/season-2122.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 306,
+        "Avg>2.5": 306,
+        "AvgC<2.5": 306,
+        "AvgC>2.5": 306,
+        "B365<2.5": 306,
+        "B365>2.5": 306,
+        "B365A": 306,
+        "B365C<2.5": 306,
+        "B365C>2.5": 306,
+        "B365D": 306,
+        "B365H": 306
+      }
+    },
+    {
+      "bytes": 140871,
+      "duplicate_identities": 0,
+      "league": "D2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "9384d3f661faddaeeb34ae990f34e5f79dcbe4b8b3325aa69fee8cc14bc36c01",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2223/D2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 18,
+        "full_round_robin_rows": 306,
+        "maximum_team_appearances": 34,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 306,
+        "observed_teams": 18
+      },
+      "retrieved_at": "2026-09-08T22:13:52.074396+00:00",
+      "rows": 306,
+      "season": "2223",
+      "sha256": "9384d3f661faddaeeb34ae990f34e5f79dcbe4b8b3325aa69fee8cc14bc36c01",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/bundesliga-2/season-2223.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 306,
+        "Avg>2.5": 306,
+        "AvgC<2.5": 306,
+        "AvgC>2.5": 306,
+        "B365<2.5": 306,
+        "B365>2.5": 306,
+        "B365A": 306,
+        "B365C<2.5": 306,
+        "B365C>2.5": 306,
+        "B365D": 306,
+        "B365H": 306
+      }
+    },
+    {
+      "bytes": 137285,
+      "duplicate_identities": 0,
+      "league": "D2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "411b732f28d0d4101ee8d6da8d0cd61eff1081e83d80ceb844c9cb5c66ffc779",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2324/D2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 18,
+        "full_round_robin_rows": 306,
+        "maximum_team_appearances": 34,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 306,
+        "observed_teams": 18
+      },
+      "retrieved_at": "2026-09-08T22:14:05.540932+00:00",
+      "rows": 306,
+      "season": "2324",
+      "sha256": "411b732f28d0d4101ee8d6da8d0cd61eff1081e83d80ceb844c9cb5c66ffc779",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/bundesliga-2/season-2324.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 306,
+        "Avg>2.5": 306,
+        "AvgC<2.5": 306,
+        "AvgC>2.5": 306,
+        "B365<2.5": 306,
+        "B365>2.5": 306,
+        "B365A": 306,
+        "B365C<2.5": 306,
+        "B365C>2.5": 306,
+        "B365D": 306,
+        "B365H": 306
+      }
+    },
+    {
+      "bytes": 157178,
+      "duplicate_identities": 0,
+      "league": "D2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "781b239e26992c92dcace32d59ce2aeb91dfa24fb308b088cb4d6bc404e56ea1",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2425/D2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 18,
+        "full_round_robin_rows": 306,
+        "maximum_team_appearances": 34,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 306,
+        "observed_teams": 18
+      },
+      "retrieved_at": "2026-09-08T22:14:05.468762+00:00",
+      "rows": 306,
+      "season": "2425",
+      "sha256": "781b239e26992c92dcace32d59ce2aeb91dfa24fb308b088cb4d6bc404e56ea1",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/bundesliga-2/season-2425.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 306,
+        "Avg>2.5": 306,
+        "AvgC<2.5": 306,
+        "AvgC>2.5": 306,
+        "B365<2.5": 306,
+        "B365>2.5": 306,
+        "B365A": 306,
+        "B365C<2.5": 306,
+        "B365C>2.5": 306,
+        "B365D": 306,
+        "B365H": 306
+      }
+    },
+    {
+      "bytes": 157989,
+      "duplicate_identities": 0,
+      "league": "D2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "8bfb275286d7d620c20c7fdb164e4447e114be3de94b8372b7ac3773d71581ef",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2526/D2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 18,
+        "full_round_robin_rows": 306,
+        "maximum_team_appearances": 34,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 306,
+        "observed_teams": 18
+      },
+      "retrieved_at": "2026-09-08T22:14:05.562813+00:00",
+      "rows": 306,
+      "season": "2526",
+      "sha256": "8bfb275286d7d620c20c7fdb164e4447e114be3de94b8372b7ac3773d71581ef",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/bundesliga-2/season-2526.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 306,
+        "Avg>2.5": 306,
+        "AvgC<2.5": 306,
+        "AvgC>2.5": 306,
+        "B365<2.5": 306,
+        "B365>2.5": 306,
+        "B365A": 306,
+        "B365C<2.5": 306,
+        "B365C>2.5": 306,
+        "B365D": 306,
+        "B365H": 306
+      }
+    },
+    {
+      "bytes": 125737,
+      "duplicate_identities": 0,
+      "league": "F2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "4bd1d80273c3d488281c390cf82ac7fc9a315a6e9b67e970d6bd5003ac9d60c1",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/1920/F2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": "https://www.conseil-etat.fr/fr/arianeweb/CE/decision/2020-10-23/440810",
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 28,
+        "minimum_team_appearances": 28,
+        "missing_directed_fixture_count": 100,
+        "missing_directed_fixtures": [
+          [
+            "Ajaccio",
+            "Chambly"
+          ],
+          [
+            "Ajaccio",
+            "Guingamp"
+          ],
+          [
+            "Ajaccio",
+            "Niort"
+          ],
+          [
+            "Ajaccio",
+            "Sochaux"
+          ],
+          [
+            "Ajaccio",
+            "Troyes"
+          ],
+          [
+            "Auxerre",
+            "Chateauroux"
+          ],
+          [
+            "Auxerre",
+            "Lens"
+          ],
+          [
+            "Auxerre",
+            "Lorient"
+          ],
+          [
+            "Auxerre",
+            "Paris FC"
+          ],
+          [
+            "Auxerre",
+            "Rodez"
+          ],
+          [
+            "Caen",
+            "Auxerre"
+          ],
+          [
+            "Caen",
+            "Guingamp"
+          ],
+          [
+            "Caen",
+            "Paris FC"
+          ],
+          [
+            "Caen",
+            "Rodez"
+          ],
+          [
+            "Caen",
+            "Sochaux"
+          ],
+          [
+            "Chambly",
+            "Le Havre"
+          ],
+          [
+            "Chambly",
+            "Lens"
+          ],
+          [
+            "Chambly",
+            "Rodez"
+          ],
+          [
+            "Chambly",
+            "Troyes"
+          ],
+          [
+            "Chateauroux",
+            "Clermont"
+          ],
+          [
+            "Chateauroux",
+            "Le Mans"
+          ],
+          [
+            "Chateauroux",
+            "Nancy"
+          ],
+          [
+            "Chateauroux",
+            "Orleans"
+          ],
+          [
+            "Chateauroux",
+            "Valenciennes"
+          ],
+          [
+            "Clermont",
+            "Ajaccio"
+          ],
+          [
+            "Clermont",
+            "Caen"
+          ],
+          [
+            "Clermont",
+            "Chambly"
+          ],
+          [
+            "Clermont",
+            "Grenoble"
+          ],
+          [
+            "Clermont",
+            "Guingamp"
+          ],
+          [
+            "Grenoble",
+            "Auxerre"
+          ],
+          [
+            "Grenoble",
+            "Guingamp"
+          ],
+          [
+            "Grenoble",
+            "Le Mans"
+          ],
+          [
+            "Grenoble",
+            "Lorient"
+          ],
+          [
+            "Grenoble",
+            "Sochaux"
+          ],
+          [
+            "Guingamp",
+            "Chambly"
+          ],
+          [
+            "Guingamp",
+            "Chateauroux"
+          ],
+          [
+            "Guingamp",
+            "Le Havre"
+          ],
+          [
+            "Guingamp",
+            "Niort"
+          ],
+          [
+            "Guingamp",
+            "Paris FC"
+          ],
+          [
+            "Le Havre",
+            "Ajaccio"
+          ],
+          [
+            "Le Havre",
+            "Clermont"
+          ],
+          [
+            "Le Havre",
+            "Rodez"
+          ],
+          [
+            "Le Havre",
+            "Sochaux"
+          ],
+          [
+            "Le Havre",
+            "Valenciennes"
+          ],
+          [
+            "Le Mans",
+            "Caen"
+          ],
+          [
+            "Le Mans",
+            "Clermont"
+          ],
+          [
+            "Le Mans",
+            "Le Havre"
+          ],
+          [
+            "Le Mans",
+            "Paris FC"
+          ],
+          [
+            "Le Mans",
+            "Troyes"
+          ],
+          [
+            "Lens",
+            "Ajaccio"
+          ],
+          [
+            "Lens",
+            "Le Mans"
+          ],
+          [
+            "Lens",
+            "Nancy"
+          ],
+          [
+            "Lens",
+            "Rodez"
+          ],
+          [
+            "Lens",
+            "Valenciennes"
+          ],
+          [
+            "Lorient",
+            "Chateauroux"
+          ],
+          [
+            "Lorient",
+            "Le Havre"
+          ],
+          [
+            "Lorient",
+            "Lens"
+          ],
+          [
+            "Lorient",
+            "Orleans"
+          ],
+          [
+            "Lorient",
+            "Valenciennes"
+          ],
+          [
+            "Nancy",
+            "Ajaccio"
+          ],
+          [
+            "Nancy",
+            "Auxerre"
+          ],
+          [
+            "Nancy",
+            "Caen"
+          ],
+          [
+            "Nancy",
+            "Grenoble"
+          ],
+          [
+            "Nancy",
+            "Le Havre"
+          ],
+          [
+            "Niort",
+            "Chambly"
+          ],
+          [
+            "Niort",
+            "Clermont"
+          ],
+          [
+            "Niort",
+            "Le Mans"
+          ],
+          [
+            "Niort",
+            "Lens"
+          ],
+          [
+            "Niort",
+            "Lorient"
+          ],
+          [
+            "Orleans",
+            "Auxerre"
+          ],
+          [
+            "Orleans",
+            "Caen"
+          ],
+          [
+            "Orleans",
+            "Grenoble"
+          ],
+          [
+            "Orleans",
+            "Le Mans"
+          ],
+          [
+            "Orleans",
+            "Nancy"
+          ],
+          [
+            "Paris FC",
+            "Chateauroux"
+          ],
+          [
+            "Paris FC",
+            "Grenoble"
+          ],
+          [
+            "Paris FC",
+            "Lorient"
+          ],
+          [
+            "Paris FC",
+            "Nancy"
+          ],
+          [
+            "Paris FC",
+            "Orleans"
+          ],
+          [
+            "Paris FC",
+            "Valenciennes"
+          ],
+          [
+            "Rodez",
+            "Ajaccio"
+          ],
+          [
+            "Rodez",
+            "Clermont"
+          ],
+          [
+            "Rodez",
+            "Grenoble"
+          ],
+          [
+            "Rodez",
+            "Niort"
+          ],
+          [
+            "Rodez",
+            "Troyes"
+          ],
+          [
+            "Sochaux",
+            "Chambly"
+          ],
+          [
+            "Sochaux",
+            "Chateauroux"
+          ],
+          [
+            "Sochaux",
+            "Lens"
+          ],
+          [
+            "Sochaux",
+            "Niort"
+          ],
+          [
+            "Sochaux",
+            "Orleans"
+          ],
+          [
+            "Troyes",
+            "Guingamp"
+          ],
+          [
+            "Troyes",
+            "Lorient"
+          ],
+          [
+            "Troyes",
+            "Nancy"
+          ],
+          [
+            "Troyes",
+            "Niort"
+          ],
+          [
+            "Troyes",
+            "Sochaux"
+          ],
+          [
+            "Valenciennes",
+            "Auxerre"
+          ],
+          [
+            "Valenciennes",
+            "Caen"
+          ],
+          [
+            "Valenciennes",
+            "Chambly"
+          ],
+          [
+            "Valenciennes",
+            "Orleans"
+          ],
+          [
+            "Valenciennes",
+            "Troyes"
+          ]
+        ],
+        "note": "Curtailed 2019/20 regular season after 28 rounds.",
+        "observed_rows": 280,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:05.373175+00:00",
+      "rows": 280,
+      "season": "1920",
+      "sha256": "4bd1d80273c3d488281c390cf82ac7fc9a315a6e9b67e970d6bd5003ac9d60c1",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/ligue-2/season-1920.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 280,
+        "Avg>2.5": 280,
+        "AvgC<2.5": 280,
+        "AvgC>2.5": 280,
+        "B365<2.5": 280,
+        "B365>2.5": 280,
+        "B365A": 280,
+        "B365C<2.5": 280,
+        "B365C>2.5": 280,
+        "B365D": 280,
+        "B365H": 280
+      }
+    },
+    {
+      "bytes": 170365,
+      "duplicate_identities": 0,
+      "league": "F2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "41de477b2939c204d24c7475365dcbddb6602321584a801916f3b09807994f00",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2021/F2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:05.722306+00:00",
+      "rows": 380,
+      "season": "2021",
+      "sha256": "41de477b2939c204d24c7475365dcbddb6602321584a801916f3b09807994f00",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/ligue-2/season-2021.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 380,
+        "Avg>2.5": 380,
+        "AvgC<2.5": 380,
+        "AvgC>2.5": 380,
+        "B365<2.5": 374,
+        "B365>2.5": 374,
+        "B365A": 377,
+        "B365C<2.5": 378,
+        "B365C>2.5": 378,
+        "B365D": 377,
+        "B365H": 377
+      }
+    },
+    {
+      "bytes": 170624,
+      "duplicate_identities": 0,
+      "league": "F2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "bc8bdef7a2c73f97e78726bd7a550c851a02b9848f4825230bbec803ab77b41b",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2122/F2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:05.531709+00:00",
+      "rows": 380,
+      "season": "2122",
+      "sha256": "bc8bdef7a2c73f97e78726bd7a550c851a02b9848f4825230bbec803ab77b41b",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/ligue-2/season-2122.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 380,
+        "Avg>2.5": 380,
+        "AvgC<2.5": 380,
+        "AvgC>2.5": 380,
+        "B365<2.5": 376,
+        "B365>2.5": 376,
+        "B365A": 377,
+        "B365C<2.5": 379,
+        "B365C>2.5": 379,
+        "B365D": 377,
+        "B365H": 377
+      }
+    },
+    {
+      "bytes": 170203,
+      "duplicate_identities": 0,
+      "league": "F2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "14915d41e6e31375f4ea082eb1be888d209b91166e277a157acf15d5d1b29d19",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2223/F2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:18.246246+00:00",
+      "rows": 380,
+      "season": "2223",
+      "sha256": "14915d41e6e31375f4ea082eb1be888d209b91166e277a157acf15d5d1b29d19",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/ligue-2/season-2223.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 380,
+        "Avg>2.5": 380,
+        "AvgC<2.5": 380,
+        "AvgC>2.5": 380,
+        "B365<2.5": 378,
+        "B365>2.5": 378,
+        "B365A": 378,
+        "B365C<2.5": 380,
+        "B365C>2.5": 380,
+        "B365D": 378,
+        "B365H": 378
+      }
+    },
+    {
+      "bytes": 167269,
+      "duplicate_identities": 0,
+      "league": "F2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "1a8f4ac24e6c345b67b6837bc8ca3c853fe2d18c0aad933175286b6e219bb0a4",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2324/F2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": "https://www.lfp.fr/article/commission-de-discipline-les-decisions-du-22-mai-2024",
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 37,
+        "missing_directed_fixture_count": 1,
+        "missing_directed_fixtures": [
+          [
+            "Troyes",
+            "Valenciennes"
+          ]
+        ],
+        "note": "Source omits Troyes-Valenciennes, abandoned 2024-05-03.",
+        "observed_rows": 379,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:18.423079+00:00",
+      "rows": 379,
+      "season": "2324",
+      "sha256": "1a8f4ac24e6c345b67b6837bc8ca3c853fe2d18c0aad933175286b6e219bb0a4",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/ligue-2/season-2324.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 379,
+        "Avg>2.5": 379,
+        "AvgC<2.5": 379,
+        "AvgC>2.5": 379,
+        "B365<2.5": 377,
+        "B365>2.5": 377,
+        "B365A": 378,
+        "B365C<2.5": 379,
+        "B365C>2.5": 379,
+        "B365D": 378,
+        "B365H": 378
+      }
+    },
+    {
+      "bytes": 155252,
+      "duplicate_identities": 0,
+      "league": "F2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "0cb8c06cb611e63cd3f393c2a61e4e224efc8bac3d7f6f5532e498e0cb5a3f37",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2425/F2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 18,
+        "full_round_robin_rows": 306,
+        "maximum_team_appearances": 34,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 306,
+        "observed_teams": 18
+      },
+      "retrieved_at": "2026-09-08T22:14:18.269777+00:00",
+      "rows": 306,
+      "season": "2425",
+      "sha256": "0cb8c06cb611e63cd3f393c2a61e4e224efc8bac3d7f6f5532e498e0cb5a3f37",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/ligue-2/season-2425.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 306,
+        "Avg>2.5": 306,
+        "AvgC<2.5": 306,
+        "AvgC>2.5": 306,
+        "B365<2.5": 306,
+        "B365>2.5": 306,
+        "B365A": 306,
+        "B365C<2.5": 306,
+        "B365C>2.5": 306,
+        "B365D": 306,
+        "B365H": 306
+      }
+    },
+    {
+      "bytes": 156238,
+      "duplicate_identities": 0,
+      "league": "F2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "dcedf4dd66f3e0ac8efb8ccd2e5489882068e5630c041702b15c1d0fe70c6017",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2526/F2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 18,
+        "full_round_robin_rows": 306,
+        "maximum_team_appearances": 34,
+        "minimum_team_appearances": 34,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 306,
+        "observed_teams": 18
+      },
+      "retrieved_at": "2026-09-08T22:14:18.263034+00:00",
+      "rows": 306,
+      "season": "2526",
+      "sha256": "dcedf4dd66f3e0ac8efb8ccd2e5489882068e5630c041702b15c1d0fe70c6017",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/ligue-2/season-2526.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 306,
+        "Avg>2.5": 306,
+        "AvgC<2.5": 306,
+        "AvgC>2.5": 306,
+        "B365<2.5": 305,
+        "B365>2.5": 305,
+        "B365A": 305,
+        "B365C<2.5": 306,
+        "B365C>2.5": 306,
+        "B365D": 305,
+        "B365H": 305
+      }
+    },
+    {
+      "bytes": 169422,
+      "duplicate_identities": 0,
+      "league": "I2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "6c953bdefef757bb702c80683d859aa8dc0a2926424f8052a5acd519294983a2",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/1920/I2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:18.295952+00:00",
+      "rows": 380,
+      "season": "1920",
+      "sha256": "6c953bdefef757bb702c80683d859aa8dc0a2926424f8052a5acd519294983a2",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/serie-b/season-1920.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 374,
+        "Avg>2.5": 374,
+        "AvgC<2.5": 378,
+        "AvgC>2.5": 378,
+        "B365<2.5": 373,
+        "B365>2.5": 373,
+        "B365A": 373,
+        "B365C<2.5": 373,
+        "B365C>2.5": 373,
+        "B365D": 373,
+        "B365H": 373
+      }
+    },
+    {
+      "bytes": 170381,
+      "duplicate_identities": 0,
+      "league": "I2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "818657ec29ace24bdb83e86714d329cb330527f0ca8694086967b1c8e957aa20",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2021/I2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:18.431755+00:00",
+      "rows": 380,
+      "season": "2021",
+      "sha256": "818657ec29ace24bdb83e86714d329cb330527f0ca8694086967b1c8e957aa20",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/serie-b/season-2021.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 378,
+        "Avg>2.5": 378,
+        "AvgC<2.5": 379,
+        "AvgC>2.5": 379,
+        "B365<2.5": 374,
+        "B365>2.5": 374,
+        "B365A": 374,
+        "B365C<2.5": 379,
+        "B365C>2.5": 379,
+        "B365D": 374,
+        "B365H": 374
+      }
+    },
+    {
+      "bytes": 171409,
+      "duplicate_identities": 0,
+      "league": "I2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "ec660d62521407d28954db8a136d59a2fd54a036e082b0d82341df6bbb7189ac",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2122/I2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:32.282537+00:00",
+      "rows": 380,
+      "season": "2122",
+      "sha256": "ec660d62521407d28954db8a136d59a2fd54a036e082b0d82341df6bbb7189ac",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/serie-b/season-2122.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 380,
+        "Avg>2.5": 380,
+        "AvgC<2.5": 380,
+        "AvgC>2.5": 380,
+        "B365<2.5": 379,
+        "B365>2.5": 379,
+        "B365A": 379,
+        "B365C<2.5": 380,
+        "B365C>2.5": 380,
+        "B365D": 379,
+        "B365H": 379
+      }
+    },
+    {
+      "bytes": 169009,
+      "duplicate_identities": 0,
+      "league": "I2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "00a504d72d16705e8e22e0647138ff185119d1cf0ca12be20ee6e1220857ef70",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2223/I2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:32.504953+00:00",
+      "rows": 380,
+      "season": "2223",
+      "sha256": "00a504d72d16705e8e22e0647138ff185119d1cf0ca12be20ee6e1220857ef70",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/serie-b/season-2223.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 380,
+        "Avg>2.5": 380,
+        "AvgC<2.5": 380,
+        "AvgC>2.5": 380,
+        "B365<2.5": 380,
+        "B365>2.5": 380,
+        "B365A": 380,
+        "B365C<2.5": 380,
+        "B365C>2.5": 380,
+        "B365D": 380,
+        "B365H": 380
+      }
+    },
+    {
+      "bytes": 166710,
+      "duplicate_identities": 0,
+      "league": "I2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "b51d65f34c5a7949af3ec030f2fa587f8145ced9bffa1e64291a228f1bdad80b",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2324/I2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:32.305754+00:00",
+      "rows": 380,
+      "season": "2324",
+      "sha256": "b51d65f34c5a7949af3ec030f2fa587f8145ced9bffa1e64291a228f1bdad80b",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/serie-b/season-2324.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 379,
+        "Avg>2.5": 379,
+        "AvgC<2.5": 380,
+        "AvgC>2.5": 380,
+        "B365<2.5": 378,
+        "B365>2.5": 378,
+        "B365A": 378,
+        "B365C<2.5": 380,
+        "B365C>2.5": 380,
+        "B365D": 378,
+        "B365H": 378
+      }
+    },
+    {
+      "bytes": 192674,
+      "duplicate_identities": 0,
+      "league": "I2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "ec5aa4ff25da520a1c03a4f6cf7bc87d318acd25b22270fa9e0080d95ac81b7d",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2425/I2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:31.994319+00:00",
+      "rows": 380,
+      "season": "2425",
+      "sha256": "ec5aa4ff25da520a1c03a4f6cf7bc87d318acd25b22270fa9e0080d95ac81b7d",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/serie-b/season-2425.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 380,
+        "Avg>2.5": 380,
+        "AvgC<2.5": 380,
+        "AvgC>2.5": 380,
+        "B365<2.5": 380,
+        "B365>2.5": 380,
+        "B365A": 380,
+        "B365C<2.5": 380,
+        "B365C>2.5": 380,
+        "B365D": 380,
+        "B365H": 380
+      }
+    },
+    {
+      "bytes": 190966,
+      "duplicate_identities": 0,
+      "league": "I2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "ed4bcece92bb8b09aa94768bc77d3529fa29339ec70fa7867a9fbc3ca0954731",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2526/I2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 20,
+        "full_round_robin_rows": 380,
+        "maximum_team_appearances": 38,
+        "minimum_team_appearances": 38,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 380,
+        "observed_teams": 20
+      },
+      "retrieved_at": "2026-09-08T22:14:31.976098+00:00",
+      "rows": 380,
+      "season": "2526",
+      "sha256": "ed4bcece92bb8b09aa94768bc77d3529fa29339ec70fa7867a9fbc3ca0954731",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/serie-b/season-2526.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 380,
+        "Avg>2.5": 380,
+        "AvgC<2.5": 380,
+        "AvgC>2.5": 380,
+        "B365<2.5": 380,
+        "B365>2.5": 380,
+        "B365A": 380,
+        "B365C<2.5": 380,
+        "B365C>2.5": 380,
+        "B365D": 380,
+        "B365H": 380
+      }
+    },
+    {
+      "bytes": 208074,
+      "duplicate_identities": 0,
+      "league": "SP2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "7ec2137c792b81257647b9a03c0664d5dd1a75cee029281ce654cd43bfb50af1",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/1920/SP2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 22,
+        "full_round_robin_rows": 462,
+        "maximum_team_appearances": 42,
+        "minimum_team_appearances": 42,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 462,
+        "observed_teams": 22
+      },
+      "retrieved_at": "2026-09-08T22:14:32.059703+00:00",
+      "rows": 462,
+      "season": "1920",
+      "sha256": "7ec2137c792b81257647b9a03c0664d5dd1a75cee029281ce654cd43bfb50af1",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/la-liga-2/season-1920.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 462,
+        "Avg>2.5": 462,
+        "AvgC<2.5": 462,
+        "AvgC>2.5": 462,
+        "B365<2.5": 460,
+        "B365>2.5": 460,
+        "B365A": 460,
+        "B365C<2.5": 462,
+        "B365C>2.5": 462,
+        "B365D": 460,
+        "B365H": 460
+      }
+    },
+    {
+      "bytes": 207328,
+      "duplicate_identities": 0,
+      "league": "SP2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "f700d763d539e61ec9c23638907354cd9cd6f9156a5846d4ff82ef3fc1d14427",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2021/SP2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 22,
+        "full_round_robin_rows": 462,
+        "maximum_team_appearances": 42,
+        "minimum_team_appearances": 42,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 462,
+        "observed_teams": 22
+      },
+      "retrieved_at": "2026-09-08T22:14:46.480314+00:00",
+      "rows": 462,
+      "season": "2021",
+      "sha256": "f700d763d539e61ec9c23638907354cd9cd6f9156a5846d4ff82ef3fc1d14427",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/la-liga-2/season-2021.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 462,
+        "Avg>2.5": 462,
+        "AvgC<2.5": 462,
+        "AvgC>2.5": 462,
+        "B365<2.5": 454,
+        "B365>2.5": 454,
+        "B365A": 454,
+        "B365C<2.5": 462,
+        "B365C>2.5": 462,
+        "B365D": 454,
+        "B365H": 454
+      }
+    },
+    {
+      "bytes": 207787,
+      "duplicate_identities": 0,
+      "league": "SP2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "6f586b7d80dee6785ca248597cf2962145fdd72113588b807159b03baa5df831",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2122/SP2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 22,
+        "full_round_robin_rows": 462,
+        "maximum_team_appearances": 42,
+        "minimum_team_appearances": 42,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 462,
+        "observed_teams": 22
+      },
+      "retrieved_at": "2026-09-08T22:14:46.600361+00:00",
+      "rows": 462,
+      "season": "2122",
+      "sha256": "6f586b7d80dee6785ca248597cf2962145fdd72113588b807159b03baa5df831",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/la-liga-2/season-2122.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 462,
+        "Avg>2.5": 462,
+        "AvgC<2.5": 462,
+        "AvgC>2.5": 462,
+        "B365<2.5": 460,
+        "B365>2.5": 460,
+        "B365A": 460,
+        "B365C<2.5": 462,
+        "B365C>2.5": 462,
+        "B365D": 460,
+        "B365H": 460
+      }
+    },
+    {
+      "bytes": 202621,
+      "duplicate_identities": 0,
+      "league": "SP2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "1b233ea48be17ae413b05fd132f8a26ac7f1bc69a4bc9ee2a3470b9909b410a8",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2223/SP2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 22,
+        "full_round_robin_rows": 462,
+        "maximum_team_appearances": 42,
+        "minimum_team_appearances": 42,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 462,
+        "observed_teams": 22
+      },
+      "retrieved_at": "2026-09-08T22:14:46.510636+00:00",
+      "rows": 462,
+      "season": "2223",
+      "sha256": "1b233ea48be17ae413b05fd132f8a26ac7f1bc69a4bc9ee2a3470b9909b410a8",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/la-liga-2/season-2223.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 462,
+        "Avg>2.5": 462,
+        "AvgC<2.5": 462,
+        "AvgC>2.5": 462,
+        "B365<2.5": 459,
+        "B365>2.5": 459,
+        "B365A": 459,
+        "B365C<2.5": 462,
+        "B365C>2.5": 462,
+        "B365D": 459,
+        "B365H": 459
+      }
+    },
+    {
+      "bytes": 199754,
+      "duplicate_identities": 0,
+      "league": "SP2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "e09c2d18bd41c1f735aba730d31d0db778c0b7086973ae979a52dd814f1d345a",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2324/SP2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 22,
+        "full_round_robin_rows": 462,
+        "maximum_team_appearances": 42,
+        "minimum_team_appearances": 42,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 462,
+        "observed_teams": 22
+      },
+      "retrieved_at": "2026-09-08T22:14:46.538661+00:00",
+      "rows": 462,
+      "season": "2324",
+      "sha256": "e09c2d18bd41c1f735aba730d31d0db778c0b7086973ae979a52dd814f1d345a",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/la-liga-2/season-2324.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 462,
+        "Avg>2.5": 462,
+        "AvgC<2.5": 462,
+        "AvgC>2.5": 462,
+        "B365<2.5": 461,
+        "B365>2.5": 461,
+        "B365A": 461,
+        "B365C<2.5": 462,
+        "B365C>2.5": 462,
+        "B365D": 461,
+        "B365H": 461
+      }
+    },
+    {
+      "bytes": 230032,
+      "duplicate_identities": 0,
+      "league": "SP2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "60a8a03e5a477a10bcea5e31379df089d1927b6e388e333e115274dba78b79a3",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2425/SP2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 22,
+        "full_round_robin_rows": 462,
+        "maximum_team_appearances": 42,
+        "minimum_team_appearances": 42,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 462,
+        "observed_teams": 22
+      },
+      "retrieved_at": "2026-09-08T22:14:46.319504+00:00",
+      "rows": 462,
+      "season": "2425",
+      "sha256": "60a8a03e5a477a10bcea5e31379df089d1927b6e388e333e115274dba78b79a3",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/la-liga-2/season-2425.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 462,
+        "Avg>2.5": 462,
+        "AvgC<2.5": 462,
+        "AvgC>2.5": 462,
+        "B365<2.5": 462,
+        "B365>2.5": 462,
+        "B365A": 462,
+        "B365C<2.5": 462,
+        "B365C>2.5": 462,
+        "B365D": 462,
+        "B365H": 462
+      }
+    },
+    {
+      "bytes": 237701,
+      "duplicate_identities": 0,
+      "league": "SP2",
+      "primary_matches_pinned_bytes": true,
+      "primary_sha256": "4986060e5c1d55626aef24c4bbeaaea2278b27a0b7696927405705aaa57405de",
+      "primary_status": "matched",
+      "primary_url": "https://football-data.co.uk/mmz4281/2526/SP2.csv",
+      "regular_season_audit": {
+        "duplicate_directed_fixture_pairs": 0,
+        "exception_source": null,
+        "expected_teams": 22,
+        "full_round_robin_rows": 462,
+        "maximum_team_appearances": 42,
+        "minimum_team_appearances": 42,
+        "missing_directed_fixture_count": 0,
+        "missing_directed_fixtures": [],
+        "note": "Complete double round robin.",
+        "observed_rows": 462,
+        "observed_teams": 22
+      },
+      "retrieved_at": "2026-09-08T22:14:46.421998+00:00",
+      "rows": 462,
+      "season": "2526",
+      "sha256": "4986060e5c1d55626aef24c4bbeaaea2278b27a0b7696927405705aaa57405de",
+      "source_commit": "c9b05a30eef50fe34abbf4134e6333fc5376d136",
+      "url": "https://raw.githubusercontent.com/huhao930422-debug/football-odds-mirror/c9b05a30eef50fe34abbf4134e6333fc5376d136/data/la-liga-2/season-2526.csv",
+      "valid_price_counts": {
+        "Avg<2.5": 462,
+        "Avg>2.5": 462,
+        "AvgC<2.5": 462,
+        "AvgC>2.5": 462,
+        "B365<2.5": 462,
+        "B365>2.5": 462,
+        "B365A": 462,
+        "B365C<2.5": 462,
+        "B365C>2.5": 462,
+        "B365D": 462,
+        "B365H": 462
+      }
+    }
+  ]
+}
