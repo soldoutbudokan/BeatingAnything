@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "beating-anything"
+version = "0.1.0"
+description = "Auditable MLB market research and prospective paper evaluation"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26,<3", "pandas>=2.2,<3", "scipy>=1.12,<2", "lxml>=5,<7"]
+
+[tool.setuptools.packages.find]
+include = ["beating*"]

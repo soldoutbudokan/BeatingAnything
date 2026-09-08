@@ -1,0 +1,33 @@
+{
+  "observed_at": "2026-09-08T21:03:17.045753+00:00",
+  "source_uri": "https://www.covers.com/sport/baseball/mlb/odds",
+  "response_sha256": "ee71803e9cfd2f5e713823d786a2b306498984c14d87380e2ba5ef1e5c15670a",
+  "source_page_updated_at": "2026-09-08T21:03:00+00:00",
+  "source_page_update_raw": [
+    "Last updated Sep 08, 2026, 5:03 PM ET"
+  ],
+  "source_fanduel_cells": 27,
+  "structured_events": 15,
+  "fanduel_quotes": 15,
+  "verified_fanduel_quotes": 0,
+  "skipped": {
+    "missing_structured_event_metadata": 12
+  },
+  "status": "paper_observations_available",
+  "reason": "aggregator_quotes_require_direct_verification",
+  "betting_alerts_enabled": false,
+  "research_status": "unproven",
+  "notifications_sent": 0,
+  "schedule_source_uri": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-09-08&hydrate=probablePitcher",
+  "schedule_sha256": "c4911b8e7f8559a7aff538ed4ee8c2a09609519d0951aea048b0ee5ab2e0d911",
+  "model_id": "a7ceefe2db3c13ea",
+  "model_training_through": "2025-08-16",
+  "feature_snapshots": 15,
+  "decision_counts": {
+    "BLOCKED": 15
+  },
+  "prediction_rows_recorded": 15,
+  "settlements_added": 0,
+  "settlement_error": null,
+  "monitor_mode": "aggregator paper observations; model unproven"
+}

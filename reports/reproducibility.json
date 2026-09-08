@@ -1,0 +1,33 @@
+{
+  "python": "3.12.13",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "scipy": "1.17.0",
+  "protocol_sha256": "17f350c3586a2377fc55cd74255b1045253800358f6e789822f83aa48ae9c6f0",
+  "joined_csv_sha256": "8568c8f0c54ac8f7e9173c493ef17d2c6bbda57756a8a591832df22598c3cb7f",
+  "source_archive_sha256": "3f952fd0bfae9f4f2d17e66692cb936ce6e1a5f6b415318012090c85933b882b",
+  "feature_columns": [
+    "diff_rest_days",
+    "diff_travel_km",
+    "diff_eastward_hours",
+    "diff_westward_hours",
+    "diff_short_rest_travel_km",
+    "diff_games_last3",
+    "diff_games_last7",
+    "diff_innings_last3",
+    "diff_extra_innings_last3",
+    "diff_bullpen_pitches_1d",
+    "diff_bullpen_pitches_3d",
+    "diff_bullpen_outs_3d",
+    "diff_bullpen_used_1d",
+    "diff_bullpen_used_3d",
+    "diff_bullpen_back_to_back",
+    "diff_bullpen_heavy_3d",
+    "diff_bullpen_unavailable_quality",
+    "diff_bullpen_kbb_45d",
+    "diff_bullpen_recent_missing",
+    "diff_run_diff_28d",
+    "diff_pitching_kbb_28d"
+  ],
+  "source_snapshot_note": "Official MLB endpoints are mutable; compare the recorded file hashes on rerun."
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "model_name": "calibration",
+  "research_status": "unproven",
+  "training_through": "2025-08-16",
+  "feature_columns": [],
+  "baseline": "paired_fanduel_no_vig_moneyline",
+  "model": {
+    "penalty": 1.0,
+    "mean": [],
+    "scale": [],
+    "coef": [
+      0.007761200030299869
+    ]
+  },
+  "model_id": "e0ee50772c5170ca"
+}

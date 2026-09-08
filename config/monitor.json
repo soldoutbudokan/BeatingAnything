@@ -1,0 +1,12 @@
+{
+  "max_quote_age_seconds": 90,
+  "max_prediction_age_seconds": 900,
+  "max_clock_skew_seconds": 5,
+  "quote_expiry_seconds": 60,
+  "close_window_seconds": 300,
+  "min_expected_value": 0.03,
+  "max_vig": 0.08,
+  "min_decimal_odds": 1.2,
+  "max_decimal_odds": 6.0,
+  "webhook_enabled": false
+}

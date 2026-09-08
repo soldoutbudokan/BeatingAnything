@@ -1,0 +1,229 @@
+{
+  "stage": "initial_incomplete_pitcher_source",
+  "feature_definition_changed": false,
+  "reason_for_rerun": "Official fullSeason roster omitted pitchers. Repair enumeration from official all-pitcher index before final assessment; no outcome-selected edits.",
+  "results": {
+    "market": {
+      "pooled": {
+        "games": 4141,
+        "log_loss": 0.6772104141493561,
+        "brier": 0.24220070498230692,
+        "log_loss_delta_vs_fanduel": 0.0,
+        "log_loss_delta_97_5_ci": [
+          0.0,
+          0.0
+        ],
+        "bets": 0,
+        "turnover_units": 0,
+        "profit_units": 0.0,
+        "roi": null,
+        "roi_97_5_ci": [
+          null,
+          null
+        ],
+        "roi_net_winnings_haircut_2pct": null,
+        "max_drawdown_units": 0.0,
+        "historical_clv": null,
+        "execution_verified": false
+      },
+      "by_year": {
+        "2024": {
+          "games": 2355,
+          "log_loss": 0.6760355255874936,
+          "brier": 0.24157679977465202,
+          "log_loss_delta_vs_fanduel": 0.0,
+          "log_loss_delta_97_5_ci": [
+            0.0,
+            0.0
+          ],
+          "bets": 0,
+          "turnover_units": 0,
+          "profit_units": 0.0,
+          "roi": null,
+          "roi_97_5_ci": [
+            null,
+            null
+          ],
+          "roi_net_winnings_haircut_2pct": null,
+          "max_drawdown_units": 0.0,
+          "historical_clv": null,
+          "execution_verified": false
+        },
+        "2025": {
+          "games": 1786,
+          "log_loss": 0.6787596093135141,
+          "brier": 0.24302337954223255,
+          "log_loss_delta_vs_fanduel": 0.0,
+          "log_loss_delta_97_5_ci": [
+            0.0,
+            0.0
+          ],
+          "bets": 0,
+          "turnover_units": 0,
+          "profit_units": 0.0,
+          "roi": null,
+          "roi_97_5_ci": [
+            null,
+            null
+          ],
+          "roi_net_winnings_haircut_2pct": null,
+          "max_drawdown_units": 0.0,
+          "historical_clv": null,
+          "execution_verified": false
+        }
+      }
+    },
+    "calibration": {
+      "pooled": {
+        "games": 4141,
+        "log_loss": 0.6772176063396245,
+        "brier": 0.24220424809522298,
+        "log_loss_delta_vs_fanduel": 7.192190268212565e-06,
+        "log_loss_delta_97_5_ci": [
+          -3.221311574143472e-06,
+          1.7648232110848233e-05
+        ],
+        "bets": 0,
+        "turnover_units": 0,
+        "profit_units": 0.0,
+        "roi": null,
+        "roi_97_5_ci": [
+          null,
+          null
+        ],
+        "roi_net_winnings_haircut_2pct": null,
+        "max_drawdown_units": 0.0,
+        "historical_clv": null,
+        "execution_verified": false
+      },
+      "by_year": {
+        "2024": {
+          "games": 2355,
+          "log_loss": 0.6760352356743654,
+          "brier": 0.2415766632839207,
+          "log_loss_delta_vs_fanduel": -2.899131281889526e-07,
+          "log_loss_delta_97_5_ci": [
+            -7.154338624670806e-06,
+            6.388312721005184e-06
+          ],
+          "bets": 0,
+          "turnover_units": 0,
+          "profit_units": 0.0,
+          "roi": null,
+          "roi_97_5_ci": [
+            null,
+            null
+          ],
+          "roi_net_winnings_haircut_2pct": null,
+          "max_drawdown_units": 0.0,
+          "historical_clv": null,
+          "execution_verified": false
+        },
+        "2025": {
+          "games": 1786,
+          "log_loss": 0.6787766673232104,
+          "brier": 0.24303177454013727,
+          "log_loss_delta_vs_fanduel": 1.7058009696278396e-05,
+          "log_loss_delta_97_5_ci": [
+            -4.831360882334422e-06,
+            3.8894640604959335e-05
+          ],
+          "bets": 0,
+          "turnover_units": 0,
+          "profit_units": 0.0,
+          "roi": null,
+          "roi_97_5_ci": [
+            null,
+            null
+          ],
+          "roi_net_winnings_haircut_2pct": null,
+          "max_drawdown_units": 0.0,
+          "historical_clv": null,
+          "execution_verified": false
+        }
+      }
+    },
+    "physical": {
+      "pooled": {
+        "games": 4141,
+        "log_loss": 0.6771268411592309,
+        "brier": 0.24215883865715557,
+        "log_loss_delta_vs_fanduel": -8.357299012509243e-05,
+        "log_loss_delta_97_5_ci": [
+          -0.0004025054148346356,
+          0.00024324044150187386
+        ],
+        "bets": 0,
+        "turnover_units": 0,
+        "profit_units": 0.0,
+        "roi": null,
+        "roi_97_5_ci": [
+          null,
+          null
+        ],
+        "roi_net_winnings_haircut_2pct": null,
+        "max_drawdown_units": 0.0,
+        "historical_clv": null,
+        "execution_verified": false
+      },
+      "by_year": {
+        "2024": {
+          "games": 2355,
+          "log_loss": 0.6756915605448723,
+          "brier": 0.24140916646509689,
+          "log_loss_delta_vs_fanduel": -0.0003439650426212741,
+          "log_loss_delta_97_5_ci": [
+            -0.0007012982649386453,
+            2.0775126170072596e-05
+          ],
+          "bets": 0,
+          "turnover_units": 0,
+          "profit_units": 0.0,
+          "roi": null,
+          "roi_97_5_ci": [
+            null,
+            null
+          ],
+          "roi_net_winnings_haircut_2pct": null,
+          "max_drawdown_units": 0.0,
+          "historical_clv": null,
+          "execution_verified": false
+        },
+        "2025": {
+          "games": 1786,
+          "log_loss": 0.6790193864262046,
+          "brier": 0.24314734818251849,
+          "log_loss_delta_vs_fanduel": 0.0002597771126904215,
+          "log_loss_delta_97_5_ci": [
+            -0.0002840320562594558,
+            0.0007809476902900728
+          ],
+          "bets": 0,
+          "turnover_units": 0,
+          "profit_units": 0.0,
+          "roi": null,
+          "roi_97_5_ci": [
+            null,
+            null
+          ],
+          "roi_net_winnings_haircut_2pct": null,
+          "max_drawdown_units": 0.0,
+          "historical_clv": null,
+          "execution_verified": false
+        }
+      }
+    }
+  },
+  "selected": {
+    "calibration": {
+      "model": "calibration",
+      "penalty": 1.0,
+      "validation_log_loss": 0.6774983447583248
+    },
+    "physical": {
+      "model": "physical",
+      "penalty": 1.0,
+      "validation_log_loss": 0.6777202246959815
+    }
+  }
+}

@@ -1,0 +1,45 @@
+name: FanDuel forward paper watch
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/source-watch.yml'
+      - 'beating/forward.py'
+jobs:
+  observe:
+    # Standard hosted runners in public repos are free. Stop if repo becomes private.
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    concurrency:
+      group: forward-paper-watch
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned research dependencies
+        run: python -m pip install -r requirements-lock.txt
+      - name: Collect, score and grade paper observations
+        run: python -m beating.forward
+      - name: Persist observational ledger and status
+        run: |
+          git config user.name 'BeatingAnything paper watch'
+          git config user.email 'beatinganything-paper-watch@users.noreply.github.com'
+          git add forward-data reports/live-status.json reports/forward-report.json reports/latest-decisions.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record FanDuel aggregator paper observations [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Run summary
+        run: |
+          echo 'Observational paper forecasts only. No betting alert or wager is enabled.' >> "$GITHUB_STEP_SUMMARY"
+          cat reports/live-status.json >> "$GITHUB_STEP_SUMMARY"

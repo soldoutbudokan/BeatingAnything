@@ -1,0 +1,66 @@
+{
+  "source_url": "https://github.com/ArnavSaraogi/mlb-odds-scraper/releases/download/dataset/mlb_odds_dataset.json",
+  "source_sha256": "3f952fd0bfae9f4f2d17e66692cb936ce6e1a5f6b415318012090c85933b882b",
+  "source_bytes": 80120813,
+  "source_dates": 1097,
+  "source_game_rows": 13121,
+  "source_game_types": {
+    "R": 11040,
+    "Unknown": 312,
+    "A": 4,
+    "F": 28,
+    "D": 65,
+    "L": 46,
+    "W": 22,
+    "S": 1604
+  },
+  "accepted_rows": 11043,
+  "structural_exclusions": {
+    "missing_or_duplicate_fanduel_moneyline": 530,
+    "ambiguous_schedule_date_team_pair": 147,
+    "score_disagrees_with_mlb": 19,
+    "unknown_team": 4,
+    "doubleheader_source_merge_risk": 4,
+    "unmatched_schedule": 1372,
+    "invalid_opening_price_or_overround": 2
+  },
+  "diagnostic_flags_not_exclusions": {
+    "opening_cross_book_gap_gt_0_10": 18
+  },
+  "odds_range_filter": null,
+  "accepted_by_year": {
+    "2021": 2280,
+    "2022": 2275,
+    "2023": 2347,
+    "2024": 2355,
+    "2025": 1786
+  },
+  "opening_overround_all_valid": {
+    "min": 1.0345622119815667,
+    "median": 1.0405040504050405,
+    "max": 1.0607856545855179
+  },
+  "other_book_open_gap_all_valid": {
+    "max": 0.31297709923664124,
+    "gt_0_05": 128,
+    "gt_0_10": 18,
+    "gt_0_20": 4
+  },
+  "quote_time_provenance": "Missing; opening executable timing not established",
+  "clv_available": false,
+  "archival_terminal_in_play_warning": {
+    "date": "2021-04-01",
+    "game": "Cleveland at Detroit",
+    "fanduel_open_home_american": 158,
+    "fanduel_open_away_american": -192,
+    "fanduel_archival_terminal_home_american": -1100,
+    "fanduel_archival_terminal_away_american": 620,
+    "result": "Detroit 3, Cleveland 2",
+    "interpretation": "Strong in-play contamination signal; no quote timestamp; all currentLine fields excluded"
+  },
+  "official_games": 12148,
+  "pitcher_appearances": 104627,
+  "joined_rows": 11043,
+  "feature_version": "mlb_lagged_workload_v1",
+  "target_venue_metadata_incomplete": 8
+}

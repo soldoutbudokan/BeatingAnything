@@ -1,0 +1,997 @@
+{
+  "observed_at_utc": "2026-09-08T20:52:25.309212+00:00",
+  "source": "MLB Advanced Media Stats API",
+  "timestamp_status": "Retrospective official results; no pregame vintage",
+  "files": [
+    {
+      "file": "schedule_2021.json",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2021-01-01&endDate=2021-12-31&gameType=R&hydrate=probablePitcher,linescore,venue",
+      "bytes": 11411386,
+      "sha256": "b30ca16085891a1052ff314cfa102e0bdc97d216f072dec8ba844a514350769c"
+    },
+    {
+      "file": "pitching_2021_108.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/108/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1548632,
+      "sha256": "926b37cf6fb52bace1b3fa40a2f04698befee88bf5abefa6ecf87f1ae3f4efc8"
+    },
+    {
+      "file": "pitching_2021_109.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/109/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1462319,
+      "sha256": "2049111473e4cf9199d9c6b3ca6d0ac9da4926343c9a88db087cc9e99b3674ef"
+    },
+    {
+      "file": "pitching_2021_110.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/110/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1420719,
+      "sha256": "1927645306506320ba240f598e32bbd204165bb257445d6975be200e47cf536e"
+    },
+    {
+      "file": "pitching_2021_111.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/111/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1466264,
+      "sha256": "4c74349d0445b15ab81bf46cda2957c18ee785be2f9f7ec6ae3306c19d151602"
+    },
+    {
+      "file": "pitching_2021_112.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/112/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1647606,
+      "sha256": "104db7fd93d6814a90058e6a0ef87f0588348af4f2b748af36098c01832b690c"
+    },
+    {
+      "file": "pitching_2021_113.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/113/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1605610,
+      "sha256": "aa3fea2cf8baf564aa8c57d17284c412e8caf7252e7338c6496cc30f31e1b1ee"
+    },
+    {
+      "file": "pitching_2021_114.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/114/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1348386,
+      "sha256": "b6dd503d511dbd727f443afeff7afe3e29d2dfbf386efe6844d0b1182357c3ed"
+    },
+    {
+      "file": "pitching_2021_115.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/115/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1302511,
+      "sha256": "9ebe0a489fd4a4d7eea01de686ee7f32d5bcf96071ac9b9609b9976cd9a2785f"
+    },
+    {
+      "file": "pitching_2021_116.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/116/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1355280,
+      "sha256": "6de03f1d9a7797e16c53db802f3997f7ea215ad9555c8c9beb770bc416045f55"
+    },
+    {
+      "file": "pitching_2021_117.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/117/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1526030,
+      "sha256": "ea0e67eed630ebd3212836bd5803f0dd1b586430c8892ec4a8efdd8f0a7aae89"
+    },
+    {
+      "file": "pitching_2021_118.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/118/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1332927,
+      "sha256": "9ef93ab64cb4e834c2205ab79f4d367dff202776d9bb077ceb867de150cf933f"
+    },
+    {
+      "file": "pitching_2021_119.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/119/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1490352,
+      "sha256": "c7e5da81ca3a6fea6b5fe49945bb9251d2e860ceb0a6b179c86e3fad9282c268"
+    },
+    {
+      "file": "pitching_2021_120.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/120/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1498349,
+      "sha256": "cdbab69c7140576782952bef6dfb723d747f363ac315be2645283cb3a7492eaa"
+    },
+    {
+      "file": "pitching_2021_121.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/121/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1581512,
+      "sha256": "61ba4de7a24c62f853a8e96868709fb2bc958a6905ab1bd5015a6f744c2f57a0"
+    },
+    {
+      "file": "pitching_2021_133.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/133/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1388937,
+      "sha256": "c411dde3381a3c8eb9a1174b5a89284ec9d6c0a39819411c6b897242be0a8f8f"
+    },
+    {
+      "file": "pitching_2021_134.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/134/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1635109,
+      "sha256": "ea7105c687fca9970cdaf6012a46f769c6d37ac071f06eb82124e64554de79b2"
+    },
+    {
+      "file": "pitching_2021_135.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/135/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1681110,
+      "sha256": "8c710a6f0f0ddf253fa1c6d70c42cea2df021a826672c75bcd457b0fda76c2a2"
+    },
+    {
+      "file": "pitching_2021_136.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/136/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1787545,
+      "sha256": "457ca3e47952adb2fc027025c695b6f4a35127a559bfec3f0c7eae7de9524fa4"
+    },
+    {
+      "file": "pitching_2021_137.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/137/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1681056,
+      "sha256": "80872fd4f7bfdac583c40e204991ec4e45873197fa31818a5400db74e625281f"
+    },
+    {
+      "file": "pitching_2021_138.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/138/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1405002,
+      "sha256": "06e550db24dfff67ba768dbb2a7f748182934c6f5d19cb3033086da488e6db01"
+    },
+    {
+      "file": "pitching_2021_139.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/139/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1750894,
+      "sha256": "51ac917941d037c09d71aee52e08baecb01640cf2729f5c8714a4a924fc0eebe"
+    },
+    {
+      "file": "pitching_2021_140.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/140/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1415308,
+      "sha256": "4348ca54f6f0cf46cf325672a7d62b793cf54e2017ae7f95d588959720c5f848"
+    },
+    {
+      "file": "pitching_2021_141.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/141/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1601385,
+      "sha256": "0c6659e0354b97e51d217bb4643625269f47658fbb20fc069d1effa3a4c8ef80"
+    },
+    {
+      "file": "pitching_2021_142.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/142/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1398733,
+      "sha256": "f7fbaa40770d248e32d08237ab6ed459536d649a787d28a166eb1716c1cc6410"
+    },
+    {
+      "file": "pitching_2021_143.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/143/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1390970,
+      "sha256": "c8398aed2db6b572f955649aba56f0ed63ecb6b99fef354b716c33d45984105a"
+    },
+    {
+      "file": "pitching_2021_144.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/144/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1453980,
+      "sha256": "cc92c20870491c8d3af2a0246de9fc7d54271da3870132da8f33ba6c904ad0dc"
+    },
+    {
+      "file": "pitching_2021_145.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/145/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1389979,
+      "sha256": "c32079bea352d093daff7392a416f04bb7b63fa89d41b6602f743116933c3d96"
+    },
+    {
+      "file": "pitching_2021_146.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/146/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1525864,
+      "sha256": "289524e670074535d7089ac70fbd9c9227129132e06164fce80b2b14bc2b541a"
+    },
+    {
+      "file": "pitching_2021_147.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/147/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1506695,
+      "sha256": "213318761d32b1b19fd94da8a1442d493e0b659a6553d7beb683a33a00274ae6"
+    },
+    {
+      "file": "pitching_2021_158.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/158/roster?rosterType=fullSeason&season=2021&hydrate=person(stats(type=gameLog,group=pitching,season=2021))",
+      "bytes": 1710175,
+      "sha256": "9bcd01cf5aacf985dac705b0684e05f49540e06949c9f3448ee412962a26612f"
+    },
+    {
+      "file": "schedule_2022.json",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2022-01-01&endDate=2022-12-31&gameType=R&hydrate=probablePitcher,linescore,venue",
+      "bytes": 11367703,
+      "sha256": "324a31f85fd544b1ed16a19fcd304eb8ffb9f1a9bd0dea7bfd35dff834cd2276"
+    },
+    {
+      "file": "pitching_2022_108.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/108/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1349110,
+      "sha256": "73b294a6055c147d51242999d11c3a7310614c96ae1047c1bce8a92a1be724e8"
+    },
+    {
+      "file": "pitching_2022_109.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/109/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1393333,
+      "sha256": "2ba0e26b6ca508dea5500fecf56d82a6cd08e3b0177109cc0b27bb4bbeabaadb"
+    },
+    {
+      "file": "pitching_2022_110.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/110/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1432075,
+      "sha256": "19aa1ec9ffa585abe7d727e500d1d8c3fd32aefe92560bc8b1834d8f63edb281"
+    },
+    {
+      "file": "pitching_2022_111.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/111/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1436580,
+      "sha256": "dec952db2c641656f5fca1b0c0898348200379cecf411f8c99d20cb4d1f93c74"
+    },
+    {
+      "file": "pitching_2022_112.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/112/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1552339,
+      "sha256": "800506629ce63f06957fc8600abf0ced34c8bc97a129db649ef61d8bae0bdde1"
+    },
+    {
+      "file": "pitching_2022_113.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/113/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1370636,
+      "sha256": "b7df14c7ee61a94b5fee64cbe5bbb33351f08a059f4f09318ca7022ea521bb19"
+    },
+    {
+      "file": "pitching_2022_114.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/114/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1357748,
+      "sha256": "71d26a93c01d99543c847800cbc30faa442d8735313ff0747d343a9ea7708d82"
+    },
+    {
+      "file": "pitching_2022_115.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/115/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1226591,
+      "sha256": "c33ca84ec269068e35e4cc4bcfe437967b74691a619139f6af943bfd335e8733"
+    },
+    {
+      "file": "pitching_2022_116.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/116/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1444558,
+      "sha256": "a445a5bf7a8fbdb46c9ed6aedaf69aed3e4bde2cc947d1278ede4cceacc2bcaf"
+    },
+    {
+      "file": "pitching_2022_117.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/117/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1178401,
+      "sha256": "28b8b3ff1cb00122cc23cdee0971d76b4ed71d2b06988a013ffb191d89f09fbe"
+    },
+    {
+      "file": "pitching_2022_118.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/118/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1450994,
+      "sha256": "cbd9ad1c899d6f0878c07776a739af7fad135cf773ea592b1aff8f4b78f2c7a9"
+    },
+    {
+      "file": "pitching_2022_119.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/119/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1482574,
+      "sha256": "fcc4480d1a0e1d88b7f8e7afbd24036d5c361464f4fa66624430285a18d91916"
+    },
+    {
+      "file": "pitching_2022_120.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/120/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1456144,
+      "sha256": "7134dd7af55b731a0b0362f4fdfb3218970a75e983f951a349f875bfd1729bf0"
+    },
+    {
+      "file": "pitching_2022_121.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/121/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1314273,
+      "sha256": "d8f323617557b64483a05c34b7daa1f923e94c4c39ade2a50e82944daab078e9"
+    },
+    {
+      "file": "pitching_2022_133.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/133/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1387774,
+      "sha256": "2f4023eb9310619da7a386faf747b022232c699912b025bbf50c9d849c6819c9"
+    },
+    {
+      "file": "pitching_2022_134.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/134/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1492725,
+      "sha256": "0209c554a6130c88f48f06819f94f86f3fda6ced081ce41c09dfc436361831f9"
+    },
+    {
+      "file": "pitching_2022_135.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/135/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1338131,
+      "sha256": "8fa42396496889f6a8aaab4abe967af5781d62b89b212441ba03412987e69f98"
+    },
+    {
+      "file": "pitching_2022_136.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/136/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1413633,
+      "sha256": "ee551edb8486ab53b1b16925713c5898b23b1612cba0b539f28b113fb0868298"
+    },
+    {
+      "file": "pitching_2022_137.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/137/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1490617,
+      "sha256": "5551f1e4c43071c6403fec68c5b14522cd2c0d6c440c19f594064f308fdbedcc"
+    },
+    {
+      "file": "pitching_2022_138.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/138/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1293035,
+      "sha256": "50cda0471cf852e86a5db82df8ad97a475287f2a61e31ff1bd41926d1d15e012"
+    },
+    {
+      "file": "pitching_2022_139.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/139/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1375448,
+      "sha256": "cdf2f6c5a48b195bf71368fe43055e8e59f6b8d80fb5bfca216d0de98f220213"
+    },
+    {
+      "file": "pitching_2022_140.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/140/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1354068,
+      "sha256": "468553869b1cfc7a324f3d33b3b7b896e62f69781b692a8c1db4d1a4f1562f6b"
+    },
+    {
+      "file": "pitching_2022_141.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/141/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1594776,
+      "sha256": "b0dfa165b890631a144ac60baf8d49f8db0841e33196b6ce9ce2040e45103597"
+    },
+    {
+      "file": "pitching_2022_142.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/142/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1596647,
+      "sha256": "edec127b14f4c797a0b821e130a0c77338fb65839b722c4f7605155ba1405d17"
+    },
+    {
+      "file": "pitching_2022_143.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/143/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1391697,
+      "sha256": "fb92bbb180558c28b5c41f7494fb2b8e67ac06882f2e5c86d5d31fb88e4c392e"
+    },
+    {
+      "file": "pitching_2022_144.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/144/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1430354,
+      "sha256": "593ed6d7288f2d704e8bfa1ddb6278858f26c57d8e644c4a88ebd1ae57464881"
+    },
+    {
+      "file": "pitching_2022_145.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/145/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1344631,
+      "sha256": "7e263e7abd82a2e28808d8f8e5fd20992a92b879de21ea4850158acc336025ed"
+    },
+    {
+      "file": "pitching_2022_146.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/146/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1416132,
+      "sha256": "fa4bd2aab69e53c76319361be787b91ce76a50b7da072bcd365edec9854f1c0f"
+    },
+    {
+      "file": "pitching_2022_147.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/147/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1608739,
+      "sha256": "42f95bfe1ab2b8dbfc71ea248d2aa50e85684f06d15a94e42571d5e8d07f97a5"
+    },
+    {
+      "file": "pitching_2022_158.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/158/roster?rosterType=fullSeason&season=2022&hydrate=person(stats(type=gameLog,group=pitching,season=2022))",
+      "bytes": 1538920,
+      "sha256": "6294205267c5a1879a51513d8f82fa981bd013da035ca184f6daabad4b30671f"
+    },
+    {
+      "file": "schedule_2023.json",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2023-01-01&endDate=2023-12-31&gameType=R&hydrate=probablePitcher,linescore,venue",
+      "bytes": 11384037,
+      "sha256": "7617b593d1020a257de20f3d05d22fc688f7239eced8574b2187b425e6106153"
+    },
+    {
+      "file": "pitching_2023_108.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/108/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1521757,
+      "sha256": "46d5da2329d4e7649dcb7bf0d64799709100e342ddbc1f094f3a9a352ffd90b6"
+    },
+    {
+      "file": "pitching_2023_109.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/109/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1508762,
+      "sha256": "dec76024943fd8a25f3b3702ddf00175a2f377e3e7f81781bb15cbb52927a06c"
+    },
+    {
+      "file": "pitching_2023_110.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/110/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1493197,
+      "sha256": "39f011c223aa42242d72bcff66d05c5f562cf050d12fb6ce4b257adea8eeb2fc"
+    },
+    {
+      "file": "pitching_2023_111.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/111/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1413726,
+      "sha256": "c27e38f0a974a261018d31c00e2b2241e3cfcc4283166781e26188a9c2d6ab0f"
+    },
+    {
+      "file": "pitching_2023_112.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/112/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1282600,
+      "sha256": "4ba061065b278cc278bff97743f1ce7a741024a7e1bef837b3e085716885b8cb"
+    },
+    {
+      "file": "pitching_2023_113.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/113/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1564734,
+      "sha256": "4669068e0b84436db097e31159a0d943368800894bc7fdaad90a40194b52e8ed"
+    },
+    {
+      "file": "pitching_2023_114.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/114/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1555069,
+      "sha256": "3fd762c5f4b527a01d0a833150ecb190b1b311988214eb9dec7f4e1afda4dda9"
+    },
+    {
+      "file": "pitching_2023_115.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/115/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1422539,
+      "sha256": "7e6983570d45c09a7cf29f0bd46179895b475dc4364a941ac34fa7fc7652ff5f"
+    },
+    {
+      "file": "pitching_2023_116.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/116/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1344196,
+      "sha256": "75a520ba4935e9a6aea15b1380dbe210f1f496def2ceb6636160840d2a4b1695"
+    },
+    {
+      "file": "pitching_2023_117.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/117/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1253946,
+      "sha256": "e6e06b9d9307a6c7f753715373338178dca6f89bb74601f418c5025882f69e92"
+    },
+    {
+      "file": "pitching_2023_118.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/118/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1474792,
+      "sha256": "05a244a54c8441d9c9caef220434f416bfc254100924f36370d8afe655a4aa59"
+    },
+    {
+      "file": "pitching_2023_119.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/119/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1636319,
+      "sha256": "2687ae1b3a6400207b4e8c920e98bf1364ed24e2a51080e4ead494b2b22e2b32"
+    },
+    {
+      "file": "pitching_2023_120.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/120/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1274957,
+      "sha256": "85c0ab55d29499346393e6c59d3f1b9247b18c73a2e303a0a6c6a6cb874a3372"
+    },
+    {
+      "file": "pitching_2023_121.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/121/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1485609,
+      "sha256": "4008c068632596b4b488fdc14916d42de68c7dd6dca7ec6a7195ff9daaea1325"
+    },
+    {
+      "file": "pitching_2023_133.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/133/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1314465,
+      "sha256": "65bd7cacd82b5e762884b533bf5af55d4e37a0a7d15fc008f1e3bf3b9db7d5ee"
+    },
+    {
+      "file": "pitching_2023_134.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/134/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1388290,
+      "sha256": "2acf32d96ad373e107f68af7b6035ef0f0359921d03546650bde4463397aab9b"
+    },
+    {
+      "file": "pitching_2023_135.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/135/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1323557,
+      "sha256": "f6aa15bffd04ebf8db4ab21806bc9aa8a64ba9dce39289d6715ebc3235b5841d"
+    },
+    {
+      "file": "pitching_2023_136.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/136/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1536257,
+      "sha256": "1c3faa8f4ffb8770661450aa3b5459718079e2ed846776f4d1a459492503e8c6"
+    },
+    {
+      "file": "pitching_2023_137.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/137/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1228144,
+      "sha256": "ded3b81070c8739b61bf4f6b0607641fecbc2d6db02a2947f792bec7fe37e03b"
+    },
+    {
+      "file": "pitching_2023_138.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/138/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1371537,
+      "sha256": "9fe2c785f6a6f41607eacad37035ebd213bde4b0652e6259d019d33078c28217"
+    },
+    {
+      "file": "pitching_2023_139.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/139/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1553135,
+      "sha256": "0a45540973abcffcbf5c62992a8916293b4b8553a6df7942dca092eb1ed020f3"
+    },
+    {
+      "file": "pitching_2023_140.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/140/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1390165,
+      "sha256": "295f2f37f4bad31045e74c34d53204d52a5cd6a4bf9ebdb6735fff680cceab1f"
+    },
+    {
+      "file": "pitching_2023_141.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/141/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1398558,
+      "sha256": "dc4fce53ec0ce7d4d7d985bd138c88d19661c323a561c71329f98c152fdf6c76"
+    },
+    {
+      "file": "pitching_2023_142.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/142/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1286028,
+      "sha256": "10e12d1e0bf21f69f05569108af5d31c0031e3404d2a8c28b9a988de39a8c04e"
+    },
+    {
+      "file": "pitching_2023_143.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/143/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1293422,
+      "sha256": "4b5c249c763cea09faa6662b317ce81c6be039e7b938c949758cad08d933ed0c"
+    },
+    {
+      "file": "pitching_2023_144.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/144/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1411927,
+      "sha256": "27814c44ab6dbd539f4aaa8925be20c968c597670f9f5e4193227a30bd6bd31c"
+    },
+    {
+      "file": "pitching_2023_145.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/145/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1660261,
+      "sha256": "4309c8c1bb556d6bc13e39451c95a5e05acf838de26ec4d64031988eda694e98"
+    },
+    {
+      "file": "pitching_2023_146.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/146/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1587198,
+      "sha256": "2b2d34b8443c11b17fd4dd8a449a969988cafb88537183885b27ab3a57cd6350"
+    },
+    {
+      "file": "pitching_2023_147.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/147/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1332592,
+      "sha256": "68b0763163c83306b464b87795a3c50b43f04389756172d98452b50c12056022"
+    },
+    {
+      "file": "pitching_2023_158.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/158/roster?rosterType=fullSeason&season=2023&hydrate=person(stats(type=gameLog,group=pitching,season=2023))",
+      "bytes": 1349522,
+      "sha256": "2cc4299b161dc7f4d88f69444187857f87f2faf8115650fe582e8e99f3975bb9"
+    },
+    {
+      "file": "schedule_2024.json",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2024-01-01&endDate=2024-12-31&gameType=R&hydrate=probablePitcher,linescore,venue",
+      "bytes": 12650754,
+      "sha256": "f6bce1ae222e994f5a05d1826645a62ef0eb077b21f9eeb21a9ab432dad069b7"
+    },
+    {
+      "file": "pitching_2024_108.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/108/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1415696,
+      "sha256": "cf6a8c14bbcb5db5fd558fe2c7135ba276fee6f5f299c74c3b745d647cbc9f94"
+    },
+    {
+      "file": "pitching_2024_109.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/109/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1472895,
+      "sha256": "ee1e0a43c6da4939fea96ff90d520dd920f1d08332622701551ba76eadc6bf14"
+    },
+    {
+      "file": "pitching_2024_110.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/110/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1750183,
+      "sha256": "a0077503215e4a4edb582bc6d57c8dcc7bd6b6b3cf6acbff3b835bd1cf97f58e"
+    },
+    {
+      "file": "pitching_2024_111.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/111/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1537127,
+      "sha256": "b77b6512fb3cac5a498ec8971f2602e43a47be9e61d6dcd8e6cbb210b473e2c9"
+    },
+    {
+      "file": "pitching_2024_112.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/112/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1628806,
+      "sha256": "66e9ac8099cc8699f6eb096b1ad34e8bd6855d87e8ba64a1c40c2c0cb31780a5"
+    },
+    {
+      "file": "pitching_2024_113.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/113/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1346350,
+      "sha256": "97fa80e0b74d185a8cc8a0c13cb697c973bce0da7fa0d091a70d20311f937cc0"
+    },
+    {
+      "file": "pitching_2024_114.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/114/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1399920,
+      "sha256": "688256eda2e4c196b9ab915eab043958d82fdd128c1cb67b0774d694ebbbfcea"
+    },
+    {
+      "file": "pitching_2024_115.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/115/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1252314,
+      "sha256": "a06407764697f95de9c84ab45e3601e70614af05dc84fbb9e11cbabbaa6a3c35"
+    },
+    {
+      "file": "pitching_2024_116.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/116/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1267185,
+      "sha256": "b2a24083799154d705dd99851b46c0fb1483832c2e47c19f43a51650c8ace8a6"
+    },
+    {
+      "file": "pitching_2024_117.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/117/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1414403,
+      "sha256": "e4882ecac89effb257a41693acf5707a3f862a661427a5166c118488402b5f59"
+    },
+    {
+      "file": "pitching_2024_118.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/118/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1422098,
+      "sha256": "6022e46a71c8e9117cfb20a82bce36a027385e27b77d18dca9ebea9adc5ad578"
+    },
+    {
+      "file": "pitching_2024_119.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/119/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1564131,
+      "sha256": "9e4c99bb900764bf928e81dfe5b5562875764556679015c2d6b0a58705348721"
+    },
+    {
+      "file": "pitching_2024_120.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/120/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1342413,
+      "sha256": "12fa9c3b92e33c812af83bb45d3a774624dde92422cb89569f5c543f8d09c067"
+    },
+    {
+      "file": "pitching_2024_121.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/121/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1655936,
+      "sha256": "98f0849670ed1fd97a36342cccfa5fe825a3fbaca1f2f2009125ff0e27c73138"
+    },
+    {
+      "file": "pitching_2024_133.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/133/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1339732,
+      "sha256": "279472ff38b54f6949dfb863b0ef1f93567cef4e38e5dff66b0fd338689ecbc6"
+    },
+    {
+      "file": "pitching_2024_134.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/134/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1521616,
+      "sha256": "f87012213f789a0570a84e1c773ffecf595d3e106f24ccae05b13dc344fa2b00"
+    },
+    {
+      "file": "pitching_2024_135.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/135/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1581597,
+      "sha256": "934ead10f93449c791e750fcef65cb178c9a1448b386d9f051faf2ed0792886d"
+    },
+    {
+      "file": "pitching_2024_136.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/136/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1579668,
+      "sha256": "28c143d67f26c1b65b8b523efd35cc0fccc2e7ab50deed627d2416d1d0282b99"
+    },
+    {
+      "file": "pitching_2024_137.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/137/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1458088,
+      "sha256": "04c82b5c5f5403f5457774886cf19dd34a50af2361648c51c37d517db29a6ffe"
+    },
+    {
+      "file": "pitching_2024_138.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/138/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1312386,
+      "sha256": "ce091138d9002424737215cd99c9e671fa8859f3a1b016271755edd7134dcc85"
+    },
+    {
+      "file": "pitching_2024_139.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/139/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1459875,
+      "sha256": "b1f92770ccabdd8136aaac6345de9e56608e510623e7c7ab513792537a1217af"
+    },
+    {
+      "file": "pitching_2024_140.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/140/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1391613,
+      "sha256": "59fd5b173a67ba2c69f2973de641bd2c1bbd2bc6a1ba44e54aef9f9d9aa03c25"
+    },
+    {
+      "file": "pitching_2024_141.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/141/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1600817,
+      "sha256": "4f2a31bbe57a09f98143f98108f527bd53b15c008bb59861f471e1a445302408"
+    },
+    {
+      "file": "pitching_2024_142.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/142/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1477117,
+      "sha256": "937aa9198a618f4d73232831847c8ea2db3b2a747810d1d0846cd2e8d65a6bb3"
+    },
+    {
+      "file": "pitching_2024_143.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/143/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1428430,
+      "sha256": "6ecc15b21285eab5245b75bcabbdb5e19b3f19846143a62ad77cfdd8575ba178"
+    },
+    {
+      "file": "pitching_2024_144.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/144/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1316826,
+      "sha256": "0a494e356c00c3512971d40f4f5814bd57a51407ef27fb05e0f861179135fcbf"
+    },
+    {
+      "file": "pitching_2024_145.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/145/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1553939,
+      "sha256": "11b990e13f54092ea00ba5272fe2b2aa7ff8b0d40575dda7880ab6f6a36e17f3"
+    },
+    {
+      "file": "pitching_2024_146.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/146/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1700632,
+      "sha256": "7cdf491aefe0ea11b9daf8d19147b53237ac228f17958b7795bbffaab92e0dc8"
+    },
+    {
+      "file": "pitching_2024_147.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/147/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1631957,
+      "sha256": "395efe05c3b0333e623740f8ab133dd0c00c842e9db8e7d9646d19c7a429c27c"
+    },
+    {
+      "file": "pitching_2024_158.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/158/roster?rosterType=fullSeason&season=2024&hydrate=person(stats(type=gameLog,group=pitching,season=2024))",
+      "bytes": 1441896,
+      "sha256": "4071ee1853ecbee59ae23f4a0e47ff72df058c46d2631c986cd9f47b0c67f1ce"
+    },
+    {
+      "file": "schedule_2025.json",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2025-01-01&endDate=2025-12-31&gameType=R&hydrate=probablePitcher,linescore,venue",
+      "bytes": 11351385,
+      "sha256": "98d5fb98e9ef73619e3ca61f6c4739edcb767fdb7b9b12366abdffe1a6c7da42"
+    },
+    {
+      "file": "pitching_2025_108.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/108/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1460973,
+      "sha256": "1a8b97bd8d24eb14cc880f5f84159996076750d76c496601bbd79543131f2641"
+    },
+    {
+      "file": "pitching_2025_109.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/109/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1356954,
+      "sha256": "57aac796a889fd3bc264ab44dc0981bdccf0e487081fc6562a051fb73638d78e"
+    },
+    {
+      "file": "pitching_2025_110.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/110/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1630656,
+      "sha256": "08096ba4a6dad5c5da75ba3688717667fd9aa8f5c9728ab62de5ccd6463a47e5"
+    },
+    {
+      "file": "pitching_2025_111.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/111/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1512474,
+      "sha256": "64f21ac78f496101dfcb38b74d679ade0187899c75ee8638d0dd42f6fca63060"
+    },
+    {
+      "file": "pitching_2025_112.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/112/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1487832,
+      "sha256": "5c650dcae91bf00f1204965b24a9c40df03ad9d6f67a1d4e8cda20b8b4d4a5ae"
+    },
+    {
+      "file": "pitching_2025_113.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/113/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1363555,
+      "sha256": "13857b804e4e1f4563d27d8f621bd006f34ff9842bbdcd82ec04cc269eb53fe4"
+    },
+    {
+      "file": "pitching_2025_114.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/114/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1304263,
+      "sha256": "513e7bd9b495b5190df582cffc59c267a9679184d461463ebb8acdb01556a1f7"
+    },
+    {
+      "file": "pitching_2025_115.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/115/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1299866,
+      "sha256": "338e6bd95be50183d9f84ddddf6a14a3d1e05556d78e712b198ea5dc891c31a1"
+    },
+    {
+      "file": "pitching_2025_116.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/116/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1689342,
+      "sha256": "d2e395a993dfeb0f2560719f53a2b6ed5986ecd2fa3ff235ae4276b527e5e380"
+    },
+    {
+      "file": "pitching_2025_117.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/117/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1480017,
+      "sha256": "1f6fe94f7d2e1b55ad7b3ae4ace859c35214cac06e21b0f36ac051bef84dd977"
+    },
+    {
+      "file": "pitching_2025_118.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/118/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1413783,
+      "sha256": "a09cfa530b09d5fc548e8a9e151ff0df6dfde4a576aa4b1147be636e9b8a5c87"
+    },
+    {
+      "file": "pitching_2025_119.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/119/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1686594,
+      "sha256": "2a79f434df6569f5dbfc95e87f6cee9aaecb410d5c2d2f4cac3f653fd7dfd8ba"
+    },
+    {
+      "file": "pitching_2025_120.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/120/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1492912,
+      "sha256": "8398e1a257a6b61410b985881e5d581c8ed8b1bd9c486dfcb5392798c0c67d1e"
+    },
+    {
+      "file": "pitching_2025_121.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/121/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1745157,
+      "sha256": "d327404454c0d90a9a4a412fa6c63759a5554bfe8708a12f9e58472909c76289"
+    },
+    {
+      "file": "pitching_2025_133.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/133/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1321543,
+      "sha256": "15ea566ef99dfb49a6752904c67d9bc67ab0348eaa1c8e4f1549c6c1e68f5d5f"
+    },
+    {
+      "file": "pitching_2025_134.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/134/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1454155,
+      "sha256": "fc4fe435ccd7fd37cc859de42a43b55becfcee992021a3f347a033bf230632b4"
+    },
+    {
+      "file": "pitching_2025_135.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/135/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1404053,
+      "sha256": "483be0172f5fd2b17bd826d7a386257d2e553d93932521c4b4ec3d45371540ab"
+    },
+    {
+      "file": "pitching_2025_136.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/136/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1520105,
+      "sha256": "d4c70624af0e1c44be2a08815983765ccfb623cd5afc4e57fe60a3571fca7f1a"
+    },
+    {
+      "file": "pitching_2025_137.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/137/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1527035,
+      "sha256": "7b67625472e2fee824333cee71cc6f931f4017e6a7421715d3776ddcd9faf037"
+    },
+    {
+      "file": "pitching_2025_138.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/138/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1402577,
+      "sha256": "8b9e80d342c4d0bebfc59c8629fde84d1f1688cbd8b5c3757d7aea2193479f27"
+    },
+    {
+      "file": "pitching_2025_139.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/139/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1444699,
+      "sha256": "99803dedebbb89d19f4c213fc8b93b11b29e47d92123ed1edef7817da4080cee"
+    },
+    {
+      "file": "pitching_2025_140.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/140/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1442717,
+      "sha256": "86942b4123a52360c4a944f9f56af105997307e540cda340fc75ee1a85fe4a9b"
+    },
+    {
+      "file": "pitching_2025_141.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/141/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1583561,
+      "sha256": "bd9b68d30a2174c62c8d491008b9075d1893297551645cf9d6bde8e28e97fa22"
+    },
+    {
+      "file": "pitching_2025_142.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/142/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1728315,
+      "sha256": "d0e2bc3b91532f222b34fabf56bf8cec829f88bdcd1b3a2a5ab7f729a5869a5f"
+    },
+    {
+      "file": "pitching_2025_143.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/143/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1434328,
+      "sha256": "dd1c3402675b2e0c7f7ed6c048f6f41b71add390b418a4ad6da84a6c2bcca4e7"
+    },
+    {
+      "file": "pitching_2025_144.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/144/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1887703,
+      "sha256": "edecf2401336573e9810823c3f0d299d1d3c47ea43475a71571382c2249f9785"
+    },
+    {
+      "file": "pitching_2025_145.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/145/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1374161,
+      "sha256": "7bd2c4bbfe0572e55171e9b3e6b297c961e8584f80a54f425057464d03746559"
+    },
+    {
+      "file": "pitching_2025_146.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/146/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1282946,
+      "sha256": "fc28eb7ad8580f2551820553a584c32c5b649707b56e8c9e0258a843c234ea9f"
+    },
+    {
+      "file": "pitching_2025_147.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/147/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1624910,
+      "sha256": "884a2b9cd3efd9c037031aa8b1b73fcf7ed2de976ac02967c661dacbaf11fe4e"
+    },
+    {
+      "file": "pitching_2025_158.json",
+      "url": "https://statsapi.mlb.com/api/v1/teams/158/roster?rosterType=fullSeason&season=2025&hydrate=person(stats(type=gameLog,group=pitching,season=2025))",
+      "bytes": 1499208,
+      "sha256": "8eecdecdae46444a3d41b2d85e2e0dbd3aa56ea0c27d7db8421e9275aba65b99"
+    },
+    {
+      "file": "pitcher_index_2021.json",
+      "url": "https://statsapi.mlb.com/api/v1/stats?stats=season&group=pitching&season=2021&gameType=R&sportIds=1&playerPool=ALL&limit=2000",
+      "bytes": 1387561,
+      "sha256": "6063e2ffac8f8f883ce9e88f823863d107b77cb6066a9b8d56aa43cdfe519c70"
+    },
+    {
+      "file": "pitcher_index_2022.json",
+      "url": "https://statsapi.mlb.com/api/v1/stats?stats=season&group=pitching&season=2022&gameType=R&sportIds=1&playerPool=ALL&limit=2000",
+      "bytes": 1329776,
+      "sha256": "fd7fb55b0a903cbe74885cfab53142b23a73f629e6140b83809eba183c7baad8"
+    },
+    {
+      "file": "pitcher_index_2023.json",
+      "url": "https://statsapi.mlb.com/api/v1/stats?stats=season&group=pitching&season=2023&gameType=R&sportIds=1&playerPool=ALL&limit=2000",
+      "bytes": 1317904,
+      "sha256": "8fb532797c229434c33a165506232cfac116071cf3e3322df9ab3eb5b116df75"
+    },
+    {
+      "file": "pitcher_index_2024.json",
+      "url": "https://statsapi.mlb.com/api/v1/stats?stats=season&group=pitching&season=2024&gameType=R&sportIds=1&playerPool=ALL&limit=2000",
+      "bytes": 1305371,
+      "sha256": "f00d025220bb6ccacc24784de50c42f4a8135d7690af6026aeace9172dcdb225"
+    },
+    {
+      "file": "pitcher_index_2025.json",
+      "url": "https://statsapi.mlb.com/api/v1/stats?stats=season&group=pitching&season=2025&gameType=R&sportIds=1&playerPool=ALL&limit=2000",
+      "bytes": 1332731,
+      "sha256": "95b00828867f844c4e1d0b14fdaec14af7b95085868fb2e5115da6eba541657e"
+    },
+    {
+      "file": "people_2021_5f5a659905d4.json",
+      "url": "https://statsapi.mlb.com/api/v1/people?personIds=548389,595014&hydrate=stats(type=gameLog,group=pitching,season=2021)",
+      "bytes": 166216,
+      "sha256": "80d8047c3ff75a458570428195f80b9e5cb8dddd807005bb87640f5aae5c4b05"
+    },
+    {
+      "file": "people_2022_326a45558d6a.json",
+      "url": "https://statsapi.mlb.com/api/v1/people?personIds=543281,664285,676130&hydrate=stats(type=gameLog,group=pitching,season=2022)",
+      "bytes": 63191,
+      "sha256": "4d4604dc635f76ea49b7eb733b846186471fc0c69890f8feeed4fbd5a40dbc62"
+    },
+    {
+      "file": "people_2023_8fc4127e4e8a.json",
+      "url": "https://statsapi.mlb.com/api/v1/people?personIds=579328,664285,676130,680694,686610&hydrate=stats(type=gameLog,group=pitching,season=2023)",
+      "bytes": 239400,
+      "sha256": "b5278589258cb1c6b9071f45ebe14c96ec34fa7910b80b61e781f1956104798d"
+    },
+    {
+      "file": "people_2025_f9624823339d.json",
+      "url": "https://statsapi.mlb.com/api/v1/people?personIds=601713&hydrate=stats(type=gameLog,group=pitching,season=2025)",
+      "bytes": 54215,
+      "sha256": "0b37f783da19da3447c19f56cf458188e308e087660e0278bed7317516388fdb"
+    },
+    {
+      "file": "venues.json",
+      "url": "https://statsapi.mlb.com/api/v1/venues?venueIds=1,2,3,4,5,7,10,12,14,15,17,19,22,31,32,680,2392,2394,2395,2397,2523,2529,2536,2602,2680,2681,2735,2756,2889,3289,3309,3312,3313,3949,4169,4705,5150,5325,5340,5381,5445,6130&hydrate=location,timezone",
+      "bytes": 19664,
+      "sha256": "663ab5ae462441f4d5f8847fec0f82e9fd1e61911cac71572019e58e3ddf2f02"
+    }
+  ]
+}
