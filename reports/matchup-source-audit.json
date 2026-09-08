@@ -1,0 +1,484 @@
+{
+  "audit_created_at": "2026-09-08T23:12:18.085061+00:00",
+  "checks": [
+    {
+      "file": "data/raw/matchup-source-audit/pregame-feed.json",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823092/feed/live",
+      "requested_at": "2026-09-08T23:12:12.659297+00:00",
+      "received_at": "2026-09-08T23:12:13.629316+00:00",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 236308,
+      "sha256": "1f0f2100fc49c0c3cb2033dd88b9fe107fecc8b32379774522dc5a42e7504f38"
+    },
+    {
+      "file": "data/raw/matchup-source-audit/historical-schedule.json",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2024-04-01",
+      "requested_at": "2026-09-08T23:12:12.659575+00:00",
+      "received_at": "2026-09-08T23:12:13.793909+00:00",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 18600,
+      "sha256": "d4c1f09156f7f43b4ba22761302a0a36d0b9c19bb264cf77c06c2a005b2a6383"
+    },
+    {
+      "file": "data/raw/matchup-source-audit/historical-timestamps.json",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/746817/feed/live/timestamps",
+      "requested_at": "2026-09-08T23:12:13.796843+00:00",
+      "received_at": "2026-09-08T23:12:13.963331+00:00",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 8065,
+      "sha256": "977f720a0e1d0cf7afcfaa6266cb74c8cf42f0f4960e20e36df4e487bccc640c"
+    },
+    {
+      "url": "https://baseballsavant.mlb.com/statcast_search/csv?all=true&type=details&game_pk=746817&game_date_gt=2024-04-01&game_date_lt=2024-04-01",
+      "requested_at": "2026-09-08T23:12:13.796992+00:00",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "file": "data/raw/matchup-source-audit/historical-first-feed.json",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/746817/feed/live?timecode=20240401_145353",
+      "requested_at": "2026-09-08T23:12:14.311101+00:00",
+      "received_at": "2026-09-08T23:12:18.083512+00:00",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 213661,
+      "sha256": "1c999c88696034a4d136c3459e2c5444d9d52ca8ca4bdf3dfef866b08bf62d21"
+    },
+    {
+      "file": "data/raw/matchup-source-audit/historical-final-feed.json",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/746817/feed/live",
+      "requested_at": "2026-09-08T23:13:14.811978+00:00",
+      "received_at": "2026-09-08T23:13:15.220660+00:00",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 738824,
+      "sha256": "0ea7f4a3f79c43f7e99b1cb1ee029421e612f519faf0fafb4321a06282e6b0a3"
+    },
+    {
+      "file": "data/raw/matchup-source-audit/recent-schedule.json",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-09-07",
+      "requested_at": "2026-09-08T23:13:15.241216+00:00",
+      "received_at": "2026-09-08T23:13:15.334793+00:00",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 14692,
+      "sha256": "24cb5aef93df112549eb562da4ce4c3b0fcf0785efb5207956a48bacb194219c"
+    },
+    {
+      "file": "data/raw/matchup-source-audit/recent-final-feed.json",
+      "url": "https://statsapi.mlb.com/api/v1.1/game/823415/feed/live",
+      "requested_at": "2026-09-08T23:13:15.335182+00:00",
+      "received_at": "2026-09-08T23:13:15.454586+00:00",
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "bytes": 657999,
+      "sha256": "375ec0d9e2b0b0c8a906780b66994cc3ec801aa3a7b13029f7861754a0ec4212"
+    }
+  ],
+  "summary": {
+    "pregame": {
+      "game_pk": 823092,
+      "status": {
+        "abstractGameState": "Preview",
+        "codedGameState": "P",
+        "detailedState": "Pre-Game",
+        "statusCode": "P",
+        "startTimeTBD": false,
+        "abstractGameCode": "P"
+      },
+      "datetime": {
+        "dateTime": "2026-09-09T01:40:00Z",
+        "originalDate": "2026-09-08",
+        "officialDate": "2026-09-08",
+        "dayNight": "night",
+        "time": "6:40",
+        "ampm": "PM"
+      },
+      "metadata": {
+        "wait": 10,
+        "timeStamp": "20260908_223155",
+        "gameEvents": [
+          "game_advisory"
+        ],
+        "logicalEvents": []
+      },
+      "probable_pitchers": {
+        "away": {
+          "id": 615698,
+          "fullName": "Cal Quantrill",
+          "link": "/api/v1/people/615698"
+        },
+        "home": {
+          "id": 682243,
+          "fullName": "Bryce Miller",
+          "link": "/api/v1/people/682243"
+        }
+      },
+      "plays_count": 1,
+      "lineups": {
+        "home": {
+          "battingOrder": [
+            668227,
+            686527,
+            677594,
+            663728,
+            641487,
+            647304,
+            702284,
+            703155,
+            801126
+          ],
+          "team_id": 136
+        },
+        "away": {
+          "battingOrder": [
+            592626,
+            608369,
+            677649,
+            607043,
+            694671,
+            694497,
+            669394,
+            670032,
+            643376
+          ],
+          "team_id": 140
+        }
+      },
+      "pitch_event_count": 0,
+      "game_info": {
+        "firstPitch": "2026-09-09T01:40:00.000Z"
+      }
+    },
+    "historical_game": {
+      "game_pk": 746817,
+      "start": "2024-04-01T18:10:00Z"
+    },
+    "historical_timestamps": {
+      "count": 448,
+      "first": [
+        "20240401_145353",
+        "20240401_173646",
+        "20240401_180932"
+      ],
+      "last": [
+        "20240401_212325",
+        "20240401_212328",
+        "20240401_212358"
+      ]
+    },
+    "historical_first_feed": {
+      "status": {
+        "abstractGameState": "Preview",
+        "codedGameState": "P",
+        "detailedState": "Pre-Game",
+        "statusCode": "P",
+        "startTimeTBD": false,
+        "abstractGameCode": "P"
+      },
+      "datetime": {
+        "dateTime": "2024-04-01T18:10:00Z",
+        "originalDate": "2024-04-01",
+        "officialDate": "2024-04-01",
+        "dayNight": "day",
+        "time": "1:10",
+        "ampm": "PM"
+      },
+      "metadata": {
+        "wait": 10,
+        "timeStamp": "20240401_145353",
+        "gameEvents": [
+          "game_advisory"
+        ],
+        "logicalEvents": []
+      },
+      "probable_pitchers": {
+        "away": {
+          "id": 450203,
+          "fullName": "Charlie Morton",
+          "link": "/api/v1/people/450203"
+        },
+        "home": {
+          "id": 623167,
+          "fullName": "Chris Flexen",
+          "link": "/api/v1/people/623167"
+        }
+      },
+      "plays_count": 1,
+      "lineups": {
+        "home": [
+          643217,
+          660162,
+          673357,
+          683734,
+          657757,
+          657557,
+          670032,
+          455117,
+          666150
+        ],
+        "away": [
+          660670,
+          645277,
+          663586,
+          621566,
+          542303,
+          671739,
+          606115,
+          518595,
+          672284
+        ]
+      },
+      "pitch_event_count": 0,
+      "game_info": {
+        "attendance": 13781,
+        "firstPitch": "2024-04-01T18:10:00.000Z",
+        "gameDurationMinutes": 149,
+        "delayDurationMinutes": 64
+      }
+    },
+    "historical_final_feed": {
+      "status": {
+        "abstractGameState": "Final",
+        "codedGameState": "F",
+        "detailedState": "Completed Early: Rain",
+        "statusCode": "FR",
+        "startTimeTBD": false,
+        "reason": "Rain",
+        "abstractGameCode": "F"
+      },
+      "pitch_events": 277,
+      "pitch_data_count": 277,
+      "sample": {
+        "matchup": {
+          "batter": {
+            "id": 660670,
+            "fullName": "Ronald Acu\u00f1a Jr.",
+            "link": "/api/v1/people/660670"
+          },
+          "batSide": {
+            "code": "R",
+            "description": "Right"
+          },
+          "pitcher": {
+            "id": 623167,
+            "fullName": "Chris Flexen",
+            "link": "/api/v1/people/623167"
+          },
+          "pitchHand": {
+            "code": "R",
+            "description": "Right"
+          },
+          "batterHotColdZones": [],
+          "pitcherHotColdZones": [],
+          "splits": {
+            "batter": "vs_RHP",
+            "pitcher": "vs_RHB",
+            "menOnBase": "Empty"
+          }
+        },
+        "atBatIndex": 0,
+        "pitch": {
+          "details": {
+            "call": {
+              "code": "F",
+              "description": "Foul"
+            },
+            "description": "Foul",
+            "code": "F",
+            "ballColor": "rgba(170, 21, 11, 1.0)",
+            "trailColor": "rgba(188, 0, 33, 1.0)",
+            "isInPlay": false,
+            "isStrike": true,
+            "isBall": false,
+            "type": {
+              "code": "FF",
+              "description": "Four-Seam Fastball"
+            },
+            "isOut": false,
+            "hasReview": false
+          },
+          "count": {
+            "balls": 0,
+            "strikes": 1,
+            "outs": 0
+          },
+          "pitchData": {
+            "startSpeed": 90.7,
+            "endSpeed": 83.3,
+            "strikeZoneTop": 3.49,
+            "strikeZoneBottom": 1.6,
+            "coordinates": {
+              "aY": 26.970318958656833,
+              "aZ": -14.083958948422946,
+              "pfxX": -4.173503449476623,
+              "pfxZ": 10.198344243801165,
+              "pX": 0.11101456193547148,
+              "pZ": 3.413171559139239,
+              "vX0": 2.235361535419877,
+              "vY0": -132.04520960984897,
+              "vZ0": -5.912662929248342,
+              "x": 108.61,
+              "y": 152.46,
+              "x0": -0.20237886688744128,
+              "y0": 50.00007651622898,
+              "z0": 6.709643109008165,
+              "aX": -7.400795116547989
+            },
+            "breaks": {
+              "breakAngle": 24.0,
+              "breakLength": 3.6,
+              "breakY": 24.0,
+              "breakVertical": -15.6,
+              "breakVerticalInduced": 17.5,
+              "breakHorizontal": 7.1,
+              "spinRate": 2004,
+              "spinDirection": 190
+            },
+            "zone": 2,
+            "typeConfidence": 2.0,
+            "plateTime": 0.4141065859666395,
+            "extension": 6.5213518656023375
+          },
+          "index": 3,
+          "playId": "bebbc33e-d2db-414f-92fe-80249aedf186",
+          "pitchNumber": 1,
+          "startTime": "2024-04-01T18:10:43.280Z",
+          "endTime": "2024-04-01T18:10:47.160Z",
+          "isPitch": true,
+          "type": "pitch"
+        }
+      }
+    },
+    "recent_final_feed": {
+      "game_pk": 823415,
+      "status": {
+        "abstractGameState": "Final",
+        "codedGameState": "F",
+        "detailedState": "Final",
+        "statusCode": "F",
+        "startTimeTBD": false,
+        "abstractGameCode": "F"
+      },
+      "pitch_events": 227,
+      "pitch_data_count": 227,
+      "sample": {
+        "matchup": {
+          "batter": {
+            "id": 660670,
+            "fullName": "Ronald Acu\u00f1a Jr.",
+            "link": "/api/v1/people/660670"
+          },
+          "batSide": {
+            "code": "R",
+            "description": "Right"
+          },
+          "pitcher": {
+            "id": 666200,
+            "fullName": "Jes\u00fas Luzardo",
+            "link": "/api/v1/people/666200"
+          },
+          "pitchHand": {
+            "code": "L",
+            "description": "Left"
+          },
+          "batterHotColdZones": [],
+          "pitcherHotColdZones": [],
+          "splits": {
+            "batter": "vs_LHP",
+            "pitcher": "vs_RHB",
+            "menOnBase": "Empty"
+          }
+        },
+        "atBatIndex": 0,
+        "pitch": {
+          "details": {
+            "call": {
+              "code": "X",
+              "description": "In play, out(s)"
+            },
+            "description": "In play, out(s)",
+            "code": "X",
+            "ballColor": "rgba(26, 86, 190, 1.0)",
+            "trailColor": "rgba(188, 0, 33, 1.0)",
+            "isInPlay": true,
+            "isStrike": false,
+            "isBall": false,
+            "type": {
+              "code": "FF",
+              "description": "Four-Seam Fastball"
+            },
+            "isOut": true,
+            "hasReview": false
+          },
+          "count": {
+            "balls": 0,
+            "strikes": 0,
+            "outs": 0
+          },
+          "pitchData": {
+            "startSpeed": 97.3,
+            "endSpeed": 88.4,
+            "strikeZoneTop": 3.201,
+            "strikeZoneBottom": 1.615,
+            "strikeZoneWidth": 17.0,
+            "strikeZoneDepth": 8.5,
+            "coordinates": {
+              "aY": 33.59548902802227,
+              "aZ": -15.440289534154422,
+              "pfxX": 8.066781393150308,
+              "pfxZ": 8.317586663840597,
+              "pX": -0.7847308640505254,
+              "pZ": 3.102559939040229,
+              "vX0": -11.067100176874277,
+              "vY0": -141.25796275293973,
+              "vZ0": -4.428159739545038,
+              "x": 146.91,
+              "y": 155.01,
+              "x0": 2.144415233774548,
+              "y0": 50.00080244816937,
+              "z0": 5.690231131535122,
+              "aX": 16.22518639756393
+            },
+            "breaks": {
+              "breakAngle": 39.6,
+              "breakLength": 4.8,
+              "breakY": 24.0,
+              "breakVertical": -14.9,
+              "breakVerticalInduced": 14.3,
+              "breakHorizontal": -12.2,
+              "spinRate": 2389,
+              "spinDirection": 129
+            },
+            "zone": 1,
+            "typeConfidence": 2.0,
+            "plateTime": 0.3884521373045611,
+            "extension": 5.80710685035954
+          },
+          "hitData": {
+            "launchSpeed": 90.5,
+            "launchAngle": 75.0,
+            "totalDistance": 62.0,
+            "trajectory": "popup",
+            "hardness": "medium",
+            "location": "3",
+            "coordinates": {
+              "coordX": 151.69,
+              "coordY": 192.09
+            }
+          },
+          "index": 3,
+          "playId": "67024af8-483e-3d89-ad24-6939c7d26303",
+          "pitchNumber": 1,
+          "startTime": "2026-09-07T17:06:21.629Z",
+          "endTime": "2026-09-07T17:06:31.452Z",
+          "isPitch": true,
+          "type": "pitch"
+        }
+      }
+    }
+  },
+  "audit_updated_at": "2026-09-08T23:13:15.485492+00:00"
+}

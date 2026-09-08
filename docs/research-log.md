@@ -21,3 +21,15 @@ An initial integration run at 20:56 UTC recorded 15 forecasts with the prelimina
 ## Next new research, not evaluated here
 
 The current model does not capture today's lineup changes or starter news. A stronger next hypothesis would estimate batter-vs-pitch-arsenal run value from pitch-level data, simulate the inning distribution of fresh relievers, and update on confirmed lineups and starter changes. That requires historical publication timestamps or a new forward cohort. No result from that unbuilt model is implied. The now-observed 2024–2025 outcomes cannot be reused as untouched evidence for it.
+
+## F1 — newly recovered timestamped FanDuel observations
+
+On September 8, a separate source audit located The Odds Gap's public seven-day research CSV. Before scoring, protocol d00e288 and clarification a4a897b were pushed on the research branch. The unchanged 2025-trained physical artifact was tested on 100 reconciled September 2026 events; 85 outcomes were graded from the frozen official snapshot. There were zero qualifying bets. On 97 common forecasts / 82 common settled outcomes, physical-model log loss was 0.68386684 versus 0.68263097 for FanDuel. The synchronized Pinnacle pricing control also produced zero qualifying bets. The complete negative pilot is preserved in reports/timestamped-mlb-research-report.md.
+
+Independent official first-pitch timestamps tighten timing checks; they do not establish bookmaker execution. The publisher export lacks bookmaker-update timestamps and covers too few calendar weeks for confidence intervals. No threshold, feature, candidate or source period was adjusted to create a bet. These newly inspected outcomes are now research knowledge and cannot become untouched evidence for another revised model.
+
+## N2/N3 implementation and source collection
+
+The current worktree was first updated from remote commits documenting the failed N1 soccer experiment and frozen N2/N3 tennis specifications. Those existing hypotheses remain intact. Implemented components now preserve a predetermined Challenger sample, literal paired opening histories, delayed score/Elo/workload inputs, annual fitting with label-availability checks, and missing-outcome/closing coverage. Actual tennis evaluation is deferred until all required daily pages and selected details have been attempted and their raw-source provenance checked.
+
+The additional F1 evaluations expand the conservative family allowance from eleven to thirteen before any tennis results are inspected. This does not license indefinite testing on the same holdout. Formal numerical checks use Python 3.12.13 with the original locked dependencies; a Python 3.14/pandas 2.2.3 source-build crash was an environment failure, not a model result.

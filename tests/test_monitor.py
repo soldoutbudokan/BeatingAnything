@@ -317,6 +317,66 @@ class MonitorTests(unittest.TestCase):
                           "starts_at": stamp(self.now - timedelta(days=1))},
             }, self.now)
 
+    def test_existing_trial_can_be_registered_again_after_its_start(self):
+        registration = {
+            "model_id": "idempotent-trial", "artifact_sha256": "e" * 64,
+            "trial": {"cohort_id": "fixed", "protocol_sha256": "f" * 64,
+                      "model_frozen_at": stamp(self.now - timedelta(hours=1)),
+                      "starts_at": stamp(self.now)},
+        }
+        self.monitor.register_model(registration, self.now - timedelta(minutes=30))
+        repeated = self.monitor.register_model(registration, self.now + timedelta(days=1))
+        self.assertTrue(repeated["duplicate"])
+        self.assertNotIn("config_sha256", registration["trial"])
+        self.assertEqual(self.monitor.db.execute("SELECT count(*) FROM models").fetchone()[0], 1)
+
+    def test_registered_artifact_mismatch_is_excluded_from_paper_scoring(self):
+        self.monitor.register_model({"model_id": "frozen", "artifact_sha256": "a" * 64}, self.now)
+        for event, artifact in (("missing-hash", None), ("wrong-hash", "b" * 64)):
+            self.monitor.ingest_quote(self.quote(event_id=event), self.now)
+            decision = self.monitor.predict(self.prediction(event_id=event, model_id="frozen",
+                                            artifact_sha256=artifact), self.now)
+            self.assertEqual(decision["kind"], "BLOCKED")
+            self.assertIn("registered_model_artifact_mismatch", decision["reasons"])
+        self.assertEqual(self.monitor.forecast_report(self.now)["events"], [])
+        self.assertEqual(self.monitor.pending(self.now), [])
+
+    def test_quote_conditioned_forecast_cannot_predate_input_capture(self):
+        self.register_validated_fixture()
+        captured = self.now + timedelta(seconds=30)
+        quote = self.monitor.ingest_quote(self.quote(source=self.verified_source()), captured)
+        decision = self.monitor.predict(self.prediction(model_id="reviewed-test-v1", artifact_sha256="a" * 64,
+                                        market_quote_id=quote["quote_id"]), captured)
+        self.assertEqual(decision["kind"], "BLOCKED")
+        self.assertIn("market_conditioned_prediction_precedes_quote", decision["reasons"])
+        self.assertEqual(self.monitor.forecast_report(captured)["events"], [])
+        self.assertEqual(self.monitor.pending(captured), [])
+
+    def test_reports_do_not_reveal_settlements_before_they_were_recorded(self):
+        self.monitor.ingest_quote(self.quote(), self.now)
+        self.monitor.predict(self.prediction(), self.now)
+        self.add_settlement()  # Final at +5h, first recorded at +6h.
+        for as_of in (self.now + timedelta(hours=4), self.now + timedelta(hours=5, minutes=30)):
+            report = self.monitor.report(as_of)
+            self.assertEqual(report["settled_signals"], 0)
+            self.assertEqual(report["all_forecasts"]["events"][0]["status"], "pending")
+        report = self.monitor.report(self.now + timedelta(hours=6))
+        self.assertEqual(report["settled_signals"], 1)
+        self.assertEqual(report["all_forecasts"]["events"][0]["status"], "final")
+
+    def test_selected_signal_reports_separate_quote_source_classes(self):
+        sources = {"verified": self.verified_source(),
+                   "aggregator_observational": {"uri": "test://aggregator", "provider": "test", "verified": False},
+                   "synthetic": self.quote()["source"]}
+        for event, source in sources.items():
+            self.monitor.ingest_quote(self.quote(event_id=event, source=source), self.now)
+            self.monitor.predict(self.prediction(event_id=event), self.now)
+            self.add_settlement(event_id=event)
+        report = self.monitor.report(self.now + timedelta(hours=6))
+        self.assertEqual(len(report["cohorts"]), 3)
+        self.assertEqual({cohort["source_class"] for cohort in report["cohorts"]}, set(sources))
+        self.assertTrue(all(cohort["graded_signals"] == 1 for cohort in report["cohorts"]))
+
     def test_webhook_claims_prevent_duplicate_sends_after_ambiguous_failure(self):
         self.register_validated_fixture()
         self.monitor.config["webhook_enabled"] = True

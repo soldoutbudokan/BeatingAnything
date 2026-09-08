@@ -2,7 +2,21 @@
 
 **No betting edge demonstrated.** Active research has moved to smaller models and markets with a longer season ahead. Completed failures remain visible; no betting alert or wager is enabled.
 
+Use Python 3.12 and the pinned `requirements-lock.txt` dependencies for the research commands below.
+
+The new [timestamped FanDuel MLB pilot](reports/timestamped-mlb-research-report.md) tested the unchanged physical model on 100 September 2026 forecasts. It produced zero qualifying bets and worse log loss than FanDuel on available settled outcomes. Unlike the original archive, this source permits a limited near-start price comparison, but bookmaker freshness remains unverified and one week cannot establish an edge.
+
 The next experiment models **ATP Challenger total games at 21.5**, reconstructing serving and match-length tendencies from historical set scores. The [tennis protocol](docs/protocol-tennis-v1.md) was committed before holdout acquisition. Its exact scoring kernel accounts for service order and tiebreaks. Historical data collection and the frozen backtest are in progress; this is not a profitable-model claim.
+
+Both registered tennis experiments now have a collector, chronological score-history engine and annual evaluation pipeline. [N3](docs/protocol-tennis-independent-v1.md) uses independent prior set Elo; N2 uses synchronized opening moneyline information. The [implementation review](docs/tennis-implementation-review.md) records source and label-availability checks before results. Collection is resumable and preserves failed requests and missing markets; it is currently a local process, not a deployed betting monitor.
+
+```bash
+python -m beating.tennis_source daily
+python -m beating.tennis_source details
+python -m beating.tennis_pipeline
+```
+
+The [additional source audit](docs/source-search-v2.md) also identifies a free 2025 NFL archive with FanDuel capture and bookmaker-update timestamps. It is an untested research lead. [Pitch-level MLB source research](docs/matchup-research-v2.md) verifies a free route to pitch movement and matchup data, while documenting historical lineup-publication limits.
 
 The completed [six-league soccer totals experiment](reports/soccer-research-report.md) tested three small pricing models on **7,741 holdout/replication forecasts**. None produced a bet at the fixed 3% EV threshold. Unlike the earlier MLB archive, its source provides usable same-line historical closing benchmarks. All 42 pinned files match primary source downloads. See [metrics](reports/soccer-metrics.json), [protocol](docs/protocol-narrow-v1.md), [pre-result review](docs/narrow-review-before-results.md) and [source investigation](docs/odds-source-investigation.md).
 

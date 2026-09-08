@@ -77,6 +77,11 @@ def source_info(value: Any) -> dict:
     return value
 
 
+def source_class(source: dict) -> str:
+    return ("synthetic" if source.get("synthetic") else "historical" if source.get("historical") else
+            "verified" if source["verified"] else "aggregator_observational")
+
+
 class Monitor:
     def __init__(self, database: str | Path, config: dict | None = None):
         self.config = dict(DEFAULT_CONFIG)
@@ -201,20 +206,21 @@ class Monitor:
                 raise ValueError("validated registration requires explicit reviewed approval for alerts")
         trial = value.get("trial")
         if trial is not None:
+            trial = value["trial"] = dict(trial)
             if not sha:
                 raise ValueError("forward trial requires artifact_sha256")
             nonempty(trial.get("cohort_id"), "trial.cohort_id")
             protocol_sha = nonempty(trial.get("protocol_sha256"), "trial.protocol_sha256")
             if len(protocol_sha) != 64 or any(c not in "0123456789abcdef" for c in protocol_sha):
                 raise ValueError("trial.protocol_sha256 must be lowercase SHA-256")
-            if not parse_time(trial["model_frozen_at"]) <= now <= parse_time(trial["starts_at"]):
-                raise ValueError("forward trial must be registered after model freeze and before trial start")
             trial["config_sha256"] = digest(self.config)
         existing = self.db.execute("SELECT payload FROM models WHERE model_id=?", (model_id,)).fetchone()
         if existing:
             if existing[0] == canonical(value):
                 return {"model_id": model_id, "duplicate": True}
             raise ValueError("model_id already registered; create a new versioned model_id")
+        if trial is not None and not parse_time(trial["model_frozen_at"]) <= now <= parse_time(trial["starts_at"]):
+            raise ValueError("forward trial must be registered after model freeze and before trial start")
         with self.db:
             self.db.execute("INSERT INTO models VALUES (?,?,?,?,?)", (model_id, stamp(now), status, sha, canonical(value)))
         return {"model_id": model_id, "research_status": status, "duplicate": False}
@@ -318,9 +324,16 @@ class Monitor:
             reasons.append("event_already_settled")
         model = self.db.execute("SELECT * FROM models WHERE model_id=?", (value["model_id"],)).fetchone()
         registration = json.loads(model["payload"]) if model else {}
+        if model and model["artifact_sha256"] and value.get("artifact_sha256") != model["artifact_sha256"]:
+            reasons.append("registered_model_artifact_mismatch")
         if (registration.get("market_conditioned") is True or
                 registration.get("baseline") == "paired_fanduel_no_vig_moneyline") and not value.get("market_quote_id"):
             reasons.append("market_conditioned_prediction_requires_quote_id")
+        if row and value.get("market_quote_id") == row["quote_id"]:
+            # A forecast using this quote cannot have existed before that input.
+            latest_input = max(parse_time(quote["observed_at"]), parse_time(row["ingested_at"]))
+            if generated + timedelta(seconds=self.config["max_clock_skew_seconds"]) < latest_input:
+                reasons.append("market_conditioned_prediction_precedes_quote")
         validated = bool(model and model["research_status"] == "prospectively_validated" and
                          value.get("artifact_sha256") == model["artifact_sha256"])
         if validated and generated < parse_time(model["registered_at"]):
@@ -520,6 +533,13 @@ class Monitor:
             return {**q, "quote_id": row["quote_id"]}
         return None
 
+    def _settlement_as_of(self, event_id: str, now: datetime) -> dict | None:
+        row = self.db.execute("SELECT payload, recorded_at FROM settlements WHERE event_id=?", (event_id,)).fetchone()
+        if not row or parse_time(row["recorded_at"]) > now:
+            return None
+        value = json.loads(row["payload"])
+        return value if parse_time(value["settled_at"]) <= now else None
+
     def forecast_report(self, now: datetime | None = None) -> dict:
         """First eligible captured forecast per model/artifact/event, regardless of EV."""
         now = now or utcnow()
@@ -551,29 +571,25 @@ class Monitor:
             if key in selected:
                 continue
             source = quote["source"]
-            source_class = ("synthetic" if source.get("synthetic") else "historical" if source.get("historical") else
-                            "verified" if source["verified"] else "aggregator_observational")
             eligible = not (set(decision["eligibility_reasons"]) - {"decision_blocked"})
             result = {"model_id": key[0], "artifact_sha256": key[1], "event_id": key[2],
-                      "cohort_id": prediction.get("cohort_id"), "source_class": source_class,
+                      "cohort_id": prediction.get("cohort_id"), "source_class": source_class(source),
                       "registered_forward_eligible": eligible,
                       "prediction_id": decision["prediction_id"], "quote_id": decision["quote_id"],
                       "generated_at": prediction["generated_at"], "captured_at": row["captured_at"],
                       "quote_observed_at": quote["observed_at"], "status": "pending",
                       "probability_home": decision["probability_home"],
                       "market_probability_home": decision["market_probability_home"]}
-            settlement = self.db.execute("SELECT payload FROM settlements WHERE event_id=?", (key[2],)).fetchone()
-            if settlement:
-                settled = json.loads(settlement[0])
-                if parse_time(settled["settled_at"]) <= now:
-                    result["status"] = settled["status"]
-                    if settled["status"] == "final":
-                        y = int(settled["home_won"])
-                        p, m = result["probability_home"], result["market_probability_home"]
-                        model_loss, market_loss = -math.log(p if y else 1 - p), -math.log(m if y else 1 - m)
-                        result.update(home_won=bool(y), model_log_loss=model_loss, market_log_loss=market_loss,
-                                      paired_log_loss_delta=model_loss - market_loss,
-                                      model_brier=(p - y) ** 2, market_brier=(m - y) ** 2)
+            settled = self._settlement_as_of(key[2], now)
+            if settled:
+                result["status"] = settled["status"]
+                if settled["status"] == "final":
+                    y = int(settled["home_won"])
+                    p, m = result["probability_home"], result["market_probability_home"]
+                    model_loss, market_loss = -math.log(p if y else 1 - p), -math.log(m if y else 1 - m)
+                    result.update(home_won=bool(y), model_log_loss=model_loss, market_log_loss=market_loss,
+                                  paired_log_loss_delta=model_loss - market_loss,
+                                  model_brier=(p - y) ** 2, market_brier=(m - y) ** 2)
             selected[key] = result
         groups = {}
         for event in selected.values():
@@ -597,12 +613,14 @@ class Monitor:
         rows = []
         for out in self.db.execute("SELECT payload FROM outbox ORDER BY created_at, rowid"):
             entry = json.loads(out[0])
-            settled = self.db.execute("SELECT payload FROM settlements WHERE event_id=?", (entry["event_id"],)).fetchone()
-            if not settled:
+            if parse_time(entry["created_at"]) > now:
                 continue
-            settlement = json.loads(settled[0])
+            settlement = self._settlement_as_of(entry["event_id"], now)
+            if not settlement:
+                continue
             record = {"event_id": entry["event_id"], "kind": entry["kind"], "side": entry["side"],
                       "model_id": entry["model_id"], "artifact_sha256": entry.get("artifact_sha256"),
+                      "source_class": source_class(entry["source"]),
                       "cohort_id": entry.get("cohort_id"), "forward_eligible": entry["forward_eligible"],
                       "eligibility_reasons": entry["eligibility_reasons"],
                       "entry_decimal": entry["decimal_odds"], "status": settlement["status"],
@@ -627,14 +645,15 @@ class Monitor:
             rows.append(record)
         grouped = {}
         for row in rows:
-            key = (row["model_id"], row["artifact_sha256"], row["cohort_id"], row["forward_eligible"])
+            key = (row["model_id"], row["artifact_sha256"], row["cohort_id"], row["forward_eligible"], row["source_class"])
             grouped.setdefault(key, []).append(row)
         cohorts = []
         mean = lambda field, data: sum(r[field] for r in data) / len(data) if data else None
-        for (model_id, artifact, cohort_id, eligible), group in grouped.items():
+        for (model_id, artifact, cohort_id, eligible, source_kind), group in grouped.items():
             finals = [r for r in group if r["status"] == "final"]
             clv = [r for r in finals if r["closing_quote_id"]]
             cohorts.append({"model_id": model_id, "artifact_sha256": artifact, "cohort_id": cohort_id,
+                            "source_class": source_kind,
                             "forward_eligible": eligible,
                             "use": "registered forward trial" if eligible else "excluded from forward evidence",
                             "settled_signals": len(group), "graded_signals": len(finals), "clv_signals": len(clv),

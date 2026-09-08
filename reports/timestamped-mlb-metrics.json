@@ -1,0 +1,3543 @@
+{
+  "status": "unproven",
+  "experiment": "F1",
+  "model_id": "a7ceefe2db3c13ea",
+  "entry_book": "FanDuel",
+  "primary_close": "Pinnacle near-start publisher observations",
+  "evidence_class": "retrospective aggregator observations, execution unverified",
+  "confidence_if_sufficient_blocks": 0.9961538461538462,
+  "minimum_calendar_weeks_for_ci": 8,
+  "alerts_enabled": false,
+  "audit": {
+    "source_rows": 67902,
+    "other_book_rows": 61210,
+    "identical_duplicate_side_rows": 0,
+    "paired_snapshots": 3346,
+    "at_or_after_official_start_pairs": 20,
+    "unmatched_or_ambiguous_schedule_pairs": 17,
+    "outside_model_fixture_contract_pairs": 55,
+    "mapped_pairs": 3254,
+    "fanduel_mapped_pairs": 1885,
+    "outside_entry_time_window_pairs": 1416,
+    "entry_events": 100
+  },
+  "physical_blocks": {},
+  "accepted_events_with_recorded_first_pitch": 92,
+  "sources": {
+    "odds_url": "https://theoddsgap.com/api/odds-export.csv?sport=baseball_mlb&market=ml",
+    "odds_sha256": "3f433cc28f0a2789dc2dff59f46718ee385181ca9e6fc5e460706fa93585a14e",
+    "model_sha256": "c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f",
+    "protocol_sha256": "3ce1d8bebb86924ba22ce31e39f0c3b3505d8042f98a5b949dbe18c38064f70c",
+    "forecasts_sha256": "b6557da81a9781e2f0b00d304b9b913c82f3ab7f3a7f1b13654339700b29814b",
+    "official_manifest": {
+      "observed_at_utc": "2026-09-08T23:14:57.528975+00:00",
+      "source": "MLB Advanced Media Stats API",
+      "timestamp_status": "Retrospective official results; no pregame vintage",
+      "files": [
+        {
+          "file": "schedule_2026.json",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-01-01&endDate=2026-12-31&gameType=R&hydrate=probablePitcher,linescore,venue",
+          "bytes": 10514676,
+          "sha256": "422fd3f3a67fd8f64a9452a596bc1807948abafb1ec752125c4a8578a0f99fd5"
+        },
+        {
+          "file": "pitcher_index_2026.json",
+          "url": "https://statsapi.mlb.com/api/v1/stats?stats=season&group=pitching&season=2026&gameType=R&sportIds=1&playerPool=ALL&limit=2000",
+          "bytes": 1298401,
+          "sha256": "6e2389aea31ba9e1a409434d05124a46755bef88a77d3d0c0dd8eedb90846951"
+        },
+        {
+          "file": "people_2026_45a959c8cb87.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=434378,445276,453286,455119,471911,472610,476594,489446,500743,500779,518585,518876,518886,519141,519242,527048,542888,543037,543056,543135,543238,543243,543309,543510,544150,545121,547179,547184,547973,548384,552640,554430,571510,571578,571771,571882,571912,571927,571945,571948,572143,572955,573009,573124,573204,579328,592094,592155,592288,592332&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 2109782,
+          "sha256": "bab4e40f0d46ce01d62fe2b50610eabe01ca577a9ddf291600a237094c0d0399"
+        },
+        {
+          "file": "people_2026_c80672220b83.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=592454,592662,592773,592779,592791,592826,592836,592866,593958,593974,594027,594580,594798,594835,595014,595345,595978,596001,596117,596133,596142,601713,605130,605135,605154,605156,605218,605242,605280,605288,605335,605400,605441,605447,605452,605483,605488,605540,606115,606303,606965,606996,607067,607074,607192,607200,607259,607455,607481,607536&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1869354,
+          "sha256": "7e9091822a3d86c8a3d57238cde28e138f0791906912b169801cb3ca8e9b52a0"
+        },
+        {
+          "file": "people_2026_decb5226ffd8.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=607625,608032,608331,608337,608344,608348,608371,608372,608379,608566,608650,608718,608723,615698,620443,621016,621053,621074,621097,621107,621111,621112,621121,621139,621237,621242,621345,621366,621381,621383,621389,622088,622491,622554,622608,622663,622694,622761,623149,623168,623211,623352,623381,623437,623454,623465,623474,624133,624428,624431&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 2025910,
+          "sha256": "959fca6753234a03ebf3d954d21aed8c38a46a039fb49fe32a5dc0daba341dbe"
+        },
+        {
+          "file": "people_2026_490b45615e40.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=624512,624522,625643,628452,628708,640448,640451,640454,640455,640902,641302,641312,641329,641386,641401,641585,641656,641743,641745,641755,641778,641793,641816,641835,641927,641941,642048,642100,642121,642152,642207,642215,642232,642376,642397,642528,642546,642547,642701,642759,643361,643377,643410,643511,644433,645261,645302,646241,646242,647315&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 2228639,
+          "sha256": "173cd53892571c7ff2b189639688998b9b757b52fec9cc03ed427e4c08ee23a1"
+        },
+        {
+          "file": "people_2026_7b15686b9e5c.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=647336,650556,650633,650644,650911,650960,655316,655889,656212,656222,656234,656240,656271,656288,656302,656427,656457,656464,656492,656529,656546,656550,656577,656605,656638,656641,656686,656716,656730,656756,656786,656794,656848,656849,656876,656945,656986,657044,657097,657265,657277,657424,657514,657571,657612,657649,657746,657756,660271,660604&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 2657847,
+          "sha256": "971fcce67765ba014f44e7aa4f793d944a9e99394b7ea76d01b5a76a6c2bcb86"
+        },
+        {
+          "file": "people_2026_c10f533738f7.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=660710,660761,660787,660825,660844,660853,661395,661527,661563,662144,662253,663158,663362,663372,663423,663432,663436,663460,663465,663485,663494,663542,663554,663556,663558,663559,663567,663568,663574,663623,663687,663738,663765,663767,663776,663795,663855,663878,663884,663893,663903,663941,663947,663967,663969,663978,663992,664059,664074,664076&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 2201273,
+          "sha256": "4150624d52087b54377195d0a064d2d1a5ecb8bb1763665ebe560f97be908102"
+        },
+        {
+          "file": "people_2026_17b7f744f669.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=664126,664129,664141,664192,664199,664208,664238,664285,664299,664353,664702,664731,664744,664774,664849,664854,664875,664954,664991,665152,665622,665645,665660,665665,665795,665871,666126,666129,666142,666157,666171,666200,666201,666277,666374,666619,666661,666711,666745,666808,666974,667297,667463,667652,667755,668390,668670,668674,668678,668716&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 2152736,
+          "sha256": "3b66117b168c850050fddf6d8d8db7bf47c16ac2bf3f732fd93c0b919a1b4989"
+        },
+        {
+          "file": "people_2026_bba7d493ef35.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=668820,668831,668834,668873,668881,668909,668933,668941,668942,668964,668970,668984,669020,669022,669060,669062,669084,669093,669145,669160,669165,669169,669194,669199,669211,669212,669270,669276,669298,669302,669310,669330,669358,669371,669372,669373,669387,669432,669438,669456,669461,669467,669620,669622,669684,669704,669711,669713,669724,669854&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 2220769,
+          "sha256": "db882f2e1ba101fe215fa5fcc367c6eab056109a519cc5a1c1ea45873c0d3ee3"
+        },
+        {
+          "file": "people_2026_af9be50c95a6.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=669920,669923,669947,670032,670036,670059,670062,670090,670097,670103,670167,670183,670245,670280,670329,670871,670912,670950,670970,670990,671083,671096,671106,671109,671111,671131,671162,671212,671345,671382,671737,671922,671936,672021,672282,672335,672442,672456,672578,672582,672629,672782,672841,673380,673513,673540,673929,674003,674073,674370&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1977972,
+          "sha256": "a9210f9d1087697f346eb413ee364b8c4ea83accfeba53929cf338209c4b7ac1"
+        },
+        {
+          "file": "people_2026_609e0312b30f.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=674444,674841,675512,675540,675627,675660,675848,675911,675916,675919,675920,675989,676051,676083,676105,676106,676130,676254,676263,676272,676282,676395,676428,676440,676467,676477,676508,676510,676534,676568,676571,676596,676604,676617,676620,676661,676664,676680,676684,676694,676702,676742,676755,676760,676775,676879,676910,676917,676962,676974&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1900896,
+          "sha256": "5d186e2a4cb022528a009811ad6d1303b082a1d4dcd2b13b53c5d4d3cddbc0cd"
+        },
+        {
+          "file": "people_2026_3b7b974fe208.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=676979,677020,677053,677161,677588,677865,677944,677952,677955,677958,677960,677961,677976,678020,678022,678061,678368,678391,678394,678576,678606,678868,678906,679358,679775,679883,679885,679922,680474,680570,680573,680604,680689,680694,680702,680704,680723,680728,680730,680732,680736,680742,680744,680755,680767,680802,680899,680916,680951,681006&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1777834,
+          "sha256": "7195d24180875375af910a99b856a2c5564cc7947e9453714e9a7eb04228136b"
+        },
+        {
+          "file": "people_2026_d311c4efdb6e.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=681035,681084,681151,681168,681190,681217,681252,681293,681320,681343,681347,681402,681432,681517,681520,681544,681676,681751,681799,681806,681810,681867,681870,681892,681895,681911,681916,681982,682052,682120,682227,682243,682254,682274,682445,682608,682610,682668,682769,682825,682842,682982,682989,682995,682997,683000,683003,683004,683155,683175&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1918622,
+          "sha256": "1e0d184d03fc71cd0e754f8521df47b8657ddec8ec840c7da890554ea2f3819e"
+        },
+        {
+          "file": "people_2026_f918eba9e48e.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=683232,683352,683363,683409,683618,683627,683734,683742,683766,683769,684007,684049,684320,684442,684516,684665,684974,685005,685112,685126,685299,685464,685801,686218,686228,686475,686560,686563,686580,686610,686613,686628,686678,686747,686751,686753,686780,686790,686796,686799,686894,686930,686934,686973,686993,687060,687064,687075,687134,687209&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1357461,
+          "sha256": "dd6f7244edd7a353bc5460b8e16e0f481a64f272339ff070348473373ef2fb33"
+        },
+        {
+          "file": "people_2026_ea572a0b36ad.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=687223,687239,687273,687287,687309,687312,687330,687377,687396,687473,687531,687562,687570,687606,687721,687765,687849,687859,687911,687931,687941,687985,688107,688158,688297,688497,688642,688692,688883,689017,689147,689149,689225,689254,689266,689296,689441,689520,689546,689690,689818,690155,690279,690440,690829,690925,690928,690953,690978,690986&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1666437,
+          "sha256": "7c160b666150b4e5d1b9ee79dfd85bf95d7857496f9637e5a2a31f7d2afdcb21"
+        },
+        {
+          "file": "people_2026_cadcd17b36ca.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=690990,690997,691008,691384,691548,691587,691594,691725,691769,691799,691945,691946,691951,692030,692230,692437,693308,693312,693313,693433,693645,693686,693713,693821,693855,694037,694297,694335,694341,694346,694350,694357,694360,694361,694363,694397,694462,694477,694494,694646,694680,694738,694753,694795,694819,694820,694851,694918,694973,695001&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1360927,
+          "sha256": "a3f8d8a35e71b18355e03d8c07bc443358f8a4ba6190ebc307151d61ddfa6f77"
+        },
+        {
+          "file": "people_2026_eb0b09b85128.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=695034,695049,695076,695239,695243,695378,695380,695418,695445,695505,695534,695549,695611,695684,696062,696070,696131,696136,696146,696147,696149,696270,696519,696522,697811,697812,699008,699044,699134,699151,699823,700241,700249,700270,700327,700363,700413,700669,700712,700842,701121,701474,701519,701542,701552,701656,701719,701780,702021,702047&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1492985,
+          "sha256": "c6a73ec926e8bc3754ab03dd181182dbff80fc0e2098dda2bc4aff3b8a5b5a66"
+        },
+        {
+          "file": "people_2026_7ac147bcf500.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=702056,702070,702153,702193,702273,702275,702281,702303,702352,702474,702566,702752,702885,703615,703725,800048,800311,800600,801139,801403,801434,801725,802408,804267,804619,804636,804668,804926,805074,805123,805299,805326,805345,805427,805673,806188,806960,807739,807743,808825,808963,808967,808970,810938,813349,814305,814490,815081,815083,820862&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 1373815,
+          "sha256": "799a3ede4407e62913ffdce6a7cef28ab0e2747d6b6bfcc86c63f76d8d41931c"
+        },
+        {
+          "file": "people_2026_879da88c8e17.json",
+          "url": "https://statsapi.mlb.com/api/v1/people?personIds=837227&hydrate=stats(type=gameLog,group=pitching,season=2026)",
+          "bytes": 33541,
+          "sha256": "0ad0fedeedc85950bfe9097adec394e4da6892d0f1bab02b82102dd0ab3a612d"
+        },
+        {
+          "file": "venues.json",
+          "url": "https://statsapi.mlb.com/api/v1/venues?venueIds=1,2,3,4,5,7,12,14,15,17,19,22,31,32,680,2392,2394,2395,2529,2602,2680,2681,2735,2889,3289,3309,3312,3313,4169,4705,5325,5340,5355,5445&hydrate=location,timezone",
+          "bytes": 14841,
+          "sha256": "e3b6dc44ebb0fc8004925c26f73d72cbfcffa458b2151ce29c6263dc1dc8e48e"
+        }
+      ]
+    },
+    "first_pitch_manifest": {
+      "observed_at": "2026-09-08T23:32:43.436449+00:00",
+      "start": "2026-09-01",
+      "end": "2026-09-08",
+      "source": "Official MLB recorded pitch-event start times; retrospectively retrieved",
+      "rows": [
+        {
+          "game_pk": 822686,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822686/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "d655b97432ba02c59e4d6a6457aab61788528e2362b299cb8d8a8a01e22884e4",
+          "first_pitch_at": "2026-09-02T17:06:02.590000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 822687,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822687/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ccc2c6adf62717703a6308127fb12206ae7ce3b9c5397a0e4e37fb63aea9d4ed",
+          "first_pitch_at": "2026-09-01T22:45:48.102000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 822848,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822848/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "82dcc5fc9434df7aa62a73a946bba65207a398a9b035751b865fe1e5165ba23d",
+          "first_pitch_at": "2026-09-06T18:38:36.888000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 822850,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822850/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "19c7ca3c7091d2bae9d07d60d8616acf55fafd3b9438f323723a382fca3a2539",
+          "first_pitch_at": "2026-09-05T23:08:24.581000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 822851,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822851/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "3f9a163397badc286d6ef42557b082ba6aee3757fd512623b88f1df8f4db18f6",
+          "first_pitch_at": "2026-09-02T18:38:36.480000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 822852,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822852/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "7bcb8fe778828052df2100d8111e68348b2a834c5bafb7305cf9cae3837d352f",
+          "first_pitch_at": "2026-09-05T00:08:12.282000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 822853,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822853/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ef57ee712a6b73bcf6e5ed18a3b6ef94b974f1588a17024781822561db950478",
+          "first_pitch_at": "2026-09-04T00:08:39.775000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 822854,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822854/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "27576d7dd6027e691bb198613fad45b42e066af9c739c1f613447d7695df9af2",
+          "first_pitch_at": "2026-09-02T00:09:26.695000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 822929,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822929/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "d2f773e4dbbee9304be45b39b74f51550de5d233aa78cddc5a89622804ce57cb",
+          "first_pitch_at": "2026-09-01T22:40:21.159000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 822931,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/822931/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ac6154156270957b362fe456f7a3059ea3d7355c98dc398884f981e9fa0c2ef0",
+          "first_pitch_at": "2026-09-02T22:40:24.592000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823091,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823091/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "da9ea58077d87fa0a9e6ee626ed253941cdea05fde8ec7330c9a5fbbbe942bc8",
+          "first_pitch_at": "2026-09-06T20:12:34.511000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823092,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823092/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "81a66ebb5d21a68522dbe80562755d5280ca6c0c8266d9a61ca020b5f09f9ae2",
+          "first_pitch_at": null,
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823093,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823093/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "f0a987a6fa01ab35e54b07697ecdb92a03d22610583a44773a9866eaf90e3f05",
+          "first_pitch_at": "2026-09-05T02:11:05.347000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823094,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823094/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "7cb7ce699d92ba286e1d639512a236885ecd47eb8fdd5c3626d5b2f14dd6db38",
+          "first_pitch_at": "2026-09-06T01:42:13.974000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823095,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823095/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "7b6bd9bd8d60be764c744173e36b5c6341c3c40788d7786b210ca6fd7111a4c6",
+          "first_pitch_at": "2026-09-04T01:42:12.702000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823174,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823174/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "32eb83c3013fde0bb59a6d3386864273d4139db31419315ad5db593f9b554410",
+          "first_pitch_at": null,
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823175,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823175/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "560687984e41c32ce2c076414fc37d1a5e4c38fa4aa28554492ab566271aebb2",
+          "first_pitch_at": "2026-09-08T00:10:41.862000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823250,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823250/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "982ebfd57ffd8ebcc9498d258296860c8805e8010e29cbce2b515751945696b9",
+          "first_pitch_at": null,
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823253,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823253/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "e1fdbe5a273b8b339a35df6077f40c2a67fbf6cf8366ca84a346f0f3ecc62c11",
+          "first_pitch_at": "2026-09-06T20:12:23.477000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823254,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823254/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "9459e31b4454a57801667885257963de76ebf4a7432948f84a920b70a082851f",
+          "first_pitch_at": "2026-09-07T21:12:01.496000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823256,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823256/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "85806383baab43a382d73d88d56ff0b4cc286d3032589645115f956773c13819",
+          "first_pitch_at": "2026-09-05T01:40:24.158000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823257,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823257/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "6c6afe8af9846c219d9671b32d4110a79b6cf61418cd18f01b79f8d98cea4d80",
+          "first_pitch_at": "2026-09-05T23:16:17.686000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823335,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823335/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "d9039e49096805bd7b59cf8806b72e59d98bed019b1640bd80fd5437e4ee259e",
+          "first_pitch_at": "2026-09-05T22:41:15.849000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823336,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823336/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "990b461295c9087027c7e3940c08e2718938d6a1702a8c58942f71ae5b02d804",
+          "first_pitch_at": "2026-09-06T17:38:08.344000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823337,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823337/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "2ebc0c820039c5d99111b6eb1e87e8c318e926da998664144f089f078ed37e88",
+          "first_pitch_at": "2026-09-03T16:37:42.262000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823338,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823338/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "de1b727d4587317017ee97b053f31f00e5bdade11bf8a89d7f57abe1a5c94588",
+          "first_pitch_at": "2026-09-04T23:08:59.420000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823339,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823339/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "db82193455a51964b6607c557f4ead4dd5e9535dc370a8ebdf789b0efa7670ff",
+          "first_pitch_at": "2026-09-02T22:43:59.703000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823340,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823340/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "48649c84545addbb1d4d1eb8207f99b43c37db144c1398ec822a4e5bac1e0912",
+          "first_pitch_at": "2026-09-01T22:42:44.854000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823414,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823414/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "bfd0d0fabbd53025fb91fd74baab2ab9ff345720e89ac9f3be7172752ea70e58",
+          "first_pitch_at": "2026-09-08T22:40:52.762000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823415,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823415/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "8c63a19209b9f40e154358574919fbe05ea2faf64e80990255057f18b1a830e8",
+          "first_pitch_at": "2026-09-07T17:06:21.629000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823417,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823417/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "5148abbd952a9bbe69c0c8923b446ce3e3d1668d02ab9a5917b3d2518672a86d",
+          "first_pitch_at": "2026-09-06T17:12:04.696000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823418,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823418/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "91c55a3d392e4641f463759e9bb4d335c110289cb50a3537b949e627b77902f8",
+          "first_pitch_at": "2026-09-04T22:42:39.851000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823419,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823419/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ec8742bc9101b3fa9e274ac67b9bad2720982e2bd77c1ec441ae0287122f448b",
+          "first_pitch_at": "2026-09-05T22:06:04.377000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823500,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823500/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "75f4f814e83979e216ae5cacff72d45e2bf226fe4d872491993d907536ff5b5d",
+          "first_pitch_at": "2026-09-08T23:08:31.993000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823577,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823577/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "d11cc5b23ab42272cf0fc40770628a1387f20f6a580fd51761805053dc7c88ee",
+          "first_pitch_at": "2026-09-05T20:10:18.092000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823578,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823578/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "4c7b4ee849e4778f0beba2de80ebb304979bab9645184aa61b992669bb5790ab",
+          "first_pitch_at": "2026-09-06T17:40:42.332000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823579,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823579/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "7d61b33c603278e7eccf05da59b93541aa173ffb09ae4cae333bfc521b7e84b8",
+          "first_pitch_at": "2026-09-04T23:10:30.805000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823660,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823660/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "50b9028df9a3180be4ed6b394c352c32c31b728429982d15d29f7b1f406e51f8",
+          "first_pitch_at": "2026-09-02T23:42:05.857000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823661,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823661/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "e608a7775990f3e38aa2315ee52af24a6a8687b5dd5c1ddb924b55ad20519af6",
+          "first_pitch_at": "2026-09-01T23:41:12.213000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823738,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823738/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "76a5637f252511c980da0ef85c49629700be8bc2c3a065743b3ebe1988a17912",
+          "first_pitch_at": null,
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823742,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823742/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "d3a6f12c58096788f7a35d32123d533eb60466ea4787e392abb0873f028dcdf7",
+          "first_pitch_at": "2026-09-07T18:10:26.417000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823820,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823820/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "a31dcbc952acd60ae2262931ac218921161397b16e1b28cb8ab190b77a943876",
+          "first_pitch_at": "2026-09-07T17:11:08.868000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823821,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823821/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "8a05826bb73c204233322bf02c5c21419be391e8e8807107b2018bf2f1c23218",
+          "first_pitch_at": "2026-09-08T22:40:20.389000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823822,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823822/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "a9e4d21511f17a9394886e03702a562680abe2d2f7be800de9d4362ab59ab563",
+          "first_pitch_at": "2026-09-06T17:41:38.510000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823823,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823823/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "cfc7e7c5f83aaceceb531dc7789e1cfcb487e88a41f6f2f44b0eb00e0798b7e7",
+          "first_pitch_at": "2026-09-05T20:12:10.981000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823824,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823824/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "27397aa01781bec8df43a1b84dd4d5aa0ae26de09c04c02d583b8db9155b7365",
+          "first_pitch_at": "2026-09-04T23:10:36.155000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823901,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823901/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ce53b38fa945e5d946b22902083b241d7e47ab8354d34416aaf3ec9aa36c1e9e",
+          "first_pitch_at": null,
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823902,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823902/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "368796bed1005261a2736d8e50fda696af696e86b12a5990e490227ba64b60d8",
+          "first_pitch_at": "2026-09-08T01:10:48.763000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823903,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823903/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "740724427d8b0e25333614ba6a97162007bd4c4ee2677ba8fdad26bf8bc10b8f",
+          "first_pitch_at": "2026-09-07T02:10:12.551000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823904,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823904/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "9a18b8102cd378da8b8b300d33ba5efb521857cc2cf1b6bb60805c9bcbbf45aa",
+          "first_pitch_at": "2026-09-06T01:09:42.852000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823905,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823905/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "41992915ee99a21dd27669d7f63ed244fab23b7bd7156416770937403edaf00f",
+          "first_pitch_at": "2026-09-05T02:10:57.037000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823906,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823906/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "c3855c79e8f24c1010a495952e8b072e37d9291079511d27a8d44d8652f55d62",
+          "first_pitch_at": "2026-09-03T02:10:47.265000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823907,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823907/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "9256f4060f7bc041ec22b409b793232186bae4c8ef3b820ed50a4ddd20b41584",
+          "first_pitch_at": "2026-09-04T02:10:12.360000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823908,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823908/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "3907774052c3659d26fcb9bdbf69e5dfe54b33342f0f6e7e9bdb368c9be73300",
+          "first_pitch_at": "2026-09-02T02:11:41.362000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823983,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823983/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "fe80d5c03171aa75d12d856c925df0570e850f8b463d8a2c8a8c761d3237aa1f",
+          "first_pitch_at": "2026-09-03T01:39:41.407000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 823984,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/823984/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "e376b13e5022f9815d2b962c797330b6b39dd742fc75b62ebadb4c22b929be50",
+          "first_pitch_at": "2026-09-02T01:39:30.239000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824062,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824062/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "de03a225b1e9d576167cb6eadd048f1cb56bd80d444ff8d190eae9e06a46e453",
+          "first_pitch_at": "2026-09-07T18:10:25.955000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824063,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824063/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "355205badd949f18311cbb20b362eba586a2d830f0d2bb3318b06c6533f85de1",
+          "first_pitch_at": null,
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824065,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824065/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "fc79cd91975d4c10e14c6a1beb6a1c6ac030be06ea700fd155c526b1af94c7aa",
+          "first_pitch_at": "2026-09-06T18:12:16.038000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824066,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824066/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "3316a785c193e3c785e6222df81c0ae1a2c793b5733ddb5de5ab29f81e814a21",
+          "first_pitch_at": "2026-09-05T23:09:52.002000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824067,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824067/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "7cd5568aa0acd0ec71d096468f507e3d7f592912e759e5c71664be1024f42ca2",
+          "first_pitch_at": "2026-09-05T00:10:13.451000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824068,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824068/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "6de8b8e23c2dd2dbad87e881473bbf228deb0a4c97d01dc47a5248f3f96e617a",
+          "first_pitch_at": "2026-09-02T23:40:18.901000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824069,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824069/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ed9e6ffe2d1a7844808a4eaa18643d4318dfc8d591638289fc2a720a18e46946",
+          "first_pitch_at": "2026-09-03T23:40:40.045000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824070,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824070/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ca91f788be3f7217e17703edf0600bf8981c21d580ac3dc146740df7b0ee538b",
+          "first_pitch_at": "2026-09-01T23:40:37.358000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824142,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824142/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "9abbbf07f67b4638c09425edf2c92ea0cac7661ec07740cbde4ef5bdec75124b",
+          "first_pitch_at": "2026-09-06T18:10:42.503000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824144,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824144/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "0084bc905d8d02d763165293fe6bf342f5a1afba9554090579fe840a110980e3",
+          "first_pitch_at": "2026-09-03T18:11:20.670000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824145,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824145/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "e4757528af77cf399622fd1996b97b2c8eb2de5e1bacbf7da0596652c0120b7f",
+          "first_pitch_at": "2026-09-05T23:15:57.790000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824146,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824146/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "0bfa42c0883992a204f4b941e65966f1264594e573adc62dd6c3a6bd92d230a3",
+          "first_pitch_at": "2026-09-05T00:11:39.935000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824147,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824147/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "276b105a1b3aa9c97234e4c98d8693c3ae715e06c9f81aa6fa987a4cc7898255",
+          "first_pitch_at": "2026-09-03T00:10:31.609000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824148,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824148/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "51dbd97afbeb148e1da123670ada001b9ba03a8faeb7b3284fc5eecfd7676851",
+          "first_pitch_at": "2026-09-02T00:11:28.503000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824228,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824228/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "cb8481064d965e98e2faea133f68a9fabf122fbdb482e8da79fedad8399adfd8",
+          "first_pitch_at": "2026-09-08T22:40:20.384000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824229,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824229/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "13f4d798ef97d3fdbde795b513b8d5de328ecb1606bfb370bcd3fa63e0209766",
+          "first_pitch_at": "2026-09-07T19:10:21.139000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824309,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824309/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "f909ea367004a6055b1c3e333196bc4b781a0ac12ccf4227c7d08b3e7cc47ff8",
+          "first_pitch_at": "2026-09-06T19:10:17.082000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824310,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824310/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "1ba1fd87722bb03c95237fcd495ae6582812327671becbeee114f52479c61346",
+          "first_pitch_at": "2026-09-06T00:11:52.540000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824311,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824311/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "f4eeee85abea5649dee9ab49692d3b31f09d7936556ce7c897e362256539bfb1",
+          "first_pitch_at": "2026-09-05T00:40:21.561000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824312,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824312/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "64e3e73084fd94a74fbda905e11709ecb59f3a91e8918144333ba097d1e65b7a",
+          "first_pitch_at": "2026-09-02T19:13:15.393000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824313,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824313/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "37c3127bc46e3cd0019e68574805dad0d8b1d493de744e3d63c28766d771e0c1",
+          "first_pitch_at": "2026-09-02T00:40:36.639000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824385,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824385/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "a7fe1c4493f8cc59dabb75472b7f3b37f9432e54a8beb66507d3b227321c56ab",
+          "first_pitch_at": "2026-09-06T17:40:59.425000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824387,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824387/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "78ffe9ae2df258e4ccf74d358adf441dd38bb5cec9853cb94bdcb9e294577c66",
+          "first_pitch_at": "2026-09-04T23:45:35.376000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824388,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824388/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "9e4b1ef54e48fb005acb4aa606680bc8ed7e47f9303b352e429a7fe543de0897",
+          "first_pitch_at": "2026-09-03T17:11:43.653000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824389,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824389/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "73a310604956c77966e390e4244c90c1facd1e6c8baec131fe53757e89572722",
+          "first_pitch_at": "2026-09-05T22:10:33.341000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824390,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824390/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "a9570620f9e35a178edec5a9623606e55131611f278ab82c5af1a74d013e95f3",
+          "first_pitch_at": "2026-09-02T22:41:42.849000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824391,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824391/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ea2e31be90cd623fd84b32a33d4a6b231ba92288ae6413d69a30721d0fe53fda",
+          "first_pitch_at": "2026-09-01T22:41:21.129000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824424,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824424/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "9b2700cadf0fbe8d15cb50734619db8aaf35cfc4617af9e749e1b80e89ceb595",
+          "first_pitch_at": "2026-09-04T19:15:11.585000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824468,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824468/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "a13e8d5b3260ce7a1830fe839fcc48ab8d8be2c4f306e43b1a88b0ea73ca06ba",
+          "first_pitch_at": "2026-09-05T22:41:59.832000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824469,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824469/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "530e5bb291aa3ad66e0bc4bc754a1009a61d0a7db141aa72da0ae0e9302892e9",
+          "first_pitch_at": "2026-09-06T16:12:34.657000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824470,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824470/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "d1713990161e1d5a422df41b13d4e2d84a34c2d31bc3239249c526acca4119b3",
+          "first_pitch_at": "2026-09-02T16:41:33.912000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824471,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824471/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "337122da2a4844cc3f3dcf2a447bb2d7d923ae5d29448c30963cec9554f3d713",
+          "first_pitch_at": "2026-09-04T23:00:43.525000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824472,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824472/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "3dc2718afdd98b8a346cb63c84d502170b6505facc30f34aefe2332b24bd3a0e",
+          "first_pitch_at": "2026-09-01T22:42:17.198000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824551,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824551/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "e388bee35c9c132e649082f174eca8e35362f86542908dba610bf32e3bce2dc3",
+          "first_pitch_at": null,
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824552,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824552/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "81b772ccf6c706494c2099359c88facbd44040822f785bec1ef2d7ec80a702b8",
+          "first_pitch_at": "2026-09-06T22:20:43.829000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824553,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824553/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "5b9fbd3ab80873eadb7692498e61f62d3057605e20c8e4443f2d662808605812",
+          "first_pitch_at": "2026-09-05T23:11:19.115000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824554,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824554/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ad3f62edb32d659dae1c09fa3d2c4d88cd5345645917c1d68ce823080f38623b",
+          "first_pitch_at": "2026-09-04T23:40:40.703000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824632,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824632/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "d6ed933d456e3caf483be5478dc165021715023d5a489d4604d236c68e90da53",
+          "first_pitch_at": "2026-09-03T23:15:53.821000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824633,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824633/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "5b6fe30d7d048acf27b96e4792575c307bebe24b467021110aa6a2b095873c0e",
+          "first_pitch_at": "2026-09-01T23:40:27.246000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824634,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824634/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "b62c1af039427c6c07df540583c60804796be5ffa837aba44006c69a96f354cc",
+          "first_pitch_at": "2026-09-02T23:40:17.431000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824714,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824714/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "3982de0bb680ee0adeb590795bfa151300bd29491e4ff35a2a05e5f2511a44e1",
+          "first_pitch_at": "2026-09-08T22:45:44.243000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824715,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824715/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "d65c8ce73c5cde6bffa89dceafa6ca4f6d247f6adccea194bb16317252bedb0e",
+          "first_pitch_at": "2026-09-07T17:36:47.554000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824716,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824716/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "6794779047b4ff51cc89acabbaa57a5a04e9ee1a29f6e2ace50868f4eb0254d2",
+          "first_pitch_at": "2026-09-01T22:46:05.211000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824717,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824717/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "de2ee75054f4c372c3eab50007528650241199a700bd559d0b35c6dc656cd208",
+          "first_pitch_at": "2026-09-02T20:11:44.324000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824792,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824792/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "256954bb41a6222bf63921a7862dd712e97efca568369500a9a3fba6810574f7",
+          "first_pitch_at": "2026-09-08T22:37:13.749000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824793,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824793/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "d297386fb09ba91967bd81c4c41d071d1376cd493d6c0438f5ed510e6c619d0c",
+          "first_pitch_at": "2026-09-07T17:36:56.060000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824794,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824794/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "c677b0be801aff8f87799a80ba644676c8aacad856cc9b6d2ae3b85682380192",
+          "first_pitch_at": "2026-09-06T17:38:48.402000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824795,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824795/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "3fc53dab9c097dd036b701cd740d9b7bd41fcb40bd2d1f065b5f3cf822c3835f",
+          "first_pitch_at": "2026-09-05T23:06:16.931000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824796,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824796/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "ee36ae17c7a89a8ee968d8706f6f7d8f1d07eeaef31a56f13afdfa62387747bd",
+          "first_pitch_at": "2026-09-03T23:17:21+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824797,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824797/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "a2a535625dd217e3d4bd5229e572e396e973438974e4cd0146970c695e2d08d8",
+          "first_pitch_at": "2026-09-04T23:08:06.372000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824875,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824875/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "bbab08317b85dc1285fbc8720edaa1a0f35b45aa733427a7c2a35aacb3995288",
+          "first_pitch_at": "2026-09-08T23:16:45.372000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824957,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824957/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "4fdb71671ca77517b9f5617aebfa257a1fdc17f1d579f6d11455317f3961961a",
+          "first_pitch_at": null,
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 824958,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/824958/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "f8a44e745c559908b0e09f5d7460b897d8da9fc59ba5a8910b73ba54c0aa57ac",
+          "first_pitch_at": "2026-09-08T02:06:15.909000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 825037,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/825037/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "59f523d9906b0dde60d7f983212201a52a815655646cc1a75e84db80ef85dd45",
+          "first_pitch_at": "2026-09-02T19:41:53.320000+00:00",
+          "status": "retrieved"
+        },
+        {
+          "game_pk": 825038,
+          "url": "https://statsapi.mlb.com/api/v1.1/game/825038/feed/live?fields=gamePk,liveData,plays,allPlays,playEvents,isPitch,startTime",
+          "sha256": "c6ac993b9978459d9a4d562e6278e4b055c296ea268de69d3066dc9d83592d03",
+          "first_pitch_at": "2026-09-02T01:41:16.415000+00:00",
+          "status": "retrieved"
+        }
+      ]
+    }
+  },
+  "own_available_population": {
+    "fanduel": {
+      "events": 100,
+      "settled_events": 85,
+      "bets": 0,
+      "turnover_units": 0,
+      "settled_bets": 0,
+      "ungraded_bets": 0,
+      "profit_units_settled": 0.0,
+      "roi": null,
+      "haircut_roi": null,
+      "roi_unresolved_outcome_bounds": [
+        null,
+        null
+      ],
+      "log_loss": 0.6794288219644913,
+      "market_log_loss": 0.6794288219644913,
+      "brier": 0.24315732237704185,
+      "paired_log_loss_delta": 0.0,
+      "max_model_ev": -0.03438789546079768,
+      "max_drawdown_daily_units": 0.0,
+      "max_drawdown_daily_settled_units": 0.0,
+      "independent_calendar_weeks": 2,
+      "inference_status": "insufficient_calendar_weeks",
+      "roi_ci": [
+        null,
+        null
+      ],
+      "paired_log_loss_delta_ci": [
+        null,
+        null
+      ],
+      "execution_verified": false,
+      "passes_forward_promotion": false,
+      "closing_pinnacle": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 80,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 73,
+        "paired_log_loss_delta_vs_close": -0.004484234694531201,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_pinnacle_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 80,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 73,
+        "paired_log_loss_delta_vs_close": -0.0045238323066837845,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 80,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 73,
+        "paired_log_loss_delta_vs_close": -0.0023960318017907808,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 80,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 73,
+        "paired_log_loss_delta_vs_close": -0.0024730388983842558,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      }
+    },
+    "physical": {
+      "events": 100,
+      "settled_events": 85,
+      "bets": 0,
+      "turnover_units": 0,
+      "settled_bets": 0,
+      "ungraded_bets": 0,
+      "profit_units_settled": 0.0,
+      "roi": null,
+      "haircut_roi": null,
+      "roi_unresolved_outcome_bounds": [
+        null,
+        null
+      ],
+      "log_loss": 0.6807033346900627,
+      "market_log_loss": 0.6794288219644913,
+      "brier": 0.24379585458416866,
+      "paired_log_loss_delta": 0.00127451272557153,
+      "max_model_ev": -0.013334088057057158,
+      "max_drawdown_daily_units": 0.0,
+      "max_drawdown_daily_settled_units": 0.0,
+      "independent_calendar_weeks": 2,
+      "inference_status": "insufficient_calendar_weeks",
+      "roi_ci": [
+        null,
+        null
+      ],
+      "paired_log_loss_delta_ci": [
+        null,
+        null
+      ],
+      "execution_verified": false,
+      "passes_forward_promotion": false,
+      "closing_pinnacle": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 80,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 73,
+        "paired_log_loss_delta_vs_close": -0.0030738973063713913,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_pinnacle_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 80,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 73,
+        "paired_log_loss_delta_vs_close": -0.0031134949185239753,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 80,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 73,
+        "paired_log_loss_delta_vs_close": -0.0009856944136309716,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 80,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 73,
+        "paired_log_loss_delta_vs_close": -0.0010627015102244463,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      }
+    },
+    "pinnacle": {
+      "events": 97,
+      "settled_events": 82,
+      "bets": 0,
+      "turnover_units": 0,
+      "settled_bets": 0,
+      "ungraded_bets": 0,
+      "profit_units_settled": 0.0,
+      "roi": null,
+      "haircut_roi": null,
+      "roi_unresolved_outcome_bounds": [
+        null,
+        null
+      ],
+      "log_loss": 0.6838997331169497,
+      "market_log_loss": 0.6826309660654396,
+      "brier": 0.24536307241161157,
+      "paired_log_loss_delta": 0.0012687670515100537,
+      "max_model_ev": 0.008399976421118893,
+      "max_drawdown_daily_units": 0.0,
+      "max_drawdown_daily_settled_units": 0.0,
+      "independent_calendar_weeks": 2,
+      "inference_status": "insufficient_calendar_weeks",
+      "roi_ci": [
+        null,
+        null
+      ],
+      "paired_log_loss_delta_ci": [
+        null,
+        null
+      ],
+      "execution_verified": false,
+      "passes_forward_promotion": false,
+      "closing_pinnacle": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.003612878597195015,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_pinnacle_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.0037240031962315506,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.001313705545433992,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.0015210810342321593,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      }
+    }
+  },
+  "shared_population": {
+    "fanduel": {
+      "events": 97,
+      "settled_events": 82,
+      "bets": 0,
+      "turnover_units": 0,
+      "settled_bets": 0,
+      "ungraded_bets": 0,
+      "profit_units_settled": 0.0,
+      "roi": null,
+      "haircut_roi": null,
+      "roi_unresolved_outcome_bounds": [
+        null,
+        null
+      ],
+      "log_loss": 0.6826309660654396,
+      "market_log_loss": 0.6826309660654396,
+      "brier": 0.24473731847540475,
+      "paired_log_loss_delta": 0.0,
+      "max_model_ev": -0.03438789546079768,
+      "max_drawdown_daily_units": 0.0,
+      "max_drawdown_daily_settled_units": 0.0,
+      "independent_calendar_weeks": 2,
+      "inference_status": "insufficient_calendar_weeks",
+      "roi_ci": [
+        null,
+        null
+      ],
+      "paired_log_loss_delta_ci": [
+        null,
+        null
+      ],
+      "execution_verified": false,
+      "passes_forward_promotion": false,
+      "closing_pinnacle": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.005098019041267929,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_pinnacle_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.005209143640304464,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.0027988459895069056,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.003006221478305073,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      }
+    },
+    "physical": {
+      "events": 97,
+      "settled_events": 82,
+      "bets": 0,
+      "turnover_units": 0,
+      "settled_bets": 0,
+      "ungraded_bets": 0,
+      "profit_units_settled": 0.0,
+      "roi": null,
+      "haircut_roi": null,
+      "roi_unresolved_outcome_bounds": [
+        null,
+        null
+      ],
+      "log_loss": 0.6838668354855528,
+      "market_log_loss": 0.6826309660654396,
+      "brier": 0.24535724242255952,
+      "paired_log_loss_delta": 0.0012358694201131013,
+      "max_model_ev": -0.013334088057057158,
+      "max_drawdown_daily_units": 0.0,
+      "max_drawdown_daily_settled_units": 0.0,
+      "independent_calendar_weeks": 2,
+      "inference_status": "insufficient_calendar_weeks",
+      "roi_ci": [
+        null,
+        null
+      ],
+      "paired_log_loss_delta_ci": [
+        null,
+        null
+      ],
+      "execution_verified": false,
+      "passes_forward_promotion": false,
+      "closing_pinnacle": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.003758766508890345,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_pinnacle_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.0038698911079268804,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.001459593457129322,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.0016669689459274891,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      }
+    },
+    "pinnacle": {
+      "events": 97,
+      "settled_events": 82,
+      "bets": 0,
+      "turnover_units": 0,
+      "settled_bets": 0,
+      "ungraded_bets": 0,
+      "profit_units_settled": 0.0,
+      "roi": null,
+      "haircut_roi": null,
+      "roi_unresolved_outcome_bounds": [
+        null,
+        null
+      ],
+      "log_loss": 0.6838997331169497,
+      "market_log_loss": 0.6826309660654396,
+      "brier": 0.24536307241161157,
+      "paired_log_loss_delta": 0.0012687670515100537,
+      "max_model_ev": 0.008399976421118893,
+      "max_drawdown_daily_units": 0.0,
+      "max_drawdown_daily_settled_units": 0.0,
+      "independent_calendar_weeks": 2,
+      "inference_status": "insufficient_calendar_weeks",
+      "roi_ci": [
+        null,
+        null
+      ],
+      "paired_log_loss_delta_ci": [
+        null,
+        null
+      ],
+      "execution_verified": false,
+      "passes_forward_promotion": false,
+      "closing_pinnacle": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.003612878597195015,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_pinnacle_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.0037240031962315506,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.001313705545433992,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      },
+      "closing_fanduel_power": {
+        "covered_bets": 0,
+        "missing_bets": 0,
+        "all_event_close_coverage": 78,
+        "mean_closing_ev": null,
+        "mean_raw_price_ratio": null,
+        "paired_loss_events": 71,
+        "paired_log_loss_delta_vs_close": -0.0015210810342321593,
+        "mean_closing_ev_ci": [
+          null,
+          null
+        ]
+      }
+    }
+  },
+  "by_day": {
+    "fanduel": {
+      "2026-09-01": {
+        "events": 6,
+        "settled_events": 6,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6705331028992628,
+        "market_log_loss": 0.6705331028992628,
+        "brier": 0.2389432471635119,
+        "paired_log_loss_delta": 0.0,
+        "max_model_ev": -0.03670705630791149,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.015862219285679546,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.013437709569340067,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.006470833435172171,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.001505037803519571,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-02": {
+        "events": 15,
+        "settled_events": 15,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.7568914974006503,
+        "market_log_loss": 0.7568914974006503,
+        "brier": 0.28083792675407604,
+        "paired_log_loss_delta": 0.0,
+        "max_model_ev": -0.03438789546079768,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.02763715964831842,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.029331827440687342,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.01891746951256318,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.021883088138348182,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-03": {
+        "events": 9,
+        "settled_events": 9,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6555346999801661,
+        "market_log_loss": 0.6555346999801661,
+        "brier": 0.23194814871585878,
+        "paired_log_loss_delta": 0.0,
+        "max_model_ev": -0.036879200131126,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 9,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 9,
+          "paired_log_loss_delta_vs_close": 0.0016314523024691446,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 9,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 9,
+          "paired_log_loss_delta_vs_close": 0.00227045035580233,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 9,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 9,
+          "paired_log_loss_delta_vs_close": -0.0018237687235915174,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 9,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 9,
+          "paired_log_loss_delta_vs_close": -0.0006491977555226347,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-04": {
+        "events": 14,
+        "settled_events": 14,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6298344981125344,
+        "market_log_loss": 0.6298344981125344,
+        "brier": 0.21889021539799472,
+        "paired_log_loss_delta": 0.0,
+        "max_model_ev": -0.0367070563079116,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": 0.002371596387989992,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": 0.003511661308452165,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": 0.0023712534350115487,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": 0.004594580870798055,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-05": {
+        "events": 15,
+        "settled_events": 15,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.7574469419423051,
+        "market_log_loss": 0.7574469419423051,
+        "brier": 0.2812947290894583,
+        "paired_log_loss_delta": 0.0,
+        "max_model_ev": -0.036879200131126,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": -0.007089583176165826,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": -0.009849219556000282,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": 0.0014171123754668372,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": -0.003892598705477253,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-06": {
+        "events": 15,
+        "settled_events": 15,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6268366984199959,
+        "market_log_loss": 0.6268366984199959,
+        "brier": 0.21754031631926715,
+        "paired_log_loss_delta": 0.0,
+        "max_model_ev": -0.0367070563079116,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.009039535294787198,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.009974220988862198,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.005903331828620451,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.007317181807608809,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-07": {
+        "events": 11,
+        "settled_events": 11,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6266480827040851,
+        "market_log_loss": 0.6266480827040851,
+        "brier": 0.21705654387370957,
+        "paired_log_loss_delta": 0.0,
+        "max_model_ev": -0.036879200131126,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": -0.0023757839491944754,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": -0.0010213121321146943,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": -0.005496182232187321,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": -0.002878872527881786,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-08": {
+        "events": 15,
+        "settled_events": 0,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": null,
+        "market_log_loss": null,
+        "brier": null,
+        "paired_log_loss_delta": null,
+        "max_model_ev": -0.036879200131126,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      }
+    },
+    "physical": {
+      "2026-09-01": {
+        "events": 6,
+        "settled_events": 6,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6719939219811247,
+        "market_log_loss": 0.6705331028992628,
+        "brier": 0.2396870148118746,
+        "paired_log_loss_delta": 0.0014608190818617601,
+        "max_model_ev": -0.02525124865914763,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.019484752508505038,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.01706024279216556,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.010093366657997663,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.0051275710263450625,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-02": {
+        "events": 15,
+        "settled_events": 15,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.762668433350368,
+        "market_log_loss": 0.7568914974006503,
+        "brier": 0.2836212694166466,
+        "paired_log_loss_delta": 0.00577693594971782,
+        "max_model_ev": -0.019076927745345085,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.02358419347802493,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.02527886127039385,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.014864503342269686,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.01783012196805469,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-03": {
+        "events": 9,
+        "settled_events": 9,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6580634935320738,
+        "market_log_loss": 0.6555346999801661,
+        "brier": 0.23321206162049718,
+        "paired_log_loss_delta": 0.002528793551907765,
+        "max_model_ev": -0.02937624678397399,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 9,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 9,
+          "paired_log_loss_delta_vs_close": 0.004160245854376909,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 9,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 9,
+          "paired_log_loss_delta_vs_close": 0.0047992439077100945,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 9,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 9,
+          "paired_log_loss_delta_vs_close": 0.0007050248283162475,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 9,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 9,
+          "paired_log_loss_delta_vs_close": 0.0018795957963851301,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-04": {
+        "events": 14,
+        "settled_events": 14,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6237175442503567,
+        "market_log_loss": 0.6298344981125344,
+        "brier": 0.21588036514597259,
+        "paired_log_loss_delta": -0.0061169538621778175,
+        "max_model_ev": -0.01542790267897487,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": -0.003106632264650402,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": -0.0019665673441882294,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": -0.0031069752176288456,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": -0.0008836477818423389,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-05": {
+        "events": 15,
+        "settled_events": 15,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.7652213321858776,
+        "market_log_loss": 0.7574469419423051,
+        "brier": 0.2851064031694274,
+        "paired_log_loss_delta": 0.007774390243572501,
+        "max_model_ev": -0.015904579308004707,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": 0.0006848070674066749,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": -0.00207482931242778,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": 0.009191502619039338,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": 0.003881791538095247,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-06": {
+        "events": 15,
+        "settled_events": 15,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6255030294827816,
+        "market_log_loss": 0.6268366984199959,
+        "brier": 0.21697456980276444,
+        "paired_log_loss_delta": -0.0013336689372142497,
+        "max_model_ev": -0.013334088057057158,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.011728176835061095,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.012662862529136095,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.00859197336889435,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.010005823347882708,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-07": {
+        "events": 11,
+        "settled_events": 11,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6247555391081385,
+        "market_log_loss": 0.6266480827040851,
+        "brier": 0.2161598407565835,
+        "paired_log_loss_delta": -0.0018925435959465488,
+        "max_model_ev": -0.022956109572436878,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": -0.004268327545141024,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": -0.002913855728061243,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": -0.007388725828133869,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": -0.004771416123828334,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-08": {
+        "events": 15,
+        "settled_events": 0,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": null,
+        "market_log_loss": null,
+        "brier": null,
+        "paired_log_loss_delta": null,
+        "max_model_ev": -0.02505552295821012,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      }
+    },
+    "pinnacle": {
+      "2026-09-01": {
+        "events": 6,
+        "settled_events": 6,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6764401677712147,
+        "market_log_loss": 0.6705331028992628,
+        "brier": 0.24196947057126872,
+        "paired_log_loss_delta": 0.005907064871951852,
+        "max_model_ev": -0.014070476902004692,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.009782859288975224,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.0073583495726357445,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": -0.00039147343846784866,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 4,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 4,
+          "paired_log_loss_delta_vs_close": 0.004574322193184752,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-02": {
+        "events": 15,
+        "settled_events": 15,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.7591875726001277,
+        "market_log_loss": 0.7568914974006503,
+        "brier": 0.28185513313094623,
+        "paired_log_loss_delta": 0.0022960751994772913,
+        "max_model_ev": -0.01387152681447723,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.023619422113599343,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.025314089905968264,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.0148997319778441,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.017865350603629104,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-03": {
+        "events": 8,
+        "settled_events": 8,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6768048761743446,
+        "market_log_loss": 0.6722343446235317,
+        "brier": 0.24258250250928168,
+        "paired_log_loss_delta": 0.004570531550812794,
+        "max_model_ev": -0.020073871848402036,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 8,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 8,
+          "paired_log_loss_delta_vs_close": 0.0036083237971700904,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 8,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 8,
+          "paired_log_loss_delta_vs_close": 0.003634347783193201,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 8,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 8,
+          "paired_log_loss_delta_vs_close": 0.0012050803862042672,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 8,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 8,
+          "paired_log_loss_delta_vs_close": 0.0012593021532041268,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-04": {
+        "events": 14,
+        "settled_events": 14,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6287783871013971,
+        "market_log_loss": 0.6298344981125344,
+        "brier": 0.21853462359598902,
+        "paired_log_loss_delta": -0.001056111011137514,
+        "max_model_ev": -0.009337337007938706,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": 0.001894878294825849,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": 0.003034943215288022,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": 0.0018945353418474058,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 13,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 13,
+          "paired_log_loss_delta_vs_close": 0.004117862777633912,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-05": {
+        "events": 15,
+        "settled_events": 15,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.7589879841014721,
+        "market_log_loss": 0.7574469419423051,
+        "brier": 0.2820343360614589,
+        "paired_log_loss_delta": 0.0015410421591670275,
+        "max_model_ev": -0.010439842546636768,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": -0.005548541016998798,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": -0.008308177396833254,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": 0.0029581545346338647,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 15,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 15,
+          "paired_log_loss_delta_vs_close": -0.0023515565463102257,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-06": {
+        "events": 14,
+        "settled_events": 14,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6336985609797744,
+        "market_log_loss": 0.6338001593947139,
+        "brier": 0.22091779313626358,
+        "paired_log_loss_delta": -0.00010159841493943635,
+        "max_model_ev": -0.016541315494412845,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.008747187880357327,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.009681873574432327,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.005610984414190581,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 11,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 11,
+          "paired_log_loss_delta_vs_close": 0.007024834393178939,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-07": {
+        "events": 10,
+        "settled_events": 10,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": 0.6159387475907439,
+        "market_log_loss": 0.6168704047736415,
+        "brier": 0.21166192221126673,
+        "paired_log_loss_delta": -0.0009316571828976549,
+        "max_model_ev": 0.008399976421118893,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.004767968174799714,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.0032236922012761184,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.008307262930275583,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 10,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 10,
+          "paired_log_loss_delta_vs_close": -0.00532469996321201,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      },
+      "2026-09-08": {
+        "events": 15,
+        "settled_events": 0,
+        "bets": 0,
+        "turnover_units": 0,
+        "settled_bets": 0,
+        "ungraded_bets": 0,
+        "profit_units_settled": 0.0,
+        "roi": null,
+        "haircut_roi": null,
+        "roi_unresolved_outcome_bounds": [
+          null,
+          null
+        ],
+        "log_loss": null,
+        "market_log_loss": null,
+        "brier": null,
+        "paired_log_loss_delta": null,
+        "max_model_ev": -0.01507301910031067,
+        "max_drawdown_daily_units": 0.0,
+        "max_drawdown_daily_settled_units": 0.0,
+        "independent_calendar_weeks": 1,
+        "inference_status": "insufficient_calendar_weeks",
+        "roi_ci": [
+          null,
+          null
+        ],
+        "paired_log_loss_delta_ci": [
+          null,
+          null
+        ],
+        "execution_verified": false,
+        "passes_forward_promotion": false,
+        "closing_pinnacle": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_pinnacle_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        },
+        "closing_fanduel_power": {
+          "covered_bets": 0,
+          "missing_bets": 0,
+          "all_event_close_coverage": 7,
+          "mean_closing_ev": null,
+          "mean_raw_price_ratio": null,
+          "paired_loss_events": 0,
+          "paired_log_loss_delta_vs_close": null,
+          "mean_closing_ev_ci": [
+            null,
+            null
+          ]
+        }
+      }
+    }
+  }
+}
