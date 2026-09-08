@@ -44,3 +44,5 @@ python -m unittest tests.test_timestamped_mlb -v
 ```
 
 [Forecasts](timestamped-mlb-forecasts.csv), [reconstructed features](timestamped-mlb-features.json) and [metrics with complete source manifests](timestamped-mlb-metrics.json) preserve the numerical evidence. The command rejects different odds-export or model bytes. Fresh official downloads can differ; compare all recorded hashes rather than treating a rerun as the same source vintage.
+
+An [independent standard-library audit](../docs/timestamped-mlb-review.md) reproduced the source reconciliation, timing checks, forecasts and reported metrics in 6,222 checks with zero discrepancies. Its [verifier](../tools/audit_timestamped_mlb.py) does not import the production evaluator or numerical model libraries. Agreement verifies this computation, not market freshness or execution.

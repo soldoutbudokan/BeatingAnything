@@ -10,6 +10,8 @@ The next experiment models **ATP Challenger total games at 21.5**, reconstructin
 
 Both registered tennis experiments now have a collector, chronological score-history engine and annual evaluation pipeline. [N3](docs/protocol-tennis-independent-v1.md) uses independent prior set Elo; N2 uses synchronized opening moneyline information. The [implementation review](docs/tennis-implementation-review.md) records source and label-availability checks before results. Collection is resumable and preserves failed requests and missing markets; it is currently a local process, not a deployed betting monitor.
 
+An [independent scoring-kernel check](docs/tennis-kernel-review.md) compared the exact distribution with 200,000 synthetic point-by-point matches. This validates the scoring implementation; historical calibration and profitability still require the frozen data tests.
+
 ```bash
 python -m beating.tennis_source daily
 python -m beating.tennis_source details
