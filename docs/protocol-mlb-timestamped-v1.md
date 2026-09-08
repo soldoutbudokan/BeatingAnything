@@ -23,3 +23,13 @@ Primary closing reference: last valid paired Pinnacle snapshot from 30 minutes t
 Report accepted/missing/blocked counts, forecast and source hashes, all-event log loss/Brier, paired loss differences, selected bets and turnover, settlement coverage, full ROI or unresolved best/worst bounds, haircut ROI, daily drawdown, CLV coverage, selected mean no-vig closing EV, raw price ratios, and per-day descriptive results. Show the physical model's and Pinnacle control's results regardless of direction.
 
 This seven-day sample cannot independently establish a betting edge. Do not produce a confidence interval from fewer than eight distinct calendar weeks; report the point estimate with an explicit insufficient-blocks status instead. If later separately frozen samples permit inference, use 10,000 weekly bootstrap samples, seed 1729 and a conservative thirteen-comparison allowance (eleven prior registered candidates plus these two new evaluations), confidence `1 - 0.05/13`. The existing prospective FanDuel qualification requirements remain unmet. No alert, wager, purchase or claim of victory follows from this pilot.
+
+## Implementation clarifications frozen before F1 outcome evaluation
+
+The synchronized Pinnacle entry control requires paired overround [0,0.15], the same pair-quality cap as the closing references. This control never replaces the FanDuel entry or determines whether that event is retained.
+
+Official scheduled innings and doubleheader metadata must explicitly establish a nine-inning, non-doubleheader regular-season fixture; missing fields do not default to eligibility. Conflicting official start or fixture identities for the same game ID stay ambiguous even if a later duplicate repeats one version. Exact duplicate source side rows count once. Conflicting side rows, including an invalid side or price within an otherwise identifiable snapshot, invalidate that pair rather than being discarded to recover a favorable quote.
+
+For every closing candidate, the prestart boundary is the earliest of the official scheduled start, that candidate's source scheduled start, and the source scheduled start frozen at entry. A later displayed delay cannot move this boundary forward. Valid close observations are between 30 minutes and one minute before that boundary, inclusive, and cannot precede the entry observation.
+
+When any selected outcome is unresolved, full daily drawdown is unknown. Report the settled-only drawdown separately and label it as such; do not silently assign zero return to ungraded bets for a complete drawdown claim. Invalid or noninteger official scores and innings remain ungraded.
