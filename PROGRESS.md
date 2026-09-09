@@ -55,7 +55,7 @@ All **1,826** required daily pages for `2021-01-01` through `2025-12-31` finishe
 | 2024 | 1,121 |
 | 2025 | 1,107 |
 
-At a verified checkpoint at `2026-09-09T22:19:03 UTC`, **4,187 / 5,453** pinned details were parsed, with zero terminal failures. The exact count will be higher if the process continues. Earlier transient timeouts/resets recovered through the existing retry policy; all attempts remain recorded. Long host-clock gaps occurred while the same process remained alive; do not interpret elapsed wall time as uninterrupted download time.
+At a verified checkpoint at `2026-09-09T22:31:14 UTC`, **4,918 / 5,453** pinned details were parsed, with zero terminal failures. The exact count will be higher if the process continues. Earlier transient timeouts/resets recovered through the existing retry policy; all attempts remain recorded. Long host-clock gaps occurred while the same process remained alive; do not interpret elapsed wall time as uninterrupted download time.
 
 Original process identity:
 
@@ -135,6 +135,8 @@ PY
 
 It binds raw files to successful acquisition hashes, reparses normalized records, verifies immutable sampling and detail identities, and refuses unattempted pages. If a genuine parser defect is found, correct it uniformly from raw evidence, document the change before reviewing results and preserve the original sources. Some parser-hardening changes were made while the daily collector's older process image was live; a reparse discrepancy must be investigated, not waved away or fixed by overwriting raw data.
 
+A read-only rehearsal checked all 1,826 daily files/pins/caches and the 4,636 completed detail files in its September 9, 22:26:32 UTC ledger snapshot. All source hashes and current parser/cache comparisons matched, with no sampled identity/date mismatch. Nine daily history entries lack stable player identities in the saved source; they are UTR Pro Tennis Series 5 rows with doubles-style/plain-text identity cells, outside the frozen Challenger sample. Their possible history contribution remains unknown. Preserve the source-quality blocks; no parser or cache change was justified. See [pre-evaluation source review](docs/tennis-acquisition-review.md) and [identity-only audit](reports/tennis-source-quality.json).
+
 Then run both experiments together:
 
 ```bash
@@ -143,6 +145,15 @@ state/runtime/research-venv/bin/python -m beating.tennis_pipeline \
 ```
 
 Expected outputs are `tennis-n2-*` and `tennis-n3-*` features, forecasts, fit and metrics files, plus `reports/tennis-research-report.md`. An insufficient-data result must be preserved explicitly. Independently audit actual probabilities, chronology, settlements, selected exposure and metrics before making a claim or choosing a prospective artifact. Passing synthetic tests does not prove the historical pipeline succeeds.
+
+The independent stdlib-only arithmetic/chronology checker is ready and has passed ten synthetic corruption/edge-case tests. After both experiments finish, run:
+
+```bash
+state/runtime/research-venv/bin/python -S tools/audit_tennis_forecasts.py \
+  --output reports --report reports/tennis-independent-audit.json
+```
+
+It reproduces annual-coefficient probabilities, validation-grid choices, all candidate/year point estimates, betting returns and ungraded bounds, proportional/power closing arithmetic, recorded chronology, hashes and evidence flags. It explicitly does not replay bootstrap endpoints, reconstruct model training/normalization or raw-history features, or independently identify markets from raw pages. It handles insufficient data without treating stale forecast files as current evidence. It has not yet audited real N2/N3 results.
 
 ## Completed results that must remain visible
 
@@ -211,7 +222,7 @@ No model currently meets the unchanged prospective promotion requirements: froze
 
 ## Validation and next-session checklist
 
-The persistent local Python 3.12.13 environment passed all **159 unit tests**. It also passed the F1 audit (6,222 checks), expanded NFL charting audit (175 checks), and NFL fixture reproduction (285 entries, 77 nearstart references). The two CI runs on `6a1d777` passed. Inspect current GitHub checks for any newer commit and verify `main` CI after an eventual push. Local final-check logs are under `state/final-*`.
+The persistent local Python 3.12.13 environment passed all **169 unit tests**, including ten synthetic tests for the independent tennis forecast auditor. It also passed the F1 audit (6,222 checks), expanded NFL charting audit (175 checks), and NFL fixture reproduction (285 entries, 77 nearstart references). The two CI runs on `e0438cd` passed (34411746298 and 34411741805). Inspect current GitHub checks for any newer commit and verify `main` CI after an eventual push. Local final-check logs are under `state/final-*`.
 
 1. Read this file and current Git status; verify `main` and the user's latest instruction. Do not assume an old agent session is still present.
 2. Verify the collector process and latest acquisition timestamps. Continue a live process; resume the same fixed sample only if it has stopped.

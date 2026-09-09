@@ -1,0 +1,259 @@
+{
+  "counts": {
+    "affected_dates": 9,
+    "affected_fixtures": 9,
+    "affected_frozen_sample_events": 0,
+    "affected_source_tournaments": 1,
+    "correctable_parser_defects_identified": 0
+  },
+  "created_at": "2026-09-09T22:30:23.518578+00:00",
+  "decision": "Retain source-quality blocks and identity exclusions; no parser rule or source/cache changes",
+  "history_impact": "Nine ambiguous source fixtures are absent from normalized player history; their true singles identities cannot be recovered safely from the saved identity cells.",
+  "records": [
+    {
+      "date": "2024-06-04",
+      "diagnosis": "saved_source_has_doubles_style_or_plaintext_identity_without_two_stable_singles_player_ids",
+      "event_id": "te:2632789",
+      "parsed_cache_sha256": "61e868fe5871184a71e19b78e682b96faaa4ed0664cda966d56530257f431fa8",
+      "raw_path": "data/raw/tennisexplorer/daily/2024-06-04.html",
+      "raw_sha256": "d0a1532f9441d97a7347e7ae639d9facb4316c525f284006e2f0352f33dd4720",
+      "reason": "missing_or_ambiguous_player_id",
+      "selected_in_frozen_sample": false,
+      "sides": [
+        {
+          "identity_text": "Pavel B. / Iamachkin",
+          "other_identity_links": [
+            "/doubles-team/pavel-bedb9/iamachkine-80753/"
+          ],
+          "side": 1,
+          "singles_player_links": []
+        },
+        {
+          "identity_text": "Iamachkine P. /",
+          "other_identity_links": [],
+          "side": 2,
+          "singles_player_links": []
+        }
+      ],
+      "tournament": "UTR Pro Tennis Series 5"
+    },
+    {
+      "date": "2024-06-05",
+      "diagnosis": "saved_source_has_doubles_style_or_plaintext_identity_without_two_stable_singles_player_ids",
+      "event_id": "te:2633399",
+      "parsed_cache_sha256": "097b4cb6fd05c3431058301d8da30be0f4a42eb8c6fe55f88070f07f1e30401b",
+      "raw_path": "data/raw/tennisexplorer/daily/2024-06-05.html",
+      "raw_sha256": "71c5a1e5c6c78e4074db6b8bc9df36ee500be8d4026d6dfe2cbb1b00b9597f35",
+      "reason": "missing_or_ambiguous_player_id",
+      "selected_in_frozen_sample": false,
+      "sides": [
+        {
+          "identity_text": "Iamachkine P. /",
+          "other_identity_links": [],
+          "side": 1,
+          "singles_player_links": []
+        },
+        {
+          "identity_text": "Sanchez B / Iamachkin",
+          "other_identity_links": [
+            "/doubles-team/sanchez-bronzetti-7bb62/iamachkine-80753/"
+          ],
+          "side": 2,
+          "singles_player_links": []
+        }
+      ],
+      "tournament": "UTR Pro Tennis Series 5"
+    },
+    {
+      "date": "2024-06-06",
+      "diagnosis": "saved_source_has_doubles_style_or_plaintext_identity_without_two_stable_singles_player_ids",
+      "event_id": "te:2634043",
+      "parsed_cache_sha256": "f28507808023c49c240b6874c30c307da0927cc892769ed53ec5ef02df7f668d",
+      "raw_path": "data/raw/tennisexplorer/daily/2024-06-06.html",
+      "raw_sha256": "d401c3ec828ff577fc60aa5feb8e9705d80695d97a5bfe5c044d4a6546b5f20d",
+      "reason": "missing_or_ambiguous_player_id",
+      "selected_in_frozen_sample": false,
+      "sides": [
+        {
+          "identity_text": "Iamachkin / Iamachkin",
+          "other_identity_links": [
+            "/doubles-team/iamachkine-80753/iamachkine-80753/"
+          ],
+          "side": 1,
+          "singles_player_links": []
+        },
+        {
+          "identity_text": "Konov S. /",
+          "other_identity_links": [],
+          "side": 2,
+          "singles_player_links": []
+        }
+      ],
+      "tournament": "UTR Pro Tennis Series 5"
+    },
+    {
+      "date": "2024-06-07",
+      "diagnosis": "saved_source_has_doubles_style_or_plaintext_identity_without_two_stable_singles_player_ids",
+      "event_id": "te:2634579",
+      "parsed_cache_sha256": "cbe9fa6dce5d72dbeb1011f0c1d659975052955c5d0f7f28e4cae8b87fac49ce",
+      "raw_path": "data/raw/tennisexplorer/daily/2024-06-07.html",
+      "raw_sha256": "3a17e7642b85d5f3d22ebd345e47ed3303d39ec950e585203575b146003d384c",
+      "reason": "missing_or_ambiguous_player_id",
+      "selected_in_frozen_sample": false,
+      "sides": [
+        {
+          "identity_text": "Alexandrescou Y. /",
+          "other_identity_links": [],
+          "side": 1,
+          "singles_player_links": []
+        },
+        {
+          "identity_text": "Iamachkin / Iamachkin",
+          "other_identity_links": [
+            "/doubles-team/iamachkine-80753/iamachkine-80753/"
+          ],
+          "side": 2,
+          "singles_player_links": []
+        }
+      ],
+      "tournament": "UTR Pro Tennis Series 5"
+    },
+    {
+      "date": "2024-06-09",
+      "diagnosis": "saved_source_has_doubles_style_or_plaintext_identity_without_two_stable_singles_player_ids",
+      "event_id": "te:2637711",
+      "parsed_cache_sha256": "1a6800fe330d0ebccd3b510a89acd7ac6a05bb77db0726fd01fa5a46cc009cc0",
+      "raw_path": "data/raw/tennisexplorer/daily/2024-06-09.html",
+      "raw_sha256": "69eb82d5227ada0e299acf5a391c32b76a960cb704c80ea1639135a11f98c919",
+      "reason": "missing_or_ambiguous_player_id",
+      "selected_in_frozen_sample": false,
+      "sides": [
+        {
+          "identity_text": "Madarasz / Iamachkin",
+          "other_identity_links": [
+            "/doubles-team/madarasz-31016/iamachkine-80753/"
+          ],
+          "side": 1,
+          "singles_player_links": []
+        },
+        {
+          "identity_text": "Iamachkine P. /",
+          "other_identity_links": [],
+          "side": 2,
+          "singles_player_links": []
+        }
+      ],
+      "tournament": "UTR Pro Tennis Series 5"
+    },
+    {
+      "date": "2024-07-01",
+      "diagnosis": "saved_source_has_doubles_style_or_plaintext_identity_without_two_stable_singles_player_ids",
+      "event_id": "te:2657087",
+      "parsed_cache_sha256": "e7a0890f5503f0b27844c6ef1849673593b5a47ecdf619dbdadaaf331dec7aa3",
+      "raw_path": "data/raw/tennisexplorer/daily/2024-07-01.html",
+      "raw_sha256": "9ecb13940998a1c79cd99d321dda12ded6c53e0f7f3c6baa047b88e8858f239e",
+      "reason": "missing_or_ambiguous_player_id",
+      "selected_in_frozen_sample": false,
+      "sides": [
+        {
+          "identity_text": "Makk P. / Iamachkin",
+          "other_identity_links": [
+            "/doubles-team/makk/iamachkine-80753/"
+          ],
+          "side": 1,
+          "singles_player_links": []
+        },
+        {
+          "identity_text": "Iamachkine P. /",
+          "other_identity_links": [],
+          "side": 2,
+          "singles_player_links": []
+        }
+      ],
+      "tournament": "UTR Pro Tennis Series 5"
+    },
+    {
+      "date": "2024-07-02",
+      "diagnosis": "saved_source_has_doubles_style_or_plaintext_identity_without_two_stable_singles_player_ids",
+      "event_id": "te:2658413",
+      "parsed_cache_sha256": "f736e6e9e45878e34a5eca2bfc1e619314c480df830c2ea255c6efd57b822fbe",
+      "raw_path": "data/raw/tennisexplorer/daily/2024-07-02.html",
+      "raw_sha256": "1894622f7aac9795550d62cc32227effc5f4839837d1c65993487967795f6523",
+      "reason": "missing_or_ambiguous_player_id",
+      "selected_in_frozen_sample": false,
+      "sides": [
+        {
+          "identity_text": "Baiant R. /",
+          "other_identity_links": [],
+          "side": 1,
+          "singles_player_links": []
+        },
+        {
+          "identity_text": "Iamachkin / Iamachkin",
+          "other_identity_links": [
+            "/doubles-team/iamachkine-80753/iamachkine-80753/"
+          ],
+          "side": 2,
+          "singles_player_links": []
+        }
+      ],
+      "tournament": "UTR Pro Tennis Series 5"
+    },
+    {
+      "date": "2024-07-03",
+      "diagnosis": "saved_source_has_doubles_style_or_plaintext_identity_without_two_stable_singles_player_ids",
+      "event_id": "te:2659223",
+      "parsed_cache_sha256": "6d9d6fa7e83f3bc175b243b55ccc61a5cddd7a86b76fbf94d6ff648d605678ec",
+      "raw_path": "data/raw/tennisexplorer/daily/2024-07-03.html",
+      "raw_sha256": "f8c31dbd9819b9ee10e477ed985200baa4fe63f34dc969e5f20eeb82d7b51318",
+      "reason": "missing_or_ambiguous_player_id",
+      "selected_in_frozen_sample": false,
+      "sides": [
+        {
+          "identity_text": "Iamachkin / Iamachkin",
+          "other_identity_links": [
+            "/doubles-team/iamachkine-80753/iamachkine-80753/"
+          ],
+          "side": 1,
+          "singles_player_links": []
+        },
+        {
+          "identity_text": "Markovski O. /",
+          "other_identity_links": [],
+          "side": 2,
+          "singles_player_links": []
+        }
+      ],
+      "tournament": "UTR Pro Tennis Series 5"
+    },
+    {
+      "date": "2024-07-05",
+      "diagnosis": "saved_source_has_doubles_style_or_plaintext_identity_without_two_stable_singles_player_ids",
+      "event_id": "te:2660415",
+      "parsed_cache_sha256": "0a2f1c5d4bb8f07e84a78e893c28924efbf18692e2f4c957202bac6cb59cadb6",
+      "raw_path": "data/raw/tennisexplorer/daily/2024-07-05.html",
+      "raw_sha256": "408f9854af4545e609f01e412e12eb07def293f59ded88e55cab273d48ddad39",
+      "reason": "missing_or_ambiguous_player_id",
+      "selected_in_frozen_sample": false,
+      "sides": [
+        {
+          "identity_text": "Micov S. /",
+          "other_identity_links": [],
+          "side": 1,
+          "singles_player_links": []
+        },
+        {
+          "identity_text": "Iamachkin / Iamachkin",
+          "other_identity_links": [
+            "/doubles-team/iamachkine-80753/iamachkine-80753/"
+          ],
+          "side": 2,
+          "singles_player_links": []
+        }
+      ],
+      "tournament": "UTR Pro Tennis Series 5"
+    }
+  ],
+  "scope": "Pre-evaluation source-quality diagnosis only; no score or performance fields inspected or emitted",
+  "source_parser_sha256": "6e67796f00951dfa159b7e76efc351bbdaea2c352a0de5ccda4e6ef749f3fdbb"
+}
