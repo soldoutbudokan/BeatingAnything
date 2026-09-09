@@ -1,0 +1,327 @@
+{
+  "status": "unproven",
+  "validation_trials": [
+    {
+      "candidate": "calibration",
+      "penalty": 0.001,
+      "validation_log_loss": 0.6920579072638138,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "calibration",
+      "penalty": 0.01,
+      "validation_log_loss": 0.6920453317194499,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "calibration",
+      "penalty": 0.1,
+      "validation_log_loss": 0.691947504205004,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "calibration",
+      "penalty": 1.0,
+      "validation_log_loss": 0.6916037830855167,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "set_shape",
+      "penalty": 0.001,
+      "validation_log_loss": 0.6929000844733105,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "set_shape",
+      "penalty": 0.01,
+      "validation_log_loss": 0.6926992038484004,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "set_shape",
+      "penalty": 0.1,
+      "validation_log_loss": 0.6920549802575657,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "set_shape",
+      "penalty": 1.0,
+      "validation_log_loss": 0.6915844777582962,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "workload",
+      "penalty": 0.001,
+      "validation_log_loss": 0.695311679898171,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "workload",
+      "penalty": 0.01,
+      "validation_log_loss": 0.6946586729054074,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "workload",
+      "penalty": 0.1,
+      "validation_log_loss": 0.6924307572951428,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    {
+      "candidate": "workload",
+      "penalty": 1.0,
+      "validation_log_loss": 0.6915373261574943,
+      "development_events": 405,
+      "validation_events": 443
+    }
+  ],
+  "selected_penalties": {
+    "calibration": {
+      "candidate": "calibration",
+      "penalty": 1.0,
+      "validation_log_loss": 0.6916037830855167,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    "set_shape": {
+      "candidate": "set_shape",
+      "penalty": 1.0,
+      "validation_log_loss": 0.6915844777582962,
+      "development_events": 405,
+      "validation_events": 443
+    },
+    "workload": {
+      "candidate": "workload",
+      "penalty": 1.0,
+      "validation_log_loss": 0.6915373261574943,
+      "development_events": 405,
+      "validation_events": 443
+    }
+  },
+  "selection_available_at": "2023-12-03T23:00:00+00:00",
+  "selected_research_candidate": "workload",
+  "annual_models": {
+    "2024": {
+      "status": "fitted",
+      "first_forecast_quote": "2023-12-31T09:41:00+00:00",
+      "model_unavailable_event_ids": [],
+      "training_events": 848,
+      "training_years": [
+        2021,
+        2022,
+        2023
+      ],
+      "maximum_label_available_at": "2023-12-03T23:00:00+00:00",
+      "models": {
+        "calibration": {
+          "penalty": 1.0,
+          "mean": [
+            0.040840594131509506
+          ],
+          "scale": [
+            0.14167443482151507
+          ],
+          "coef": [
+            0.035152723264628614,
+            -0.0035458926384730654
+          ]
+        },
+        "set_shape": {
+          "penalty": 1.0,
+          "mean": [
+            0.040840594131509506,
+            0.4062565716397685
+          ],
+          "scale": [
+            0.14167443482151507,
+            0.11615229432776529
+          ],
+          "coef": [
+            0.0351386711403014,
+            -0.002891420884230601,
+            0.004550585826684689
+          ]
+        },
+        "workload": {
+          "penalty": 1.0,
+          "mean": [
+            0.040840594131509506,
+            0.4062565716397685,
+            0.7809748427672956,
+            0.4234669811320754
+          ],
+          "scale": [
+            0.14167443482151507,
+            0.11615229432776529,
+            0.6105979588007496,
+            0.3863587311558551
+          ],
+          "coef": [
+            0.03514163456854873,
+            -0.0028950549255029826,
+            0.004455443777344743,
+            0.012977526599873916,
+            -0.005681519048619283
+          ]
+        }
+      }
+    },
+    "2025": {
+      "status": "fitted",
+      "first_forecast_quote": "2025-01-02T10:44:00+00:00",
+      "model_unavailable_event_ids": [],
+      "training_events": 1274,
+      "training_years": [
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "maximum_label_available_at": "2024-12-01T23:00:00+00:00",
+      "models": {
+        "calibration": {
+          "penalty": 1.0,
+          "mean": [
+            0.048142104749994016
+          ],
+          "scale": [
+            0.1421403460070823
+          ],
+          "coef": [
+            0.0714729467670821,
+            -0.015160479425649862
+          ]
+        },
+        "set_shape": {
+          "penalty": 1.0,
+          "mean": [
+            0.048142104749994016,
+            0.39712988020307116
+          ],
+          "scale": [
+            0.1421403460070823,
+            0.11192897232011619
+          ],
+          "coef": [
+            0.07144053092414124,
+            -0.013904923168916212,
+            0.009033838717895419
+          ]
+        },
+        "workload": {
+          "penalty": 1.0,
+          "mean": [
+            0.048142104749994016,
+            0.39712988020307116,
+            0.7680664573521716,
+            0.41579016221873366
+          ],
+          "scale": [
+            0.1421403460070823,
+            0.11192897232011619,
+            0.597987061313161,
+            0.379033478845432
+          ],
+          "coef": [
+            0.07144279094471809,
+            -0.01398802437949508,
+            0.009055056756114418,
+            0.00040194739892930706,
+            -0.008006563729106492
+          ]
+        }
+      }
+    }
+  },
+  "final_models": {
+    "calibration": {
+      "penalty": 1.0,
+      "mean": [
+        0.05436357067143144
+      ],
+      "scale": [
+        0.14363291718342105
+      ],
+      "coef": [
+        0.04048128842817806,
+        -0.01597274293628818
+      ]
+    },
+    "set_shape": {
+      "penalty": 1.0,
+      "mean": [
+        0.05436357067143144,
+        0.3863876629035186
+      ],
+      "scale": [
+        0.14363291718342105,
+        0.11065571644636914
+      ],
+      "coef": [
+        0.04044304542324121,
+        -0.014170356007437077,
+        0.013204959973996684
+      ]
+    },
+    "workload": {
+      "penalty": 1.0,
+      "mean": [
+        0.05436357067143144,
+        0.3863876629035186,
+        0.7781326781326781,
+        0.41699426699426706
+      ],
+      "scale": [
+        0.14363291718342105,
+        0.11065571644636914,
+        0.6101308644235287,
+        0.3874074376708009
+      ],
+      "coef": [
+        0.04044825065275674,
+        -0.014215169986118267,
+        0.013224634734911622,
+        -0.013372627345598338,
+        -0.008698729193559802
+      ]
+    }
+  },
+  "features": {
+    "calibration": [
+      "market_logit"
+    ],
+    "set_shape": [
+      "market_logit",
+      "structure_gap"
+    ],
+    "workload": [
+      "market_logit",
+      "structure_gap",
+      "workload_total",
+      "workload_difference"
+    ]
+  },
+  "final_fit_as_of": "2026-09-09T22:43:50.549493+00:00",
+  "final_models_scope": "Post-holdout refits for future use only; never used for reported holdout forecasts",
+  "final_training_events": 1628,
+  "final_maximum_label_available_at": "2025-11-30T23:00:00+00:00",
+  "training_through_source_date": "2025-11-28",
+  "split_counts": {
+    "2021": 19,
+    "2022": 404,
+    "2023": 467,
+    "2024": 451,
+    "2025": 373
+  }
+}

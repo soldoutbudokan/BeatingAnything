@@ -1,0 +1,65 @@
+{
+  "started_at": "2026-09-09T22:42:05.692100+00:00",
+  "git_commit": "a4d47010d71279f9751f6299bf1e355ff95aca7f",
+  "python": "Python 3.12.13",
+  "collector_summary": {
+    "completed": 5453,
+    "end": "2025-12-31",
+    "failed": 0,
+    "finished_at": "2026-09-09T22:40:08.861688+00:00",
+    "source_parser_version": "tennisexplorer_n2_n3_v1",
+    "start": "2021-01-01",
+    "unknown_sample_dates": []
+  },
+  "acquisition_audit_sha256": "df839db22e5680f5b87c91302e9ea4044d3d7b58e463da1c2aaf9fa90f3b010f",
+  "run": [
+    "python",
+    "-m",
+    "beating.tennis_pipeline",
+    "--source-dir",
+    "data/raw/tennisexplorer",
+    "--output",
+    "reports"
+  ],
+  "runtime_versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "lxml": "6.1.1"
+  },
+  "recorded_at_utc": "2026-09-09T22:49:04.618295+00:00",
+  "status": "completed_no_demonstrated_edge",
+  "forecast_audit": {
+    "checks": 32556,
+    "failed_checks": 0,
+    "report": "reports/tennis-independent-audit.json"
+  },
+  "training_audit": {
+    "mismatches": 0,
+    "report": "reports/tennis-training-audit.json"
+  },
+  "source_evidence_blocks": [
+    "daily_history_parse_errors"
+  ],
+  "raw_sources_scope": "All pinned raw pages and acquisition metadata retained locally under data/raw/tennisexplorer; raw responses not redistributed. Source hashes and full acquisition audit are embedded in each experiment metrics file.",
+  "notes": [
+    "Both protocols and implementation were committed before real strategy evaluation. No partial-sample performance evaluation was run.",
+    "The completed backtest uses annual prior-label-only models. Final post-holdout artifacts are separate and unproven.",
+    "Nine saved-source identity errors remain explicit. No wager, prospective qualification, notification or current FanDuel execution evidence is claimed.",
+    "Raw input availability at the historical quote remains a source assumption. Rerunning the pipeline changes its final-fit observation timestamps; preserve this original run."
+  ],
+  "artifact_sha256": {
+    "reports/tennis-n2-features.csv": "0458bdddcc299b3c9ff0e7f23e5986a507875940e26bda77b1378a3a23f6a645",
+    "reports/tennis-n2-fit.json": "9c718e43daf2ace99c387dfac7800edbe616bbef267fd60bdd44fa931eedb5f2",
+    "reports/tennis-n2-forecasts.csv": "1c61d361ecc0f1635b8a411290fcea7b52fd7291fb69fef24cb734463446de35",
+    "reports/tennis-n2-metrics.json": "980722ee977adb396343eed78c9593383aea69d2e567fd49cfea83f35f0e4960",
+    "reports/tennis-n3-features.csv": "7c86d4f71dda0d6ba60c5e5e760b2154e59f95a05233e954b87f3702fa4b9d89",
+    "reports/tennis-n3-fit.json": "63135a16a40a0fa0f03783d5c159b289cbe4cc3a4947a607f719d8b8cab5a192",
+    "reports/tennis-n3-forecasts.csv": "12995f69cdfb3b6a255cbd26565bf77c5569c305cbcbd128eb51c9e5523756f2",
+    "reports/tennis-n3-metrics.json": "29d2513d717634ab459284b061445cdf9ca5ffb4812dce4f12c4ef83c55eac09",
+    "reports/tennis-independent-audit.json": "0e81a783f1800d8da9dcad34c76fdbc9fb5f069167179dca7e98cf62fac7763d",
+    "reports/tennis-training-audit.json": "5d2a98449890162c312508041f45be7e43b32af7b1bb2b8de7c700ee15d9dc7f",
+    "reports/tennis-research-report.md": "c4ea8f3f20d49d1a8f8c60ddbe378cc696e0412c706870f32d57a5c8efb6706e",
+    "requirements-lock.txt": "054abc2d3c87fc39a720ece597b638c785c3d56970986dd0a764f0f6f227aeb1"
+  }
+}

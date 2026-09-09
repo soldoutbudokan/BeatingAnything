@@ -4,22 +4,25 @@
 
 Use Python 3.12 and the pinned `requirements-lock.txt` dependencies for the research commands below.
 
-For the current state, live download, exact continuation commands and unfinished experiments, start with [PROGRESS.md](PROGRESS.md).
+For the current state, exact continuation commands, completed results and remaining research leads, start with [PROGRESS.md](PROGRESS.md).
 
 The new [timestamped FanDuel MLB pilot](reports/timestamped-mlb-research-report.md) tested the unchanged physical model on 100 September 2026 forecasts. It produced zero qualifying bets and worse log loss than FanDuel on available settled outcomes. Unlike the original archive, this source permits a limited near-start price comparison, but bookmaker freshness remains unverified and one week cannot establish an edge.
 
-The next experiment models **ATP Challenger total games at 21.5**, reconstructing serving and match-length tendencies from historical set scores. The [tennis protocol](docs/protocol-tennis-v1.md) was committed before holdout acquisition. Its exact scoring kernel accounts for service order and tiebreaks. Historical data collection and the frozen backtest are in progress; this is not a profitable-model claim.
+The completed [ATP Challenger total-games experiments](reports/tennis-research-report.md) tested the frozen 21.5 line using historical Pinnacle prices. N2 generated **824 holdout forecasts and zero qualifying bets**. N3 generated **1,130 forecasts**; only its workload candidate selected bets: **four, with three graded and one unresolved**. Their mean closing EV was **−4.78%**. All model-versus-market log-loss intervals cross zero. Neither experiment demonstrated an edge.
 
-Both registered tennis experiments now have a collector, chronological score-history engine and annual evaluation pipeline. [N3](docs/protocol-tennis-independent-v1.md) uses independent prior set Elo; N2 uses synchronized opening moneyline information. The [implementation review](docs/tennis-implementation-review.md) records source and label-availability checks before results. Collection is resumable and preserves failed requests and missing markets; it is currently a local process, not a deployed betting monitor.
+[N2](docs/protocol-tennis-v1.md) combines synchronized opening moneyline information with prior tiebreak history; [N3](docs/protocol-tennis-independent-v1.md) substitutes prior set Elo. Their exact scoring kernel accounts for service order and tiebreaks. Both protocols and the [implementation review](docs/tennis-implementation-review.md) were committed before evaluation. Development/validation is 2021–2023, followed by annual prior-year-only fits for 2024 and 2025. Every candidate and annual result is retained.
 
-All 1,826 required daily pages have been collected. Their frozen sample contains 5,453 match-detail pages; detail acquisition is still in progress. The pipeline will produce a combined report showing every candidate, both holdout years, missing folds and unresolved selected exposure. Actual tennis strategy results have not yet been evaluated. A [current quote-source check](docs/fanduel-tennis-monitoring-source.md) has not verified a usable free FanDuel Challenger 21.5 feed.
+All **1,826 daily pages and 5,453 frozen match details** were collected, with zero terminal failures. The complete provenance gate passed. Nine ambiguous historical identity rows remain an explicit [source limitation](docs/tennis-acquisition-review.md). The [independent forecast audit](reports/tennis-independent-audit.json) passed **32,556 checks**. ROI for the four selected N3 bets remains undefined because one is ungraded; its haircut-return bounds are −48.54% to +3.655%. A [current quote-source check](docs/fanduel-tennis-monitoring-source.md) has not verified a usable free FanDuel Challenger 21.5 feed. No tennis monitor or alert is enabled.
 
-An [independent scoring-kernel check](docs/tennis-kernel-review.md) compared the exact distribution with 200,000 synthetic point-by-point matches. This validates the scoring implementation; historical calibration and profitability still require the frozen data tests.
+An [independent scoring-kernel check](docs/tennis-kernel-review.md) compared the exact distribution with 200,000 synthetic point-by-point matches. Passing implementation checks does not change the negative historical research result. These now-inspected holdouts cannot be reused as untouched tests for a revised strategy.
+
+The separate [training artifact review](docs/tennis-training-review.md) verified annual eligibility, all 18 annual/final normalizers and stored-fit gradients with zero mismatches. The [run record](reports/tennis-run.json) pins the pre-evaluation commit, runtime and output hashes.
 
 ```bash
 python -m beating.tennis_source daily
 python -m beating.tennis_source details
 python -m beating.tennis_pipeline
+python -S tools/audit_tennis_forecasts.py --output reports --report reports/tennis-independent-audit.json
 ```
 
 The [additional source audit](docs/source-search-v2.md) also identifies a free 2025 NFL archive with FanDuel capture and bookmaker-update timestamps. It is an untested research lead. [Pitch-level MLB source research](docs/matchup-research-v2.md) verifies a free route to pitch movement and matchup data, while documenting historical lineup-publication limits.

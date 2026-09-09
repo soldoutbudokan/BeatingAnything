@@ -1,0 +1,194 @@
+{
+  "audit_script_sha256": "529487ed088c2afa82bc45f1f4f43e0f339de26e93ea77a95296646c420daaff",
+  "created_at": "2026-09-09T22:46:27.805979+00:00",
+  "experiments": [
+    {
+      "annual_fits": {
+        "2024": {
+          "first_forecast_quote": "2023-12-31T09:41:00+00:00",
+          "forecasts": 451,
+          "maximum_training_label_available_at": "2023-12-03T23:00:00+00:00",
+          "models": {
+            "calibration": {
+              "maximum_L2_score_gradient": 1.6185772253735076e-10,
+              "maximum_mean_abs_error": 0.0,
+              "maximum_scale_abs_error": 0.0
+            },
+            "set_shape": {
+              "maximum_L2_score_gradient": 1.078958363626148e-11,
+              "maximum_mean_abs_error": 1.1102230246251565e-16,
+              "maximum_scale_abs_error": 1.1102230246251565e-16
+            },
+            "workload": {
+              "maximum_L2_score_gradient": 8.24328448816719e-09,
+              "maximum_mean_abs_error": 5.551115123125783e-16,
+              "maximum_scale_abs_error": 1.4432899320127035e-15
+            }
+          },
+          "training_events": 848,
+          "training_id_sha256": "d4a8de247b6ff43b2a2741efb799e63e15950ebd366586fc721346aed68faafe",
+          "unavailable_model_events": 0
+        },
+        "2025": {
+          "first_forecast_quote": "2025-01-02T10:44:00+00:00",
+          "forecasts": 373,
+          "maximum_training_label_available_at": "2024-12-01T23:00:00+00:00",
+          "models": {
+            "calibration": {
+              "maximum_L2_score_gradient": 2.8587740820429364e-09,
+              "maximum_mean_abs_error": 0.0,
+              "maximum_scale_abs_error": 0.0
+            },
+            "set_shape": {
+              "maximum_L2_score_gradient": 1.612710572723719e-10,
+              "maximum_mean_abs_error": 2.7755575615628914e-16,
+              "maximum_scale_abs_error": 1.3877787807814457e-16
+            },
+            "workload": {
+              "maximum_L2_score_gradient": 9.483804625301517e-09,
+              "maximum_mean_abs_error": 7.771561172376096e-16,
+              "maximum_scale_abs_error": 1.9984014443252818e-15
+            }
+          },
+          "training_events": 1274,
+          "training_id_sha256": "9b45046e8e1fe8452b20a4c72f91cbdf83e8a20fa362ea33f8168687f822769c",
+          "unavailable_model_events": 0
+        }
+      },
+      "development_events": 405,
+      "development_id_sha256": "459c3dfc8a82a64e8e90fcfce9c19a2d1c9abf2a8ddabac1b3187f7bc5c727ad",
+      "experiment": "N2",
+      "feature_events": 1714,
+      "files": {
+        "tennis-n2-features.csv": "0458bdddcc299b3c9ff0e7f23e5986a507875940e26bda77b1378a3a23f6a645",
+        "tennis-n2-fit.json": "9c718e43daf2ace99c387dfac7800edbe616bbef267fd60bdd44fa931eedb5f2",
+        "tennis-n2-forecasts.csv": "1c61d361ecc0f1635b8a411290fcea7b52fd7291fb69fef24cb734463446de35"
+      },
+      "final_fit_as_of": "2026-09-09T22:43:50.549493+00:00",
+      "final_model_checks": {
+        "calibration": {
+          "maximum_L2_score_gradient": 1.4970649485704368e-09,
+          "maximum_mean_abs_error": 0.0,
+          "maximum_scale_abs_error": 0.0
+        },
+        "set_shape": {
+          "maximum_L2_score_gradient": 5.432928412707483e-13,
+          "maximum_mean_abs_error": 1.1102230246251565e-15,
+          "maximum_scale_abs_error": 1.1102230246251565e-16
+        },
+        "workload": {
+          "maximum_L2_score_gradient": 7.415966582144384e-10,
+          "maximum_mean_abs_error": 1.1102230246251565e-15,
+          "maximum_scale_abs_error": 1.4988010832439613e-15
+        }
+      },
+      "final_training_events": 1628,
+      "final_training_id_sha256": "794baf39113c157aa02e18c1b183dbf71a938c918f49942e548e259bbdb21a45",
+      "first_mismatch": null,
+      "first_validation_quote": "2023-01-01T06:46:00+00:00",
+      "forecast_events": 824,
+      "mismatch_count": 0,
+      "missing_close_holdout_forecasts_retained": 2,
+      "selection_available_at": "2023-12-03T23:00:00+00:00",
+      "ungraded_holdout_forecasts_retained": 44,
+      "validation_events": 443
+    },
+    {
+      "annual_fits": {
+        "2024": {
+          "first_forecast_quote": "2023-12-31T09:41:00+00:00",
+          "forecasts": 636,
+          "maximum_training_label_available_at": "2023-12-03T23:00:00+00:00",
+          "models": {
+            "calibration": {
+              "maximum_L2_score_gradient": 3.601104137107569e-11,
+              "maximum_mean_abs_error": 0.0,
+              "maximum_scale_abs_error": 0.0
+            },
+            "set_shape": {
+              "maximum_L2_score_gradient": 8.113454352809413e-12,
+              "maximum_mean_abs_error": 1.1102230246251565e-16,
+              "maximum_scale_abs_error": 1.1102230246251565e-16
+            },
+            "workload": {
+              "maximum_L2_score_gradient": 2.520545681894415e-09,
+              "maximum_mean_abs_error": 9.992007221626409e-16,
+              "maximum_scale_abs_error": 2.3314683517128287e-15
+            }
+          },
+          "training_events": 1738,
+          "training_id_sha256": "ce2921edd50e3391dda9f7a4d80a393d4535a5ff8069e8b83074f4a7d07741c8",
+          "unavailable_model_events": 0
+        },
+        "2025": {
+          "first_forecast_quote": "2025-01-02T09:12:00+00:00",
+          "forecasts": 494,
+          "maximum_training_label_available_at": "2024-12-01T23:00:00+00:00",
+          "models": {
+            "calibration": {
+              "maximum_L2_score_gradient": 6.496725761528932e-10,
+              "maximum_mean_abs_error": 0.0,
+              "maximum_scale_abs_error": 0.0
+            },
+            "set_shape": {
+              "maximum_L2_score_gradient": 8.510742458001097e-12,
+              "maximum_mean_abs_error": 2.220446049250313e-16,
+              "maximum_scale_abs_error": 1.3877787807814457e-16
+            },
+            "workload": {
+              "maximum_L2_score_gradient": 8.377130847510295e-09,
+              "maximum_mean_abs_error": 2.3314683517128287e-15,
+              "maximum_scale_abs_error": 6.661338147750939e-16
+            }
+          },
+          "training_events": 2337,
+          "training_id_sha256": "7b5749b42ad6927fc2ead87b551b665541afe5ee445d309cf635860670f516e7",
+          "unavailable_model_events": 0
+        }
+      },
+      "development_events": 1124,
+      "development_id_sha256": "9e1d64e62624983015955209165c6e1264703e70883f99b4ef65f7301779884e",
+      "experiment": "N3",
+      "feature_events": 2950,
+      "files": {
+        "tennis-n3-features.csv": "7c86d4f71dda0d6ba60c5e5e760b2154e59f95a05233e954b87f3702fa4b9d89",
+        "tennis-n3-fit.json": "63135a16a40a0fa0f03783d5c159b289cbe4cc3a4947a607f719d8b8cab5a192",
+        "tennis-n3-forecasts.csv": "12995f69cdfb3b6a255cbd26565bf77c5569c305cbcbd128eb51c9e5523756f2"
+      },
+      "final_fit_as_of": "2026-09-09T22:44:05.476384+00:00",
+      "final_model_checks": {
+        "calibration": {
+          "maximum_L2_score_gradient": 3.656160305065548e-10,
+          "maximum_mean_abs_error": 0.0,
+          "maximum_scale_abs_error": 0.0
+        },
+        "set_shape": {
+          "maximum_L2_score_gradient": 9.144323614290739e-10,
+          "maximum_mean_abs_error": 4.996003610813204e-16,
+          "maximum_scale_abs_error": 5.551115123125783e-17
+        },
+        "workload": {
+          "maximum_L2_score_gradient": 6.087205286706143e-09,
+          "maximum_mean_abs_error": 1.887379141862766e-15,
+          "maximum_scale_abs_error": 2.4424906541753444e-15
+        }
+      },
+      "final_training_events": 2814,
+      "final_training_id_sha256": "d98982b14861f1a686718283f575829b5482613b76e8750e858cf8aa7d6ff014",
+      "first_mismatch": null,
+      "first_validation_quote": "2023-01-01T06:46:00+00:00",
+      "forecast_events": 1130,
+      "mismatch_count": 0,
+      "missing_close_holdout_forecasts_retained": 2,
+      "selection_available_at": "2023-12-03T23:00:00+00:00",
+      "ungraded_holdout_forecasts_retained": 54,
+      "validation_events": 614
+    }
+  ],
+  "limitations": [
+    "Validation-development coefficients/normalizers and per-row training membership were not exported; development eligibility/counts and reported validation minima were checked, without refitting.",
+    "Annual/final membership is independently reconstructed from feature rows; matching normalizers and a stationary stored L2 fit support that membership, but do not provide a historical runtime log.",
+    "This audit begins at exported accepted features; it does not rerun source reconstruction or decide which rejected raw events should have features."
+  ],
+  "scope": "Independent exported feature/fit/forecast chronology, membership, normalization and stored-fit L2 gradient verification; no model fitting or strategy evaluation"
+}
