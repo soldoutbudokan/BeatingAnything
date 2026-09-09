@@ -1,0 +1,437 @@
+{
+  "audit_script_sha256": "df81808bb881c9ce1654be9c84b96874e901f12a5a15e0b20c7583079ab570a1",
+  "by_nfl_week": [
+    {
+      "both_QBs_unambiguous": 16,
+      "entries": 16,
+      "snapshot_age_seconds": {
+        "count": 32,
+        "maximum": 67322.0,
+        "median": 45723.0,
+        "minimum": 38523.0,
+        "p25": 38523.0,
+        "p75": 56400.25,
+        "p90": 67255.8,
+        "p95": 67286.25
+      },
+      "team_entries_without_2024_dropback_history": 2,
+      "week": 1
+    },
+    {
+      "both_QBs_unambiguous": 16,
+      "entries": 16,
+      "snapshot_age_seconds": {
+        "count": 32,
+        "maximum": 67371.0,
+        "median": 38572.0,
+        "minimum": 24017.0,
+        "p25": 38572.0,
+        "p75": 52972.0,
+        "p90": 67324.7,
+        "p95": 67350.65
+      },
+      "team_entries_without_2024_dropback_history": 2,
+      "week": 2
+    },
+    {
+      "both_QBs_unambiguous": 16,
+      "entries": 16,
+      "snapshot_age_seconds": {
+        "count": 32,
+        "maximum": 67352.0,
+        "median": 38527.0,
+        "minimum": 38527.0,
+        "p25": 38527.0,
+        "p75": 52927.0,
+        "p90": 67321.1,
+        "p95": 67337.7
+      },
+      "team_entries_without_2024_dropback_history": 3,
+      "week": 3
+    },
+    {
+      "both_QBs_unambiguous": 16,
+      "entries": 16,
+      "snapshot_age_seconds": {
+        "count": 32,
+        "maximum": 67379.0,
+        "median": 52980.0,
+        "minimum": 52980.0,
+        "p25": 52980.0,
+        "p75": 56537.5,
+        "p90": 67349.0,
+        "p95": 67362.5
+      },
+      "team_entries_without_2024_dropback_history": 4,
+      "week": 4
+    },
+    {
+      "both_QBs_unambiguous": 14,
+      "entries": 14,
+      "snapshot_age_seconds": {
+        "count": 28,
+        "maximum": 67356.0,
+        "median": 45755.0,
+        "minimum": 24155.0,
+        "p25": 38555.0,
+        "p75": 52955.0,
+        "p90": 67355.0,
+        "p95": 67355.65
+      },
+      "team_entries_without_2024_dropback_history": 5,
+      "week": 5
+    },
+    {
+      "both_QBs_unambiguous": 15,
+      "entries": 15,
+      "snapshot_age_seconds": {
+        "count": 30,
+        "maximum": 67322.0,
+        "median": 38522.0,
+        "minimum": 24122.0,
+        "p25": 38522.0,
+        "p75": 63674.0,
+        "p90": 67322.0,
+        "p95": 67322.0
+      },
+      "team_entries_without_2024_dropback_history": 3,
+      "week": 6
+    },
+    {
+      "both_QBs_unambiguous": 15,
+      "entries": 15,
+      "snapshot_age_seconds": {
+        "count": 30,
+        "maximum": 67342.0,
+        "median": 52902.0,
+        "minimum": 24102.0,
+        "p25": 38502.0,
+        "p75": 63526.5,
+        "p90": 67342.0,
+        "p95": 67342.0
+      },
+      "team_entries_without_2024_dropback_history": 4,
+      "week": 7
+    },
+    {
+      "both_QBs_unambiguous": 13,
+      "entries": 13,
+      "snapshot_age_seconds": {
+        "count": 26,
+        "maximum": 67340.0,
+        "median": 38501.0,
+        "minimum": 38501.0,
+        "p25": 38501.0,
+        "p75": 52901.0,
+        "p90": 67301.0,
+        "p95": 67330.25
+      },
+      "team_entries_without_2024_dropback_history": 4,
+      "week": 8
+    },
+    {
+      "both_QBs_unambiguous": 14,
+      "entries": 14,
+      "snapshot_age_seconds": {
+        "count": 28,
+        "maximum": 67311.0,
+        "median": 52779.0,
+        "minimum": 52779.0,
+        "p25": 52779.0,
+        "p75": 52779.0,
+        "p90": 67200.0,
+        "p95": 67272.15
+      },
+      "team_entries_without_2024_dropback_history": 4,
+      "week": 9
+    },
+    {
+      "both_QBs_unambiguous": 14,
+      "entries": 14,
+      "snapshot_age_seconds": {
+        "count": 28,
+        "maximum": 67312.0,
+        "median": 52912.0,
+        "minimum": 38512.0,
+        "p25": 52912.0,
+        "p75": 52912.0,
+        "p90": 67300.0,
+        "p95": 67307.8
+      },
+      "team_entries_without_2024_dropback_history": 4,
+      "week": 10
+    },
+    {
+      "both_QBs_unambiguous": 15,
+      "entries": 15,
+      "snapshot_age_seconds": {
+        "count": 30,
+        "maximum": 67329.0,
+        "median": 52930.0,
+        "minimum": 38529.0,
+        "p25": 52930.0,
+        "p75": 52930.0,
+        "p90": 67257.0,
+        "p95": 67296.6
+      },
+      "team_entries_without_2024_dropback_history": 4,
+      "week": 11
+    },
+    {
+      "both_QBs_unambiguous": 14,
+      "entries": 14,
+      "snapshot_age_seconds": {
+        "count": 28,
+        "maximum": 67273.0,
+        "median": 52874.0,
+        "minimum": 52874.0,
+        "p25": 52874.0,
+        "p75": 52874.0,
+        "p90": 67273.0,
+        "p95": 67273.0
+      },
+      "team_entries_without_2024_dropback_history": 5,
+      "week": 12
+    },
+    {
+      "both_QBs_unambiguous": 16,
+      "entries": 16,
+      "snapshot_age_seconds": {
+        "count": 32,
+        "maximum": 67299.0,
+        "median": 52875.0,
+        "minimum": 52716.0,
+        "p25": 52875.0,
+        "p75": 52875.0,
+        "p90": 67265.0,
+        "p95": 67285.8
+      },
+      "team_entries_without_2024_dropback_history": 5,
+      "week": 13
+    },
+    {
+      "both_QBs_unambiguous": 14,
+      "entries": 14,
+      "snapshot_age_seconds": {
+        "count": 28,
+        "maximum": 67257.0,
+        "median": 52857.0,
+        "minimum": 52857.0,
+        "p25": 52857.0,
+        "p75": 52857.0,
+        "p90": 67238.0,
+        "p95": 67250.35
+      },
+      "team_entries_without_2024_dropback_history": 4,
+      "week": 14
+    },
+    {
+      "both_QBs_unambiguous": 16,
+      "entries": 16,
+      "snapshot_age_seconds": {
+        "count": 32,
+        "maximum": 153328.0,
+        "median": 138928.0,
+        "minimum": 66966.0,
+        "p25": 138928.0,
+        "p75": 138928.0,
+        "p90": 138928.0,
+        "p95": 145408.0
+      },
+      "team_entries_without_2024_dropback_history": 6,
+      "week": 15
+    },
+    {
+      "both_QBs_unambiguous": 16,
+      "entries": 16,
+      "snapshot_age_seconds": {
+        "count": 32,
+        "maximum": 67275.0,
+        "median": 52875.0,
+        "minimum": 52875.0,
+        "p25": 52875.0,
+        "p75": 66991.5,
+        "p90": 67189.8,
+        "p95": 67238.7
+      },
+      "team_entries_without_2024_dropback_history": 8,
+      "week": 16
+    },
+    {
+      "both_QBs_unambiguous": 16,
+      "entries": 16,
+      "snapshot_age_seconds": {
+        "count": 32,
+        "maximum": 67217.0,
+        "median": 52817.0,
+        "minimum": 52511.0,
+        "p25": 52817.0,
+        "p75": 56340.5,
+        "p90": 67129.5,
+        "p95": 67175.75
+      },
+      "team_entries_without_2024_dropback_history": 8,
+      "week": 17
+    },
+    {
+      "both_QBs_unambiguous": 16,
+      "entries": 16,
+      "snapshot_age_seconds": {
+        "count": 32,
+        "maximum": 66876.0,
+        "median": 52775.0,
+        "minimum": 52476.0,
+        "p25": 52775.0,
+        "p75": 52775.0,
+        "p90": 52775.0,
+        "p95": 59120.44999999999
+      },
+      "team_entries_without_2024_dropback_history": 8,
+      "week": 18
+    },
+    {
+      "both_QBs_unambiguous": 6,
+      "entries": 6,
+      "snapshot_age_seconds": {
+        "count": 12,
+        "maximum": 67093.0,
+        "median": 52792.0,
+        "minimum": 52424.0,
+        "p25": 52792.0,
+        "p75": 66823.0,
+        "p90": 67066.0,
+        "p95": 67093.0
+      },
+      "team_entries_without_2024_dropback_history": 0,
+      "week": 19
+    },
+    {
+      "both_QBs_unambiguous": 4,
+      "entries": 4,
+      "snapshot_age_seconds": {
+        "count": 8,
+        "maximum": 52777.0,
+        "median": 52616.5,
+        "minimum": 52456.0,
+        "p25": 52456.0,
+        "p75": 52777.0,
+        "p90": 52777.0,
+        "p95": 52777.0
+      },
+      "team_entries_without_2024_dropback_history": 0,
+      "week": 20
+    },
+    {
+      "both_QBs_unambiguous": 2,
+      "entries": 2,
+      "snapshot_age_seconds": {
+        "count": 4,
+        "maximum": 67126.0,
+        "median": 59926.0,
+        "minimum": 52726.0,
+        "p25": 52726.0,
+        "p75": 67126.0,
+        "p90": 67126.0,
+        "p95": 67126.0
+      },
+      "team_entries_without_2024_dropback_history": 0,
+      "week": 21
+    },
+    {
+      "both_QBs_unambiguous": 1,
+      "entries": 1,
+      "snapshot_age_seconds": {
+        "count": 2,
+        "maximum": 66423.0,
+        "median": 66423.0,
+        "minimum": 66423.0,
+        "p25": 66423.0,
+        "p75": 66423.0,
+        "p90": 66423.0,
+        "p95": 66423.0
+      },
+      "team_entries_without_2024_dropback_history": 0,
+      "week": 22
+    }
+  ],
+  "counts": {
+    "both_QBs_unambiguous_entries": 285,
+    "depth_rows": 554215,
+    "distinct_selected_QB_ESPN_ids": 48,
+    "distinct_selected_QB_GSIS_ids": 48,
+    "distinct_selected_QBs_with_2024_dropback_history": 37,
+    "distinct_selected_QBs_with_2024_passer_identity": 36,
+    "distinct_selected_QBs_without_2024_dropback_history": 11,
+    "entries_with_either_QB_without_2024_dropback_history": 77,
+    "fixed_entries": 285,
+    "pbp_projection_rows": 49492,
+    "rank1_changed_since_previous_fixed_entry_team_entries": 21,
+    "rank1_changed_since_previous_snapshot_team_entries": 0,
+    "rookie_status_unverified_no_prior_history_unique_QBs": 11,
+    "selected_ESPN_ids_mapping_to_multiple_GSIS_ids": 0,
+    "selected_GSIS_ids_mapping_to_multiple_ESPN_ids": 0,
+    "selected_team_entries_with_duplicate_rank1_rows": 0,
+    "selected_team_entries_without_ESPN_identity": 0,
+    "team_entries": 570,
+    "team_entries_with_prior_snapshot": 570,
+    "team_entries_without_2024_dropback_history": 83,
+    "teams": 32,
+    "unambiguous_QB_team_entries": 570
+  },
+  "created_at": "2026-09-09T22:58:21.632707+00:00",
+  "limitations": [
+    "dt is retained source snapshot metadata, not verified first-publication or availability time.",
+    "GSIS mapping in historical depth snapshots may have been revised by publisher; identity overlap does not certify the mapping vintage.",
+    "A listed rank1 QB is not proof of the player who started or played; no eventual starters were used.",
+    "No-prior2024-history cases include unknown career status; no rookie designation is inferred.",
+    "History row counts measure identity overlap only, not pressure feature quality or sufficient sample size.",
+    "All 285 entries are retained; no experiment, filter threshold or model has been selected."
+  ],
+  "prior_2024_identified_dropback_rows_per_unique_selected_QB": {
+    "count": 48,
+    "maximum": 764,
+    "median": 402.5,
+    "minimum": 0,
+    "p25": 1.75,
+    "p75": 623.5,
+    "p90": 679.7,
+    "p95": 714.9499999999999
+  },
+  "projection": {
+    "file": "data/raw/nfl-depth-entry-feasibility/entry-depth-metadata.json",
+    "sha256": "bb7c9eb9607cdbf711b96549e07ca4e5deacbe517a63be65a000b3091b15f9f6"
+  },
+  "rules": {
+    "changes": "Only transitions between unambiguous snapshots strictly before each entry; never eventual starters or postquote revisions",
+    "identity": "Unique nonmissing GSIS and no conflicting ESPN identity; names are never used to repair IDs",
+    "prior_history": "Any identified 2024 qb_dropback row, using passer_player_id or rusher_player_id only for qb_scramble; no minimum history threshold",
+    "rookies": "No career status field exists in retained sources; no-history players cannot be designated rookies",
+    "snapshot": "Latest team timestamp strictly before fixed entry quote, then QB rank1 in that exact snapshot; no older-snapshot fallback and no age filter"
+  },
+  "scope": "Fixed NFL 285-entry metadata/depth identity feasibility only; no result labels, eventual starters, models, EV, CLV or returns",
+  "selected_snapshot_reason_counts": {},
+  "snapshot_age_seconds": {
+    "count": 570,
+    "maximum": 153328.0,
+    "median": 52875.0,
+    "minimum": 24017.0,
+    "p25": 52775.0,
+    "p75": 66911.0,
+    "p90": 67322.0,
+    "p95": 67379.0
+  },
+  "sources": {
+    "data/raw/nfl-fixture-feasibility/candidate-quote-projection.json": {
+      "bytes": 1278825,
+      "sha256": "42d33403b24a6223024889166c1f910b03789f6a7ec4e48af48597125ccf6389"
+    },
+    "data/raw/nfl-source-audit/depth_charts_2025.csv.gz": {
+      "bytes": 10645149,
+      "sha256": "5cbc4d088a05c1c7b047ebdd2bacb480c97aac5849d46fc631fa041d09dd8ef7"
+    },
+    "data/raw/nfl-source-audit/play_by_play_2024-feature-projection.csv": {
+      "bytes": 3704772,
+      "sha256": "f129cef7e21d1e294b60e47e92d0c6b355065358e90f7ee531211f973319908d"
+    }
+  }
+}

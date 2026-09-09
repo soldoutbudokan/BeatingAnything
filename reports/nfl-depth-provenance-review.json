@@ -1,0 +1,310 @@
+{
+  "audit_recorded_at_utc": "2026-09-09T22:58:17.078626+00:00",
+  "scope": "Three bounded primary-source routes: release asset vintage, pinned historical ETL, and public Actions run/job metadata. No models, game outcomes or returns loaded.",
+  "source_file": {
+    "url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2025.csv.gz",
+    "captured_at": "2026-09-09T00:11:45.592114+00:00",
+    "sha256": "5cbc4d088a05c1c7b047ebdd2bacb480c97aac5849d46fc631fa041d09dd8ef7",
+    "bytes": 10645149,
+    "etag": "\"0x8DE819BD89B53F9\"",
+    "last_modified": "Sat, 14 Mar 2026 07:32:28 GMT",
+    "file": "data/raw/nfl-source-audit/depth_charts_2025.csv.gz",
+    "metadata_file": "data/raw/nfl-source-audit/depth_charts_2025.csv.gz.meta.json",
+    "metadata_sha256": "fd29fb31f45efe9142f39ff35bc7a50c464aaaaf17e418fe2c8330a3846bfb8b",
+    "dictionary_url": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
+    "publisher_etl_url": "https://github.com/nflverse/nflverse-rosters/blob/7f21fcb1478e352883f6d3561c6b0adf89267b12/exec/update-depth-charts.R",
+    "preseason_etl_commit": "140739bf9c6f80bbe435db1d058f92514141c337",
+    "preseason_etl_commit_at": "2025-08-18T13:54:55Z"
+  },
+  "source_sha256_matches_release_digest": true,
+  "snapshot_count": 221,
+  "first_snapshot_dt": "2025-08-03T10:09:07Z",
+  "last_snapshot_dt": "2026-03-14T07:32:09Z",
+  "release_assets_2025": [
+    {
+      "id": 373640613,
+      "name": "depth_charts_2025.csv",
+      "created_at": "2026-03-14T07:32:27Z",
+      "updated_at": "2026-03-14T07:32:30Z",
+      "size": 52917870,
+      "digest": "sha256:f5a4aa3fa70150e810b2255200c8735a6c1cc8ff77361308ce39149345b39b4a",
+      "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2025.csv"
+    },
+    {
+      "id": 373640611,
+      "name": "depth_charts_2025.csv.gz",
+      "created_at": "2026-03-14T07:32:27Z",
+      "updated_at": "2026-03-14T07:32:28Z",
+      "size": 10645149,
+      "digest": "sha256:5cbc4d088a05c1c7b047ebdd2bacb480c97aac5849d46fc631fa041d09dd8ef7",
+      "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2025.csv.gz"
+    },
+    {
+      "id": 373640609,
+      "name": "depth_charts_2025.parquet",
+      "created_at": "2026-03-14T07:32:27Z",
+      "updated_at": "2026-03-14T07:32:28Z",
+      "size": 2584724,
+      "digest": "sha256:14f74185b3c2c48df234ced284ba3596bda3333d0b2a8df40841f68cd34539fa",
+      "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2025.parquet"
+    },
+    {
+      "id": 373640612,
+      "name": "depth_charts_2025.qs",
+      "created_at": "2026-03-14T07:32:27Z",
+      "updated_at": "2026-03-14T07:32:27Z",
+      "size": 330625,
+      "digest": "sha256:cfa859bd97a9b52a79aa6aaf21d79b828220854c1881d38ab2859c6e06c81d01",
+      "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2025.qs"
+    },
+    {
+      "id": 373640610,
+      "name": "depth_charts_2025.rds",
+      "created_at": "2026-03-14T07:32:27Z",
+      "updated_at": "2026-03-14T07:32:28Z",
+      "size": 7970199,
+      "digest": "sha256:6a147ed7edb1325e9e3cf242927c888368ef238ad23eb305f69adf5f812bce7a",
+      "browser_download_url": "https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2025.rds"
+    }
+  ],
+  "release_conclusion": "All five retained 2025 formats were created March 14, 2026. No in-season immutable snapshot format was recovered from this release.",
+  "in_season_action_samples": [
+    {
+      "date": "2025-09-04",
+      "snapshot_dt": "2025-09-04T07:21:47Z",
+      "run_id": 17456255781,
+      "run_url": "https://github.com/nflverse/nflverse-rosters/actions/runs/17456255781",
+      "head_sha": "aa0388373e2749075412ae6729e78a38b41c2c07",
+      "run_started_at": "2025-09-04T07:12:36Z",
+      "run_updated_at": "2025-09-04T07:22:02Z",
+      "job_completed_at": "2025-09-04T07:22:01Z",
+      "conclusion": "success",
+      "snapshot_to_run_updated_seconds": 15.0,
+      "snapshot_to_job_completed_seconds": 14.0,
+      "retained_job_step_count": 0,
+      "code_sha256": "fd52589abef6be6dea3de21d92eb42af42b13527b3c295d88d93d91107262801",
+      "raw_snapshot_content_hash_from_run": null
+    },
+    {
+      "date": "2025-10-15",
+      "snapshot_dt": "2025-10-15T07:17:51Z",
+      "run_id": 18520873494,
+      "run_url": "https://github.com/nflverse/nflverse-rosters/actions/runs/18520873494",
+      "head_sha": "75832635b6e4268b5847aabdee002eb51b9550e5",
+      "run_started_at": "2025-10-15T07:14:07Z",
+      "run_updated_at": "2025-10-15T07:18:13Z",
+      "job_completed_at": "2025-10-15T07:18:12Z",
+      "conclusion": "success",
+      "snapshot_to_run_updated_seconds": 22.0,
+      "snapshot_to_job_completed_seconds": 21.0,
+      "retained_job_step_count": 0,
+      "code_sha256": "fd52589abef6be6dea3de21d92eb42af42b13527b3c295d88d93d91107262801",
+      "raw_snapshot_content_hash_from_run": null
+    },
+    {
+      "date": "2025-12-15",
+      "snapshot_dt": "2025-12-15T07:21:22Z",
+      "run_id": 20223784789,
+      "run_url": "https://github.com/nflverse/nflverse-rosters/actions/runs/20223784789",
+      "head_sha": "d3940ae3f74e204d0e4565a5f3b0a023052d333f",
+      "run_started_at": "2025-12-15T07:19:30Z",
+      "run_updated_at": "2025-12-15T07:21:54Z",
+      "job_completed_at": "2025-12-15T07:21:53Z",
+      "conclusion": "success",
+      "snapshot_to_run_updated_seconds": 32.0,
+      "snapshot_to_job_completed_seconds": 31.0,
+      "retained_job_step_count": 0,
+      "code_sha256": "fd52589abef6be6dea3de21d92eb42af42b13527b3c295d88d93d91107262801",
+      "raw_snapshot_content_hash_from_run": null
+    }
+  ],
+  "etl_sources_identical": true,
+  "etl_source_sha256": "fd52589abef6be6dea3de21d92eb42af42b13527b3c295d88d93d91107262801",
+  "etl_interpretation": {
+    "schedule": "Inspected September 4 workflow runs daily at 07:00 UTC and invokes Rscript exec/update-depth-charts.R.",
+    "history": "Top-level ETL prepends new rows to old history; the five inspected historical/later files are byte-identical.",
+    "preserved_by_top_level_etl": [
+      "dt",
+      "team",
+      "espn_id",
+      "pos_grp_id",
+      "pos_id",
+      "pos_abb",
+      "pos_slot",
+      "pos_rank"
+    ],
+    "retrospectively_enriched": [
+      "gsis_id",
+      "pos_name",
+      "player_name"
+    ],
+    "identity_limitation": "gsis_id is recomputed for all historical rows using a current ESPN-to-GSIS map; names are cleaned using a helper whose full historical dependency chain was not audited."
+  },
+  "logs_attempt": {
+    "run_id": 17456255781,
+    "http_status": 403,
+    "body_file": "data/raw/nfl-source-audit/depth-run-17456255781-logs-response.json",
+    "headers_file": "data/raw/nfl-source-audit/depth-run-17456255781-logs-headers.txt",
+    "finding": "Ordinary anonymous access requires authorization. Stopped without bypass. Retained job metadata has an empty steps array."
+  },
+  "decision": {
+    "all_snapshot_publication_verified": false,
+    "universal_publication_delay_seconds": null,
+    "strict_all_2025_as_published_cohort_supported": false,
+    "conditional_next_step": "Join actually selected entry snapshots to the retained 219-row successful-run map, require the quote strictly after availability_proxy_at, and preserve the two unmatched snapshots as unresolved. This is an operational publication proxy conditional on publisher execution and history fidelity, not an original row-content hash. Preserve stable ESPN identity and separately audit historical GSIS mapping. The observed 9\u201356 second range is not a universal or future publication guarantee.",
+    "protocol_or_model_changed": false
+  },
+  "evidence": [
+    {
+      "file": "data/raw/nfl-source-audit/depth_charts-release-metadata.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-data/releases/tags/depth_charts",
+      "bytes": 198930,
+      "sha256": "45c3716766d42bcb9fe3ea1748899a47247bd8315e5da97e7e7f2d327702aa17",
+      "capture_completed_at_utc": "2026-09-09T22:54:53.007291+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-actions-20250904.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/runs?created=2025-09-04T00%3A00%3A00Z..2025-09-04T23%3A59%3A59Z&per_page=100",
+      "bytes": 44729,
+      "sha256": "2a72bd1eb06df6a45779101df6f91c8a96cacafaebc74f527ef50ed77dee7bb2",
+      "capture_completed_at_utc": "2026-09-09T22:55:25.722025+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-job-17456255781.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/runs/17456255781/jobs",
+      "bytes": 1181,
+      "sha256": "5f6ddf248b24a721bd06cfbd9e01a5d764d5131077880ac447fc50feb66bfee0",
+      "capture_completed_at_utc": "2026-09-09T22:56:23.341897+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-etl-run-20250904.R",
+      "url": "https://raw.githubusercontent.com/nflverse/nflverse-rosters/aa0388373e2749075412ae6729e78a38b41c2c07/exec/update-depth-charts.R",
+      "bytes": 1831,
+      "sha256": "fd52589abef6be6dea3de21d92eb42af42b13527b3c295d88d93d91107262801",
+      "capture_completed_at_utc": "2026-09-09T22:57:03.160598+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-actions-20251015.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/runs?created=2025-10-15T00%3A00%3A00Z..2025-10-15T23%3A59%3A59Z&per_page=100",
+      "bytes": 44729,
+      "sha256": "ff0a054a34ee06312dad0144c2c9232997ced9f6678a2b38244b7a638f4455ca",
+      "capture_completed_at_utc": "2026-09-09T22:56:23.390765+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-job-18520873494.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/runs/18520873494/jobs",
+      "bytes": 1181,
+      "sha256": "ad1974a92c83c696fbaee6113364245d3f187dd353a6252a9a4e34c8c5113d68",
+      "capture_completed_at_utc": "2026-09-09T22:57:03.702199+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-etl-run-20251015.R",
+      "url": "https://raw.githubusercontent.com/nflverse/nflverse-rosters/75832635b6e4268b5847aabdee002eb51b9550e5/exec/update-depth-charts.R",
+      "bytes": 1831,
+      "sha256": "fd52589abef6be6dea3de21d92eb42af42b13527b3c295d88d93d91107262801",
+      "capture_completed_at_utc": "2026-09-09T22:57:03.168508+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-actions-20251215.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/runs?created=2025-12-15T00%3A00%3A00Z..2025-12-15T23%3A59%3A59Z&per_page=100",
+      "bytes": 44729,
+      "sha256": "b53a8261410ed66d7ae331506d07cebc0bfa5e3a7ceba63f5093ec707b1f5f73",
+      "capture_completed_at_utc": "2026-09-09T22:56:23.435809+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-job-20223784789.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/runs/20223784789/jobs",
+      "bytes": 1181,
+      "sha256": "329d155c5066862d5e416b61f7d8d39f03aa147c0dbb6c02a1244405e47b676b",
+      "capture_completed_at_utc": "2026-09-09T22:57:03.643777+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-etl-run-20251215.R",
+      "url": "https://raw.githubusercontent.com/nflverse/nflverse-rosters/d3940ae3f74e204d0e4565a5f3b0a023052d333f/exec/update-depth-charts.R",
+      "bytes": 1831,
+      "sha256": "fd52589abef6be6dea3de21d92eb42af42b13527b3c295d88d93d91107262801",
+      "capture_completed_at_utc": "2026-09-09T22:57:03.170784+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-etl-preseason-140739bf.R",
+      "url": "https://raw.githubusercontent.com/nflverse/nflverse-rosters/140739bf9c6f80bbe435db1d058f92514141c337/exec/update-depth-charts.R",
+      "bytes": 1831,
+      "sha256": "fd52589abef6be6dea3de21d92eb42af42b13527b3c295d88d93d91107262801",
+      "capture_completed_at_utc": "2026-09-09T22:55:11.393864+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-etl-later-7f21fcb1.R",
+      "url": "https://raw.githubusercontent.com/nflverse/nflverse-rosters/7f21fcb1478e352883f6d3561c6b0adf89267b12/exec/update-depth-charts.R",
+      "bytes": 1831,
+      "sha256": "fd52589abef6be6dea3de21d92eb42af42b13527b3c295d88d93d91107262801",
+      "capture_completed_at_utc": "2026-09-09T22:55:11.385513+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-workflow-20250904.yaml",
+      "url": "https://raw.githubusercontent.com/nflverse/nflverse-rosters/aa0388373e2749075412ae6729e78a38b41c2c07/.github/workflows/update_depth_charts.yaml",
+      "bytes": 849,
+      "sha256": "da0dfbb0bbd193982f276940e925b8b0cdff48758516ec89ca657db4c3117690",
+      "capture_completed_at_utc": "2026-09-09T22:56:22.940937+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-run-17456255781-logs-response.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/runs/17456255781/logs",
+      "bytes": 180,
+      "sha256": "d16412e4e3437ac2a9ac7d8ad55deb39f4002a058e6deca762707ea555e06452",
+      "capture_completed_at_utc": "2026-09-09T22:57:04.006958+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-workflow-runs-page1.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/workflows/14022139/runs?created=2025-08-01..2026-03-15&per_page=100&page=1",
+      "bytes": 1490250,
+      "sha256": "0c8f8de7f12fe21f085398b0dba172ff4becd99591d3b71436a342ea87f40b51",
+      "capture_completed_at_utc": "2026-09-09T22:59:18.839532+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-workflow-runs-page2.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/workflows/14022139/runs?created=2025-08-01..2026-03-15&per_page=100&page=2",
+      "bytes": 1490174,
+      "sha256": "a9d9af31cc33c90002cccc6e5bcaaedd49acacb10c869548627fcfa40551d399",
+      "capture_completed_at_utc": "2026-09-09T22:59:18.671404+00:00"
+    },
+    {
+      "file": "data/raw/nfl-source-audit/depth-workflow-runs-page3.json",
+      "url": "https://api.github.com/repos/nflverse/nflverse-rosters/actions/workflows/14022139/runs?created=2025-08-01..2026-03-15&per_page=100&page=3",
+      "bytes": 446682,
+      "sha256": "b876f2540d25dc7536ec04e36608d8cac250ebd096796611c15ce2cea50530c1",
+      "capture_completed_at_utc": "2026-09-09T22:59:17.383161+00:00"
+    }
+  ],
+  "capture_time_note": "Local download-file mtime marks response completion; exact request starts were not separately retained.",
+  "dictionary_url": "https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html",
+  "all_workflow_run_coverage": {
+    "workflow_id": 14022139,
+    "created_date_filter": "2025-08-01..2026-03-15",
+    "pages": 3,
+    "declared_total_runs": 230,
+    "unique_runs": 230,
+    "conclusions": {
+      "failure": 11,
+      "success": 219
+    },
+    "mapping_rule": "Exactly one run with conclusion=success and run_started_at <= snapshot dt <= run updated_at. availability_proxy_at is that run updated_at.",
+    "matched_snapshots": 219,
+    "unmatched_snapshots": [
+      {
+        "dt": "2025-08-03T10:09:07Z",
+        "matching_successful_run_ids": []
+      },
+      {
+        "dt": "2025-08-11T19:01:03Z",
+        "matching_successful_run_ids": []
+      }
+    ],
+    "minimum_observed_proxy_delay_seconds": 9.0,
+    "maximum_observed_proxy_delay_seconds": 56.0,
+    "matched_run_head_commits": 11,
+    "mapping_file": "data/raw/nfl-source-audit/depth-snapshot-run-matches.json",
+    "mapping_sha256": "a6f6eda0b5ecb6947d61bc8283c0b1a4f302e7ec2d37bc4dbd888bccc9e6ba96",
+    "mapping_bytes": 79498,
+    "interpretation": "219 of 221 timestamps have a unique successful run completion proxy. This corroborates historical processing; it does not bind original published row contents to a contemporaneously retained hash. Only three in-season run code versions and two additional pinned versions were inspected, rather than every dependency version from all 11 matched head commits."
+  }
+}

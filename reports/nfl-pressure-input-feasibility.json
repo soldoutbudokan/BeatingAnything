@@ -1,0 +1,223 @@
+{
+  "created_at_utc": "2026-09-09T22:59:54.975765+00:00",
+  "status": "Input feasibility only; no NFL experiment or model registered",
+  "scope": "Two pinned prior-2024 inputs only; no 2025 outcome labels, odds, forecasts or betting returns read",
+  "input_sha256": {
+    "ftn_charting_2024.csv": "6faae8118cc13ce62589210d553733128ed35e558671009b4a7a8fc5c674c2cb",
+    "play_by_play_2024-feature-projection.csv": "f129cef7e21d1e294b60e47e92d0c6b355065358e90f7ee531211f973319908d"
+  },
+  "audit_script_sha256": "a5b320744e79b37c654834ffd32161704060bbe2128e23473ff8bb41fb614520",
+  "pbp_rows": 49492,
+  "charting_rows": 48031,
+  "all_dropbacks_joined": 21139,
+  "play_issue_counts_overlapping": {
+    "unknown_hash_or_qb_location": 235,
+    "charted_fault_sack_without_pbp_sack": 10,
+    "both_charted_risk_flags": 1,
+    "impossible_pass_rusher_count": 1
+  },
+  "unknown_marker_combinations": {
+    "0|0": 228,
+    "0|S": 4,
+    "M|0": 1,
+    "L|0": 2
+  },
+  "unknown_marker_games": {
+    "2024_01_JAX_MIA": 1,
+    "2024_02_SF_MIN": 1,
+    "2024_02_TB_DET": 1,
+    "2024_05_IND_JAX": 1,
+    "2024_07_BAL_TB": 71,
+    "2024_07_LAC_ARI": 72,
+    "2024_07_SEA_ATL": 72,
+    "2024_08_IND_HOU": 1,
+    "2024_09_DAL_ATL": 2,
+    "2024_10_PIT_WAS": 1,
+    "2024_11_HOU_DAL": 1,
+    "2024_12_DEN_LV": 1,
+    "2024_12_KC_CAR": 1,
+    "2024_12_NE_MIA": 1,
+    "2024_13_LAC_ATL": 2,
+    "2024_17_DEN_CIN": 1,
+    "2024_17_KC_PIT": 1,
+    "2024_18_WAS_DAL": 1,
+    "2024_19_DEN_BUF": 2,
+    "2024_21_WAS_PHI": 1
+  },
+  "zero_rusher_games": {
+    "2024_01_BAL_KC": 2,
+    "2024_01_HOU_IND": 1,
+    "2024_01_JAX_MIA": 2,
+    "2024_01_MIN_NYG": 1,
+    "2024_01_PIT_ATL": 1,
+    "2024_01_TEN_CHI": 1,
+    "2024_02_CHI_HOU": 1,
+    "2024_02_CIN_KC": 1,
+    "2024_02_IND_GB": 1,
+    "2024_02_LV_BAL": 1,
+    "2024_02_SF_MIN": 1,
+    "2024_02_TB_DET": 1,
+    "2024_03_HOU_MIN": 1,
+    "2024_06_PIT_LV": 1,
+    "2024_07_BAL_TB": 71,
+    "2024_07_KC_SF": 1,
+    "2024_07_LAC_ARI": 72,
+    "2024_07_MIA_IND": 2,
+    "2024_07_NYJ_PIT": 1,
+    "2024_07_SEA_ATL": 72,
+    "2024_08_CHI_WAS": 1,
+    "2024_08_IND_HOU": 1,
+    "2024_09_DAL_ATL": 2,
+    "2024_09_LV_CIN": 1,
+    "2024_09_WAS_NYG": 1,
+    "2024_10_DEN_KC": 1,
+    "2024_10_DET_HOU": 1,
+    "2024_10_NYG_CAR": 1,
+    "2024_10_PIT_WAS": 1,
+    "2024_10_SF_TB": 1,
+    "2024_11_HOU_DAL": 1,
+    "2024_11_SEA_SF": 1,
+    "2024_12_DEN_LV": 1,
+    "2024_12_DET_IND": 1,
+    "2024_13_CHI_DET": 1,
+    "2024_13_LAC_ATL": 1,
+    "2024_13_LV_KC": 1,
+    "2024_17_DEN_CIN": 1,
+    "2024_17_KC_PIT": 1,
+    "2024_17_LAC_NE": 1,
+    "2024_17_SEA_CHI": 1,
+    "2024_18_KC_DEN": 1,
+    "2024_18_SEA_LA": 1,
+    "2024_19_DEN_BUF": 1,
+    "2024_19_WAS_TB": 1,
+    "2024_21_WAS_PHI": 1
+  },
+  "diagnostic_masks": {
+    "all_joined": {
+      "all": {
+        "dropbacks": 21139,
+        "games": 285,
+        "passer_or_scramble_identities": 114,
+        "scrambles": 1133,
+        "charted_interception_worthy": 625,
+        "charted_qb_fault_sack": 518,
+        "either_charted_risk_flag": 1142
+      },
+      "zero_rushers": {
+        "dropbacks": 262,
+        "games": 46,
+        "passer_or_scramble_identities": 33,
+        "scrambles": 31,
+        "charted_interception_worthy": 3,
+        "charted_qb_fault_sack": 1,
+        "either_charted_risk_flag": 4
+      },
+      "one_to_four": {
+        "dropbacks": 15275,
+        "games": 283,
+        "passer_or_scramble_identities": 96,
+        "scrambles": 867,
+        "charted_interception_worthy": 469,
+        "charted_qb_fault_sack": 379,
+        "either_charted_risk_flag": 847
+      },
+      "five_to_eleven": {
+        "dropbacks": 5601,
+        "games": 283,
+        "passer_or_scramble_identities": 85,
+        "scrambles": 235,
+        "charted_interception_worthy": 153,
+        "charted_qb_fault_sack": 138,
+        "either_charted_risk_flag": 291
+      }
+    },
+    "schema_compatible": {
+      "all": {
+        "dropbacks": 20903,
+        "games": 283,
+        "passer_or_scramble_identities": 106,
+        "scrambles": 1116,
+        "charted_interception_worthy": 622,
+        "charted_qb_fault_sack": 518,
+        "either_charted_risk_flag": 1139
+      },
+      "zero_rushers": {
+        "dropbacks": 34,
+        "games": 32,
+        "passer_or_scramble_identities": 19,
+        "scrambles": 15,
+        "charted_interception_worthy": 0,
+        "charted_qb_fault_sack": 1,
+        "either_charted_risk_flag": 1
+      },
+      "one_to_four": {
+        "dropbacks": 15270,
+        "games": 283,
+        "passer_or_scramble_identities": 96,
+        "scrambles": 866,
+        "charted_interception_worthy": 469,
+        "charted_qb_fault_sack": 379,
+        "either_charted_risk_flag": 847
+      },
+      "five_to_eleven": {
+        "dropbacks": 5599,
+        "games": 283,
+        "passer_or_scramble_identities": 84,
+        "scrambles": 235,
+        "charted_interception_worthy": 153,
+        "charted_qb_fault_sack": 138,
+        "either_charted_risk_flag": 291
+      }
+    },
+    "schema_and_cross_source_risk_consistency": {
+      "all": {
+        "dropbacks": 20893,
+        "games": 283,
+        "passer_or_scramble_identities": 106,
+        "scrambles": 1110,
+        "charted_interception_worthy": 621,
+        "charted_qb_fault_sack": 508,
+        "either_charted_risk_flag": 1129
+      },
+      "zero_rushers": {
+        "dropbacks": 33,
+        "games": 31,
+        "passer_or_scramble_identities": 19,
+        "scrambles": 14,
+        "charted_interception_worthy": 0,
+        "charted_qb_fault_sack": 0,
+        "either_charted_risk_flag": 0
+      },
+      "one_to_four": {
+        "dropbacks": 15263,
+        "games": 283,
+        "passer_or_scramble_identities": 96,
+        "scrambles": 862,
+        "charted_interception_worthy": 468,
+        "charted_qb_fault_sack": 372,
+        "either_charted_risk_flag": 840
+      },
+      "five_to_eleven": {
+        "dropbacks": 5597,
+        "games": 283,
+        "passer_or_scramble_identities": 84,
+        "scrambles": 234,
+        "charted_interception_worthy": 153,
+        "charted_qb_fault_sack": 136,
+        "either_charted_risk_flag": 289
+      }
+    }
+  },
+  "schema_compatible_defense_teams": 32,
+  "interpretation": [
+    "Diagnostic masks are not a frozen feature definition or eligibility choice.",
+    "Zero is physically possible for pass-rusher count and is not by itself treated as missing; unknown categorical markers and impossible counts are separate issues.",
+    "Prior scramble identities use rusher_player_id; missing passer identity on a scramble is not evidence of an unknown player.",
+    "Unique passer/rusher identities include occasional non-quarterback passers. No position or rookie status is inferred.",
+    "Charted risk flags describe prior plays and are not target-season game results. Cross-source sack disagreement is retained explicitly, not silently repaired."
+  ],
+  "field_dictionaries": [
+    "https://nflreadr.nflverse.com/articles/dictionary_ftn_charting.html",
+    "https://raw.githubusercontent.com/nflverse/nflreadr/main/data-raw/dictionary_pbp.csv"
+  ]
+}
