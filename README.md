@@ -4,6 +4,8 @@
 
 Use Python 3.12 and the pinned `requirements-lock.txt` dependencies for the research commands below.
 
+For the current state, live download, exact continuation commands and unfinished experiments, start with [PROGRESS.md](PROGRESS.md).
+
 The new [timestamped FanDuel MLB pilot](reports/timestamped-mlb-research-report.md) tested the unchanged physical model on 100 September 2026 forecasts. It produced zero qualifying bets and worse log loss than FanDuel on available settled outcomes. Unlike the original archive, this source permits a limited near-start price comparison, but bookmaker freshness remains unverified and one week cannot establish an edge.
 
 The next experiment models **ATP Challenger total games at 21.5**, reconstructing serving and match-length tendencies from historical set scores. The [tennis protocol](docs/protocol-tennis-v1.md) was committed before holdout acquisition. Its exact scoring kernel accounts for service order and tiebreaks. Historical data collection and the frozen backtest are in progress; this is not a profitable-model claim.
@@ -22,7 +24,7 @@ python -m beating.tennis_pipeline
 
 The [additional source audit](docs/source-search-v2.md) also identifies a free 2025 NFL archive with FanDuel capture and bookmaker-update timestamps. It is an untested research lead. [Pitch-level MLB source research](docs/matchup-research-v2.md) verifies a free route to pitch movement and matchup data, while documenting historical lineup-publication limits.
 
-[NFL film-charting research](docs/football-charting-feasibility.md) verifies free play-level pressure and passing-quality fields, but its retained files have later retrieval dates that cannot be treated as timely early-season features. No NFL model or betting return has been tested.
+[NFL film-charting research](docs/football-charting-feasibility.md) verifies free play-level pressure and passing-quality fields. Exact 2024 charting and play-by-play assets predate the 2025 season; retained within-2025 charting versions have later retrieval dates that cannot be treated as timely early-season features. A [fixture audit](docs/nfl-fixture-feasibility.md) finds 285 paired FanDuel entries but only 77 usable nearstart references. No NFL model or betting return has been tested.
 
 The completed [six-league soccer totals experiment](reports/soccer-research-report.md) tested three small pricing models on **7,741 holdout/replication forecasts**. None produced a bet at the fixed 3% EV threshold. Unlike the earlier MLB archive, its source provides usable same-line historical closing benchmarks. All 42 pinned files match primary source downloads. See [metrics](reports/soccer-metrics.json), [protocol](docs/protocol-narrow-v1.md), [pre-result review](docs/narrow-review-before-results.md) and [source investigation](docs/odds-source-investigation.md).
 

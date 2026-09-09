@@ -1,0 +1,223 @@
+# Research progress and continuation handoff
+
+Updated September 9, 2026. Latest instruction: continue the research goal, mindful of the remaining account budget; if a limit approaches, push completed changes to `main` and provide a detailed progress update. This file is maintained as the continuation handoff.
+
+## Read this first
+
+**No betting edge has been demonstrated. No wager or betting notification has been sent.** The original objective remains unfinished: find a FanDuel market with free historical odds, develop a model using useful sport-specific information, backtest it honestly, and build a process for current prices, news, predictions, ROI, CLV and out-of-sample log loss. The user gave broad freedom over sports and markets and asked to keep working until an edge is demonstrated.
+
+The goal was verified **active** after the user's latest instruction. Do not mark it complete because the code is committed or tests pass. The source collector described below was still running when this checkpoint was prepared; its process status must be checked again.
+
+The immediate research priority is to finish the already frozen tennis acquisition and run both registered experiments. NFL is a promising new **source lead**, with an unregistered feature idea; it has no fitted model or evaluated betting returns. Do not substitute another infrastructure cleanup for these remaining research tasks.
+
+Repository: `https://github.com/soldoutbudokan/BeatingAnything`. The work is on `research/fanduel-timestamped-tennis`, originally from main commit `343d7b4`. Prior published research commits include `d00e288`, `a4a897b`, `655f63e`, `eb4a3cd` and `6a1d777`. [PR #1](https://github.com/soldoutbudokan/BeatingAnything/pull/1) contains the research description. A budget-limit handoff should include the user's requested push to `main`. Use Git's current state to identify what has actually been pushed; do not assume a planned merge occurred.
+
+## Runtime and local data
+
+Workspace on the original machine: `/Users/tirthbhatt/Documents/BeatingAnything`.
+
+Use **Python 3.12**, with `requirements-lock.txt`, for modeling and evaluation. The original `.venv` and Homebrew default Python are **3.14.6**. That environment's source-built pandas 2.2.3 segfaulted on `pd.to_datetime`; it is not the verified research runtime. The live tennis collector uses only stdlib/lxml and is running successfully under that older `.venv`. **Do not replace that environment while its collector is live.**
+
+A persistent local Python 3.12.13 runtime and research virtual environment have been prepared under the ignored `state/runtime/` directory for the handoff:
+
+```bash
+state/runtime/research-venv/bin/python --version
+state/runtime/research-venv/bin/python -m unittest discover -s tests -v
+```
+
+Earlier verified fallback: `/tmp/beating-venv312/bin/python`. A fresh checkout on another machine will not contain ignored runtimes or data. Recreate a virtual environment with Python 3.12, install `requirements-lock.txt`, then run `python -m pip install --no-deps .`. The locked research versions include NumPy 2.3.5, pandas 2.2.3, SciPy 1.17.0 and lxml 6.1.1.
+
+DuckDB 1.5.5 is an **audit-only** dependency in `state/runtime/nfl-audit-lib`; it is not added to the model dependency lock. Run the NFL fixture audit as:
+
+```bash
+PYTHONPATH=state/runtime/nfl-audit-lib state/runtime/research-venv/bin/python tools/audit_nfl_fixtures.py
+```
+
+R 4.5.0 is installed on the original machine. The optional legacy QS conversion uses `qs` 0.27.3 and `stringfish` 0.16.0, preserved in `state/runtime/r-audit-lib`:
+
+```bash
+BEATING_R_AUDIT_LIB=state/runtime/r-audit-lib Rscript tools/project_nfl_pbp_2024.R .
+```
+
+`qs2` cannot read original QS files. Installing current `stringfish` with archived `qs` failed; the versions above compiled and read the retained files. The CSV projections already exist locally, so routine Python audits do not require repeating R conversion.
+
+Raw third-party data, virtual environments, SQLite databases and local runtime state are intentionally ignored by Git. **Pushing all project changes does not upload those files.** They remain on the original machine. Their source URLs, hashes and limitations are recorded in the tracked reports. The important NFL odds database was copied out of `/tmp` to `data/raw/nfl-source-audit/nfl_odds.duckdb` so temporary-directory cleanup does not erase the only copy. Do not replace pinned historical inputs with a newer download and silently call it the same experiment.
+
+## Running tennis collector: verify before doing anything else
+
+All **1,826** required daily pages for `2021-01-01` through `2025-12-31` finished successfully, with zero terminal daily failures, at `2026-09-09T00:01:44.781008+00:00`. Their immutable fixture-only sample contains **5,453 unique match IDs**, across 480 nonempty sample dates:
+
+| Source year | Selected detail IDs |
+| --- | ---: |
+| 2021 | 1,030 |
+| 2022 | 1,090 |
+| 2023 | 1,105 |
+| 2024 | 1,121 |
+| 2025 | 1,107 |
+
+At a verified checkpoint at `2026-09-09T22:19:03 UTC`, **4,187 / 5,453** pinned details were parsed, with zero terminal failures. The exact count will be higher if the process continues. Earlier transient timeouts/resets recovered through the existing retry policy; all attempts remain recorded. Long host-clock gaps occurred while the same process remained alive; do not interpret elapsed wall time as uninterrupted download time.
+
+Original process identity:
+
+- OS PID **50494**, owned by the execution service. Its command is the detail collector below. The former daily-process PID 50495 has ended; the shell exec-reused PID 50494 for details.
+- Original owner agent: `/root/pitch_matchups`; agent-local unified exec session **52897**. Another agent/root cannot necessarily poll that local handle. An `Unknown process` response from a different agent is not proof the OS process died.
+- The collector survived a long apparent machine/session pause. A timeout while observing it or an old progress file is not permission to restart a duplicate.
+
+```bash
+ps -p 50494 -o pid,ppid,etime,command
+ps -ax -o pid,ppid,etime,command | rg 'beating.tennis_source'
+```
+
+The live command is:
+
+```bash
+.venv/bin/python -m beating.tennis_source details \
+  --source-dir data/raw/tennisexplorer \
+  --start 2021-01-01 --end 2025-12-31 --workers 2 --interval 1.0
+```
+
+Keep one collector only. It globally paces request starts at about one second, uses two workers, retains raw responses/hashes and retries ordinary transient failures. It stops on access-denial/rate-limit responses; do not evade those controls or increase load to finish faster. Computer sleep or loss of the execution service can stop progress; source files make it resumable.
+
+If the process is genuinely gone, inspect its final status/error and the ledger, then resume the same full-range **details** command with the verified Python 3.12 interpreter. Cached pages and sample pins should be reused. Do not redownload the daily archive, change the sample, replace failed IDs, or run a second collector against a live one.
+
+Source directory layout:
+
+- `daily/*.html` and `.meta.json`: fixed daily responses.
+- `sample/*.json`: fixed fixture-based selection, before odds/results analysis.
+- `parsed-daily/*.json`: normalized history plus parser errors.
+- `details/*.html`, `.meta.json`, `parsed-details/*.json`: sampled match sources and parsed markets.
+- `daily-status/`, `detail-status/`: latest per-file acquisition status.
+- `acquisition.jsonl`: append-only attempts, timestamps and hashes.
+- `daily-summary.json`, `details-summary.json`: completed invocation summaries.
+
+**The existing `details-summary.json` was still the old 12-page development-example run, ending March 22, 2022. It is not the full 5,453-page completion signal.** Check the summary's start/end range, counts and timestamp. Count only detail IDs appearing in the frozen sample pins when calculating cohort progress.
+
+## Frozen tennis experiments: do not change them from results
+
+Read [N2](docs/protocol-tennis-v1.md), [N3](docs/protocol-tennis-independent-v1.md) and the [pre-result implementation review](docs/tennis-implementation-review.md). Both target standard men's ATP Challenger best-of-three **full-match total games 21.5**, using historical **Pinnacle**, not historical FanDuel execution.
+
+Key fixed choices:
+
+- Daily ATP singles history covers 2021–2025. Detail sampling uses every Tuesday/Friday, at most 12 Challenger IDs per date, ordered by SHA-256 of `N2-v1|match_id`; missing markets do not get replacements.
+- N2 requires paired total and moneyline opening timestamps synchronized to the source's minute resolution and before start. N3 requires only paired total openings, using prior set Elo instead of moneyline.
+- Historical set data becomes available after Prague-local source-date end plus 48 elapsed hours. Preceding-365-day tiebreak rate is shrunk with 50 sets at 0.12. Set Elo starts at 1500, K=16, denominator 400, with causal ordering and current-event exclusion.
+- The exact service/tiebreak/best-of-three kernel infers serving strengths. Workload uses the fixed prior-seven-day completed-match game counts and caps. See the protocol for numerical tolerances and all features.
+- Development is 2021–2022; validation is 2023; holdout is 2024 and 2025, with prior-year-only annual refits. Calibration, set-shape and workload candidates all remain in the report. L2 choices are `[0.001, 0.01, 0.1, 1]`, chosen from validation only.
+- Training labels and validation selection must have been available before each forecast. Early new-year quotes preceding final validation-label availability are explicitly model-unavailable, not fitted using future labels.
+- At most one flat unit per event, maximum-EV side, EV at least 3%, selected decimal price 1.20–6.00, entry overround 0–10%; ties choose over. Apply a 2% haircut to net winnings.
+- Closing evidence is the same 21.5 line and paired prestart Pinnacle prices. Missing closes remain missing on selected exposure. Retired/unclear outcomes remain ungraded, with worst/best exposure bounds and separately labeled complete-match sensitivity.
+- The current finite comparison allowance is **13**, with 10,000 calendar-week bootstrap draws, seed 1729. **No NFL experiment or additional comparison allowance has been registered.** Do not silently change this number based on an idea discussed during the interrupted session.
+
+Implementation:
+
+| File | Responsibility |
+| --- | --- |
+| `beating/tennis_source.py` | Acquisition, sample pins, score/market parsing and timestamp checks |
+| `beating/tennis_history.py` | Causal prior set history, Elo, tiebreak and workload features |
+| `beating/tennis_kernel.py` | Exact scoring distribution and serving-rate inversion |
+| `beating/tennis_pipeline.py` | Full-acquisition/provenance gate, features, chronological fitting and all candidate forecasts |
+| `beating/tennis_evaluate.py` | Fixed entry policy, ROI/exposure/CLV/loss and corrected intervals |
+| `beating/tennis_report.py` | Combined human-readable report, including missing years and unresolved exposure |
+
+**No real tennis strategy results have been evaluated yet.** Development examples were used for parser/schema coverage, and synthetic data for implementation tests. Do not run partial-sample profitability checks while acquisition continues.
+
+After all daily and sampled detail requests have been attempted, verify the provenance gate first:
+
+```bash
+state/runtime/research-venv/bin/python - <<'PY'
+from beating.tennis_pipeline import acquisition_inputs
+history, details, audit = acquisition_inputs('data/raw/tennisexplorer')
+print({k: audit[k] for k in (
+    'daily_dates_required', 'sampled_unique_events', 'parsed_details',
+    'failed_daily_dates', 'failed_sampled_detail_events')})
+PY
+```
+
+It binds raw files to successful acquisition hashes, reparses normalized records, verifies immutable sampling and detail identities, and refuses unattempted pages. If a genuine parser defect is found, correct it uniformly from raw evidence, document the change before reviewing results and preserve the original sources. Some parser-hardening changes were made while the daily collector's older process image was live; a reparse discrepancy must be investigated, not waved away or fixed by overwriting raw data.
+
+Then run both experiments together:
+
+```bash
+state/runtime/research-venv/bin/python -m beating.tennis_pipeline \
+  --source-dir data/raw/tennisexplorer --output reports
+```
+
+Expected outputs are `tennis-n2-*` and `tennis-n3-*` features, forecasts, fit and metrics files, plus `reports/tennis-research-report.md`. An insufficient-data result must be preserved explicitly. Independently audit actual probabilities, chronology, settlements, selected exposure and metrics before making a claim or choosing a prospective artifact. Passing synthetic tests does not prove the historical pipeline succeeds.
+
+## Completed results that must remain visible
+
+| Experiment | Result and practical interpretation |
+| --- | --- |
+| Original MLB physical model | 4,141 test games; log loss 0.6771583 versus FanDuel 0.6772104. Paired delta −0.0000521 with interval crossing zero. Zero qualifying bets; no usable historical CLV. No edge. |
+| N1 six lower-division soccer totals | Three candidates, 7,741 holdout/replication forecasts; all zero qualifying bets. Historical Bet365, not FanDuel execution. No edge. |
+| F1 timestamped 2026 FanDuel MLB replication | 100 forecasts, 85 settled in the frozen outcome snapshot. All zero qualifying bets. On 97 shared forecasts / 82 settled, physical loss 0.6838668355 versus FanDuel 0.6826309661: delta **+0.0012358694**, worse. Pinnacle control also worse. No edge. |
+
+F1 used the unchanged MLB artifact `a7ceefe2db3c13ea`, trained through August 16, 2025, file SHA-256 `c035a7a44c70dc7f16db6624ffebe1b691f2bd76177dfeaf1548813003540f5f`. Its protocol and timing clarifications were pushed before scoring. It did not refit on the new week.
+
+Pinned F1 input: `data/raw/oddsgap-mlb-f1.csv`, SHA-256 `3f433cc28f0a2789dc2dff59f46718ee385181ca9e6fc5e460706fa93585a14e`, downloaded September 8, 2026 at 23:10:42 UTC. Official MLB inputs and first-pitch evidence are under `data/raw/mlb-2026-f1/`. The seven-day export is mutable at its source URL: a fresh request is a different dataset.
+
+F1 supplies publisher capture times, not bookmaker freshness. It has only two week blocks, so the registered minimum block count prevents interval claims. Zero-bet ROI and selected CLV remain null, not zero. See [F1 report](reports/timestamped-mlb-research-report.md), [independent review](docs/timestamped-mlb-review.md) and [original MLB report](reports/research-report.md). Their inspected outcomes cannot be recycled as untouched tests for revised strategies.
+
+Independent checks already completed:
+
+```bash
+state/runtime/research-venv/bin/python tools/audit_timestamped_mlb.py
+state/runtime/research-venv/bin/python tools/audit_nfl_charting.py
+```
+
+The F1 verifier passed 6,222 checks. The tennis kernel was separately compared with 200,000 synthetic point-by-point matches; all 16 comparisons were within 1.78 Monte Carlo standard errors. See `tools/validate_tennis_kernel.py`, `reports/tennis-kernel-independent-check.json` and its review. This expensive simulation need not be repeated unless the kernel changes or a new concern appears.
+
+## NFL lead: good prior-season provenance, still no registered model
+
+Read [price-source audit](docs/source-search-v2.md), [film-charting feasibility](docs/football-charting-feasibility.md), [fixture feasibility](docs/nfl-fixture-feasibility.md), [charting audit](reports/nfl-charting-source-audit.json), [depth-chart audit](reports/nfl-depth-chart-source-audit.json) and [fixture audit](reports/nfl-fixture-feasibility.json).
+
+Important retained files under `data/raw/nfl-source-audit/`:
+
+| File | SHA-256 / provenance |
+| --- | --- |
+| `nfl_odds.duckdb` | `b03c4e7f1cf885e9f20ea808ee538c26c21df4065b342fe04c50d09b808c344c`; NFL Market Tracker v1.1.1 public release; 1,856,036 raw rows |
+| `ftn_charting_2024.csv` | `6faae8118cc13ce62589210d553733128ed35e558671009b4a7a8fc5c674c2cb`; exact GitHub asset created/updated September 1, 2025 |
+| `play_by_play_2024.qs` | `c61a0fc53b0cd212bb07ffbe99da83efaa0e63c22e8790fd61293b53412ebdd9`; exact GitHub asset created/updated September 3, 2025 |
+| `play_by_play_2024-feature-projection.csv` | `f129cef7e21d1e294b60e47e92d0c6b355065358e90f7ee531211f973319908d`; derived 16-column projection, 49,492 rows, no scores/EPA/odds/result labels |
+| `depth_charts_2025.csv.gz` | `5cbc4d088a05c1c7b047ebdd2bacb480c97aac5849d46fc631fa041d09dd8ef7`; partial depth-chart source audit only |
+
+Both exact 2024 charting and play-by-play assets predate the first 2025 NFL game. Their local hashes match the retained GitHub release digests. All 48,031 charting keys join the PBP file. The older QS format was useful because newer 2024 PBP CSV/Parquet assets were replaced in 2026.
+
+Do not use current 2025 FTN charting as timely weekly input: every row has a September 2026 retrieval date. An older 2025 QS version has December 2025–February 2026 retrieval dates; those do not independently prove earlier public availability. The publisher ETL stamps retrieval time before publishing. The expanded source audit passed 175 checks before handoff.
+
+The metadata-only fixture audit maps all 285 2025-season fixtures (272 regular season, 13 postseason). Fixed first paired FanDuel entry between 24 hours and one hour before a conservative prestart boundary, book-update age 0–90 seconds and vig 0–8%, yields 285 entries. All have valid synchronized Pinnacle entry pairs. Only **77/285** have a valid last reference within 30 minutes of the independent kickoff; none within 90 seconds. This supersedes preliminary counts of 78. Winter/weekly coverage is in the report. Do not relax the closing definition to manufacture a useful CLV sample.
+
+Fixture inputs/projections are in `data/raw/nfl-fixture-feasibility/`. `fixture-source-uninspected-results.csv` contains scores in unused columns; the tool projects metadata before analysis and has not used those result labels. `candidate-quote-projection.json` contains fixed entries and references, no realized results. The fixture source is public nflverse/nfldata, independent of the odds archive but not an official execution feed; kickoff publication vintage is unresolved.
+
+The 2025 depth archive has 554,215 rows, 221 timestamps from August 3, 2025 through March 14, 2026, and 7,071 first-ranked QB entries, with no missing GSIS ID or conflicting first-QB snapshot in the initial check. First rank is a depth-chart listing, **not the actual starter**. Publisher code prepends new snapshots but can remap GSIS IDs and normalize names across older rows. Verify exact prequote coverage, player identity and publication assumptions before using it. The partial audit and source URL/hash are in `reports/nfl-depth-chart-source-audit.json`.
+
+Unregistered idea under discussion: prior-2024 QB rates of charted interception-worthy throws or QB-fault sacks, split by five-or-more versus fewer pass rushers, interacted with the opponent's prior rush tendency; choose the QB from the last available depth snapshot before the odds observation, never from the eventual game's starter. Include scrambles in the denominator using `rusher_player_id`; otherwise the feature conditions on failure to escape pressure. No feature coefficients, priors, lookbacks, split dates, candidates or fourth experiment were frozen. No NFL model has been fitted and no NFL betting returns computed. A public tie example appeared incidentally while checking FanDuel settlement rules; it was not used to select a cohort or strategy.
+
+Prior-2024 feature exploration found 21,139 QB dropbacks, all joined to FTN; 1,133 are scrambles with missing passer ID but available rusher identity. There are 263 zero/impossible pass-rusher counts, including one value of 45; 10 charted QB-fault sacks lack a PBP sack flag, and one row has both risk flags. These require a documented uniform quality rule before model registration. Do not silently repair values or tune handling on 2025 outcomes. `no_play` is absent from the projection/source schema requested; use documented `play_type`/dropback semantics instead of assuming the column exists.
+
+Next NFL action, if pursuing it: complete the metadata/feature-availability audit, decide whether the small single-season sample and sparse closes support a worthwhile test, freeze every feature/split/settlement/selection/uncertainty rule and its comparison accounting **before** loading outcome labels or fitting, then implement and independently audit. A source lead is not evidence of profitability.
+
+## Current monitoring capability and limits
+
+`beating.monitor` is an append-only SQLite quote/prediction/decision/settlement ledger and outbox. `beating.forward` remains an **MLB observational runner**, not a tennis adapter. It now uses one cumulative `forward.sql`/`forward.sqlite3` across dates and fresh-runner restores, preserving the model registry and earliest forecast. Existing daily archives and unexported local daily databases remain separate legacy evidence; their events cannot be recounted in the new ledger.
+
+New observations can fail while existing results still get graded. Local and shared-export writer locks coordinate concurrent runs. Atomic restores cannot publish partial databases. New trial policy hashes exclude webhook transport; old immutable full-config bindings retain their original meaning. Pending outbox items recheck policy, current price, expiry and settlement status. All changes have synthetic regression coverage.
+
+Remaining limitations are explicit in [monitoring documentation](docs/monitoring.md): existing local databases are authoritative relative to an externally newer archive, locks coordinate only a shared filesystem, legacy cohorts are not merged, and evidence promotion still relies on independently reviewed assertions. Fifteen-minute polling cannot assure a five-minute closing snapshot or a sixty-second notification lifetime. The MLB workflow is manual only; do not reenable its old schedule just because the code merges.
+
+A current source check found no usable free paired FanDuel Challenger 21.5 feed: ordinary FanDuel and Oddspedia requests were denied, and the accessible Odds Gap board had US Open moneylines but no relevant FanDuel totals. An ordinary CUA browser was unavailable. No challenges, location restrictions or paid access were bypassed. See [source audit](docs/fanduel-tennis-monitoring-source.md). The Odds Gap's allowed one-off research export is not permission to run an unrestricted downstream feed.
+
+No model currently meets the unchanged prospective promotion requirements: frozen model/cohort/policy, verified paired FanDuel entry and nearstart reference evidence, immutable forecasts, at least 1,000 settled paper bets over 90 days at fixed checkpoints, positive corrected haircut-ROI and closing-EV lower bounds, and negative paired-loss upper bound. Do not fabricate evidence flags, interpret an aggregator quote as executable, enable an unproven betting alert, or treat a historical Pinnacle result as verified FanDuel execution.
+
+## Validation and next-session checklist
+
+The persistent local Python 3.12.13 environment passed all **159 unit tests**. It also passed the F1 audit (6,222 checks), expanded NFL charting audit (175 checks), and NFL fixture reproduction (285 entries, 77 nearstart references). The two CI runs on `6a1d777` passed. Inspect current GitHub checks for any newer commit and verify `main` CI after an eventual push. Local final-check logs are under `state/final-*`.
+
+1. Read this file and current Git status; verify `main` and the user's latest instruction. Do not assume an old agent session is still present.
+2. Verify the collector process and latest acquisition timestamps. Continue a live process; resume the same fixed sample only if it has stopped.
+3. Finish and audit all frozen tennis acquisition, run both N2/N3, publish all results and independently review actual metrics. This is the main unfinished experiment.
+4. If a candidate is promising, freeze a separate prospective artifact/cohort and establish a usable current FanDuel acquisition/settlement process. A historical screen does not authorize alerts.
+5. If tennis fails or is unevaluable, preserve that result. NFL prior-season charting/price/depth sources and pitch-level MLB matchup data are available leads for a separately registered study; no unexamined holdout can be claimed for already inspected MLB/soccer data.
+6. Update this handoff and reports with evidence, including failed hypotheses. Keep the full user objective open until a real edge and its monitoring process are verified.
+
+Local `state/continuation.json` is a convenient pointer file but may be stale. The OS process, source ledger, pinned files, actual test output, Git history and completed reports are authoritative.

@@ -126,13 +126,52 @@ def verify(root, update_report=False):
                raw_bytes=raw.stat().st_size, decoded_csv_file=str(converted.relative_to(root)),
                metadata_file=str(meta_path.relative_to(root)), metadata_sha256=digest(meta_path),
                **ranges[converted.name])
+    prior = report.get("prior_season_2024_provenance")
+    if prior:
+        metadata = {}
+        for entry in prior["release_metadata"]:
+            path = root/entry["file"]
+            check(digest(path) == entry["sha256"], path.name+" metadata hash")
+            check(digest(root/entry["response_headers_file"]) == entry["response_headers_sha256"],
+                  path.name+" response headers hash")
+            metadata[entry["file"]] = json.loads(path.read_text())
+        for entry in prior["assets"]:
+            path = root/entry["file"]
+            asset = next(a for a in metadata[entry["metadata_file"]]["assets"] if a["id"] == entry["asset_id"])
+            check(digest(path) == entry["sha256"] == asset["digest"].removeprefix("sha256:"),
+                  path.name+" literal asset digest")
+            check(path.stat().st_size == entry["bytes"] == asset["size"], path.name+" literal asset bytes")
+            for source_field, saved_field in (("created_at", "asset_created_at"), ("updated_at", "asset_updated_at")):
+                check(asset[source_field] == entry[saved_field], path.name+" "+source_field)
+                check(timestamp(asset[source_field]) < timestamp(prior["cutoff_utc"]),
+                      path.name+" "+source_field+" precedes cutoff")
+        for name in ("pbp_ids", "pbp_schema", "pbp_projection"):
+            check(digest(root/prior[name]["file"]) == prior[name]["sha256"], name+" derived hash")
+        _, id_rows = read_csv(root/prior["pbp_ids"]["file"])
+        pbp_keys = {(r["game_id"], normalized(r["play_id"])) for r in id_rows}
+        chart_keys = set(current[2024][2])
+        expected = prior["join_keys"]
+        check(len(id_rows)-len(pbp_keys) == expected["pbp_duplicate_keys"] == 0, "PBP unique join keys")
+        check(len(chart_keys & pbp_keys) == expected["matched_keys"], "2024 chart/PBP matched keys")
+        check(len(chart_keys-pbp_keys) == expected["ftn_only_keys"] == 0, "2024 chart-only keys")
+        check(len(pbp_keys-chart_keys) == expected["pbp_only_keys"], "2024 PBP-only keys")
+        projection_fields, projected = read_csv(root/prior["pbp_projection"]["file"])
+        check(projection_fields == prior["pbp_projection"]["columns"], "PBP projection exact fields")
+        check(len(projected) == prior["pbp_projection"]["rows"], "PBP projection row count")
+        check({(r["game_id"], normalized(r["play_id"])) for r in projected} == pbp_keys,
+              "PBP projection preserves all keys")
+        check(digest(root/"tools/project_nfl_pbp_2024.R") == prior["pbp_projection"]["conversion_script_sha256"],
+              "PBP projection converter hash")
+        for entry in prior["publisher_etl"]["files"]:
+            check(digest(root/entry["file"]) == entry["sha256"], entry["file"]+" ETL source hash")
     result = {"checked_at_utc": datetime.now(timezone.utc).isoformat(),
               "command": "python3 tools/audit_nfl_charting.py", "verifier_sha256": digest(Path(__file__)),
               "checks": checks, "failed_checks": failures, "non_date_cells_compared": compared,
               "non_date_changed_fields": changed, "changed_date_pulled_rows": changed_dates,
               "exact_utc_ranges": ranges,
               "scope": "Local CSV schema/hash/key/date checks and non-date equality only. No outcomes or model evaluation. "
-                       "GitHub created/updated timestamps are reported provenance, not independently revalidated by this offline tool."}
+                       "Where retained release metadata is present, asset hashes and created/updated timestamps are checked "
+                       "against that public metadata; a separate contemporaneous archive is not claimed."}
     if failures:
         raise AssertionError(json.dumps(result, indent=2))
     if update_report:

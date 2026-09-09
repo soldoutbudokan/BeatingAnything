@@ -378,15 +378,18 @@
     "earliest_date_pulled": "2025-12-11T12:41:10.599765+00:00",
     "latest_date_pulled": "2026-02-10T13:07:54.694768+00:00",
     "release_metadata_source_url": "https://api.github.com/repos/nflverse/nflverse-data/releases/tags/ftn_charting",
-    "release_metadata_raw_retained": false,
-    "release_metadata_independently_rechecked_offline": false,
-    "availability_interpretation": "Row-declared retrieval chronology only. December row timestamps do not prove public December availability; the retained asset was created February 10, 2026 according to the original GitHub metadata check. Late-season historical use remains conditional on contemporaneous publication evidence."
+    "release_metadata_raw_retained": true,
+    "release_metadata_independently_rechecked_offline": true,
+    "availability_interpretation": "Row-declared retrieval chronology only. December row timestamps do not prove public December availability; the retained asset was created February 10, 2026 according to the original GitHub metadata check. Late-season historical use remains conditional on contemporaneous publication evidence.",
+    "release_metadata_file": "data/raw/nfl-source-audit/ftn_charting-release-metadata.json",
+    "release_metadata_sha256": "064e36f1ea47a4a4bbf81706ff813c6f73041bedeb57985530583be2da5dad82",
+    "release_metadata_rechecked_at_utc": "2026-09-09T00:15:19.249969+00:00"
   },
   "independent_verification": {
-    "checked_at_utc": "2026-09-09T00:04:31.314561+00:00",
+    "checked_at_utc": "2026-09-09T06:01:43.456680+00:00",
     "command": "python3 tools/audit_nfl_charting.py",
-    "verifier_sha256": "6ed821e199f9dc5cb217e461b98270df0309600a65087e18271669dcf862b383",
-    "checks": 145,
+    "verifier_sha256": "addee35717eb00ea11c645b60539d872c7db82f9ac4f4ccee7147fe8604457dd",
+    "checks": 175,
     "failed_checks": [],
     "non_date_cells_compared": 1324848,
     "non_date_changed_fields": {},
@@ -405,7 +408,7 @@
         "latest_date_pulled": "2026-02-10T13:07:54.694768+00:00"
       }
     },
-    "scope": "Local CSV schema/hash/key/date checks and non-date equality only. No outcomes or model evaluation. GitHub created/updated timestamps are reported provenance, not independently revalidated by this offline tool."
+    "scope": "Local CSV schema/hash/key/date checks and non-date equality only. No outcomes or model evaluation. Where retained release metadata is present, asset hashes and created/updated timestamps are checked against that public metadata; a separate contemporaneous archive is not claimed."
   },
   "qs_conversion_independent_verification": {
     "r_version": "4.5.0",
@@ -417,5 +420,197 @@
     "formatted_utc_date_differences": 0,
     "method": "qs::qread(original retained QS); compare each non-date column as.character() to retained conversion; compare format(date_pulled, %Y-%m-%dT%H:%M:%OS6%z, tz=UTC) exactly.",
     "verification_recorded_at_utc": "2026-09-09T00:05:46.785899+00:00"
+  },
+  "prior_season_2024_provenance": {
+    "checked_at_utc": "2026-09-09T00:15:19.249969+00:00",
+    "purpose": "Verify literal prior-season2024 charting and PBP snapshots as possible2025 features; no target2025 outcomes or evaluations inspected.",
+    "cutoff_utc": "2025-09-04T00:00:00+00:00",
+    "release_metadata": [
+      {
+        "file": "data/raw/nfl-source-audit/ftn_charting-release-metadata.json",
+        "sha256": "064e36f1ea47a4a4bbf81706ff813c6f73041bedeb57985530583be2da5dad82",
+        "bytes": 33867,
+        "capture_completed_at_utc": "2026-09-09T00:10:44.801998+00:00",
+        "source_url": "https://api.github.com/repos/nflverse/nflverse-data/releases/tags/ftn_charting",
+        "response_headers_file": "data/raw/nfl-source-audit/ftn_charting-release-headers.txt",
+        "response_headers_sha256": "3e8238cb57fe3005c841b35c8d425a83dcef68c5109b470a2d7da8bbfe27db77",
+        "release_id": 119740650,
+        "release_published_at": "2023-09-03T16:14:36Z",
+        "capture_time_note": "Local response-file modification time recorded at download completion; exact request start not retained."
+      },
+      {
+        "file": "data/raw/nfl-source-audit/pbp-release-metadata.json",
+        "sha256": "acc2a4852cd48f3bb8b8159c285a217b8da11447e94499c94cd33b4d627c29a8",
+        "bytes": 281385,
+        "capture_completed_at_utc": "2026-09-09T00:11:01.046560+00:00",
+        "source_url": "https://api.github.com/repos/nflverse/nflverse-data/releases/tags/pbp",
+        "response_headers_file": "data/raw/nfl-source-audit/pbp-release-headers.txt",
+        "response_headers_sha256": "99590dfc0f8423a8b30cff62cb4edb192944ae537c716db9788f29ff71e1b77f",
+        "release_id": 58152862,
+        "release_published_at": "2022-01-28T02:12:09Z",
+        "capture_time_note": "Local response-file modification time recorded at download completion; exact request start not retained."
+      }
+    ],
+    "assets": [
+      {
+        "file": "data/raw/nfl-source-audit/ftn_charting_2024.csv",
+        "sha256": "6faae8118cc13ce62589210d553733128ed35e558671009b4a7a8fc5c674c2cb",
+        "bytes": 8254908,
+        "capture_completed_at_utc": "2026-09-08T23:53:45.380234+00:00",
+        "source_url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2024.csv",
+        "asset_api_url": "https://api.github.com/repos/nflverse/nflverse-data/releases/assets/288253517",
+        "asset_id": 288253517,
+        "asset_created_at": "2025-09-01T01:29:36Z",
+        "asset_updated_at": "2025-09-01T01:29:37Z",
+        "asset_digest": "sha256:6faae8118cc13ce62589210d553733128ed35e558671009b4a7a8fc5c674c2cb",
+        "asset_state": "uploaded",
+        "metadata_file": "data/raw/nfl-source-audit/ftn_charting-release-metadata.json",
+        "created_and_updated_strictly_before_cutoff": true,
+        "local_hash_matches_github_asset_digest": true
+      },
+      {
+        "file": "data/raw/nfl-source-audit/play_by_play_2024.qs",
+        "sha256": "c61a0fc53b0cd212bb07ffbe99da83efaa0e63c22e8790fd61293b53412ebdd9",
+        "bytes": 9041867,
+        "capture_completed_at_utc": "2026-09-09T00:12:08.469947+00:00",
+        "source_url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2024.qs",
+        "asset_api_url": "https://api.github.com/repos/nflverse/nflverse-data/releases/assets/289147971",
+        "asset_id": 289147971,
+        "asset_created_at": "2025-09-03T09:25:06Z",
+        "asset_updated_at": "2025-09-03T09:25:07Z",
+        "asset_digest": "sha256:c61a0fc53b0cd212bb07ffbe99da83efaa0e63c22e8790fd61293b53412ebdd9",
+        "asset_state": "uploaded",
+        "metadata_file": "data/raw/nfl-source-audit/pbp-release-metadata.json",
+        "created_and_updated_strictly_before_cutoff": true,
+        "local_hash_matches_github_asset_digest": true
+      }
+    ],
+    "availability_conclusion": "GitHub reports both exact current retained assets created and last updated before September4,2025; its SHA256 asset digests match local bytes. This supports literal prior-season inputs by that cutoff, conditional on publisher/platform metadata, rather than row date_pulled alone. It does not establish executable odds or an edge.",
+    "pbp_projection": {
+      "file": "data/raw/nfl-source-audit/play_by_play_2024-feature-projection.csv",
+      "sha256": "f129cef7e21d1e294b60e47e92d0c6b355065358e90f7ee531211f973319908d",
+      "bytes": 3704772,
+      "capture_completed_at_utc": "2026-09-09T00:15:39.939904+00:00",
+      "derived": true,
+      "raw_parent_sha256": "c61a0fc53b0cd212bb07ffbe99da83efaa0e63c22e8790fd61293b53412ebdd9",
+      "rows": 49492,
+      "columns": [
+        "game_id",
+        "play_id",
+        "posteam",
+        "defteam",
+        "passer_player_id",
+        "passer_player_name",
+        "rusher_player_id",
+        "rusher_player_name",
+        "qb_dropback",
+        "pass_attempt",
+        "sack",
+        "qb_scramble",
+        "play_type",
+        "qtr",
+        "down",
+        "ydstogo"
+      ],
+      "missing_requested_columns": [
+        "no_play"
+      ],
+      "conversion_command": "BEATING_R_AUDIT_LIB=/tmp/beating-r-audit-lib Rscript --vanilla tools/project_nfl_pbp_2024.R",
+      "conversion_script_sha256": "19cb78cf532f7d895bfb92c13b464d7df2a7af925b3846a82c11e7e97af668e7",
+      "r_version": "4.5.0",
+      "qs_version": "0.27.3",
+      "stringfish_version": "0.16.0",
+      "scramble_identity_scope": "Rusher identifiers are included to identify the QB only when qb_dropback==1 and qb_scramble==1; no ordinary-run QB inference is implied."
+    },
+    "pbp_ids": {
+      "file": "data/raw/nfl-source-audit/play_by_play_2024-ids.csv",
+      "sha256": "73ebdf0ceba991043dac7586c18f3c8ce90ed5e28a02dcf925289a590478da15",
+      "bytes": 1100937,
+      "capture_completed_at_utc": "2026-09-09T00:13:54.142450+00:00"
+    },
+    "pbp_schema": {
+      "file": "data/raw/nfl-source-audit/play_by_play_2024-schema.csv",
+      "sha256": "6b6e01dee2e60f9e08a609bdef58aebc4a4ec0b95595cc43bfef53db3ed05a61",
+      "bytes": 11193,
+      "capture_completed_at_utc": "2026-09-09T00:13:54.154070+00:00"
+    },
+    "pbp_schema_fields": 372,
+    "join_keys": {
+      "charting": [
+        "nflverse_game_id",
+        "nflverse_play_id"
+      ],
+      "pbp": [
+        "game_id",
+        "play_id"
+      ],
+      "ftn_unique_keys": 48031,
+      "pbp_unique_keys": 49492,
+      "ftn_duplicate_keys": 0,
+      "pbp_duplicate_keys": 0,
+      "matched_keys": 48031,
+      "ftn_only_keys": 0,
+      "pbp_only_keys": 1461,
+      "matched_games": 285
+    },
+    "newer_pbp_formats_excluded": [
+      {
+        "name": "play_by_play_2024.csv",
+        "created_at": "2026-08-13T12:26:26Z",
+        "updated_at": "2026-08-13T12:26:29Z",
+        "digest": "sha256:6ae564c2c49378ec531303292966caee596982278b9fcdad9c9dd0a0dc16bfa7"
+      },
+      {
+        "name": "play_by_play_2024.csv.gz",
+        "created_at": "2026-08-13T12:26:26Z",
+        "updated_at": "2026-08-13T12:26:27Z",
+        "digest": "sha256:23370d5d10f8104d80d46a1fc5e61f4f6f5a3263fe96fe2dd629913cfcb08c06"
+      },
+      {
+        "name": "play_by_play_2024.parquet",
+        "created_at": "2026-08-13T12:26:26Z",
+        "updated_at": "2026-08-13T12:26:27Z",
+        "digest": "sha256:3fd2896bc0b911b615142d2f1fabae54a4bbba5ab7b73b28187b118ef8af6a3b"
+      },
+      {
+        "name": "play_by_play_2024.rds",
+        "created_at": "2026-08-13T12:26:26Z",
+        "updated_at": "2026-08-13T12:26:27Z",
+        "digest": "sha256:6333647574b22f69ba7ee8317b23ac8b492ede61cd687a4a2e5c7f0a5e9b8477"
+      }
+    ],
+    "publisher_etl": {
+      "commit": "6aef85fc2475120ce56b67ebedd623cf8e44a1d2",
+      "tree_metadata": {
+        "file": "data/raw/nfl-source-audit/nflverse-ftn-tree.json",
+        "sha256": "b749df1db7b34f8e327f6d11d5f6e27372a0f447dc803e5008c2a0a4e130c2cd",
+        "bytes": 11048,
+        "capture_completed_at_utc": "2026-09-09T00:11:43.300941+00:00"
+      },
+      "files": [
+        {
+          "file": "data/raw/nfl-source-audit/ftn-R-api.R",
+          "sha256": "0e17481858075373ff8cd98a09f22cc7d5dab98d170c837eb465a21a3c277db3",
+          "bytes": 1349,
+          "capture_completed_at_utc": "2026-09-09T00:12:33.570358+00:00",
+          "source_url": "https://raw.githubusercontent.com/nflverse/nflverse-ftn/6aef85fc2475120ce56b67ebedd623cf8e44a1d2/R/api.R"
+        },
+        {
+          "file": "data/raw/nfl-source-audit/ftn-R-nflverse.R",
+          "sha256": "bc4ecfec3582271e5ee5168e189560aafbb09a0ad89b606bc51daf855e7f0d35",
+          "bytes": 3899,
+          "capture_completed_at_utc": "2026-09-09T00:12:33.576597+00:00",
+          "source_url": "https://raw.githubusercontent.com/nflverse/nflverse-ftn/6aef85fc2475120ce56b67ebedd623cf8e44a1d2/R/nflverse.R"
+        },
+        {
+          "file": "data/raw/nfl-source-audit/ftn-exec-update_ftn.R",
+          "sha256": "214e6019b0b29bb67724902adc3fa3a32fa1a0ecb08dfe921e69c5196f4fa638",
+          "bytes": 2228,
+          "capture_completed_at_utc": "2026-09-09T00:12:33.576591+00:00",
+          "source_url": "https://raw.githubusercontent.com/nflverse/nflverse-ftn/6aef85fc2475120ce56b67ebedd623cf8e44a1d2/exec/update_ftn.R"
+        }
+      ],
+      "interpretation": "Pinned code assigns date_pulled=Sys.time() during FTN parsing and later publishes seasonal exports; date_pulled is collection/retrieval time rather than first-publication time. Update code compares it with FTN schedule updated and replaces games needing updates. This current code inspection is not a reconstruction of every historical ETL version."
+    }
   }
 }

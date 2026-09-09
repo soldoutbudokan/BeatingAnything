@@ -1,0 +1,394 @@
+{
+  "counts": {
+    "accepted_entries_by_type": {
+      "CON": 2,
+      "DIV": 4,
+      "REG": 272,
+      "SB": 1,
+      "WC": 6
+    },
+    "accepted_entry_events": 285,
+    "excluded_entry_events": 0,
+    "fixtures": 285,
+    "fixtures_by_type": {
+      "CON": 2,
+      "DIV": 4,
+      "REG": 272,
+      "SB": 1,
+      "WC": 6
+    },
+    "fixtures_with_multiple_source_starts": 258,
+    "fixtures_with_source_boundary_earlier_than_independent": 52,
+    "raw_event_ids": 285,
+    "raw_fanduel_h2h_rows": 23754,
+    "snapshot_groups": 11877,
+    "uniquely_mapped_source_events": 285,
+    "valid_fresh_prestart_pairs": 11190
+  },
+  "coverage_by_nfl_week": [
+    {
+      "entries": 16,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 16,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 1
+    },
+    {
+      "entries": 16,
+      "fanduel_last_lead_le_30m": 1,
+      "fixtures": 16,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 1,
+      "pinnacle_last_lead_missing": 0,
+      "week": 2
+    },
+    {
+      "entries": 16,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 16,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 3
+    },
+    {
+      "entries": 16,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 16,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 4
+    },
+    {
+      "entries": 14,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 14,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 5
+    },
+    {
+      "entries": 15,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 15,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 6
+    },
+    {
+      "entries": 15,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 15,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 7
+    },
+    {
+      "entries": 13,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 13,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 8
+    },
+    {
+      "entries": 14,
+      "fanduel_last_lead_le_30m": 8,
+      "fixtures": 14,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 8,
+      "pinnacle_last_lead_missing": 0,
+      "week": 9
+    },
+    {
+      "entries": 14,
+      "fanduel_last_lead_le_30m": 7,
+      "fixtures": 14,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 7,
+      "pinnacle_last_lead_missing": 0,
+      "week": 10
+    },
+    {
+      "entries": 15,
+      "fanduel_last_lead_le_30m": 7,
+      "fixtures": 15,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 7,
+      "pinnacle_last_lead_missing": 0,
+      "week": 11
+    },
+    {
+      "entries": 14,
+      "fanduel_last_lead_le_30m": 7,
+      "fixtures": 14,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 7,
+      "pinnacle_last_lead_missing": 0,
+      "week": 12
+    },
+    {
+      "entries": 16,
+      "fanduel_last_lead_le_30m": 8,
+      "fixtures": 16,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 8,
+      "pinnacle_last_lead_missing": 0,
+      "week": 13
+    },
+    {
+      "entries": 14,
+      "fanduel_last_lead_le_30m": 8,
+      "fixtures": 14,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 8,
+      "pinnacle_last_lead_missing": 0,
+      "week": 14
+    },
+    {
+      "entries": 16,
+      "fanduel_last_lead_le_30m": 8,
+      "fixtures": 16,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 8,
+      "pinnacle_last_lead_missing": 0,
+      "week": 15
+    },
+    {
+      "entries": 16,
+      "fanduel_last_lead_le_30m": 8,
+      "fixtures": 16,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 8,
+      "pinnacle_last_lead_missing": 0,
+      "week": 16
+    },
+    {
+      "entries": 16,
+      "fanduel_last_lead_le_30m": 8,
+      "fixtures": 16,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 8,
+      "pinnacle_last_lead_missing": 0,
+      "week": 17
+    },
+    {
+      "entries": 16,
+      "fanduel_last_lead_le_30m": 6,
+      "fixtures": 16,
+      "game_types": [
+        "REG"
+      ],
+      "pinnacle_last_lead_le_30m": 6,
+      "pinnacle_last_lead_missing": 0,
+      "week": 18
+    },
+    {
+      "entries": 6,
+      "fanduel_last_lead_le_30m": 1,
+      "fixtures": 6,
+      "game_types": [
+        "WC"
+      ],
+      "pinnacle_last_lead_le_30m": 1,
+      "pinnacle_last_lead_missing": 0,
+      "week": 19
+    },
+    {
+      "entries": 4,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 4,
+      "game_types": [
+        "DIV"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 20
+    },
+    {
+      "entries": 2,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 2,
+      "game_types": [
+        "CON"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 21
+    },
+    {
+      "entries": 1,
+      "fanduel_last_lead_le_30m": 0,
+      "fixtures": 1,
+      "game_types": [
+        "SB"
+      ],
+      "pinnacle_last_lead_le_30m": 0,
+      "pinnacle_last_lead_missing": 0,
+      "week": 22
+    }
+  ],
+  "entry_window_pair_counts": {
+    "before_24h_entry_window": 10079,
+    "entry_window_eligible_pair": 1023,
+    "inside_final_1h": 88
+  },
+  "excluded_entry_events": [],
+  "fixture_errors": [],
+  "fixture_source_class": "Public nflverse fixture dataset maintained by Lee Sharpe; independent of the odds archive, not an NFL execution feed",
+  "generated_at": "2026-09-09T16:17:43.166654+00:00",
+  "invalid_row_counts": {},
+  "last_prestart_lead_coverage_seconds": {
+    "10800": 139,
+    "1800": 77,
+    "300": 77,
+    "3600": 79,
+    "60": 0,
+    "90": 0,
+    "900": 77
+  },
+  "last_prestart_lead_seconds": {
+    "maximum": 75861.0,
+    "median": 11061.0,
+    "minimum": 260.0
+  },
+  "limitations": [
+    "Historical fixture revisions and kickoff publication vintage are unverified.",
+    "Bookmaker last_update is publisher metadata, not proof of executable local FanDuel availability.",
+    "No missing-close filtering, strategy selection, probability forecasts, sport labels, game returns or significance analysis performed."
+  ],
+  "pair_rejection_counts": {
+    "book_update_age_outside_0_to_90_seconds": 163,
+    "no_unique_fixture_within_15_minutes": 322,
+    "not_before_earliest_scheduled_start": 208
+  },
+  "pinnacle_at_entry_same_gates": 285,
+  "pinnacle_last_prestart_lead_coverage_seconds": {
+    "10800": 141,
+    "1800": 77,
+    "300": 77,
+    "3600": 79,
+    "60": 0,
+    "90": 0,
+    "900": 77
+  },
+  "pinnacle_last_prestart_missing": 0,
+  "reference_pair_rejection_counts": {
+    "book_update_age_outside_0_to_90_seconds": 78,
+    "no_unique_fixture_within_15_minutes": 264,
+    "not_before_earliest_scheduled_start": 156
+  },
+  "rules": {
+    "book_update_age_seconds": [
+      0,
+      90
+    ],
+    "boundary": "Earliest independent kickoff or any observed source scheduled start for uniquely bound stable team/event identity; later revisions cannot extend cutoff, even an out-of-tolerance revision can tighten it",
+    "entry_window_seconds": [
+      3600,
+      86400
+    ],
+    "fixture_match": "Exact explicit team map, unique ordered home/away fixture within15minutes; ambiguous IDs excluded",
+    "last_prestart": "Last pair meeting same freshness/pair/overround gates strictly before earliest boundary, among accepted-entry fixtures; lead measured to independent fixture kickoff, so an early obsolete source schedule cannot manufacture a close",
+    "paired_overround": [
+      0,
+      0.08
+    ],
+    "quote_pair": "Exact event/capture/source-start/home/away/FanDuel/h2h; two distinct sides, one common book update, no conflict"
+  },
+  "runtime": {
+    "duckdb": "1.5.5",
+    "python": "3.12.13"
+  },
+  "scope": "Metadata-only feasibility, not a registered experiment; no game-result labels, models, EV, returns or CLV computed",
+  "season": 2025,
+  "sources": {
+    "audit_script_sha256": "28958dd131a609b9901e9073d7b5a1564ab8992e139a94e3d04f8afc6eec2181",
+    "candidate_quote_projection_path": "/Users/tirthbhatt/Documents/BeatingAnything/data/raw/nfl-fixture-feasibility/candidate-quote-projection.json",
+    "candidate_quote_projection_sha256": "42d33403b24a6223024889166c1f910b03789f6a7ec4e48af48597125ccf6389",
+    "entry_metadata_path": "/Users/tirthbhatt/Documents/BeatingAnything/data/raw/nfl-fixture-feasibility/entry-metadata.json",
+    "entry_metadata_sha256": "f88d26d409c2a158631d6c69c5c84afeb2580ef7779ad99a452868ba5285d6d6",
+    "fixture_metadata_sha256": "dc89d29530a2b7afe29103d9c8a9b492c0bd269a16b0e7f21172452062de0632",
+    "fixture_raw_sha256": "5a346edf3e36421cf02b4d059085e29a5a8229a74a637c921f8df95f16086aaf",
+    "fixture_url": "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv",
+    "odds_database_path": "/Users/tirthbhatt/Documents/BeatingAnything/data/raw/nfl-source-audit/nfl_odds.duckdb",
+    "odds_database_sha256": "b03c4e7f1cf885e9f20ea808ee538c26c21df4065b342fe04c50d09b808c344c",
+    "snapshot_rejections_path": "/Users/tirthbhatt/Documents/BeatingAnything/data/raw/nfl-fixture-feasibility/snapshot-rejections.jsonl",
+    "snapshot_rejections_sha256": "d0c3363adc95216c750db4f4e9a4a1657b2194e56c5a6c1ced7068811897c116"
+  },
+  "team_identity_map": {
+    "Arizona Cardinals": "ARI",
+    "Atlanta Falcons": "ATL",
+    "Baltimore Ravens": "BAL",
+    "Buffalo Bills": "BUF",
+    "Carolina Panthers": "CAR",
+    "Chicago Bears": "CHI",
+    "Cincinnati Bengals": "CIN",
+    "Cleveland Browns": "CLE",
+    "Dallas Cowboys": "DAL",
+    "Denver Broncos": "DEN",
+    "Detroit Lions": "DET",
+    "Green Bay Packers": "GB",
+    "Houston Texans": "HOU",
+    "Indianapolis Colts": "IND",
+    "Jacksonville Jaguars": "JAX",
+    "Kansas City Chiefs": "KC",
+    "Las Vegas Raiders": "LV",
+    "Los Angeles Chargers": "LAC",
+    "Los Angeles Rams": "LA",
+    "Miami Dolphins": "MIA",
+    "Minnesota Vikings": "MIN",
+    "New England Patriots": "NE",
+    "New Orleans Saints": "NO",
+    "New York Giants": "NYG",
+    "New York Jets": "NYJ",
+    "Philadelphia Eagles": "PHI",
+    "Pittsburgh Steelers": "PIT",
+    "San Francisco 49ers": "SF",
+    "Seattle Seahawks": "SEA",
+    "Tampa Bay Buccaneers": "TB",
+    "Tennessee Titans": "TEN",
+    "Washington Commanders": "WAS"
+  }
+}
