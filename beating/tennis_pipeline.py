@@ -18,6 +18,7 @@ from .model import ResidualLogistic, clipped, losses
 from .tennis_history import History, date_end_and_availability, fit_n2, fit_n3
 from .tennis_evaluate import describe, gates
 from .tennis_source import parse_fixtures, select_sample, parse_daily_results, parse_match_detail
+from .tennis_report import write_report
 
 CANDIDATES = {
     "calibration": ["market_logit"],
@@ -392,6 +393,7 @@ def run(root, output):
         print(json.dumps({"experiment": experiment, "selected": fit["selected_research_candidate"],
             "models": {k: {field: v[field] for field in ("events", "bets", "roi", "paired_log_loss_delta")}
                 for k, v in record["models"].items()}}), flush=True)
+    write_report(output)
 
 
 if __name__ == "__main__":

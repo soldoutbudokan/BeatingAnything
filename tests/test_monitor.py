@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from beating.monitor import Monitor, stamp
+from beating.monitor import Monitor, canonical, digest, stamp
 
 
 class MonitorTests(unittest.TestCase):
@@ -164,6 +164,22 @@ class MonitorTests(unittest.TestCase):
         self.monitor.ingest_quote(self.quote(observed_at=stamp(later)), later)
         self.assertEqual(len(self.monitor.pending(later)), 1)
         self.assertEqual(self.monitor.pending(self.now + timedelta(seconds=60)), [])
+
+    def test_pending_rechecks_policy_but_allows_transport_changes(self):
+        self.monitor.ingest_quote(self.quote(), self.now)
+        self.monitor.predict(self.prediction(), self.now)
+        self.monitor.config["webhook_enabled"] = True
+        self.assertEqual(len(self.monitor.pending(self.now)), 1)
+        self.monitor.config["min_expected_value"] = .05
+        self.assertEqual(self.monitor.pending(self.now), [])
+
+    def test_confirmed_prestart_void_cancels_pending_notification(self):
+        self.monitor.ingest_quote(self.quote(), self.now)
+        self.monitor.predict(self.prediction(), self.now)
+        self.monitor.settle({"event_id":"TEST-ONLY-001","status":"void","settled_at":stamp(self.now),
+                             "source":self.verified_source()}, self.now)
+        self.assertEqual(self.monitor.pending(self.now), [])
+        self.assertEqual(self.monitor.report(self.now)["events"][0]["status"], "void")
 
     def test_market_conditioned_predictions_bind_the_quote(self):
         self.monitor.ingest_quote(self.quote(), self.now)
@@ -329,6 +345,42 @@ class MonitorTests(unittest.TestCase):
         self.assertTrue(repeated["duplicate"])
         self.assertNotIn("config_sha256", registration["trial"])
         self.assertEqual(self.monitor.db.execute("SELECT count(*) FROM models").fetchone()[0], 1)
+
+    def test_new_trial_policy_ignores_webhook_transport_but_binds_decision_rules(self):
+        registration = {"model_id": "transport-independent", "artifact_sha256": "e" * 64,
+                        "trial": {"cohort_id": "fixed", "protocol_sha256": "f" * 64,
+                                  "model_frozen_at": stamp(self.now - timedelta(hours=1)),
+                                  "starts_at": stamp(self.now)}}
+        self.monitor.register_model(registration, self.now - timedelta(minutes=30))
+        self.monitor.config["webhook_enabled"] = True
+        self.assertTrue(self.monitor.register_model(registration, self.now)["duplicate"])
+        self.monitor.ingest_quote(self.quote(source=self.verified_source()), self.now)
+        prediction = self.prediction(model_id=registration["model_id"], artifact_sha256="e" * 64, cohort_id="fixed")
+        before = self.monitor.predict(prediction, self.now)
+        self.assertTrue(before["forward_eligible"])
+        self.monitor.config["min_expected_value"] = .05
+        self.monitor.ingest_quote(self.quote(event_id="second", source=self.verified_source()), self.now)
+        after = self.monitor.predict({**prediction, "event_id": "second"}, self.now)
+        self.assertFalse(after["forward_eligible"])
+        self.assertIn("trial_policy_changed", after["eligibility_reasons"])
+        self.assertNotEqual(before["policy_sha256"], after["policy_sha256"])
+
+    def test_legacy_full_config_registration_is_not_silently_reclassified(self):
+        registration = {"model_id": "legacy-policy", "research_status": "unproven", "artifact_sha256": "e" * 64,
+                        "trial": {"cohort_id": "legacy", "protocol_sha256": "f" * 64,
+                                  "model_frozen_at": stamp(self.now - timedelta(hours=1)),
+                                  "starts_at": stamp(self.now), "config_sha256": digest(self.monitor.config)}}
+        with self.monitor.db:
+            self.monitor.db.execute("INSERT INTO models VALUES (?,?,?,?,?)", (
+                registration["model_id"], stamp(self.now - timedelta(minutes=30)), "unproven", "e" * 64,
+                canonical(registration)))
+        self.assertTrue(self.monitor.register_model(registration, self.now)["duplicate"])
+        self.monitor.config["webhook_enabled"] = True
+        self.monitor.ingest_quote(self.quote(source=self.verified_source()), self.now)
+        result = self.monitor.predict(self.prediction(model_id=registration["model_id"], artifact_sha256="e" * 64,
+                                      cohort_id="legacy"), self.now)
+        self.assertIn("trial_policy_changed", result["eligibility_reasons"])
+        self.assertFalse(result["forward_eligible"])
 
     def test_registered_artifact_mismatch_is_excluded_from_paper_scoring(self):
         self.monitor.register_model({"model_id": "frozen", "artifact_sha256": "a" * 64}, self.now)

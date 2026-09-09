@@ -51,6 +51,11 @@ def digest(value: Any) -> str:
     return hashlib.sha256(canonical(value).encode()).hexdigest()
 
 
+def policy_digest(config: dict) -> str:
+    """Bind decision/evidence rules independently of webhook transport state."""
+    return digest({key: value for key, value in config.items() if key != "webhook_enabled"})
+
+
 def number(value: Any, name: str) -> float:
     if isinstance(value, bool) or not isinstance(value, (float, int)) or not math.isfinite(value):
         raise ValueError(f"{name} must be finite numeric")
@@ -154,6 +159,7 @@ class Monitor:
         now = now or utcnow()
         value = dict(value)
         model_id = nonempty(value.get("model_id"), "model_id")
+        existing = self.db.execute("SELECT payload FROM models WHERE model_id=?", (model_id,)).fetchone()
         status = value.setdefault("research_status", "unproven")
         if status not in ("unproven", "prospectively_validated"):
             raise ValueError("unknown research_status")
@@ -213,8 +219,13 @@ class Monitor:
             protocol_sha = nonempty(trial.get("protocol_sha256"), "trial.protocol_sha256")
             if len(protocol_sha) != 64 or any(c not in "0123456789abcdef" for c in protocol_sha):
                 raise ValueError("trial.protocol_sha256 must be lowercase SHA-256")
-            trial["config_sha256"] = digest(self.config)
-        existing = self.db.execute("SELECT payload FROM models WHERE model_id=?", (model_id,)).fetchone()
+            previous_trial = json.loads(existing[0]).get("trial", {}) if existing else {}
+            if existing and "config_sha256" in previous_trial and "policy_sha256" not in previous_trial:
+                # Preserve the exact rules of immutable legacy registrations.
+                trial["config_sha256"] = digest(self.config)
+            else:
+                trial.pop("config_sha256", None)
+                trial["policy_sha256"] = policy_digest(self.config)
         if existing:
             if existing[0] == canonical(value):
                 return {"model_id": model_id, "duplicate": True}
@@ -351,6 +362,7 @@ class Monitor:
             "probability_home": p, "reasons": reasons, "evidence_blocks": evidence_blocks,
             "kind": "BLOCKED", "duplicate": False,
             "config_sha256": digest(self.config), "config": dict(self.config),
+            "policy_sha256": policy_digest(self.config),
         }
         if quote:
             home_ev, away_ev = p * quote["decimal_home"] - 1, (1 - p) * quote["decimal_away"] - 1
@@ -388,7 +400,9 @@ class Monitor:
                 eligibility_reasons.append("cohort_mismatch")
             if generated < parse_time(trial["starts_at"]) or generated < parse_time(model["registered_at"]):
                 eligibility_reasons.append("forecast_precedes_trial")
-            if trial["config_sha256"] != digest(self.config):
+            policy_matches = (trial["policy_sha256"] == policy_digest(self.config) if "policy_sha256" in trial
+                              else trial["config_sha256"] == digest(self.config))
+            if not policy_matches:
                 eligibility_reasons.append("trial_policy_changed")
         if result["kind"] == "BLOCKED":
             eligibility_reasons.append("decision_blocked")
@@ -418,6 +432,11 @@ class Monitor:
             if self.db.execute("SELECT 1 FROM dispatch_claims WHERE outbox_id=?", (row["outbox_id"],)).fetchone():
                 continue
             value = json.loads(row["payload"])
+            if self.db.execute("SELECT 1 FROM settlements WHERE event_id=?", (row["event_id"],)).fetchone():
+                continue
+            current_policy = policy_digest(self.config) if "policy_sha256" in value else digest(self.config)
+            if value.get("policy_sha256", value.get("config_sha256")) != current_policy:
+                continue
             current = self._latest_quote(row["event_id"])
             if current is None:
                 continue
@@ -500,7 +519,7 @@ class Monitor:
         if parse_time(value["settled_at"]) > now:
             raise ValueError("settlement cannot be in the future")
         quote = self._latest_quote(event_id)
-        if quote and parse_time(value["settled_at"]) < parse_time(quote["starts_at"]):
+        if value["status"] == "final" and quote and parse_time(value["settled_at"]) < parse_time(quote["starts_at"]):
             raise ValueError("settlement precedes event start")
         settlement_id = digest(value)
         old = self.db.execute("SELECT settlement_id FROM settlements WHERE event_id=?", (event_id,)).fetchone()

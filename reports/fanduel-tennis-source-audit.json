@@ -1,0 +1,167 @@
+{
+  "audit_created_at_utc": "2026-09-08T23:56:23.414412+00:00",
+  "purpose": "Public current FanDuel ATP Challenger full-match total games 21.5 source feasibility only",
+  "execution_verified": false,
+  "research_rules_changed": false,
+  "capture_time_note": "capture_completed_at_utc is source download file mtime; response_date is the server HTTP Date. Request start was not separately recorded.",
+  "sources": [
+    {
+      "name": "fanduel",
+      "url": "https://sportsbook.fanduel.com/tennis",
+      "http_status": 403,
+      "capture_completed_at_utc": "2026-09-08T23:51:54.357450+00:00",
+      "response_date": "Tue, 08 Sep 2026 23:51:54 GMT",
+      "response_headers_subset": {
+        "content-type": "text/html",
+        "content-length": "5755",
+        "server": "CloudFront",
+        "date": "Tue, 08 Sep 2026 23:51:54 GMT",
+        "x-cache": "Miss from cloudfront"
+      },
+      "raw_local_path": "data/raw/fanduel-tennis-source-audit/fanduel.html",
+      "raw_bytes": 5755,
+      "raw_sha256": "e904e2fd5d3fff3324db454d69e95f2a376ee0d48033213e596202e3c035ad87",
+      "raw_headers_local_path": "data/raw/fanduel-tennis-source-audit/fanduel-headers.txt",
+      "raw_headers_sha256": "b49cc7b39f4e9ac26e00782917066c7b794a5d0627cc1ad7eb8871940d5920f2",
+      "finding": "Access denied; no quote fields observed; no bypass attempted",
+      "html_title": "Access to this page has been denied"
+    },
+    {
+      "name": "oddspedia",
+      "url": "https://oddspedia.com/us/tennis/odds",
+      "http_status": 403,
+      "capture_completed_at_utc": "2026-09-08T23:52:18.310620+00:00",
+      "response_date": "Tue, 08 Sep 2026 23:52:18 GMT",
+      "response_headers_subset": {
+        "date": "Tue, 08 Sep 2026 23:52:18 GMT",
+        "content-type": "text/html; charset=UTF-8",
+        "content-length": "5489",
+        "cf-mitigated": "challenge",
+        "server": "cloudflare"
+      },
+      "raw_local_path": "data/raw/fanduel-tennis-source-audit/oddspedia.html",
+      "raw_bytes": 5489,
+      "raw_sha256": "dbc8f6d1c0f0c6ea61d5b9dbe1d29d690f88824c3051a03a9532d97847e52bba",
+      "raw_headers_local_path": "data/raw/fanduel-tennis-source-audit/oddspedia-headers.txt",
+      "raw_headers_sha256": "ecff6707fd8bacb972521fea5cc959b34432b8392af261bc1fdbeb064265c7c6",
+      "finding": "Access denied; no quote fields observed; no bypass attempted",
+      "html_title": "Just a moment..."
+    },
+    {
+      "name": "theoddsgap",
+      "url": "https://theoddsgap.com/api/lineshop",
+      "http_status": 200,
+      "capture_completed_at_utc": "2026-09-08T23:52:40.783987+00:00",
+      "response_date": "Tue, 08 Sep 2026 23:52:40 GMT",
+      "response_headers_subset": {
+        "date": "Tue, 08 Sep 2026 23:52:40 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, max-age=120, stale-while-revalidate=300",
+        "server": "cloudflare",
+        "x-cache": "HIT"
+      },
+      "raw_local_path": "data/raw/fanduel-tennis-source-audit/theoddsgap.json",
+      "raw_bytes": 6281885,
+      "raw_sha256": "7369df3e21efcdcc48e5b1640f8e9cd6bf13c79754aab64ce6a54dd86278c4b7",
+      "raw_headers_local_path": "data/raw/fanduel-tennis-source-audit/theoddsgap-headers.txt",
+      "raw_headers_sha256": "f7cc73882dec566b2b8520ca72a34cedb936beb4f288550a8c07742aa13e79bf"
+    }
+  ],
+  "theoddsgap_observations": {
+    "attribution": "The Odds Gap \u2014 https://theoddsgap.com/",
+    "api_documentation_url": "https://theoddsgap.com/api-docs",
+    "methodology_url": "https://theoddsgap.com/methodology",
+    "board_as_of": "7:01 PM ET, Sep 8, 2026",
+    "board_last_updated": "2026-09-08T23:01:28.356579+00:00",
+    "board_age_seconds_at_http_date": 3071.643421,
+    "declared_total_games": 614,
+    "actual_games": 614,
+    "sport_counts": {
+      "americanfootball_ncaaf": 74,
+      "americanfootball_nfl": 270,
+      "baseball_mlb": 16,
+      "basketball_nba": 41,
+      "basketball_wnba": 8,
+      "icehockey_nhl": 32,
+      "mma_mixed_martial_arts": 31,
+      "soccer_epl": 20,
+      "soccer_france_ligue_one": 18,
+      "soccer_germany_bundesliga": 18,
+      "soccer_italy_serie_a": 20,
+      "soccer_spain_la_liga": 20,
+      "soccer_uefa_champs_league": 12,
+      "soccer_usa_mls": 29,
+      "tennis_atp_us_open": 3,
+      "tennis_wta_us_open": 2
+    },
+    "tennis_events": 5,
+    "challenger_tennis_events": 0,
+    "fanduel_tennis_moneyline_pairs": 5,
+    "fanduel_tennis_total_pairs": 0,
+    "fanduel_tennis_21_5_total_pairs": 0,
+    "tennis_total_book_counts": {
+      "kalshi": 5
+    },
+    "top_level_fields": [
+      "as_of",
+      "games",
+      "last_updated",
+      "live_url",
+      "total"
+    ],
+    "game_fields": [
+      "advance_data",
+      "away",
+      "book_odds",
+      "combined_prob",
+      "commence_time",
+      "dnb_data",
+      "draw_best_book",
+      "draw_best_odds",
+      "draw_gap",
+      "home",
+      "id",
+      "opening",
+      "period_data",
+      "sport",
+      "sport_label",
+      "spread_data",
+      "totals_data"
+    ],
+    "fanduel_moneyline_fields": [
+      "away_link",
+      "away_odds",
+      "away_prob",
+      "home_link",
+      "home_odds",
+      "home_prob",
+      "label"
+    ],
+    "tennis_game_status_or_update_fields": [],
+    "tennis_event_ids": [
+      8556856,
+      8556855,
+      8556859,
+      8556858,
+      8556854
+    ],
+    "tennis_start_times": [
+      "2026-09-09T23:30:00Z",
+      "2026-09-09T18:00:00Z",
+      "2026-09-09T16:30:00Z",
+      "2026-09-09T15:30:00Z",
+      "2026-09-09T00:20:00Z"
+    ],
+    "tennis_excerpt_local_path": "data/raw/fanduel-tennis-source-audit/theoddsgap-tennis-excerpt.json",
+    "tennis_excerpt_bytes": 34662,
+    "tennis_excerpt_sha256": "b1ef2ead5110bcf9477d424dac4c8300ffa6f2178eac790c8b3a79e77c5a11b9",
+    "limitations": [
+      "One capture; missing Challenger events do not establish permanent source or sportsbook absence.",
+      "No FanDuel tennis total was present, so exact full-match total 21.5 availability and pairing cannot be verified.",
+      "Global board timestamp cannot establish individual FanDuel bookmaker quote freshness.",
+      "No game status, suspension flag, or individual quote timestamp was observed in the five tennis objects.",
+      "FanDuel betslip URLs were present but never followed; market IDs alone do not prove execution.",
+      "Raw local evidence is ignored by git; this report contains source and schema audit metadata, not a redistributed quote feed."
+    ]
+  }
+}

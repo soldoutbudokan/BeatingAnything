@@ -10,6 +10,8 @@ The next experiment models **ATP Challenger total games at 21.5**, reconstructin
 
 Both registered tennis experiments now have a collector, chronological score-history engine and annual evaluation pipeline. [N3](docs/protocol-tennis-independent-v1.md) uses independent prior set Elo; N2 uses synchronized opening moneyline information. The [implementation review](docs/tennis-implementation-review.md) records source and label-availability checks before results. Collection is resumable and preserves failed requests and missing markets; it is currently a local process, not a deployed betting monitor.
 
+All 1,826 required daily pages have been collected. Their frozen sample contains 5,453 match-detail pages; detail acquisition is still in progress. The pipeline will produce a combined report showing every candidate, both holdout years, missing folds and unresolved selected exposure. Actual tennis strategy results have not yet been evaluated. A [current quote-source check](docs/fanduel-tennis-monitoring-source.md) has not verified a usable free FanDuel Challenger 21.5 feed.
+
 An [independent scoring-kernel check](docs/tennis-kernel-review.md) compared the exact distribution with 200,000 synthetic point-by-point matches. This validates the scoring implementation; historical calibration and profitability still require the frozen data tests.
 
 ```bash
@@ -19,6 +21,8 @@ python -m beating.tennis_pipeline
 ```
 
 The [additional source audit](docs/source-search-v2.md) also identifies a free 2025 NFL archive with FanDuel capture and bookmaker-update timestamps. It is an untested research lead. [Pitch-level MLB source research](docs/matchup-research-v2.md) verifies a free route to pitch movement and matchup data, while documenting historical lineup-publication limits.
+
+[NFL film-charting research](docs/football-charting-feasibility.md) verifies free play-level pressure and passing-quality fields, but its retained files have later retrieval dates that cannot be treated as timely early-season features. No NFL model or betting return has been tested.
 
 The completed [six-league soccer totals experiment](reports/soccer-research-report.md) tested three small pricing models on **7,741 holdout/replication forecasts**. None produced a bet at the fixed 3% EV threshold. Unlike the earlier MLB archive, its source provides usable same-line historical closing benchmarks. All 42 pinned files match primary source downloads. See [metrics](reports/soccer-metrics.json), [protocol](docs/protocol-narrow-v1.md), [pre-result review](docs/narrow-review-before-results.md) and [source investigation](docs/odds-source-investigation.md).
 
@@ -60,6 +64,8 @@ python -m beating.forward
 ```
 
 Each cycle builds a dated official MLB feature snapshot, then collects fresh paired FanDuel-labeled moneylines from [Covers](https://www.covers.com/sport/baseball/mlb/odds), matches official game IDs and starts, applies the frozen model, and appends quotes and forecasts to the ledger. Official final results grade hypothetical outcomes. Later cycles restore the ledger, preserving forecasts and model versions.
+
+Future cycles use one cumulative `forward.sql` archive across calendar days, preserving model registration, event deduplication and the earliest forecast. Existing daily ledgers remain separate legacy evidence. Settlement attempts continue when feature or quote refreshes fail; uncertain game identities and settlement formats remain unresolved.
 
 [Live status](reports/live-status.json), [latest decisions](reports/latest-decisions.json) and the [forward report](reports/forward-report.json) show recorded observations. Probability scoring retains the earliest valid pregame forecast per event/model independently of bet selection, including zero-bet runs. Models and verified, aggregator, historical and synthetic sources remain separate. The preliminary model's integration-check rows remain in a separate cohort. The corrected model's first cycle recorded 15 forecasts and no qualifying bets.
 
