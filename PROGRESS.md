@@ -2,6 +2,8 @@
 
 Updated September 9, 2026. Latest instruction: continue the research goal, mindful of the remaining account budget; if a limit approaches, push completed changes to `main` and provide a detailed progress update. This file is maintained as the continuation handoff.
 
+**Direction change (September 9, 2026):** [NEXT-STEPS.md](NEXT-STEPS.md) now sets the research direction and withdraws the NFL charting model as the next step. Read it first. This file remains the record of completed work, file locations, runtime setup and the standing gates.
+
 ## Read this first
 
 **No betting edge has been demonstrated. No wager or betting notification has been sent.** The original objective remains unfinished: find a FanDuel market with free historical odds, develop a model using useful sport-specific information, backtest it honestly, and build a process for current prices, news, predictions, ROI, CLV and out-of-sample log loss. The user gave broad freedom over sports and markets and asked to keep working until an edge is demonstrated.

@@ -4,7 +4,7 @@
 
 Use Python 3.12 and the pinned `requirements-lock.txt` dependencies for the research commands below.
 
-For the current state, exact continuation commands, completed results and remaining research leads, start with [PROGRESS.md](PROGRESS.md).
+For the research direction going forward, start with [NEXT-STEPS.md](NEXT-STEPS.md). For the current state, exact continuation commands, completed results and file locations, see [PROGRESS.md](PROGRESS.md).
 
 The new [timestamped FanDuel MLB pilot](reports/timestamped-mlb-research-report.md) tested the unchanged physical model on 100 September 2026 forecasts. It produced zero qualifying bets and worse log loss than FanDuel on available settled outcomes. Unlike the original archive, this source permits a limited near-start price comparison, but bookmaker freshness remains unverified and one week cannot establish an edge.
 
