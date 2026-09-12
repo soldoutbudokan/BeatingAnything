@@ -2,6 +2,8 @@
 
 Written September 9, 2026. This file sets the research direction. It supersedes the "next research decision" in [PROGRESS.md](PROGRESS.md). PROGRESS.md stays accurate about what was done, where files live, which holdouts are spent and which gates must hold before any alert or wager. Read it for those things only.
 
+**Execution update, September 12:** the [hypothesis queue](docs/hypotheses/README.md), [tennis exploration](reports/tennis-state-exploration.md), [market inventory](docs/market-data-inventory.md), and [collector instructions](docs/forward-market-collection.md) carry this plan forward. Resume from their results and the latest checkpoint in PROGRESS.md; do not start this first-week list again. The named `tennis_pointbypoint` repository returned 404 in this session; the active Match Charting Project supplied the new tennis sample. The NFL archive was recovered exactly and contains no FanDuel derivative-market inventory beyond main spreads and totals.
+
 ## Why the first two days found nothing
 
 Four experiments ran. All four were negative, and none of them had a reason to be positive.
