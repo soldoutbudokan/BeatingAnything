@@ -12,11 +12,13 @@ The goal remains **active and unfinished**. Do not mark it complete because code
 
 The active work is the mechanism-first queue in [NEXT-STEPS.md](NEXT-STEPS.md): rank hypotheses, screen sport-side conditional effects, and acquire the exact FanDuel markets needed to test pricing. The NFL charting model is a historical lead, **not the next assignment**. Do not tune the completed tennis models on their inspected 2024/2025 holdouts or substitute more infrastructure cleanup for a useful new test.
 
-Repository: `https://github.com/soldoutbudokan/BeatingAnything`. Publication target for this completed budget checkpoint: **`main`**, using a normal fast-forward. The retained research branch is `research/fanduel-timestamped-tennis`, originally from main commit `343d7b4`; the pre-evaluation checkpoint is `a4d4701`. [PR #1](https://github.com/soldoutbudokan/BeatingAnything/pull/1) contains the research description. Use Git's actual current state to identify the final pushed commit; do not assume a planned merge occurred.
+Repository: `https://github.com/soldoutbudokan/BeatingAnything`. The September 9 budget checkpoint was published to **`main`**. Its retained research branch is `research/fanduel-timestamped-tennis`, originally from main commit `343d7b4`; the pre-evaluation checkpoint is `a4d4701`. [PR #1](https://github.com/soldoutbudokan/BeatingAnything/pull/1) contains that research description. The September 12 restart is on `research/mechanism-first-restart` in [draft PR #2](https://github.com/soldoutbudokan/BeatingAnything/pull/2); it is not merged. Use Git's actual current state rather than assuming publication or merge occurred.
 
 ## September 12 restart
 
 Started from `main` commit `75964993e3ee2e0ac7648a8db0e0ef1b6dbd7661`; its existing GitHub checks passed. NEXT-STEPS.md is the active research direction. Contradictory NFL-model assignments in this handoff have been withdrawn explicitly.
+
+The restart's implementation/results commit is `133cdc06a91f1104c371bc06496b3bbb4a885bae`, retained in draft PR #2. Automatic approval review rejected moving `main` because the current restart request did not explicitly authorize default-branch publication. The work was saved on a separate branch instead. Do not retry that publication without new user authorization; review the draft's actual changes first.
 
 All [30 hypothesis cards](docs/hypotheses/README.md) were saved and counted before the first new sport-side test. Their ranks are subjective priorities, not estimated returns. One `# %%` script, [tools/explore_tennis_states.py](tools/explore_tennis_states.py), screened the first tennis ideas without fitting a model or altering any old holdout. The [results](reports/tennis-state-exploration.md) cover **3,250 complete matches and 84,108 regular service games** from 2020 through May 2026; 87 of 3,337 input matches were excluded.
 
