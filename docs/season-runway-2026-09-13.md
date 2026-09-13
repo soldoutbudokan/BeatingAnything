@@ -1,5 +1,7 @@
 # Research runway and NBA source feasibility — 2026-09-13
 
+**Subsequent execution completed:** this document preserves the earlier source checkpoint. The [NBA result](../reports/nba-creator-assists-2026-09-13.md) is now unresolved with 25 exposures and +0.96 assists. The broadened golf/tennis/rugby/CFL batch and current next action are in [PROGRESS.md](../PROGRESS.md); do not restart the completed experiment from the historical plan below.
+
 The user's latest instruction changes the active queue: research markets with substantial season ahead. Preserve the positive MLB position-player pitching result, but defer its 2026 price-collection priority. NFL's season is underway; NBA props offer a second pathway for the coming season. Calendar runway is an operational choice, not evidence of an edge.
 
 | Market | Verified calendar | Runway from September 13 |

@@ -1,0 +1,582 @@
+{
+  "as_of": "2026-09-13",
+  "status": "unresolved: required data unavailable",
+  "card": "docs/hypotheses/golf-sunday-chasing-variance.md",
+  "fixed_test_year": 2025,
+  "sources": [
+    {
+      "file": "data/raw/golf-sunday-chasing/schedule-2025.html",
+      "url": "https://www.pgatour.com/schedule/2025",
+      "bytes": 422267,
+      "sha256": "ef59c573fbdbbbf46a2808257984af7b3005e77237f6bf51ee76f2d59c133cdb"
+    },
+    {
+      "file": "data/raw/golf-sunday-chasing/schedule-2026.html",
+      "url": "https://www.pgatour.com/schedule/2026",
+      "bytes": 433841,
+      "sha256": "764d3a7497204a2cab832c4316be2126d5a9b80db98a4e3c1e57ce1658a8699c"
+    },
+    {
+      "file": "data/raw/golf-sunday-chasing/datagolf-free-sample-2021-masters.json",
+      "url": "https://feeds.datagolf.com/historical-raw-data/sample?file_format=json",
+      "bytes": 131481,
+      "sha256": "9b28f070125a5095458ee8471a61464d19075c431462359a4111b94c514ecc30"
+    }
+  ],
+  "schedule_2025_entries": 50,
+  "schedule_2025": [
+    {
+      "tournamentId": "R2025016",
+      "name": "The Sentry",
+      "year": "2025",
+      "month": "January",
+      "displayDate": "Jan 2 - 5",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025006",
+      "name": "Sony Open in Hawaii",
+      "year": "2025",
+      "month": "January",
+      "displayDate": "Jan 9 - 12",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025002",
+      "name": "The American Express",
+      "year": "2025",
+      "month": "January",
+      "displayDate": "Jan 16 - 19",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025004",
+      "name": "Farmers Insurance Open",
+      "year": "2025",
+      "month": "January",
+      "displayDate": "Jan 22 - 25",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025005",
+      "name": "AT&T Pebble Beach Pro-Am",
+      "year": "2025",
+      "month": "January",
+      "displayDate": "Jan 30 - Feb 2",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025003",
+      "name": "WM Phoenix Open",
+      "year": "2025",
+      "month": "February",
+      "displayDate": "Feb 6 - 9",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025007",
+      "name": "The Genesis Invitational",
+      "year": "2025",
+      "month": "February",
+      "displayDate": "Feb 13 - 16",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025540",
+      "name": "Mexico Open at VidantaWorld",
+      "year": "2025",
+      "month": "February",
+      "displayDate": "Feb 20 - 23",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025010",
+      "name": "Cognizant Classic in The Palm Beaches",
+      "year": "2025",
+      "month": "February",
+      "displayDate": "Feb 27 - Mar 2",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025009",
+      "name": "Arnold Palmer Invitational presented by Mastercard",
+      "year": "2025",
+      "month": "March",
+      "displayDate": "Mar 6 - 9",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025483",
+      "name": "Puerto Rico Open",
+      "year": "2025",
+      "month": "March",
+      "displayDate": "Mar 6 - 9",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025011",
+      "name": "THE PLAYERS Championship",
+      "year": "2025",
+      "month": "March",
+      "displayDate": "Mar 13 - 16",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025475",
+      "name": "Valspar Championship",
+      "year": "2025",
+      "month": "March",
+      "displayDate": "Mar 20 - 23",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025020",
+      "name": "Texas Children's Houston Open",
+      "year": "2025",
+      "month": "March",
+      "displayDate": "Mar 27 - 30",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025041",
+      "name": "Valero Texas Open",
+      "year": "2025",
+      "month": "April",
+      "displayDate": "Apr 3 - 6",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025014",
+      "name": "Masters Tournament",
+      "year": "2025",
+      "month": "April",
+      "displayDate": "Apr 10 - 13",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025012",
+      "name": "RBC Heritage",
+      "year": "2025",
+      "month": "April",
+      "displayDate": "Apr 17 - 20",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025522",
+      "name": "Corales Puntacana Championship",
+      "year": "2025",
+      "month": "April",
+      "displayDate": "Apr 17 - 20",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025018",
+      "name": "Zurich Classic of New Orleans",
+      "year": "2025",
+      "month": "April",
+      "displayDate": "Apr 24 - 27",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025019",
+      "name": "THE CJ CUP Byron Nelson",
+      "year": "2025",
+      "month": "May",
+      "displayDate": "May 1 - 4",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025480",
+      "name": "Truist Championship",
+      "year": "2025",
+      "month": "May",
+      "displayDate": "May 8 - 11",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025553",
+      "name": "ONEflight Myrtle Beach Classic",
+      "year": "2025",
+      "month": "May",
+      "displayDate": "May 8 - 11",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025033",
+      "name": "PGA Championship",
+      "year": "2025",
+      "month": "May",
+      "displayDate": "May 15 - 18",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025021",
+      "name": "Charles Schwab Challenge",
+      "year": "2025",
+      "month": "May",
+      "displayDate": "May 22 - 25",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025023",
+      "name": "the Memorial Tournament presented by Workday",
+      "year": "2025",
+      "month": "May",
+      "displayDate": "May 29 - Jun 1",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025032",
+      "name": "RBC Canadian Open",
+      "year": "2025",
+      "month": "June",
+      "displayDate": "Jun 5 - 8",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025026",
+      "name": "U.S. Open",
+      "year": "2025",
+      "month": "June",
+      "displayDate": "Jun 12 - 15",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025034",
+      "name": "Travelers Championship",
+      "year": "2025",
+      "month": "June",
+      "displayDate": "Jun 19 - 22",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025524",
+      "name": "Rocket Classic",
+      "year": "2025",
+      "month": "June",
+      "displayDate": "Jun 26 - 29",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025030",
+      "name": "John Deere Classic",
+      "year": "2025",
+      "month": "July",
+      "displayDate": "Jul 3 - 6",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025541",
+      "name": "Genesis Scottish Open",
+      "year": "2025",
+      "month": "July",
+      "displayDate": "Jul 10 - 13",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025518",
+      "name": "ISCO Championship",
+      "year": "2025",
+      "month": "July",
+      "displayDate": "Jul 10 - 13",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025100",
+      "name": "The Open Championship",
+      "year": "2025",
+      "month": "July",
+      "displayDate": "Jul 17 - 20",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025472",
+      "name": "Barracuda Championship",
+      "year": "2025",
+      "month": "July",
+      "displayDate": "Jul 17 - 20",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025525",
+      "name": "3M Open",
+      "year": "2025",
+      "month": "July",
+      "displayDate": "Jul 24 - 27",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025013",
+      "name": "Wyndham Championship",
+      "year": "2025",
+      "month": "July",
+      "displayDate": "Jul 31 - Aug 3",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025027",
+      "name": "FedEx St. Jude Championship",
+      "year": "2025",
+      "month": "August",
+      "displayDate": "Aug 7 - 10",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025028",
+      "name": "BMW Championship",
+      "year": "2025",
+      "month": "August",
+      "displayDate": "Aug 14 - 17",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025060",
+      "name": "TOUR Championship",
+      "year": "2025",
+      "month": "August",
+      "displayDate": "Aug 21 - 24",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025464",
+      "name": "Procore Championship",
+      "year": "2025",
+      "month": "September",
+      "displayDate": "Sep 11 - 14",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025468",
+      "name": "Ryder Cup",
+      "year": "2025",
+      "month": "September",
+      "displayDate": "Sep 26 - 28",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025054",
+      "name": "Sanderson Farms Championship",
+      "year": "2025",
+      "month": "October",
+      "displayDate": "Oct 2 - 5",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025527",
+      "name": "Baycurrent Classic",
+      "year": "2025",
+      "month": "October",
+      "displayDate": "Oct 9 - 12",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025554",
+      "name": "Bank of Utah Championship",
+      "year": "2025",
+      "month": "October",
+      "displayDate": "Oct 23 - 26",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025457",
+      "name": "World Wide Technology Championship",
+      "year": "2025",
+      "month": "November",
+      "displayDate": "Nov 6 - 9",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025528",
+      "name": "Butterfield Bermuda Championship",
+      "year": "2025",
+      "month": "November",
+      "displayDate": "Nov 13 - 16",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025493",
+      "name": "The RSM Classic",
+      "year": "2025",
+      "month": "November",
+      "displayDate": "Nov 20 - 23",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025478",
+      "name": "Hero World Challenge",
+      "year": "2025",
+      "month": "December",
+      "displayDate": "Dec 4 - 7",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025088",
+      "name": "PGA TOUR Q-School presented by Korn Ferry",
+      "year": "2025",
+      "month": "December",
+      "displayDate": "Dec 11 - 14",
+      "status": "COMPLETED"
+    },
+    {
+      "tournamentId": "R2025551",
+      "name": "Grant Thornton Invitational",
+      "year": "2025",
+      "month": "December",
+      "displayDate": "Dec 12 - 14",
+      "status": "COMPLETED"
+    }
+  ],
+  "remaining_2026_schedule": [
+    {
+      "tournamentId": "R2026557",
+      "name": "Biltmore Championship Asheville",
+      "year": "2026",
+      "month": "September",
+      "displayDate": "Sep 17 - 20",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026500",
+      "name": "Presidents Cup",
+      "year": "2026",
+      "month": "September",
+      "displayDate": "Sep 24 - 27",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026554",
+      "name": "Bank of Utah Championship",
+      "year": "2026",
+      "month": "October",
+      "displayDate": "Oct 1 - 4",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026527",
+      "name": "Baycurrent Classic",
+      "year": "2026",
+      "month": "October",
+      "displayDate": "Oct 8 - 11",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026528",
+      "name": "Butterfield Bermuda Championship",
+      "year": "2026",
+      "month": "October",
+      "displayDate": "Oct 22 - 25",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026540",
+      "name": "VidantaWorld Mexico Open",
+      "year": "2026",
+      "month": "October",
+      "displayDate": "Oct 29 - Nov 1",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026457",
+      "name": "World Wide Technology Championship",
+      "year": "2026",
+      "month": "November",
+      "displayDate": "Nov 5 - 8",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026558",
+      "name": "Austin Championship",
+      "year": "2026",
+      "month": "November",
+      "displayDate": "Nov 12 - 15",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026493",
+      "name": "The RSM Classic",
+      "year": "2026",
+      "month": "November",
+      "displayDate": "Nov 19 - 22",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026478",
+      "name": "Hero World Challenge",
+      "year": "2026",
+      "month": "December",
+      "displayDate": "Dec 3 - 6",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026088",
+      "name": "PGA TOUR Q-School presented by Korn Ferry",
+      "year": "2026",
+      "month": "December",
+      "displayDate": "Dec 10 - 13",
+      "status": "UPCOMING"
+    },
+    {
+      "tournamentId": "R2026551",
+      "name": "Grant Thornton Invitational",
+      "year": "2026",
+      "month": "December",
+      "displayDate": "Dec 11 - 13",
+      "status": "UPCOMING"
+    }
+  ],
+  "free_sample": {
+    "tour": "pga",
+    "year": 2021,
+    "event_id_as_published": "536",
+    "event_name": "The Masters",
+    "event_completed": "2021-04-11",
+    "players": 88,
+    "round_records": 284,
+    "complete_four_round_players": 54,
+    "round_fields": [
+      "birdies",
+      "bogies",
+      "course_name",
+      "course_num",
+      "course_par",
+      "doubles_or_worse",
+      "driving_acc",
+      "driving_dist",
+      "eagles_or_better",
+      "gir",
+      "great_shots",
+      "pars",
+      "poor_shots",
+      "prox_fw",
+      "prox_rgh",
+      "score",
+      "scrambling",
+      "sg_app",
+      "sg_arg",
+      "sg_ott",
+      "sg_putt",
+      "sg_t2g",
+      "sg_total",
+      "start_hole",
+      "teetime"
+    ],
+    "scope": "Schema and coverage only; 2021 sample is outside fixed 2025 test",
+    "prior_event_rounds_available": 0
+  },
+  "sport_effect": null,
+  "fixed_sample_player_rounds_recovered": 0,
+  "fanduel_quotes_recovered": 0,
+  "blockers": [
+    {
+      "source": "PGA TOUR",
+      "url": "https://www.pgatour.com/tournaments/2025/the-sentry/R2025016/leaderboard",
+      "result": "Ordinary web fetch returned HTTP 403; no repeat or workaround"
+    },
+    {
+      "source": "Data Golf",
+      "url": "https://datagolf.com/raw-data-archive",
+      "result": "Publisher expressly requires Scratch PLUS annual access for archive downloads; only its linked free 2021 Masters sample was downloaded"
+    }
+  ],
+  "next_input": "Permitted 2025 PGA TOUR event round scores with stable player IDs, event dates and format flags; >=10 prior-event rounds for each eligible player. Then run the existing card's fixed screen without replacing years or thresholds."
+}

@@ -1,0 +1,63 @@
+{
+  "date": "2026-09-13",
+  "status": "sport-side confirmed",
+  "study": "First isolated yellow card, opponent tries in next ten playing minutes",
+  "competition": "Gallagher Premiership",
+  "season_reports": [
+    {
+      "path": "reports/rugby-yellow-card-2026-09-13.json",
+      "sha256": "ec14890ed5a51e4174a7da8926118bf577f057535c14b1ae3268976036f44b3a",
+      "season": "2024-25",
+      "listed_games": 93,
+      "accepted_games": 83,
+      "matched_exposures": 44,
+      "exposed_try_mean_per_10_minutes": 0.75,
+      "standardized_control_try_mean_per_10_minutes": 0.5235615079365079,
+      "relative_change": 0.43249644718143077
+    },
+    {
+      "path": "reports/rugby-yellow-card-2023-24-2026-09-13.json",
+      "sha256": "b8904e017838859b4bb28f332210950ce31bc3d5324e7efbbb16561a7bdadc9b",
+      "season": "2023-24",
+      "listed_games": 93,
+      "accepted_games": 87,
+      "matched_exposures": 37,
+      "exposed_try_mean_per_10_minutes": 1.054054054054054,
+      "standardized_control_try_mean_per_10_minutes": 0.4224146150616739,
+      "relative_change": 1.495306782650403
+    },
+    {
+      "path": "reports/rugby-yellow-card-2022-23-2026-09-13.json",
+      "sha256": "307253781eabb03598d7f2b363b9a68181dd0d27a183877325f235709e6cb1fa",
+      "season": "2022-23",
+      "listed_games": 120,
+      "accepted_games": 103,
+      "matched_exposures": 52,
+      "exposed_try_mean_per_10_minutes": 0.9615384615384616,
+      "standardized_control_try_mean_per_10_minutes": 0.3268876069155898,
+      "relative_change": 1.941495612547813
+    }
+  ],
+  "listed_games": 306,
+  "accepted_games": 273,
+  "matched_exposures": 133,
+  "exposed_minutes": 1330,
+  "tries": 122,
+  "exposed_try_mean_per_10_minutes": 0.9172932330827067,
+  "standardized_control_try_mean_per_10_minutes": 0.41852783959472895,
+  "relative_change": 1.1917137793532322,
+  "post_trigger_additional_cards": 19,
+  "threshold_minimum_exposures": 100,
+  "threshold_relative_change": 0.3,
+  "fixed_stop": "Three seasons 2022\u201323 through 2024\u201325, irrespective of effect",
+  "actual_fanduel_quotes": 0,
+  "edge_confirmed": false,
+  "caveats": [
+    "Each season is preserved separately; combined results are exploratory, with a fixed stop after 2022\u201323 through 2024\u201325.",
+    "Trigger windows, not independently verified continuous 15v14 exposure.",
+    "Card selection and field position may explain scoring differences; this is not a causal yellow-card effect.",
+    "Controls are ten-minute aligned windows; exposed windows retain card seconds and are only matched to the same ten-minute start bin.",
+    "Entire red-card matches are excluded retrospectively; the screen is not a directly deployable trigger rule.",
+    "No FanDuel market availability, suspension behavior or live-price evidence has been obtained."
+  ]
+}
