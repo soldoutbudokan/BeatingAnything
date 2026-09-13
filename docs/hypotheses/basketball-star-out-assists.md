@@ -16,4 +16,4 @@
 
 **Status:** idea
 
-**Result:** Not tested; a known role change may already be fully priced.
+**Result:** Sport-side comparison pending; a known role change may already be fully priced. September 13 source work located 3,970 archived injury PDFs dated within 2024–25 and downloaded NBA Stats-derived player boxscores covering all 1,230 regular-season games. The PDF count is an archive inventory, not 3,970 downloaded or validated reports. One official PDF matched its pinned archive copy exactly. Its filename said `05PM` while its header said `05:30 PM`, so use in-document issue times. A schedule/boxscore filename-year mismatch was also caught before outcome analysis. See [source hashes, timing limits and the next bounded test](../season-runway-2026-09-13.md). This is an active longer-season research candidate; it has no measured assist effect or FanDuel pricing evidence yet.

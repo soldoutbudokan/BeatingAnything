@@ -1,6 +1,6 @@
 # Research progress and continuation handoff
 
-Updated September 13, 2026. Latest instruction: keep working until an edge is found, including across days. Preserve results, move on from weak or blocked hypotheses, and keep the goal open until evidence supports an edge. This file is maintained as the continuation handoff.
+Updated September 13, 2026. Latest instruction: work on another market with substantial season remaining, while continuing the search across days. Active focus is NFL props now and NBA props for 2026–27. Preserve results, move on from weak or blocked hypotheses, and keep the goal open until evidence supports an edge. This file is maintained as the continuation handoff.
 
 **Direction change (September 9, 2026):** [NEXT-STEPS.md](NEXT-STEPS.md) now sets the research direction and withdraws the NFL charting model as the next step. Read it first. This file remains the record of completed work, file locations, runtime setup and the standing gates.
 
@@ -14,13 +14,32 @@ The active work is the mechanism-first queue in [NEXT-STEPS.md](NEXT-STEPS.md): 
 
 Repository: `https://github.com/soldoutbudokan/BeatingAnything`. The September 9 budget checkpoint was published to **`main`**. Its retained research branch is `research/fanduel-timestamped-tennis`, originally from main commit `343d7b4`; the pre-evaluation checkpoint is `a4d4701`. [PR #1](https://github.com/soldoutbudokan/BeatingAnything/pull/1) contains that research description. The September 12 restart is on `research/mechanism-first-restart` in [draft PR #2](https://github.com/soldoutbudokan/BeatingAnything/pull/2); it is not merged. Use Git's actual current state rather than assuming publication or merge occurred.
 
-## September 13 continuation
+## September 13 season-runway pivot — current continuation
+
+The user asked to move away from a market ending in roughly five weeks. **Defer further 2026 MLB research, including the position-player book-side follow-up and Wrigley wind card.** Their historical results remain valid as recorded. Prioritize NFL derivative/player props and prepare NBA props for the upcoming season. This is a calendar decision, not a change to the evidence thresholds. The [season and source checkpoint](docs/season-runway-2026-09-13.md) contains official schedule links and the NBA historical-data path.
+
+The existing six-hour **Continue BeatingAnything research** task has been updated to follow this priority and revisit runway as time passes. Its schedule and branch destination are unchanged. A positive MLB sport-side result must not automatically send the next run back to MLB.
+
+The focused [NFL/NBA collector configuration](config/forward-collection.nfl-nba.json) uses the existing bounded collector. [Coverage notes](docs/forward-market-collection.md#nflnba-priority-after-the-september-13-user-update) distinguish documented field-goal, reception and assist keys from actual FanDuel availability. No authorized key or real prop quote is available at this checkpoint. The catalog has no longest-field-goal key; an effect on 50+ yard makes cannot be treated as an effect on all-distance field-goal counts.
+
+| New work | Result | Decision |
+| --- | --- | --- |
+| [NFL wind/long-kick screen](reports/nfl-wind-kicks-2026-09-13.md), fixed 2021–2025 sample | 785 exposed eligible drives in 95 high-wind games versus 6,249 drives in 732 controls. Long makes: 6.24% versus season/roof-standardized 5.46%, opposite the predicted reduction. Descriptive relative-reduction interval −54.1% to +19.3%. | Fails the prewritten 20% reduction screen. Deprioritize this retrospective route; issue-stamped forecast variant remains unresolved. Do not reverse the bet or adjust the cutoff. |
+| [NBA missing-creator source path](docs/season-runway-2026-09-13.md) | Accessible original NBA injury reports plus NBA Stats-derived 2024–25 player box scores covering all 1,230 regular-season games. Sample official PDF matches the pinned archive blob. | Data acquisition is feasible; no absence/assist comparison has been run. Use the in-PDF issue time, not the hour in the filename. |
+
+**Next bounded research:** run the prewritten [NBA missing-creator assists](docs/hypotheses/basketball-star-out-assists.md) sport-side screen on the pinned 2024–25 sources. Declare prior creator/secondary-handler eligibility and the pretip report cutoff before comparing outcomes. Apply the card's 100-player-game/+1-assist screen, report minutes and per-minute assists separately, and exclude missing/not-yet-submitted or post-tip reports. The source checkpoint specifies the joins and remaining limits. This prepares an upcoming full NBA season while NFL remains the current-season track.
+
+For the next NFL card, [garbage-time receptions](docs/hypotheses/football-garbage-time-receptions.md), the downloaded PBP contains target IDs and air yards but no on-field offensive-player list. Establish receiver activity at the trigger from a permitted participation source before claiming an eligible receiver-level test. A later catch cannot establish earlier activity. [Backup-QB receiver roles](docs/hypotheses/football-backup-qb-receivers.md) is another untested card if timely starter announcements are accessible. Avoid making either missing-timestamp task an endless blocker; proceed with the NBA test already supported by sources.
+
+Use existing caches and parsers where appropriate, save concrete results, and move on when a source cannot answer the question. Do not re-inventory the old NFL odds database or rerun its closed main-line comparison. Continue publishing useful work to the research branch/draft PR, reconciling concurrent changes first; direct `main` publication remains unauthorized.
+
+## September 13 earlier continuation — results preserved
 
 The user explicitly requested continued research across days. A new **Continue BeatingAnything research** automation is enabled every six hours. It performs bounded research batches, reads current branch/PR state and this handoff, preserves useful changes on the research branch, and reports meaningful new evidence. It is not continuous market polling. The previously paused betting watch remains paused. No wager, betting alert, purchase, or direct `main` publication was authorized by this continuation.
 
 | Work completed | Result | Next decision |
 | --- | --- | --- |
-| [MLB position-player pitching](reports/mlb-position-pitching-2026-09-13.md), full 2025 regular-season screen | 112 exact-state matched exposed innings versus 237 ordinary-reliever controls: 1.304 versus 0.639 runs, +0.664 runs; descriptive game-cluster 95% interval +0.173 to +1.155. First card to pass its fixed sport-side screen. | Check actual FanDuel live inning/team-total prices around incoming-pitcher announcements. The sport effect is not evidence of mispricing. |
+| [MLB position-player pitching](reports/mlb-position-pitching-2026-09-13.md), full 2025 regular-season screen | 112 exact-state matched exposed innings versus 237 ordinary-reliever controls: 1.304 versus 0.639 runs, +0.664 runs; descriptive game-cluster 95% interval +0.173 to +1.155. First card to pass its fixed sport-side screen. | Deferred this season by the later user instruction. If resumed in a future season, actual FanDuel live inning/team-total pricing is the next scientific stage. |
 | [Tennis follow-up](reports/tennis-followup-2026-09-13.md), separate 2010s file | Long-service raw difference repeats at +7.02 points in 291 exposures; within-match difference +4.83 points, interval −0.29 to +9.94. Fourth-set adds only 13 exposures (42 across both files). | Both remain unresolved; no further archive expansion is queued for these same comparisons. |
 | Prewritten failed-serve-for-set card, existing 2020s file | 294 exposures; raw next-game break difference +7.89 points, opposite the predicted reduction; adjusted difference −2.04, interval −7.41 to +3.32. | Deprioritized under its stated screen; do not reverse the hypothesis after seeing the sign. |
 | [NFL exact same-line price screen](reports/nfl-price-screen-2026-09-13.md), new card 31 | 908 paired markets / 1,816 sides; zero observations clear +3% under both proportional and power de-vigging after a 2% winnings haircut. | This specific half-point, fresh-pair, one-to-24-hour route is dead. Integer lines, different entry windows and outcomes were not tested. |
@@ -32,7 +51,7 @@ The 131 official substitution/first-pitch timestamp pairs have a median gap of 2
 
 Sources and runnable code: `tools/explore_tennis_followup.py`, `tools/explore_mlb_position_pitching.py`, `tools/explore_nfl_prices.py`, and `tools/explore_nhl_empty_net.py`. Source caches remain ignored. The 2010s tennis file is pinned to the same source commit as the 2020s file, SHA-256 `2719cdc136b64698f24b360cf4f60302e11add24971c2fdd585e1b729178db8c`. The original September 12 script and results remain unchanged; the new reports are separate inspected exploration. No old holdout was refitted or relabeled untouched.
 
-**Continue from here:** prioritize the MLB card's exact-market source check, while testing the next accessible untested cards (for example Wrigley wind/home-run props or football wind/long kicks) if book access blocks that branch. No API key or verified live FanDuel execution source is currently available. Do not stop the whole research program at that blocker, repeatedly probe unchanged denials, rerun the dead NFL screen, or rewrite the initial card queue. Record a specific result and the next task after each batch. The research automation follows this branch/PR and must reconcile concurrent changes before publishing; direct `main` updates still require explicit authorization.
+**Earlier next-step order superseded:** the proposed MLB book-side/Wrigley work was replaced by the user's season-runway instruction above. No API key or verified live FanDuel execution source is currently available. Do not stop the research program at that blocker, repeatedly probe unchanged denials, or rerun the dead NFL main-line screen. Follow the current NFL/NBA queue and record a specific result and next task after each batch.
 
 ## September 12 restart
 
@@ -61,7 +80,7 @@ The original ignored tennis pages, F1 CSV and runtime from the user's machine we
 
 The current workspace provides Python **3.12.14**, NumPy **2.3.5**, pandas **2.2.3**, SciPy **1.17.0**, and lxml **6.1.1**. Run new commands with `python` from the repository root. The original-machine runtime paths below remain historical reproduction instructions.
 
-**Next bounded work:** the long-service card needs replication under the same definitions and better separation of player strength/score selection before calling its sport side confirmed. The fourth-set and high-hold ideas need more relevant observations, not relaxed sample thresholds. Before any recurring tennis odds acquisition, verify one authorized source that actually returns the required FanDuel market and timestamped game state. The current collector's API-key path is useful for documented markets but is not a verified next-game tennis feed. Do not respond to this gap by reopening the NFL derivative search, tuning old main-line models, or adding another audit framework.
+**Historical September 12 next work:** the September 13 tennis follow-up above completed the queued replication and sparse-sample expansion without confirmation. Do not repeat that assignment. Its source limitations remain: the current collector's API-key path is useful for documented markets but is not a verified next-game tennis feed. Follow the current season-runway queue instead of reopening the NFL archive inventory, tuning old main-line models, or adding another audit framework.
 
 ## Runtime and local data
 

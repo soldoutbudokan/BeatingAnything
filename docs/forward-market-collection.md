@@ -57,6 +57,35 @@ To collect only official MLB state without any odds subscription:
 python -m beating.forward_collect --mlb-only --cycles 20 --interval-seconds 180
 ```
 
+## NFL/NBA priority after the September 13 user update
+
+The focused configuration follows the user's preference for more season runway:
+
+```bash
+python -m beating.forward_collect --config config/forward-collection.nfl-nba.json
+```
+
+It uses the existing collector and the same one-cycle, 100-credit allowance,
+selects NFL/NBA events and leaves MLB state collection off. An existing authorized
+`ODDS_API_KEY` is still required; none was available for this checkpoint, so this
+configuration has not collected real odds. A future research run may use it only
+with an already authorized key and allowance. Preseason/offseason availability
+and live coverage must be established from actual responses.
+
+The provider's [market catalog](https://the-odds-api.com/sports-odds-data/betting-markets.html),
+checked September 13, documents these relevant keys:
+
+| Hypothesis | Documented key | Remaining market question |
+| --- | --- | --- |
+| NFL wind/long kicks | `player_field_goals`, `player_kicking_points` | No longest-field-goal key is listed. A 50+ yard effect does not establish an all-distance field-goal-count effect. |
+| NFL garbage-time/backup-QB receivers | `player_receptions`, `player_reception_yds` | A full-game total is not a remaining-only total; verify live availability, accrued statistics and settlement. |
+| NBA missing creator | `player_assists`, `player_assists_alternate` | Verify actual FanDuel pairs before/after an issue-stamped absence announcement. |
+
+Documented keys do not establish FanDuel/Pinnacle pairs, a particular bookmaker's
+inventory, an executable quote or stale pricing. Keep the exact market identity
+and clocks with each observation. The NFL archive already inventoried in this
+repo contains none of these props; do not repeat that search.
+
 ## Provider coverage and credit units
 
 The documented v4 flow is sports → events → event markets → event odds. Events
