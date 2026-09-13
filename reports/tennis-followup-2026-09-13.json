@@ -1,0 +1,7028 @@
+{
+  "generated_at": "2026-09-13T01:05:35.405843+00:00",
+  "phase": "exploration",
+  "source_commit": "2c59eef194967e688b69e73df344184a06322cd8",
+  "license": "CC BY-NC-SA 4.0; attribution to Tennis Abstract Match Charting Project",
+  "sources": [
+    {
+      "file": "data/raw/tennis-state-exploration/README.md",
+      "url": "https://raw.githubusercontent.com/JeffSackmann/tennis_MatchChartingProject/2c59eef194967e688b69e73df344184a06322cd8/README.md",
+      "bytes": 4805,
+      "sha256": "2c2a5961a2761eea35b4143e9cab1d23200f49d72fc0ced56bb09f5a326e8444"
+    },
+    {
+      "file": "data/raw/tennis-state-exploration/data_dictionary.txt",
+      "url": "https://raw.githubusercontent.com/JeffSackmann/tennis_MatchChartingProject/2c59eef194967e688b69e73df344184a06322cd8/data_dictionary.txt",
+      "bytes": 2649,
+      "sha256": "e60154eb0289e4e0e11221e62c60dcfc94e9d6e4d4a889aa065a7c17bf42b238"
+    },
+    {
+      "file": "data/raw/tennis-state-exploration/charting-m-matches.csv",
+      "url": "https://raw.githubusercontent.com/JeffSackmann/tennis_MatchChartingProject/2c59eef194967e688b69e73df344184a06322cd8/charting-m-matches.csv",
+      "bytes": 1141817,
+      "sha256": "d8dce1ad8d12c04efa01da587441b54ece8e8100530660528312244f632efe80"
+    },
+    {
+      "file": "data/raw/tennis-state-exploration/charting-m-points-2020s.csv",
+      "url": "https://raw.githubusercontent.com/JeffSackmann/tennis_MatchChartingProject/2c59eef194967e688b69e73df344184a06322cd8/charting-m-points-2020s.csv",
+      "bytes": 56590483,
+      "sha256": "2cd43f73e0530a47ea4c02b99dae40177ca6d58a8ccf9189358eb05dffb4be9a"
+    },
+    {
+      "file": "data/raw/tennis-state-exploration/charting-m-points-2010s.csv",
+      "url": "https://raw.githubusercontent.com/JeffSackmann/tennis_MatchChartingProject/2c59eef194967e688b69e73df344184a06322cd8/charting-m-points-2010s.csv",
+      "bytes": 36475702,
+      "sha256": "2719cdc136b64698f24b360cf4f60302e11add24971c2fdd585e1b729178db8c"
+    }
+  ],
+  "coverage": {
+    "2010s": {
+      "input_matches": 2232,
+      "input_points": 357229,
+      "accepted_matches": 2164,
+      "accepted_points": 347869,
+      "excluded_points": 9360,
+      "excluded_matches_by_reason": {
+        "incomplete_final_game": 18,
+        "unsupported_match_tiebreak_or_scoring": 9,
+        "incomplete_match": 22,
+        "points_after_match_end": 9,
+        "partial_or_noncontiguous_points": 2,
+        "point_score_mismatch": 7,
+        "invalid literal for int() with base 10: ''": 1
+      },
+      "completed_games": 55889,
+      "regular_games": 54852,
+      "date_min": "20100108",
+      "date_max": "20191124",
+      "matches_by_surface": {
+        "Grass": 230,
+        "Hard": 1363,
+        "Clay": 571
+      },
+      "matches_by_best_of": {
+        "5": 459,
+        "3": 1705
+      },
+      "matches_with_challenger_name_marker": 198
+    },
+    "2020s": {
+      "input_matches": 3337,
+      "input_points": 547478,
+      "accepted_matches": 3250,
+      "accepted_points": 535040,
+      "excluded_points": 12438,
+      "excluded_matches_by_reason": {
+        "incomplete_final_game": 32,
+        "incomplete_match": 29,
+        "unsupported_match_tiebreak_or_scoring": 4,
+        "invalid literal for int() with base 10: ''": 2,
+        "unsupported_best_of": 1,
+        "points_after_match_end": 17,
+        "partial_or_noncontiguous_points": 2
+      },
+      "completed_games": 85749,
+      "regular_games": 84108,
+      "date_min": "20200103",
+      "date_max": "20260521",
+      "matches_by_surface": {
+        "Hard": 2092,
+        "Clay": 873,
+        "Grass": 285
+      },
+      "matches_by_best_of": {
+        "5": 773,
+        "3": 2477
+      },
+      "matches_with_challenger_name_marker": 198
+    }
+  },
+  "overlapping_accepted_match_ids": 0,
+  "screens": {
+    "long_service_game_carryover_2010s": {
+      "exposed": {
+        "games": 291,
+        "breaks": 79,
+        "break_rate": 0.27147766323024053,
+        "matches": 273,
+        "players": 117,
+        "starting_server_game_score_counts": {
+          "1-2": 32,
+          "1-1": 33,
+          "2-2": 37,
+          "5-2": 2,
+          "4-2": 7,
+          "3-4": 12,
+          "5-6": 9,
+          "4-3": 9,
+          "3-1": 6,
+          "3-5": 8,
+          "4-4": 18,
+          "2-4": 6,
+          "2-3": 16,
+          "5-3": 8,
+          "4-5": 12,
+          "5-5": 10,
+          "1-3": 9,
+          "5-4": 7,
+          "2-1": 7,
+          "4-1": 1,
+          "2-0": 4,
+          "4-0": 2,
+          "3-2": 8,
+          "1-4": 4,
+          "5-1": 1,
+          "2-5": 5,
+          "8-8": 1,
+          "3-3": 12,
+          "6-5": 2,
+          "1-5": 2,
+          "3-0": 1
+        }
+      },
+      "control": {
+        "games": 10704,
+        "breaks": 2155,
+        "break_rate": 0.20132660687593423,
+        "matches": 2164,
+        "players": 400,
+        "starting_server_game_score_counts": {
+          "1-1": 2883,
+          "1-2": 2286,
+          "2-3": 480,
+          "4-4": 40,
+          "5-1": 22,
+          "5-2": 30,
+          "3-1": 218,
+          "1-4": 390,
+          "2-2": 509,
+          "2-1": 1163,
+          "1-3": 499,
+          "3-4": 117,
+          "2-4": 158,
+          "3-0": 218,
+          "3-5": 48,
+          "2-0": 697,
+          "2-5": 135,
+          "3-2": 265,
+          "4-1": 73,
+          "1-5": 102,
+          "4-3": 63,
+          "4-5": 37,
+          "4-0": 36,
+          "5-3": 16,
+          "3-3": 121,
+          "5-4": 19,
+          "5-0": 16,
+          "6-5": 1,
+          "5-6": 6,
+          "4-2": 45,
+          "5-5": 11
+        }
+      },
+      "raw_contrast": {
+        "difference": 0.0701510563543063,
+        "descriptive_95pct_interval": [
+          0.017913033345136734,
+          0.12238907936347586
+        ],
+        "exposed_games": 291,
+        "control_games": 10704,
+        "match_clusters": 2164
+      },
+      "within_match_residual_contrast": {
+        "difference": 0.04827411546161253,
+        "descriptive_95pct_interval": [
+          -0.002860794756275646,
+          0.09940902567950072
+        ],
+        "exposed_games": 291,
+        "control_games": 10704,
+        "match_clusters": 2164
+      },
+      "paired_same_player_match_contrast": {
+        "difference": 0.052068557919621755,
+        "descriptive_95pct_interval": [
+          -0.007375325126981601,
+          0.11151244096622512
+        ],
+        "exposed_games": 282,
+        "control_games": 282,
+        "match_clusters": 272,
+        "player_match_pairs": 282
+      },
+      "other_sets_same_player_match_baseline": {
+        "exposed": {
+          "games": 291,
+          "break_rate": 0.27147766323024053,
+          "other_sets_break_rate": 0.24476442618434574,
+          "excess_vs_other_sets": {
+            "difference": 0.02671323704589479,
+            "descriptive_95pct_interval": [
+              -0.024080852929103093,
+              0.07750732702089266
+            ],
+            "exposed_games": 291,
+            "control_games": 291,
+            "match_clusters": 273
+          }
+        },
+        "control": {
+          "games": 10704,
+          "break_rate": 0.20132660687593423,
+          "other_sets_break_rate": 0.2035769140186419,
+          "excess_vs_other_sets": {
+            "difference": -0.002250307142707658,
+            "descriptive_95pct_interval": [
+              -0.008734313129268192,
+              0.004233698843852876
+            ],
+            "exposed_games": 10704,
+            "control_games": 10704,
+            "match_clusters": 2164
+          }
+        }
+      },
+      "by_surface": {
+        "Clay": {
+          "exposed": {
+            "games": 77,
+            "breaks": 22,
+            "break_rate": 0.2857142857142857,
+            "matches": 74,
+            "players": 52,
+            "starting_server_game_score_counts": {
+              "3-1": 4,
+              "3-5": 3,
+              "4-5": 2,
+              "1-2": 7,
+              "1-1": 6,
+              "2-2": 9,
+              "5-4": 3,
+              "1-3": 4,
+              "2-1": 3,
+              "4-1": 1,
+              "3-4": 5,
+              "1-4": 1,
+              "4-3": 3,
+              "5-5": 5,
+              "2-3": 2,
+              "2-5": 3,
+              "3-3": 4,
+              "4-2": 2,
+              "5-3": 1,
+              "5-6": 3,
+              "5-2": 1,
+              "4-4": 4,
+              "2-4": 1
+            }
+          },
+          "control": {
+            "games": 2659,
+            "breaks": 614,
+            "break_rate": 0.23091387739751787,
+            "matches": 571,
+            "players": 225,
+            "starting_server_game_score_counts": {
+              "1-1": 650,
+              "2-1": 295,
+              "1-3": 116,
+              "1-2": 486,
+              "4-1": 25,
+              "2-0": 214,
+              "1-4": 110,
+              "3-1": 62,
+              "3-2": 81,
+              "3-3": 36,
+              "3-4": 31,
+              "2-5": 30,
+              "3-0": 65,
+              "2-3": 134,
+              "2-2": 136,
+              "5-4": 7,
+              "2-4": 41,
+              "4-3": 21,
+              "3-5": 16,
+              "5-2": 9,
+              "6-5": 1,
+              "1-5": 24,
+              "5-0": 6,
+              "5-6": 2,
+              "4-2": 12,
+              "4-4": 14,
+              "5-3": 4,
+              "5-1": 4,
+              "4-0": 9,
+              "5-5": 6,
+              "4-5": 12
+            }
+          }
+        },
+        "Grass": {
+          "exposed": {
+            "games": 32,
+            "breaks": 10,
+            "break_rate": 0.3125,
+            "matches": 30,
+            "players": 25,
+            "starting_server_game_score_counts": {
+              "1-1": 4,
+              "5-5": 1,
+              "1-3": 1,
+              "4-4": 2,
+              "1-2": 6,
+              "2-0": 1,
+              "8-8": 1,
+              "2-2": 1,
+              "5-4": 2,
+              "3-3": 3,
+              "6-5": 1,
+              "2-3": 1,
+              "4-3": 2,
+              "2-4": 1,
+              "5-6": 1,
+              "4-5": 1,
+              "1-4": 2,
+              "3-4": 1
+            }
+          },
+          "control": {
+            "games": 1382,
+            "breaks": 184,
+            "break_rate": 0.13314037626628075,
+            "matches": 230,
+            "players": 122,
+            "starting_server_game_score_counts": {
+              "1-1": 437,
+              "1-2": 376,
+              "3-0": 13,
+              "2-4": 15,
+              "2-1": 127,
+              "1-3": 59,
+              "1-5": 11,
+              "3-1": 21,
+              "2-0": 71,
+              "2-5": 18,
+              "1-4": 47,
+              "2-2": 51,
+              "3-4": 11,
+              "2-3": 57,
+              "4-3": 5,
+              "3-5": 2,
+              "3-2": 24,
+              "5-6": 1,
+              "5-2": 2,
+              "4-2": 6,
+              "3-3": 11,
+              "5-4": 1,
+              "4-4": 2,
+              "4-1": 6,
+              "5-3": 2,
+              "5-1": 3,
+              "4-0": 2,
+              "5-0": 1
+            }
+          }
+        },
+        "Hard": {
+          "exposed": {
+            "games": 182,
+            "breaks": 47,
+            "break_rate": 0.25824175824175827,
+            "matches": 169,
+            "players": 87,
+            "starting_server_game_score_counts": {
+              "1-2": 19,
+              "1-1": 23,
+              "2-2": 27,
+              "5-2": 1,
+              "4-2": 5,
+              "3-4": 6,
+              "5-6": 5,
+              "4-3": 4,
+              "4-4": 12,
+              "2-4": 4,
+              "2-3": 13,
+              "5-3": 7,
+              "4-5": 9,
+              "2-0": 3,
+              "2-1": 4,
+              "4-0": 2,
+              "3-2": 8,
+              "3-1": 2,
+              "1-3": 4,
+              "5-5": 4,
+              "5-1": 1,
+              "2-5": 2,
+              "3-3": 5,
+              "1-4": 1,
+              "1-5": 2,
+              "3-5": 5,
+              "5-4": 2,
+              "3-0": 1,
+              "6-5": 1
+            }
+          },
+          "control": {
+            "games": 6663,
+            "breaks": 1357,
+            "break_rate": 0.20366201410775928,
+            "matches": 1363,
+            "players": 314,
+            "starting_server_game_score_counts": {
+              "1-1": 1796,
+              "1-2": 1424,
+              "2-3": 289,
+              "4-4": 24,
+              "5-1": 15,
+              "5-2": 19,
+              "3-1": 135,
+              "1-4": 233,
+              "2-2": 322,
+              "2-1": 741,
+              "1-3": 324,
+              "3-4": 75,
+              "2-4": 102,
+              "3-0": 140,
+              "3-5": 30,
+              "2-0": 412,
+              "2-5": 87,
+              "3-2": 160,
+              "4-1": 42,
+              "1-5": 67,
+              "4-3": 37,
+              "4-5": 25,
+              "4-0": 25,
+              "5-3": 10,
+              "3-3": 74,
+              "5-4": 11,
+              "5-0": 9,
+              "4-2": 27,
+              "5-5": 5,
+              "5-6": 3
+            }
+          }
+        }
+      },
+      "by_best_of": {
+        "3": {
+          "exposed": {
+            "games": 195,
+            "breaks": 50,
+            "break_rate": 0.2564102564102564,
+            "matches": 188,
+            "players": 105,
+            "starting_server_game_score_counts": {
+              "1-2": 20,
+              "1-1": 20,
+              "2-2": 24,
+              "5-2": 2,
+              "4-2": 4,
+              "3-4": 7,
+              "5-6": 6,
+              "4-3": 7,
+              "3-1": 6,
+              "3-5": 5,
+              "4-5": 11,
+              "5-4": 5,
+              "1-3": 8,
+              "2-1": 5,
+              "4-1": 1,
+              "2-0": 3,
+              "4-4": 12,
+              "4-0": 2,
+              "3-2": 7,
+              "1-4": 3,
+              "2-3": 10,
+              "5-5": 6,
+              "5-1": 1,
+              "2-5": 4,
+              "3-3": 6,
+              "6-5": 2,
+              "5-3": 5,
+              "2-4": 3
+            }
+          },
+          "control": {
+            "games": 7458,
+            "breaks": 1530,
+            "break_rate": 0.20514883346741755,
+            "matches": 1705,
+            "players": 386,
+            "starting_server_game_score_counts": {
+              "1-1": 1987,
+              "1-2": 1562,
+              "2-3": 338,
+              "4-4": 30,
+              "5-1": 17,
+              "5-2": 21,
+              "3-1": 150,
+              "1-4": 275,
+              "2-2": 356,
+              "2-1": 823,
+              "1-3": 358,
+              "3-4": 77,
+              "2-4": 116,
+              "3-0": 154,
+              "3-5": 38,
+              "2-0": 472,
+              "2-5": 90,
+              "3-2": 194,
+              "4-1": 57,
+              "1-5": 77,
+              "4-3": 42,
+              "4-5": 28,
+              "4-0": 26,
+              "5-3": 10,
+              "3-3": 91,
+              "5-4": 15,
+              "6-5": 1,
+              "5-0": 12,
+              "4-2": 32,
+              "5-5": 8,
+              "5-6": 1
+            }
+          }
+        },
+        "5": {
+          "exposed": {
+            "games": 96,
+            "breaks": 29,
+            "break_rate": 0.3020833333333333,
+            "matches": 85,
+            "players": 45,
+            "starting_server_game_score_counts": {
+              "1-1": 13,
+              "4-4": 6,
+              "2-4": 3,
+              "1-2": 12,
+              "2-3": 6,
+              "5-3": 3,
+              "5-5": 4,
+              "1-3": 1,
+              "2-2": 13,
+              "3-4": 5,
+              "5-6": 3,
+              "4-5": 1,
+              "2-0": 1,
+              "8-8": 1,
+              "5-4": 2,
+              "2-5": 1,
+              "3-3": 6,
+              "4-2": 3,
+              "3-2": 1,
+              "4-3": 2,
+              "2-1": 2,
+              "1-5": 2,
+              "3-5": 3,
+              "1-4": 1,
+              "3-0": 1
+            }
+          },
+          "control": {
+            "games": 3246,
+            "breaks": 625,
+            "break_rate": 0.19254467036352435,
+            "matches": 459,
+            "players": 158,
+            "starting_server_game_score_counts": {
+              "2-1": 340,
+              "2-2": 153,
+              "3-4": 40,
+              "4-4": 10,
+              "1-1": 896,
+              "1-2": 724,
+              "4-0": 10,
+              "3-5": 10,
+              "5-4": 4,
+              "2-0": 225,
+              "1-4": 115,
+              "2-3": 142,
+              "3-3": 30,
+              "3-2": 71,
+              "3-1": 68,
+              "2-5": 45,
+              "5-1": 5,
+              "1-3": 141,
+              "3-0": 64,
+              "5-0": 4,
+              "4-5": 9,
+              "5-3": 6,
+              "1-5": 25,
+              "2-4": 42,
+              "4-3": 21,
+              "5-6": 5,
+              "5-2": 9,
+              "4-2": 13,
+              "4-1": 16,
+              "5-5": 3
+            }
+          }
+        }
+      }
+    },
+    "fourth_set_concession_2010s": {
+      "exposed": {
+        "games": 13,
+        "breaks": 4,
+        "break_rate": 0.3076923076923077,
+        "matches": 13,
+        "players": 10,
+        "starting_server_game_score_counts": {
+          "0-5": 3,
+          "0-4": 5,
+          "1-5": 5
+        }
+      },
+      "control": {
+        "games": 18,
+        "breaks": 7,
+        "break_rate": 0.3888888888888889,
+        "matches": 18,
+        "players": 14,
+        "starting_server_game_score_counts": {
+          "1-5": 12,
+          "0-4": 5,
+          "0-5": 1
+        }
+      },
+      "raw_contrast": {
+        "difference": -0.08119658119658119,
+        "descriptive_95pct_interval": [
+          -0.423918140748434,
+          0.2615249783552716
+        ],
+        "exposed_games": 13,
+        "control_games": 18,
+        "match_clusters": 31
+      },
+      "within_match_residual_contrast": {
+        "difference": -0.04502197931607451,
+        "descriptive_95pct_interval": [
+          -0.3900673544404273,
+          0.3000233958082783
+        ],
+        "exposed_games": 13,
+        "control_games": 18,
+        "match_clusters": 31
+      },
+      "paired_same_player_match_contrast": {
+        "difference": null,
+        "descriptive_95pct_interval": null,
+        "exposed_games": 0,
+        "control_games": 0,
+        "player_match_pairs": 0
+      },
+      "other_sets_same_player_match_baseline": {
+        "exposed": {
+          "games": 13,
+          "break_rate": 0.3076923076923077,
+          "other_sets_break_rate": 0.22772154745838957,
+          "excess_vs_other_sets": {
+            "difference": 0.07997076023391814,
+            "descriptive_95pct_interval": [
+              -0.19652518294778037,
+              0.35646670341561665
+            ],
+            "exposed_games": 13,
+            "control_games": 13,
+            "match_clusters": 13
+          }
+        },
+        "control": {
+          "games": 18,
+          "break_rate": 0.3888888888888889,
+          "other_sets_break_rate": 0.24609818286288876,
+          "excess_vs_other_sets": {
+            "difference": 0.14279070602600014,
+            "descriptive_95pct_interval": [
+              -0.07927614142330064,
+              0.3648575534753009
+            ],
+            "exposed_games": 18,
+            "control_games": 18,
+            "match_clusters": 18
+          }
+        }
+      },
+      "by_surface": {
+        "Clay": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "0-5": 1
+            }
+          },
+          "control": {
+            "games": 3,
+            "breaks": 2,
+            "break_rate": 0.6666666666666666,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "1-5": 3
+            }
+          }
+        },
+        "Grass": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "1-5": 1,
+              "0-4": 1
+            }
+          },
+          "control": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "1-5": 1,
+              "0-4": 1
+            }
+          }
+        },
+        "Hard": {
+          "exposed": {
+            "games": 10,
+            "breaks": 2,
+            "break_rate": 0.2,
+            "matches": 10,
+            "players": 9,
+            "starting_server_game_score_counts": {
+              "0-5": 2,
+              "0-4": 4,
+              "1-5": 4
+            }
+          },
+          "control": {
+            "games": 13,
+            "breaks": 4,
+            "break_rate": 0.3076923076923077,
+            "matches": 13,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "1-5": 8,
+              "0-5": 1,
+              "0-4": 4
+            }
+          }
+        }
+      },
+      "by_best_of": {
+        "3": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "5": {
+          "exposed": {
+            "games": 13,
+            "breaks": 4,
+            "break_rate": 0.3076923076923077,
+            "matches": 13,
+            "players": 10,
+            "starting_server_game_score_counts": {
+              "0-5": 3,
+              "0-4": 5,
+              "1-5": 5
+            }
+          },
+          "control": {
+            "games": 18,
+            "breaks": 7,
+            "break_rate": 0.3888888888888889,
+            "matches": 18,
+            "players": 14,
+            "starting_server_game_score_counts": {
+              "1-5": 12,
+              "0-4": 5,
+              "0-5": 1
+            }
+          }
+        }
+      }
+    },
+    "failed_serve_for_set_2020s": {
+      "exposed": {
+        "games": 294,
+        "breaks": 78,
+        "break_rate": 0.2653061224489796,
+        "matches": 279,
+        "players": 126,
+        "starting_server_game_score_counts": {
+          "5-5": 294
+        }
+      },
+      "control": {
+        "games": 2087,
+        "breaks": 389,
+        "break_rate": 0.18639195016770485,
+        "matches": 1563,
+        "players": 283,
+        "starting_server_game_score_counts": {
+          "5-5": 2087
+        }
+      },
+      "raw_contrast": {
+        "difference": 0.07891417228127476,
+        "descriptive_95pct_interval": [
+          0.024984997997265564,
+          0.13284334656528396
+        ],
+        "exposed_games": 294,
+        "control_games": 2087,
+        "match_clusters": 1720
+      },
+      "within_match_residual_contrast": {
+        "difference": -0.0204441400048856,
+        "descriptive_95pct_interval": [
+          -0.07408827636563443,
+          0.03319999635586324
+        ],
+        "exposed_games": 294,
+        "control_games": 2087,
+        "match_clusters": 1720
+      },
+      "paired_same_player_match_contrast": {
+        "difference": 0.05319148936170213,
+        "descriptive_95pct_interval": [
+          -0.1306713014245704,
+          0.23705428014797464
+        ],
+        "exposed_games": 47,
+        "control_games": 47,
+        "match_clusters": 46,
+        "player_match_pairs": 47
+      },
+      "other_sets_same_player_match_baseline": {
+        "exposed": {
+          "games": 294,
+          "break_rate": 0.2653061224489796,
+          "other_sets_break_rate": 0.2440924092769556,
+          "excess_vs_other_sets": {
+            "difference": 0.021213713172024,
+            "descriptive_95pct_interval": [
+              -0.029974045151821282,
+              0.07240147149586929
+            ],
+            "exposed_games": 294,
+            "control_games": 294,
+            "match_clusters": 279
+          }
+        },
+        "control": {
+          "games": 2087,
+          "break_rate": 0.18639195016770485,
+          "other_sets_break_rate": 0.19820593084075872,
+          "excess_vs_other_sets": {
+            "difference": -0.011813980673053864,
+            "descriptive_95pct_interval": [
+              -0.02881899709747022,
+              0.00519103575136249
+            ],
+            "exposed_games": 2087,
+            "control_games": 2087,
+            "match_clusters": 1563
+          }
+        }
+      },
+      "by_surface": {
+        "Clay": {
+          "exposed": {
+            "games": 112,
+            "breaks": 29,
+            "break_rate": 0.25892857142857145,
+            "matches": 104,
+            "players": 62,
+            "starting_server_game_score_counts": {
+              "5-5": 112
+            }
+          },
+          "control": {
+            "games": 445,
+            "breaks": 110,
+            "break_rate": 0.24719101123595505,
+            "matches": 351,
+            "players": 146,
+            "starting_server_game_score_counts": {
+              "5-5": 445
+            }
+          }
+        },
+        "Grass": {
+          "exposed": {
+            "games": 12,
+            "breaks": 4,
+            "break_rate": 0.3333333333333333,
+            "matches": 12,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "5-5": 12
+            }
+          },
+          "control": {
+            "games": 264,
+            "breaks": 39,
+            "break_rate": 0.14772727272727273,
+            "matches": 180,
+            "players": 106,
+            "starting_server_game_score_counts": {
+              "5-5": 264
+            }
+          }
+        },
+        "Hard": {
+          "exposed": {
+            "games": 170,
+            "breaks": 45,
+            "break_rate": 0.2647058823529412,
+            "matches": 163,
+            "players": 88,
+            "starting_server_game_score_counts": {
+              "5-5": 170
+            }
+          },
+          "control": {
+            "games": 1378,
+            "breaks": 240,
+            "break_rate": 0.1741654571843251,
+            "matches": 1032,
+            "players": 231,
+            "starting_server_game_score_counts": {
+              "5-5": 1378
+            }
+          }
+        }
+      },
+      "by_best_of": {
+        "3": {
+          "exposed": {
+            "games": 199,
+            "breaks": 52,
+            "break_rate": 0.2613065326633166,
+            "matches": 192,
+            "players": 99,
+            "starting_server_game_score_counts": {
+              "5-5": 199
+            }
+          },
+          "control": {
+            "games": 1401,
+            "breaks": 245,
+            "break_rate": 0.1748750892219843,
+            "matches": 1101,
+            "players": 249,
+            "starting_server_game_score_counts": {
+              "5-5": 1401
+            }
+          }
+        },
+        "5": {
+          "exposed": {
+            "games": 95,
+            "breaks": 26,
+            "break_rate": 0.2736842105263158,
+            "matches": 87,
+            "players": 58,
+            "starting_server_game_score_counts": {
+              "5-5": 95
+            }
+          },
+          "control": {
+            "games": 686,
+            "breaks": 144,
+            "break_rate": 0.2099125364431487,
+            "matches": 462,
+            "players": 166,
+            "starting_server_game_score_counts": {
+              "5-5": 686
+            }
+          }
+        }
+      },
+      "by_returner": {
+        "Adam Walton": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Adrian Andreev": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Adrian Mannarino": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 18,
+            "breaks": 1,
+            "break_rate": 0.05555555555555555,
+            "matches": 16,
+            "players": 14,
+            "starting_server_game_score_counts": {
+              "5-5": 18
+            }
+          }
+        },
+        "Albert Ramos": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 5,
+            "breaks": 1,
+            "break_rate": 0.2,
+            "matches": 5,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Alejandro Davidovich Fokina": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 22,
+            "breaks": 6,
+            "break_rate": 0.2727272727272727,
+            "matches": 21,
+            "players": 18,
+            "starting_server_game_score_counts": {
+              "5-5": 22
+            }
+          }
+        },
+        "Alejandro Lopez Escribano": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Alejandro Tabilo": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 1,
+            "break_rate": 0.25,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Aleksandar Kovacevic": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Aleksandar Vukic": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 5,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Aleksandre Metreveli": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Alex De Minaur": {
+          "exposed": {
+            "games": 8,
+            "breaks": 4,
+            "break_rate": 0.5,
+            "matches": 8,
+            "players": 8,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          },
+          "control": {
+            "games": 34,
+            "breaks": 5,
+            "break_rate": 0.14705882352941177,
+            "matches": 31,
+            "players": 26,
+            "starting_server_game_score_counts": {
+              "5-5": 34
+            }
+          }
+        },
+        "Alex Marti Pujolras": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Alex Michelsen": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 1,
+            "break_rate": 0.25,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Alex Molcan": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 2,
+            "break_rate": 0.5,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Alexander Bublik": {
+          "exposed": {
+            "games": 2,
+            "breaks": 2,
+            "break_rate": 1.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 21,
+            "breaks": 5,
+            "break_rate": 0.23809523809523808,
+            "matches": 20,
+            "players": 19,
+            "starting_server_game_score_counts": {
+              "5-5": 21
+            }
+          }
+        },
+        "Alexander Cozbinov": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Alexander Shevchenko": {
+          "exposed": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Alexander Zverev": {
+          "exposed": {
+            "games": 11,
+            "breaks": 1,
+            "break_rate": 0.09090909090909091,
+            "matches": 10,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 11
+            }
+          },
+          "control": {
+            "games": 51,
+            "breaks": 12,
+            "break_rate": 0.23529411764705882,
+            "matches": 44,
+            "players": 33,
+            "starting_server_game_score_counts": {
+              "5-5": 51
+            }
+          }
+        },
+        "Alexandre Muller": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Alexei Popyrin": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 8,
+            "breaks": 2,
+            "break_rate": 0.25,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          }
+        },
+        "Andrej Martin": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Andrey Rublev": {
+          "exposed": {
+            "games": 6,
+            "breaks": 3,
+            "break_rate": 0.5,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          },
+          "control": {
+            "games": 46,
+            "breaks": 13,
+            "break_rate": 0.2826086956521739,
+            "matches": 40,
+            "players": 29,
+            "starting_server_game_score_counts": {
+              "5-5": 46
+            }
+          }
+        },
+        "Andy Murray": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 16,
+            "breaks": 2,
+            "break_rate": 0.125,
+            "matches": 13,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "5-5": 16
+            }
+          }
+        },
+        "Antoine Bellier": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Antoine Escoffier": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Arthur Cazaux": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 5,
+            "breaks": 1,
+            "break_rate": 0.2,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Arthur Fils": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 14,
+            "breaks": 2,
+            "break_rate": 0.14285714285714285,
+            "matches": 11,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "5-5": 14
+            }
+          }
+        },
+        "Arthur Rinderknech": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 7,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 7
+            }
+          }
+        },
+        "Aslan Karatsev": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 11,
+            "breaks": 3,
+            "break_rate": 0.2727272727272727,
+            "matches": 11,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "5-5": 11
+            }
+          }
+        },
+        "Attila Balazs": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Beibit Zhukayev": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Ben Shelton": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 14,
+            "breaks": 2,
+            "break_rate": 0.14285714285714285,
+            "matches": 13,
+            "players": 12,
+            "starting_server_game_score_counts": {
+              "5-5": 14
+            }
+          }
+        },
+        "Benjamin Bonzi": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 3,
+            "breaks": 2,
+            "break_rate": 0.6666666666666666,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Benoit Paire": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 6,
+            "breaks": 3,
+            "break_rate": 0.5,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Bernabe Zapata Miralles": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Bernard Tomic": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Billy Harris": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Borna Coric": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 10,
+            "breaks": 2,
+            "break_rate": 0.2,
+            "matches": 9,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 10
+            }
+          }
+        },
+        "Botic Van De Zandschulp": {
+          "exposed": {
+            "games": 7,
+            "breaks": 2,
+            "break_rate": 0.2857142857142857,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 7
+            }
+          },
+          "control": {
+            "games": 40,
+            "breaks": 6,
+            "break_rate": 0.15,
+            "matches": 37,
+            "players": 34,
+            "starting_server_game_score_counts": {
+              "5-5": 40
+            }
+          }
+        },
+        "Brandon Holt": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Brandon Nakashima": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 15,
+            "breaks": 1,
+            "break_rate": 0.06666666666666667,
+            "matches": 11,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "5-5": 15
+            }
+          }
+        },
+        "Bruno Kuzuhara": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Bu Yunchaokete": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Cameron Norrie": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 8,
+            "breaks": 1,
+            "break_rate": 0.125,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          }
+        },
+        "Camilo Ugo Carabelli": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 6,
+            "breaks": 1,
+            "break_rate": 0.16666666666666666,
+            "matches": 5,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Carlos Alcaraz": {
+          "exposed": {
+            "games": 7,
+            "breaks": 2,
+            "break_rate": 0.2857142857142857,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 7
+            }
+          },
+          "control": {
+            "games": 75,
+            "breaks": 22,
+            "break_rate": 0.29333333333333333,
+            "matches": 69,
+            "players": 42,
+            "starting_server_game_score_counts": {
+              "5-5": 75
+            }
+          }
+        },
+        "Carlos Taberner": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Casper Ruud": {
+          "exposed": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 35,
+            "breaks": 11,
+            "break_rate": 0.3142857142857143,
+            "matches": 30,
+            "players": 26,
+            "starting_server_game_score_counts": {
+              "5-5": 35
+            }
+          }
+        },
+        "Christopher Eubanks": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 5,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Christopher Oconnell": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Coleman Wong": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Constant Lestienne": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Corentin Moutet": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 10,
+            "breaks": 1,
+            "break_rate": 0.1,
+            "matches": 8,
+            "players": 8,
+            "starting_server_game_score_counts": {
+              "5-5": 10
+            }
+          }
+        },
+        "Cristian Garin": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 5,
+            "breaks": 1,
+            "break_rate": 0.2,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Dalibor Svrcina": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Daniel Altmaier": {
+          "exposed": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 6,
+            "breaks": 2,
+            "break_rate": 0.3333333333333333,
+            "matches": 6,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Daniel De Jonge": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Daniel Dutra Da Silva": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Daniel Elahi Galan": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 1,
+            "break_rate": 0.25,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Daniel Evans": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 12,
+            "breaks": 3,
+            "break_rate": 0.25,
+            "matches": 10,
+            "players": 9,
+            "starting_server_game_score_counts": {
+              "5-5": 12
+            }
+          }
+        },
+        "Daniil Medvedev": {
+          "exposed": {
+            "games": 13,
+            "breaks": 5,
+            "break_rate": 0.38461538461538464,
+            "matches": 11,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "5-5": 13
+            }
+          },
+          "control": {
+            "games": 78,
+            "breaks": 17,
+            "break_rate": 0.21794871794871795,
+            "matches": 70,
+            "players": 44,
+            "starting_server_game_score_counts": {
+              "5-5": 78
+            }
+          }
+        },
+        "David Goffin": {
+          "exposed": {
+            "games": 4,
+            "breaks": 3,
+            "break_rate": 0.75,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          },
+          "control": {
+            "games": 9,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 9,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "Denis Kudla": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Denis Shapovalov": {
+          "exposed": {
+            "games": 5,
+            "breaks": 2,
+            "break_rate": 0.4,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          },
+          "control": {
+            "games": 11,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 10,
+            "players": 9,
+            "starting_server_game_score_counts": {
+              "5-5": 11
+            }
+          }
+        },
+        "Dennis Novak": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Dhakshineswar Suresh": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Diego Schwartzman": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 14,
+            "breaks": 2,
+            "break_rate": 0.14285714285714285,
+            "matches": 12,
+            "players": 10,
+            "starting_server_game_score_counts": {
+              "5-5": 14
+            }
+          }
+        },
+        "Dimitar Kuzmanov": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Dmitry Popko": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Dominic Stricker": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 5,
+            "breaks": 1,
+            "break_rate": 0.2,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Dominic Thiem": {
+          "exposed": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 3,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 33,
+            "breaks": 7,
+            "break_rate": 0.21212121212121213,
+            "matches": 28,
+            "players": 25,
+            "starting_server_game_score_counts": {
+              "5-5": 33
+            }
+          }
+        },
+        "Dominik Koepfer": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 5,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Duje Ajdukovic": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Dusan Lajovic": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 8,
+            "breaks": 1,
+            "break_rate": 0.125,
+            "matches": 8,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          }
+        },
+        "Egor Gerasimov": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Eliot Spizzirri": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Elliot Benchetrit": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Elmer Moller": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Emil Ruusuvuori": {
+          "exposed": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 11,
+            "breaks": 1,
+            "break_rate": 0.09090909090909091,
+            "matches": 10,
+            "players": 9,
+            "starting_server_game_score_counts": {
+              "5-5": 11
+            }
+          }
+        },
+        "Emilio Nava": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Enzo Couacaud": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Ernests Gulbis": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Ethan Quinn": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Evan Furness": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Evgeny Donskoy": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Fabian Marozsan": {
+          "exposed": {
+            "games": 2,
+            "breaks": 2,
+            "break_rate": 1.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 6,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Fabio Fognini": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 4,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Facundo Bagnis": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Federico Cina": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Federico Delbonis": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 6,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Feliciano Lopez": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 9,
+            "breaks": 1,
+            "break_rate": 0.1111111111111111,
+            "matches": 8,
+            "players": 8,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "Felix Auger Aliassime": {
+          "exposed": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 34,
+            "breaks": 5,
+            "break_rate": 0.14705882352941177,
+            "matches": 27,
+            "players": 21,
+            "starting_server_game_score_counts": {
+              "5-5": 34
+            }
+          }
+        },
+        "Fernando Verdasco": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Filip Krajinovic": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 4,
+            "breaks": 1,
+            "break_rate": 0.25,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Filip Misolic": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Flavio Cobolli": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 7,
+            "breaks": 1,
+            "break_rate": 0.14285714285714285,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 7
+            }
+          }
+        },
+        "Frances Tiafoe": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 20,
+            "breaks": 4,
+            "break_rate": 0.2,
+            "matches": 17,
+            "players": 15,
+            "starting_server_game_score_counts": {
+              "5-5": 20
+            }
+          }
+        },
+        "Francisco Cerundolo": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 9,
+            "breaks": 2,
+            "break_rate": 0.2222222222222222,
+            "matches": 9,
+            "players": 8,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "Francisco Comesana": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Gabriel Decamps": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Gabriel Diallo": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Gael Monfils": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 14,
+            "breaks": 4,
+            "break_rate": 0.2857142857142857,
+            "matches": 13,
+            "players": 13,
+            "starting_server_game_score_counts": {
+              "5-5": 14
+            }
+          }
+        },
+        "Gijs Brouwer": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 5,
+            "breaks": 2,
+            "break_rate": 0.4,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Gilles Arnaud Bailly": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Gilles Simon": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 4,
+            "breaks": 2,
+            "break_rate": 0.5,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Giovanni Mpetshi Perricard": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 15,
+            "breaks": 1,
+            "break_rate": 0.06666666666666667,
+            "matches": 14,
+            "players": 12,
+            "starting_server_game_score_counts": {
+              "5-5": 15
+            }
+          }
+        },
+        "Giulio Zeppieri": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Gregoire Barrere": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Grigor Dimitrov": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 25,
+            "breaks": 5,
+            "break_rate": 0.2,
+            "matches": 22,
+            "players": 19,
+            "starting_server_game_score_counts": {
+              "5-5": 25
+            }
+          }
+        },
+        "Guy Den Ouden": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Hamad Medjedovic": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 5,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Harry Wendelken": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Henrique Rocha": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Henry Searle": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Holger Rune": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 22,
+            "breaks": 7,
+            "break_rate": 0.3181818181818182,
+            "matches": 22,
+            "players": 19,
+            "starting_server_game_score_counts": {
+              "5-5": 22
+            }
+          }
+        },
+        "Hubert Hurkacz": {
+          "exposed": {
+            "games": 15,
+            "breaks": 1,
+            "break_rate": 0.06666666666666667,
+            "matches": 15,
+            "players": 15,
+            "starting_server_game_score_counts": {
+              "5-5": 15
+            }
+          },
+          "control": {
+            "games": 104,
+            "breaks": 13,
+            "break_rate": 0.125,
+            "matches": 99,
+            "players": 67,
+            "starting_server_game_score_counts": {
+              "5-5": 104
+            }
+          }
+        },
+        "Hugo Dellien": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Hugo Gaston": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 2,
+            "break_rate": 0.5,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Hugo Grenier": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Ilya Ivashka": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Ivo Karlovic": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "J J Wolf": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Jack Draper": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 11,
+            "breaks": 4,
+            "break_rate": 0.36363636363636365,
+            "matches": 9,
+            "players": 8,
+            "starting_server_game_score_counts": {
+              "5-5": 11
+            }
+          }
+        },
+        "Jacob Fearnley": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Jakub Mensik": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 13,
+            "breaks": 1,
+            "break_rate": 0.07692307692307693,
+            "matches": 11,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "5-5": 13
+            }
+          }
+        },
+        "James Duckworth": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "James Mccabe": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Jan Choinski": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Jan Kumstat": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Jan Lennard Struff": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 11,
+            "breaks": 1,
+            "break_rate": 0.09090909090909091,
+            "matches": 10,
+            "players": 9,
+            "starting_server_game_score_counts": {
+              "5-5": 11
+            }
+          }
+        },
+        "Jannik Sinner": {
+          "exposed": {
+            "games": 12,
+            "breaks": 2,
+            "break_rate": 0.16666666666666666,
+            "matches": 11,
+            "players": 10,
+            "starting_server_game_score_counts": {
+              "5-5": 12
+            }
+          },
+          "control": {
+            "games": 83,
+            "breaks": 25,
+            "break_rate": 0.30120481927710846,
+            "matches": 78,
+            "players": 48,
+            "starting_server_game_score_counts": {
+              "5-5": 83
+            }
+          }
+        },
+        "Jason Kubler": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Jaume Munar": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 14,
+            "breaks": 4,
+            "break_rate": 0.2857142857142857,
+            "matches": 12,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "5-5": 14
+            }
+          }
+        },
+        "Jelle Sels": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Jenson Brooksby": {
+          "exposed": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 8,
+            "breaks": 2,
+            "break_rate": 0.25,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          }
+        },
+        "Jerome Kym": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Jesper De Jong": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 7,
+            "breaks": 1,
+            "break_rate": 0.14285714285714285,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 7
+            }
+          }
+        },
+        "Jiri Lehecka": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 10,
+            "breaks": 2,
+            "break_rate": 0.2,
+            "matches": 9,
+            "players": 9,
+            "starting_server_game_score_counts": {
+              "5-5": 10
+            }
+          }
+        },
+        "Jiri Vesely": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Jo Wilfried Tsonga": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Joao Fonseca": {
+          "exposed": {
+            "games": 4,
+            "breaks": 2,
+            "break_rate": 0.5,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          },
+          "control": {
+            "games": 20,
+            "breaks": 1,
+            "break_rate": 0.05,
+            "matches": 18,
+            "players": 18,
+            "starting_server_game_score_counts": {
+              "5-5": 20
+            }
+          }
+        },
+        "Joao Menezes": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "John Isner": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 9,
+            "breaks": 1,
+            "break_rate": 0.1111111111111111,
+            "matches": 9,
+            "players": 9,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "John Millman": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 6,
+            "breaks": 1,
+            "break_rate": 0.16666666666666666,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Jordan Thompson": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 8,
+            "breaks": 1,
+            "break_rate": 0.125,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          }
+        },
+        "Jozef Kovalik": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Juan Bautista Torres": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Juan Carlos Prado Angelo": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 2,
+            "breaks": 2,
+            "break_rate": 1.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Juan Pablo Varillas": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Juncheng Shang": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Kaichi Uchida": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Kamil Majchrzak": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Karen Khachanov": {
+          "exposed": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 20,
+            "breaks": 4,
+            "break_rate": 0.2,
+            "matches": 19,
+            "players": 18,
+            "starting_server_game_score_counts": {
+              "5-5": 20
+            }
+          }
+        },
+        "Karim Mohamed Maamoun": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Karue Sell": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Kei Nishikori": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 5,
+            "breaks": 1,
+            "break_rate": 0.2,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Kevin Anderson": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Kyrian Jacquet": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Laslo Djere": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 9,
+            "breaks": 3,
+            "break_rate": 0.3333333333333333,
+            "matches": 7,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "Leandro Riedi": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Learner Tien": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 4,
+            "breaks": 2,
+            "break_rate": 0.5,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Li Tu": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Lloyd Harris": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Lorenzo Musetti": {
+          "exposed": {
+            "games": 8,
+            "breaks": 5,
+            "break_rate": 0.625,
+            "matches": 8,
+            "players": 8,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          },
+          "control": {
+            "games": 38,
+            "breaks": 12,
+            "break_rate": 0.3157894736842105,
+            "matches": 35,
+            "players": 29,
+            "starting_server_game_score_counts": {
+              "5-5": 38
+            }
+          }
+        },
+        "Lorenzo Sonego": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 10,
+            "breaks": 2,
+            "break_rate": 0.2,
+            "matches": 8,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 10
+            }
+          }
+        },
+        "Luca Nardi": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Luca Van Assche": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Lucas Catarina": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Lucas Pouille": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Luciano Darderi": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 6,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Lukas Klein": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Lukas Neumayer": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Mackenzie Mcdonald": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 10,
+            "breaks": 2,
+            "break_rate": 0.2,
+            "matches": 8,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 10
+            }
+          }
+        },
+        "Maks Kasnikowski": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Marc Andrea Huesler": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 5,
+            "breaks": 2,
+            "break_rate": 0.4,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Marc Polmans": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Marcelo Tomas Barrios Vera": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Marco Cecchinato": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Marcos Giron": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 9,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 8,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "Mariano Navone": {
+          "exposed": {
+            "games": 3,
+            "breaks": 2,
+            "break_rate": 0.6666666666666666,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Marin Cilic": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 9,
+            "breaks": 1,
+            "break_rate": 0.1111111111111111,
+            "matches": 9,
+            "players": 9,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "Mark Lajal": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Martin Landaluce": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Marton Fucsovics": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 9,
+            "breaks": 1,
+            "break_rate": 0.1111111111111111,
+            "matches": 8,
+            "players": 8,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "Matteo Arnaldi": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Matteo Berrettini": {
+          "exposed": {
+            "games": 3,
+            "breaks": 3,
+            "break_rate": 1.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 35,
+            "breaks": 6,
+            "break_rate": 0.17142857142857143,
+            "matches": 31,
+            "players": 24,
+            "starting_server_game_score_counts": {
+              "5-5": 35
+            }
+          }
+        },
+        "Matteo Gigante": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Mattia Bellucci": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 1,
+            "break_rate": 0.25,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Max Houkes": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Max Purcell": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Maxime Cressy": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 10,
+            "breaks": 1,
+            "break_rate": 0.1,
+            "matches": 10,
+            "players": 10,
+            "starting_server_game_score_counts": {
+              "5-5": 10
+            }
+          }
+        },
+        "Maximilian Marterer": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Mees Rottgering": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Michael Geerts": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Michael Mmoh": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Michael Zheng": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Mikael Ymer": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Mikhail Kukushkin": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Mili Poljicak": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Milos Raonic": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Miomir Kecmanovic": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 11,
+            "breaks": 3,
+            "break_rate": 0.2727272727272727,
+            "matches": 10,
+            "players": 10,
+            "starting_server_game_score_counts": {
+              "5-5": 11
+            }
+          }
+        },
+        "Moise Kouame": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Murphy Cassone": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Nick Kyrgios": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 22,
+            "breaks": 2,
+            "break_rate": 0.09090909090909091,
+            "matches": 18,
+            "players": 15,
+            "starting_server_game_score_counts": {
+              "5-5": 22
+            }
+          }
+        },
+        "Nicolas Arseneault": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Nicolas Jarry": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 18,
+            "breaks": 3,
+            "break_rate": 0.16666666666666666,
+            "matches": 18,
+            "players": 13,
+            "starting_server_game_score_counts": {
+              "5-5": 18
+            }
+          }
+        },
+        "Nicolas Mejia": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Nicolas Moreno De Alboran": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Niels Mcdonald": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Nikolas Sanchez Izquierdo": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Nikoloz Basilashvili": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 5,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Nishesh Basavareddy": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Norbert Gombos": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Novak Djokovic": {
+          "exposed": {
+            "games": 9,
+            "breaks": 2,
+            "break_rate": 0.2222222222222222,
+            "matches": 9,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          },
+          "control": {
+            "games": 55,
+            "breaks": 9,
+            "break_rate": 0.16363636363636364,
+            "matches": 50,
+            "players": 33,
+            "starting_server_game_score_counts": {
+              "5-5": 55
+            }
+          }
+        },
+        "Nuno Borges": {
+          "exposed": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 7,
+            "breaks": 1,
+            "break_rate": 0.14285714285714285,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 7
+            }
+          }
+        },
+        "Oleksandr Ovcharenko": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Omar Jasika": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Otto Virtanen": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 4,
+            "breaks": 1,
+            "break_rate": 0.25,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Pablo Andujar": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Pablo Carreno Busta": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 8,
+            "breaks": 3,
+            "break_rate": 0.375,
+            "matches": 8,
+            "players": 8,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          }
+        },
+        "Pablo Llamas Ruiz": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Patrick Kypson": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Paul Jubb": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Pavel Kotov": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Pedro Cachin": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Pedro Martinez": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 6,
+            "breaks": 4,
+            "break_rate": 0.6666666666666666,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Peter Gojowczyk": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Pierre Hugues Herbert": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Quentin Halys": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Radu Albot": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 2,
+            "break_rate": 0.5,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Rafael Jodar": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Rafael Nadal": {
+          "exposed": {
+            "games": 4,
+            "breaks": 1,
+            "break_rate": 0.25,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          },
+          "control": {
+            "games": 9,
+            "breaks": 1,
+            "break_rate": 0.1111111111111111,
+            "matches": 9,
+            "players": 8,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "Raphael Collignon": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 5,
+            "breaks": 4,
+            "break_rate": 0.8,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Rei Sakamoto": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Reilly Opelka": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 20,
+            "breaks": 4,
+            "break_rate": 0.2,
+            "matches": 20,
+            "players": 18,
+            "starting_server_game_score_counts": {
+              "5-5": 20
+            }
+          }
+        },
+        "Renzo Olivo": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Ricardas Berankis": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Richard Gasquet": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 7,
+            "breaks": 1,
+            "break_rate": 0.14285714285714285,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 7
+            }
+          }
+        },
+        "Rinky Hijikata": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Roberto Bautista Agut": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 11,
+            "breaks": 3,
+            "break_rate": 0.2727272727272727,
+            "matches": 9,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 11
+            }
+          }
+        },
+        "Roberto Carballes Baena": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 5,
+            "breaks": 2,
+            "break_rate": 0.4,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Robin Haase": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 6,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Rodrigo Pacheco Mendez": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Roger Federer": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 7,
+            "breaks": 1,
+            "break_rate": 0.14285714285714285,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 7
+            }
+          }
+        },
+        "Roman Andres Burruchaga": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Roman Safiullin": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 8,
+            "breaks": 3,
+            "break_rate": 0.375,
+            "matches": 5,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          }
+        },
+        "Salvatore Caruso": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Sam Querrey": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Sebastian Baez": {
+          "exposed": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 9,
+            "breaks": 3,
+            "break_rate": 0.3333333333333333,
+            "matches": 7,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 9
+            }
+          }
+        },
+        "Sebastian Korda": {
+          "exposed": {
+            "games": 5,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          },
+          "control": {
+            "games": 15,
+            "breaks": 2,
+            "break_rate": 0.13333333333333333,
+            "matches": 14,
+            "players": 13,
+            "starting_server_game_score_counts": {
+              "5-5": 15
+            }
+          }
+        },
+        "Sebastian Ofner": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Sergey Fomin": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Stan Wawrinka": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 19,
+            "breaks": 5,
+            "break_rate": 0.2631578947368421,
+            "matches": 16,
+            "players": 15,
+            "starting_server_game_score_counts": {
+              "5-5": 19
+            }
+          }
+        },
+        "Stefan Kozlov": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Stefanos Tsitsipas": {
+          "exposed": {
+            "games": 6,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          },
+          "control": {
+            "games": 45,
+            "breaks": 6,
+            "break_rate": 0.13333333333333333,
+            "matches": 42,
+            "players": 35,
+            "starting_server_game_score_counts": {
+              "5-5": 45
+            }
+          }
+        },
+        "Steve Darcis": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Steve Johnson": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Sumit Nagal": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Tallon Griekspoor": {
+          "exposed": {
+            "games": 5,
+            "breaks": 2,
+            "break_rate": 0.4,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          },
+          "control": {
+            "games": 51,
+            "breaks": 9,
+            "break_rate": 0.17647058823529413,
+            "matches": 47,
+            "players": 34,
+            "starting_server_game_score_counts": {
+              "5-5": 51
+            }
+          }
+        },
+        "Taro Daniel": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Taylor Fritz": {
+          "exposed": {
+            "games": 4,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          },
+          "control": {
+            "games": 28,
+            "breaks": 3,
+            "break_rate": 0.10714285714285714,
+            "matches": 25,
+            "players": 22,
+            "starting_server_game_score_counts": {
+              "5-5": 28
+            }
+          }
+        },
+        "Tennys Sandgren": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 2,
+            "break_rate": 0.6666666666666666,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Thanasi Kokkinakis": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 14,
+            "breaks": 1,
+            "break_rate": 0.07142857142857142,
+            "matches": 10,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 14
+            }
+          }
+        },
+        "Thiago Monteiro": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 4,
+            "breaks": 1,
+            "break_rate": 0.25,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Thiago Seyboth Wild": {
+          "exposed": {
+            "games": 3,
+            "breaks": 1,
+            "break_rate": 0.3333333333333333,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          },
+          "control": {
+            "games": 5,
+            "breaks": 1,
+            "break_rate": 0.2,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Tim Van Rijthoven": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 8,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          }
+        },
+        "Timofey Skatov": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Tomas Barrios Vera": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Tomas Machac": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 11,
+            "breaks": 2,
+            "break_rate": 0.18181818181818182,
+            "matches": 11,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "5-5": 11
+            }
+          }
+        },
+        "Tomas Martin Etcheverry": {
+          "exposed": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 4,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 4
+            }
+          }
+        },
+        "Tommy Paul": {
+          "exposed": {
+            "games": 6,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 6,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          },
+          "control": {
+            "games": 23,
+            "breaks": 4,
+            "break_rate": 0.17391304347826086,
+            "matches": 19,
+            "players": 17,
+            "starting_server_game_score_counts": {
+              "5-5": 23
+            }
+          }
+        },
+        "Tung Lin Wu": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Ugo Blanchet": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Ugo Humbert": {
+          "exposed": {
+            "games": 2,
+            "breaks": 1,
+            "break_rate": 0.5,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          },
+          "control": {
+            "games": 6,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Valentin Royer": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Valentin Vacherot": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Vasek Pospisil": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 6,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 5,
+            "players": 5,
+            "starting_server_game_score_counts": {
+              "5-5": 6
+            }
+          }
+        },
+        "Viktor Troicki": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Vilius Gaubas": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "Yannick Hanfmann": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Yasutaka Uchiyama": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Yi Zhou": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Yibing Wu": {
+          "exposed": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Yoshihito Nishioka": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 3,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 3,
+            "players": 3,
+            "starting_server_game_score_counts": {
+              "5-5": 3
+            }
+          }
+        },
+        "Yosuke Watanuki": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 2,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 2,
+            "players": 2,
+            "starting_server_game_score_counts": {
+              "5-5": 2
+            }
+          }
+        },
+        "Zdenek Kolar": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 1,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          }
+        },
+        "Zhizhen Zhang": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 5,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 5,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "5-5": 5
+            }
+          }
+        },
+        "Zizou Bergs": {
+          "exposed": {
+            "games": 1,
+            "breaks": 1,
+            "break_rate": 1.0,
+            "matches": 1,
+            "players": 1,
+            "starting_server_game_score_counts": {
+              "5-5": 1
+            }
+          },
+          "control": {
+            "games": 8,
+            "breaks": 1,
+            "break_rate": 0.125,
+            "matches": 7,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "5-5": 8
+            }
+          }
+        }
+      },
+      "returner_counts": {
+        "exposed": 125,
+        "control": 276,
+        "both": 113
+      }
+    }
+  },
+  "decisions": {
+    "long_service_game_carryover_2010s": "raw screen passes; mechanism and pricing remain unconfirmed",
+    "fourth_set_concession_2010s": "unresolved: below prewritten exposure minimum",
+    "failed_serve_for_set_2020s": "specified direction fails the prewritten raw screen"
+  },
+  "interpretation": "Long-service carryover remains the surviving unresolved lead. Its earlier-period raw difference is +7.02 pp, following +5.00 pp in the September 12 sample. The unchanged within-match residual contrast is +4.83 pp (descriptive 95% interval -0.29 to +9.94 pp). The exposed players' other-set break rate is 24.48%, versus 27.15% in target games. Replication of the raw association warrants seeking matched game prices and a prospective strength-aware comparison; it does not establish fatigue or mispricing.\n\nFourth-set concession supplies only 13 additional exposures (42 across both screened files), still below the original 50-case minimum even if counted together. The earlier-period direction is opposite, with wide uncertainty. Leave unresolved and stop source expansion for this batch.\n\nKill the prewritten failed-close direction in this exploratory sample: the raw break-rate difference is +7.89 pp across 294 exposures, opposite to the predicted reduction. The within-match residual contrast is -2.04 pp; the sign change highlights strength and score-path selection, not a confirmed psychological effect. Do not promote the reverse direction.\n\nNo card is sport-side confirmed. Read each period separately; no pooled effect threshold or subgroup rescue is used. Mechanism replication and market mispricing remain separate requirements."
+}

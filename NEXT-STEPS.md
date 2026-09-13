@@ -2,6 +2,12 @@
 
 Written September 9, 2026. This file sets the research direction. It supersedes the "next research decision" in [PROGRESS.md](PROGRESS.md). PROGRESS.md stays accurate about what was done, where files live, which holdouts are spent and which gates must hold before any alert or wager. Read it for those things only.
 
+**Latest execution, September 13:** the user explicitly said to run this handoff and suggested **golf, tennis, rugby and CFL**, among other markets. That batch has now run: [NBA assists](reports/nba-creator-assists-2026-09-13.md) is underpowered, the [new tennis return/changeover screen](reports/tennis-return-changeover-2026-09-13.md) failed, and [rugby yellow-card windows](reports/rugby-yellow-card-2026-09-13.md) passed their sport-side gate. Golf historical round access and CFL kick classification remain unresolved, with concrete reports saved. Follow the latest PROGRESS.md entry; do not rerun the completed NBA assignment.
+
+**Current priority:** investigate actual FanDuel pricing for the rugby lead while pursuing other accessible, untested mechanisms across these sports. The [rugby market check](docs/rugby-market-access-2026-09-13.md) already establishes that the existing provider catalog does not cover PREM/URC or the required FanDuel live derivatives; a key alone is insufficient. Do not repeat that catalog check or assume a price feed exists. Keep the user's season-runway preference: PREM/URC and NBA have a full season ahead; CFL's current regular season ends October 24. Further 2026 MLB work stays deferred. Preserve the historical first-week order below as context, without reopening closed studies or weakening evidence gates.
+
+**Execution update, September 12:** the [hypothesis queue](docs/hypotheses/README.md), [tennis exploration](reports/tennis-state-exploration.md), [market inventory](docs/market-data-inventory.md), and [collector instructions](docs/forward-market-collection.md) carry this plan forward. Resume from their results and the latest checkpoint in PROGRESS.md; do not start this first-week list again. The named `tennis_pointbypoint` repository returned 404 in this session; the active Match Charting Project supplied the new tennis sample. The NFL archive was recovered exactly and contains no FanDuel derivative-market inventory beyond main spreads and totals.
+
 ## Why the first two days found nothing
 
 Four experiments ran. All four were negative, and none of them had a reason to be positive.

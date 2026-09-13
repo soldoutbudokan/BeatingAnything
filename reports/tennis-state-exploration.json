@@ -1,0 +1,1745 @@
+{
+  "generated_at": "2026-09-12T14:42:49.815999+00:00",
+  "phase": "exploration",
+  "source_commit": "2c59eef194967e688b69e73df344184a06322cd8",
+  "license": "CC BY-NC-SA 4.0; attribution to Tennis Abstract Match Charting Project",
+  "sources": [
+    {
+      "file": "data/raw/tennis-state-exploration/README.md",
+      "url": "https://raw.githubusercontent.com/JeffSackmann/tennis_MatchChartingProject/2c59eef194967e688b69e73df344184a06322cd8/README.md",
+      "bytes": 4805,
+      "sha256": "2c2a5961a2761eea35b4143e9cab1d23200f49d72fc0ced56bb09f5a326e8444"
+    },
+    {
+      "file": "data/raw/tennis-state-exploration/data_dictionary.txt",
+      "url": "https://raw.githubusercontent.com/JeffSackmann/tennis_MatchChartingProject/2c59eef194967e688b69e73df344184a06322cd8/data_dictionary.txt",
+      "bytes": 2649,
+      "sha256": "e60154eb0289e4e0e11221e62c60dcfc94e9d6e4d4a889aa065a7c17bf42b238"
+    },
+    {
+      "file": "data/raw/tennis-state-exploration/charting-m-matches.csv",
+      "url": "https://raw.githubusercontent.com/JeffSackmann/tennis_MatchChartingProject/2c59eef194967e688b69e73df344184a06322cd8/charting-m-matches.csv",
+      "bytes": 1141817,
+      "sha256": "d8dce1ad8d12c04efa01da587441b54ece8e8100530660528312244f632efe80"
+    },
+    {
+      "file": "data/raw/tennis-state-exploration/charting-m-points-2020s.csv",
+      "url": "https://raw.githubusercontent.com/JeffSackmann/tennis_MatchChartingProject/2c59eef194967e688b69e73df344184a06322cd8/charting-m-points-2020s.csv",
+      "bytes": 56590483,
+      "sha256": "2cd43f73e0530a47ea4c02b99dae40177ca6d58a8ccf9189358eb05dffb4be9a"
+    }
+  ],
+  "coverage": {
+    "input_matches": 3337,
+    "input_points": 547478,
+    "accepted_matches": 3250,
+    "accepted_points": 535040,
+    "excluded_points": 12438,
+    "excluded_matches_by_reason": {
+      "incomplete_final_game": 32,
+      "incomplete_match": 29,
+      "unsupported_match_tiebreak_or_scoring": 4,
+      "invalid literal for int() with base 10: ''": 2,
+      "unsupported_best_of": 1,
+      "points_after_match_end": 17,
+      "partial_or_noncontiguous_points": 2
+    },
+    "completed_games": 85749,
+    "regular_games": 84108,
+    "date_min": "20200103",
+    "date_max": "20260521",
+    "matches_by_surface": {
+      "Hard": 2092,
+      "Clay": 873,
+      "Grass": 285
+    },
+    "matches_by_best_of": {
+      "3": 2477,
+      "5": 773
+    },
+    "matches_with_challenger_name_marker": 198
+  },
+  "screens": {
+    "double_break_concession": {
+      "exposed": {
+        "games": 600,
+        "breaks": 181,
+        "break_rate": 0.3016666666666667,
+        "matches": 565,
+        "players": 207,
+        "starting_server_game_score_counts": {
+          "0-5": 187,
+          "1-5": 234,
+          "0-4": 179
+        }
+      },
+      "control": {
+        "games": 3738,
+        "breaks": 955,
+        "break_rate": 0.25548421615837347,
+        "matches": 2604,
+        "players": 392,
+        "starting_server_game_score_counts": {
+          "1-4": 540,
+          "1-3": 538,
+          "0-3": 822,
+          "2-4": 378,
+          "0-2": 789,
+          "2-5": 382,
+          "3-5": 289
+        }
+      },
+      "raw_contrast": {
+        "difference": 0.04618245050829323,
+        "descriptive_95pct_interval": [
+          0.0071772511873227016,
+          0.08518764982926375
+        ],
+        "exposed_games": 600,
+        "control_games": 3738,
+        "match_clusters": 2604
+      },
+      "within_match_residual_contrast": {
+        "difference": -0.037888179933237044,
+        "descriptive_95pct_interval": [
+          -0.07677375568318764,
+          0.000997395816713556
+        ],
+        "exposed_games": 600,
+        "control_games": 3738,
+        "match_clusters": 2604
+      },
+      "paired_same_player_match_contrast": {
+        "difference": -0.432183908045977,
+        "descriptive_95pct_interval": [
+          -0.48037720408902335,
+          -0.38399061200293066
+        ],
+        "exposed_games": 580,
+        "control_games": 580,
+        "match_clusters": 565,
+        "player_match_pairs": 580
+      },
+      "other_sets_same_player_match_baseline": {
+        "exposed": {
+          "games": 600,
+          "break_rate": 0.3016666666666667,
+          "other_sets_break_rate": 0.317562981192541,
+          "excess_vs_other_sets": {
+            "difference": -0.01589631452587431,
+            "descriptive_95pct_interval": [
+              -0.05337508917526435,
+              0.02158246012351573
+            ],
+            "exposed_games": 600,
+            "control_games": 600,
+            "match_clusters": 565
+          }
+        },
+        "control": {
+          "games": 3738,
+          "break_rate": 0.25548421615837347,
+          "other_sets_break_rate": 0.26493349181211073,
+          "excess_vs_other_sets": {
+            "difference": -0.009449275653737266,
+            "descriptive_95pct_interval": [
+              -0.023854585116873262,
+              0.004956033809398731
+            ],
+            "exposed_games": 3738,
+            "control_games": 3738,
+            "match_clusters": 2604
+          }
+        }
+      },
+      "by_surface": {
+        "Clay": {
+          "exposed": {
+            "games": 195,
+            "breaks": 69,
+            "break_rate": 0.35384615384615387,
+            "matches": 181,
+            "players": 114,
+            "starting_server_game_score_counts": {
+              "0-5": 63,
+              "1-5": 66,
+              "0-4": 66
+            }
+          },
+          "control": {
+            "games": 1091,
+            "breaks": 315,
+            "break_rate": 0.2887259395050413,
+            "matches": 729,
+            "players": 255,
+            "starting_server_game_score_counts": {
+              "1-4": 168,
+              "1-3": 132,
+              "0-3": 258,
+              "2-4": 88,
+              "0-2": 252,
+              "2-5": 103,
+              "3-5": 90
+            }
+          }
+        },
+        "Grass": {
+          "exposed": {
+            "games": 54,
+            "breaks": 11,
+            "break_rate": 0.2037037037037037,
+            "matches": 50,
+            "players": 43,
+            "starting_server_game_score_counts": {
+              "0-5": 20,
+              "1-5": 23,
+              "0-4": 11
+            }
+          },
+          "control": {
+            "games": 376,
+            "breaks": 84,
+            "break_rate": 0.22340425531914893,
+            "matches": 229,
+            "players": 127,
+            "starting_server_game_score_counts": {
+              "0-3": 82,
+              "2-4": 49,
+              "0-2": 68,
+              "1-3": 63,
+              "3-5": 27,
+              "2-5": 39,
+              "1-4": 48
+            }
+          }
+        },
+        "Hard": {
+          "exposed": {
+            "games": 351,
+            "breaks": 101,
+            "break_rate": 0.28774928774928776,
+            "matches": 334,
+            "players": 156,
+            "starting_server_game_score_counts": {
+              "1-5": 145,
+              "0-4": 102,
+              "0-5": 104
+            }
+          },
+          "control": {
+            "games": 2271,
+            "breaks": 556,
+            "break_rate": 0.24482606781153676,
+            "matches": 1646,
+            "players": 305,
+            "starting_server_game_score_counts": {
+              "1-3": 343,
+              "1-4": 324,
+              "0-2": 469,
+              "2-5": 240,
+              "3-5": 172,
+              "0-3": 482,
+              "2-4": 241
+            }
+          }
+        }
+      },
+      "by_best_of": {
+        "3": {
+          "exposed": {
+            "games": 329,
+            "breaks": 103,
+            "break_rate": 0.3130699088145897,
+            "matches": 325,
+            "players": 156,
+            "starting_server_game_score_counts": {
+              "0-5": 109,
+              "1-5": 118,
+              "0-4": 102
+            }
+          },
+          "control": {
+            "games": 2209,
+            "breaks": 552,
+            "break_rate": 0.24988682661837935,
+            "matches": 1862,
+            "players": 361,
+            "starting_server_game_score_counts": {
+              "1-4": 326,
+              "1-3": 312,
+              "0-3": 498,
+              "2-4": 220,
+              "0-2": 440,
+              "2-5": 246,
+              "3-5": 167
+            }
+          }
+        },
+        "5": {
+          "exposed": {
+            "games": 271,
+            "breaks": 78,
+            "break_rate": 0.2878228782287823,
+            "matches": 240,
+            "players": 136,
+            "starting_server_game_score_counts": {
+              "0-5": 78,
+              "0-4": 77,
+              "1-5": 116
+            }
+          },
+          "control": {
+            "games": 1529,
+            "breaks": 403,
+            "break_rate": 0.26357096141268804,
+            "matches": 742,
+            "players": 224,
+            "starting_server_game_score_counts": {
+              "1-4": 214,
+              "1-3": 226,
+              "2-4": 158,
+              "0-3": 324,
+              "0-2": 349,
+              "2-5": 136,
+              "3-5": 122
+            }
+          }
+        }
+      }
+    },
+    "long_service_game_carryover": {
+      "exposed": {
+        "games": 417,
+        "breaks": 102,
+        "break_rate": 0.2446043165467626,
+        "matches": 392,
+        "players": 153,
+        "starting_server_game_score_counts": {
+          "4-3": 15,
+          "2-3": 26,
+          "3-2": 12,
+          "2-2": 25,
+          "2-0": 16,
+          "5-6": 18,
+          "1-2": 38,
+          "1-1": 52,
+          "5-4": 12,
+          "2-4": 13,
+          "6-5": 2,
+          "5-2": 3,
+          "3-3": 10,
+          "1-4": 7,
+          "2-5": 13,
+          "4-5": 13,
+          "4-4": 16,
+          "5-3": 10,
+          "1-3": 7,
+          "3-5": 12,
+          "3-4": 18,
+          "5-5": 18,
+          "2-1": 17,
+          "4-2": 14,
+          "3-1": 13,
+          "5-1": 5,
+          "4-1": 7,
+          "4-0": 2,
+          "1-5": 1,
+          "3-0": 2
+        }
+      },
+      "control": {
+        "games": 16478,
+        "breaks": 3207,
+        "break_rate": 0.1946231338754703,
+        "matches": 3250,
+        "players": 463,
+        "starting_server_game_score_counts": {
+          "1-1": 4536,
+          "2-3": 715,
+          "1-2": 3686,
+          "2-0": 1114,
+          "3-2": 399,
+          "2-4": 240,
+          "3-1": 333,
+          "2-1": 1687,
+          "2-2": 765,
+          "5-2": 53,
+          "1-4": 573,
+          "1-3": 682,
+          "2-5": 211,
+          "4-2": 79,
+          "4-5": 50,
+          "3-4": 175,
+          "3-0": 314,
+          "1-5": 172,
+          "3-3": 147,
+          "4-3": 84,
+          "4-0": 73,
+          "5-5": 23,
+          "4-1": 136,
+          "3-5": 64,
+          "5-3": 21,
+          "5-0": 25,
+          "5-4": 30,
+          "5-1": 24,
+          "4-4": 49,
+          "5-6": 14,
+          "6-5": 4
+        }
+      },
+      "raw_contrast": {
+        "difference": 0.049981182671292285,
+        "descriptive_95pct_interval": [
+          0.007909603666634658,
+          0.09205276167594992
+        ],
+        "exposed_games": 417,
+        "control_games": 16478,
+        "match_clusters": 3250
+      },
+      "within_match_residual_contrast": {
+        "difference": 0.02393643228729298,
+        "descriptive_95pct_interval": [
+          -0.01826615392766974,
+          0.0661390185022557
+        ],
+        "exposed_games": 417,
+        "control_games": 16478,
+        "match_clusters": 3250
+      },
+      "paired_same_player_match_contrast": {
+        "difference": 0.04266666666666667,
+        "descriptive_95pct_interval": [
+          -0.006021525981855472,
+          0.09135485931518882
+        ],
+        "exposed_games": 400,
+        "control_games": 400,
+        "match_clusters": 390,
+        "player_match_pairs": 400
+      },
+      "other_sets_same_player_match_baseline": {
+        "exposed": {
+          "games": 417,
+          "break_rate": 0.2446043165467626,
+          "other_sets_break_rate": 0.23893187031639923,
+          "excess_vs_other_sets": {
+            "difference": 0.005672446230363365,
+            "descriptive_95pct_interval": [
+              -0.03605704630175984,
+              0.04740193876248657
+            ],
+            "exposed_games": 417,
+            "control_games": 417,
+            "match_clusters": 392
+          }
+        },
+        "control": {
+          "games": 16478,
+          "break_rate": 0.1946231338754703,
+          "other_sets_break_rate": 0.20141299068311344,
+          "excess_vs_other_sets": {
+            "difference": -0.00678985680764313,
+            "descriptive_95pct_interval": [
+              -0.012103132723264819,
+              -0.0014765808920214419
+            ],
+            "exposed_games": 16478,
+            "control_games": 16478,
+            "match_clusters": 3250
+          }
+        }
+      },
+      "by_surface": {
+        "Clay": {
+          "exposed": {
+            "games": 126,
+            "breaks": 34,
+            "break_rate": 0.2698412698412698,
+            "matches": 116,
+            "players": 69,
+            "starting_server_game_score_counts": {
+              "4-3": 10,
+              "2-3": 10,
+              "3-2": 4,
+              "2-2": 11,
+              "1-1": 13,
+              "5-3": 4,
+              "4-4": 2,
+              "1-2": 13,
+              "1-3": 3,
+              "5-6": 4,
+              "5-4": 3,
+              "3-3": 4,
+              "3-5": 3,
+              "1-4": 3,
+              "3-4": 5,
+              "2-1": 5,
+              "3-1": 4,
+              "2-5": 3,
+              "4-2": 8,
+              "5-5": 5,
+              "2-4": 3,
+              "2-0": 3,
+              "4-1": 2,
+              "4-5": 1
+            }
+          },
+          "control": {
+            "games": 4277,
+            "breaks": 1021,
+            "break_rate": 0.2387187280804302,
+            "matches": 873,
+            "players": 294,
+            "starting_server_game_score_counts": {
+              "1-1": 1032,
+              "2-3": 199,
+              "1-2": 794,
+              "2-0": 367,
+              "3-2": 120,
+              "2-4": 57,
+              "3-1": 107,
+              "2-1": 466,
+              "2-2": 218,
+              "5-2": 14,
+              "1-4": 157,
+              "1-3": 184,
+              "2-5": 70,
+              "4-2": 29,
+              "4-5": 18,
+              "3-4": 65,
+              "3-0": 109,
+              "1-5": 50,
+              "3-3": 39,
+              "4-3": 24,
+              "4-0": 30,
+              "5-5": 6,
+              "4-1": 47,
+              "5-6": 6,
+              "5-0": 11,
+              "5-1": 9,
+              "4-4": 15,
+              "3-5": 15,
+              "5-3": 9,
+              "5-4": 9,
+              "6-5": 1
+            }
+          }
+        },
+        "Grass": {
+          "exposed": {
+            "games": 37,
+            "breaks": 10,
+            "break_rate": 0.2702702702702703,
+            "matches": 37,
+            "players": 28,
+            "starting_server_game_score_counts": {
+              "3-2": 3,
+              "4-5": 3,
+              "2-2": 4,
+              "4-4": 2,
+              "5-6": 3,
+              "2-0": 1,
+              "3-4": 2,
+              "4-2": 1,
+              "3-5": 1,
+              "2-5": 1,
+              "1-1": 4,
+              "2-1": 1,
+              "3-1": 2,
+              "2-3": 1,
+              "5-5": 1,
+              "4-3": 2,
+              "1-2": 1,
+              "3-3": 3,
+              "5-2": 1
+            }
+          },
+          "control": {
+            "games": 1686,
+            "breaks": 262,
+            "break_rate": 0.1553973902728351,
+            "matches": 285,
+            "players": 153,
+            "starting_server_game_score_counts": {
+              "2-0": 99,
+              "1-4": 53,
+              "1-1": 510,
+              "1-2": 422,
+              "2-1": 159,
+              "2-4": 24,
+              "1-3": 62,
+              "4-3": 8,
+              "2-2": 77,
+              "4-1": 9,
+              "3-2": 36,
+              "3-3": 13,
+              "2-3": 82,
+              "3-1": 26,
+              "5-6": 3,
+              "3-0": 22,
+              "5-2": 4,
+              "1-5": 15,
+              "3-4": 13,
+              "5-3": 3,
+              "3-5": 3,
+              "2-5": 15,
+              "4-2": 9,
+              "4-0": 6,
+              "4-4": 4,
+              "4-5": 4,
+              "5-0": 1,
+              "5-4": 2,
+              "5-1": 1,
+              "5-5": 1
+            }
+          }
+        },
+        "Hard": {
+          "exposed": {
+            "games": 254,
+            "breaks": 58,
+            "break_rate": 0.2283464566929134,
+            "matches": 239,
+            "players": 117,
+            "starting_server_game_score_counts": {
+              "2-0": 12,
+              "4-3": 3,
+              "5-6": 11,
+              "3-2": 5,
+              "1-2": 24,
+              "1-1": 35,
+              "5-4": 9,
+              "2-4": 10,
+              "2-2": 10,
+              "6-5": 2,
+              "5-2": 2,
+              "2-3": 15,
+              "3-3": 3,
+              "1-4": 4,
+              "2-5": 9,
+              "5-5": 12,
+              "4-4": 12,
+              "3-4": 11,
+              "2-1": 11,
+              "4-2": 5,
+              "5-1": 5,
+              "5-3": 6,
+              "3-1": 7,
+              "3-5": 8,
+              "4-1": 5,
+              "1-3": 4,
+              "4-0": 2,
+              "4-5": 9,
+              "1-5": 1,
+              "3-0": 2
+            }
+          },
+          "control": {
+            "games": 10515,
+            "breaks": 1924,
+            "break_rate": 0.1829766999524489,
+            "matches": 2092,
+            "players": 375,
+            "starting_server_game_score_counts": {
+              "1-1": 2994,
+              "2-1": 1062,
+              "1-2": 2470,
+              "2-3": 434,
+              "2-5": 126,
+              "1-3": 436,
+              "3-4": 97,
+              "2-0": 648,
+              "3-0": 183,
+              "4-0": 37,
+              "4-3": 52,
+              "3-5": 46,
+              "3-1": 200,
+              "1-4": 363,
+              "2-2": 470,
+              "4-1": 80,
+              "5-2": 35,
+              "3-2": 243,
+              "2-4": 159,
+              "1-5": 107,
+              "3-3": 95,
+              "4-2": 41,
+              "5-3": 9,
+              "5-5": 16,
+              "5-0": 13,
+              "5-4": 19,
+              "5-1": 14,
+              "4-4": 30,
+              "4-5": 28,
+              "5-6": 5,
+              "6-5": 3
+            }
+          }
+        }
+      },
+      "by_best_of": {
+        "3": {
+          "exposed": {
+            "games": 275,
+            "breaks": 65,
+            "break_rate": 0.23636363636363636,
+            "matches": 263,
+            "players": 132,
+            "starting_server_game_score_counts": {
+              "4-3": 11,
+              "2-3": 17,
+              "3-2": 7,
+              "2-2": 16,
+              "2-0": 13,
+              "5-6": 13,
+              "1-2": 28,
+              "2-4": 8,
+              "1-1": 27,
+              "6-5": 2,
+              "5-2": 2,
+              "3-3": 5,
+              "1-4": 4,
+              "4-4": 10,
+              "5-4": 10,
+              "5-3": 7,
+              "3-5": 9,
+              "1-3": 5,
+              "3-4": 13,
+              "5-5": 12,
+              "2-1": 14,
+              "4-2": 10,
+              "3-1": 6,
+              "5-1": 4,
+              "2-5": 7,
+              "4-1": 5,
+              "1-5": 1,
+              "4-5": 7,
+              "3-0": 2
+            }
+          },
+          "control": {
+            "games": 10878,
+            "breaks": 2110,
+            "break_rate": 0.1939694796837654,
+            "matches": 2477,
+            "players": 441,
+            "starting_server_game_score_counts": {
+              "1-1": 3060,
+              "2-3": 495,
+              "1-2": 2461,
+              "2-0": 713,
+              "3-2": 253,
+              "2-4": 154,
+              "3-1": 217,
+              "2-1": 1104,
+              "2-2": 492,
+              "5-2": 35,
+              "1-4": 377,
+              "1-3": 426,
+              "2-5": 129,
+              "4-2": 57,
+              "4-5": 35,
+              "3-4": 119,
+              "3-0": 200,
+              "1-5": 113,
+              "3-3": 96,
+              "4-3": 44,
+              "4-0": 49,
+              "5-5": 10,
+              "4-1": 94,
+              "3-5": 41,
+              "5-3": 12,
+              "5-4": 20,
+              "4-4": 29,
+              "5-6": 9,
+              "5-0": 13,
+              "5-1": 18,
+              "6-5": 3
+            }
+          }
+        },
+        "5": {
+          "exposed": {
+            "games": 142,
+            "breaks": 37,
+            "break_rate": 0.2605633802816901,
+            "matches": 129,
+            "players": 77,
+            "starting_server_game_score_counts": {
+              "1-2": 10,
+              "1-1": 25,
+              "5-4": 2,
+              "3-2": 5,
+              "2-5": 6,
+              "4-5": 6,
+              "2-2": 9,
+              "5-3": 3,
+              "4-4": 6,
+              "1-3": 2,
+              "4-3": 4,
+              "5-6": 5,
+              "3-4": 5,
+              "2-3": 9,
+              "1-4": 3,
+              "2-4": 5,
+              "5-1": 1,
+              "2-1": 3,
+              "5-5": 6,
+              "4-2": 4,
+              "3-5": 3,
+              "3-3": 5,
+              "4-0": 2,
+              "3-1": 7,
+              "2-0": 3,
+              "4-1": 2,
+              "5-2": 1
+            }
+          },
+          "control": {
+            "games": 5600,
+            "breaks": 1097,
+            "break_rate": 0.19589285714285715,
+            "matches": 773,
+            "players": 237,
+            "starting_server_game_score_counts": {
+              "1-1": 1476,
+              "1-2": 1225,
+              "2-1": 583,
+              "2-2": 273,
+              "2-3": 220,
+              "2-0": 401,
+              "2-5": 82,
+              "1-3": 256,
+              "5-5": 13,
+              "5-3": 9,
+              "3-1": 116,
+              "1-4": 196,
+              "3-2": 146,
+              "4-0": 24,
+              "3-0": 114,
+              "1-5": 59,
+              "5-0": 12,
+              "3-5": 23,
+              "3-3": 51,
+              "5-4": 10,
+              "4-3": 40,
+              "5-2": 18,
+              "5-1": 6,
+              "3-4": 56,
+              "4-4": 20,
+              "2-4": 86,
+              "4-2": 22,
+              "4-1": 42,
+              "5-6": 5,
+              "4-5": 15,
+              "6-5": 1
+            }
+          }
+        }
+      }
+    },
+    "post_tiebreak_loser": {
+      "exposed": {
+        "games": 162,
+        "breaks": 29,
+        "break_rate": 0.17901234567901234,
+        "matches": 158,
+        "players": 88,
+        "starting_server_game_score_counts": {
+          "0-0": 80,
+          "0-1": 65,
+          "1-0": 17
+        }
+      },
+      "control": {
+        "games": 817,
+        "breaks": 180,
+        "break_rate": 0.22031823745410037,
+        "matches": 734,
+        "players": 198,
+        "starting_server_game_score_counts": {
+          "0-1": 320,
+          "1-0": 75,
+          "0-0": 422
+        }
+      },
+      "raw_contrast": {
+        "difference": -0.04130589177508803,
+        "descriptive_95pct_interval": [
+          -0.10733110681374866,
+          0.024719323263572596
+        ],
+        "exposed_games": 162,
+        "control_games": 817,
+        "match_clusters": 861
+      },
+      "within_match_residual_contrast": {
+        "difference": -0.04302881526791465,
+        "descriptive_95pct_interval": [
+          -0.1086327245684559,
+          0.0225750940326266
+        ],
+        "exposed_games": 162,
+        "control_games": 817,
+        "match_clusters": 861
+      },
+      "paired_same_player_match_contrast": {
+        "difference": -0.125,
+        "descriptive_95pct_interval": [
+          -0.37,
+          0.12
+        ],
+        "exposed_games": 8,
+        "control_games": 8,
+        "match_clusters": 8,
+        "player_match_pairs": 8
+      },
+      "other_sets_same_player_match_baseline": {
+        "exposed": {
+          "games": 162,
+          "break_rate": 0.17901234567901234,
+          "other_sets_break_rate": 0.1388200286047125,
+          "excess_vs_other_sets": {
+            "difference": 0.04019231707429985,
+            "descriptive_95pct_interval": [
+              -0.0179495449661417,
+              0.0983341791147414
+            ],
+            "exposed_games": 162,
+            "control_games": 162,
+            "match_clusters": 158
+          }
+        },
+        "control": {
+          "games": 817,
+          "break_rate": 0.22031823745410037,
+          "other_sets_break_rate": 0.125964364318544,
+          "excess_vs_other_sets": {
+            "difference": 0.09435387313555638,
+            "descriptive_95pct_interval": [
+              0.06513774058164218,
+              0.12357000568947057
+            ],
+            "exposed_games": 817,
+            "control_games": 817,
+            "match_clusters": 734
+          }
+        }
+      },
+      "by_surface": {
+        "Clay": {
+          "exposed": {
+            "games": 35,
+            "breaks": 9,
+            "break_rate": 0.2571428571428571,
+            "matches": 35,
+            "players": 27,
+            "starting_server_game_score_counts": {
+              "0-0": 19,
+              "0-1": 10,
+              "1-0": 6
+            }
+          },
+          "control": {
+            "games": 168,
+            "breaks": 42,
+            "break_rate": 0.25,
+            "matches": 151,
+            "players": 84,
+            "starting_server_game_score_counts": {
+              "0-1": 69,
+              "1-0": 16,
+              "0-0": 83
+            }
+          }
+        },
+        "Grass": {
+          "exposed": {
+            "games": 24,
+            "breaks": 3,
+            "break_rate": 0.125,
+            "matches": 23,
+            "players": 21,
+            "starting_server_game_score_counts": {
+              "0-1": 13,
+              "1-0": 3,
+              "0-0": 8
+            }
+          },
+          "control": {
+            "games": 100,
+            "breaks": 15,
+            "break_rate": 0.15,
+            "matches": 86,
+            "players": 63,
+            "starting_server_game_score_counts": {
+              "0-1": 41,
+              "0-0": 50,
+              "1-0": 9
+            }
+          }
+        },
+        "Hard": {
+          "exposed": {
+            "games": 103,
+            "breaks": 17,
+            "break_rate": 0.1650485436893204,
+            "matches": 100,
+            "players": 62,
+            "starting_server_game_score_counts": {
+              "0-1": 42,
+              "0-0": 53,
+              "1-0": 8
+            }
+          },
+          "control": {
+            "games": 549,
+            "breaks": 123,
+            "break_rate": 0.22404371584699453,
+            "matches": 497,
+            "players": 165,
+            "starting_server_game_score_counts": {
+              "0-1": 210,
+              "0-0": 289,
+              "1-0": 50
+            }
+          }
+        }
+      },
+      "by_best_of": {
+        "3": {
+          "exposed": {
+            "games": 96,
+            "breaks": 12,
+            "break_rate": 0.125,
+            "matches": 94,
+            "players": 54,
+            "starting_server_game_score_counts": {
+              "0-0": 47,
+              "0-1": 36,
+              "1-0": 13
+            }
+          },
+          "control": {
+            "games": 509,
+            "breaks": 110,
+            "break_rate": 0.21611001964636542,
+            "matches": 479,
+            "players": 163,
+            "starting_server_game_score_counts": {
+              "0-1": 195,
+              "1-0": 40,
+              "0-0": 274
+            }
+          }
+        },
+        "5": {
+          "exposed": {
+            "games": 66,
+            "breaks": 17,
+            "break_rate": 0.25757575757575757,
+            "matches": 64,
+            "players": 51,
+            "starting_server_game_score_counts": {
+              "0-0": 33,
+              "0-1": 29,
+              "1-0": 4
+            }
+          },
+          "control": {
+            "games": 308,
+            "breaks": 70,
+            "break_rate": 0.22727272727272727,
+            "matches": 255,
+            "players": 122,
+            "starting_server_game_score_counts": {
+              "0-1": 125,
+              "0-0": 148,
+              "1-0": 35
+            }
+          }
+        }
+      }
+    },
+    "post_tiebreak_winner": {
+      "exposed": {
+        "games": 162,
+        "breaks": 38,
+        "break_rate": 0.2345679012345679,
+        "matches": 158,
+        "players": 95,
+        "starting_server_game_score_counts": {
+          "0-1": 66,
+          "0-0": 82,
+          "1-0": 14
+        }
+      },
+      "control": {
+        "games": 817,
+        "breaks": 147,
+        "break_rate": 0.1799265605875153,
+        "matches": 734,
+        "players": 195,
+        "starting_server_game_score_counts": {
+          "0-0": 395,
+          "0-1": 332,
+          "1-0": 90
+        }
+      },
+      "raw_contrast": {
+        "difference": 0.05464134064705259,
+        "descriptive_95pct_interval": [
+          -0.01618928692812878,
+          0.12547196822223394
+        ],
+        "exposed_games": 162,
+        "control_games": 817,
+        "match_clusters": 861
+      },
+      "within_match_residual_contrast": {
+        "difference": 0.04835054214567479,
+        "descriptive_95pct_interval": [
+          -0.02047198994207547,
+          0.11717307423342505
+        ],
+        "exposed_games": 162,
+        "control_games": 817,
+        "match_clusters": 861
+      },
+      "paired_same_player_match_contrast": {
+        "difference": -0.25,
+        "descriptive_95pct_interval": [
+          -0.74,
+          0.24
+        ],
+        "exposed_games": 8,
+        "control_games": 8,
+        "match_clusters": 8,
+        "player_match_pairs": 8
+      },
+      "other_sets_same_player_match_baseline": {
+        "exposed": {
+          "games": 162,
+          "break_rate": 0.2345679012345679,
+          "other_sets_break_rate": 0.15751636041724806,
+          "excess_vs_other_sets": {
+            "difference": 0.07705154081731982,
+            "descriptive_95pct_interval": [
+              0.013167772926036617,
+              0.14093530870860305
+            ],
+            "exposed_games": 162,
+            "control_games": 162,
+            "match_clusters": 158
+          }
+        },
+        "control": {
+          "games": 817,
+          "break_rate": 0.1799265605875153,
+          "other_sets_break_rate": 0.14936303531972683,
+          "excess_vs_other_sets": {
+            "difference": 0.030563525267788466,
+            "descriptive_95pct_interval": [
+              0.003429274206572564,
+              0.05769777632900437
+            ],
+            "exposed_games": 817,
+            "control_games": 817,
+            "match_clusters": 734
+          }
+        }
+      },
+      "by_surface": {
+        "Clay": {
+          "exposed": {
+            "games": 35,
+            "breaks": 11,
+            "break_rate": 0.3142857142857143,
+            "matches": 35,
+            "players": 29,
+            "starting_server_game_score_counts": {
+              "0-1": 13,
+              "0-0": 16,
+              "1-0": 6
+            }
+          },
+          "control": {
+            "games": 168,
+            "breaks": 31,
+            "break_rate": 0.18452380952380953,
+            "matches": 151,
+            "players": 83,
+            "starting_server_game_score_counts": {
+              "0-0": 85,
+              "0-1": 62,
+              "1-0": 21
+            }
+          }
+        },
+        "Grass": {
+          "exposed": {
+            "games": 24,
+            "breaks": 6,
+            "break_rate": 0.25,
+            "matches": 23,
+            "players": 21,
+            "starting_server_game_score_counts": {
+              "0-0": 16,
+              "1-0": 1,
+              "0-1": 7
+            }
+          },
+          "control": {
+            "games": 100,
+            "breaks": 14,
+            "break_rate": 0.14,
+            "matches": 86,
+            "players": 56,
+            "starting_server_game_score_counts": {
+              "0-0": 50,
+              "0-1": 40,
+              "1-0": 10
+            }
+          }
+        },
+        "Hard": {
+          "exposed": {
+            "games": 103,
+            "breaks": 21,
+            "break_rate": 0.20388349514563106,
+            "matches": 100,
+            "players": 67,
+            "starting_server_game_score_counts": {
+              "0-0": 50,
+              "0-1": 46,
+              "1-0": 7
+            }
+          },
+          "control": {
+            "games": 549,
+            "breaks": 102,
+            "break_rate": 0.18579234972677597,
+            "matches": 497,
+            "players": 155,
+            "starting_server_game_score_counts": {
+              "0-0": 260,
+              "0-1": 230,
+              "1-0": 59
+            }
+          }
+        }
+      },
+      "by_best_of": {
+        "3": {
+          "exposed": {
+            "games": 96,
+            "breaks": 25,
+            "break_rate": 0.2604166666666667,
+            "matches": 94,
+            "players": 64,
+            "starting_server_game_score_counts": {
+              "0-1": 42,
+              "0-0": 49,
+              "1-0": 5
+            }
+          },
+          "control": {
+            "games": 509,
+            "breaks": 78,
+            "break_rate": 0.15324165029469547,
+            "matches": 479,
+            "players": 158,
+            "starting_server_game_score_counts": {
+              "0-0": 235,
+              "0-1": 220,
+              "1-0": 54
+            }
+          }
+        },
+        "5": {
+          "exposed": {
+            "games": 66,
+            "breaks": 13,
+            "break_rate": 0.19696969696969696,
+            "matches": 64,
+            "players": 52,
+            "starting_server_game_score_counts": {
+              "0-1": 24,
+              "0-0": 33,
+              "1-0": 9
+            }
+          },
+          "control": {
+            "games": 308,
+            "breaks": 69,
+            "break_rate": 0.22402597402597402,
+            "matches": 255,
+            "players": 118,
+            "starting_server_game_score_counts": {
+              "0-0": 160,
+              "1-0": 36,
+              "0-1": 112
+            }
+          }
+        }
+      }
+    },
+    "fourth_set_concession": {
+      "exposed": {
+        "games": 29,
+        "breaks": 9,
+        "break_rate": 0.3103448275862069,
+        "matches": 29,
+        "players": 27,
+        "starting_server_game_score_counts": {
+          "0-4": 9,
+          "0-5": 10,
+          "1-5": 10
+        }
+      },
+      "control": {
+        "games": 39,
+        "breaks": 9,
+        "break_rate": 0.23076923076923078,
+        "matches": 39,
+        "players": 35,
+        "starting_server_game_score_counts": {
+          "0-5": 10,
+          "1-5": 21,
+          "0-4": 8
+        }
+      },
+      "raw_contrast": {
+        "difference": 0.07957559681697612,
+        "descriptive_95pct_interval": [
+          -0.13611461443649003,
+          0.2952658080704423
+        ],
+        "exposed_games": 29,
+        "control_games": 39,
+        "match_clusters": 68
+      },
+      "within_match_residual_contrast": {
+        "difference": 0.2054006652774993,
+        "descriptive_95pct_interval": [
+          -0.007527216066386427,
+          0.4183285466213851
+        ],
+        "exposed_games": 29,
+        "control_games": 39,
+        "match_clusters": 68
+      },
+      "paired_same_player_match_contrast": {
+        "difference": null,
+        "descriptive_95pct_interval": null,
+        "exposed_games": 0,
+        "control_games": 0,
+        "player_match_pairs": 0
+      },
+      "other_sets_same_player_match_baseline": {
+        "exposed": {
+          "games": 29,
+          "break_rate": 0.3103448275862069,
+          "other_sets_break_rate": 0.1819098140608438,
+          "excess_vs_other_sets": {
+            "difference": 0.1284350135253631,
+            "descriptive_95pct_interval": [
+              -0.04051994887455704,
+              0.29738997592528327
+            ],
+            "exposed_games": 29,
+            "control_games": 29,
+            "match_clusters": 29
+          }
+        },
+        "control": {
+          "games": 39,
+          "break_rate": 0.23076923076923078,
+          "other_sets_break_rate": 0.3061131804344474,
+          "excess_vs_other_sets": {
+            "difference": -0.07534394966521663,
+            "descriptive_95pct_interval": [
+              -0.20964490843917835,
+              0.0589570091087451
+            ],
+            "exposed_games": 39,
+            "control_games": 39,
+            "match_clusters": 39
+          }
+        }
+      },
+      "by_surface": {
+        "Clay": {
+          "exposed": {
+            "games": 13,
+            "breaks": 4,
+            "break_rate": 0.3076923076923077,
+            "matches": 13,
+            "players": 13,
+            "starting_server_game_score_counts": {
+              "0-5": 6,
+              "0-4": 4,
+              "1-5": 3
+            }
+          },
+          "control": {
+            "games": 11,
+            "breaks": 4,
+            "break_rate": 0.36363636363636365,
+            "matches": 11,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "1-5": 6,
+              "0-5": 4,
+              "0-4": 1
+            }
+          }
+        },
+        "Grass": {
+          "exposed": {
+            "games": 4,
+            "breaks": 0,
+            "break_rate": 0.0,
+            "matches": 4,
+            "players": 4,
+            "starting_server_game_score_counts": {
+              "1-5": 2,
+              "0-4": 2
+            }
+          },
+          "control": {
+            "games": 6,
+            "breaks": 2,
+            "break_rate": 0.3333333333333333,
+            "matches": 6,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "1-5": 5,
+              "0-5": 1
+            }
+          }
+        },
+        "Hard": {
+          "exposed": {
+            "games": 12,
+            "breaks": 5,
+            "break_rate": 0.4166666666666667,
+            "matches": 12,
+            "players": 12,
+            "starting_server_game_score_counts": {
+              "0-4": 3,
+              "0-5": 4,
+              "1-5": 5
+            }
+          },
+          "control": {
+            "games": 22,
+            "breaks": 3,
+            "break_rate": 0.13636363636363635,
+            "matches": 22,
+            "players": 21,
+            "starting_server_game_score_counts": {
+              "0-5": 5,
+              "1-5": 10,
+              "0-4": 7
+            }
+          }
+        }
+      },
+      "by_best_of": {
+        "3": {
+          "exposed": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          },
+          "control": {
+            "games": 0,
+            "breaks": 0,
+            "break_rate": null,
+            "matches": 0,
+            "players": 0,
+            "starting_server_game_score_counts": {}
+          }
+        },
+        "5": {
+          "exposed": {
+            "games": 29,
+            "breaks": 9,
+            "break_rate": 0.3103448275862069,
+            "matches": 29,
+            "players": 27,
+            "starting_server_game_score_counts": {
+              "0-4": 9,
+              "0-5": 10,
+              "1-5": 10
+            }
+          },
+          "control": {
+            "games": 39,
+            "breaks": 9,
+            "break_rate": 0.23076923076923078,
+            "matches": 39,
+            "players": 35,
+            "starting_server_game_score_counts": {
+              "0-5": 10,
+              "1-5": 21,
+              "0-4": 8
+            }
+          }
+        }
+      }
+    },
+    "double_break_prior_high_hold_proxy": {
+      "exposed": {
+        "games": 60,
+        "breaks": 11,
+        "break_rate": 0.18333333333333332,
+        "matches": 56,
+        "players": 14,
+        "starting_server_game_score_counts": {
+          "0-4": 20,
+          "0-5": 15,
+          "1-5": 25
+        }
+      },
+      "control": {
+        "games": 501,
+        "breaks": 86,
+        "break_rate": 0.17165668662674652,
+        "matches": 419,
+        "players": 28,
+        "starting_server_game_score_counts": {
+          "1-3": 80,
+          "0-2": 112,
+          "2-5": 39,
+          "1-4": 66,
+          "2-4": 62,
+          "0-3": 105,
+          "3-5": 37
+        }
+      },
+      "raw_contrast": {
+        "difference": 0.011676646706586802,
+        "descriptive_95pct_interval": [
+          -0.09314556955227507,
+          0.11649886296544867
+        ],
+        "exposed_games": 60,
+        "control_games": 501,
+        "match_clusters": 419
+      },
+      "within_match_residual_contrast": {
+        "difference": -0.07610323440067203,
+        "descriptive_95pct_interval": [
+          -0.18008857168567752,
+          0.02788210288433346
+        ],
+        "exposed_games": 60,
+        "control_games": 501,
+        "match_clusters": 419
+      },
+      "paired_same_player_match_contrast": {
+        "difference": -0.5029761904761905,
+        "descriptive_95pct_interval": [
+          -0.6519988905977329,
+          -0.35395349035464807
+        ],
+        "exposed_games": 56,
+        "control_games": 56,
+        "match_clusters": 56,
+        "player_match_pairs": 56
+      },
+      "other_sets_same_player_match_baseline": {
+        "exposed": {
+          "games": 60,
+          "break_rate": 0.18333333333333332,
+          "other_sets_break_rate": 0.24273371021823034,
+          "excess_vs_other_sets": {
+            "difference": -0.05940037688489702,
+            "descriptive_95pct_interval": [
+              -0.1583081820863083,
+              0.039507428316514284
+            ],
+            "exposed_games": 60,
+            "control_games": 60,
+            "match_clusters": 56
+          }
+        },
+        "control": {
+          "games": 501,
+          "break_rate": 0.17165668662674652,
+          "other_sets_break_rate": 0.17552887631883968,
+          "excess_vs_other_sets": {
+            "difference": -0.0038721896920931587,
+            "descriptive_95pct_interval": [
+              -0.03743287752519637,
+              0.02968849814101005
+            ],
+            "exposed_games": 501,
+            "control_games": 501,
+            "match_clusters": 419
+          }
+        }
+      },
+      "by_surface": {
+        "Clay": {
+          "exposed": {
+            "games": 17,
+            "breaks": 3,
+            "break_rate": 0.17647058823529413,
+            "matches": 16,
+            "players": 7,
+            "starting_server_game_score_counts": {
+              "0-4": 8,
+              "1-5": 7,
+              "0-5": 2
+            }
+          },
+          "control": {
+            "games": 137,
+            "breaks": 27,
+            "break_rate": 0.19708029197080293,
+            "matches": 115,
+            "players": 20,
+            "starting_server_game_score_counts": {
+              "1-3": 19,
+              "0-2": 35,
+              "2-5": 9,
+              "1-4": 20,
+              "2-4": 19,
+              "3-5": 12,
+              "0-3": 23
+            }
+          }
+        },
+        "Grass": {
+          "exposed": {
+            "games": 7,
+            "breaks": 2,
+            "break_rate": 0.2857142857142857,
+            "matches": 7,
+            "players": 6,
+            "starting_server_game_score_counts": {
+              "0-5": 2,
+              "1-5": 4,
+              "0-4": 1
+            }
+          },
+          "control": {
+            "games": 58,
+            "breaks": 9,
+            "break_rate": 0.15517241379310345,
+            "matches": 43,
+            "players": 15,
+            "starting_server_game_score_counts": {
+              "0-2": 9,
+              "1-3": 14,
+              "0-3": 12,
+              "1-4": 6,
+              "2-5": 7,
+              "3-5": 4,
+              "2-4": 6
+            }
+          }
+        },
+        "Hard": {
+          "exposed": {
+            "games": 36,
+            "breaks": 6,
+            "break_rate": 0.16666666666666666,
+            "matches": 33,
+            "players": 12,
+            "starting_server_game_score_counts": {
+              "0-4": 11,
+              "0-5": 11,
+              "1-5": 14
+            }
+          },
+          "control": {
+            "games": 306,
+            "breaks": 50,
+            "break_rate": 0.16339869281045752,
+            "matches": 261,
+            "players": 25,
+            "starting_server_game_score_counts": {
+              "0-2": 68,
+              "2-4": 37,
+              "1-3": 47,
+              "0-3": 70,
+              "2-5": 23,
+              "1-4": 40,
+              "3-5": 21
+            }
+          }
+        }
+      },
+      "by_best_of": {
+        "3": {
+          "exposed": {
+            "games": 28,
+            "breaks": 6,
+            "break_rate": 0.21428571428571427,
+            "matches": 28,
+            "players": 10,
+            "starting_server_game_score_counts": {
+              "0-4": 13,
+              "0-5": 6,
+              "1-5": 9
+            }
+          },
+          "control": {
+            "games": 283,
+            "breaks": 49,
+            "break_rate": 0.17314487632508835,
+            "matches": 272,
+            "players": 23,
+            "starting_server_game_score_counts": {
+              "1-3": 47,
+              "0-2": 61,
+              "2-5": 23,
+              "1-4": 40,
+              "2-4": 36,
+              "0-3": 56,
+              "3-5": 20
+            }
+          }
+        },
+        "5": {
+          "exposed": {
+            "games": 32,
+            "breaks": 5,
+            "break_rate": 0.15625,
+            "matches": 28,
+            "players": 11,
+            "starting_server_game_score_counts": {
+              "0-5": 9,
+              "0-4": 7,
+              "1-5": 16
+            }
+          },
+          "control": {
+            "games": 218,
+            "breaks": 37,
+            "break_rate": 0.16972477064220184,
+            "matches": 147,
+            "players": 24,
+            "starting_server_game_score_counts": {
+              "1-3": 33,
+              "2-4": 26,
+              "0-3": 49,
+              "1-4": 26,
+              "0-2": 51,
+              "3-5": 17,
+              "2-5": 16
+            }
+          }
+        }
+      }
+    }
+  },
+  "decision": "Deprioritize the broad double-break screen: its +4.62 pp raw difference misses the card's prewritten +5 pp / 100-exposure screen. The exposed break rate is 30.17%, versus 31.76% for those same players in other sets of the same matches. This does not show extra concession beyond the selected players' poor serving in these matches. The specific big-server claim remains unresolved: the prior high-hold proxy supplies only 60 exposures.\n\nKeep long-service-game carryover as an unconfirmed lead, not a sport-side confirmation. The raw difference is +5.00 pp across 417 exposures, exceeding the prewritten +3 pp / 100-exposure screen. But the within-match residual contrast falls to +2.39 pp (descriptive 95% interval -1.83 to +6.61 pp), and exposed players' other-set break rate is 23.89%, close to the observed 24.46%. Player/opponent and match-form selection explain much of the raw association. It may justify a cheap independently licensed replication and collecting the matching live next-service-game prices; it does not justify a model fit or promotion.\n\nKill the specified extended-tiebreak-loser direction in this exploratory sample: -4.13 pp across 162 exposures is opposite to the card's prewritten +3 pp prediction. The winner diagnostic points the other way but is uncertain and was not the target hypothesis; do not turn it into a confirmed reversed strategy.\n\nFourth-set concession remains unresolved: 9/29 exposed games versus 9/39 controls (+7.96 pp). The sample is below the card's 50-exposure minimum. This does not confirm or kill the incentive mechanism.\n\nNone of these cards is sport-side confirmed, no FanDuel pricing mismatch has been measured, and no betting edge has been demonstrated."
+}

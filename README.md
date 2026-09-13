@@ -1,10 +1,23 @@
 # BeatingAnything
 
-**No betting edge demonstrated.** Active research has moved to smaller models and markets with a longer season ahead. Completed failures remain visible; no betting alert or wager is enabled.
+**No betting edge demonstrated.** Active research now tests specific sport behaviors and whether FanDuel's niche-market prices account for them. Completed failures remain visible; no betting alert or wager is enabled.
 
 Use Python 3.12 and the pinned `requirements-lock.txt` dependencies for the research commands below.
 
 For the research direction going forward, start with [NEXT-STEPS.md](NEXT-STEPS.md). For the current state, exact continuation commands, completed results and file locations, see [PROGRESS.md](PROGRESS.md).
+
+The September 12 restart follows that direction:
+
+- [30 ranked hypothesis cards](docs/hypotheses/README.md), each with a trigger, a sport-side test, and the FanDuel evidence it needs.
+- [Exploratory tennis state results](reports/tennis-state-exploration.md), using point-by-point observations rather than another main-line regression.
+- [Market inventory](docs/market-data-inventory.md): the exact NFL archive has no FanDuel props or period markets and a four-hour median capture gap.
+- [Forward market collector](docs/forward-market-collection.md), with raw responses and separate source/collector clocks. Live odds collection requires an authorized provider key; code and synthetic checks are not live price evidence.
+
+September 13 execution: the handoff has run, and the search now includes the user's suggested golf, tennis, rugby and CFL. The [rugby yellow-card screen](reports/rugby-yellow-card-2026-09-13.md) passed its exploratory sport-side gate on 133 matched windows: 0.917 opponent tries per ten minutes versus 0.419 controls. Actual FanDuel pricing remains unverified; [the market check](docs/rugby-market-access-2026-09-13.md) records the exact coverage gap. PREM/URC have a season ahead through June 2027.
+
+The [NBA assists test](reports/nba-creator-assists-2026-09-13.md) ran but is underpowered at 25 exposures; the [new tennis changeover test](reports/tennis-return-changeover-2026-09-13.md) failed its fixed threshold. [Golf](reports/golf-source-screen-2026-09-13.md) and [CFL](reports/cfl-rouge-screen-2026-09-13.md) have concrete source/measurement results but no confirmed effect. The six-hour research task continues from these results; [PROGRESS.md](PROGRESS.md) records the next work and prevents restarting completed assignments.
+
+The [MLB position-player pitching screen](reports/mlb-position-pitching-2026-09-13.md) passed its sport-side threshold (+0.664 runs), but further MLB work is deferred this season. FanDuel pricing remains untested. The [tennis follow-up](reports/tennis-followup-2026-09-13.md) and negative [NFL main-line price comparison](reports/nfl-price-screen-2026-09-13.md) remain completed exploration.
 
 The new [timestamped FanDuel MLB pilot](reports/timestamped-mlb-research-report.md) tested the unchanged physical model on 100 September 2026 forecasts. It produced zero qualifying bets and worse log loss than FanDuel on available settled outcomes. Unlike the original archive, this source permits a limited near-start price comparison, but bookmaker freshness remains unverified and one week cannot establish an edge.
 
