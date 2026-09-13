@@ -112,6 +112,10 @@ None of these is verified. Some are well known and surely priced by now. They sh
 - Long stoppage time since 2023. Live over after minute 85 if the book's clock model still assumes short added time.
 - Red card. Live totals and cards.
 
+**Golf**
+
+- Nine ranked cards, a market map against the fixed policy, and a data plan are in [GOLF-MODEL-PLAN.md](GOLF-MODEL-PLAN.md). The lead cards are 3-ball dead-heat pricing, withdrawal risk in matchups, and wave draw against cross-wave round markets. The shot-level course model is parked there with the reason.
+
 **Book-side mechanisms, no sport model needed**
 
 - FanDuel versus Pinnacle on derivative markets, continuously. Where FanDuel lags a Pinnacle move on a niche market, the lag is the edge. This is pure data brute force and may be the highest-probability route.
