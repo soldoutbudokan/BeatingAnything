@@ -16,4 +16,4 @@
 
 **Status:** idea
 
-**Result:** Not tested. A rate increase need not increase total opportunity if drives or playing time fall.
+**Result:** [Fixed 2023–2025 screen completed September 13](../../reports/nfl-garbage-receptions-2026-09-13.md). Historical on-field participation was acquired and roles frozen before comparison. The 72 matched exposures show 106 catches in 1,172 remaining team snaps, 9.044 per 100 versus 6.395 standardized controls (+41.4%). Only 72 of the required 200 matched cases qualify, so this remains unresolved. Fourteen source-level reception/lineup inconsistencies in two games add a selection caveat. No live FanDuel quotes or edge. Do not widen matching, append seasons or rerun the completed assignment; a rate increase alone need not raise total opportunity. The [declaration](../nfl-garbage-receptions-declaration-2026-09-13.md) fixes roles, first-snap timing and post-trigger outcomes.

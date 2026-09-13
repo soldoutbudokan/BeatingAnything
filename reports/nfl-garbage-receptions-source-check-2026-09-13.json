@@ -1,0 +1,114 @@
+{
+  "checked_at": "2026-09-13T07:13:56.935409+00:00",
+  "primary_report_sha256": "9e85191eea0539b0e2f165ed9f4dbe1372b25bae3a0f9fd26bdf8ff08206228a",
+  "completed_reception_rows": 34654,
+  "missing_participation_rows": 0,
+  "completed_receiver_missing_from_lineup": 14,
+  "discordant_rows_at_frozen_trigger": 0,
+  "selected_receiver_catch_windows_affected": [],
+  "rows": [
+    {
+      "game_id": "2025_09_IND_PIT",
+      "play_id": 321,
+      "receiver_player_id": "00-0038997",
+      "receiver_player_name": "J.Downs"
+    },
+    {
+      "game_id": "2025_09_IND_PIT",
+      "play_id": 836,
+      "receiver_player_id": "00-0038997",
+      "receiver_player_name": "J.Downs"
+    },
+    {
+      "game_id": "2025_09_IND_PIT",
+      "play_id": 3183,
+      "receiver_player_id": "00-0038997",
+      "receiver_player_name": "J.Downs"
+    },
+    {
+      "game_id": "2025_09_IND_PIT",
+      "play_id": 4011,
+      "receiver_player_id": "00-0038997",
+      "receiver_player_name": "J.Downs"
+    },
+    {
+      "game_id": "2025_09_IND_PIT",
+      "play_id": 4415,
+      "receiver_player_id": "00-0038997",
+      "receiver_player_name": "J.Downs"
+    },
+    {
+      "game_id": "2025_09_IND_PIT",
+      "play_id": 4504,
+      "receiver_player_id": "00-0038997",
+      "receiver_player_name": "J.Downs"
+    },
+    {
+      "game_id": "2025_12_BUF_HOU",
+      "play_id": 226,
+      "receiver_player_id": "00-0037261",
+      "receiver_player_name": "K.Shakir"
+    },
+    {
+      "game_id": "2025_12_BUF_HOU",
+      "play_id": 780,
+      "receiver_player_id": "00-0037261",
+      "receiver_player_name": "K.Shakir"
+    },
+    {
+      "game_id": "2025_12_BUF_HOU",
+      "play_id": 1164,
+      "receiver_player_id": "00-0037261",
+      "receiver_player_name": "K.Shakir"
+    },
+    {
+      "game_id": "2025_12_BUF_HOU",
+      "play_id": 2806,
+      "receiver_player_id": "00-0037261",
+      "receiver_player_name": "K.Shakir"
+    },
+    {
+      "game_id": "2025_12_BUF_HOU",
+      "play_id": 2831,
+      "receiver_player_id": "00-0037261",
+      "receiver_player_name": "K.Shakir"
+    },
+    {
+      "game_id": "2025_12_BUF_HOU",
+      "play_id": 3465,
+      "receiver_player_id": "00-0037261",
+      "receiver_player_name": "K.Shakir"
+    },
+    {
+      "game_id": "2025_12_BUF_HOU",
+      "play_id": 3515,
+      "receiver_player_id": "00-0037261",
+      "receiver_player_name": "K.Shakir"
+    },
+    {
+      "game_id": "2025_12_BUF_HOU",
+      "play_id": 3802,
+      "receiver_player_id": "00-0037261",
+      "receiver_player_name": "K.Shakir"
+    }
+  ],
+  "frozen_windows_in_discordant_games": [
+    {
+      "game_id": "2025_09_IND_PIT",
+      "receiver": "00-0040128",
+      "exposed": true
+    },
+    {
+      "game_id": "2025_09_IND_PIT",
+      "receiver": "00-0036252",
+      "exposed": true
+    },
+    {
+      "game_id": "2025_12_BUF_HOU",
+      "receiver": "00-0034383",
+      "exposed": false
+    }
+  ],
+  "interpretation": "No repair or outcome re-selection. Zero direct selected-catch overlap does not rule out omitted eligible receivers or incorrect identity at other snaps in these games.",
+  "attribution": "FTN Data via nflverse, CC BY-SA 4.0; nflverse/nflfastR PBP, CC BY 4.0"
+}

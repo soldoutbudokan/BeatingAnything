@@ -16,4 +16,4 @@
 
 **Status:** idea
 
-**Result:** Not tested. A margin trigger is probabilistic; it does not guarantee substitution.
+**Result:** [September 13 source check](../../reports/nba-blowout-source-check-2026-09-13.md) recovered processed PBP and lineups for all 1,230 games in 2024–25. Repeated action IDs prevent a naive join; a fixed six-game interval check failed official-minute reconciliation in all six games. No conditional bench-minute comparison was run. Unresolved on lineup interpretation; park this derived-lineup route unless a specific correction or validated alternative appears. A margin trigger is probabilistic; it does not guarantee substitution.

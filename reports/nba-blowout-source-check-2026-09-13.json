@@ -1,0 +1,568 @@
+{
+  "checked_at": "2026-09-13T07:18:18.702570+00:00",
+  "sources": [
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_pbp/nba_play_by_play_2025.csv.gz",
+      "sha256": "534ceac1914ec3b38b51594748fcbddd34f3183a3c47dcf1c04ae53bbe04bcd1",
+      "bytes": 23281768,
+      "rows": 689823,
+      "games": 1400,
+      "regular_season_rows": 606536,
+      "regular_season_games": 1230,
+      "columns": [
+        "order_index",
+        "action_number",
+        "clock",
+        "period",
+        "team_id",
+        "team_tricode",
+        "person_id",
+        "player_name",
+        "player_name_i",
+        "x_legacy",
+        "y_legacy",
+        "shot_distance",
+        "shot_result",
+        "is_field_goal",
+        "score_home",
+        "score_away",
+        "points_total",
+        "location",
+        "description",
+        "action_type",
+        "sub_type",
+        "video_available",
+        "shot_value",
+        "action_id",
+        "game_id",
+        "seconds_remaining",
+        "event_type",
+        "is_made_shot",
+        "is_missed_shot",
+        "is_free_throw",
+        "is_rebound",
+        "is_turnover",
+        "is_foul",
+        "is_substitution",
+        "is_jump_ball",
+        "is_timeout",
+        "is_period",
+        "possession_number",
+        "off_player_1",
+        "off_player_2",
+        "off_player_3",
+        "off_player_4",
+        "off_player_5",
+        "def_player_1",
+        "def_player_2",
+        "def_player_3",
+        "def_player_4",
+        "def_player_5",
+        "season"
+      ],
+      "duplicate_game_action_keys": 32179,
+      "exact_duplicate_rows": 0
+    },
+    {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_game_lineups/nba_lineups_2025.csv.gz",
+      "sha256": "ff90b4e040664812ae741ef02718575ed826e3ac7cb7da7df63385842f5fef0d",
+      "bytes": 2085711,
+      "rows": 689823,
+      "games": 1400,
+      "regular_season_rows": 606536,
+      "regular_season_games": 1230,
+      "columns": [
+        "game_id",
+        "action_number",
+        "period",
+        "home_player_1",
+        "home_player_2",
+        "home_player_3",
+        "home_player_4",
+        "home_player_5",
+        "away_player_1",
+        "away_player_2",
+        "away_player_3",
+        "away_player_4",
+        "away_player_5",
+        "season"
+      ],
+      "duplicate_game_action_keys": 32179,
+      "exact_duplicate_rows": 32106
+    }
+  ],
+  "regular_season_game_sets_equal": true,
+  "publisher_game_action_period_row_sequences_equal": true,
+  "pbp_duplicate_game_order_index_keys": 0,
+  "joined_rows_not_ten_distinct_player_ids": 1192,
+  "row_aligned_pbp_lineup_player_set_disagreements": 90427,
+  "nonidentical_lineup_rows_sharing_game_action_key": 73,
+  "regular_season_substitution_events": 59784,
+  "regular_season_missing_clock": 0,
+  "fixed_six_game_minute_check": {
+    "definition": "First six regular-season games by schedule date/game ID; lineup following each event carries the interval to the next event; <=2-second player-level tolerance. No alternative alignment tried after the result.",
+    "boxscore_sha256": "7371d222692fee1c083913d813b125f885c4e53b6f3daaecb7270299913e9716",
+    "schedule_sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26",
+    "games": [
+      {
+        "game_id": "0022400061",
+        "player_box_rows": 25,
+        "negative_intervals": 0,
+        "elapsed_end": 2880.0,
+        "unknown_lineup_player_ids": [],
+        "players_outside_two_second_tolerance": 14,
+        "errors": [
+          {
+            "person_id": 201143,
+            "box_seconds": 1565.0,
+            "lineup_seconds": 1578.0,
+            "difference_seconds": 13.0
+          },
+          {
+            "person_id": 1628401,
+            "box_seconds": 1598.0,
+            "lineup_seconds": 1617.5,
+            "difference_seconds": 19.5
+          },
+          {
+            "person_id": 201950,
+            "box_seconds": 1831.0,
+            "lineup_seconds": 1811.5,
+            "difference_seconds": -19.5
+          },
+          {
+            "person_id": 1628436,
+            "box_seconds": 1159.0,
+            "lineup_seconds": 1175.0,
+            "difference_seconds": 16.0
+          },
+          {
+            "person_id": 1630202,
+            "box_seconds": 1498.0,
+            "lineup_seconds": 1494.0,
+            "difference_seconds": -4.0
+          },
+          {
+            "person_id": 1630573,
+            "box_seconds": 1450.0,
+            "lineup_seconds": 1441.0,
+            "difference_seconds": -9.0
+          },
+          {
+            "person_id": 1629674,
+            "box_seconds": 260.0,
+            "lineup_seconds": 244.0,
+            "difference_seconds": -16.0
+          },
+          {
+            "person_id": 1628384,
+            "box_seconds": 2050.0,
+            "lineup_seconds": 2061.0,
+            "difference_seconds": 11.0
+          },
+          {
+            "person_id": 1628969,
+            "box_seconds": 2077.0,
+            "lineup_seconds": 2090.0,
+            "difference_seconds": 13.0
+          },
+          {
+            "person_id": 1630540,
+            "box_seconds": 1551.0,
+            "lineup_seconds": 1547.0,
+            "difference_seconds": -4.0
+          },
+          {
+            "person_id": 1626166,
+            "box_seconds": 1243.0,
+            "lineup_seconds": 1256.0,
+            "difference_seconds": 13.0
+          },
+          {
+            "person_id": 1642359,
+            "box_seconds": 803.0,
+            "lineup_seconds": 790.0,
+            "difference_seconds": -13.0
+          },
+          {
+            "person_id": 1642278,
+            "box_seconds": 324.0,
+            "lineup_seconds": 317.0,
+            "difference_seconds": -7.0
+          },
+          {
+            "person_id": 1631210,
+            "box_seconds": 167.0,
+            "lineup_seconds": 154.0,
+            "difference_seconds": -13.0
+          }
+        ]
+      },
+      {
+        "game_id": "0022400062",
+        "player_box_rows": 28,
+        "negative_intervals": 0,
+        "elapsed_end": 2880.0,
+        "unknown_lineup_player_ids": [],
+        "players_outside_two_second_tolerance": 9,
+        "errors": [
+          {
+            "person_id": 2544,
+            "box_seconds": 2079.0,
+            "lineup_seconds": 2098.0,
+            "difference_seconds": 19.0
+          },
+          {
+            "person_id": 1630559,
+            "box_seconds": 2162.0,
+            "lineup_seconds": 2147.0,
+            "difference_seconds": -15.0
+          },
+          {
+            "person_id": 1626156,
+            "box_seconds": 2053.0,
+            "lineup_seconds": 2058.0,
+            "difference_seconds": 5.0
+          },
+          {
+            "person_id": 1631108,
+            "box_seconds": 685.0,
+            "lineup_seconds": 666.0,
+            "difference_seconds": -19.0
+          },
+          {
+            "person_id": 1629216,
+            "box_seconds": 1033.0,
+            "lineup_seconds": 1028.0,
+            "difference_seconds": -5.0
+          },
+          {
+            "person_id": 1642261,
+            "box_seconds": 947.0,
+            "lineup_seconds": 962.0,
+            "difference_seconds": 15.0
+          },
+          {
+            "person_id": 203944,
+            "box_seconds": 2059.0,
+            "lineup_seconds": 2051.0,
+            "difference_seconds": -8.0
+          },
+          {
+            "person_id": 203497,
+            "box_seconds": 2120.0,
+            "lineup_seconds": 2138.6,
+            "difference_seconds": 18.59999999999991
+          },
+          {
+            "person_id": 1629675,
+            "box_seconds": 1581.0,
+            "lineup_seconds": 1570.4,
+            "difference_seconds": -10.599999999999909
+          }
+        ]
+      },
+      {
+        "game_id": "0022400063",
+        "player_box_rows": 30,
+        "negative_intervals": 0,
+        "elapsed_end": 2880.0,
+        "unknown_lineup_player_ids": [],
+        "players_outside_two_second_tolerance": 10,
+        "errors": [
+          {
+            "person_id": 202699,
+            "box_seconds": 2148.0,
+            "lineup_seconds": 2137.1,
+            "difference_seconds": -10.900000000000091
+          },
+          {
+            "person_id": 1631105,
+            "box_seconds": 1804.0,
+            "lineup_seconds": 1795.6999999999998,
+            "difference_seconds": -8.300000000000182
+          },
+          {
+            "person_id": 1631093,
+            "box_seconds": 1836.0,
+            "lineup_seconds": 1851.0,
+            "difference_seconds": 15.0
+          },
+          {
+            "person_id": 1627736,
+            "box_seconds": 1670.0,
+            "lineup_seconds": 1654.9,
+            "difference_seconds": -15.099999999999909
+          },
+          {
+            "person_id": 1630191,
+            "box_seconds": 1018.0,
+            "lineup_seconds": 1023.2,
+            "difference_seconds": 5.2000000000000455
+          },
+          {
+            "person_id": 1631323,
+            "box_seconds": 891.0,
+            "lineup_seconds": 904.7,
+            "difference_seconds": 13.700000000000045
+          },
+          {
+            "person_id": 1627783,
+            "box_seconds": 1918.0,
+            "lineup_seconds": 1905.0,
+            "difference_seconds": -13.0
+          },
+          {
+            "person_id": 1630167,
+            "box_seconds": 962.0,
+            "lineup_seconds": 975.0,
+            "difference_seconds": 13.0
+          },
+          {
+            "person_id": 1631097,
+            "box_seconds": 1662.0,
+            "lineup_seconds": 1676.8000000000002,
+            "difference_seconds": 14.800000000000182
+          },
+          {
+            "person_id": 1641767,
+            "box_seconds": 378.0,
+            "lineup_seconds": 363.0,
+            "difference_seconds": -15.0
+          }
+        ]
+      },
+      {
+        "game_id": "0022400064",
+        "player_box_rows": 29,
+        "negative_intervals": 0,
+        "elapsed_end": 2880.0,
+        "unknown_lineup_player_ids": [],
+        "players_outside_two_second_tolerance": 7,
+        "errors": [
+          {
+            "person_id": 203992,
+            "box_seconds": 1670.0,
+            "lineup_seconds": 1655.0,
+            "difference_seconds": -15.0
+          },
+          {
+            "person_id": 1642258,
+            "box_seconds": 1140.0,
+            "lineup_seconds": 1155.0,
+            "difference_seconds": 15.0
+          },
+          {
+            "person_id": 1627732,
+            "box_seconds": 1452.0,
+            "lineup_seconds": 1470.0,
+            "difference_seconds": 18.0
+          },
+          {
+            "person_id": 1629661,
+            "box_seconds": 1921.0,
+            "lineup_seconds": 1934.0,
+            "difference_seconds": 13.0
+          },
+          {
+            "person_id": 1630560,
+            "box_seconds": 2023.0,
+            "lineup_seconds": 2041.0,
+            "difference_seconds": 18.0
+          },
+          {
+            "person_id": 203471,
+            "box_seconds": 2060.0,
+            "lineup_seconds": 2028.0,
+            "difference_seconds": -32.0
+          },
+          {
+            "person_id": 1630533,
+            "box_seconds": 951.0,
+            "lineup_seconds": 933.4000000000001,
+            "difference_seconds": -17.59999999999991
+          }
+        ]
+      },
+      {
+        "game_id": "0022400065",
+        "player_box_rows": 30,
+        "negative_intervals": 0,
+        "elapsed_end": 2880.0,
+        "unknown_lineup_player_ids": [],
+        "players_outside_two_second_tolerance": 12,
+        "errors": [
+          {
+            "person_id": 202710,
+            "box_seconds": 1549.0,
+            "lineup_seconds": 1528.0,
+            "difference_seconds": -21.0
+          },
+          {
+            "person_id": 1631107,
+            "box_seconds": 1441.0,
+            "lineup_seconds": 1448.7,
+            "difference_seconds": 7.7000000000000455
+          },
+          {
+            "person_id": 1629639,
+            "box_seconds": 1725.0,
+            "lineup_seconds": 1722.2,
+            "difference_seconds": -2.7999999999999545
+          },
+          {
+            "person_id": 1626179,
+            "box_seconds": 1923.0,
+            "lineup_seconds": 1944.0,
+            "difference_seconds": 21.0
+          },
+          {
+            "person_id": 1631170,
+            "box_seconds": 1151.0,
+            "lineup_seconds": 1154.0,
+            "difference_seconds": 3.0
+          },
+          {
+            "person_id": 1629312,
+            "box_seconds": 1814.0,
+            "lineup_seconds": 1806.3,
+            "difference_seconds": -7.7000000000000455
+          },
+          {
+            "person_id": 1630532,
+            "box_seconds": 1386.0,
+            "lineup_seconds": 1381.0,
+            "difference_seconds": -5.0
+          },
+          {
+            "person_id": 1631094,
+            "box_seconds": 1872.0,
+            "lineup_seconds": 1878.0,
+            "difference_seconds": 6.0
+          },
+          {
+            "person_id": 203484,
+            "box_seconds": 1509.0,
+            "lineup_seconds": 1511.2,
+            "difference_seconds": 2.2000000000000455
+          },
+          {
+            "person_id": 203914,
+            "box_seconds": 1306.0,
+            "lineup_seconds": 1311.0,
+            "difference_seconds": 5.0
+          },
+          {
+            "person_id": 1630175,
+            "box_seconds": 1050.0,
+            "lineup_seconds": 1047.8,
+            "difference_seconds": -2.2000000000000455
+          },
+          {
+            "person_id": 1628371,
+            "box_seconds": 687.0,
+            "lineup_seconds": 681.0,
+            "difference_seconds": -6.0
+          }
+        ]
+      },
+      {
+        "game_id": "0022400066",
+        "player_box_rows": 30,
+        "negative_intervals": 0,
+        "elapsed_end": 2880.0,
+        "unknown_lineup_player_ids": [],
+        "players_outside_two_second_tolerance": 14,
+        "errors": [
+          {
+            "person_id": 203083,
+            "box_seconds": 1503.0,
+            "lineup_seconds": 1524.2,
+            "difference_seconds": 21.200000000000045
+          },
+          {
+            "person_id": 1630178,
+            "box_seconds": 2340.0,
+            "lineup_seconds": 2498.6,
+            "difference_seconds": 158.5999999999999
+          },
+          {
+            "person_id": 1628997,
+            "box_seconds": 2247.0,
+            "lineup_seconds": 2239.3999999999996,
+            "difference_seconds": -7.600000000000364
+          },
+          {
+            "person_id": 1627824,
+            "box_seconds": 1531.0,
+            "lineup_seconds": 1518.0,
+            "difference_seconds": -13.0
+          },
+          {
+            "person_id": 1630288,
+            "box_seconds": 159.0,
+            "lineup_seconds": 0,
+            "difference_seconds": -159.0
+          },
+          {
+            "person_id": 203507,
+            "box_seconds": 1872.0,
+            "lineup_seconds": 1869.4,
+            "difference_seconds": -2.599999999999909
+          },
+          {
+            "person_id": 201572,
+            "box_seconds": 2132.0,
+            "lineup_seconds": 2138.0,
+            "difference_seconds": 6.0
+          },
+          {
+            "person_id": 1629018,
+            "box_seconds": 2067.0,
+            "lineup_seconds": 2108.4,
+            "difference_seconds": 41.40000000000009
+          },
+          {
+            "person_id": 203081,
+            "box_seconds": 2298.0,
+            "lineup_seconds": 2364.0,
+            "difference_seconds": 66.0
+          },
+          {
+            "person_id": 1626171,
+            "box_seconds": 1551.0,
+            "lineup_seconds": 1560.0,
+            "difference_seconds": 9.0
+          },
+          {
+            "person_id": 1631260,
+            "box_seconds": 244.0,
+            "lineup_seconds": 240.60000000000002,
+            "difference_seconds": -3.3999999999999773
+          },
+          {
+            "person_id": 1641890,
+            "box_seconds": 133.0,
+            "lineup_seconds": 121.0,
+            "difference_seconds": -12.0
+          },
+          {
+            "person_id": 1641748,
+            "box_seconds": 66.0,
+            "lineup_seconds": 0,
+            "difference_seconds": -66.0
+          },
+          {
+            "person_id": 1630699,
+            "box_seconds": 37.0,
+            "lineup_seconds": 0,
+            "difference_seconds": -37.0
+          }
+        ]
+      }
+    ],
+    "ready_under_fixed_source_check": false
+  },
+  "result": "Source coverage only. action_number is not a unique event key. Publisher-derived lineups require identity, event-order and integrated-minute validation against box scores before any conditional comparison.",
+  "attribution": "NBA Stats-derived data distributed and processed by SportsDataverse; raw publisher files not redistributed."
+}
