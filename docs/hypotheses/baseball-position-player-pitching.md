@@ -10,10 +10,10 @@
 
 **Trigger (observable, timestamped):** Official incoming-pitcher announcement and identity, before the first pitch. Score alone is a prediction of substitution, not a confirmed trigger.
 
-**Sport-side test: data source, cost, kill criterion:** Existing MLB StatsAPI play-by-play and roster positions; free, <=1 hour. Compare runs in exposed innings to same inning/margin states with ordinary relievers, separating inherited runners. Kill if >=100 exposed innings show <0.5 additional runs; sparse cases unresolved. Verify current eligibility rules before forward use.
+**Sport-side test: data source, cost, kill criterion:** Existing MLB StatsAPI play-by-play and roster positions; free, <=1 hour. Compare runs in exposed innings to same inning/margin states with ordinary relievers, separating inherited runners. Kill if >=100 exposed innings show <0.5 additional runs; sparse cases unresolved. [Current eligibility verified from MLB](https://www.mlb.com/news/mlb-two-way-player-rules).
 
 **Book-side test: what odds at trigger time, forward or historical:** Timestamped pre/post-announcement live team/inning totals and suspension state, with inning/base/out context. Availability before the first pitch must be demonstrated.
 
-**Status:** idea
+**Status:** sport-side confirmed
 
-**Result:** Not tested; neither an early substitution forecast nor FanDuel lag is established.
+**Result:** September 13, 2026: [2025 official-feed exploration](../../reports/mlb-position-pitching-2026-09-13.md) found 112 clean position-player inning starts with exact inning/half/signed-margin controls (237 ordinary-reliever innings): 1.304 versus weighted 0.639 runs, **+0.664 runs**, above the fixed 0.5 screen. The descriptive game-cluster 95% interval is +0.173 to +1.155, so the effect's size remains uncertain. Across 131 appearances, 27 inherited runners (7 scored) were tracked separately; two-way players were excluded. Substitution/first-pitch times exist for all 131 entries but do not prove public availability or an open FanDuel quote. Advance to book-side collection; neither an early substitution forecast nor FanDuel lag is established.

@@ -14,6 +14,6 @@
 
 **Book-side test: what odds at trigger time, forward or historical:** Forward paired 5–5 hold/break odds and the pre-5–4 baseline. Require a price discrepancy after known ability and actual serving order.
 
-**Status:** idea
+**Status:** sport-side dead
 
-**Result:** Not tested; a psychological explanation is speculation.
+**Result:** September 13 exploratory screen of the prewritten direction in the pinned men's 2020s file: after a failed 5–4 close, the opponent was broken at 5–5 in 78/294 games (26.53%), versus 389/2,087 (18.64%) after the returner held at 4–5. The +7.89 percentage-point difference (descriptive 95% interval +2.50 to +13.28) is opposite to the predicted reduction and fails the original ≥100-exposure / ≥3-point-lower raw screen. The within-match residual difference changes sign to −2.04 points (−7.41 to +3.32), showing why the raw opposite direction is not a new edge: the groups condition on different score paths and opposite preceding outcomes, with different server/returner strength. Same-player/match, other-set and individual-returner summaries remain descriptive. Kill this specified hypothesis in this exploratory sample; do not reverse it into a strategy. No untouched holdout or FanDuel prices were tested. See [fixed follow-up](../../reports/tennis-followup-2026-09-13.md).

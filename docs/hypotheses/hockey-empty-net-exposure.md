@@ -14,6 +14,6 @@
 
 **Book-side test: what odds at trigger time, forward or historical:** Forward next-goal and total pairs before/after pull with exact clock and market suspension state; include any reprice preceding the observed feed update.
 
-**Status:** idea
+**Status:** idea — unresolved source access; temporarily parked
 
-**Result:** Not tested; a large sport effect may be routine in FanDuel pricing.
+**Result:** September 13, 2026: ordinary official NHL play-by-play, shift-chart, schedule and time-on-ice requests returned HTTP 403. Zero paired game inputs were downloaded; no hazard or segment-count result exists. Individual official HTML reports were readable through web retrieval, but do not supply an adequate season dataset. Empty-net event flags cannot establish exposure seconds between events, so the 200-segment / 50% rate criteria remain unevaluated. Resume with `python tools/explore_nhl_empty_net.py --last-game 1312` where public endpoint access is allowed; this only acquires 2024-25 inputs, with goalie-shift, pre-goal-score and clock-stratified hazard analysis still pending. See [source result](../../reports/nhl-empty-net-2026-09-13.md). No FanDuel price test was run; a large sport effect may already be priced.
