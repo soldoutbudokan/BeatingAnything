@@ -1,0 +1,1034 @@
+{
+  "source_repository": "bsr-0/nfl-player-projections",
+  "source_commit": "ca05a001e92386484abcb02880e5ae3ecc9800f2",
+  "fixed_period": "2023 and 2024 NFL regular-season fixture dates",
+  "selection_rule": "All published 17:00 UTC board-cache files for the 114 unique fixture dates, derived by the public safe cache-key function; source inventory before outcome grading.",
+  "files": [
+    {
+      "fixture_date": "2023-09-07",
+      "mode": "100644",
+      "path": "data/raw/http_cache/090af4c8f646a75dce7f3bc309786b51a432a27767d189199e8af5b18545007a.txt",
+      "sha": "588110d6d2e1c40e148a617b2c97dc31b7be324a",
+      "size": 486330,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/588110d6d2e1c40e148a617b2c97dc31b7be324a"
+    },
+    {
+      "fixture_date": "2023-09-10",
+      "mode": "100644",
+      "path": "data/raw/http_cache/bf2204ce43412e2a9e619c1049b774b8351e00b69ae5bdd03e399875476252ae.txt",
+      "sha": "db92dbd76d20844f6f52061991b7a1cc957c06c6",
+      "size": 386884,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/db92dbd76d20844f6f52061991b7a1cc957c06c6"
+    },
+    {
+      "fixture_date": "2023-09-11",
+      "mode": "100644",
+      "path": "data/raw/http_cache/f04440be76375c647f8e3662300195376e5efb0d91687455ee6747ba587b95e6.txt",
+      "sha": "5bf2b89c3ea66195eefb37bda54883ea70e72003",
+      "size": 151080,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/5bf2b89c3ea66195eefb37bda54883ea70e72003"
+    },
+    {
+      "fixture_date": "2023-09-14",
+      "mode": "100644",
+      "path": "data/raw/http_cache/02fbb02cffe137bbbf3f2a22386faaa9d62dfc618a6441ce7c2d3fa160588802.txt",
+      "sha": "f1d912bc4fb1d728dbb6249fad8fb4688a6d9909",
+      "size": 211419,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/f1d912bc4fb1d728dbb6249fad8fb4688a6d9909"
+    },
+    {
+      "fixture_date": "2023-09-17",
+      "mode": "100644",
+      "path": "data/raw/http_cache/0e339f4e2f99ae7266d852e38e3eb9d7fb8365eb4729af9ce169603ee201f543.txt",
+      "sha": "faa9941cf85cccb6b0e6920ff59ed028b6f74839",
+      "size": 197359,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/faa9941cf85cccb6b0e6920ff59ed028b6f74839"
+    },
+    {
+      "fixture_date": "2023-09-18",
+      "mode": "100644",
+      "path": "data/raw/http_cache/adf37a1490a8f79722845eb7c74c0fc38e7251d2a6f51a17af06f940fffc98ee.txt",
+      "sha": "0a81dfd901ba66c45e37fc34a17fe8c4ba0d855d",
+      "size": 151799,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/0a81dfd901ba66c45e37fc34a17fe8c4ba0d855d"
+    },
+    {
+      "fixture_date": "2023-09-21",
+      "mode": "100644",
+      "path": "data/raw/http_cache/2fe5ef9e3f2c3bf5c38973dd9efff8e89c9e44a103b14678d0fd8da4b381f636.txt",
+      "sha": "a4749a74b6fe92a127f8d298e5884f054a0ac829",
+      "size": 207947,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/a4749a74b6fe92a127f8d298e5884f054a0ac829"
+    },
+    {
+      "fixture_date": "2023-09-24",
+      "mode": "100644",
+      "path": "data/raw/http_cache/4895835717013d79d85c8c040984f4dae45955a7b53076f78895c5aa52c87f39.txt",
+      "sha": "a16fa9823b65e459fd434de0bd8451887871ca82",
+      "size": 197318,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/a16fa9823b65e459fd434de0bd8451887871ca82"
+    },
+    {
+      "fixture_date": "2023-09-25",
+      "mode": "100644",
+      "path": "data/raw/http_cache/d0fddc801a79234f49a7f009f272a470edbfa593e3beb6020171837ac351707a.txt",
+      "sha": "d96787d68e0b0e3dc40c7b8a2b41a8e534fb768d",
+      "size": 141840,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/d96787d68e0b0e3dc40c7b8a2b41a8e534fb768d"
+    },
+    {
+      "fixture_date": "2023-09-28",
+      "mode": "100644",
+      "path": "data/raw/http_cache/fbc8e4c49602d73a9072303e964e58fc459497106860d78113b1e1530065ef51.txt",
+      "sha": "a3f35c4e1620d4100bd00aa48bfdb9dd3962713e",
+      "size": 219735,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/a3f35c4e1620d4100bd00aa48bfdb9dd3962713e"
+    },
+    {
+      "fixture_date": "2023-10-01",
+      "mode": "100644",
+      "path": "data/raw/http_cache/4eac9d4faf3aba012eddc89d048b8babb3124ab49e9d8909a6d487f8c50bcbc6.txt",
+      "sha": "6cdfd3821bbcd1dafc5f53c840fc1456db6c2518",
+      "size": 162098,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/6cdfd3821bbcd1dafc5f53c840fc1456db6c2518"
+    },
+    {
+      "fixture_date": "2023-10-02",
+      "mode": "100644",
+      "path": "data/raw/http_cache/1f89675c883acedcc3cc9f94bcbd1972f37ca6116c10ed5dc848e21503dd6e27.txt",
+      "sha": "6bcb4492924be72bfc27115dee2a60af525523db",
+      "size": 136671,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/6bcb4492924be72bfc27115dee2a60af525523db"
+    },
+    {
+      "fixture_date": "2023-10-05",
+      "mode": "100644",
+      "path": "data/raw/http_cache/a2f137536a123238a91b818221f715f96277aab17be0af24106b09b267f435b8.txt",
+      "sha": "ebad08c78698cad92c65e9ab78736d72eb2f4881",
+      "size": 209585,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/ebad08c78698cad92c65e9ab78736d72eb2f4881"
+    },
+    {
+      "fixture_date": "2023-10-08",
+      "mode": "100644",
+      "path": "data/raw/http_cache/0f3acf2ebc7c5af1cdad6c70a70241a9f4ee1484ef7758fddb25ed2ede5c22b3.txt",
+      "sha": "1e3a5f884448f7e148f2c8b85a02c6e7b74deab8",
+      "size": 164407,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/1e3a5f884448f7e148f2c8b85a02c6e7b74deab8"
+    },
+    {
+      "fixture_date": "2023-10-09",
+      "mode": "100644",
+      "path": "data/raw/http_cache/e0087b34bfd8ffbba41cef42429812927ede650d4583739a5b41810b92e44f6a.txt",
+      "sha": "2a1bc8f62e0945fc369a32d76182c45f04108903",
+      "size": 142030,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/2a1bc8f62e0945fc369a32d76182c45f04108903"
+    },
+    {
+      "fixture_date": "2023-10-12",
+      "mode": "100644",
+      "path": "data/raw/http_cache/0961ba3a898d1cafb12fddca9a6bd7ebeeffab462954dd0d8441a8e98adb3a48.txt",
+      "sha": "a5ca495861a966789c5b069fc0924e4d4dd01924",
+      "size": 190854,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/a5ca495861a966789c5b069fc0924e4d4dd01924"
+    },
+    {
+      "fixture_date": "2023-10-15",
+      "mode": "100644",
+      "path": "data/raw/http_cache/8de14892d5d5c9ec019d30237a29618259e6d29d3e725910ec58d680d2dfa83f.txt",
+      "sha": "df70852a76bf0fd2d73cdcbf4f97b700bb79c4cf",
+      "size": 149601,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/df70852a76bf0fd2d73cdcbf4f97b700bb79c4cf"
+    },
+    {
+      "fixture_date": "2023-10-16",
+      "mode": "100644",
+      "path": "data/raw/http_cache/a04216806718b8c171094ac80d229537010c3da8233707d42e40e3e8f1d3bbac.txt",
+      "sha": "b01450823226b63d210ba9b39eac931c3ea8b555",
+      "size": 123678,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/b01450823226b63d210ba9b39eac931c3ea8b555"
+    },
+    {
+      "fixture_date": "2023-10-19",
+      "mode": "100644",
+      "path": "data/raw/http_cache/c51dced76a9b12d10dececb998ae95c124de24e63f7dc528459ce2ce0d8ae9d9.txt",
+      "sha": "05f7bbf28a6ec01bb9ca56b876ad0f76bd59dceb",
+      "size": 192227,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/05f7bbf28a6ec01bb9ca56b876ad0f76bd59dceb"
+    },
+    {
+      "fixture_date": "2023-10-22",
+      "mode": "100644",
+      "path": "data/raw/http_cache/d8365074a88f9dd1d0a0dbe839ed21eba27c70d1d24060df6db0f9cac4defd73.txt",
+      "sha": "7382e749e4b22e53f0e2aadd190d2dd885f00e8b",
+      "size": 165740,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/7382e749e4b22e53f0e2aadd190d2dd885f00e8b"
+    },
+    {
+      "fixture_date": "2023-10-23",
+      "mode": "100644",
+      "path": "data/raw/http_cache/f6411c03414d8971203ea2d8b1f9c63638fe8ab7f8d190dd07c00197bfc260ca.txt",
+      "sha": "ffdbc9462b9fe26a5e3e006a4b26390ad45910a8",
+      "size": 150458,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/ffdbc9462b9fe26a5e3e006a4b26390ad45910a8"
+    },
+    {
+      "fixture_date": "2023-10-26",
+      "mode": "100644",
+      "path": "data/raw/http_cache/05edc4e728212800f989f4f10bdfb4fc6fa7d9393933ecfa9bf77d2808148ebb.txt",
+      "sha": "efa085db4b18016ff14f9bd1988b025264d5b0a8",
+      "size": 223277,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/efa085db4b18016ff14f9bd1988b025264d5b0a8"
+    },
+    {
+      "fixture_date": "2023-10-29",
+      "mode": "100644",
+      "path": "data/raw/http_cache/89e34aee77e9752d5c1c36c3a42710c6966f17479998d076d963b00f53a28e66.txt",
+      "sha": "a634928ea94c4851c5399767d1d38822972dc7d9",
+      "size": 192858,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/a634928ea94c4851c5399767d1d38822972dc7d9"
+    },
+    {
+      "fixture_date": "2023-10-30",
+      "mode": "100644",
+      "path": "data/raw/http_cache/82fe1259821291ee070b496c2bfdfda70bb9cc8c5b7a7abc70efb5dc958bcc5a.txt",
+      "sha": "a6ca660624d743ac4e6603892b467fcc323c25b7",
+      "size": 135123,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/a6ca660624d743ac4e6603892b467fcc323c25b7"
+    },
+    {
+      "fixture_date": "2023-11-02",
+      "mode": "100644",
+      "path": "data/raw/http_cache/f3636b6e9d3d01116672b574a7b6a214f4d5c6c5840f30557fab37fe3ffa7e09.txt",
+      "sha": "c62193a782acc862f19b4e8b1511103f7a4a9e5f",
+      "size": 196599,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/c62193a782acc862f19b4e8b1511103f7a4a9e5f"
+    },
+    {
+      "fixture_date": "2023-11-05",
+      "mode": "100644",
+      "path": "data/raw/http_cache/89c6dc0fcc8e52ba78cad845ffc9f7beb540cd2409bb8be90fc4be7b278fd65e.txt",
+      "sha": "35c5bc0c5ec4483179834715e7a7f97a3ae938e4",
+      "size": 161376,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/35c5bc0c5ec4483179834715e7a7f97a3ae938e4"
+    },
+    {
+      "fixture_date": "2023-11-06",
+      "mode": "100644",
+      "path": "data/raw/http_cache/339a1caca7e536c01913563b7a9f5c2fe53301e821732fd0ec881b03408ddd9f.txt",
+      "sha": "b00258948be9d09e85b49e2f9d118e5a12a016e3",
+      "size": 131057,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/b00258948be9d09e85b49e2f9d118e5a12a016e3"
+    },
+    {
+      "fixture_date": "2023-11-09",
+      "mode": "100644",
+      "path": "data/raw/http_cache/1be0aedfc4f331d74e405e4df9056672a39780d7950a164f78c0277efe69c006.txt",
+      "sha": "e3e322f4d8d70f62f1225a63a8c98abd1e513c8f",
+      "size": 199049,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/e3e322f4d8d70f62f1225a63a8c98abd1e513c8f"
+    },
+    {
+      "fixture_date": "2023-11-12",
+      "mode": "100644",
+      "path": "data/raw/http_cache/49422005a9067c526656c60054af469731e95b35b0122424895367f7ddbb6f3f.txt",
+      "sha": "35cfeb63e2859b00ca2fc7d29be84a92587f0c28",
+      "size": 176638,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/35cfeb63e2859b00ca2fc7d29be84a92587f0c28"
+    },
+    {
+      "fixture_date": "2023-11-13",
+      "mode": "100644",
+      "path": "data/raw/http_cache/7ed516d32e95ce4bf294d61a580f05a941c95f3df1800127415e0dcff855a59f.txt",
+      "sha": "ec6b105248f86671ebafad1e41c1c73028d7d1ba",
+      "size": 121557,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/ec6b105248f86671ebafad1e41c1c73028d7d1ba"
+    },
+    {
+      "fixture_date": "2023-11-16",
+      "mode": "100644",
+      "path": "data/raw/http_cache/0a26c5e0865ff721bcfd9714fda5695d32575022a5445a57f5618b7552bb7a84.txt",
+      "sha": "350b212a42715f5dbad0cc22a592ffc43465eee6",
+      "size": 207614,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/350b212a42715f5dbad0cc22a592ffc43465eee6"
+    },
+    {
+      "fixture_date": "2023-11-19",
+      "mode": "100644",
+      "path": "data/raw/http_cache/59f2ca784181b58e22a978aedcfbd631de0a2921512c81d490f3b685b0d7c224.txt",
+      "sha": "1a8cc6037e2b770bc4824a48dc65320b903c9d7f",
+      "size": 179624,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/1a8cc6037e2b770bc4824a48dc65320b903c9d7f"
+    },
+    {
+      "fixture_date": "2023-11-20",
+      "mode": "100644",
+      "path": "data/raw/http_cache/8ece3fc8d87d86b9715c3dfbb96e9d88e0d64b7835a1830a0f2b40f9a4b55c24.txt",
+      "sha": "06b28944589bdfd8f68ccac048b092aa95ba82ca",
+      "size": 140937,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/06b28944589bdfd8f68ccac048b092aa95ba82ca"
+    },
+    {
+      "fixture_date": "2023-11-23",
+      "mode": "100644",
+      "path": "data/raw/http_cache/621b35b4f9cd380f90e0a303688d5dae2dfa70d2e634ab98a79836f83de10dea.txt",
+      "sha": "77ddd0f492da2326a68a109ed1f23d16117be3ef",
+      "size": 203984,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/77ddd0f492da2326a68a109ed1f23d16117be3ef"
+    },
+    {
+      "fixture_date": "2023-11-24",
+      "mode": "100644",
+      "path": "data/raw/http_cache/a536328469ad2e6b6caf9d6c3f9b53eb7f808291d2755b56ed5f251d0e4e6535.txt",
+      "sha": "4fb164f999b563162532b5e93a98f99ddfa630a8",
+      "size": 163725,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/4fb164f999b563162532b5e93a98f99ddfa630a8"
+    },
+    {
+      "fixture_date": "2023-11-26",
+      "mode": "100644",
+      "path": "data/raw/http_cache/ef5afd0e4ed6d73062f880be575b0037a14459c31f3b34a7a5da7a31ea767f51.txt",
+      "sha": "0579e0e2c606259cb9cc1d3d5618fd7c45fbb9e0",
+      "size": 151288,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/0579e0e2c606259cb9cc1d3d5618fd7c45fbb9e0"
+    },
+    {
+      "fixture_date": "2023-11-27",
+      "mode": "100644",
+      "path": "data/raw/http_cache/b979cd89b9dc1e2818d044d90869515861ec55ed537b0ee5d3da7fb3a77b6f47.txt",
+      "sha": "2cabb69deca683a2235c6b68086057a6575cd6f1",
+      "size": 120835,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/2cabb69deca683a2235c6b68086057a6575cd6f1"
+    },
+    {
+      "fixture_date": "2023-11-30",
+      "mode": "100644",
+      "path": "data/raw/http_cache/d48d6c2a68a8e0a78087f3fa86cfe20e4c71935c963d3484ff3886edb42cc500.txt",
+      "sha": "30e856f782ae193f3ccda8cbd833d1ad88f0a5d8",
+      "size": 196964,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/30e856f782ae193f3ccda8cbd833d1ad88f0a5d8"
+    },
+    {
+      "fixture_date": "2023-12-03",
+      "mode": "100644",
+      "path": "data/raw/http_cache/3263ab7e3be63f22bc5cdfb44f42538b68b502d94d2bfe9c94dd3866d09e35ba.txt",
+      "sha": "ac38b639e36616e0424ffd19bf1e8b32259c2d46",
+      "size": 180540,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/ac38b639e36616e0424ffd19bf1e8b32259c2d46"
+    },
+    {
+      "fixture_date": "2023-12-04",
+      "mode": "100644",
+      "path": "data/raw/http_cache/3a76d340ac67323f25c7c57c9fb6bae412bd2cda06949f3dec59d1fcbdf3175e.txt",
+      "sha": "bb460d60fe82f859ffb87fd1846c6c6f452f08ec",
+      "size": 134624,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/bb460d60fe82f859ffb87fd1846c6c6f452f08ec"
+    },
+    {
+      "fixture_date": "2023-12-07",
+      "mode": "100644",
+      "path": "data/raw/http_cache/cf03eea1f4b4300f16abd1524ecf5c15ef99fe36559f194d437c759e627aa273.txt",
+      "sha": "43ecfa1d2f58156f2c0e4180103ea034bccc401b",
+      "size": 191124,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/43ecfa1d2f58156f2c0e4180103ea034bccc401b"
+    },
+    {
+      "fixture_date": "2023-12-10",
+      "mode": "100644",
+      "path": "data/raw/http_cache/b31a20963b73ff4b9e93708c78b9ed203d6dd404e827c03a7ddb96d4eef475e6.txt",
+      "sha": "e7da950ddb8e16b42d73b17a78288fa096f10a10",
+      "size": 187510,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/e7da950ddb8e16b42d73b17a78288fa096f10a10"
+    },
+    {
+      "fixture_date": "2023-12-11",
+      "mode": "100644",
+      "path": "data/raw/http_cache/2cc87e070841741320b91787512769adcee0ae2e037ce9b748222b3a8be710e2.txt",
+      "sha": "c9297931db9f20f3065d0f71d594abdfa8c110b6",
+      "size": 131437,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/c9297931db9f20f3065d0f71d594abdfa8c110b6"
+    },
+    {
+      "fixture_date": "2023-12-14",
+      "mode": "100644",
+      "path": "data/raw/http_cache/c942dd4b8a4fad1d86f11695a959ab55d090adb7fbb43949de3a3750c1dec55a.txt",
+      "sha": "31345125aef9d8e1955ba7584d2bd4703f91e67c",
+      "size": 186514,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/31345125aef9d8e1955ba7584d2bd4703f91e67c"
+    },
+    {
+      "fixture_date": "2023-12-16",
+      "mode": "100644",
+      "path": "data/raw/http_cache/44a82834eee39f2068670dbb5c7cb53fb9e0b92bca59bfc7eb2b4ba0c560d038.txt",
+      "sha": "e2bd41363e4ed96e70081b04117fe5375026f37d",
+      "size": 200639,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/e2bd41363e4ed96e70081b04117fe5375026f37d"
+    },
+    {
+      "fixture_date": "2023-12-17",
+      "mode": "100644",
+      "path": "data/raw/http_cache/933a4eee46d7429d9981aae5a1f5df8e04de53d1dc9b13310012e4e7231f3f0c.txt",
+      "sha": "56758358394999b209303e047e655b12527b4aaf",
+      "size": 152092,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/56758358394999b209303e047e655b12527b4aaf"
+    },
+    {
+      "fixture_date": "2023-12-18",
+      "mode": "100644",
+      "path": "data/raw/http_cache/04da119b505e2a13ec5ad4efa630079f0d77c6206ff37dc3ed635b5e92573c00.txt",
+      "sha": "2e6f21779c43626b76724f96a8776647e5fcde8a",
+      "size": 128839,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/2e6f21779c43626b76724f96a8776647e5fcde8a"
+    },
+    {
+      "fixture_date": "2023-12-21",
+      "mode": "100644",
+      "path": "data/raw/http_cache/87798fd9546902f48adab84945d669e055cb73c326573efe64b8f225911d40bb.txt",
+      "sha": "e2b5bee9b655dd2d76a0f24155a539d4b7686bdf",
+      "size": 192714,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/e2b5bee9b655dd2d76a0f24155a539d4b7686bdf"
+    },
+    {
+      "fixture_date": "2023-12-23",
+      "mode": "100644",
+      "path": "data/raw/http_cache/54f1c580552b4af39e630ca556e0a7114dec85a0bc977af17550bf07f9a4997b.txt",
+      "sha": "e806c6c4fd329fc903f90e9bc6486c9aaf2efc55",
+      "size": 192770,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/e806c6c4fd329fc903f90e9bc6486c9aaf2efc55"
+    },
+    {
+      "fixture_date": "2023-12-24",
+      "mode": "100644",
+      "path": "data/raw/http_cache/0f17aabaae869db9b2bf743a57dea5613e2d7430af58aab424f20077d26d5f13.txt",
+      "sha": "0522fde1be13932e6479d390959f919931b92fad",
+      "size": 148583,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/0522fde1be13932e6479d390959f919931b92fad"
+    },
+    {
+      "fixture_date": "2023-12-25",
+      "mode": "100644",
+      "path": "data/raw/http_cache/0e465c039c4a6017ffaee312a50e50eb3f32de93174c9f9949b131ac5e4b4e6b.txt",
+      "sha": "9dc8803abe82d248919df8c699bd77369e47e670",
+      "size": 133109,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/9dc8803abe82d248919df8c699bd77369e47e670"
+    },
+    {
+      "fixture_date": "2023-12-28",
+      "mode": "100644",
+      "path": "data/raw/http_cache/6c4bf07f2d153e1c0e3fc628627fc97de8b389d5efb1f876ef9185466b374f02.txt",
+      "sha": "19bf0fbbfcfa9c302f27d6fb94438f63a1a670dd",
+      "size": 121568,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/19bf0fbbfcfa9c302f27d6fb94438f63a1a670dd"
+    },
+    {
+      "fixture_date": "2023-12-30",
+      "mode": "100644",
+      "path": "data/raw/http_cache/1c0ad1e1ceac4dbe6d6cfe9e48f5a038df6633eec474db806318bade345ade48.txt",
+      "sha": "ac5dcd2d74189738abd9b25a2935735100ffb8a0",
+      "size": 124389,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/ac5dcd2d74189738abd9b25a2935735100ffb8a0"
+    },
+    {
+      "fixture_date": "2023-12-31",
+      "mode": "100644",
+      "path": "data/raw/http_cache/04eada249540a0a7335656e289daa8fe0706318e7d178d27cdf6e30f0dea13f7.txt",
+      "sha": "cb18139485a2ec9abc3d5494955657d56c1ad30a",
+      "size": 117188,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/cb18139485a2ec9abc3d5494955657d56c1ad30a"
+    },
+    {
+      "fixture_date": "2024-01-06",
+      "mode": "100644",
+      "path": "data/raw/http_cache/91402b44e793e54e9c5e3e8b71e4883ba295d1bc9ab4a3eca151519b9f061a4b.txt",
+      "sha": "6c1a48ee1acda716807687d85f2d546801103ff2",
+      "size": 129410,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/6c1a48ee1acda716807687d85f2d546801103ff2"
+    },
+    {
+      "fixture_date": "2024-01-07",
+      "mode": "100644",
+      "path": "data/raw/http_cache/e954cc7abc3aa707e25a0b2fa64150372abe139f7d3417f841b4d109ddf6699f.txt",
+      "sha": "64e74211daba14a42706a1aff73e5bce9158bd99",
+      "size": 113212,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/64e74211daba14a42706a1aff73e5bce9158bd99"
+    },
+    {
+      "fixture_date": "2024-09-05",
+      "mode": "100644",
+      "path": "data/raw/http_cache/45de5a07949c74177801f127c04b72a861cda6923fd2a8ae138dd1cfa7105275.txt",
+      "sha": "95797e2bec550a5ea1edcd9e5215d3b0f80a4b70",
+      "size": 473209,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/95797e2bec550a5ea1edcd9e5215d3b0f80a4b70"
+    },
+    {
+      "fixture_date": "2024-09-06",
+      "mode": "100644",
+      "path": "data/raw/http_cache/fa0c6a248ae8eddce432ba4cb4b6864cdb2357cdb26e6e27dbe3022a93c99ac3.txt",
+      "sha": "9478bf77d844e3b54295b8225f3ed9df0c32755e",
+      "size": 301146,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/9478bf77d844e3b54295b8225f3ed9df0c32755e"
+    },
+    {
+      "fixture_date": "2024-09-08",
+      "mode": "100644",
+      "path": "data/raw/http_cache/d9027a0975205e382d037368defcacaabe4becea8105497b98a4a5ce6e2a5b1b.txt",
+      "sha": "7d2cefec53349eddddb20906c84c203330b0a988",
+      "size": 308622,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/7d2cefec53349eddddb20906c84c203330b0a988"
+    },
+    {
+      "fixture_date": "2024-09-09",
+      "mode": "100644",
+      "path": "data/raw/http_cache/ae4b307be4240e52ef7aea1a7ab350909653d0d319bd074d356bf0af24b5b86e.txt",
+      "sha": "59460f7d8c1dfc276b79ea1dabceef0b4de4c1c7",
+      "size": 93157,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/59460f7d8c1dfc276b79ea1dabceef0b4de4c1c7"
+    },
+    {
+      "fixture_date": "2024-09-12",
+      "mode": "100644",
+      "path": "data/raw/http_cache/c7da0b6662bba5544202d00b47b3805769daf9bfc1ea30e287a7d0fa41364a3f.txt",
+      "sha": "8b5e00facef24a80b98f097faf185d52a6b77672",
+      "size": 108048,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/8b5e00facef24a80b98f097faf185d52a6b77672"
+    },
+    {
+      "fixture_date": "2024-09-15",
+      "mode": "100644",
+      "path": "data/raw/http_cache/b7abfa0fa1ab259d06ed2966eeb66a0927488311e5ae70aa585c2120da53d121.txt",
+      "sha": "09d31b8cf89f27f3248abf34efa3ab53b046e1a0",
+      "size": 122331,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/09d31b8cf89f27f3248abf34efa3ab53b046e1a0"
+    },
+    {
+      "fixture_date": "2024-09-16",
+      "mode": "100644",
+      "path": "data/raw/http_cache/7ccf4dc9cbc4d7779f5fe382766981df84ee26fc60bd820cf691d0f609db3d9b.txt",
+      "sha": "8d14a1eca363dcdbd7ebf23ddaf06b5be74d7de4",
+      "size": 82500,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/8d14a1eca363dcdbd7ebf23ddaf06b5be74d7de4"
+    },
+    {
+      "fixture_date": "2024-09-19",
+      "mode": "100644",
+      "path": "data/raw/http_cache/b02fba28781f318e0a50754fae3d8e86d717c3fb280eae17647ecd84310b25ce.txt",
+      "sha": "54358aa4a8e0cef2247ac3372895f6dd5eb3bdbb",
+      "size": 115236,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/54358aa4a8e0cef2247ac3372895f6dd5eb3bdbb"
+    },
+    {
+      "fixture_date": "2024-09-22",
+      "mode": "100644",
+      "path": "data/raw/http_cache/be8ed116625a610208a4fb38ee1ff9546e47b9f5128be1a246b8fbba86f444bc.txt",
+      "sha": "c207650942fabb3a81aae7b118ce7be9fd97358a",
+      "size": 137870,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/c207650942fabb3a81aae7b118ce7be9fd97358a"
+    },
+    {
+      "fixture_date": "2024-09-23",
+      "mode": "100644",
+      "path": "data/raw/http_cache/113b20b5ccfd4fc4f8df6b115ab04eeca5d9c79be9e1f1b49bf4b6352a68f706.txt",
+      "sha": "1a5271ef3fbb127e1fbc9178bd022787f960a122",
+      "size": 94213,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/1a5271ef3fbb127e1fbc9178bd022787f960a122"
+    },
+    {
+      "fixture_date": "2024-09-26",
+      "mode": "100644",
+      "path": "data/raw/http_cache/4ae92f2ae8d1b359754e0c7fad14df850c86b91ee3c6ae3bb7842519a0604792.txt",
+      "sha": "842bf0238d1b04903d6d74e179f46891b46d4f33",
+      "size": 135627,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/842bf0238d1b04903d6d74e179f46891b46d4f33"
+    },
+    {
+      "fixture_date": "2024-09-29",
+      "mode": "100644",
+      "path": "data/raw/http_cache/a828f28b230795edea9fc5121865bd0bf7848d3170e645d0f2d21f1e53605e78.txt",
+      "sha": "32172c1bad1496ee87558f38f5c65daccdabcf48",
+      "size": 114666,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/32172c1bad1496ee87558f38f5c65daccdabcf48"
+    },
+    {
+      "fixture_date": "2024-09-30",
+      "mode": "100644",
+      "path": "data/raw/http_cache/159fdf5d1952201b3dfb6b662cca08ff940919ac47a794b222759ea9cf464cbc.txt",
+      "sha": "1af8b74740f5fd27086fda088ab3f09522871cd1",
+      "size": 91423,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/1af8b74740f5fd27086fda088ab3f09522871cd1"
+    },
+    {
+      "fixture_date": "2024-10-03",
+      "mode": "100644",
+      "path": "data/raw/http_cache/df65a2ede9d1b9c5ac63bc9cecc0154e684589d4934dc279391e44a4c5814325.txt",
+      "sha": "07b8e939801c6a1e49dec28d8438971d324e58af",
+      "size": 125288,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/07b8e939801c6a1e49dec28d8438971d324e58af"
+    },
+    {
+      "fixture_date": "2024-10-06",
+      "mode": "100644",
+      "path": "data/raw/http_cache/953c96cbaf9329e9994909f66f171025d1009c62d39d113336b5463de2229ec7.txt",
+      "sha": "5bb799a0ca0ed08f9ef246dc5409450cd1d1e2f8",
+      "size": 94746,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/5bb799a0ca0ed08f9ef246dc5409450cd1d1e2f8"
+    },
+    {
+      "fixture_date": "2024-10-07",
+      "mode": "100644",
+      "path": "data/raw/http_cache/83c712bbeee16a85226e9daca5e45dc1f1c67afeb947a5ca72e9576967a23e12.txt",
+      "sha": "3bba6e3226020d547a17b0f26e6cc726c23e0450",
+      "size": 75132,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/3bba6e3226020d547a17b0f26e6cc726c23e0450"
+    },
+    {
+      "fixture_date": "2024-10-10",
+      "mode": "100644",
+      "path": "data/raw/http_cache/0a1f9a77892efe3432171ee0aa1476a9923e61fe6737328d1468991ca39a3c3d.txt",
+      "sha": "65cd1d2c71e2017945a132ac3439b5218b640b5d",
+      "size": 134242,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/65cd1d2c71e2017945a132ac3439b5218b640b5d"
+    },
+    {
+      "fixture_date": "2024-10-13",
+      "mode": "100644",
+      "path": "data/raw/http_cache/afbdfe319aa8a4734d33719d719f9adafc44f4782d6778035fa1e37f2e64f3db.txt",
+      "sha": "bb62a3fdfba0dfcc1a89c99dc334ed04d6bea75e",
+      "size": 100647,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/bb62a3fdfba0dfcc1a89c99dc334ed04d6bea75e"
+    },
+    {
+      "fixture_date": "2024-10-14",
+      "mode": "100644",
+      "path": "data/raw/http_cache/97c326e122510e8a3904d938668db22f4d518d65f3246f94522c4d95f1ccac4b.txt",
+      "sha": "de8150a88e8b874d62bf4b6dcdb496e5d9280ad1",
+      "size": 79094,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/de8150a88e8b874d62bf4b6dcdb496e5d9280ad1"
+    },
+    {
+      "fixture_date": "2024-10-17",
+      "mode": "100644",
+      "path": "data/raw/http_cache/2b9ac3bea0df9592e3e9d6d48f7c5d1de8111b1aac6176632f25f4b820c48d41.txt",
+      "sha": "a17d943fe7aa6900ec89f8890d343d70595f1e0c",
+      "size": 141698,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/a17d943fe7aa6900ec89f8890d343d70595f1e0c"
+    },
+    {
+      "fixture_date": "2024-10-20",
+      "mode": "100644",
+      "path": "data/raw/http_cache/c6f9a5699907b20adc6097843f544c399b06c564f98f8587374ace65d0fe09d3.txt",
+      "sha": "15f2d18a546eef71b14994330e55198e3736673c",
+      "size": 105460,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/15f2d18a546eef71b14994330e55198e3736673c"
+    },
+    {
+      "fixture_date": "2024-10-21",
+      "mode": "100644",
+      "path": "data/raw/http_cache/e3520fbc9891aeee66819da2496ca8e54d231124bc6a10ef050e56b5d4890272.txt",
+      "sha": "d0e370c3e4511211166e3478c28d99e8c21cc67e",
+      "size": 83676,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/d0e370c3e4511211166e3478c28d99e8c21cc67e"
+    },
+    {
+      "fixture_date": "2024-10-24",
+      "mode": "100644",
+      "path": "data/raw/http_cache/88f72069a9222272be6511a7dce605db4dab37944259cc059a4f60ac92de0879.txt",
+      "sha": "d6d42a601e0522518e36555efde402c1a1135a36",
+      "size": 133067,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/d6d42a601e0522518e36555efde402c1a1135a36"
+    },
+    {
+      "fixture_date": "2024-10-27",
+      "mode": "100644",
+      "path": "data/raw/http_cache/3e55c2626108ff7e7298f06909fe89efa2b51a7a6188eea7fb1d8d64219b8202.txt",
+      "sha": "dee148d67ace8835f86b3221c4fcb3f406413684",
+      "size": 115498,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/dee148d67ace8835f86b3221c4fcb3f406413684"
+    },
+    {
+      "fixture_date": "2024-10-28",
+      "mode": "100644",
+      "path": "data/raw/http_cache/b79f833d9ee8a6f425d033445131546484a7d263915556732f52ac8ec86c64bc.txt",
+      "sha": "40e86a2b542998ede8b9d1c39f1a9ba0229ecdf6",
+      "size": 77229,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/40e86a2b542998ede8b9d1c39f1a9ba0229ecdf6"
+    },
+    {
+      "fixture_date": "2024-10-31",
+      "mode": "100644",
+      "path": "data/raw/http_cache/21487d9733a6d7964676d89c00ee61da76f6574b25af95ff1f025c8d98543576.txt",
+      "sha": "cc1d81cdfbb386e7c556f088e06037ef622f879d",
+      "size": 123338,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/cc1d81cdfbb386e7c556f088e06037ef622f879d"
+    },
+    {
+      "fixture_date": "2024-11-03",
+      "mode": "100644",
+      "path": "data/raw/http_cache/d6a1b59dfcf926750c9efd9b95c3833183f7a1e951cd91b5b85167aba65e86a3.txt",
+      "sha": "127cfde1d575cb9bb1d1476ef6c4cde3f9b644e1",
+      "size": 127625,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/127cfde1d575cb9bb1d1476ef6c4cde3f9b644e1"
+    },
+    {
+      "fixture_date": "2024-11-04",
+      "mode": "100644",
+      "path": "data/raw/http_cache/535a8a10fec2a9bc22bd9fe3723fa43a94a056013c29a75d4b34dd549f82e463.txt",
+      "sha": "55f5d03a7c5a3e9a60575f6c066e2e7666428d68",
+      "size": 78525,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/55f5d03a7c5a3e9a60575f6c066e2e7666428d68"
+    },
+    {
+      "fixture_date": "2024-11-07",
+      "mode": "100644",
+      "path": "data/raw/http_cache/bdad1ed7e1fd0747f98ea5feea72746edc926b350465c23d31a2ac8cee3df789.txt",
+      "sha": "012bb268c1a25267fb854ef007ebde898f4fc4f7",
+      "size": 93689,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/012bb268c1a25267fb854ef007ebde898f4fc4f7"
+    },
+    {
+      "fixture_date": "2024-11-10",
+      "mode": "100644",
+      "path": "data/raw/http_cache/100dc4192683ce27d729d89d92110cb6ba7c2ba4773d1b5414ec35585bc443c5.txt",
+      "sha": "47fd3c88a237c65756d70c8e64536acb6564004b",
+      "size": 121481,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/47fd3c88a237c65756d70c8e64536acb6564004b"
+    },
+    {
+      "fixture_date": "2024-11-11",
+      "mode": "100644",
+      "path": "data/raw/http_cache/7b3a7d898f6001fcc4ffd9aa72b4422e2e868a09dda4c36834ca1d532dd4994f.txt",
+      "sha": "7deb8be6e531115f55df13ad249e27266fbd792b",
+      "size": 81979,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/7deb8be6e531115f55df13ad249e27266fbd792b"
+    },
+    {
+      "fixture_date": "2024-11-14",
+      "mode": "100644",
+      "path": "data/raw/http_cache/fc15a999087acde910317a71111ca19ec325c39984970659e62ae1d2f27be41a.txt",
+      "sha": "0bd6ff2f8faf7b18348ccb1e9486b3ec4366a730",
+      "size": 121695,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/0bd6ff2f8faf7b18348ccb1e9486b3ec4366a730"
+    },
+    {
+      "fixture_date": "2024-11-17",
+      "mode": "100644",
+      "path": "data/raw/http_cache/fe818ec2bd95c54ccf79126692775203d26d5983a10f3779ceabb7740dfd351f.txt",
+      "sha": "1c868c5595fa477a152aef20257458d3729ca60c",
+      "size": 118170,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/1c868c5595fa477a152aef20257458d3729ca60c"
+    },
+    {
+      "fixture_date": "2024-11-18",
+      "mode": "100644",
+      "path": "data/raw/http_cache/c58a178a72f9d95742e8586ff348160158734386256a81febd5de3c27aed06ab.txt",
+      "sha": "b03817de1eaa2656dfb0166f965d34855183c413",
+      "size": 75225,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/b03817de1eaa2656dfb0166f965d34855183c413"
+    },
+    {
+      "fixture_date": "2024-11-21",
+      "mode": "100644",
+      "path": "data/raw/http_cache/a7c6cd6eed993db70dd0e2e622085b30b663e545484b7a9cfb776f86c784dbef.txt",
+      "sha": "0caac7b534f3e5da3625c46723681dd106b6e893",
+      "size": 117995,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/0caac7b534f3e5da3625c46723681dd106b6e893"
+    },
+    {
+      "fixture_date": "2024-11-24",
+      "mode": "100644",
+      "path": "data/raw/http_cache/40c929e6de207ea9481524fb29f8de3867a29c67eebd334e2cc757a86b346784.txt",
+      "sha": "4f2093f0568ba09682551d77b9d21e4b3d0b4e46",
+      "size": 108151,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/4f2093f0568ba09682551d77b9d21e4b3d0b4e46"
+    },
+    {
+      "fixture_date": "2024-11-25",
+      "mode": "100644",
+      "path": "data/raw/http_cache/1e889891290f20c6b1392df3998e251cc617ce42be421665d69fd0fce9379fe4.txt",
+      "sha": "dcb74237a3e43034831b6d3e43341b6e05887b1c",
+      "size": 84295,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/dcb74237a3e43034831b6d3e43341b6e05887b1c"
+    },
+    {
+      "fixture_date": "2024-11-28",
+      "mode": "100644",
+      "path": "data/raw/http_cache/ef76c410b4cf14784b79fe112f2e89f4ac8a80967d9afa2214f71a42b063c08b.txt",
+      "sha": "1fcb4d7f6ca6db46cad3b8183a44bbfe41a3287d",
+      "size": 139604,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/1fcb4d7f6ca6db46cad3b8183a44bbfe41a3287d"
+    },
+    {
+      "fixture_date": "2024-11-29",
+      "mode": "100644",
+      "path": "data/raw/http_cache/4e5feea824855cd47dd451ceafdf83a95c8ddf477abcfa45a3a98092fb026f3b.txt",
+      "sha": "0027f04bedeead822130697cc982b9f50493c08b",
+      "size": 117386,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/0027f04bedeead822130697cc982b9f50493c08b"
+    },
+    {
+      "fixture_date": "2024-12-01",
+      "mode": "100644",
+      "path": "data/raw/http_cache/8531b166c73a1979eaad75903b9a1b95ce9f0d3e031842b1b95ffd6a7533999c.txt",
+      "sha": "a09ffdfe35425bffe62d06378d7a3da5fa0bf075",
+      "size": 109691,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/a09ffdfe35425bffe62d06378d7a3da5fa0bf075"
+    },
+    {
+      "fixture_date": "2024-12-02",
+      "mode": "100644",
+      "path": "data/raw/http_cache/bb142f6c0e2faf352af726197a85ac330342484d21cf8ef3475fa96c34b4e8de.txt",
+      "sha": "288ac4854982031ca86c01dfb1d71840b8b0cc02",
+      "size": 79749,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/288ac4854982031ca86c01dfb1d71840b8b0cc02"
+    },
+    {
+      "fixture_date": "2024-12-05",
+      "mode": "100644",
+      "path": "data/raw/http_cache/2dec7491b4770c8cd71316287907a1718471a9b94455b5fd53ef918264306cd0.txt",
+      "sha": "6eefa534c679d02a9367030eca3781f1fec3757c",
+      "size": 142111,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/6eefa534c679d02a9367030eca3781f1fec3757c"
+    },
+    {
+      "fixture_date": "2024-12-08",
+      "mode": "100644",
+      "path": "data/raw/http_cache/1a11d37ef2a7bbd8b1e413d84a2a0755dac51b25435b6539b2a31640c3f6b2d6.txt",
+      "sha": "6d2583239beadf0cb6e7fcb27216eb7640a3395d",
+      "size": 127169,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/6d2583239beadf0cb6e7fcb27216eb7640a3395d"
+    },
+    {
+      "fixture_date": "2024-12-09",
+      "mode": "100644",
+      "path": "data/raw/http_cache/8aa696f9250372875b52093bbb01f8a6e3a33168f647d965a3bda77e3922c99f.txt",
+      "sha": "d82ac58bd7e01d195d778d865fcd065ea462e535",
+      "size": 94569,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/d82ac58bd7e01d195d778d865fcd065ea462e535"
+    },
+    {
+      "fixture_date": "2024-12-12",
+      "mode": "100644",
+      "path": "data/raw/http_cache/ee53ef10cd59fc7d12e1f3acae8b13ab29086eb83870735657061754a7df646e.txt",
+      "sha": "1fec936ce911a3454c8626fe9280e1784aeb7390",
+      "size": 152319,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/1fec936ce911a3454c8626fe9280e1784aeb7390"
+    },
+    {
+      "fixture_date": "2024-12-15",
+      "mode": "100644",
+      "path": "data/raw/http_cache/c2417a72ae063c07975811ff3a59c34b6f481ab0eedc94a448a8ab835b4cc560.txt",
+      "sha": "9e220eb0767323bb19a9e41e66c7226a1b6bbad2",
+      "size": 142266,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/9e220eb0767323bb19a9e41e66c7226a1b6bbad2"
+    },
+    {
+      "fixture_date": "2024-12-16",
+      "mode": "100644",
+      "path": "data/raw/http_cache/328cb43c90adda068d7de106c06770a74227dc7c3d5769c80f14099afc22da15.txt",
+      "sha": "c8e83680a6d437383e77436bf7a6702bc0d72ad6",
+      "size": 93037,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/c8e83680a6d437383e77436bf7a6702bc0d72ad6"
+    },
+    {
+      "fixture_date": "2024-12-19",
+      "mode": "100644",
+      "path": "data/raw/http_cache/5dec39eefedb7d6344c37ca77abf62496364188aebeea41d2421fa1e6de1487b.txt",
+      "sha": "d81be77a895fa88592f8f2e3f2acd50e9096ce51",
+      "size": 143184,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/d81be77a895fa88592f8f2e3f2acd50e9096ce51"
+    },
+    {
+      "fixture_date": "2024-12-21",
+      "mode": "100644",
+      "path": "data/raw/http_cache/0535490bc7d41fc44f7a112d8fa400a418904540635c732b389dee36ed8607ba.txt",
+      "sha": "6aba9d3c150b48b1ceddbe9bec81919b5e784fa4",
+      "size": 147022,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/6aba9d3c150b48b1ceddbe9bec81919b5e784fa4"
+    },
+    {
+      "fixture_date": "2024-12-22",
+      "mode": "100644",
+      "path": "data/raw/http_cache/b82fe23c02a6c7aeee31aa0f7db4707fd1e717ca65d017e93de1f76d2c70463d.txt",
+      "sha": "326f995b04714543f1dd0b19c4c24f398ace5c54",
+      "size": 121877,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/326f995b04714543f1dd0b19c4c24f398ace5c54"
+    },
+    {
+      "fixture_date": "2024-12-23",
+      "mode": "100644",
+      "path": "data/raw/http_cache/a89ba7f2bfc368ad008e311ff012c80a3b88d7ecb9020676f3cdb2e9303dce9d.txt",
+      "sha": "e07dc2c233e29f48a20f4518402d84f0597e2cda",
+      "size": 91895,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/e07dc2c233e29f48a20f4518402d84f0597e2cda"
+    },
+    {
+      "fixture_date": "2024-12-25",
+      "mode": "100644",
+      "path": "data/raw/http_cache/29215b4cb3c280821203579ffc92125c4dedcc6c8b4e07d96cfdd5dd6e659577.txt",
+      "sha": "4a4ca3e8f372d10961d1b136a6f01b7f32913716",
+      "size": 92464,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/4a4ca3e8f372d10961d1b136a6f01b7f32913716"
+    },
+    {
+      "fixture_date": "2024-12-26",
+      "mode": "100644",
+      "path": "data/raw/http_cache/5acf0166b8710dbb46a1ae07751a2f7ac48052857f4d1c9963754abc11fd5090.txt",
+      "sha": "fcc574c6315e10a3819fb7be5ba4737fac10f460",
+      "size": 80262,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/fcc574c6315e10a3819fb7be5ba4737fac10f460"
+    },
+    {
+      "fixture_date": "2024-12-28",
+      "mode": "100644",
+      "path": "data/raw/http_cache/2f2bc3440f4027cdaa9626342a2b5fde29d746b2f1f474cdee7d38484a99ab46.txt",
+      "sha": "005dc6318289e2effec722cf18e8328f1633ee6f",
+      "size": 75255,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/005dc6318289e2effec722cf18e8328f1633ee6f"
+    },
+    {
+      "fixture_date": "2024-12-29",
+      "mode": "100644",
+      "path": "data/raw/http_cache/0fd261559cfbd21136b70af46f8f93b48c46c36817ddac43b4d7c72c7468b081.txt",
+      "sha": "45bb44db5a2b2df96840b4e5773a794395f0bb9c",
+      "size": 57905,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/45bb44db5a2b2df96840b4e5773a794395f0bb9c"
+    },
+    {
+      "fixture_date": "2024-12-30",
+      "mode": "100644",
+      "path": "data/raw/http_cache/e88486881d96358da48139cc66cbc6a2b91fa349e0c5da9b892768509d82c1ff.txt",
+      "sha": "774aeec306775be09c257ff2a999fa7d29f2321a",
+      "size": 93536,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/774aeec306775be09c257ff2a999fa7d29f2321a"
+    },
+    {
+      "fixture_date": "2025-01-04",
+      "mode": "100644",
+      "path": "data/raw/http_cache/f9d84b93a7a8f19ec86bfe1ae589f3f7b4c3dec19b3975fb1950ba34565ab46c.txt",
+      "sha": "d12736224d8829f3066f70878148323eae6944e2",
+      "size": 100022,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/d12736224d8829f3066f70878148323eae6944e2"
+    },
+    {
+      "fixture_date": "2025-01-05",
+      "mode": "100644",
+      "path": "data/raw/http_cache/1dfb2d1bdb1ec5111333fe78b7675c4d6dfde64ad777e4f4874db4b88e60a2e9.txt",
+      "sha": "4aa9a4960ef10d901b0002b3f2e1a07a97bed47e",
+      "size": 88682,
+      "type": "blob",
+      "url": "https://api.github.com/repos/bsr-0/nfl-player-projections/git/blobs/4aa9a4960ef10d901b0002b3f2e1a07a97bed47e"
+    }
+  ]
+}

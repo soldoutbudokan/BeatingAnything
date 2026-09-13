@@ -1,0 +1,2734 @@
+{
+  "completed_at_utc": "2026-09-13T18:47:33.821814+00:00",
+  "declaration_sha256": "adb66658ac223620e161b119adb1f292c64cca042bb3d5043e667ec56fb0d241",
+  "selection_sha256": "c979193d3127dddb8f178f4b576c6c8bc1e0a256fd937284bab26468fac4a9cd",
+  "prepared_at_utc": "2026-09-13T18:46:41.465260+00:00",
+  "evaluation_period": [
+    2023,
+    2024
+  ],
+  "original_2025_result_preserved_and_not_pooled": true,
+  "summary": {
+    "selected_games": 26,
+    "settled_games": 26,
+    "unknown_settlements": 0,
+    "wins": 9,
+    "losses": 17,
+    "profit_units": -8.8072,
+    "stake_units": 26,
+    "roi": -0.3387384615384616,
+    "game_bootstrap_95_roi": [
+      -0.6728296153846154,
+      0.025832499999999817
+    ],
+    "pessimistic_unknown_loss_roi": -0.33873846153846154,
+    "unknown_void_roi": -0.3387384615384616,
+    "haircut_fraction_of_net_winnings": 0.02,
+    "status": "unresolved_below_50_settled_games"
+  },
+  "by_year": {
+    "2023": {
+      "summary": {
+        "selected_games": 14,
+        "settled_games": 14,
+        "unknown_settlements": 0,
+        "wins": 4,
+        "losses": 10,
+        "stake_units": 14,
+        "profit_units": -6.521,
+        "roi": -0.46578571428571436,
+        "game_bootstrap_95_roi": [
+          -0.8704714285714286,
+          0.008332857142855607
+        ],
+        "pessimistic_unknown_loss_roi": -0.4657857142857143,
+        "unknown_void_roi_settled_stake_denominator": -0.4657857142857143,
+        "unknown_void_return_per_selected_game": -0.4657857142857143,
+        "haircut_fraction_of_net_winnings": 0.02
+      },
+      "status": "unresolved_below_50_settled_games",
+      "attrition": {
+        "source_prop_rows_all_seasons": 6901,
+        "mapped_evaluation_year_prop_rows": 2005,
+        "valid_pregame_prop_price_rows": 1770,
+        "no_unique_prior_fullname_team_identity": 322,
+        "stale_or_future_prop_clock": 235,
+        "short_role_prop_rows": 538,
+        "no_fresh_earlier_spread_within_six_hours": 364,
+        "failed_fixed_prior_short_target_role": 910,
+        "not_substantial_underdog_at_prior_quote": 152,
+        "not_mapped_to_evaluation_year_regular_season": 4896,
+        "eligible_price_rows": 22,
+        "unique_eligible_player_games": 22,
+        "selected_games": 14
+      }
+    },
+    "2024": {
+      "summary": {
+        "selected_games": 12,
+        "settled_games": 12,
+        "unknown_settlements": 0,
+        "wins": 5,
+        "losses": 7,
+        "stake_units": 12,
+        "profit_units": -2.2862000000000005,
+        "roi": -0.1905166666666667,
+        "game_bootstrap_95_roi": [
+          -0.6985833333333332,
+          0.3673666666666666
+        ],
+        "pessimistic_unknown_loss_roi": -0.1905166666666667,
+        "unknown_void_roi_settled_stake_denominator": -0.1905166666666667,
+        "unknown_void_return_per_selected_game": -0.1905166666666667,
+        "haircut_fraction_of_net_winnings": 0.02
+      },
+      "status": "unresolved_below_50_settled_games",
+      "attrition": {
+        "source_prop_rows_all_seasons": 6901,
+        "not_mapped_to_evaluation_year_regular_season": 4726,
+        "mapped_evaluation_year_prop_rows": 2175,
+        "valid_pregame_prop_price_rows": 1730,
+        "failed_fixed_prior_short_target_role": 912,
+        "short_role_prop_rows": 404,
+        "no_fresh_earlier_spread_within_six_hours": 242,
+        "no_unique_prior_fullname_team_identity": 414,
+        "stale_or_future_prop_clock": 444,
+        "not_substantial_underdog_at_prior_quote": 143,
+        "prop_overround_outside_gate": 1,
+        "eligible_price_rows": 19,
+        "unique_eligible_player_games": 19,
+        "selected_games": 12
+      }
+    }
+  },
+  "sources": {
+    "2023": {
+      "props": {
+        "path": "data/raw/new-prop-archive-sample/nfl/fanduel_receptions_history.csv",
+        "sha256": "795ae85ed74b0b1ad4971f8e2951a61704e79aff3138b760d3ec8fe802a2282d",
+        "bytes": 2464468
+      },
+      "games": {
+        "path": "data/raw/nfl-key-number/games.csv",
+        "sha256": "0c34a519753ada6b5b37f5e8be246021813484adb15ae7c067af9c3aca534d2d",
+        "bytes": 2177046
+      },
+      "pbp": {
+        "path": "data/raw/nfl-wind-kicks/play_by_play_2023.csv.gz",
+        "sha256": "4649804ee0f0a40b41e51ec75a1ce921949d7fab5459213488656b92f78560e8",
+        "bytes": 19169807
+      },
+      "participation": {
+        "path": "data/raw/nfl-garbage-receptions/pbp_participation_2023.csv",
+        "sha256": "ad01aeb4045ee19a4f086ff38b52b14c8f427d3401e529c3078a4545921650a9",
+        "bytes": 49967956
+      },
+      "spread_boards": {
+        "source_repository": "bsr-0/nfl-player-projections",
+        "source_commit": "ca05a001e92386484abcb02880e5ae3ecc9800f2",
+        "selection_sha256": "5f8160289fd04a8fe8b0ebde1841724b409c6f7278c9e4aa403c21742adf5f1e",
+        "boards": 114,
+        "files": [
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-07.json",
+            "source_path": "data/raw/http_cache/090af4c8f646a75dce7f3bc309786b51a432a27767d189199e8af5b18545007a.txt",
+            "sha256": "a7c306b99adfb05701e9c7ed400a3ae31417f52767d5ad514579d92631d83e13",
+            "git_blob_sha": "588110d6d2e1c40e148a617b2c97dc31b7be324a",
+            "bytes": 486330
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-10.json",
+            "source_path": "data/raw/http_cache/bf2204ce43412e2a9e619c1049b774b8351e00b69ae5bdd03e399875476252ae.txt",
+            "sha256": "e2d9f77ba4cf100aef0876c037a83383bf153568138d1dc1202ae6d9ce454ca7",
+            "git_blob_sha": "db92dbd76d20844f6f52061991b7a1cc957c06c6",
+            "bytes": 386884
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-11.json",
+            "source_path": "data/raw/http_cache/f04440be76375c647f8e3662300195376e5efb0d91687455ee6747ba587b95e6.txt",
+            "sha256": "0b96679eb75b701b404418e85a955f168440b3add968fb6bf978f3e86efcb1c9",
+            "git_blob_sha": "5bf2b89c3ea66195eefb37bda54883ea70e72003",
+            "bytes": 151080
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-14.json",
+            "source_path": "data/raw/http_cache/02fbb02cffe137bbbf3f2a22386faaa9d62dfc618a6441ce7c2d3fa160588802.txt",
+            "sha256": "acb2dc183bbef62c692b1d0b67d2f48335b1a87888b771a478afb1fb66a98038",
+            "git_blob_sha": "f1d912bc4fb1d728dbb6249fad8fb4688a6d9909",
+            "bytes": 211419
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-17.json",
+            "source_path": "data/raw/http_cache/0e339f4e2f99ae7266d852e38e3eb9d7fb8365eb4729af9ce169603ee201f543.txt",
+            "sha256": "c0fad11cfebaf7b3ba4746c2cb1f227fdbab58da48b71131a754d8b3f39ef659",
+            "git_blob_sha": "faa9941cf85cccb6b0e6920ff59ed028b6f74839",
+            "bytes": 197359
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-18.json",
+            "source_path": "data/raw/http_cache/adf37a1490a8f79722845eb7c74c0fc38e7251d2a6f51a17af06f940fffc98ee.txt",
+            "sha256": "a3cbd216b9a76070484cbc0790a9166cab8bfccab471140a6c3d152fe35d6c72",
+            "git_blob_sha": "0a81dfd901ba66c45e37fc34a17fe8c4ba0d855d",
+            "bytes": 151799
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-21.json",
+            "source_path": "data/raw/http_cache/2fe5ef9e3f2c3bf5c38973dd9efff8e89c9e44a103b14678d0fd8da4b381f636.txt",
+            "sha256": "977881f569729f7f2b2c644c8edade64b208367d3f491856118b930190b7c1f3",
+            "git_blob_sha": "a4749a74b6fe92a127f8d298e5884f054a0ac829",
+            "bytes": 207947
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-24.json",
+            "source_path": "data/raw/http_cache/4895835717013d79d85c8c040984f4dae45955a7b53076f78895c5aa52c87f39.txt",
+            "sha256": "b9084894af2acbe8a7a2d07a41a9de65faca18c47a7138e92c560ba54aaf0c6e",
+            "git_blob_sha": "a16fa9823b65e459fd434de0bd8451887871ca82",
+            "bytes": 197318
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-25.json",
+            "source_path": "data/raw/http_cache/d0fddc801a79234f49a7f009f272a470edbfa593e3beb6020171837ac351707a.txt",
+            "sha256": "c525d1dd946ad1482716dcfc429e0c4f562cb20fa03e66317226cee63cabd22a",
+            "git_blob_sha": "d96787d68e0b0e3dc40c7b8a2b41a8e534fb768d",
+            "bytes": 141840
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-28.json",
+            "source_path": "data/raw/http_cache/fbc8e4c49602d73a9072303e964e58fc459497106860d78113b1e1530065ef51.txt",
+            "sha256": "7dfd51964db2190255b5e27b96c27b55b1fab05a6d1f3e67478742356d96533f",
+            "git_blob_sha": "a3f35c4e1620d4100bd00aa48bfdb9dd3962713e",
+            "bytes": 219735
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-01.json",
+            "source_path": "data/raw/http_cache/4eac9d4faf3aba012eddc89d048b8babb3124ab49e9d8909a6d487f8c50bcbc6.txt",
+            "sha256": "8aff36a6889bdc94b3144a603df0a67e2cb33f62a1e64f883d3d64bc2a9b6aa4",
+            "git_blob_sha": "6cdfd3821bbcd1dafc5f53c840fc1456db6c2518",
+            "bytes": 162098
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-02.json",
+            "source_path": "data/raw/http_cache/1f89675c883acedcc3cc9f94bcbd1972f37ca6116c10ed5dc848e21503dd6e27.txt",
+            "sha256": "f74fa8c3cc0ba32c1e0824df492a5f229454c41f22f11a5bc8a312aa118c71ca",
+            "git_blob_sha": "6bcb4492924be72bfc27115dee2a60af525523db",
+            "bytes": 136671
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-05.json",
+            "source_path": "data/raw/http_cache/a2f137536a123238a91b818221f715f96277aab17be0af24106b09b267f435b8.txt",
+            "sha256": "df0930fac7a1eb7f3e507dba86b24affffe78541f69f87f9f7010d1156ba5088",
+            "git_blob_sha": "ebad08c78698cad92c65e9ab78736d72eb2f4881",
+            "bytes": 209585
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-08.json",
+            "source_path": "data/raw/http_cache/0f3acf2ebc7c5af1cdad6c70a70241a9f4ee1484ef7758fddb25ed2ede5c22b3.txt",
+            "sha256": "280061ade69b3fd32453e4005700c6d7710d41abc52143e06d433612f6a8c37a",
+            "git_blob_sha": "1e3a5f884448f7e148f2c8b85a02c6e7b74deab8",
+            "bytes": 164407
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-09.json",
+            "source_path": "data/raw/http_cache/e0087b34bfd8ffbba41cef42429812927ede650d4583739a5b41810b92e44f6a.txt",
+            "sha256": "7e2bb13f8bf2da5dfd83ec00e60b2a3f737c0a6f11ca9ab2e5235914bcf177ea",
+            "git_blob_sha": "2a1bc8f62e0945fc369a32d76182c45f04108903",
+            "bytes": 142030
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-12.json",
+            "source_path": "data/raw/http_cache/0961ba3a898d1cafb12fddca9a6bd7ebeeffab462954dd0d8441a8e98adb3a48.txt",
+            "sha256": "a87aef5dd621431da039d550a8b496b18453351da1a46bd2a5a93cc7ae4116d9",
+            "git_blob_sha": "a5ca495861a966789c5b069fc0924e4d4dd01924",
+            "bytes": 190854
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-15.json",
+            "source_path": "data/raw/http_cache/8de14892d5d5c9ec019d30237a29618259e6d29d3e725910ec58d680d2dfa83f.txt",
+            "sha256": "29a4da5baf1e237eaa12409b0ad7f68880578677d104a9b025c6fe228c3eafe2",
+            "git_blob_sha": "df70852a76bf0fd2d73cdcbf4f97b700bb79c4cf",
+            "bytes": 149601
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-16.json",
+            "source_path": "data/raw/http_cache/a04216806718b8c171094ac80d229537010c3da8233707d42e40e3e8f1d3bbac.txt",
+            "sha256": "3b1ac5e0dc7aae3d86e168e09fe3e302ec75dec3cae43b639d0a64aa1a776752",
+            "git_blob_sha": "b01450823226b63d210ba9b39eac931c3ea8b555",
+            "bytes": 123678
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-19.json",
+            "source_path": "data/raw/http_cache/c51dced76a9b12d10dececb998ae95c124de24e63f7dc528459ce2ce0d8ae9d9.txt",
+            "sha256": "a1e658382f15f352fa6ac549101a8713c1c829a1be3a575679c75eb797d81939",
+            "git_blob_sha": "05f7bbf28a6ec01bb9ca56b876ad0f76bd59dceb",
+            "bytes": 192227
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-22.json",
+            "source_path": "data/raw/http_cache/d8365074a88f9dd1d0a0dbe839ed21eba27c70d1d24060df6db0f9cac4defd73.txt",
+            "sha256": "b39db10f7ae23d3908e012a2141369f9a50b6c867deed4b24dccc8fa25488181",
+            "git_blob_sha": "7382e749e4b22e53f0e2aadd190d2dd885f00e8b",
+            "bytes": 165740
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-23.json",
+            "source_path": "data/raw/http_cache/f6411c03414d8971203ea2d8b1f9c63638fe8ab7f8d190dd07c00197bfc260ca.txt",
+            "sha256": "fe8687132c46a985d9bba3b0da9ae1d348d477db87a7d98c7043e6a7aea8bd05",
+            "git_blob_sha": "ffdbc9462b9fe26a5e3e006a4b26390ad45910a8",
+            "bytes": 150458
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-26.json",
+            "source_path": "data/raw/http_cache/05edc4e728212800f989f4f10bdfb4fc6fa7d9393933ecfa9bf77d2808148ebb.txt",
+            "sha256": "d7feea1761d9489305229ad17a754655a0d9c901f6d3258ce321e36fc1645df7",
+            "git_blob_sha": "efa085db4b18016ff14f9bd1988b025264d5b0a8",
+            "bytes": 223277
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-29.json",
+            "source_path": "data/raw/http_cache/89e34aee77e9752d5c1c36c3a42710c6966f17479998d076d963b00f53a28e66.txt",
+            "sha256": "e9a5d6f2a40938cfd26c669e4f1bf931965f9e1c03fc4a8651a2d3db4fb3955e",
+            "git_blob_sha": "a634928ea94c4851c5399767d1d38822972dc7d9",
+            "bytes": 192858
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-30.json",
+            "source_path": "data/raw/http_cache/82fe1259821291ee070b496c2bfdfda70bb9cc8c5b7a7abc70efb5dc958bcc5a.txt",
+            "sha256": "c3464d1d4b64494d6c7659fb84f0f89e205ce2a4d7e6123b29891ad483d4724e",
+            "git_blob_sha": "a6ca660624d743ac4e6603892b467fcc323c25b7",
+            "bytes": 135123
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-02.json",
+            "source_path": "data/raw/http_cache/f3636b6e9d3d01116672b574a7b6a214f4d5c6c5840f30557fab37fe3ffa7e09.txt",
+            "sha256": "43b30fa17c015a48c04468de5f3e3660eef60dc77842252354e8f92bac8dcf88",
+            "git_blob_sha": "c62193a782acc862f19b4e8b1511103f7a4a9e5f",
+            "bytes": 196599
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-05.json",
+            "source_path": "data/raw/http_cache/89c6dc0fcc8e52ba78cad845ffc9f7beb540cd2409bb8be90fc4be7b278fd65e.txt",
+            "sha256": "2de544b5795c63fecc792765ea873d8693ef850c8db538e8e6a0cf3515eee06c",
+            "git_blob_sha": "35c5bc0c5ec4483179834715e7a7f97a3ae938e4",
+            "bytes": 161376
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-06.json",
+            "source_path": "data/raw/http_cache/339a1caca7e536c01913563b7a9f5c2fe53301e821732fd0ec881b03408ddd9f.txt",
+            "sha256": "386f9849d32f8caf44082ee29c44d6c8beb649171b5e89fa8365c33e32729c82",
+            "git_blob_sha": "b00258948be9d09e85b49e2f9d118e5a12a016e3",
+            "bytes": 131057
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-09.json",
+            "source_path": "data/raw/http_cache/1be0aedfc4f331d74e405e4df9056672a39780d7950a164f78c0277efe69c006.txt",
+            "sha256": "8f559ac2389531e8fe86f2379a5083c3c538017f00d713fb260513717f430a56",
+            "git_blob_sha": "e3e322f4d8d70f62f1225a63a8c98abd1e513c8f",
+            "bytes": 199049
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-12.json",
+            "source_path": "data/raw/http_cache/49422005a9067c526656c60054af469731e95b35b0122424895367f7ddbb6f3f.txt",
+            "sha256": "98cfa61ab903b1732ae4466fdf12640ca5574033becd21bb5d51f3d12acce076",
+            "git_blob_sha": "35cfeb63e2859b00ca2fc7d29be84a92587f0c28",
+            "bytes": 176638
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-13.json",
+            "source_path": "data/raw/http_cache/7ed516d32e95ce4bf294d61a580f05a941c95f3df1800127415e0dcff855a59f.txt",
+            "sha256": "9a817e90c01e63c32ef6039e7126d6cea3da9429fe1f977196476f02ad3a1b47",
+            "git_blob_sha": "ec6b105248f86671ebafad1e41c1c73028d7d1ba",
+            "bytes": 121557
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-16.json",
+            "source_path": "data/raw/http_cache/0a26c5e0865ff721bcfd9714fda5695d32575022a5445a57f5618b7552bb7a84.txt",
+            "sha256": "277e2fea9b0c01e55cf6aa1734a243e375d1e09143e5470f5674bc262da49844",
+            "git_blob_sha": "350b212a42715f5dbad0cc22a592ffc43465eee6",
+            "bytes": 207614
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-19.json",
+            "source_path": "data/raw/http_cache/59f2ca784181b58e22a978aedcfbd631de0a2921512c81d490f3b685b0d7c224.txt",
+            "sha256": "c562ba13edc7fbb6d8c1b0f91949216bfa64ae34eb4a99c385c853013d8bde43",
+            "git_blob_sha": "1a8cc6037e2b770bc4824a48dc65320b903c9d7f",
+            "bytes": 179624
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-20.json",
+            "source_path": "data/raw/http_cache/8ece3fc8d87d86b9715c3dfbb96e9d88e0d64b7835a1830a0f2b40f9a4b55c24.txt",
+            "sha256": "48f95efd7414fcb6c9368647e5a323c7e8246d43c6e0a8a2c21936562b1bdfe4",
+            "git_blob_sha": "06b28944589bdfd8f68ccac048b092aa95ba82ca",
+            "bytes": 140937
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-23.json",
+            "source_path": "data/raw/http_cache/621b35b4f9cd380f90e0a303688d5dae2dfa70d2e634ab98a79836f83de10dea.txt",
+            "sha256": "2acdeb9a790a597305e2a14feccf4841ff3e7118bf8b4bdf8cd995f5589d31c5",
+            "git_blob_sha": "77ddd0f492da2326a68a109ed1f23d16117be3ef",
+            "bytes": 203984
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-24.json",
+            "source_path": "data/raw/http_cache/a536328469ad2e6b6caf9d6c3f9b53eb7f808291d2755b56ed5f251d0e4e6535.txt",
+            "sha256": "fcc7dad1c91159dce366202ce6483514fa18372fdf35238fb65877d4592956f3",
+            "git_blob_sha": "4fb164f999b563162532b5e93a98f99ddfa630a8",
+            "bytes": 163725
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-26.json",
+            "source_path": "data/raw/http_cache/ef5afd0e4ed6d73062f880be575b0037a14459c31f3b34a7a5da7a31ea767f51.txt",
+            "sha256": "aed3e630ed2d8b9aca5bffd4a81c824139931c0555d1388886ba2b6489f84045",
+            "git_blob_sha": "0579e0e2c606259cb9cc1d3d5618fd7c45fbb9e0",
+            "bytes": 151288
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-27.json",
+            "source_path": "data/raw/http_cache/b979cd89b9dc1e2818d044d90869515861ec55ed537b0ee5d3da7fb3a77b6f47.txt",
+            "sha256": "afdbdb615d528ec2397012bfcbf071d3a7ce6a1474bf5046b03df5a9aa0e1bbb",
+            "git_blob_sha": "2cabb69deca683a2235c6b68086057a6575cd6f1",
+            "bytes": 120835
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-30.json",
+            "source_path": "data/raw/http_cache/d48d6c2a68a8e0a78087f3fa86cfe20e4c71935c963d3484ff3886edb42cc500.txt",
+            "sha256": "ca26c423a2a0ffeed4449c27e1a1fc52e3a8533e8df8001135d87c59faddaca8",
+            "git_blob_sha": "30e856f782ae193f3ccda8cbd833d1ad88f0a5d8",
+            "bytes": 196964
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-03.json",
+            "source_path": "data/raw/http_cache/3263ab7e3be63f22bc5cdfb44f42538b68b502d94d2bfe9c94dd3866d09e35ba.txt",
+            "sha256": "145335c24f7752355315f09adf617870883db71d812658341a3af5bcf27f8d57",
+            "git_blob_sha": "ac38b639e36616e0424ffd19bf1e8b32259c2d46",
+            "bytes": 180540
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-04.json",
+            "source_path": "data/raw/http_cache/3a76d340ac67323f25c7c57c9fb6bae412bd2cda06949f3dec59d1fcbdf3175e.txt",
+            "sha256": "604fefffa2415507d68cea40a7859850e04809fe382a7b4349ba887d982a573d",
+            "git_blob_sha": "bb460d60fe82f859ffb87fd1846c6c6f452f08ec",
+            "bytes": 134624
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-07.json",
+            "source_path": "data/raw/http_cache/cf03eea1f4b4300f16abd1524ecf5c15ef99fe36559f194d437c759e627aa273.txt",
+            "sha256": "9d18b32ef529c2363fb0f448d7b81cbab01abc1275c48d88e66325f0d5fa2393",
+            "git_blob_sha": "43ecfa1d2f58156f2c0e4180103ea034bccc401b",
+            "bytes": 191124
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-10.json",
+            "source_path": "data/raw/http_cache/b31a20963b73ff4b9e93708c78b9ed203d6dd404e827c03a7ddb96d4eef475e6.txt",
+            "sha256": "4438fae4a0f78abbb5885490034719971a7460e178b1acf79620eaea5b33b9e5",
+            "git_blob_sha": "e7da950ddb8e16b42d73b17a78288fa096f10a10",
+            "bytes": 187510
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-11.json",
+            "source_path": "data/raw/http_cache/2cc87e070841741320b91787512769adcee0ae2e037ce9b748222b3a8be710e2.txt",
+            "sha256": "dc0181ab8c657bd14b26af9a7cffd812e3260be094561c194e9057d02d41f923",
+            "git_blob_sha": "c9297931db9f20f3065d0f71d594abdfa8c110b6",
+            "bytes": 131437
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-14.json",
+            "source_path": "data/raw/http_cache/c942dd4b8a4fad1d86f11695a959ab55d090adb7fbb43949de3a3750c1dec55a.txt",
+            "sha256": "2e9434f9a0da1795a3df6cb116beae919cd51760a1a5cd3fcae301d60c91848f",
+            "git_blob_sha": "31345125aef9d8e1955ba7584d2bd4703f91e67c",
+            "bytes": 186514
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-16.json",
+            "source_path": "data/raw/http_cache/44a82834eee39f2068670dbb5c7cb53fb9e0b92bca59bfc7eb2b4ba0c560d038.txt",
+            "sha256": "1deadb706987178e779275bfe5ca3f86fc94a1c27c5fa98a6637685b2bdbc209",
+            "git_blob_sha": "e2bd41363e4ed96e70081b04117fe5375026f37d",
+            "bytes": 200639
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-17.json",
+            "source_path": "data/raw/http_cache/933a4eee46d7429d9981aae5a1f5df8e04de53d1dc9b13310012e4e7231f3f0c.txt",
+            "sha256": "d7b25bae9d9c80d16077fa06e98a50539111dd6e5237fbb39934f89e008b5894",
+            "git_blob_sha": "56758358394999b209303e047e655b12527b4aaf",
+            "bytes": 152092
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-18.json",
+            "source_path": "data/raw/http_cache/04da119b505e2a13ec5ad4efa630079f0d77c6206ff37dc3ed635b5e92573c00.txt",
+            "sha256": "929a5d9826f2a696f0e9400a2dbf69803a23fcf28472158ff0d42857f1cf88df",
+            "git_blob_sha": "2e6f21779c43626b76724f96a8776647e5fcde8a",
+            "bytes": 128839
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-21.json",
+            "source_path": "data/raw/http_cache/87798fd9546902f48adab84945d669e055cb73c326573efe64b8f225911d40bb.txt",
+            "sha256": "7f9f17d7102ba4b1b000e72bd905f6af457bf1d160767f94356de2fc8faee179",
+            "git_blob_sha": "e2b5bee9b655dd2d76a0f24155a539d4b7686bdf",
+            "bytes": 192714
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-23.json",
+            "source_path": "data/raw/http_cache/54f1c580552b4af39e630ca556e0a7114dec85a0bc977af17550bf07f9a4997b.txt",
+            "sha256": "eb25cd35754485cca9b596e442240f5414bcbc54f6d2245f0b7713c0e8a6a717",
+            "git_blob_sha": "e806c6c4fd329fc903f90e9bc6486c9aaf2efc55",
+            "bytes": 192770
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-24.json",
+            "source_path": "data/raw/http_cache/0f17aabaae869db9b2bf743a57dea5613e2d7430af58aab424f20077d26d5f13.txt",
+            "sha256": "b0e8b3c384c5b216666b985109d88e60516c027c2bd9d71bbba88b033c4502ef",
+            "git_blob_sha": "0522fde1be13932e6479d390959f919931b92fad",
+            "bytes": 148583
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-25.json",
+            "source_path": "data/raw/http_cache/0e465c039c4a6017ffaee312a50e50eb3f32de93174c9f9949b131ac5e4b4e6b.txt",
+            "sha256": "00524bf03ae2fc82ae14a6fa6fe869a3f3f8a92848b4b30755fb3f369142db43",
+            "git_blob_sha": "9dc8803abe82d248919df8c699bd77369e47e670",
+            "bytes": 133109
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-28.json",
+            "source_path": "data/raw/http_cache/6c4bf07f2d153e1c0e3fc628627fc97de8b389d5efb1f876ef9185466b374f02.txt",
+            "sha256": "fce0207fc19acfb152a3a72ca0f5377ca55ad76ed2580a37865631e15b805098",
+            "git_blob_sha": "19bf0fbbfcfa9c302f27d6fb94438f63a1a670dd",
+            "bytes": 121568
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-30.json",
+            "source_path": "data/raw/http_cache/1c0ad1e1ceac4dbe6d6cfe9e48f5a038df6633eec474db806318bade345ade48.txt",
+            "sha256": "df76e0fb95c60cca0c8c5497a13fff950952d346e9f3f984183b7a7d30e4c42a",
+            "git_blob_sha": "ac5dcd2d74189738abd9b25a2935735100ffb8a0",
+            "bytes": 124389
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-31.json",
+            "source_path": "data/raw/http_cache/04eada249540a0a7335656e289daa8fe0706318e7d178d27cdf6e30f0dea13f7.txt",
+            "sha256": "9a57aacd93cba7405d3936e3850d8f8d4c938407bca75de3c0017ff5978d7d95",
+            "git_blob_sha": "cb18139485a2ec9abc3d5494955657d56c1ad30a",
+            "bytes": 117188
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-01-06.json",
+            "source_path": "data/raw/http_cache/91402b44e793e54e9c5e3e8b71e4883ba295d1bc9ab4a3eca151519b9f061a4b.txt",
+            "sha256": "4ef834398d9552a400eaf4e08fee0abbaba7f1d045f4295eafe5ce655908cbee",
+            "git_blob_sha": "6c1a48ee1acda716807687d85f2d546801103ff2",
+            "bytes": 129410
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-01-07.json",
+            "source_path": "data/raw/http_cache/e954cc7abc3aa707e25a0b2fa64150372abe139f7d3417f841b4d109ddf6699f.txt",
+            "sha256": "09ac93669c23512fe1e0c1dad01d120ed6c7b5ec5eeaa218fc62f4d71f05e0c0",
+            "git_blob_sha": "64e74211daba14a42706a1aff73e5bce9158bd99",
+            "bytes": 113212
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-05.json",
+            "source_path": "data/raw/http_cache/45de5a07949c74177801f127c04b72a861cda6923fd2a8ae138dd1cfa7105275.txt",
+            "sha256": "bda6e2628f75c18aae2ddc35f6e565b1d5b65b57ad506982bc136ecce24280c6",
+            "git_blob_sha": "95797e2bec550a5ea1edcd9e5215d3b0f80a4b70",
+            "bytes": 473209
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-06.json",
+            "source_path": "data/raw/http_cache/fa0c6a248ae8eddce432ba4cb4b6864cdb2357cdb26e6e27dbe3022a93c99ac3.txt",
+            "sha256": "80cba3fc08550e606e371b2da58144069d6de7899e4a004ea4964b6804fba1f1",
+            "git_blob_sha": "9478bf77d844e3b54295b8225f3ed9df0c32755e",
+            "bytes": 301146
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-08.json",
+            "source_path": "data/raw/http_cache/d9027a0975205e382d037368defcacaabe4becea8105497b98a4a5ce6e2a5b1b.txt",
+            "sha256": "13b9894ea543edac64d1afa78ff16cde9c71a630fee102efe1a39211c0f728b9",
+            "git_blob_sha": "7d2cefec53349eddddb20906c84c203330b0a988",
+            "bytes": 308622
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-09.json",
+            "source_path": "data/raw/http_cache/ae4b307be4240e52ef7aea1a7ab350909653d0d319bd074d356bf0af24b5b86e.txt",
+            "sha256": "5c1862741a0891636420b9a90734caa55d2f986c62c08a4abdbf9882eb21a8f9",
+            "git_blob_sha": "59460f7d8c1dfc276b79ea1dabceef0b4de4c1c7",
+            "bytes": 93157
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-12.json",
+            "source_path": "data/raw/http_cache/c7da0b6662bba5544202d00b47b3805769daf9bfc1ea30e287a7d0fa41364a3f.txt",
+            "sha256": "fd06e77ad13a83ab39566446646ebd958ec684324e388efc01204bab2632448a",
+            "git_blob_sha": "8b5e00facef24a80b98f097faf185d52a6b77672",
+            "bytes": 108048
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-15.json",
+            "source_path": "data/raw/http_cache/b7abfa0fa1ab259d06ed2966eeb66a0927488311e5ae70aa585c2120da53d121.txt",
+            "sha256": "724fd81e066214e89ce13e331e46bbb75880175cf4be812f23e60bca5fbaf007",
+            "git_blob_sha": "09d31b8cf89f27f3248abf34efa3ab53b046e1a0",
+            "bytes": 122331
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-16.json",
+            "source_path": "data/raw/http_cache/7ccf4dc9cbc4d7779f5fe382766981df84ee26fc60bd820cf691d0f609db3d9b.txt",
+            "sha256": "bb93ebf1df627bb8c60c7c155dadd193cc220bde788993783381b138405888a8",
+            "git_blob_sha": "8d14a1eca363dcdbd7ebf23ddaf06b5be74d7de4",
+            "bytes": 82500
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-19.json",
+            "source_path": "data/raw/http_cache/b02fba28781f318e0a50754fae3d8e86d717c3fb280eae17647ecd84310b25ce.txt",
+            "sha256": "aaf2d2fc8f2ca22a0a61fed94701d3a2aabc9ba4bbd230b99232999702e5801d",
+            "git_blob_sha": "54358aa4a8e0cef2247ac3372895f6dd5eb3bdbb",
+            "bytes": 115236
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-22.json",
+            "source_path": "data/raw/http_cache/be8ed116625a610208a4fb38ee1ff9546e47b9f5128be1a246b8fbba86f444bc.txt",
+            "sha256": "66d36d4f0101ab6654ff9b909f76d326274cd707e87974aa19b00286d5417e55",
+            "git_blob_sha": "c207650942fabb3a81aae7b118ce7be9fd97358a",
+            "bytes": 137870
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-23.json",
+            "source_path": "data/raw/http_cache/113b20b5ccfd4fc4f8df6b115ab04eeca5d9c79be9e1f1b49bf4b6352a68f706.txt",
+            "sha256": "a10eed2b2b9d111440ab35cc37305b6d74a5a67bb06e5f3f7a2e5e43427fff3a",
+            "git_blob_sha": "1a5271ef3fbb127e1fbc9178bd022787f960a122",
+            "bytes": 94213
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-26.json",
+            "source_path": "data/raw/http_cache/4ae92f2ae8d1b359754e0c7fad14df850c86b91ee3c6ae3bb7842519a0604792.txt",
+            "sha256": "41321d28afd4991484f586ea785a6e164503bb5c6fd6312c84afd3ff2623fd2e",
+            "git_blob_sha": "842bf0238d1b04903d6d74e179f46891b46d4f33",
+            "bytes": 135627
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-29.json",
+            "source_path": "data/raw/http_cache/a828f28b230795edea9fc5121865bd0bf7848d3170e645d0f2d21f1e53605e78.txt",
+            "sha256": "bf8628a6ba20005d03961a133d2743bfe3d222282d2871a3389669327d3626c2",
+            "git_blob_sha": "32172c1bad1496ee87558f38f5c65daccdabcf48",
+            "bytes": 114666
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-30.json",
+            "source_path": "data/raw/http_cache/159fdf5d1952201b3dfb6b662cca08ff940919ac47a794b222759ea9cf464cbc.txt",
+            "sha256": "d46ee28758a05ee9c64839951e011343cffc11b2b16380446d5f0b6cd4307d77",
+            "git_blob_sha": "1af8b74740f5fd27086fda088ab3f09522871cd1",
+            "bytes": 91423
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-03.json",
+            "source_path": "data/raw/http_cache/df65a2ede9d1b9c5ac63bc9cecc0154e684589d4934dc279391e44a4c5814325.txt",
+            "sha256": "c599ef785c8abdbf9efcb90f1d6b1b6cb1f327fd006025807c6b960d2d60da6b",
+            "git_blob_sha": "07b8e939801c6a1e49dec28d8438971d324e58af",
+            "bytes": 125288
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-06.json",
+            "source_path": "data/raw/http_cache/953c96cbaf9329e9994909f66f171025d1009c62d39d113336b5463de2229ec7.txt",
+            "sha256": "d7cfafd6ec2e78acf5e708490da3266bd77f154c8685976d604ea04268140c6b",
+            "git_blob_sha": "5bb799a0ca0ed08f9ef246dc5409450cd1d1e2f8",
+            "bytes": 94746
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-07.json",
+            "source_path": "data/raw/http_cache/83c712bbeee16a85226e9daca5e45dc1f1c67afeb947a5ca72e9576967a23e12.txt",
+            "sha256": "88143af997189c695c302fa4d31d1b46ec69e9bb6d3b3c0c6be1b5adbe780865",
+            "git_blob_sha": "3bba6e3226020d547a17b0f26e6cc726c23e0450",
+            "bytes": 75132
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-10.json",
+            "source_path": "data/raw/http_cache/0a1f9a77892efe3432171ee0aa1476a9923e61fe6737328d1468991ca39a3c3d.txt",
+            "sha256": "f5a5723129d0c30c78d5d5459cde8698db60d3143f652fb7f51f5093b846c44e",
+            "git_blob_sha": "65cd1d2c71e2017945a132ac3439b5218b640b5d",
+            "bytes": 134242
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-13.json",
+            "source_path": "data/raw/http_cache/afbdfe319aa8a4734d33719d719f9adafc44f4782d6778035fa1e37f2e64f3db.txt",
+            "sha256": "c3d0922a36d2eeb5116c4dc230870c8f2176bc9e6a8aa71bbee969416829f18d",
+            "git_blob_sha": "bb62a3fdfba0dfcc1a89c99dc334ed04d6bea75e",
+            "bytes": 100647
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-14.json",
+            "source_path": "data/raw/http_cache/97c326e122510e8a3904d938668db22f4d518d65f3246f94522c4d95f1ccac4b.txt",
+            "sha256": "db28fb37930da981c6c172b401b481d60a2efe4c4e5f4c1ac494f77647bcfd12",
+            "git_blob_sha": "de8150a88e8b874d62bf4b6dcdb496e5d9280ad1",
+            "bytes": 79094
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-17.json",
+            "source_path": "data/raw/http_cache/2b9ac3bea0df9592e3e9d6d48f7c5d1de8111b1aac6176632f25f4b820c48d41.txt",
+            "sha256": "10664301e25cafe1c664c3a4f63c9033e50cdceb2dceb398ce6dd8a9f088229a",
+            "git_blob_sha": "a17d943fe7aa6900ec89f8890d343d70595f1e0c",
+            "bytes": 141698
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-20.json",
+            "source_path": "data/raw/http_cache/c6f9a5699907b20adc6097843f544c399b06c564f98f8587374ace65d0fe09d3.txt",
+            "sha256": "5fff87954b6762ba0817886c314736d6c02619e14c9f065ff90a1e13626afd94",
+            "git_blob_sha": "15f2d18a546eef71b14994330e55198e3736673c",
+            "bytes": 105460
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-21.json",
+            "source_path": "data/raw/http_cache/e3520fbc9891aeee66819da2496ca8e54d231124bc6a10ef050e56b5d4890272.txt",
+            "sha256": "d57dc20e539c9e439701681ad08456089cecf5846e57bd169cb169ebd34c2dfb",
+            "git_blob_sha": "d0e370c3e4511211166e3478c28d99e8c21cc67e",
+            "bytes": 83676
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-24.json",
+            "source_path": "data/raw/http_cache/88f72069a9222272be6511a7dce605db4dab37944259cc059a4f60ac92de0879.txt",
+            "sha256": "3348e55ebef902fd2e226e3bea5a8c84abe876027904bf663caaeadb0f944c96",
+            "git_blob_sha": "d6d42a601e0522518e36555efde402c1a1135a36",
+            "bytes": 133067
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-27.json",
+            "source_path": "data/raw/http_cache/3e55c2626108ff7e7298f06909fe89efa2b51a7a6188eea7fb1d8d64219b8202.txt",
+            "sha256": "0cab46e2215e2a8862d2a486d1653aa029e4d1a7f856062298a5c26026cdb108",
+            "git_blob_sha": "dee148d67ace8835f86b3221c4fcb3f406413684",
+            "bytes": 115498
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-28.json",
+            "source_path": "data/raw/http_cache/b79f833d9ee8a6f425d033445131546484a7d263915556732f52ac8ec86c64bc.txt",
+            "sha256": "d8cb11821b66894b990443a7d9fa3765b671c05f7ccc2436db57838866da0129",
+            "git_blob_sha": "40e86a2b542998ede8b9d1c39f1a9ba0229ecdf6",
+            "bytes": 77229
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-31.json",
+            "source_path": "data/raw/http_cache/21487d9733a6d7964676d89c00ee61da76f6574b25af95ff1f025c8d98543576.txt",
+            "sha256": "1af06f936fabe36ab682950a5f899860b48f1c784bcb585747272925ba9160cc",
+            "git_blob_sha": "cc1d81cdfbb386e7c556f088e06037ef622f879d",
+            "bytes": 123338
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-03.json",
+            "source_path": "data/raw/http_cache/d6a1b59dfcf926750c9efd9b95c3833183f7a1e951cd91b5b85167aba65e86a3.txt",
+            "sha256": "1b741d5e4e188e14a6e8ea63130b9c275c588bc6ee2365f727eec3055b38feca",
+            "git_blob_sha": "127cfde1d575cb9bb1d1476ef6c4cde3f9b644e1",
+            "bytes": 127625
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-04.json",
+            "source_path": "data/raw/http_cache/535a8a10fec2a9bc22bd9fe3723fa43a94a056013c29a75d4b34dd549f82e463.txt",
+            "sha256": "71fd8570262b955f705da90e81d9d8f35db50c22e275d19d82c1c7af56f3febf",
+            "git_blob_sha": "55f5d03a7c5a3e9a60575f6c066e2e7666428d68",
+            "bytes": 78525
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-07.json",
+            "source_path": "data/raw/http_cache/bdad1ed7e1fd0747f98ea5feea72746edc926b350465c23d31a2ac8cee3df789.txt",
+            "sha256": "913272890ef393b0aebf87e5a845102e8d9654e490b478e806d616383bcc5bd8",
+            "git_blob_sha": "012bb268c1a25267fb854ef007ebde898f4fc4f7",
+            "bytes": 93689
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-10.json",
+            "source_path": "data/raw/http_cache/100dc4192683ce27d729d89d92110cb6ba7c2ba4773d1b5414ec35585bc443c5.txt",
+            "sha256": "13d88881231b3704102e46cb0129b5a9afa1a929202a16c6a60ceb7921d810ce",
+            "git_blob_sha": "47fd3c88a237c65756d70c8e64536acb6564004b",
+            "bytes": 121481
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-11.json",
+            "source_path": "data/raw/http_cache/7b3a7d898f6001fcc4ffd9aa72b4422e2e868a09dda4c36834ca1d532dd4994f.txt",
+            "sha256": "9f2f449a861180a8a894c5d2c5c7646c828076a099c69c4f28fd27ef7a986f88",
+            "git_blob_sha": "7deb8be6e531115f55df13ad249e27266fbd792b",
+            "bytes": 81979
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-14.json",
+            "source_path": "data/raw/http_cache/fc15a999087acde910317a71111ca19ec325c39984970659e62ae1d2f27be41a.txt",
+            "sha256": "80c2592f20ffd54aea81386a21f00b3ffd95901ac7f40233b0a5e979d77a8129",
+            "git_blob_sha": "0bd6ff2f8faf7b18348ccb1e9486b3ec4366a730",
+            "bytes": 121695
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-17.json",
+            "source_path": "data/raw/http_cache/fe818ec2bd95c54ccf79126692775203d26d5983a10f3779ceabb7740dfd351f.txt",
+            "sha256": "d9cef8819c0f72b047d2d359a123fe148d02f2e2b948eca14bdf95c89538a675",
+            "git_blob_sha": "1c868c5595fa477a152aef20257458d3729ca60c",
+            "bytes": 118170
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-18.json",
+            "source_path": "data/raw/http_cache/c58a178a72f9d95742e8586ff348160158734386256a81febd5de3c27aed06ab.txt",
+            "sha256": "f8ce70d8b5c4520fe81d5588f16d55682abbfd24d340d5880b5ff2f248af64e4",
+            "git_blob_sha": "b03817de1eaa2656dfb0166f965d34855183c413",
+            "bytes": 75225
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-21.json",
+            "source_path": "data/raw/http_cache/a7c6cd6eed993db70dd0e2e622085b30b663e545484b7a9cfb776f86c784dbef.txt",
+            "sha256": "9a44a7c46c92bd34bd8146c9772b947fcf0aec94911637e4bc1dda98c786a4ad",
+            "git_blob_sha": "0caac7b534f3e5da3625c46723681dd106b6e893",
+            "bytes": 117995
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-24.json",
+            "source_path": "data/raw/http_cache/40c929e6de207ea9481524fb29f8de3867a29c67eebd334e2cc757a86b346784.txt",
+            "sha256": "8bcd584bf11bfc2e3e588cea5bc4bc517f64cfae4cc3bb1daa9b7e027fbf1666",
+            "git_blob_sha": "4f2093f0568ba09682551d77b9d21e4b3d0b4e46",
+            "bytes": 108151
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-25.json",
+            "source_path": "data/raw/http_cache/1e889891290f20c6b1392df3998e251cc617ce42be421665d69fd0fce9379fe4.txt",
+            "sha256": "eabc45ddeade880777863e91090b5a489b79f53f03c610bdfe284cb489afe0a6",
+            "git_blob_sha": "dcb74237a3e43034831b6d3e43341b6e05887b1c",
+            "bytes": 84295
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-28.json",
+            "source_path": "data/raw/http_cache/ef76c410b4cf14784b79fe112f2e89f4ac8a80967d9afa2214f71a42b063c08b.txt",
+            "sha256": "6673df4b90e53745b06583162c01313f02a6707d34ae5aa4454df8ee84d99f1f",
+            "git_blob_sha": "1fcb4d7f6ca6db46cad3b8183a44bbfe41a3287d",
+            "bytes": 139604
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-29.json",
+            "source_path": "data/raw/http_cache/4e5feea824855cd47dd451ceafdf83a95c8ddf477abcfa45a3a98092fb026f3b.txt",
+            "sha256": "733145c8361816d15d62ac22a7c91900f9ebedf8335cde525d901d593b74af47",
+            "git_blob_sha": "0027f04bedeead822130697cc982b9f50493c08b",
+            "bytes": 117386
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-01.json",
+            "source_path": "data/raw/http_cache/8531b166c73a1979eaad75903b9a1b95ce9f0d3e031842b1b95ffd6a7533999c.txt",
+            "sha256": "b545ebf7abf82b487105a87dba2a2b9cac302e4bc17f08f2de270945410132b8",
+            "git_blob_sha": "a09ffdfe35425bffe62d06378d7a3da5fa0bf075",
+            "bytes": 109691
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-02.json",
+            "source_path": "data/raw/http_cache/bb142f6c0e2faf352af726197a85ac330342484d21cf8ef3475fa96c34b4e8de.txt",
+            "sha256": "cf311d4f0acd0a8fbf051c12ef98919626f274be7f8ee3ba427eb2eb89101dbc",
+            "git_blob_sha": "288ac4854982031ca86c01dfb1d71840b8b0cc02",
+            "bytes": 79749
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-05.json",
+            "source_path": "data/raw/http_cache/2dec7491b4770c8cd71316287907a1718471a9b94455b5fd53ef918264306cd0.txt",
+            "sha256": "bebb45c4ccd5936b0980d58ca92da6bde43be13a9a74bc7d2747e34a22ca3992",
+            "git_blob_sha": "6eefa534c679d02a9367030eca3781f1fec3757c",
+            "bytes": 142111
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-08.json",
+            "source_path": "data/raw/http_cache/1a11d37ef2a7bbd8b1e413d84a2a0755dac51b25435b6539b2a31640c3f6b2d6.txt",
+            "sha256": "169b35d758d6869afd8ce755eb2f0fc99b8df0d54c665281b57c59b9a983e676",
+            "git_blob_sha": "6d2583239beadf0cb6e7fcb27216eb7640a3395d",
+            "bytes": 127169
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-09.json",
+            "source_path": "data/raw/http_cache/8aa696f9250372875b52093bbb01f8a6e3a33168f647d965a3bda77e3922c99f.txt",
+            "sha256": "fd344c921c704bffb85f22b07700af95a730a03560cc7a3c3e2377a157202a45",
+            "git_blob_sha": "d82ac58bd7e01d195d778d865fcd065ea462e535",
+            "bytes": 94569
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-12.json",
+            "source_path": "data/raw/http_cache/ee53ef10cd59fc7d12e1f3acae8b13ab29086eb83870735657061754a7df646e.txt",
+            "sha256": "d1e04c82404e80fc12e144951999ba5d153e31e30bf7647be638f4109fdb8c69",
+            "git_blob_sha": "1fec936ce911a3454c8626fe9280e1784aeb7390",
+            "bytes": 152319
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-15.json",
+            "source_path": "data/raw/http_cache/c2417a72ae063c07975811ff3a59c34b6f481ab0eedc94a448a8ab835b4cc560.txt",
+            "sha256": "879e81c5543f92783aaa66ceab1d90b41b918ee76124bac0056ccc21ddcaf6a3",
+            "git_blob_sha": "9e220eb0767323bb19a9e41e66c7226a1b6bbad2",
+            "bytes": 142266
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-16.json",
+            "source_path": "data/raw/http_cache/328cb43c90adda068d7de106c06770a74227dc7c3d5769c80f14099afc22da15.txt",
+            "sha256": "319de6fa3b6305d9e846fd3244b38006474f19608c7f68ffc84caafa79a05e8f",
+            "git_blob_sha": "c8e83680a6d437383e77436bf7a6702bc0d72ad6",
+            "bytes": 93037
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-19.json",
+            "source_path": "data/raw/http_cache/5dec39eefedb7d6344c37ca77abf62496364188aebeea41d2421fa1e6de1487b.txt",
+            "sha256": "a9f87da93fea4ee54b0615cdca3703da6ed7020caf901674137f16c239b5cf0a",
+            "git_blob_sha": "d81be77a895fa88592f8f2e3f2acd50e9096ce51",
+            "bytes": 143184
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-21.json",
+            "source_path": "data/raw/http_cache/0535490bc7d41fc44f7a112d8fa400a418904540635c732b389dee36ed8607ba.txt",
+            "sha256": "5def054db42000e71c05cfcefa19119506e5fbfbfbdc37f96b7545c52bf70b4d",
+            "git_blob_sha": "6aba9d3c150b48b1ceddbe9bec81919b5e784fa4",
+            "bytes": 147022
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-22.json",
+            "source_path": "data/raw/http_cache/b82fe23c02a6c7aeee31aa0f7db4707fd1e717ca65d017e93de1f76d2c70463d.txt",
+            "sha256": "185a5c7c28aaebfd21d4cb6453e017562585222b0d13fa641294975a86eb98e3",
+            "git_blob_sha": "326f995b04714543f1dd0b19c4c24f398ace5c54",
+            "bytes": 121877
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-23.json",
+            "source_path": "data/raw/http_cache/a89ba7f2bfc368ad008e311ff012c80a3b88d7ecb9020676f3cdb2e9303dce9d.txt",
+            "sha256": "6388da9eb44243ffb2fb30d1b0539a51aa08afb9025795b38944d79da26f6b7c",
+            "git_blob_sha": "e07dc2c233e29f48a20f4518402d84f0597e2cda",
+            "bytes": 91895
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-25.json",
+            "source_path": "data/raw/http_cache/29215b4cb3c280821203579ffc92125c4dedcc6c8b4e07d96cfdd5dd6e659577.txt",
+            "sha256": "d08fad41dd64bc918a1a5105ac4af2a94d09f6189f31939f68c9de804a152248",
+            "git_blob_sha": "4a4ca3e8f372d10961d1b136a6f01b7f32913716",
+            "bytes": 92464
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-26.json",
+            "source_path": "data/raw/http_cache/5acf0166b8710dbb46a1ae07751a2f7ac48052857f4d1c9963754abc11fd5090.txt",
+            "sha256": "f2bc26bb7990bffefdb04915aa18fd5e7b665a1653651be853833b19b79fd7c8",
+            "git_blob_sha": "fcc574c6315e10a3819fb7be5ba4737fac10f460",
+            "bytes": 80262
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-28.json",
+            "source_path": "data/raw/http_cache/2f2bc3440f4027cdaa9626342a2b5fde29d746b2f1f474cdee7d38484a99ab46.txt",
+            "sha256": "e4dde76b7da2564ae56c5c00225a9942e8b741673ce9647412b1851a628cedf7",
+            "git_blob_sha": "005dc6318289e2effec722cf18e8328f1633ee6f",
+            "bytes": 75255
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-29.json",
+            "source_path": "data/raw/http_cache/0fd261559cfbd21136b70af46f8f93b48c46c36817ddac43b4d7c72c7468b081.txt",
+            "sha256": "3c1a0640f523fae71f36e6c17743e0b05133adeb383c2a2b89ec96d87c751cd0",
+            "git_blob_sha": "45bb44db5a2b2df96840b4e5773a794395f0bb9c",
+            "bytes": 57905
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-30.json",
+            "source_path": "data/raw/http_cache/e88486881d96358da48139cc66cbc6a2b91fa349e0c5da9b892768509d82c1ff.txt",
+            "sha256": "a6b67b51138f0d00328ca7298709c42c00f18b93ca53b23dc2e15a48fb41cd3f",
+            "git_blob_sha": "774aeec306775be09c257ff2a999fa7d29f2321a",
+            "bytes": 93536
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2025-01-04.json",
+            "source_path": "data/raw/http_cache/f9d84b93a7a8f19ec86bfe1ae589f3f7b4c3dec19b3975fb1950ba34565ab46c.txt",
+            "sha256": "3b254806d792e9571a6a4d0af98771a3ddc3a77ebb8a3a9d2ff5dc46fe5acd7d",
+            "git_blob_sha": "d12736224d8829f3066f70878148323eae6944e2",
+            "bytes": 100022
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2025-01-05.json",
+            "source_path": "data/raw/http_cache/1dfb2d1bdb1ec5111333fe78b7675c4d6dfde64ad777e4f4874db4b88e60a2e9.txt",
+            "sha256": "bafa8505378739814c6342e758790e5cd0693339632de3654dc4bb2e2c301d11",
+            "git_blob_sha": "4aa9a4960ef10d901b0002b3f2e1a07a97bed47e",
+            "bytes": 88682
+          }
+        ]
+      }
+    },
+    "2024": {
+      "props": {
+        "path": "data/raw/new-prop-archive-sample/nfl/fanduel_receptions_history.csv",
+        "sha256": "795ae85ed74b0b1ad4971f8e2951a61704e79aff3138b760d3ec8fe802a2282d",
+        "bytes": 2464468
+      },
+      "games": {
+        "path": "data/raw/nfl-key-number/games.csv",
+        "sha256": "0c34a519753ada6b5b37f5e8be246021813484adb15ae7c067af9c3aca534d2d",
+        "bytes": 2177046
+      },
+      "pbp": {
+        "path": "data/raw/nfl-wind-kicks/play_by_play_2024.csv.gz",
+        "sha256": "23370d5d10f8104d80d46a1fc5e61f4f6f5a3263fe96fe2dd629913cfcb08c06",
+        "bytes": 19362351
+      },
+      "participation": {
+        "path": "data/raw/nfl-garbage-receptions/pbp_participation_2024.csv",
+        "sha256": "b1f436a98b2a7759eb4ed1181e072a35c2666f9aeb356a49c943d28d6be6b0b9",
+        "bytes": 49688308
+      },
+      "spread_boards": {
+        "source_repository": "bsr-0/nfl-player-projections",
+        "source_commit": "ca05a001e92386484abcb02880e5ae3ecc9800f2",
+        "selection_sha256": "5f8160289fd04a8fe8b0ebde1841724b409c6f7278c9e4aa403c21742adf5f1e",
+        "boards": 114,
+        "files": [
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-07.json",
+            "source_path": "data/raw/http_cache/090af4c8f646a75dce7f3bc309786b51a432a27767d189199e8af5b18545007a.txt",
+            "sha256": "a7c306b99adfb05701e9c7ed400a3ae31417f52767d5ad514579d92631d83e13",
+            "git_blob_sha": "588110d6d2e1c40e148a617b2c97dc31b7be324a",
+            "bytes": 486330
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-10.json",
+            "source_path": "data/raw/http_cache/bf2204ce43412e2a9e619c1049b774b8351e00b69ae5bdd03e399875476252ae.txt",
+            "sha256": "e2d9f77ba4cf100aef0876c037a83383bf153568138d1dc1202ae6d9ce454ca7",
+            "git_blob_sha": "db92dbd76d20844f6f52061991b7a1cc957c06c6",
+            "bytes": 386884
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-11.json",
+            "source_path": "data/raw/http_cache/f04440be76375c647f8e3662300195376e5efb0d91687455ee6747ba587b95e6.txt",
+            "sha256": "0b96679eb75b701b404418e85a955f168440b3add968fb6bf978f3e86efcb1c9",
+            "git_blob_sha": "5bf2b89c3ea66195eefb37bda54883ea70e72003",
+            "bytes": 151080
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-14.json",
+            "source_path": "data/raw/http_cache/02fbb02cffe137bbbf3f2a22386faaa9d62dfc618a6441ce7c2d3fa160588802.txt",
+            "sha256": "acb2dc183bbef62c692b1d0b67d2f48335b1a87888b771a478afb1fb66a98038",
+            "git_blob_sha": "f1d912bc4fb1d728dbb6249fad8fb4688a6d9909",
+            "bytes": 211419
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-17.json",
+            "source_path": "data/raw/http_cache/0e339f4e2f99ae7266d852e38e3eb9d7fb8365eb4729af9ce169603ee201f543.txt",
+            "sha256": "c0fad11cfebaf7b3ba4746c2cb1f227fdbab58da48b71131a754d8b3f39ef659",
+            "git_blob_sha": "faa9941cf85cccb6b0e6920ff59ed028b6f74839",
+            "bytes": 197359
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-18.json",
+            "source_path": "data/raw/http_cache/adf37a1490a8f79722845eb7c74c0fc38e7251d2a6f51a17af06f940fffc98ee.txt",
+            "sha256": "a3cbd216b9a76070484cbc0790a9166cab8bfccab471140a6c3d152fe35d6c72",
+            "git_blob_sha": "0a81dfd901ba66c45e37fc34a17fe8c4ba0d855d",
+            "bytes": 151799
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-21.json",
+            "source_path": "data/raw/http_cache/2fe5ef9e3f2c3bf5c38973dd9efff8e89c9e44a103b14678d0fd8da4b381f636.txt",
+            "sha256": "977881f569729f7f2b2c644c8edade64b208367d3f491856118b930190b7c1f3",
+            "git_blob_sha": "a4749a74b6fe92a127f8d298e5884f054a0ac829",
+            "bytes": 207947
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-24.json",
+            "source_path": "data/raw/http_cache/4895835717013d79d85c8c040984f4dae45955a7b53076f78895c5aa52c87f39.txt",
+            "sha256": "b9084894af2acbe8a7a2d07a41a9de65faca18c47a7138e92c560ba54aaf0c6e",
+            "git_blob_sha": "a16fa9823b65e459fd434de0bd8451887871ca82",
+            "bytes": 197318
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-25.json",
+            "source_path": "data/raw/http_cache/d0fddc801a79234f49a7f009f272a470edbfa593e3beb6020171837ac351707a.txt",
+            "sha256": "c525d1dd946ad1482716dcfc429e0c4f562cb20fa03e66317226cee63cabd22a",
+            "git_blob_sha": "d96787d68e0b0e3dc40c7b8a2b41a8e534fb768d",
+            "bytes": 141840
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-09-28.json",
+            "source_path": "data/raw/http_cache/fbc8e4c49602d73a9072303e964e58fc459497106860d78113b1e1530065ef51.txt",
+            "sha256": "7dfd51964db2190255b5e27b96c27b55b1fab05a6d1f3e67478742356d96533f",
+            "git_blob_sha": "a3f35c4e1620d4100bd00aa48bfdb9dd3962713e",
+            "bytes": 219735
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-01.json",
+            "source_path": "data/raw/http_cache/4eac9d4faf3aba012eddc89d048b8babb3124ab49e9d8909a6d487f8c50bcbc6.txt",
+            "sha256": "8aff36a6889bdc94b3144a603df0a67e2cb33f62a1e64f883d3d64bc2a9b6aa4",
+            "git_blob_sha": "6cdfd3821bbcd1dafc5f53c840fc1456db6c2518",
+            "bytes": 162098
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-02.json",
+            "source_path": "data/raw/http_cache/1f89675c883acedcc3cc9f94bcbd1972f37ca6116c10ed5dc848e21503dd6e27.txt",
+            "sha256": "f74fa8c3cc0ba32c1e0824df492a5f229454c41f22f11a5bc8a312aa118c71ca",
+            "git_blob_sha": "6bcb4492924be72bfc27115dee2a60af525523db",
+            "bytes": 136671
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-05.json",
+            "source_path": "data/raw/http_cache/a2f137536a123238a91b818221f715f96277aab17be0af24106b09b267f435b8.txt",
+            "sha256": "df0930fac7a1eb7f3e507dba86b24affffe78541f69f87f9f7010d1156ba5088",
+            "git_blob_sha": "ebad08c78698cad92c65e9ab78736d72eb2f4881",
+            "bytes": 209585
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-08.json",
+            "source_path": "data/raw/http_cache/0f3acf2ebc7c5af1cdad6c70a70241a9f4ee1484ef7758fddb25ed2ede5c22b3.txt",
+            "sha256": "280061ade69b3fd32453e4005700c6d7710d41abc52143e06d433612f6a8c37a",
+            "git_blob_sha": "1e3a5f884448f7e148f2c8b85a02c6e7b74deab8",
+            "bytes": 164407
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-09.json",
+            "source_path": "data/raw/http_cache/e0087b34bfd8ffbba41cef42429812927ede650d4583739a5b41810b92e44f6a.txt",
+            "sha256": "7e2bb13f8bf2da5dfd83ec00e60b2a3f737c0a6f11ca9ab2e5235914bcf177ea",
+            "git_blob_sha": "2a1bc8f62e0945fc369a32d76182c45f04108903",
+            "bytes": 142030
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-12.json",
+            "source_path": "data/raw/http_cache/0961ba3a898d1cafb12fddca9a6bd7ebeeffab462954dd0d8441a8e98adb3a48.txt",
+            "sha256": "a87aef5dd621431da039d550a8b496b18453351da1a46bd2a5a93cc7ae4116d9",
+            "git_blob_sha": "a5ca495861a966789c5b069fc0924e4d4dd01924",
+            "bytes": 190854
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-15.json",
+            "source_path": "data/raw/http_cache/8de14892d5d5c9ec019d30237a29618259e6d29d3e725910ec58d680d2dfa83f.txt",
+            "sha256": "29a4da5baf1e237eaa12409b0ad7f68880578677d104a9b025c6fe228c3eafe2",
+            "git_blob_sha": "df70852a76bf0fd2d73cdcbf4f97b700bb79c4cf",
+            "bytes": 149601
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-16.json",
+            "source_path": "data/raw/http_cache/a04216806718b8c171094ac80d229537010c3da8233707d42e40e3e8f1d3bbac.txt",
+            "sha256": "3b1ac5e0dc7aae3d86e168e09fe3e302ec75dec3cae43b639d0a64aa1a776752",
+            "git_blob_sha": "b01450823226b63d210ba9b39eac931c3ea8b555",
+            "bytes": 123678
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-19.json",
+            "source_path": "data/raw/http_cache/c51dced76a9b12d10dececb998ae95c124de24e63f7dc528459ce2ce0d8ae9d9.txt",
+            "sha256": "a1e658382f15f352fa6ac549101a8713c1c829a1be3a575679c75eb797d81939",
+            "git_blob_sha": "05f7bbf28a6ec01bb9ca56b876ad0f76bd59dceb",
+            "bytes": 192227
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-22.json",
+            "source_path": "data/raw/http_cache/d8365074a88f9dd1d0a0dbe839ed21eba27c70d1d24060df6db0f9cac4defd73.txt",
+            "sha256": "b39db10f7ae23d3908e012a2141369f9a50b6c867deed4b24dccc8fa25488181",
+            "git_blob_sha": "7382e749e4b22e53f0e2aadd190d2dd885f00e8b",
+            "bytes": 165740
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-23.json",
+            "source_path": "data/raw/http_cache/f6411c03414d8971203ea2d8b1f9c63638fe8ab7f8d190dd07c00197bfc260ca.txt",
+            "sha256": "fe8687132c46a985d9bba3b0da9ae1d348d477db87a7d98c7043e6a7aea8bd05",
+            "git_blob_sha": "ffdbc9462b9fe26a5e3e006a4b26390ad45910a8",
+            "bytes": 150458
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-26.json",
+            "source_path": "data/raw/http_cache/05edc4e728212800f989f4f10bdfb4fc6fa7d9393933ecfa9bf77d2808148ebb.txt",
+            "sha256": "d7feea1761d9489305229ad17a754655a0d9c901f6d3258ce321e36fc1645df7",
+            "git_blob_sha": "efa085db4b18016ff14f9bd1988b025264d5b0a8",
+            "bytes": 223277
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-29.json",
+            "source_path": "data/raw/http_cache/89e34aee77e9752d5c1c36c3a42710c6966f17479998d076d963b00f53a28e66.txt",
+            "sha256": "e9a5d6f2a40938cfd26c669e4f1bf931965f9e1c03fc4a8651a2d3db4fb3955e",
+            "git_blob_sha": "a634928ea94c4851c5399767d1d38822972dc7d9",
+            "bytes": 192858
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-10-30.json",
+            "source_path": "data/raw/http_cache/82fe1259821291ee070b496c2bfdfda70bb9cc8c5b7a7abc70efb5dc958bcc5a.txt",
+            "sha256": "c3464d1d4b64494d6c7659fb84f0f89e205ce2a4d7e6123b29891ad483d4724e",
+            "git_blob_sha": "a6ca660624d743ac4e6603892b467fcc323c25b7",
+            "bytes": 135123
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-02.json",
+            "source_path": "data/raw/http_cache/f3636b6e9d3d01116672b574a7b6a214f4d5c6c5840f30557fab37fe3ffa7e09.txt",
+            "sha256": "43b30fa17c015a48c04468de5f3e3660eef60dc77842252354e8f92bac8dcf88",
+            "git_blob_sha": "c62193a782acc862f19b4e8b1511103f7a4a9e5f",
+            "bytes": 196599
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-05.json",
+            "source_path": "data/raw/http_cache/89c6dc0fcc8e52ba78cad845ffc9f7beb540cd2409bb8be90fc4be7b278fd65e.txt",
+            "sha256": "2de544b5795c63fecc792765ea873d8693ef850c8db538e8e6a0cf3515eee06c",
+            "git_blob_sha": "35c5bc0c5ec4483179834715e7a7f97a3ae938e4",
+            "bytes": 161376
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-06.json",
+            "source_path": "data/raw/http_cache/339a1caca7e536c01913563b7a9f5c2fe53301e821732fd0ec881b03408ddd9f.txt",
+            "sha256": "386f9849d32f8caf44082ee29c44d6c8beb649171b5e89fa8365c33e32729c82",
+            "git_blob_sha": "b00258948be9d09e85b49e2f9d118e5a12a016e3",
+            "bytes": 131057
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-09.json",
+            "source_path": "data/raw/http_cache/1be0aedfc4f331d74e405e4df9056672a39780d7950a164f78c0277efe69c006.txt",
+            "sha256": "8f559ac2389531e8fe86f2379a5083c3c538017f00d713fb260513717f430a56",
+            "git_blob_sha": "e3e322f4d8d70f62f1225a63a8c98abd1e513c8f",
+            "bytes": 199049
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-12.json",
+            "source_path": "data/raw/http_cache/49422005a9067c526656c60054af469731e95b35b0122424895367f7ddbb6f3f.txt",
+            "sha256": "98cfa61ab903b1732ae4466fdf12640ca5574033becd21bb5d51f3d12acce076",
+            "git_blob_sha": "35cfeb63e2859b00ca2fc7d29be84a92587f0c28",
+            "bytes": 176638
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-13.json",
+            "source_path": "data/raw/http_cache/7ed516d32e95ce4bf294d61a580f05a941c95f3df1800127415e0dcff855a59f.txt",
+            "sha256": "9a817e90c01e63c32ef6039e7126d6cea3da9429fe1f977196476f02ad3a1b47",
+            "git_blob_sha": "ec6b105248f86671ebafad1e41c1c73028d7d1ba",
+            "bytes": 121557
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-16.json",
+            "source_path": "data/raw/http_cache/0a26c5e0865ff721bcfd9714fda5695d32575022a5445a57f5618b7552bb7a84.txt",
+            "sha256": "277e2fea9b0c01e55cf6aa1734a243e375d1e09143e5470f5674bc262da49844",
+            "git_blob_sha": "350b212a42715f5dbad0cc22a592ffc43465eee6",
+            "bytes": 207614
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-19.json",
+            "source_path": "data/raw/http_cache/59f2ca784181b58e22a978aedcfbd631de0a2921512c81d490f3b685b0d7c224.txt",
+            "sha256": "c562ba13edc7fbb6d8c1b0f91949216bfa64ae34eb4a99c385c853013d8bde43",
+            "git_blob_sha": "1a8cc6037e2b770bc4824a48dc65320b903c9d7f",
+            "bytes": 179624
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-20.json",
+            "source_path": "data/raw/http_cache/8ece3fc8d87d86b9715c3dfbb96e9d88e0d64b7835a1830a0f2b40f9a4b55c24.txt",
+            "sha256": "48f95efd7414fcb6c9368647e5a323c7e8246d43c6e0a8a2c21936562b1bdfe4",
+            "git_blob_sha": "06b28944589bdfd8f68ccac048b092aa95ba82ca",
+            "bytes": 140937
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-23.json",
+            "source_path": "data/raw/http_cache/621b35b4f9cd380f90e0a303688d5dae2dfa70d2e634ab98a79836f83de10dea.txt",
+            "sha256": "2acdeb9a790a597305e2a14feccf4841ff3e7118bf8b4bdf8cd995f5589d31c5",
+            "git_blob_sha": "77ddd0f492da2326a68a109ed1f23d16117be3ef",
+            "bytes": 203984
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-24.json",
+            "source_path": "data/raw/http_cache/a536328469ad2e6b6caf9d6c3f9b53eb7f808291d2755b56ed5f251d0e4e6535.txt",
+            "sha256": "fcc7dad1c91159dce366202ce6483514fa18372fdf35238fb65877d4592956f3",
+            "git_blob_sha": "4fb164f999b563162532b5e93a98f99ddfa630a8",
+            "bytes": 163725
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-26.json",
+            "source_path": "data/raw/http_cache/ef5afd0e4ed6d73062f880be575b0037a14459c31f3b34a7a5da7a31ea767f51.txt",
+            "sha256": "aed3e630ed2d8b9aca5bffd4a81c824139931c0555d1388886ba2b6489f84045",
+            "git_blob_sha": "0579e0e2c606259cb9cc1d3d5618fd7c45fbb9e0",
+            "bytes": 151288
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-27.json",
+            "source_path": "data/raw/http_cache/b979cd89b9dc1e2818d044d90869515861ec55ed537b0ee5d3da7fb3a77b6f47.txt",
+            "sha256": "afdbdb615d528ec2397012bfcbf071d3a7ce6a1474bf5046b03df5a9aa0e1bbb",
+            "git_blob_sha": "2cabb69deca683a2235c6b68086057a6575cd6f1",
+            "bytes": 120835
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-11-30.json",
+            "source_path": "data/raw/http_cache/d48d6c2a68a8e0a78087f3fa86cfe20e4c71935c963d3484ff3886edb42cc500.txt",
+            "sha256": "ca26c423a2a0ffeed4449c27e1a1fc52e3a8533e8df8001135d87c59faddaca8",
+            "git_blob_sha": "30e856f782ae193f3ccda8cbd833d1ad88f0a5d8",
+            "bytes": 196964
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-03.json",
+            "source_path": "data/raw/http_cache/3263ab7e3be63f22bc5cdfb44f42538b68b502d94d2bfe9c94dd3866d09e35ba.txt",
+            "sha256": "145335c24f7752355315f09adf617870883db71d812658341a3af5bcf27f8d57",
+            "git_blob_sha": "ac38b639e36616e0424ffd19bf1e8b32259c2d46",
+            "bytes": 180540
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-04.json",
+            "source_path": "data/raw/http_cache/3a76d340ac67323f25c7c57c9fb6bae412bd2cda06949f3dec59d1fcbdf3175e.txt",
+            "sha256": "604fefffa2415507d68cea40a7859850e04809fe382a7b4349ba887d982a573d",
+            "git_blob_sha": "bb460d60fe82f859ffb87fd1846c6c6f452f08ec",
+            "bytes": 134624
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-07.json",
+            "source_path": "data/raw/http_cache/cf03eea1f4b4300f16abd1524ecf5c15ef99fe36559f194d437c759e627aa273.txt",
+            "sha256": "9d18b32ef529c2363fb0f448d7b81cbab01abc1275c48d88e66325f0d5fa2393",
+            "git_blob_sha": "43ecfa1d2f58156f2c0e4180103ea034bccc401b",
+            "bytes": 191124
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-10.json",
+            "source_path": "data/raw/http_cache/b31a20963b73ff4b9e93708c78b9ed203d6dd404e827c03a7ddb96d4eef475e6.txt",
+            "sha256": "4438fae4a0f78abbb5885490034719971a7460e178b1acf79620eaea5b33b9e5",
+            "git_blob_sha": "e7da950ddb8e16b42d73b17a78288fa096f10a10",
+            "bytes": 187510
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-11.json",
+            "source_path": "data/raw/http_cache/2cc87e070841741320b91787512769adcee0ae2e037ce9b748222b3a8be710e2.txt",
+            "sha256": "dc0181ab8c657bd14b26af9a7cffd812e3260be094561c194e9057d02d41f923",
+            "git_blob_sha": "c9297931db9f20f3065d0f71d594abdfa8c110b6",
+            "bytes": 131437
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-14.json",
+            "source_path": "data/raw/http_cache/c942dd4b8a4fad1d86f11695a959ab55d090adb7fbb43949de3a3750c1dec55a.txt",
+            "sha256": "2e9434f9a0da1795a3df6cb116beae919cd51760a1a5cd3fcae301d60c91848f",
+            "git_blob_sha": "31345125aef9d8e1955ba7584d2bd4703f91e67c",
+            "bytes": 186514
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-16.json",
+            "source_path": "data/raw/http_cache/44a82834eee39f2068670dbb5c7cb53fb9e0b92bca59bfc7eb2b4ba0c560d038.txt",
+            "sha256": "1deadb706987178e779275bfe5ca3f86fc94a1c27c5fa98a6637685b2bdbc209",
+            "git_blob_sha": "e2bd41363e4ed96e70081b04117fe5375026f37d",
+            "bytes": 200639
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-17.json",
+            "source_path": "data/raw/http_cache/933a4eee46d7429d9981aae5a1f5df8e04de53d1dc9b13310012e4e7231f3f0c.txt",
+            "sha256": "d7b25bae9d9c80d16077fa06e98a50539111dd6e5237fbb39934f89e008b5894",
+            "git_blob_sha": "56758358394999b209303e047e655b12527b4aaf",
+            "bytes": 152092
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-18.json",
+            "source_path": "data/raw/http_cache/04da119b505e2a13ec5ad4efa630079f0d77c6206ff37dc3ed635b5e92573c00.txt",
+            "sha256": "929a5d9826f2a696f0e9400a2dbf69803a23fcf28472158ff0d42857f1cf88df",
+            "git_blob_sha": "2e6f21779c43626b76724f96a8776647e5fcde8a",
+            "bytes": 128839
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-21.json",
+            "source_path": "data/raw/http_cache/87798fd9546902f48adab84945d669e055cb73c326573efe64b8f225911d40bb.txt",
+            "sha256": "7f9f17d7102ba4b1b000e72bd905f6af457bf1d160767f94356de2fc8faee179",
+            "git_blob_sha": "e2b5bee9b655dd2d76a0f24155a539d4b7686bdf",
+            "bytes": 192714
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-23.json",
+            "source_path": "data/raw/http_cache/54f1c580552b4af39e630ca556e0a7114dec85a0bc977af17550bf07f9a4997b.txt",
+            "sha256": "eb25cd35754485cca9b596e442240f5414bcbc54f6d2245f0b7713c0e8a6a717",
+            "git_blob_sha": "e806c6c4fd329fc903f90e9bc6486c9aaf2efc55",
+            "bytes": 192770
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-24.json",
+            "source_path": "data/raw/http_cache/0f17aabaae869db9b2bf743a57dea5613e2d7430af58aab424f20077d26d5f13.txt",
+            "sha256": "b0e8b3c384c5b216666b985109d88e60516c027c2bd9d71bbba88b033c4502ef",
+            "git_blob_sha": "0522fde1be13932e6479d390959f919931b92fad",
+            "bytes": 148583
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-25.json",
+            "source_path": "data/raw/http_cache/0e465c039c4a6017ffaee312a50e50eb3f32de93174c9f9949b131ac5e4b4e6b.txt",
+            "sha256": "00524bf03ae2fc82ae14a6fa6fe869a3f3f8a92848b4b30755fb3f369142db43",
+            "git_blob_sha": "9dc8803abe82d248919df8c699bd77369e47e670",
+            "bytes": 133109
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-28.json",
+            "source_path": "data/raw/http_cache/6c4bf07f2d153e1c0e3fc628627fc97de8b389d5efb1f876ef9185466b374f02.txt",
+            "sha256": "fce0207fc19acfb152a3a72ca0f5377ca55ad76ed2580a37865631e15b805098",
+            "git_blob_sha": "19bf0fbbfcfa9c302f27d6fb94438f63a1a670dd",
+            "bytes": 121568
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-30.json",
+            "source_path": "data/raw/http_cache/1c0ad1e1ceac4dbe6d6cfe9e48f5a038df6633eec474db806318bade345ade48.txt",
+            "sha256": "df76e0fb95c60cca0c8c5497a13fff950952d346e9f3f984183b7a7d30e4c42a",
+            "git_blob_sha": "ac5dcd2d74189738abd9b25a2935735100ffb8a0",
+            "bytes": 124389
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2023-12-31.json",
+            "source_path": "data/raw/http_cache/04eada249540a0a7335656e289daa8fe0706318e7d178d27cdf6e30f0dea13f7.txt",
+            "sha256": "9a57aacd93cba7405d3936e3850d8f8d4c938407bca75de3c0017ff5978d7d95",
+            "git_blob_sha": "cb18139485a2ec9abc3d5494955657d56c1ad30a",
+            "bytes": 117188
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-01-06.json",
+            "source_path": "data/raw/http_cache/91402b44e793e54e9c5e3e8b71e4883ba295d1bc9ab4a3eca151519b9f061a4b.txt",
+            "sha256": "4ef834398d9552a400eaf4e08fee0abbaba7f1d045f4295eafe5ce655908cbee",
+            "git_blob_sha": "6c1a48ee1acda716807687d85f2d546801103ff2",
+            "bytes": 129410
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-01-07.json",
+            "source_path": "data/raw/http_cache/e954cc7abc3aa707e25a0b2fa64150372abe139f7d3417f841b4d109ddf6699f.txt",
+            "sha256": "09ac93669c23512fe1e0c1dad01d120ed6c7b5ec5eeaa218fc62f4d71f05e0c0",
+            "git_blob_sha": "64e74211daba14a42706a1aff73e5bce9158bd99",
+            "bytes": 113212
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-05.json",
+            "source_path": "data/raw/http_cache/45de5a07949c74177801f127c04b72a861cda6923fd2a8ae138dd1cfa7105275.txt",
+            "sha256": "bda6e2628f75c18aae2ddc35f6e565b1d5b65b57ad506982bc136ecce24280c6",
+            "git_blob_sha": "95797e2bec550a5ea1edcd9e5215d3b0f80a4b70",
+            "bytes": 473209
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-06.json",
+            "source_path": "data/raw/http_cache/fa0c6a248ae8eddce432ba4cb4b6864cdb2357cdb26e6e27dbe3022a93c99ac3.txt",
+            "sha256": "80cba3fc08550e606e371b2da58144069d6de7899e4a004ea4964b6804fba1f1",
+            "git_blob_sha": "9478bf77d844e3b54295b8225f3ed9df0c32755e",
+            "bytes": 301146
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-08.json",
+            "source_path": "data/raw/http_cache/d9027a0975205e382d037368defcacaabe4becea8105497b98a4a5ce6e2a5b1b.txt",
+            "sha256": "13b9894ea543edac64d1afa78ff16cde9c71a630fee102efe1a39211c0f728b9",
+            "git_blob_sha": "7d2cefec53349eddddb20906c84c203330b0a988",
+            "bytes": 308622
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-09.json",
+            "source_path": "data/raw/http_cache/ae4b307be4240e52ef7aea1a7ab350909653d0d319bd074d356bf0af24b5b86e.txt",
+            "sha256": "5c1862741a0891636420b9a90734caa55d2f986c62c08a4abdbf9882eb21a8f9",
+            "git_blob_sha": "59460f7d8c1dfc276b79ea1dabceef0b4de4c1c7",
+            "bytes": 93157
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-12.json",
+            "source_path": "data/raw/http_cache/c7da0b6662bba5544202d00b47b3805769daf9bfc1ea30e287a7d0fa41364a3f.txt",
+            "sha256": "fd06e77ad13a83ab39566446646ebd958ec684324e388efc01204bab2632448a",
+            "git_blob_sha": "8b5e00facef24a80b98f097faf185d52a6b77672",
+            "bytes": 108048
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-15.json",
+            "source_path": "data/raw/http_cache/b7abfa0fa1ab259d06ed2966eeb66a0927488311e5ae70aa585c2120da53d121.txt",
+            "sha256": "724fd81e066214e89ce13e331e46bbb75880175cf4be812f23e60bca5fbaf007",
+            "git_blob_sha": "09d31b8cf89f27f3248abf34efa3ab53b046e1a0",
+            "bytes": 122331
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-16.json",
+            "source_path": "data/raw/http_cache/7ccf4dc9cbc4d7779f5fe382766981df84ee26fc60bd820cf691d0f609db3d9b.txt",
+            "sha256": "bb93ebf1df627bb8c60c7c155dadd193cc220bde788993783381b138405888a8",
+            "git_blob_sha": "8d14a1eca363dcdbd7ebf23ddaf06b5be74d7de4",
+            "bytes": 82500
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-19.json",
+            "source_path": "data/raw/http_cache/b02fba28781f318e0a50754fae3d8e86d717c3fb280eae17647ecd84310b25ce.txt",
+            "sha256": "aaf2d2fc8f2ca22a0a61fed94701d3a2aabc9ba4bbd230b99232999702e5801d",
+            "git_blob_sha": "54358aa4a8e0cef2247ac3372895f6dd5eb3bdbb",
+            "bytes": 115236
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-22.json",
+            "source_path": "data/raw/http_cache/be8ed116625a610208a4fb38ee1ff9546e47b9f5128be1a246b8fbba86f444bc.txt",
+            "sha256": "66d36d4f0101ab6654ff9b909f76d326274cd707e87974aa19b00286d5417e55",
+            "git_blob_sha": "c207650942fabb3a81aae7b118ce7be9fd97358a",
+            "bytes": 137870
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-23.json",
+            "source_path": "data/raw/http_cache/113b20b5ccfd4fc4f8df6b115ab04eeca5d9c79be9e1f1b49bf4b6352a68f706.txt",
+            "sha256": "a10eed2b2b9d111440ab35cc37305b6d74a5a67bb06e5f3f7a2e5e43427fff3a",
+            "git_blob_sha": "1a5271ef3fbb127e1fbc9178bd022787f960a122",
+            "bytes": 94213
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-26.json",
+            "source_path": "data/raw/http_cache/4ae92f2ae8d1b359754e0c7fad14df850c86b91ee3c6ae3bb7842519a0604792.txt",
+            "sha256": "41321d28afd4991484f586ea785a6e164503bb5c6fd6312c84afd3ff2623fd2e",
+            "git_blob_sha": "842bf0238d1b04903d6d74e179f46891b46d4f33",
+            "bytes": 135627
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-29.json",
+            "source_path": "data/raw/http_cache/a828f28b230795edea9fc5121865bd0bf7848d3170e645d0f2d21f1e53605e78.txt",
+            "sha256": "bf8628a6ba20005d03961a133d2743bfe3d222282d2871a3389669327d3626c2",
+            "git_blob_sha": "32172c1bad1496ee87558f38f5c65daccdabcf48",
+            "bytes": 114666
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-09-30.json",
+            "source_path": "data/raw/http_cache/159fdf5d1952201b3dfb6b662cca08ff940919ac47a794b222759ea9cf464cbc.txt",
+            "sha256": "d46ee28758a05ee9c64839951e011343cffc11b2b16380446d5f0b6cd4307d77",
+            "git_blob_sha": "1af8b74740f5fd27086fda088ab3f09522871cd1",
+            "bytes": 91423
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-03.json",
+            "source_path": "data/raw/http_cache/df65a2ede9d1b9c5ac63bc9cecc0154e684589d4934dc279391e44a4c5814325.txt",
+            "sha256": "c599ef785c8abdbf9efcb90f1d6b1b6cb1f327fd006025807c6b960d2d60da6b",
+            "git_blob_sha": "07b8e939801c6a1e49dec28d8438971d324e58af",
+            "bytes": 125288
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-06.json",
+            "source_path": "data/raw/http_cache/953c96cbaf9329e9994909f66f171025d1009c62d39d113336b5463de2229ec7.txt",
+            "sha256": "d7cfafd6ec2e78acf5e708490da3266bd77f154c8685976d604ea04268140c6b",
+            "git_blob_sha": "5bb799a0ca0ed08f9ef246dc5409450cd1d1e2f8",
+            "bytes": 94746
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-07.json",
+            "source_path": "data/raw/http_cache/83c712bbeee16a85226e9daca5e45dc1f1c67afeb947a5ca72e9576967a23e12.txt",
+            "sha256": "88143af997189c695c302fa4d31d1b46ec69e9bb6d3b3c0c6be1b5adbe780865",
+            "git_blob_sha": "3bba6e3226020d547a17b0f26e6cc726c23e0450",
+            "bytes": 75132
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-10.json",
+            "source_path": "data/raw/http_cache/0a1f9a77892efe3432171ee0aa1476a9923e61fe6737328d1468991ca39a3c3d.txt",
+            "sha256": "f5a5723129d0c30c78d5d5459cde8698db60d3143f652fb7f51f5093b846c44e",
+            "git_blob_sha": "65cd1d2c71e2017945a132ac3439b5218b640b5d",
+            "bytes": 134242
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-13.json",
+            "source_path": "data/raw/http_cache/afbdfe319aa8a4734d33719d719f9adafc44f4782d6778035fa1e37f2e64f3db.txt",
+            "sha256": "c3d0922a36d2eeb5116c4dc230870c8f2176bc9e6a8aa71bbee969416829f18d",
+            "git_blob_sha": "bb62a3fdfba0dfcc1a89c99dc334ed04d6bea75e",
+            "bytes": 100647
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-14.json",
+            "source_path": "data/raw/http_cache/97c326e122510e8a3904d938668db22f4d518d65f3246f94522c4d95f1ccac4b.txt",
+            "sha256": "db28fb37930da981c6c172b401b481d60a2efe4c4e5f4c1ac494f77647bcfd12",
+            "git_blob_sha": "de8150a88e8b874d62bf4b6dcdb496e5d9280ad1",
+            "bytes": 79094
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-17.json",
+            "source_path": "data/raw/http_cache/2b9ac3bea0df9592e3e9d6d48f7c5d1de8111b1aac6176632f25f4b820c48d41.txt",
+            "sha256": "10664301e25cafe1c664c3a4f63c9033e50cdceb2dceb398ce6dd8a9f088229a",
+            "git_blob_sha": "a17d943fe7aa6900ec89f8890d343d70595f1e0c",
+            "bytes": 141698
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-20.json",
+            "source_path": "data/raw/http_cache/c6f9a5699907b20adc6097843f544c399b06c564f98f8587374ace65d0fe09d3.txt",
+            "sha256": "5fff87954b6762ba0817886c314736d6c02619e14c9f065ff90a1e13626afd94",
+            "git_blob_sha": "15f2d18a546eef71b14994330e55198e3736673c",
+            "bytes": 105460
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-21.json",
+            "source_path": "data/raw/http_cache/e3520fbc9891aeee66819da2496ca8e54d231124bc6a10ef050e56b5d4890272.txt",
+            "sha256": "d57dc20e539c9e439701681ad08456089cecf5846e57bd169cb169ebd34c2dfb",
+            "git_blob_sha": "d0e370c3e4511211166e3478c28d99e8c21cc67e",
+            "bytes": 83676
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-24.json",
+            "source_path": "data/raw/http_cache/88f72069a9222272be6511a7dce605db4dab37944259cc059a4f60ac92de0879.txt",
+            "sha256": "3348e55ebef902fd2e226e3bea5a8c84abe876027904bf663caaeadb0f944c96",
+            "git_blob_sha": "d6d42a601e0522518e36555efde402c1a1135a36",
+            "bytes": 133067
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-27.json",
+            "source_path": "data/raw/http_cache/3e55c2626108ff7e7298f06909fe89efa2b51a7a6188eea7fb1d8d64219b8202.txt",
+            "sha256": "0cab46e2215e2a8862d2a486d1653aa029e4d1a7f856062298a5c26026cdb108",
+            "git_blob_sha": "dee148d67ace8835f86b3221c4fcb3f406413684",
+            "bytes": 115498
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-28.json",
+            "source_path": "data/raw/http_cache/b79f833d9ee8a6f425d033445131546484a7d263915556732f52ac8ec86c64bc.txt",
+            "sha256": "d8cb11821b66894b990443a7d9fa3765b671c05f7ccc2436db57838866da0129",
+            "git_blob_sha": "40e86a2b542998ede8b9d1c39f1a9ba0229ecdf6",
+            "bytes": 77229
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-10-31.json",
+            "source_path": "data/raw/http_cache/21487d9733a6d7964676d89c00ee61da76f6574b25af95ff1f025c8d98543576.txt",
+            "sha256": "1af06f936fabe36ab682950a5f899860b48f1c784bcb585747272925ba9160cc",
+            "git_blob_sha": "cc1d81cdfbb386e7c556f088e06037ef622f879d",
+            "bytes": 123338
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-03.json",
+            "source_path": "data/raw/http_cache/d6a1b59dfcf926750c9efd9b95c3833183f7a1e951cd91b5b85167aba65e86a3.txt",
+            "sha256": "1b741d5e4e188e14a6e8ea63130b9c275c588bc6ee2365f727eec3055b38feca",
+            "git_blob_sha": "127cfde1d575cb9bb1d1476ef6c4cde3f9b644e1",
+            "bytes": 127625
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-04.json",
+            "source_path": "data/raw/http_cache/535a8a10fec2a9bc22bd9fe3723fa43a94a056013c29a75d4b34dd549f82e463.txt",
+            "sha256": "71fd8570262b955f705da90e81d9d8f35db50c22e275d19d82c1c7af56f3febf",
+            "git_blob_sha": "55f5d03a7c5a3e9a60575f6c066e2e7666428d68",
+            "bytes": 78525
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-07.json",
+            "source_path": "data/raw/http_cache/bdad1ed7e1fd0747f98ea5feea72746edc926b350465c23d31a2ac8cee3df789.txt",
+            "sha256": "913272890ef393b0aebf87e5a845102e8d9654e490b478e806d616383bcc5bd8",
+            "git_blob_sha": "012bb268c1a25267fb854ef007ebde898f4fc4f7",
+            "bytes": 93689
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-10.json",
+            "source_path": "data/raw/http_cache/100dc4192683ce27d729d89d92110cb6ba7c2ba4773d1b5414ec35585bc443c5.txt",
+            "sha256": "13d88881231b3704102e46cb0129b5a9afa1a929202a16c6a60ceb7921d810ce",
+            "git_blob_sha": "47fd3c88a237c65756d70c8e64536acb6564004b",
+            "bytes": 121481
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-11.json",
+            "source_path": "data/raw/http_cache/7b3a7d898f6001fcc4ffd9aa72b4422e2e868a09dda4c36834ca1d532dd4994f.txt",
+            "sha256": "9f2f449a861180a8a894c5d2c5c7646c828076a099c69c4f28fd27ef7a986f88",
+            "git_blob_sha": "7deb8be6e531115f55df13ad249e27266fbd792b",
+            "bytes": 81979
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-14.json",
+            "source_path": "data/raw/http_cache/fc15a999087acde910317a71111ca19ec325c39984970659e62ae1d2f27be41a.txt",
+            "sha256": "80c2592f20ffd54aea81386a21f00b3ffd95901ac7f40233b0a5e979d77a8129",
+            "git_blob_sha": "0bd6ff2f8faf7b18348ccb1e9486b3ec4366a730",
+            "bytes": 121695
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-17.json",
+            "source_path": "data/raw/http_cache/fe818ec2bd95c54ccf79126692775203d26d5983a10f3779ceabb7740dfd351f.txt",
+            "sha256": "d9cef8819c0f72b047d2d359a123fe148d02f2e2b948eca14bdf95c89538a675",
+            "git_blob_sha": "1c868c5595fa477a152aef20257458d3729ca60c",
+            "bytes": 118170
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-18.json",
+            "source_path": "data/raw/http_cache/c58a178a72f9d95742e8586ff348160158734386256a81febd5de3c27aed06ab.txt",
+            "sha256": "f8ce70d8b5c4520fe81d5588f16d55682abbfd24d340d5880b5ff2f248af64e4",
+            "git_blob_sha": "b03817de1eaa2656dfb0166f965d34855183c413",
+            "bytes": 75225
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-21.json",
+            "source_path": "data/raw/http_cache/a7c6cd6eed993db70dd0e2e622085b30b663e545484b7a9cfb776f86c784dbef.txt",
+            "sha256": "9a44a7c46c92bd34bd8146c9772b947fcf0aec94911637e4bc1dda98c786a4ad",
+            "git_blob_sha": "0caac7b534f3e5da3625c46723681dd106b6e893",
+            "bytes": 117995
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-24.json",
+            "source_path": "data/raw/http_cache/40c929e6de207ea9481524fb29f8de3867a29c67eebd334e2cc757a86b346784.txt",
+            "sha256": "8bcd584bf11bfc2e3e588cea5bc4bc517f64cfae4cc3bb1daa9b7e027fbf1666",
+            "git_blob_sha": "4f2093f0568ba09682551d77b9d21e4b3d0b4e46",
+            "bytes": 108151
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-25.json",
+            "source_path": "data/raw/http_cache/1e889891290f20c6b1392df3998e251cc617ce42be421665d69fd0fce9379fe4.txt",
+            "sha256": "eabc45ddeade880777863e91090b5a489b79f53f03c610bdfe284cb489afe0a6",
+            "git_blob_sha": "dcb74237a3e43034831b6d3e43341b6e05887b1c",
+            "bytes": 84295
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-28.json",
+            "source_path": "data/raw/http_cache/ef76c410b4cf14784b79fe112f2e89f4ac8a80967d9afa2214f71a42b063c08b.txt",
+            "sha256": "6673df4b90e53745b06583162c01313f02a6707d34ae5aa4454df8ee84d99f1f",
+            "git_blob_sha": "1fcb4d7f6ca6db46cad3b8183a44bbfe41a3287d",
+            "bytes": 139604
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-11-29.json",
+            "source_path": "data/raw/http_cache/4e5feea824855cd47dd451ceafdf83a95c8ddf477abcfa45a3a98092fb026f3b.txt",
+            "sha256": "733145c8361816d15d62ac22a7c91900f9ebedf8335cde525d901d593b74af47",
+            "git_blob_sha": "0027f04bedeead822130697cc982b9f50493c08b",
+            "bytes": 117386
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-01.json",
+            "source_path": "data/raw/http_cache/8531b166c73a1979eaad75903b9a1b95ce9f0d3e031842b1b95ffd6a7533999c.txt",
+            "sha256": "b545ebf7abf82b487105a87dba2a2b9cac302e4bc17f08f2de270945410132b8",
+            "git_blob_sha": "a09ffdfe35425bffe62d06378d7a3da5fa0bf075",
+            "bytes": 109691
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-02.json",
+            "source_path": "data/raw/http_cache/bb142f6c0e2faf352af726197a85ac330342484d21cf8ef3475fa96c34b4e8de.txt",
+            "sha256": "cf311d4f0acd0a8fbf051c12ef98919626f274be7f8ee3ba427eb2eb89101dbc",
+            "git_blob_sha": "288ac4854982031ca86c01dfb1d71840b8b0cc02",
+            "bytes": 79749
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-05.json",
+            "source_path": "data/raw/http_cache/2dec7491b4770c8cd71316287907a1718471a9b94455b5fd53ef918264306cd0.txt",
+            "sha256": "bebb45c4ccd5936b0980d58ca92da6bde43be13a9a74bc7d2747e34a22ca3992",
+            "git_blob_sha": "6eefa534c679d02a9367030eca3781f1fec3757c",
+            "bytes": 142111
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-08.json",
+            "source_path": "data/raw/http_cache/1a11d37ef2a7bbd8b1e413d84a2a0755dac51b25435b6539b2a31640c3f6b2d6.txt",
+            "sha256": "169b35d758d6869afd8ce755eb2f0fc99b8df0d54c665281b57c59b9a983e676",
+            "git_blob_sha": "6d2583239beadf0cb6e7fcb27216eb7640a3395d",
+            "bytes": 127169
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-09.json",
+            "source_path": "data/raw/http_cache/8aa696f9250372875b52093bbb01f8a6e3a33168f647d965a3bda77e3922c99f.txt",
+            "sha256": "fd344c921c704bffb85f22b07700af95a730a03560cc7a3c3e2377a157202a45",
+            "git_blob_sha": "d82ac58bd7e01d195d778d865fcd065ea462e535",
+            "bytes": 94569
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-12.json",
+            "source_path": "data/raw/http_cache/ee53ef10cd59fc7d12e1f3acae8b13ab29086eb83870735657061754a7df646e.txt",
+            "sha256": "d1e04c82404e80fc12e144951999ba5d153e31e30bf7647be638f4109fdb8c69",
+            "git_blob_sha": "1fec936ce911a3454c8626fe9280e1784aeb7390",
+            "bytes": 152319
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-15.json",
+            "source_path": "data/raw/http_cache/c2417a72ae063c07975811ff3a59c34b6f481ab0eedc94a448a8ab835b4cc560.txt",
+            "sha256": "879e81c5543f92783aaa66ceab1d90b41b918ee76124bac0056ccc21ddcaf6a3",
+            "git_blob_sha": "9e220eb0767323bb19a9e41e66c7226a1b6bbad2",
+            "bytes": 142266
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-16.json",
+            "source_path": "data/raw/http_cache/328cb43c90adda068d7de106c06770a74227dc7c3d5769c80f14099afc22da15.txt",
+            "sha256": "319de6fa3b6305d9e846fd3244b38006474f19608c7f68ffc84caafa79a05e8f",
+            "git_blob_sha": "c8e83680a6d437383e77436bf7a6702bc0d72ad6",
+            "bytes": 93037
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-19.json",
+            "source_path": "data/raw/http_cache/5dec39eefedb7d6344c37ca77abf62496364188aebeea41d2421fa1e6de1487b.txt",
+            "sha256": "a9f87da93fea4ee54b0615cdca3703da6ed7020caf901674137f16c239b5cf0a",
+            "git_blob_sha": "d81be77a895fa88592f8f2e3f2acd50e9096ce51",
+            "bytes": 143184
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-21.json",
+            "source_path": "data/raw/http_cache/0535490bc7d41fc44f7a112d8fa400a418904540635c732b389dee36ed8607ba.txt",
+            "sha256": "5def054db42000e71c05cfcefa19119506e5fbfbfbdc37f96b7545c52bf70b4d",
+            "git_blob_sha": "6aba9d3c150b48b1ceddbe9bec81919b5e784fa4",
+            "bytes": 147022
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-22.json",
+            "source_path": "data/raw/http_cache/b82fe23c02a6c7aeee31aa0f7db4707fd1e717ca65d017e93de1f76d2c70463d.txt",
+            "sha256": "185a5c7c28aaebfd21d4cb6453e017562585222b0d13fa641294975a86eb98e3",
+            "git_blob_sha": "326f995b04714543f1dd0b19c4c24f398ace5c54",
+            "bytes": 121877
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-23.json",
+            "source_path": "data/raw/http_cache/a89ba7f2bfc368ad008e311ff012c80a3b88d7ecb9020676f3cdb2e9303dce9d.txt",
+            "sha256": "6388da9eb44243ffb2fb30d1b0539a51aa08afb9025795b38944d79da26f6b7c",
+            "git_blob_sha": "e07dc2c233e29f48a20f4518402d84f0597e2cda",
+            "bytes": 91895
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-25.json",
+            "source_path": "data/raw/http_cache/29215b4cb3c280821203579ffc92125c4dedcc6c8b4e07d96cfdd5dd6e659577.txt",
+            "sha256": "d08fad41dd64bc918a1a5105ac4af2a94d09f6189f31939f68c9de804a152248",
+            "git_blob_sha": "4a4ca3e8f372d10961d1b136a6f01b7f32913716",
+            "bytes": 92464
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-26.json",
+            "source_path": "data/raw/http_cache/5acf0166b8710dbb46a1ae07751a2f7ac48052857f4d1c9963754abc11fd5090.txt",
+            "sha256": "f2bc26bb7990bffefdb04915aa18fd5e7b665a1653651be853833b19b79fd7c8",
+            "git_blob_sha": "fcc574c6315e10a3819fb7be5ba4737fac10f460",
+            "bytes": 80262
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-28.json",
+            "source_path": "data/raw/http_cache/2f2bc3440f4027cdaa9626342a2b5fde29d746b2f1f474cdee7d38484a99ab46.txt",
+            "sha256": "e4dde76b7da2564ae56c5c00225a9942e8b741673ce9647412b1851a628cedf7",
+            "git_blob_sha": "005dc6318289e2effec722cf18e8328f1633ee6f",
+            "bytes": 75255
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-29.json",
+            "source_path": "data/raw/http_cache/0fd261559cfbd21136b70af46f8f93b48c46c36817ddac43b4d7c72c7468b081.txt",
+            "sha256": "3c1a0640f523fae71f36e6c17743e0b05133adeb383c2a2b89ec96d87c751cd0",
+            "git_blob_sha": "45bb44db5a2b2df96840b4e5773a794395f0bb9c",
+            "bytes": 57905
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2024-12-30.json",
+            "source_path": "data/raw/http_cache/e88486881d96358da48139cc66cbc6a2b91fa349e0c5da9b892768509d82c1ff.txt",
+            "sha256": "a6b67b51138f0d00328ca7298709c42c00f18b93ca53b23dc2e15a48fb41cd3f",
+            "git_blob_sha": "774aeec306775be09c257ff2a999fa7d29f2321a",
+            "bytes": 93536
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2025-01-04.json",
+            "source_path": "data/raw/http_cache/f9d84b93a7a8f19ec86bfe1ae589f3f7b4c3dec19b3975fb1950ba34565ab46c.txt",
+            "sha256": "3b254806d792e9571a6a4d0af98771a3ddc3a77ebb8a3a9d2ff5dc46fe5acd7d",
+            "git_blob_sha": "d12736224d8829f3066f70878148323eae6944e2",
+            "bytes": 100022
+          },
+          {
+            "path": "data/raw/nfl-receptions-replication/boards/2025-01-05.json",
+            "source_path": "data/raw/http_cache/1dfb2d1bdb1ec5111333fe78b7675c4d6dfde64ad777e4f4874db4b88e60a2e9.txt",
+            "sha256": "bafa8505378739814c6342e758790e5cd0693339632de3654dc4bb2e2c301d11",
+            "git_blob_sha": "4aa9a4960ef10d901b0002b3f2e1a07a97bed47e",
+            "bytes": 88682
+          }
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "game_id": "2023_04_ARI_SF",
+      "week": 4,
+      "event_id": "ea59f24a92e52fee542214baf4d33560",
+      "team": "ARI",
+      "player_id": "00-0036936",
+      "player": "Rondale Moore",
+      "line": 2.5,
+      "over_decimal_price": 1.78,
+      "under_decimal_price": 2.0,
+      "overround": 0.061797752808988804,
+      "snapshot_utc": "2023-10-01T18:55:39+00:00",
+      "book_update_utc": "2023-10-01T18:54:57+00:00",
+      "market_update_utc": "2023-10-01T18:51:25+00:00",
+      "prop_reported_start_utc": "2023-10-01T20:28:00+00:00",
+      "independent_scheduled_start_utc": "2023-10-01T20:25:00+00:00",
+      "prior_games": [
+        "2023_01_ARI_WAS",
+        "2023_02_NYG_ARI",
+        "2023_03_DAL_ARI"
+      ],
+      "prior_targets": 10,
+      "prior_observed_depths": 10,
+      "prior_mean_depth": 3.5,
+      "prior_target_games": 3,
+      "spread_line": 14.0,
+      "spread_event_id": "ea59f24a92e52fee542214baf4d33560",
+      "spread_snapshot_utc": "2023-10-01T16:55:40+00:00",
+      "spread_book_update_utc": "2023-10-01T16:54:32+00:00",
+      "spread_reported_start_utc": "2023-10-01T20:28:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 0,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2023_04_KC_NYJ",
+      "week": 4,
+      "event_id": "e588f3f6aef44746b18980633bd7b312",
+      "team": "NYJ",
+      "player_id": "00-0034270",
+      "player": "Tyler Conklin",
+      "line": 2.5,
+      "over_decimal_price": 1.64,
+      "under_decimal_price": 2.22,
+      "overround": 0.060206548011426,
+      "snapshot_utc": "2023-10-01T22:50:40+00:00",
+      "book_update_utc": "2023-10-01T22:50:05+00:00",
+      "market_update_utc": "2023-10-01T22:49:00+00:00",
+      "prop_reported_start_utc": "2023-10-02T00:23:00+00:00",
+      "independent_scheduled_start_utc": "2023-10-02T00:20:00+00:00",
+      "prior_games": [
+        "2023_01_BUF_NYJ",
+        "2023_02_NYJ_DAL",
+        "2023_03_NE_NYJ"
+      ],
+      "prior_targets": 12,
+      "prior_observed_depths": 12,
+      "prior_mean_depth": 5.333333333333333,
+      "prior_target_games": 3,
+      "spread_line": 7.5,
+      "spread_event_id": "e588f3f6aef44746b18980633bd7b312",
+      "spread_snapshot_utc": "2023-10-01T16:55:40+00:00",
+      "spread_book_update_utc": "2023-10-01T16:54:32+00:00",
+      "spread_reported_start_utc": "2023-10-02T00:23:00+00:00",
+      "spread_overround": 0.04761904761904767,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 4,
+      "outcome": "win",
+      "profit_units": 0.6271999999999999
+    },
+    {
+      "game_id": "2023_07_ARI_SEA",
+      "week": 7,
+      "event_id": "547cb2dc8c177f05c94b27b7ba6adaae",
+      "team": "ARI",
+      "player_id": "00-0036936",
+      "player": "Rondale Moore",
+      "line": 2.5,
+      "over_decimal_price": 1.64,
+      "under_decimal_price": 2.22,
+      "overround": 0.060206548011426,
+      "snapshot_utc": "2023-10-22T18:35:41+00:00",
+      "book_update_utc": "2023-10-22T18:35:19+00:00",
+      "market_update_utc": "2023-10-22T18:32:44+00:00",
+      "prop_reported_start_utc": "2023-10-22T20:06:00+00:00",
+      "independent_scheduled_start_utc": "2023-10-22T20:05:00+00:00",
+      "prior_games": [
+        "2023_04_ARI_SF",
+        "2023_05_CIN_ARI",
+        "2023_06_ARI_LA"
+      ],
+      "prior_targets": 14,
+      "prior_observed_depths": 14,
+      "prior_mean_depth": 1.0714285714285714,
+      "prior_target_games": 3,
+      "spread_line": 9.5,
+      "spread_event_id": "547cb2dc8c177f05c94b27b7ba6adaae",
+      "spread_snapshot_utc": "2023-10-22T16:55:40+00:00",
+      "spread_book_update_utc": "2023-10-22T16:55:10+00:00",
+      "spread_reported_start_utc": "2023-10-22T20:06:00+00:00",
+      "spread_overround": 0.04761904761904767,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 2,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2023_07_SF_MIN",
+      "week": 7,
+      "event_id": "42ccfa93a908006e5677687427c528db",
+      "team": "MIN",
+      "player_id": "00-0034972",
+      "player": "Alexander Mattison",
+      "line": 2.5,
+      "over_decimal_price": 1.57,
+      "under_decimal_price": 2.36,
+      "overround": 0.060671488718557764,
+      "snapshot_utc": "2023-10-23T22:45:42+00:00",
+      "book_update_utc": "2023-10-23T22:45:13+00:00",
+      "market_update_utc": "2023-10-23T22:45:30+00:00",
+      "prop_reported_start_utc": "2023-10-24T00:16:00+00:00",
+      "independent_scheduled_start_utc": "2023-10-24T00:15:00+00:00",
+      "prior_games": [
+        "2023_04_MIN_CAR",
+        "2023_05_KC_MIN",
+        "2023_06_MIN_CHI"
+      ],
+      "prior_targets": 11,
+      "prior_observed_depths": 11,
+      "prior_mean_depth": -0.09090909090909091,
+      "prior_target_games": 3,
+      "spread_line": 7.0,
+      "spread_event_id": "42ccfa93a908006e5677687427c528db",
+      "spread_snapshot_utc": "2023-10-23T16:55:43+00:00",
+      "spread_book_update_utc": "2023-10-23T16:54:40+00:00",
+      "spread_reported_start_utc": "2023-10-24T00:16:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 2,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2023_08_TB_BUF",
+      "week": 8,
+      "event_id": "623ebe645e0e4dec5759ce364b68682f",
+      "team": "TB",
+      "player_id": "00-0037256",
+      "player": "Rachaad White",
+      "line": 3.5,
+      "over_decimal_price": 2.08,
+      "under_decimal_price": 1.72,
+      "overround": 0.06216457960644006,
+      "snapshot_utc": "2023-10-26T22:40:43+00:00",
+      "book_update_utc": "2023-10-26T22:39:42+00:00",
+      "market_update_utc": "2023-10-26T22:39:22+00:00",
+      "prop_reported_start_utc": "2023-10-27T00:18:00+00:00",
+      "independent_scheduled_start_utc": "2023-10-27T00:15:00+00:00",
+      "prior_games": [
+        "2023_04_TB_NO",
+        "2023_06_DET_TB",
+        "2023_07_ATL_TB"
+      ],
+      "prior_targets": 13,
+      "prior_observed_depths": 13,
+      "prior_mean_depth": 0.6153846153846154,
+      "prior_target_games": 3,
+      "spread_line": 9.5,
+      "spread_event_id": "623ebe645e0e4dec5759ce364b68682f",
+      "spread_snapshot_utc": "2023-10-26T16:55:43+00:00",
+      "spread_book_update_utc": "2023-10-26T16:55:34+00:00",
+      "spread_reported_start_utc": "2023-10-27T00:15:00+00:00",
+      "spread_overround": 0.05108832523835227,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 7,
+      "outcome": "win",
+      "profit_units": 1.0584
+    },
+    {
+      "game_id": "2023_08_BAL_ARI",
+      "week": 8,
+      "event_id": "ada6e4fa41270f4b036701448503cea6",
+      "team": "ARI",
+      "player_id": "00-0036936",
+      "player": "Rondale Moore",
+      "line": 2.5,
+      "over_decimal_price": 1.74,
+      "under_decimal_price": 2.06,
+      "overround": 0.060149536882044385,
+      "snapshot_utc": "2023-10-29T18:55:40+00:00",
+      "book_update_utc": "2023-10-29T18:54:40+00:00",
+      "market_update_utc": "2023-10-29T18:55:13+00:00",
+      "prop_reported_start_utc": "2023-10-29T20:26:00+00:00",
+      "independent_scheduled_start_utc": "2023-10-29T20:25:00+00:00",
+      "prior_games": [
+        "2023_05_CIN_ARI",
+        "2023_06_ARI_LA",
+        "2023_07_ARI_SEA"
+      ],
+      "prior_targets": 16,
+      "prior_observed_depths": 16,
+      "prior_mean_depth": 1.1875,
+      "prior_target_games": 3,
+      "spread_line": 9.5,
+      "spread_event_id": "ada6e4fa41270f4b036701448503cea6",
+      "spread_snapshot_utc": "2023-10-29T16:55:40+00:00",
+      "spread_book_update_utc": "2023-10-29T16:54:51+00:00",
+      "spread_reported_start_utc": "2023-10-29T20:26:00+00:00",
+      "spread_overround": 0.05108832523835227,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 2,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2023_08_LV_DET",
+      "week": 8,
+      "event_id": "8b59fe43939a2e45652c93373a06fa05",
+      "team": "LV",
+      "player_id": "00-0035700",
+      "player": "Josh Jacobs",
+      "line": 3.5,
+      "over_decimal_price": 2.04,
+      "under_decimal_price": 1.76,
+      "overround": 0.058377896613190705,
+      "snapshot_utc": "2023-10-30T22:40:42+00:00",
+      "book_update_utc": "2023-10-30T22:40:00+00:00",
+      "market_update_utc": "2023-10-30T22:36:38+00:00",
+      "prop_reported_start_utc": "2023-10-31T00:15:00+00:00",
+      "independent_scheduled_start_utc": "2023-10-31T00:15:00+00:00",
+      "prior_games": [
+        "2023_05_GB_LV",
+        "2023_06_NE_LV",
+        "2023_07_LV_CHI"
+      ],
+      "prior_targets": 14,
+      "prior_observed_depths": 14,
+      "prior_mean_depth": 1.1428571428571428,
+      "prior_target_games": 3,
+      "spread_line": 7.0,
+      "spread_event_id": "8b59fe43939a2e45652c93373a06fa05",
+      "spread_snapshot_utc": "2023-10-30T16:55:41+00:00",
+      "spread_book_update_utc": "2023-10-30T16:55:12+00:00",
+      "spread_reported_start_utc": "2023-10-31T00:15:00+00:00",
+      "spread_overround": 0.047532656023221875,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 2,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2023_10_NYG_DAL",
+      "week": 10,
+      "event_id": "fc007baa989f1a6102c9b6100f2a07f7",
+      "team": "NYG",
+      "player_id": "00-0034844",
+      "player": "Saquon Barkley",
+      "line": 3.5,
+      "over_decimal_price": 1.88,
+      "under_decimal_price": 1.88,
+      "overround": 0.06382978723404253,
+      "snapshot_utc": "2023-11-12T19:55:39+00:00",
+      "book_update_utc": "2023-11-12T19:55:15+00:00",
+      "market_update_utc": "2023-11-12T19:50:57+00:00",
+      "prop_reported_start_utc": "2023-11-12T21:28:00+00:00",
+      "independent_scheduled_start_utc": "2023-11-12T21:25:00+00:00",
+      "prior_games": [
+        "2023_07_WAS_NYG",
+        "2023_08_NYJ_NYG",
+        "2023_09_NYG_LV"
+      ],
+      "prior_targets": 13,
+      "prior_observed_depths": 13,
+      "prior_mean_depth": -0.7692307692307693,
+      "prior_target_games": 3,
+      "spread_line": 17.5,
+      "spread_event_id": "fc007baa989f1a6102c9b6100f2a07f7",
+      "spread_snapshot_utc": "2023-11-12T16:55:39+00:00",
+      "spread_book_update_utc": "2023-11-12T16:55:25+00:00",
+      "spread_reported_start_utc": "2023-11-12T21:28:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 1,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2023_11_NYJ_BUF",
+      "week": 11,
+      "event_id": "7ffa1ceb2b78914d13f2e894ed2e83bd",
+      "team": "NYJ",
+      "player_id": "00-0038120",
+      "player": "Breece Hall",
+      "line": 3.5,
+      "over_decimal_price": 2.0,
+      "under_decimal_price": 1.78,
+      "overround": 0.061797752808988804,
+      "snapshot_utc": "2023-11-19T19:55:40+00:00",
+      "book_update_utc": "2023-11-19T19:55:36+00:00",
+      "market_update_utc": "2023-11-19T19:52:35+00:00",
+      "prop_reported_start_utc": "2023-11-19T21:26:00+00:00",
+      "independent_scheduled_start_utc": "2023-11-19T21:25:00+00:00",
+      "prior_games": [
+        "2023_08_NYJ_NYG",
+        "2023_09_LAC_NYJ",
+        "2023_10_NYJ_LV"
+      ],
+      "prior_targets": 16,
+      "prior_observed_depths": 16,
+      "prior_mean_depth": -1.1875,
+      "prior_target_games": 3,
+      "spread_line": 8.5,
+      "spread_event_id": "7ffa1ceb2b78914d13f2e894ed2e83bd",
+      "spread_snapshot_utc": "2023-11-19T16:55:42+00:00",
+      "spread_book_update_utc": "2023-11-19T16:55:25+00:00",
+      "spread_reported_start_utc": "2023-11-19T21:26:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 5,
+      "outcome": "win",
+      "profit_units": 0.98
+    },
+    {
+      "game_id": "2023_12_WAS_DAL",
+      "week": 12,
+      "event_id": "a6e073fff37db15464e7e44b71462a20",
+      "team": "WAS",
+      "player_id": "00-0037746",
+      "player": "Brian Robinson",
+      "line": 2.5,
+      "over_decimal_price": 1.68,
+      "under_decimal_price": 2.14,
+      "overround": 0.0625278148642634,
+      "snapshot_utc": "2023-11-23T20:00:39+00:00",
+      "book_update_utc": "2023-11-23T19:58:45+00:00",
+      "market_update_utc": "2023-11-23T19:58:02+00:00",
+      "prop_reported_start_utc": "2023-11-23T21:31:00+00:00",
+      "independent_scheduled_start_utc": "2023-11-23T21:30:00+00:00",
+      "prior_games": [
+        "2023_09_WAS_NE",
+        "2023_10_WAS_SEA",
+        "2023_11_NYG_WAS"
+      ],
+      "prior_targets": 17,
+      "prior_observed_depths": 17,
+      "prior_mean_depth": 0.23529411764705882,
+      "prior_target_games": 3,
+      "spread_line": 13.5,
+      "spread_event_id": "a6e073fff37db15464e7e44b71462a20",
+      "spread_snapshot_utc": "2023-11-23T16:55:40+00:00",
+      "spread_book_update_utc": "2023-11-23T16:55:31+00:00",
+      "spread_reported_start_utc": "2023-11-23T21:31:00+00:00",
+      "spread_overround": 0.047532656023221875,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 2,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2023_12_KC_LV",
+      "week": 12,
+      "event_id": "c491f05b066449d95732c4f52ac57e66",
+      "team": "LV",
+      "player_id": "00-0039066",
+      "player": "Michael Mayer",
+      "line": 2.5,
+      "over_decimal_price": 1.88,
+      "under_decimal_price": 1.88,
+      "overround": 0.06382978723404253,
+      "snapshot_utc": "2023-11-26T19:55:38+00:00",
+      "book_update_utc": "2023-11-26T19:54:43+00:00",
+      "market_update_utc": "2023-11-26T19:50:39+00:00",
+      "prop_reported_start_utc": "2023-11-26T21:28:00+00:00",
+      "independent_scheduled_start_utc": "2023-11-26T21:25:00+00:00",
+      "prior_games": [
+        "2023_09_NYG_LV",
+        "2023_10_NYJ_LV",
+        "2023_11_LV_MIA"
+      ],
+      "prior_targets": 12,
+      "prior_observed_depths": 12,
+      "prior_mean_depth": 2.6666666666666665,
+      "prior_target_games": 3,
+      "spread_line": 9.5,
+      "spread_event_id": "c491f05b066449d95732c4f52ac57e66",
+      "spread_snapshot_utc": "2023-11-26T16:55:39+00:00",
+      "spread_book_update_utc": "2023-11-26T16:55:32+00:00",
+      "spread_reported_start_utc": "2023-11-26T21:28:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 2,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2023_15_SF_ARI",
+      "week": 15,
+      "event_id": "d2e02edc27163741a907439f1dafd4c2",
+      "team": "ARI",
+      "player_id": "00-0037744",
+      "player": "Trey McBride",
+      "line": 5.5,
+      "over_decimal_price": 1.83,
+      "under_decimal_price": 1.94,
+      "overround": 0.06191200495746729,
+      "snapshot_utc": "2023-12-17T19:35:38+00:00",
+      "book_update_utc": "2023-12-17T19:35:28+00:00",
+      "market_update_utc": "2023-12-17T19:34:26+00:00",
+      "prop_reported_start_utc": "2023-12-17T21:08:00+00:00",
+      "independent_scheduled_start_utc": "2023-12-17T21:05:00+00:00",
+      "prior_games": [
+        "2023_11_ARI_HOU",
+        "2023_12_LA_ARI",
+        "2023_13_ARI_PIT"
+      ],
+      "prior_targets": 25,
+      "prior_observed_depths": 25,
+      "prior_mean_depth": 5.2,
+      "prior_target_games": 3,
+      "spread_line": 11.5,
+      "spread_event_id": "d2e02edc27163741a907439f1dafd4c2",
+      "spread_snapshot_utc": "2023-12-17T16:55:38+00:00",
+      "spread_book_update_utc": "2023-12-17T16:55:12+00:00",
+      "spread_reported_start_utc": "2023-12-17T21:08:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 10,
+      "outcome": "win",
+      "profit_units": 0.8134
+    },
+    {
+      "game_id": "2023_15_WAS_LA",
+      "week": 15,
+      "event_id": "56468ff158e85d48b0d04faa35a86461",
+      "team": "WAS",
+      "player_id": "00-0031260",
+      "player": "Logan Thomas",
+      "line": 3.5,
+      "over_decimal_price": 2.02,
+      "under_decimal_price": 1.77,
+      "overround": 0.06002125636292455,
+      "snapshot_utc": "2023-12-17T19:35:38+00:00",
+      "book_update_utc": "2023-12-17T19:35:28+00:00",
+      "market_update_utc": "2023-12-17T19:31:02+00:00",
+      "prop_reported_start_utc": "2023-12-17T21:08:00+00:00",
+      "independent_scheduled_start_utc": "2023-12-17T21:05:00+00:00",
+      "prior_games": [
+        "2023_11_NYG_WAS",
+        "2023_12_WAS_DAL",
+        "2023_13_MIA_WAS"
+      ],
+      "prior_targets": 13,
+      "prior_observed_depths": 13,
+      "prior_mean_depth": 7.461538461538462,
+      "prior_target_games": 3,
+      "spread_line": 6.5,
+      "spread_event_id": "56468ff158e85d48b0d04faa35a86461",
+      "spread_snapshot_utc": "2023-12-17T16:55:38+00:00",
+      "spread_book_update_utc": "2023-12-17T16:55:12+00:00",
+      "spread_reported_start_utc": "2023-12-17T21:08:00+00:00",
+      "spread_overround": 0.04761904761904767,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 1,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2023_16_NYG_PHI",
+      "week": 16,
+      "event_id": "361a376a7fe6aa6a72a42331299683dc",
+      "team": "NYG",
+      "player_id": "00-0038117",
+      "player": "Wan'Dale Robinson",
+      "line": 3.5,
+      "over_decimal_price": 1.68,
+      "under_decimal_price": 2.14,
+      "overround": 0.0625278148642634,
+      "snapshot_utc": "2023-12-25T20:00:38+00:00",
+      "book_update_utc": "2023-12-25T20:00:22+00:00",
+      "market_update_utc": "2023-12-25T20:00:13+00:00",
+      "prop_reported_start_utc": "2023-12-25T21:31:00+00:00",
+      "independent_scheduled_start_utc": "2023-12-25T21:30:00+00:00",
+      "prior_games": [
+        "2023_12_NE_NYG",
+        "2023_14_GB_NYG",
+        "2023_15_NYG_NO"
+      ],
+      "prior_targets": 16,
+      "prior_observed_depths": 16,
+      "prior_mean_depth": 5.5,
+      "prior_target_games": 3,
+      "spread_line": 13.5,
+      "spread_event_id": "361a376a7fe6aa6a72a42331299683dc",
+      "spread_snapshot_utc": "2023-12-25T16:55:38+00:00",
+      "spread_book_update_utc": "2023-12-25T16:54:54+00:00",
+      "spread_reported_start_utc": "2023-12-25T21:31:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2023,
+      "participation_verified": true,
+      "credited_receptions": 3,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2024_05_ARI_SF",
+      "week": 5,
+      "event_id": "a0877d6a0f0a97e5790884008b9974c9",
+      "team": "ARI",
+      "player_id": "00-0035500",
+      "player": "Greg Dortch",
+      "line": 3.5,
+      "over_decimal_price": 2.08,
+      "under_decimal_price": 1.71,
+      "overround": 0.06556455240665748,
+      "snapshot_utc": "2024-10-06T18:30:37+00:00",
+      "book_update_utc": "2024-10-06T18:29:45+00:00",
+      "market_update_utc": "2024-10-06T18:30:04+00:00",
+      "prop_reported_start_utc": "2024-10-06T20:05:00+00:00",
+      "independent_scheduled_start_utc": "2024-10-06T20:05:00+00:00",
+      "prior_games": [
+        "2024_02_LA_ARI",
+        "2024_03_DET_ARI",
+        "2024_04_WAS_ARI"
+      ],
+      "prior_targets": 12,
+      "prior_observed_depths": 12,
+      "prior_mean_depth": 7.416666666666667,
+      "prior_target_games": 3,
+      "spread_line": 7.5,
+      "spread_event_id": "a0877d6a0f0a97e5790884008b9974c9",
+      "spread_snapshot_utc": "2024-10-06T16:55:38+00:00",
+      "spread_book_update_utc": "2024-10-06T16:54:37+00:00",
+      "spread_reported_start_utc": "2024-10-06T20:05:00+00:00",
+      "spread_overround": 0.05040504050405037,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 1,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2024_05_NYG_SEA",
+      "week": 5,
+      "event_id": "777e65cf50b4517465cea9ac9d686227",
+      "team": "NYG",
+      "player_id": "00-0038117",
+      "player": "Wan'Dale Robinson",
+      "line": 6.5,
+      "over_decimal_price": 2.16,
+      "under_decimal_price": 1.66,
+      "overround": 0.06537260151717983,
+      "snapshot_utc": "2024-10-06T18:50:37+00:00",
+      "book_update_utc": "2024-10-06T18:50:33+00:00",
+      "market_update_utc": "2024-10-06T18:49:52+00:00",
+      "prop_reported_start_utc": "2024-10-06T20:25:00+00:00",
+      "independent_scheduled_start_utc": "2024-10-06T20:25:00+00:00",
+      "prior_games": [
+        "2024_02_NYG_WAS",
+        "2024_03_NYG_CLE",
+        "2024_04_DAL_NYG"
+      ],
+      "prior_targets": 26,
+      "prior_observed_depths": 26,
+      "prior_mean_depth": 4.461538461538462,
+      "prior_target_games": 3,
+      "spread_line": 7.0,
+      "spread_event_id": "777e65cf50b4517465cea9ac9d686227",
+      "spread_snapshot_utc": "2024-10-06T16:55:38+00:00",
+      "spread_book_update_utc": "2024-10-06T16:54:37+00:00",
+      "spread_reported_start_utc": "2024-10-06T20:25:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 6,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2024_06_ATL_CAR",
+      "week": 6,
+      "event_id": "67c389265b00a40407a23054e45d8e45",
+      "team": "CAR",
+      "player_id": "00-0036555",
+      "player": "Chuba Hubbard",
+      "line": 3.5,
+      "over_decimal_price": 2.3,
+      "under_decimal_price": 1.59,
+      "overround": 0.06371342630571508,
+      "snapshot_utc": "2024-10-13T18:50:38+00:00",
+      "book_update_utc": "2024-10-13T18:49:55+00:00",
+      "market_update_utc": "2024-10-13T18:49:48+00:00",
+      "prop_reported_start_utc": "2024-10-13T20:25:00+00:00",
+      "independent_scheduled_start_utc": "2024-10-13T20:25:00+00:00",
+      "prior_games": [
+        "2024_03_CAR_LV",
+        "2024_04_CIN_CAR",
+        "2024_05_CAR_CHI"
+      ],
+      "prior_targets": 13,
+      "prior_observed_depths": 13,
+      "prior_mean_depth": -1.0769230769230769,
+      "prior_target_games": 3,
+      "spread_line": 6.5,
+      "spread_event_id": "67c389265b00a40407a23054e45d8e45",
+      "spread_snapshot_utc": "2024-10-13T16:55:38+00:00",
+      "spread_book_update_utc": "2024-10-13T16:54:53+00:00",
+      "spread_reported_start_utc": "2024-10-13T20:25:00+00:00",
+      "spread_overround": 0.05108832523835227,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 5,
+      "outcome": "win",
+      "profit_units": 1.2739999999999998
+    },
+    {
+      "game_id": "2024_07_CAR_WAS",
+      "week": 7,
+      "event_id": "205e5260b14ecb55558ddb85f419edaf",
+      "team": "CAR",
+      "player_id": "00-0036555",
+      "player": "Chuba Hubbard",
+      "line": 3.5,
+      "over_decimal_price": 1.88,
+      "under_decimal_price": 1.88,
+      "overround": 0.06382978723404253,
+      "snapshot_utc": "2024-10-20T18:30:38+00:00",
+      "book_update_utc": "2024-10-20T18:29:41+00:00",
+      "market_update_utc": "2024-10-20T18:30:22+00:00",
+      "prop_reported_start_utc": "2024-10-20T20:05:00+00:00",
+      "independent_scheduled_start_utc": "2024-10-20T20:05:00+00:00",
+      "prior_games": [
+        "2024_04_CIN_CAR",
+        "2024_05_CAR_CHI",
+        "2024_06_ATL_CAR"
+      ],
+      "prior_targets": 14,
+      "prior_observed_depths": 14,
+      "prior_mean_depth": -0.2857142857142857,
+      "prior_target_games": 3,
+      "spread_line": 9.5,
+      "spread_event_id": "205e5260b14ecb55558ddb85f419edaf",
+      "spread_snapshot_utc": "2024-10-20T16:55:38+00:00",
+      "spread_book_update_utc": "2024-10-20T16:55:25+00:00",
+      "spread_reported_start_utc": "2024-10-20T20:05:00+00:00",
+      "spread_overround": 0.05040504050405037,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 0,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2024_07_LV_LA",
+      "week": 7,
+      "event_id": "2bc06cb4fb03e96b39448675c1943487",
+      "team": "LV",
+      "player_id": "00-0039338",
+      "player": "Brock Bowers",
+      "line": 5.5,
+      "over_decimal_price": 1.71,
+      "under_decimal_price": 2.08,
+      "overround": 0.06556455240665748,
+      "snapshot_utc": "2024-10-20T18:30:38+00:00",
+      "book_update_utc": "2024-10-20T18:29:41+00:00",
+      "market_update_utc": "2024-10-20T18:29:59+00:00",
+      "prop_reported_start_utc": "2024-10-20T20:05:00+00:00",
+      "independent_scheduled_start_utc": "2024-10-20T20:05:00+00:00",
+      "prior_games": [
+        "2024_04_CLE_LV",
+        "2024_05_LV_DEN",
+        "2024_06_PIT_LV"
+      ],
+      "prior_targets": 25,
+      "prior_observed_depths": 25,
+      "prior_mean_depth": 6.16,
+      "prior_target_games": 3,
+      "spread_line": 7.5,
+      "spread_event_id": "2bc06cb4fb03e96b39448675c1943487",
+      "spread_snapshot_utc": "2024-10-20T16:55:38+00:00",
+      "spread_book_update_utc": "2024-10-20T16:55:25+00:00",
+      "spread_reported_start_utc": "2024-10-20T20:05:00+00:00",
+      "spread_overround": 0.04954954954954949,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 10,
+      "outcome": "win",
+      "profit_units": 0.6958
+    },
+    {
+      "game_id": "2024_08_KC_LV",
+      "week": 8,
+      "event_id": "ccc621108fb48382b825128007dc8120",
+      "team": "LV",
+      "player_id": "00-0034972",
+      "player": "Alexander Mattison",
+      "line": 2.5,
+      "over_decimal_price": 1.98,
+      "under_decimal_price": 1.78,
+      "overround": 0.066848257859494,
+      "snapshot_utc": "2024-10-27T18:50:37+00:00",
+      "book_update_utc": "2024-10-27T18:49:57+00:00",
+      "market_update_utc": "2024-10-27T18:50:09+00:00",
+      "prop_reported_start_utc": "2024-10-27T20:25:00+00:00",
+      "independent_scheduled_start_utc": "2024-10-27T20:25:00+00:00",
+      "prior_games": [
+        "2024_05_LV_DEN",
+        "2024_06_PIT_LV",
+        "2024_07_LV_LA"
+      ],
+      "prior_targets": 11,
+      "prior_observed_depths": 11,
+      "prior_mean_depth": 0.09090909090909091,
+      "prior_target_games": 3,
+      "spread_line": 9.5,
+      "spread_event_id": "ccc621108fb48382b825128007dc8120",
+      "spread_snapshot_utc": "2024-10-27T16:55:38+00:00",
+      "spread_book_update_utc": "2024-10-27T16:55:32+00:00",
+      "spread_reported_start_utc": "2024-10-27T20:25:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 5,
+      "outcome": "win",
+      "profit_units": 0.9603999999999999
+    },
+    {
+      "game_id": "2024_10_TEN_LAC",
+      "week": 10,
+      "event_id": "6214d50d3a5b442078f670ff8e08945e",
+      "team": "TEN",
+      "player_id": "00-0035261",
+      "player": "Tony Pollard",
+      "line": 2.5,
+      "over_decimal_price": 1.88,
+      "under_decimal_price": 1.88,
+      "overround": 0.06382978723404253,
+      "snapshot_utc": "2024-11-10T19:30:37+00:00",
+      "book_update_utc": "2024-11-10T19:29:18+00:00",
+      "market_update_utc": "2024-11-10T19:30:35+00:00",
+      "prop_reported_start_utc": "2024-11-10T21:05:00+00:00",
+      "independent_scheduled_start_utc": "2024-11-10T21:05:00+00:00",
+      "prior_games": [
+        "2024_07_TEN_BUF",
+        "2024_08_TEN_DET",
+        "2024_09_NE_TEN"
+      ],
+      "prior_targets": 13,
+      "prior_observed_depths": 13,
+      "prior_mean_depth": 1.9230769230769231,
+      "prior_target_games": 3,
+      "spread_line": 7.5,
+      "spread_event_id": "6214d50d3a5b442078f670ff8e08945e",
+      "spread_snapshot_utc": "2024-11-10T16:55:37+00:00",
+      "spread_book_update_utc": "2024-11-10T16:54:54+00:00",
+      "spread_reported_start_utc": "2024-11-10T21:05:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 4,
+      "outcome": "win",
+      "profit_units": 0.8623999999999998
+    },
+    {
+      "game_id": "2024_12_SF_GB",
+      "week": 12,
+      "event_id": "b26e961510947a770532c902ceb27e75",
+      "team": "SF",
+      "player_id": "00-0033280",
+      "player": "Christian McCaffrey",
+      "line": 3.5,
+      "over_decimal_price": 1.64,
+      "under_decimal_price": 2.2,
+      "overround": 0.06430155210643007,
+      "snapshot_utc": "2024-11-24T19:50:38+00:00",
+      "book_update_utc": "2024-11-24T19:50:14+00:00",
+      "market_update_utc": "2024-11-24T19:49:53+00:00",
+      "prop_reported_start_utc": "2024-11-24T21:25:00+00:00",
+      "independent_scheduled_start_utc": "2024-11-24T21:25:00+00:00",
+      "prior_games": [
+        "2024_08_DAL_SF",
+        "2024_10_SF_TB",
+        "2024_11_SEA_SF"
+      ],
+      "prior_targets": 12,
+      "prior_observed_depths": 12,
+      "prior_mean_depth": 4.75,
+      "prior_target_games": 2,
+      "spread_line": 6.5,
+      "spread_event_id": "b26e961510947a770532c902ceb27e75",
+      "spread_snapshot_utc": "2024-11-24T16:55:39+00:00",
+      "spread_book_update_utc": "2024-11-24T16:55:13+00:00",
+      "spread_reported_start_utc": "2024-11-24T21:25:00+00:00",
+      "spread_overround": 0.05040504050405037,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 3,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2024_13_LV_KC",
+      "week": 13,
+      "event_id": "d703217fef577dba3f2d0c38881dd7d3",
+      "team": "LV",
+      "player_id": "00-0039338",
+      "player": "Brock Bowers",
+      "line": 6.5,
+      "over_decimal_price": 1.94,
+      "under_decimal_price": 1.82,
+      "overround": 0.06491446697632264,
+      "snapshot_utc": "2024-11-29T18:25:40+00:00",
+      "book_update_utc": "2024-11-29T18:24:02+00:00",
+      "market_update_utc": "2024-11-29T18:24:51+00:00",
+      "prop_reported_start_utc": "2024-11-29T20:00:00+00:00",
+      "independent_scheduled_start_utc": "2024-11-29T20:00:00+00:00",
+      "prior_games": [
+        "2024_09_LV_CIN",
+        "2024_11_LV_MIA",
+        "2024_12_DEN_LV"
+      ],
+      "prior_targets": 34,
+      "prior_observed_depths": 34,
+      "prior_mean_depth": 4.5,
+      "prior_target_games": 3,
+      "spread_line": 13.5,
+      "spread_event_id": "d703217fef577dba3f2d0c38881dd7d3",
+      "spread_snapshot_utc": "2024-11-29T16:55:39+00:00",
+      "spread_book_update_utc": "2024-11-29T16:55:25+00:00",
+      "spread_reported_start_utc": "2024-11-29T20:00:00+00:00",
+      "spread_overround": 0.047532656023221875,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 10,
+      "outcome": "win",
+      "profit_units": 0.9211999999999999
+    },
+    {
+      "game_id": "2024_13_TB_CAR",
+      "week": 13,
+      "event_id": "59ffd762ad2b5d96196f4f58037ab670",
+      "team": "CAR",
+      "player_id": "00-0036555",
+      "player": "Chuba Hubbard",
+      "line": 3.5,
+      "over_decimal_price": 2.36,
+      "under_decimal_price": 1.56,
+      "overround": 0.06475445458496298,
+      "snapshot_utc": "2024-12-01T19:30:38+00:00",
+      "book_update_utc": "2024-12-01T19:30:12+00:00",
+      "market_update_utc": "2024-12-01T19:30:04+00:00",
+      "prop_reported_start_utc": "2024-12-01T21:05:00+00:00",
+      "independent_scheduled_start_utc": "2024-12-01T21:05:00+00:00",
+      "prior_games": [
+        "2024_09_NO_CAR",
+        "2024_10_NYG_CAR",
+        "2024_12_KC_CAR"
+      ],
+      "prior_targets": 14,
+      "prior_observed_depths": 14,
+      "prior_mean_depth": -0.6428571428571429,
+      "prior_target_games": 3,
+      "spread_line": 6.5,
+      "spread_event_id": "59ffd762ad2b5d96196f4f58037ab670",
+      "spread_snapshot_utc": "2024-12-01T16:55:37+00:00",
+      "spread_book_update_utc": "2024-12-01T16:55:20+00:00",
+      "spread_reported_start_utc": "2024-12-01T21:05:00+00:00",
+      "spread_overround": 0.04761904761904767,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 0,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2024_15_NE_ARI",
+      "week": 15,
+      "event_id": "c562ac548944fe897e62f4a142de4d54",
+      "team": "NE",
+      "player_id": "00-0038621",
+      "player": "DeMario Douglas",
+      "line": 4.5,
+      "over_decimal_price": 2.16,
+      "under_decimal_price": 1.66,
+      "overround": 0.06537260151717983,
+      "snapshot_utc": "2024-12-15T19:50:37+00:00",
+      "book_update_utc": "2024-12-15T19:50:36+00:00",
+      "market_update_utc": "2024-12-15T19:50:29+00:00",
+      "prop_reported_start_utc": "2024-12-15T21:25:00+00:00",
+      "independent_scheduled_start_utc": "2024-12-15T21:25:00+00:00",
+      "prior_games": [
+        "2024_11_LA_NE",
+        "2024_12_NE_MIA",
+        "2024_13_IND_NE"
+      ],
+      "prior_targets": 17,
+      "prior_observed_depths": 17,
+      "prior_mean_depth": 4.823529411764706,
+      "prior_target_games": 3,
+      "spread_line": 6.5,
+      "spread_event_id": "c562ac548944fe897e62f4a142de4d54",
+      "spread_snapshot_utc": "2024-12-15T16:55:37+00:00",
+      "spread_book_update_utc": "2024-12-15T16:55:21+00:00",
+      "spread_reported_start_utc": "2024-12-15T21:25:00+00:00",
+      "spread_overround": 0.04707884288145214,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 3,
+      "outcome": "loss",
+      "profit_units": -1.0
+    },
+    {
+      "game_id": "2024_16_NE_BUF",
+      "week": 16,
+      "event_id": "987be0b1af962f068e2928a9067998c9",
+      "team": "NE",
+      "player_id": "00-0038621",
+      "player": "DeMario Douglas",
+      "line": 4.5,
+      "over_decimal_price": 2.48,
+      "under_decimal_price": 1.51,
+      "overround": 0.06547746208075211,
+      "snapshot_utc": "2024-12-22T19:50:38+00:00",
+      "book_update_utc": "2024-12-22T19:50:03+00:00",
+      "market_update_utc": "2024-12-22T19:50:04+00:00",
+      "prop_reported_start_utc": "2024-12-22T21:25:00+00:00",
+      "independent_scheduled_start_utc": "2024-12-22T21:25:00+00:00",
+      "prior_games": [
+        "2024_12_NE_MIA",
+        "2024_13_IND_NE",
+        "2024_15_NE_ARI"
+      ],
+      "prior_targets": 14,
+      "prior_observed_depths": 14,
+      "prior_mean_depth": 2.7142857142857144,
+      "prior_target_games": 3,
+      "spread_line": 14.5,
+      "spread_event_id": "987be0b1af962f068e2928a9067998c9",
+      "spread_snapshot_utc": "2024-12-22T16:55:37+00:00",
+      "spread_book_update_utc": "2024-12-22T16:54:41+00:00",
+      "spread_reported_start_utc": "2024-12-22T21:25:00+00:00",
+      "spread_overround": 0.05040504050405037,
+      "evaluation_season": 2024,
+      "participation_verified": true,
+      "credited_receptions": 4,
+      "outcome": "loss",
+      "profit_units": -1.0
+    }
+  ],
+  "limitations": [
+    "Separate prior-period exploratory replication; not forward or untouched confirmation.",
+    "The fixed 16:55 UTC archive boards produce incomplete timing coverage, especially early Sunday games and some post-DST primetime.",
+    "No prices from the future, later closing spreads, source-guessed teams, or outcome-fitted thresholds fill gaps.",
+    "Historical FanDuel jurisdiction and injury-protection settlement equivalence and executable stakes remain unverified.",
+    "The combined 2023\u201324 period was fixed before selection and before either year was graded; 2025 was not pooled."
+  ],
+  "attribution": "nflverse/nflfastR PBP CC BY 4.0; FTN participation via nflverse CC BY-SA 4.0. Original third-party odds files remain ignored."
+}

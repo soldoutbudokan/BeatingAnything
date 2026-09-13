@@ -1,0 +1,33 @@
+{
+  "completed_at_utc": "2026-09-13T18:46:13.225500+00:00",
+  "source_selection_sha256": "5f8160289fd04a8fe8b0ebde1841724b409c6f7278c9e4aa403c21742adf5f1e",
+  "source_only_no_outcomes": true,
+  "by_year": {
+    "2023": {
+      "mapped_reception_pairs": 2005,
+      "pairs_with_time_eligible_spread_before_role_and_prop_filters": 720,
+      "games_with_time_eligible_spread": 90,
+      "valid_spread_board_pairs": 1313,
+      "spread_rejections": {
+        "not_this_year_regular_fixture": 2082,
+        "not_one_fanduel_book": 418,
+        "stale_future_or_poststart_spread": 14,
+        "not_exactly_one_paired_spread_market": 9,
+        "ambiguous_game_capture_pairs": 0
+      }
+    },
+    "2024": {
+      "mapped_reception_pairs": 2175,
+      "pairs_with_time_eligible_spread_before_role_and_prop_filters": 813,
+      "games_with_time_eligible_spread": 82,
+      "valid_spread_board_pairs": 1340,
+      "spread_rejections": {
+        "not_this_year_regular_fixture": 1890,
+        "not_one_fanduel_book": 587,
+        "stale_future_or_poststart_spread": 16,
+        "not_exactly_one_paired_spread_market": 3,
+        "ambiguous_game_capture_pairs": 0
+      }
+    }
+  }
+}

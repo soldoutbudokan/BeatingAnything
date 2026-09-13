@@ -1,0 +1,1488 @@
+{
+  "audit_completed_utc": "2026-09-13T18:20:05.321711+00:00",
+  "selection_sha256": "8addccb2e602ac3c0ceba6803806c8c425a5bf9d2a32b02aa131d384826ff391",
+  "purpose": "Source feasibility only; no outcomes, forecasts, returns or selected betting rules inspected.",
+  "nba_summary": {
+    "files": 20,
+    "distinct_events": 20,
+    "fanduel_events": 20,
+    "source_snapshot_range": [
+      "2024-01-29T12:35:38Z",
+      "2026-01-06T13:05:37Z"
+    ],
+    "reported_start_range": [
+      "2024-01-30T00:40:00Z",
+      "2026-01-07T01:10:00Z"
+    ],
+    "snapshot_lead_minutes_range": [
+      724.35,
+      1089.3666666666666
+    ],
+    "at_or_after_reported_start": 0,
+    "fanduel_markets": {
+      "player_points_alternate": {
+        "outcome_rows": 1030,
+        "player_line_groups": 944,
+        "paired_over_under_groups": 54,
+        "unpaired_groups": 890,
+        "invalid_decimal_prices": 2,
+        "duplicate_player_line_side_rows": 20,
+        "markets_with_future_quote_update": 6,
+        "paired_groups_with_nonfuture_clocks": 54
+      },
+      "player_points": {
+        "outcome_rows": 360,
+        "player_line_groups": 180,
+        "paired_over_under_groups": 180,
+        "unpaired_groups": 0,
+        "invalid_decimal_prices": 0,
+        "duplicate_player_line_side_rows": 0,
+        "markets_with_future_quote_update": 6,
+        "paired_groups_with_nonfuture_clocks": 119
+      }
+    }
+  },
+  "files": [
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/00005f0bead0cd85b8134cf9bf78b328.json",
+      "source_path": "data/historical_points/00005f0bead0cd85b8134cf9bf78b328.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/00005f0bead0cd85b8134cf9bf78b328.json",
+      "bytes": 93418,
+      "sha256": "bc65e1b7ba2e8a8027c7db513e0999c5aaec82666f77372034dd7cf026593834",
+      "git_blob_sha": "36332bb1221ae638efdf9942cec545044df0b641",
+      "request_started_utc": "2026-09-13T18:17:34.176800+00:00",
+      "response_complete_utc": "2026-09-13T18:17:44.795980+00:00",
+      "audit": {
+        "event_id": "00005f0bead0cd85b8134cf9bf78b328",
+        "sport_key": "basketball_nba",
+        "home_team": "New York Knicks",
+        "away_team": "Utah Jazz",
+        "source_snapshot_utc": "2024-01-30T12:35:38Z",
+        "reported_start_utc": "2024-01-31T00:40:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 27,
+            "player_line_groups": 27,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 27,
+            "book_update_utc": "2024-01-30T12:34:17Z",
+            "market_update_utc": "2024-01-30T12:35:22Z",
+            "book_age_seconds": 81.0,
+            "market_age_seconds": 16.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 14,
+            "player_line_groups": 7,
+            "paired_over_under_groups": 7,
+            "unpaired_groups": 0,
+            "book_update_utc": "2024-01-30T12:34:17Z",
+            "market_update_utc": "2024-01-30T12:35:22Z",
+            "book_age_seconds": 81.0,
+            "market_age_seconds": 16.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "pointsbetus",
+          "williamhill_us",
+          "betonlineag",
+          "fanduel",
+          "betmgm",
+          "unibet_us",
+          "betrivers",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/0b974c5823fdb0fde39fb43ca45fdc2e.json",
+      "source_path": "data/historical_points/0b974c5823fdb0fde39fb43ca45fdc2e.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/0b974c5823fdb0fde39fb43ca45fdc2e.json",
+      "bytes": 9695,
+      "sha256": "1fa5af3985ce769548e5892bc9cea010d7dbe8e2e14204f6ed06179b20d08e6b",
+      "git_blob_sha": "ac8ab5141205ab81b7a55c69cb024223a21846cc",
+      "request_started_utc": "2026-09-13T18:17:34.176246+00:00",
+      "response_complete_utc": "2026-09-13T18:17:44.799702+00:00",
+      "audit": {
+        "event_id": "0b974c5823fdb0fde39fb43ca45fdc2e",
+        "sport_key": "basketball_nba",
+        "home_team": "Philadelphia 76ers",
+        "away_team": "Chicago Bulls",
+        "source_snapshot_utc": "2025-04-13T05:05:38Z",
+        "reported_start_utc": "2025-04-13T17:10:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 37,
+            "player_line_groups": 37,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 37,
+            "book_update_utc": "2025-04-13T05:04:50Z",
+            "market_update_utc": "2025-04-13T05:04:59Z",
+            "book_age_seconds": 48.0,
+            "market_age_seconds": 39.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 14,
+            "player_line_groups": 7,
+            "paired_over_under_groups": 7,
+            "unpaired_groups": 0,
+            "book_update_utc": "2025-04-13T05:04:50Z",
+            "market_update_utc": "2025-04-13T05:04:59Z",
+            "book_age_seconds": 48.0,
+            "market_age_seconds": 39.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "fanduel"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/19703e305f3608fac5c658043d7d6d13.json",
+      "source_path": "data/historical_points/19703e305f3608fac5c658043d7d6d13.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/19703e305f3608fac5c658043d7d6d13.json",
+      "bytes": 153452,
+      "sha256": "2c044569751d0646b6ffbb58ff05b8c0d711c4f212107b5cd45fba405c3297ec",
+      "git_blob_sha": "f37eae7b0aaa2093f5bf56d749fbbef86d49baf9",
+      "request_started_utc": "2026-09-13T18:17:34.177503+00:00",
+      "response_complete_utc": "2026-09-13T18:17:44.790075+00:00",
+      "audit": {
+        "event_id": "19703e305f3608fac5c658043d7d6d13",
+        "sport_key": "basketball_nba",
+        "home_team": "Detroit Pistons",
+        "away_team": "Portland Trail Blazers",
+        "source_snapshot_utc": "2025-12-05T12:35:38Z",
+        "reported_start_utc": "2025-12-06T00:40:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 60,
+            "player_line_groups": 60,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 60,
+            "book_update_utc": "2025-12-05T12:35:08Z",
+            "market_update_utc": "2025-12-05T12:36:11Z",
+            "book_age_seconds": 30.0,
+            "market_age_seconds": -33.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 26,
+            "player_line_groups": 13,
+            "paired_over_under_groups": 13,
+            "unpaired_groups": 0,
+            "book_update_utc": "2025-12-05T12:35:08Z",
+            "market_update_utc": "2025-12-05T12:36:11Z",
+            "book_age_seconds": 30.0,
+            "market_age_seconds": -33.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "fanduel",
+          "betonlineag",
+          "fanatics",
+          "draftkings",
+          "williamhill_us",
+          "bovada",
+          "betmgm"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/27af33a357d0ce2f216ef54f140bd917.json",
+      "source_path": "data/historical_points/27af33a357d0ce2f216ef54f140bd917.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/27af33a357d0ce2f216ef54f140bd917.json",
+      "bytes": 104088,
+      "sha256": "d1fccb94faf34a86a9a05a31ed461a062823ef51c7b88bf29980a06a93c75c27",
+      "git_blob_sha": "d8783ec507a58091cfc36b81838f2e4b781df949",
+      "request_started_utc": "2026-09-13T18:17:34.177895+00:00",
+      "response_complete_utc": "2026-09-13T18:17:44.769561+00:00",
+      "audit": {
+        "event_id": "27af33a357d0ce2f216ef54f140bd917",
+        "sport_key": "basketball_nba",
+        "home_team": "Boston Celtics",
+        "away_team": "New Orleans Pelicans",
+        "source_snapshot_utc": "2024-01-29T12:35:38Z",
+        "reported_start_utc": "2024-01-30T00:40:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 33,
+            "player_line_groups": 33,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 33,
+            "book_update_utc": "2024-01-29T12:34:33Z",
+            "market_update_utc": "2024-01-29T12:34:37Z",
+            "book_age_seconds": 65.0,
+            "market_age_seconds": 61.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 16,
+            "player_line_groups": 8,
+            "paired_over_under_groups": 8,
+            "unpaired_groups": 0,
+            "book_update_utc": "2024-01-29T12:34:33Z",
+            "market_update_utc": "2024-01-29T12:34:37Z",
+            "book_age_seconds": 65.0,
+            "market_age_seconds": 61.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "betonlineag",
+          "pointsbetus",
+          "fanduel",
+          "williamhill_us",
+          "betrivers",
+          "unibet_us",
+          "betmgm",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/344f56fc125c7da72e13ee290d092afa.json",
+      "source_path": "data/historical_points/344f56fc125c7da72e13ee290d092afa.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/344f56fc125c7da72e13ee290d092afa.json",
+      "bytes": 67587,
+      "sha256": "15824fd52bba903e0d0db91a987e4609bbea8ce771901e3b42f1bfb0c2995e1c",
+      "git_blob_sha": "126e0378edf68733d9b7b6d219517d6847dd1130",
+      "request_started_utc": "2026-09-13T18:17:44.770489+00:00",
+      "response_complete_utc": "2026-09-13T18:17:51.534518+00:00",
+      "audit": {
+        "event_id": "344f56fc125c7da72e13ee290d092afa",
+        "sport_key": "basketball_nba",
+        "home_team": "Washington Wizards",
+        "away_team": "New York Knicks",
+        "source_snapshot_utc": "2024-12-28T12:05:38Z",
+        "reported_start_utc": "2024-12-29T00:10:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 43,
+            "player_line_groups": 43,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 43,
+            "book_update_utc": "2024-12-28T12:05:06Z",
+            "market_update_utc": "2024-12-28T12:05:14Z",
+            "book_age_seconds": 32.0,
+            "market_age_seconds": 24.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 18,
+            "player_line_groups": 9,
+            "paired_over_under_groups": 9,
+            "unpaired_groups": 0,
+            "book_update_utc": "2024-12-28T12:05:06Z",
+            "market_update_utc": "2024-12-28T12:05:14Z",
+            "book_age_seconds": 32.0,
+            "market_age_seconds": 24.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "fanduel",
+          "draftkings",
+          "williamhill_us",
+          "betonlineag",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/40ae64b29f051a3ace031cd92c5ff655.json",
+      "source_path": "data/historical_points/40ae64b29f051a3ace031cd92c5ff655.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/40ae64b29f051a3ace031cd92c5ff655.json",
+      "bytes": 112027,
+      "sha256": "b749bc9c876bb9ef3b0be0a108550f94d00e21cff9bb0ca104e5b060bcafcb40",
+      "git_blob_sha": "e99dbe18edc5e6b0316cabf45965c620c59b5c7e",
+      "request_started_utc": "2026-09-13T18:17:44.791048+00:00",
+      "response_complete_utc": "2026-09-13T18:17:51.528336+00:00",
+      "audit": {
+        "event_id": "40ae64b29f051a3ace031cd92c5ff655",
+        "sport_key": "basketball_nba",
+        "home_team": "Denver Nuggets",
+        "away_team": "Minnesota Timberwolves",
+        "source_snapshot_utc": "2024-05-19T05:55:38Z",
+        "reported_start_utc": "2024-05-20T00:05:00Z",
+        "snapshot_lead_minutes": 1089.3666666666666,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 217,
+            "player_line_groups": 131,
+            "paired_over_under_groups": 54,
+            "unpaired_groups": 77,
+            "book_update_utc": "2024-05-19T05:55:18Z",
+            "market_update_utc": "2024-05-19T05:53:59Z",
+            "book_age_seconds": 20.0,
+            "market_age_seconds": 99.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 20,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "fanduel",
+          "williamhill_us",
+          "betonlineag",
+          "mybookieag"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/4fa62836feeb88c78b9d54c8274d6add.json",
+      "source_path": "data/historical_points/4fa62836feeb88c78b9d54c8274d6add.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/4fa62836feeb88c78b9d54c8274d6add.json",
+      "bytes": 113086,
+      "sha256": "a52add04165d322a2867f7b47331f5adbfd83f1c19c4cb9ff8de36fba33bfd66",
+      "git_blob_sha": "0c4ef9cb28429cc1da0c9e78fd86b1da40bed9b2",
+      "request_started_utc": "2026-09-13T18:17:44.796509+00:00",
+      "response_complete_utc": "2026-09-13T18:17:51.622685+00:00",
+      "audit": {
+        "event_id": "4fa62836feeb88c78b9d54c8274d6add",
+        "sport_key": "basketball_nba",
+        "home_team": "Dallas Mavericks",
+        "away_team": "Atlanta Hawks",
+        "source_snapshot_utc": "2024-04-04T11:35:38Z",
+        "reported_start_utc": "2024-04-04T23:40:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 30,
+            "player_line_groups": 30,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 30,
+            "book_update_utc": "2024-04-04T11:34:50Z",
+            "market_update_utc": "2024-04-04T11:35:02Z",
+            "book_age_seconds": 48.0,
+            "market_age_seconds": 36.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 16,
+            "player_line_groups": 8,
+            "paired_over_under_groups": 8,
+            "unpaired_groups": 0,
+            "book_update_utc": "2024-04-04T11:34:50Z",
+            "market_update_utc": "2024-04-04T11:35:02Z",
+            "book_age_seconds": 48.0,
+            "market_age_seconds": 36.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "betonlineag",
+          "pointsbetus",
+          "mybookieag",
+          "fanduel",
+          "williamhill_us",
+          "bovada",
+          "betmgm",
+          "unibet_us",
+          "betrivers"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/5c919391903d2ab585c76df3e74cfa7a.json",
+      "source_path": "data/historical_points/5c919391903d2ab585c76df3e74cfa7a.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/5c919391903d2ab585c76df3e74cfa7a.json",
+      "bytes": 206650,
+      "sha256": "70ec9179163ab9c526b864acbcadcd900c995626e2c48e3a38d946e07c1aed09",
+      "git_blob_sha": "513ce31f2a8aee74650cb295c575b20d044f6f68",
+      "request_started_utc": "2026-09-13T18:17:44.800081+00:00",
+      "response_complete_utc": "2026-09-13T18:17:51.678868+00:00",
+      "audit": {
+        "event_id": "5c919391903d2ab585c76df3e74cfa7a",
+        "sport_key": "basketball_nba",
+        "home_team": "Memphis Grizzlies",
+        "away_team": "San Antonio Spurs",
+        "source_snapshot_utc": "2026-01-06T13:05:37Z",
+        "reported_start_utc": "2026-01-07T01:10:00Z",
+        "snapshot_lead_minutes": 724.3833333333333,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 75,
+            "player_line_groups": 75,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 75,
+            "book_update_utc": "2026-01-06T13:05:16Z",
+            "market_update_utc": "2026-01-06T13:05:15Z",
+            "book_age_seconds": 21.0,
+            "market_age_seconds": 22.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 32,
+            "player_line_groups": 16,
+            "paired_over_under_groups": 16,
+            "unpaired_groups": 0,
+            "book_update_utc": "2026-01-06T13:05:16Z",
+            "market_update_utc": "2026-01-06T13:05:15Z",
+            "book_age_seconds": 21.0,
+            "market_age_seconds": 22.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "fanduel",
+          "fanatics",
+          "betonlineag",
+          "draftkings",
+          "williamhill_us",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/6a4ab9a1ce6d4f90b0dafd6d6461c5eb.json",
+      "source_path": "data/historical_points/6a4ab9a1ce6d4f90b0dafd6d6461c5eb.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/6a4ab9a1ce6d4f90b0dafd6d6461c5eb.json",
+      "bytes": 158667,
+      "sha256": "8040e627d7658b8772fe1ade4e9ee1b10d25be79dd0c916a89ba8b0d809364ac",
+      "git_blob_sha": "26e302d8dc6a0794ff424b1edb07e209db5a842e",
+      "request_started_utc": "2026-09-13T18:17:51.529818+00:00",
+      "response_complete_utc": "2026-09-13T18:17:58.117696+00:00",
+      "audit": {
+        "event_id": "6a4ab9a1ce6d4f90b0dafd6d6461c5eb",
+        "sport_key": "basketball_nba",
+        "home_team": "Oklahoma City Thunder",
+        "away_team": "Sacramento Kings",
+        "source_snapshot_utc": "2025-11-19T12:55:37Z",
+        "reported_start_utc": "2025-11-20T01:00:00Z",
+        "snapshot_lead_minutes": 724.3833333333333,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 42,
+            "player_line_groups": 42,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 42,
+            "book_update_utc": "2025-11-19T12:55:25Z",
+            "market_update_utc": "2025-11-19T12:55:48Z",
+            "book_age_seconds": 12.0,
+            "market_age_seconds": -11.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 16,
+            "player_line_groups": 8,
+            "paired_over_under_groups": 8,
+            "unpaired_groups": 0,
+            "book_update_utc": "2025-11-19T12:55:25Z",
+            "market_update_utc": "2025-11-19T12:55:48Z",
+            "book_age_seconds": 12.0,
+            "market_age_seconds": -11.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "williamhill_us",
+          "fanduel",
+          "betrivers",
+          "betonlineag",
+          "fanatics",
+          "bovada",
+          "betmgm"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/7815366be2e0e1fe687f6561567a30c4.json",
+      "source_path": "data/historical_points/7815366be2e0e1fe687f6561567a30c4.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/7815366be2e0e1fe687f6561567a30c4.json",
+      "bytes": 173934,
+      "sha256": "ea6da7962738b970a3e5b3bb8ddb46089e40924065e2aa5e06adad79d9053633",
+      "git_blob_sha": "b1ab19e68f415ee635ce0185ee868c3d6f021010",
+      "request_started_utc": "2026-09-13T18:17:51.535330+00:00",
+      "response_complete_utc": "2026-09-13T18:17:58.160568+00:00",
+      "audit": {
+        "event_id": "7815366be2e0e1fe687f6561567a30c4",
+        "sport_key": "basketball_nba",
+        "home_team": "New Orleans Pelicans",
+        "away_team": "Los Angeles Lakers",
+        "source_snapshot_utc": "2026-01-06T13:05:37Z",
+        "reported_start_utc": "2026-01-07T01:10:00Z",
+        "snapshot_lead_minutes": 724.3833333333333,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 60,
+            "player_line_groups": 60,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 60,
+            "book_update_utc": "2026-01-06T13:05:16Z",
+            "market_update_utc": "2026-01-06T13:05:26Z",
+            "book_age_seconds": 21.0,
+            "market_age_seconds": 11.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 28,
+            "player_line_groups": 14,
+            "paired_over_under_groups": 14,
+            "unpaired_groups": 0,
+            "book_update_utc": "2026-01-06T13:05:16Z",
+            "market_update_utc": "2026-01-06T13:05:26Z",
+            "book_age_seconds": 21.0,
+            "market_age_seconds": 11.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "fanduel",
+          "betonlineag",
+          "fanatics",
+          "bovada",
+          "draftkings",
+          "williamhill_us",
+          "betrivers"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/84c46a915d78675134a5fcf018c7771e.json",
+      "source_path": "data/historical_points/84c46a915d78675134a5fcf018c7771e.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/84c46a915d78675134a5fcf018c7771e.json",
+      "bytes": 67847,
+      "sha256": "6a06e2055493cdaea30e586968409faea179ab6915b880bf84d5ab924a330713",
+      "git_blob_sha": "621e80992737e2cab13545bbc584fa7aad1fe9ea",
+      "request_started_utc": "2026-09-13T18:17:51.623793+00:00",
+      "response_complete_utc": "2026-09-13T18:17:58.122170+00:00",
+      "audit": {
+        "event_id": "84c46a915d78675134a5fcf018c7771e",
+        "sport_key": "basketball_nba",
+        "home_team": "Cleveland Cavaliers",
+        "away_team": "Toronto Raptors",
+        "source_snapshot_utc": "2025-01-09T12:05:38Z",
+        "reported_start_utc": "2025-01-10T00:10:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 47,
+            "player_line_groups": 47,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 47,
+            "book_update_utc": "2025-01-09T12:04:41Z",
+            "market_update_utc": "2025-01-09T12:05:28Z",
+            "book_age_seconds": 57.0,
+            "market_age_seconds": 10.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 20,
+            "player_line_groups": 10,
+            "paired_over_under_groups": 10,
+            "unpaired_groups": 0,
+            "book_update_utc": "2025-01-09T12:04:41Z",
+            "market_update_utc": "2025-01-09T12:05:28Z",
+            "book_age_seconds": 57.0,
+            "market_age_seconds": 10.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "williamhill_us",
+          "fanduel",
+          "bovada",
+          "betrivers"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/925ebeb8d121e4970ffb3a7381cc6a75.json",
+      "source_path": "data/historical_points/925ebeb8d121e4970ffb3a7381cc6a75.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/925ebeb8d121e4970ffb3a7381cc6a75.json",
+      "bytes": 117699,
+      "sha256": "fc359bb413b576844ece283f25fe63b9acd116919f162d58740c1a86e440d1e1",
+      "git_blob_sha": "a8b8baa17e7270df5f831059acda152c482fcfff",
+      "request_started_utc": "2026-09-13T18:17:51.679960+00:00",
+      "response_complete_utc": "2026-09-13T18:17:58.166505+00:00",
+      "audit": {
+        "event_id": "925ebeb8d121e4970ffb3a7381cc6a75",
+        "sport_key": "basketball_nba",
+        "home_team": "New Orleans Pelicans",
+        "away_team": "Los Angeles Clippers",
+        "source_snapshot_utc": "2025-03-11T12:05:38Z",
+        "reported_start_utc": "2025-03-12T00:10:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 51,
+            "player_line_groups": 51,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 51,
+            "book_update_utc": "2025-03-11T12:04:09Z",
+            "market_update_utc": "2025-03-11T12:04:23Z",
+            "book_age_seconds": 89.0,
+            "market_age_seconds": 75.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 22,
+            "player_line_groups": 11,
+            "paired_over_under_groups": 11,
+            "unpaired_groups": 0,
+            "book_update_utc": "2025-03-11T12:04:09Z",
+            "market_update_utc": "2025-03-11T12:04:23Z",
+            "book_age_seconds": 89.0,
+            "market_age_seconds": 75.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "fanduel",
+          "fanatics",
+          "draftkings",
+          "williamhill_us",
+          "betonlineag",
+          "betmgm",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/9f46f4bb825feb9f3b494e1a50d305ff.json",
+      "source_path": "data/historical_points/9f46f4bb825feb9f3b494e1a50d305ff.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/9f46f4bb825feb9f3b494e1a50d305ff.json",
+      "bytes": 103149,
+      "sha256": "f015809ed7a26a47ef95aa07ed95cfd77beb1d3aa48f0ae2aaf52362d871f3b7",
+      "git_blob_sha": "62d71965e2ea4676ca8506dd99c6ca34b36cee89",
+      "request_started_utc": "2026-09-13T18:17:58.118818+00:00",
+      "response_complete_utc": "2026-09-13T18:18:05.125137+00:00",
+      "audit": {
+        "event_id": "9f46f4bb825feb9f3b494e1a50d305ff",
+        "sport_key": "basketball_nba",
+        "home_team": "New York Knicks",
+        "away_team": "Los Angeles Lakers",
+        "source_snapshot_utc": "2024-02-03T13:35:39Z",
+        "reported_start_utc": "2024-02-04T01:40:00Z",
+        "snapshot_lead_minutes": 724.35,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 31,
+            "player_line_groups": 31,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 31,
+            "book_update_utc": "2024-02-03T13:35:22Z",
+            "market_update_utc": "2024-02-03T13:32:41Z",
+            "book_age_seconds": 17.0,
+            "market_age_seconds": 178.0,
+            "invalid_decimal_prices": 1,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": [
+              {
+                "name": "Over",
+                "description": "Anthony Davis",
+                "price": 1.0,
+                "point": 14.5
+              }
+            ]
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 16,
+            "player_line_groups": 8,
+            "paired_over_under_groups": 8,
+            "unpaired_groups": 0,
+            "book_update_utc": "2024-02-03T13:35:22Z",
+            "market_update_utc": "2024-02-03T13:32:41Z",
+            "book_age_seconds": 17.0,
+            "market_age_seconds": 178.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "fanduel",
+          "pointsbetus",
+          "williamhill_us",
+          "betonlineag",
+          "betmgm",
+          "unibet_us",
+          "betrivers",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/ac53c07fbe5f258ea3e51573ca0e542b.json",
+      "source_path": "data/historical_points/ac53c07fbe5f258ea3e51573ca0e542b.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/ac53c07fbe5f258ea3e51573ca0e542b.json",
+      "bytes": 53091,
+      "sha256": "3d63a3ba6a717a91d325c46884f782e3603b3766a31d2aad45a4eb4080decf9d",
+      "git_blob_sha": "6aa15dde5a3ba62d7609f94ab95285ebd0ff7802",
+      "request_started_utc": "2026-09-13T18:17:58.122929+00:00",
+      "response_complete_utc": "2026-09-13T18:18:05.547165+00:00",
+      "audit": {
+        "event_id": "ac53c07fbe5f258ea3e51573ca0e542b",
+        "sport_key": "basketball_nba",
+        "home_team": "Oklahoma City Thunder",
+        "away_team": "Brooklyn Nets",
+        "source_snapshot_utc": "2025-01-19T11:55:37Z",
+        "reported_start_utc": "2025-01-20T00:10:00Z",
+        "snapshot_lead_minutes": 734.3833333333333,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 26,
+            "player_line_groups": 26,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 26,
+            "book_update_utc": "2025-01-19T11:53:05Z",
+            "market_update_utc": "2025-01-19T11:55:40Z",
+            "book_age_seconds": 152.0,
+            "market_age_seconds": -3.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 14,
+            "player_line_groups": 7,
+            "paired_over_under_groups": 7,
+            "unpaired_groups": 0,
+            "book_update_utc": "2025-01-19T11:53:05Z",
+            "market_update_utc": "2025-01-19T11:55:40Z",
+            "book_age_seconds": 152.0,
+            "market_age_seconds": -3.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "fanduel",
+          "williamhill_us",
+          "betonlineag",
+          "betmgm",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/ba36a90b9027c2417fc43a5c9144543e.json",
+      "source_path": "data/historical_points/ba36a90b9027c2417fc43a5c9144543e.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/ba36a90b9027c2417fc43a5c9144543e.json",
+      "bytes": 137543,
+      "sha256": "f0f87b76cb330abbbc3ac92af1e88d7f6251c0f017162b0d242194c85f49c214",
+      "git_blob_sha": "08362b3410b07cd4914a4a1ee6947120b57630f3",
+      "request_started_utc": "2026-09-13T18:17:58.161327+00:00",
+      "response_complete_utc": "2026-09-13T18:18:05.146976+00:00",
+      "audit": {
+        "event_id": "ba36a90b9027c2417fc43a5c9144543e",
+        "sport_key": "basketball_nba",
+        "home_team": "Washington Wizards",
+        "away_team": "Miami Heat",
+        "source_snapshot_utc": "2025-03-31T11:05:38Z",
+        "reported_start_utc": "2025-03-31T23:10:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 45,
+            "player_line_groups": 45,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 45,
+            "book_update_utc": "2025-03-31T11:04:32Z",
+            "market_update_utc": "2025-03-31T11:05:54Z",
+            "book_age_seconds": 66.0,
+            "market_age_seconds": -16.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 20,
+            "player_line_groups": 10,
+            "paired_over_under_groups": 10,
+            "unpaired_groups": 0,
+            "book_update_utc": "2025-03-31T11:04:32Z",
+            "market_update_utc": "2025-03-31T11:05:54Z",
+            "book_age_seconds": 66.0,
+            "market_age_seconds": -16.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "betonlineag",
+          "fanatics",
+          "draftkings",
+          "betmgm",
+          "fanduel",
+          "bovada",
+          "williamhill_us"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/c8523141aaa4ff1f5221721713a92dca.json",
+      "source_path": "data/historical_points/c8523141aaa4ff1f5221721713a92dca.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/c8523141aaa4ff1f5221721713a92dca.json",
+      "bytes": 149108,
+      "sha256": "6e69e75364ccbd2678cdca2096563aed897a41d88d0c5a30bfc2a2debb5f0990",
+      "git_blob_sha": "e1530ceb1885fe94e58060f9fb67e9b9772a4885",
+      "request_started_utc": "2026-09-13T18:17:58.167032+00:00",
+      "response_complete_utc": "2026-09-13T18:18:05.216552+00:00",
+      "audit": {
+        "event_id": "c8523141aaa4ff1f5221721713a92dca",
+        "sport_key": "basketball_nba",
+        "home_team": "Atlanta Hawks",
+        "away_team": "Miami Heat",
+        "source_snapshot_utc": "2025-12-26T12:05:37Z",
+        "reported_start_utc": "2025-12-27T00:10:00Z",
+        "snapshot_lead_minutes": 724.3833333333333,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 66,
+            "player_line_groups": 66,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 66,
+            "book_update_utc": "2025-12-26T12:05:06Z",
+            "market_update_utc": "2025-12-26T12:05:39Z",
+            "book_age_seconds": 31.0,
+            "market_age_seconds": -2.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 26,
+            "player_line_groups": 13,
+            "paired_over_under_groups": 13,
+            "unpaired_groups": 0,
+            "book_update_utc": "2025-12-26T12:05:06Z",
+            "market_update_utc": "2025-12-26T12:05:39Z",
+            "book_age_seconds": 31.0,
+            "market_age_seconds": -2.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "fanduel",
+          "fanatics",
+          "draftkings",
+          "betonlineag",
+          "betrivers",
+          "williamhill_us",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/d5e0219685ec27694d99dde4f7d3cbb9.json",
+      "source_path": "data/historical_points/d5e0219685ec27694d99dde4f7d3cbb9.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/d5e0219685ec27694d99dde4f7d3cbb9.json",
+      "bytes": 67489,
+      "sha256": "fa7cfa5a69b5c9f2926d57a935d9867f86b28fe3caa8d4a3dc5ce48c81c600f5",
+      "git_blob_sha": "d390595030c8d8b2b325c790f036e9e28e4672e0",
+      "request_started_utc": "2026-09-13T18:18:05.125893+00:00",
+      "response_complete_utc": "2026-09-13T18:18:11.669394+00:00",
+      "audit": {
+        "event_id": "d5e0219685ec27694d99dde4f7d3cbb9",
+        "sport_key": "basketball_nba",
+        "home_team": "Cleveland Cavaliers",
+        "away_team": "Brooklyn Nets",
+        "source_snapshot_utc": "2024-11-09T12:35:39Z",
+        "reported_start_utc": "2024-11-10T00:40:00Z",
+        "snapshot_lead_minutes": 724.35,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 45,
+            "player_line_groups": 45,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 45,
+            "book_update_utc": "2024-11-09T12:34:37Z",
+            "market_update_utc": "2024-11-09T12:36:34Z",
+            "book_age_seconds": 62.0,
+            "market_age_seconds": -55.0,
+            "invalid_decimal_prices": 1,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": [
+              {
+                "name": "Over",
+                "description": "Donovan Mitchell",
+                "price": 1.0,
+                "point": 9.5
+              }
+            ]
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 20,
+            "player_line_groups": 10,
+            "paired_over_under_groups": 10,
+            "unpaired_groups": 0,
+            "book_update_utc": "2024-11-09T12:34:37Z",
+            "market_update_utc": "2024-11-09T12:36:34Z",
+            "book_age_seconds": 62.0,
+            "market_age_seconds": -55.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "fanduel",
+          "betonlineag",
+          "williamhill_us",
+          "draftkings",
+          "betmgm",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/e411c38de8cfe11e4f64b6a08c541029.json",
+      "source_path": "data/historical_points/e411c38de8cfe11e4f64b6a08c541029.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/e411c38de8cfe11e4f64b6a08c541029.json",
+      "bytes": 89035,
+      "sha256": "3efc63540f311bbc84f3d9e8aa420f1eead65c396162b0925e254ffd5399e14a",
+      "git_blob_sha": "712632a324c0f05248a5ece99d9404599e9c43c2",
+      "request_started_utc": "2026-09-13T18:18:05.147773+00:00",
+      "response_complete_utc": "2026-09-13T18:18:11.666337+00:00",
+      "audit": {
+        "event_id": "e411c38de8cfe11e4f64b6a08c541029",
+        "sport_key": "basketball_nba",
+        "home_team": "Phoenix Suns",
+        "away_team": "Utah Jazz",
+        "source_snapshot_utc": "2024-02-08T14:05:39Z",
+        "reported_start_utc": "2024-02-09T02:10:00Z",
+        "snapshot_lead_minutes": 724.35,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 26,
+            "player_line_groups": 26,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 26,
+            "book_update_utc": "2024-02-08T14:05:08Z",
+            "market_update_utc": "2024-02-08T14:05:35Z",
+            "book_age_seconds": 31.0,
+            "market_age_seconds": 4.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 12,
+            "player_line_groups": 6,
+            "paired_over_under_groups": 6,
+            "unpaired_groups": 0,
+            "book_update_utc": "2024-02-08T14:05:08Z",
+            "market_update_utc": "2024-02-08T14:05:35Z",
+            "book_age_seconds": 31.0,
+            "market_age_seconds": 4.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "betonlineag",
+          "williamhill_us",
+          "fanduel",
+          "pointsbetus",
+          "bovada",
+          "betrivers",
+          "unibet_us"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/f2e9b932ad12be3f2f47166b3eb0d456.json",
+      "source_path": "data/historical_points/f2e9b932ad12be3f2f47166b3eb0d456.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/f2e9b932ad12be3f2f47166b3eb0d456.json",
+      "bytes": 166087,
+      "sha256": "7201a224af29ac176f1393c88d758265c8743d1ade40a79e2851387740e2a5fc",
+      "git_blob_sha": "0958584e16ea3ea57943fbf63ffe209223a30177",
+      "request_started_utc": "2026-09-13T18:18:05.217256+00:00",
+      "response_complete_utc": "2026-09-13T18:18:11.646823+00:00",
+      "audit": {
+        "event_id": "f2e9b932ad12be3f2f47166b3eb0d456",
+        "sport_key": "basketball_nba",
+        "home_team": "Detroit Pistons",
+        "away_team": "Washington Wizards",
+        "source_snapshot_utc": "2025-11-10T11:55:37Z",
+        "reported_start_utc": "2025-11-11T00:00:00Z",
+        "snapshot_lead_minutes": 724.3833333333333,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 57,
+            "player_line_groups": 57,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 57,
+            "book_update_utc": "2025-11-10T11:53:46Z",
+            "market_update_utc": "2025-11-10T11:54:57Z",
+            "book_age_seconds": 111.0,
+            "market_age_seconds": 40.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 24,
+            "player_line_groups": 12,
+            "paired_over_under_groups": 12,
+            "unpaired_groups": 0,
+            "book_update_utc": "2025-11-10T11:53:46Z",
+            "market_update_utc": "2025-11-10T11:54:57Z",
+            "book_age_seconds": 111.0,
+            "market_age_seconds": 40.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "draftkings",
+          "fanatics",
+          "betonlineag",
+          "williamhill_us",
+          "fanduel",
+          "betrivers",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nba",
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/ffff0c072d3db65180224daa6e216ca9.json",
+      "source_path": "data/historical_points/ffff0c072d3db65180224daa6e216ca9.json",
+      "local_path": "data/raw/new-prop-archive-sample/nba/ffff0c072d3db65180224daa6e216ca9.json",
+      "bytes": 42599,
+      "sha256": "725cc208ec3715b376e4b0f12f6f0afe886fc8a1b0fd95626151bc849f626068",
+      "git_blob_sha": "4db8d73c431c20b1cda640e1d6bb351f1fa0228e",
+      "request_started_utc": "2026-09-13T18:18:05.547786+00:00",
+      "response_complete_utc": "2026-09-13T18:18:11.657629+00:00",
+      "audit": {
+        "event_id": "ffff0c072d3db65180224daa6e216ca9",
+        "sport_key": "basketball_nba",
+        "home_team": "San Antonio Spurs",
+        "away_team": "Philadelphia 76ers",
+        "source_snapshot_utc": "2024-04-07T10:55:38Z",
+        "reported_start_utc": "2024-04-07T23:00:00Z",
+        "snapshot_lead_minutes": 724.3666666666667,
+        "fanduel_book_objects": 1,
+        "fanduel_markets": [
+          {
+            "market_key": "player_points_alternate",
+            "outcome_rows": 12,
+            "player_line_groups": 12,
+            "paired_over_under_groups": 0,
+            "unpaired_groups": 12,
+            "book_update_utc": "2024-04-07T10:55:17Z",
+            "market_update_utc": "2024-04-07T10:52:23Z",
+            "book_age_seconds": 21.0,
+            "market_age_seconds": 195.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          },
+          {
+            "market_key": "player_points",
+            "outcome_rows": 6,
+            "player_line_groups": 3,
+            "paired_over_under_groups": 3,
+            "unpaired_groups": 0,
+            "book_update_utc": "2024-04-07T10:55:17Z",
+            "market_update_utc": "2024-04-07T10:52:23Z",
+            "book_age_seconds": 21.0,
+            "market_age_seconds": 195.0,
+            "invalid_decimal_prices": 0,
+            "duplicate_player_line_side_rows": 0,
+            "invalid_price_rows": []
+          }
+        ],
+        "all_book_keys": [
+          "fanduel",
+          "mybookieag",
+          "draftkings",
+          "betonlineag",
+          "williamhill_us",
+          "betrivers",
+          "unibet_us",
+          "bovada"
+        ]
+      }
+    },
+    {
+      "sport": "nfl",
+      "url": "https://raw.githubusercontent.com/firstandthirty/nfl-tools/e919241eb9fc17f057005348c7869a37b23e7675/player_props/data/processed/fanduel_pass_yds_history.csv",
+      "source_path": "player_props/data/processed/fanduel_pass_yds_history.csv",
+      "local_path": "data/raw/new-prop-archive-sample/nfl/fanduel_pass_yds_history.csv",
+      "bytes": 453328,
+      "sha256": "2425eb9c949aeefde21fc2b0abfc435f383902931d3c84d69552142f47e8045a",
+      "git_blob_sha": "c8c5df1e8bb7c19a715455fdb8242fedc00dccab",
+      "request_started_utc": "2026-09-13T18:18:11.647774+00:00",
+      "response_complete_utc": "2026-09-13T18:18:19.408386+00:00",
+      "audit": {
+        "rows": 1538,
+        "columns": [
+          "requested_snapshot_time",
+          "previous_timestamp",
+          "next_timestamp",
+          "event_id",
+          "sport_key",
+          "commence_time",
+          "home_team",
+          "away_team",
+          "bookmaker_key",
+          "bookmaker_title",
+          "bookmaker_last_update",
+          "market_key",
+          "market_last_update",
+          "player",
+          "line",
+          "over_price",
+          "under_price",
+          "season_guess",
+          "week_guess",
+          "sportsbook",
+          "week_guess_numeric"
+        ],
+        "bookmaker_key_counts": {
+          "fanduel": 1538
+        },
+        "sportsbook_counts": {
+          "fanduel": 1538
+        },
+        "market_key_counts": {
+          "player_pass_yds": 1538
+        },
+        "season_guess_counts": {
+          "2023": 503,
+          "2024": 507,
+          "2025": 528
+        },
+        "event_id_distinct": 779,
+        "player_distinct": 96,
+        "commence_time": {
+          "nonnull": 1538,
+          "min": "2023-09-08T00:25:00Z",
+          "max": "2026-01-04T21:25:00Z"
+        },
+        "bookmaker_last_update": {
+          "nonnull": 1538,
+          "min": "2023-09-07T22:45:11Z",
+          "max": "2026-01-04T19:50:13Z"
+        },
+        "market_last_update": {
+          "nonnull": 1538,
+          "min": "2023-09-07T22:43:07Z",
+          "max": "2026-01-04T19:50:51Z"
+        },
+        "requested_snapshot_time": {
+          "nonnull": 1538,
+          "min": "2023-09-07T22:45:42Z",
+          "max": "2026-01-04T19:50:37Z"
+        },
+        "complete_valid_decimal_price_pairs": 1538,
+        "invalid_or_missing_price_pairs": 0,
+        "snapshot_lead_minutes": {
+          "min": 90.28333333333333,
+          "median": 94.36666666666666,
+          "max": 99.3
+        },
+        "at_or_after_reported_start": 0,
+        "bookmaker_last_update_age_seconds": {
+          "min": 1.0,
+          "median": 25.0,
+          "max": 316.0,
+          "future_rows": 0
+        },
+        "market_last_update_age_seconds": {
+          "min": -48.0,
+          "median": 19.0,
+          "max": 555.0,
+          "future_rows": 416
+        },
+        "duplicate_event_player_market_line_snapshot_rows": 0,
+        "player_line_keys_with_multiple_snapshot_times": 0,
+        "first_price_row_metadata_only": {
+          "requested_snapshot_time": "2023-09-07T22:45:42Z",
+          "event_id": "42db668449664943833b5c04a583328a",
+          "commence_time": "2023-09-08T00:25:00Z",
+          "home_team": "Kansas City Chiefs",
+          "away_team": "Detroit Lions",
+          "bookmaker_key": "fanduel",
+          "bookmaker_title": "FanDuel",
+          "bookmaker_last_update": "2023-09-07T22:45:11Z",
+          "market_key": "player_pass_yds",
+          "market_last_update": "2023-09-07T22:43:07Z",
+          "player": "Jared Goff",
+          "line": "255.5",
+          "over_price": "1.91",
+          "under_price": "1.91",
+          "season_guess": "2023",
+          "sportsbook": "fanduel"
+        }
+      }
+    },
+    {
+      "sport": "nfl",
+      "url": "https://raw.githubusercontent.com/firstandthirty/nfl-tools/e919241eb9fc17f057005348c7869a37b23e7675/player_props/data/processed/fanduel_receptions_history.csv",
+      "source_path": "player_props/data/processed/fanduel_receptions_history.csv",
+      "local_path": "data/raw/new-prop-archive-sample/nfl/fanduel_receptions_history.csv",
+      "bytes": 2464468,
+      "sha256": "795ae85ed74b0b1ad4971f8e2951a61704e79aff3138b760d3ec8fe802a2282d",
+      "git_blob_sha": "6288ff9820da5a3b8809b62fc5c4a3da234cc09a",
+      "request_started_utc": "2026-09-13T18:18:11.658414+00:00",
+      "response_complete_utc": "2026-09-13T18:18:19.534561+00:00",
+      "audit": {
+        "rows": 6901,
+        "columns": [
+          "requested_snapshot_time",
+          "previous_timestamp",
+          "next_timestamp",
+          "event_id",
+          "sport_key",
+          "commence_time",
+          "home_team",
+          "away_team",
+          "bookmaker_key",
+          "bookmaker_title",
+          "bookmaker_last_update",
+          "market_key",
+          "market_last_update",
+          "player",
+          "line",
+          "over_price",
+          "under_price",
+          "game_context_book",
+          "home_spread",
+          "away_spread",
+          "game_total",
+          "home_moneyline",
+          "away_moneyline",
+          "team",
+          "opponent",
+          "is_home",
+          "team_spread",
+          "opponent_spread",
+          "is_favorite",
+          "is_underdog",
+          "spread_abs",
+          "spread_bucket",
+          "total_bucket",
+          "team_moneyline",
+          "opponent_moneyline",
+          "season_guess",
+          "week_guess",
+          "sportsbook",
+          "week_guess_numeric"
+        ],
+        "bookmaker_key_counts": {
+          "fanduel": 6901
+        },
+        "sportsbook_counts": {
+          "fanduel": 6901
+        },
+        "market_key_counts": {
+          "player_receptions": 6901
+        },
+        "season_guess_counts": {
+          "2023": 2005,
+          "2024": 2175,
+          "2025": 2721
+        },
+        "event_id_distinct": 741,
+        "player_distinct": 407,
+        "commence_time": {
+          "nonnull": 6901,
+          "min": "2023-09-08T00:25:00Z",
+          "max": "2026-01-04T21:25:00Z"
+        },
+        "bookmaker_last_update": {
+          "nonnull": 6901,
+          "min": "2023-09-07T22:45:11Z",
+          "max": "2026-01-04T19:50:13Z"
+        },
+        "market_last_update": {
+          "nonnull": 6901,
+          "min": "2023-09-07T22:43:07Z",
+          "max": "2026-01-04T19:50:51Z"
+        },
+        "requested_snapshot_time": {
+          "nonnull": 6901,
+          "min": "2023-09-07T22:45:42Z",
+          "max": "2026-01-04T19:50:37Z"
+        },
+        "complete_valid_decimal_price_pairs": 6901,
+        "invalid_or_missing_price_pairs": 0,
+        "snapshot_lead_minutes": {
+          "min": 89.38333333333334,
+          "median": 94.36666666666666,
+          "max": 99.3
+        },
+        "at_or_after_reported_start": 0,
+        "bookmaker_last_update_age_seconds": {
+          "min": 1.0,
+          "median": 24.0,
+          "max": 316.0,
+          "future_rows": 0
+        },
+        "market_last_update_age_seconds": {
+          "min": -48.0,
+          "median": 18.0,
+          "max": 555.0,
+          "future_rows": 1939
+        },
+        "duplicate_event_player_market_line_snapshot_rows": 0,
+        "player_line_keys_with_multiple_snapshot_times": 0,
+        "first_price_row_metadata_only": {
+          "requested_snapshot_time": "2023-09-07T22:45:42Z",
+          "event_id": "42db668449664943833b5c04a583328a",
+          "commence_time": "2023-09-08T00:25:00Z",
+          "home_team": "Kansas City Chiefs",
+          "away_team": "Detroit Lions",
+          "bookmaker_key": "fanduel",
+          "bookmaker_title": "FanDuel",
+          "bookmaker_last_update": "2023-09-07T22:45:11Z",
+          "market_key": "player_receptions",
+          "market_last_update": "2023-09-07T22:43:07Z",
+          "player": "Marquez Valdes-Scantling",
+          "line": "2.5",
+          "over_price": "1.78",
+          "under_price": "2.0",
+          "season_guess": "2023",
+          "sportsbook": "fanduel"
+        }
+      }
+    }
+  ]
+}

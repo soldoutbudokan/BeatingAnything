@@ -1,5 +1,15 @@
 # Market data inventory — September 12, 2026
 
+**September 13 update:** new public archives now supply actual historical FanDuel props. The limitations of the older NFL database and Odds Gap exports below still apply to those sources, but no longer describe the entire available inventory.
+
+| New pinned source | Verified useful content | Executed result / limitation |
+| --- | --- | --- |
+| [NBA raw archive](new-prop-archives-2026-09-13.md), `devlincorrigan/nba-props-threshold-app@233dbbc8` | All 3,394 JSONs / 397,273,601 bytes acquired and Git-blob verified. FanDuel main points and mostly one-sided alternate points, with other books and separate archive/book/market clocks. | [Consensus test](../reports/nba-points-consensus-2026-09-13.md) has only one qualifying bet; [payoff-coverage test](../reports/nba-points-payoff-coverage-2026-09-13.md) has zero candidates. Future market updates, ambiguous names and missing closes/fills remain explicit. |
+| [NFL processed prop archive](new-prop-archives-2026-09-13.md), `firstandthirty/nfl-tools@e919241e` | 6,901 reception pairs and 1,538 passing-yard pairs across reported 2023–2025 starts; 4,962 / 1,122 survive both nonfuture quote-clock checks before other filters. | Never use guessed team/spread context or estimated season/week. Its apparent requested-time column is the returned archive timestamp. Original raw response verification is absent. |
+| [NFL raw spread boards](nfl-receptions-replication-source-2026-09-13.md), `bsr-0/nfl-player-projections@ca05a001` | 114 fixed 2023–24 game-date boards acquired / 16,793,825 bytes, each Git-blob verified. Both spread outcomes, original archive/book/market clocks and reported fixtures. | Earlier same-day context within six hours exists for only 172 of 544 fixture games. The unchanged [reception replication](../reports/nfl-short-receptions-replication-2023-24-2026-09-13.md) lost 33.87%; preserve timing gaps rather than add boards to rescue it. |
+
+All originals remain ignored. These retrospective sources provide neither the missing live PREM/URC rugby markets nor a verified current execution route. Use the latest PROGRESS entry for the next experiment; do not rerun their completed screens.
+
 **The NFL archive contains main game lines, not the niche markets sought in NEXT-STEPS.** The Odds Gap's game-line export has the same limitation. Its separate prop export is a possible sport-side reference, but cannot reconstruct paired FanDuel and Pinnacle prop prices.
 
 ## NFL: exact archive recovered and queried

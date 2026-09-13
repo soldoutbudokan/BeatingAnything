@@ -1,0 +1,124 @@
+{
+  "audit_date": "2026-09-13",
+  "selection_rule": "20 equally spaced lexicographic historical JSON paths, including first and last; fixed before sample counts or outcomes",
+  "nba_repository": "devlincorrigan/nba-props-threshold-app",
+  "nba_commit": "233dbbc86b9c6e13df04d4e8b063581b3aa15abb",
+  "nba_tree_files": 3394,
+  "nba_tree_bytes": 397273601,
+  "nba_files": [
+    {
+      "path": "data/historical_points/00005f0bead0cd85b8134cf9bf78b328.json",
+      "git_blob_sha": "36332bb1221ae638efdf9942cec545044df0b641",
+      "expected_bytes": 93418
+    },
+    {
+      "path": "data/historical_points/0b974c5823fdb0fde39fb43ca45fdc2e.json",
+      "git_blob_sha": "ac8ab5141205ab81b7a55c69cb024223a21846cc",
+      "expected_bytes": 9695
+    },
+    {
+      "path": "data/historical_points/19703e305f3608fac5c658043d7d6d13.json",
+      "git_blob_sha": "f37eae7b0aaa2093f5bf56d749fbbef86d49baf9",
+      "expected_bytes": 153452
+    },
+    {
+      "path": "data/historical_points/27af33a357d0ce2f216ef54f140bd917.json",
+      "git_blob_sha": "d8783ec507a58091cfc36b81838f2e4b781df949",
+      "expected_bytes": 104088
+    },
+    {
+      "path": "data/historical_points/344f56fc125c7da72e13ee290d092afa.json",
+      "git_blob_sha": "126e0378edf68733d9b7b6d219517d6847dd1130",
+      "expected_bytes": 67587
+    },
+    {
+      "path": "data/historical_points/40ae64b29f051a3ace031cd92c5ff655.json",
+      "git_blob_sha": "e99dbe18edc5e6b0316cabf45965c620c59b5c7e",
+      "expected_bytes": 112027
+    },
+    {
+      "path": "data/historical_points/4fa62836feeb88c78b9d54c8274d6add.json",
+      "git_blob_sha": "0c4ef9cb28429cc1da0c9e78fd86b1da40bed9b2",
+      "expected_bytes": 113086
+    },
+    {
+      "path": "data/historical_points/5c919391903d2ab585c76df3e74cfa7a.json",
+      "git_blob_sha": "513ce31f2a8aee74650cb295c575b20d044f6f68",
+      "expected_bytes": 206650
+    },
+    {
+      "path": "data/historical_points/6a4ab9a1ce6d4f90b0dafd6d6461c5eb.json",
+      "git_blob_sha": "26e302d8dc6a0794ff424b1edb07e209db5a842e",
+      "expected_bytes": 158667
+    },
+    {
+      "path": "data/historical_points/7815366be2e0e1fe687f6561567a30c4.json",
+      "git_blob_sha": "b1ab19e68f415ee635ce0185ee868c3d6f021010",
+      "expected_bytes": 173934
+    },
+    {
+      "path": "data/historical_points/84c46a915d78675134a5fcf018c7771e.json",
+      "git_blob_sha": "621e80992737e2cab13545bbc584fa7aad1fe9ea",
+      "expected_bytes": 67847
+    },
+    {
+      "path": "data/historical_points/925ebeb8d121e4970ffb3a7381cc6a75.json",
+      "git_blob_sha": "a8b8baa17e7270df5f831059acda152c482fcfff",
+      "expected_bytes": 117699
+    },
+    {
+      "path": "data/historical_points/9f46f4bb825feb9f3b494e1a50d305ff.json",
+      "git_blob_sha": "62d71965e2ea4676ca8506dd99c6ca34b36cee89",
+      "expected_bytes": 103149
+    },
+    {
+      "path": "data/historical_points/ac53c07fbe5f258ea3e51573ca0e542b.json",
+      "git_blob_sha": "6aa15dde5a3ba62d7609f94ab95285ebd0ff7802",
+      "expected_bytes": 53091
+    },
+    {
+      "path": "data/historical_points/ba36a90b9027c2417fc43a5c9144543e.json",
+      "git_blob_sha": "08362b3410b07cd4914a4a1ee6947120b57630f3",
+      "expected_bytes": 137543
+    },
+    {
+      "path": "data/historical_points/c8523141aaa4ff1f5221721713a92dca.json",
+      "git_blob_sha": "e1530ceb1885fe94e58060f9fb67e9b9772a4885",
+      "expected_bytes": 149108
+    },
+    {
+      "path": "data/historical_points/d5e0219685ec27694d99dde4f7d3cbb9.json",
+      "git_blob_sha": "d390595030c8d8b2b325c790f036e9e28e4672e0",
+      "expected_bytes": 67489
+    },
+    {
+      "path": "data/historical_points/e411c38de8cfe11e4f64b6a08c541029.json",
+      "git_blob_sha": "712632a324c0f05248a5ece99d9404599e9c43c2",
+      "expected_bytes": 89035
+    },
+    {
+      "path": "data/historical_points/f2e9b932ad12be3f2f47166b3eb0d456.json",
+      "git_blob_sha": "0958584e16ea3ea57943fbf63ffe209223a30177",
+      "expected_bytes": 166087
+    },
+    {
+      "path": "data/historical_points/ffff0c072d3db65180224daa6e216ca9.json",
+      "git_blob_sha": "4db8d73c431c20b1cda640e1d6bb351f1fa0228e",
+      "expected_bytes": 42599
+    }
+  ],
+  "nfl_repository": "firstandthirty/nfl-tools",
+  "nfl_commit": "e919241eb9fc17f057005348c7869a37b23e7675",
+  "nfl_files": [
+    {
+      "path": "player_props/data/processed/fanduel_pass_yds_history.csv",
+      "git_blob_sha": "c8c5df1e8bb7c19a715455fdb8242fedc00dccab",
+      "expected_bytes": 453328
+    },
+    {
+      "path": "player_props/data/processed/fanduel_receptions_history.csv",
+      "git_blob_sha": "6288ff9820da5a3b8809b62fc5c4a3da234cc09a",
+      "expected_bytes": 2464468
+    }
+  ]
+}
