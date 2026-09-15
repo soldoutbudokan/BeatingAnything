@@ -1,0 +1,47 @@
+{
+  "research_date": "2026-09-13",
+  "hypothesis": "hockey-empty-net-exposure",
+  "status": "unresolved_source_access",
+  "sport_side_test_run": false,
+  "book_side_test_run": false,
+  "target_season": "20242025",
+  "target_game_type": "regular_season",
+  "games_with_downloaded_paired_inputs": 0,
+  "pull_segments_observed": null,
+  "pull_exposure_seconds": null,
+  "both_goalies_exposure_seconds": null,
+  "combined_hazard_ratio": null,
+  "edge_demonstrated": false,
+  "ordinary_request_checks": [
+    {
+      "url": "https://api-web.nhle.com/v1/gamecenter/2024020001/play-by-play",
+      "http_status": 403
+    },
+    {
+      "url": "https://api.nhle.com/stats/rest/en/shiftcharts?cayenneExp=gameId=2024020001",
+      "http_status": 403
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/club-schedule-season/TOR/20242025",
+      "http_status": 403
+    },
+    {
+      "url": "https://www.nhl.com/scores/htmlreports/20242025/TH020001.HTM",
+      "http_status": 403
+    }
+  ],
+  "web_read_checks": [
+    {
+      "url": "https://www.nhl.com/scores/htmlreports/20242025/TH020001.HTM",
+      "status": "official_report_readable_through_web"
+    },
+    {
+      "url": "https://www.nhl.com/scores/htmlreports/20242025/PL020001.HTM",
+      "status": "official_report_readable_through_web"
+    }
+  ],
+  "blocker": "No paired machine-readable official play-by-play and goalie shifts were downloaded. Event empty-net flags alone cannot establish exposure time between events.",
+  "resume_command": "python tools/explore_nhl_empty_net.py --last-game 1312",
+  "resume_scope": "Download/cache 2024-25 regular-season game IDs 2024020001 through 2024021312; stops on first failed input. This is input acquisition only, with schema validation and hazard analysis still pending.",
+  "decision": "Park temporarily. Neither the >=200 pull-segment criterion nor the 50% relative-rate criterion can be evaluated. Do not substitute an event-count comparison for per-second hazards."
+}

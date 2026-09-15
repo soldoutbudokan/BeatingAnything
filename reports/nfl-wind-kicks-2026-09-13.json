@@ -1,0 +1,455 @@
+{
+  "generated_at_utc": "2026-09-13T01:31:05.164007+00:00",
+  "analysis_date": "2026-09-13",
+  "hypothesis": "football-wind-long-kicks",
+  "status": "idea; timely pregame wind trigger unresolved",
+  "exploratory_screen": "fails descriptive magnitude screen",
+  "definition": {
+    "seasons": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "season_types": "regular and postseason",
+    "eligible_drive": "First valid non-kickoff snap with ball at opponent 40\u201325 inclusive; subsequent >=50-yard kicks in the same game/fixed_drive/offense",
+    "exposure": "Retrospective recorded game wind >=15 mph; roof outdoors/open",
+    "control": "Recorded game wind 0\u2013<15 mph; standardized within season and roof using exposed-drive weights",
+    "minimum_exposed_drives": 200,
+    "minimum_relative_reduction_in_long_makes": 0.2,
+    "secondary_diagnostics": "All-distance attempts and makes; no additional pass gate",
+    "uncertainty": "2000 game-cluster bootstrap draws within exposure \u00d7 season \u00d7 roof, seed 20260913; descriptive, uncorrected for hypothesis selection"
+  },
+  "sources": [
+    {
+      "season": 2021,
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2021.csv.gz",
+      "sha256": "e8743a568f99667a8bdcd29ba12224ee1782ad2b7916bee78ee335c099383739",
+      "bytes": 19022201,
+      "rows": 49922
+    },
+    {
+      "season": 2022,
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2022.csv.gz",
+      "sha256": "0c69a71eb39498956c7b1d5c1ca52ce7fe679934a95d1af249facb5ea9829ea4",
+      "bytes": 19093961,
+      "rows": 49434
+    },
+    {
+      "season": 2023,
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2023.csv.gz",
+      "sha256": "4649804ee0f0a40b41e51ec75a1ce921949d7fab5459213488656b92f78560e8",
+      "bytes": 19169807,
+      "rows": 49665
+    },
+    {
+      "season": 2024,
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2024.csv.gz",
+      "sha256": "23370d5d10f8104d80d46a1fc5e61f4f6f5a3263fe96fe2dd629913cfcb08c06",
+      "bytes": 19362351,
+      "rows": 49492
+    },
+    {
+      "season": 2025,
+      "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2025.csv.gz",
+      "sha256": "2f135887790a013fd004e609e37096bb4816d5cc80b9f19122e1bad478961978",
+      "bytes": 19105296,
+      "rows": 48771
+    }
+  ],
+  "coverage": {
+    "input_games": 1424,
+    "completed_games": 1424,
+    "abandoned_games_excluded": 0,
+    "roof_game_counts": {
+      "outdoors": 947,
+      "dome": 261,
+      "closed": 184,
+      "open": 32
+    },
+    "outdoor_or_open_games": 979,
+    "outdoor_or_open_missing_wind_games": 152,
+    "outdoor_or_open_invalid_wind_games": 0,
+    "eligible_weather_games": 827,
+    "high_wind_games": 95,
+    "wind_missingness_by_season_and_roof": [
+      {
+        "season": 2021,
+        "roof": "closed",
+        "games": 31,
+        "missing_wind_games": 31,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2021,
+        "roof": "dome",
+        "games": 52,
+        "missing_wind_games": 52,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2021,
+        "roof": "open",
+        "games": 11,
+        "missing_wind_games": 11,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2021,
+        "roof": "outdoors",
+        "games": 191,
+        "missing_wind_games": 0,
+        "high_wind_games": 30
+      },
+      {
+        "season": 2022,
+        "roof": "closed",
+        "games": 33,
+        "missing_wind_games": 33,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2022,
+        "roof": "dome",
+        "games": 53,
+        "missing_wind_games": 53,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2022,
+        "roof": "open",
+        "games": 10,
+        "missing_wind_games": 10,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2022,
+        "roof": "outdoors",
+        "games": 188,
+        "missing_wind_games": 81,
+        "high_wind_games": 14
+      },
+      {
+        "season": 2023,
+        "roof": "closed",
+        "games": 33,
+        "missing_wind_games": 33,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2023,
+        "roof": "dome",
+        "games": 53,
+        "missing_wind_games": 53,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2023,
+        "roof": "open",
+        "games": 11,
+        "missing_wind_games": 11,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2023,
+        "roof": "outdoors",
+        "games": 188,
+        "missing_wind_games": 30,
+        "high_wind_games": 14
+      },
+      {
+        "season": 2024,
+        "roof": "closed",
+        "games": 45,
+        "missing_wind_games": 45,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2024,
+        "roof": "dome",
+        "games": 53,
+        "missing_wind_games": 53,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2024,
+        "roof": "outdoors",
+        "games": 187,
+        "missing_wind_games": 5,
+        "high_wind_games": 16
+      },
+      {
+        "season": 2025,
+        "roof": "closed",
+        "games": 42,
+        "missing_wind_games": 41,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2025,
+        "roof": "dome",
+        "games": 50,
+        "missing_wind_games": 50,
+        "high_wind_games": 0
+      },
+      {
+        "season": 2025,
+        "roof": "outdoors",
+        "games": 193,
+        "missing_wind_games": 4,
+        "high_wind_games": 21
+      }
+    ],
+    "eligible_drive_valid_field_goal_attempts_missing_distance_before_weather_filter": 0,
+    "eligible_drive_valid_field_goal_attempts_missing_result_before_weather_filter": 0,
+    "all_eligible_drives_before_weather_filter": 12238,
+    "eligible_drives_with_outdoor_or_open_roof_but_missing_wind": 1265
+  },
+  "result": {
+    "high": {
+      "drives": 785,
+      "long_attempts": 62,
+      "long_makes": 49,
+      "all_attempts": 286,
+      "all_makes": 249,
+      "games": 95,
+      "long_attempts_per_drive": 0.07898089171974522,
+      "long_makes_per_drive": 0.062420382165605096,
+      "all_attempts_per_drive": 0.3643312101910828,
+      "all_makes_per_drive": 0.31719745222929935,
+      "long_success_given_attempt": 0.7903225806451613
+    },
+    "low": {
+      "drives": 6249,
+      "long_attempts": 535,
+      "long_makes": 356,
+      "all_attempts": 2359,
+      "all_makes": 1947,
+      "games": 732,
+      "long_attempts_per_drive": 0.08561369819171068,
+      "long_makes_per_drive": 0.05696911505840935,
+      "all_attempts_per_drive": 0.37750040006401026,
+      "all_makes_per_drive": 0.3115698511761882,
+      "long_success_given_attempt": 0.6654205607476635
+    },
+    "matched_high": {
+      "drives": 785,
+      "long_attempts": 62,
+      "long_makes": 49,
+      "all_attempts": 286,
+      "all_makes": 249,
+      "games": 95,
+      "long_attempts_per_drive": 0.07898089171974522,
+      "long_makes_per_drive": 0.062420382165605096,
+      "all_attempts_per_drive": 0.3643312101910828,
+      "all_makes_per_drive": 0.31719745222929935,
+      "long_success_given_attempt": 0.7903225806451613
+    },
+    "unmatched_high_drives": 0,
+    "strata": [
+      {
+        "season": 2021,
+        "roof": "outdoors",
+        "high": {
+          "drives": 241,
+          "long_attempts": 23,
+          "long_makes": 19,
+          "all_attempts": 91,
+          "all_makes": 81,
+          "games": 30,
+          "long_attempts_per_drive": 0.0954356846473029,
+          "long_makes_per_drive": 0.07883817427385892,
+          "all_attempts_per_drive": 0.3775933609958506,
+          "all_makes_per_drive": 0.3360995850622407,
+          "long_success_given_attempt": 0.8260869565217391
+        },
+        "low": {
+          "drives": 1396,
+          "long_attempts": 84,
+          "long_makes": 52,
+          "all_attempts": 493,
+          "all_makes": 404,
+          "games": 161,
+          "long_attempts_per_drive": 0.06017191977077364,
+          "long_makes_per_drive": 0.03724928366762178,
+          "all_attempts_per_drive": 0.3531518624641834,
+          "all_makes_per_drive": 0.28939828080229224,
+          "long_success_given_attempt": 0.6190476190476191
+        },
+        "matched": true
+      },
+      {
+        "season": 2022,
+        "roof": "outdoors",
+        "high": {
+          "drives": 115,
+          "long_attempts": 8,
+          "long_makes": 5,
+          "all_attempts": 41,
+          "all_makes": 33,
+          "games": 14,
+          "long_attempts_per_drive": 0.06956521739130435,
+          "long_makes_per_drive": 0.043478260869565216,
+          "all_attempts_per_drive": 0.3565217391304348,
+          "all_makes_per_drive": 0.28695652173913044,
+          "long_success_given_attempt": 0.625
+        },
+        "low": {
+          "drives": 766,
+          "long_attempts": 62,
+          "long_makes": 38,
+          "all_attempts": 286,
+          "all_makes": 235,
+          "games": 93,
+          "long_attempts_per_drive": 0.08093994778067885,
+          "long_makes_per_drive": 0.04960835509138381,
+          "all_attempts_per_drive": 0.3733681462140992,
+          "all_makes_per_drive": 0.30678851174934724,
+          "long_success_given_attempt": 0.6129032258064516
+        },
+        "matched": true
+      },
+      {
+        "season": 2023,
+        "roof": "outdoors",
+        "high": {
+          "drives": 107,
+          "long_attempts": 15,
+          "long_makes": 12,
+          "all_attempts": 43,
+          "all_makes": 37,
+          "games": 14,
+          "long_attempts_per_drive": 0.14018691588785046,
+          "long_makes_per_drive": 0.11214953271028037,
+          "all_attempts_per_drive": 0.40186915887850466,
+          "all_makes_per_drive": 0.34579439252336447,
+          "long_success_given_attempt": 0.8
+        },
+        "low": {
+          "drives": 1168,
+          "long_attempts": 105,
+          "long_makes": 76,
+          "all_attempts": 453,
+          "all_makes": 375,
+          "games": 144,
+          "long_attempts_per_drive": 0.0898972602739726,
+          "long_makes_per_drive": 0.06506849315068493,
+          "all_attempts_per_drive": 0.3878424657534247,
+          "all_makes_per_drive": 0.3210616438356164,
+          "long_success_given_attempt": 0.7238095238095238
+        },
+        "matched": true
+      },
+      {
+        "season": 2024,
+        "roof": "outdoors",
+        "high": {
+          "drives": 141,
+          "long_attempts": 10,
+          "long_makes": 8,
+          "all_attempts": 50,
+          "all_makes": 42,
+          "games": 16,
+          "long_attempts_per_drive": 0.07092198581560284,
+          "long_makes_per_drive": 0.05673758865248227,
+          "all_attempts_per_drive": 0.3546099290780142,
+          "all_makes_per_drive": 0.2978723404255319,
+          "long_success_given_attempt": 0.8
+        },
+        "low": {
+          "drives": 1463,
+          "long_attempts": 133,
+          "long_makes": 87,
+          "all_attempts": 576,
+          "all_makes": 474,
+          "games": 166,
+          "long_attempts_per_drive": 0.09090909090909091,
+          "long_makes_per_drive": 0.059466848940533154,
+          "all_attempts_per_drive": 0.39371155160628846,
+          "all_makes_per_drive": 0.3239917976760082,
+          "long_success_given_attempt": 0.6541353383458647
+        },
+        "matched": true
+      },
+      {
+        "season": 2025,
+        "roof": "outdoors",
+        "high": {
+          "drives": 181,
+          "long_attempts": 6,
+          "long_makes": 5,
+          "all_attempts": 61,
+          "all_makes": 56,
+          "games": 21,
+          "long_attempts_per_drive": 0.03314917127071823,
+          "long_makes_per_drive": 0.027624309392265192,
+          "all_attempts_per_drive": 0.3370165745856354,
+          "all_makes_per_drive": 0.30939226519337015,
+          "long_success_given_attempt": 0.8333333333333334
+        },
+        "low": {
+          "drives": 1456,
+          "long_attempts": 151,
+          "long_makes": 103,
+          "all_attempts": 551,
+          "all_makes": 459,
+          "games": 168,
+          "long_attempts_per_drive": 0.10370879120879122,
+          "long_makes_per_drive": 0.07074175824175824,
+          "all_attempts_per_drive": 0.3784340659340659,
+          "all_makes_per_drive": 0.31524725274725274,
+          "long_success_given_attempt": 0.6821192052980133
+        },
+        "matched": true
+      }
+    ],
+    "standardized": {
+      "long_attempts": {
+        "high_rate": 0.07898089171974522,
+        "season_roof_standardized_low_rate": 0.08282548603289504,
+        "relative_reduction": 0.046418010896101425,
+        "relative_reduction_game_cluster_95pct_interval": [
+          -0.24974735319147878,
+          0.30789467017558814
+        ]
+      },
+      "long_makes": {
+        "high_rate": 0.062420382165605096,
+        "season_roof_standardized_low_rate": 0.05456490561643655,
+        "relative_reduction": -0.14396573146096014,
+        "relative_reduction_game_cluster_95pct_interval": [
+          -0.5414316033912554,
+          0.1929049844120023
+        ]
+      },
+      "all_attempts": {
+        "high_rate": 0.3643312101910828,
+        "season_roof_standardized_low_rate": 0.37395665505052056,
+        "relative_reduction": 0.02573946667197946,
+        "relative_reduction_game_cluster_95pct_interval": [
+          -0.07721610435398174,
+          0.12728991475418033
+        ]
+      },
+      "all_makes": {
+        "high_rate": 0.31719745222929935,
+        "season_roof_standardized_low_rate": 0.3084354861586092,
+        "relative_reduction": -0.028407775576719363,
+        "relative_reduction_game_cluster_95pct_interval": [
+          -0.13712272428699193,
+          0.08009376456495787
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Wind and roof are retrospective game metadata, not issue-stamped forecasts or proof of prequote availability.",
+    "Season and roof do not adjust teams, kickers, stadium geometry, precipitation, temperature, field position, score state or month.",
+    "Drive eligibility conditions on reaching a field-position band that weather itself may affect; this is a per-eligible-drive screen, not a causal effect or full-game kicker-prop probability.",
+    "A drive that skips the 40\u201325 band between snaps is excluded, as is one starting deeper and never returning to that band.",
+    "All five historical seasons are now inspected exploration for this card, not an untouched confirmatory holdout.",
+    "No FanDuel kicker quotes, settlement probabilities, prices, CLV or returns are present."
+  ],
+  "attribution": "Derived from nflverse/nflfastR play-by-play, nflverse-data release pbp; source repository CC BY 4.0. Raw files remain ignored."
+}

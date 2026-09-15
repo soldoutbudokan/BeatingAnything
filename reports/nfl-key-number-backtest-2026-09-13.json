@@ -1,0 +1,70 @@
+{
+  "prepared_at": "2026-09-13T18:20:17.207593+00:00",
+  "declaration_sha256": "5c30b68015a676fab1c38376d202419a6576d4b2c3fbbc8e5054384360deb953",
+  "odds_sha256": "b03c4e7f1cf885e9f20ea808ee538c26c21df4065b342fe04c50d09b808c344c",
+  "games_sha256": "0c34a519753ada6b5b37f5e8be246021813484adb15ae7c067af9c3aca534d2d",
+  "games_url": "https://raw.githubusercontent.com/nflverse/nfldata/55430687825bbdd8640d639b9aaaa0d886778e95/data/games.csv",
+  "calibration": {
+    "3": {
+      "hits": 142,
+      "games": 1590,
+      "mass": 0.08930817610062892,
+      "wilson_95": [
+        0.07626214504807224,
+        0.10433389681525843
+      ]
+    },
+    "7": {
+      "hits": 50,
+      "games": 849,
+      "mass": 0.05889281507656066,
+      "wilson_95": [
+        0.04495498695816995,
+        0.07680440659228631
+      ]
+    }
+  },
+  "calibration_years": [
+    2010,
+    2024
+  ],
+  "evaluation_season": 2025,
+  "price_pair_rejections": {
+    "not_half_point_line": 9059,
+    "not_fresh_0_to_90_seconds": 375,
+    "not_before_conservative_source_start": 543,
+    "no_h2h_backed_event": 1
+  },
+  "counts": {
+    "mapped_events": 226,
+    "fanduel_entry_pairs": 687,
+    "missing_reference_or_identity_mismatch": 252
+  },
+  "comparisons": [],
+  "selected": [],
+  "evaluation_outcomes_used_for_selection": false,
+  "evaluated_at": "2026-09-13T18:23:49.586323+00:00",
+  "frozen_selection_sha256": "c00e9401768a53f236d55833bf1dd47df8783f9609cd21b641b4b02a1e6091fb",
+  "summary": {
+    "selected_games": 0,
+    "settled_games": 0,
+    "wins": 0,
+    "losses": 0,
+    "missing_settlements": 0,
+    "net_profit_units": 0.0,
+    "roi": null,
+    "bootstrap_95_roi_interval": null,
+    "maximum_drawdown_units": 0.0,
+    "with_near_start_reference": 0,
+    "decision": "unresolved_fewer_than_50_settled_games",
+    "verified_edge": false
+  },
+  "settled": [],
+  "limitations": [
+    "New rule on an already-inspected season: not an untouched holdout.",
+    "Historical favorite-margin mass is a transported closing-spread proxy, not known conditional probability at the current Pinnacle quote.",
+    "Archived freshness does not establish fill, limits or original collector receipt; historical jurisdiction-specific settlement rules not reconstructed.",
+    "Near-start references use the conservative archive/scheduled boundary and may use the same margin bridge; not verified CLV.",
+    "Bootstrap omits model-selection and calibration uncertainty; no independent or forward FanDuel validation."
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "season": "2025-26",
+  "evaluation_completed_utc": "2026-09-13T18:38:43.671560+00:00",
+  "status": "underpowered",
+  "promising_backtest_gate_passed": false,
+  "declaration_sha256": "c97142492881b0a2616944bbdcb5a24e409717f643431f70057f77cbcfb50747",
+  "frozen_selections_sha256": "a5b074270f02ba21d145ab0b8d57642107a57469352a58fac4aacaf49b973cfe",
+  "selection_summary_sha256": "7dc959f47fe7a66dbf67f5d82f00bc71f3985cbeb6f45b481ef0324766035420",
+  "first_period_report_sha256_before_reserved_unlock": "7e6be73a0ff5e4c531255bd2aa173909c3740478b0b77cfaf412d0108c55f419",
+  "inputs": {
+    "stats_2025": {
+      "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2024.csv",
+      "sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26",
+      "bytes": 426838
+    },
+    "stats_2026": {
+      "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2025.csv",
+      "sha256": "e78976dfe77bc2137acf9e6cf5b10516593f2a476d74847336181a40c75b97a6",
+      "bytes": 427596
+    },
+    "box_2025": {
+      "path": "data/raw/nba-source-feasibility/player_boxscores_2025.csv",
+      "sha256": "7371d222692fee1c083913d813b125f885c4e53b6f3daaecb7270299913e9716",
+      "bytes": 5507594
+    },
+    "box_2026": {
+      "path": "data/raw/nba-consensus-price/player_boxscores_2026.csv",
+      "sha256": "6ee53f72a953fc42c17cb7e9797af303cb102b853b67ca0b51cbc82c2260b270",
+      "bytes": 5448796
+    },
+    "espn_2025": {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2025.csv",
+      "sha256": "a7a5b6607a256c84a324f819e4461248bdff90a78b1ddb675a5a117a9a94e74f",
+      "bytes": 2216279
+    },
+    "espn_2026": {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2026.csv",
+      "sha256": "5a4a7473fce1c49d56382211c5955ad405f421d59869143b1d501e997e79223e",
+      "bytes": 9153001
+    },
+    "mapping": {
+      "path": "data/raw/nba-consensus-price/game_event_bijection.csv",
+      "sha256": "23f27cc66b8b333fffd7b25d756f530d79dff0cafd69ff397cf16638000ed64c",
+      "bytes": 144240
+    }
+  },
+  "selected_games": 1,
+  "settled_games": 1,
+  "coverage": {
+    "nba_stats_regular_games": 1230,
+    "mapped_original_quote_games": 1224,
+    "regular_game_ids_without_mapped_original_quotes": [
+      "0022500147",
+      "0022500578",
+      "0022500602",
+      "0022501187",
+      "0022501229",
+      "0022501230"
+    ],
+    "ambiguous_nba_stats_home_away_game_ids": [
+      "0022500147",
+      "0022500578",
+      "0022500602",
+      "0022501229",
+      "0022501230"
+    ],
+    "ambiguous_fixture_note": "Five neutral-site games each season have both NBA Stats team matchup rows marked @. No home side inferred; none had mapped quote files in the fixed archive."
+  },
+  "settlement_counts": {
+    "win": 1
+  },
+  "unit_profit_after_haircut": 0.9211999999999999,
+  "raw_unit_profit": 0.94,
+  "haircut_roi": 0.9211999999999999,
+  "raw_roi": 0.94,
+  "game_bootstrap_95_roi_interval": [
+    0.9211999999999999,
+    0.9211999999999999
+  ],
+  "maximum_chronological_drawdown_units": 0.0,
+  "selected_start_range": [
+    "2026-04-09T00:10:00Z",
+    "2026-04-09T00:10:00Z"
+  ],
+  "closes_missing": 1,
+  "accepted_fills_verified": 0,
+  "suspension_state_verified": 0,
+  "limitations": [
+    "Consensus is a fallible probability reference, not a verified fair value.",
+    "Early pregame snapshots are not closing prices; single snapshot cannot measure CLV.",
+    "Full-game including-OT and explicit-DNP voids are hypothetical settlement, not verified historical jurisdiction terms.",
+    "Game boxes require exact team points and combined player minutes within one minute of published team totals; zero-minute players require explicit DNP/inactive evidence.",
+    "No collector reception clock, suspension history, accepted fill, limits or current market availability.",
+    "Historical NBA identities use identity-only columns from full box archives; membership/outcomes do not select players.",
+    "2024-25 scores were inspected for prior unrelated studies; first period is exploratory.",
+    "2025-26 chronological replication uses a third-party-selected archive already analyzed by its publisher; it is not prospective untouched-market evidence.",
+    "This card is one of multiple hypotheses researched; nominal bootstrap interval does not adjust for the wider search."
+  ],
+  "selections_with_settlement": [
+    {
+      "game_id": "0022501161",
+      "season": 2026,
+      "event_id": "08c9fd2b6b80f1f763e2c2eb3e935208",
+      "person_id": 1628436,
+      "player_name": "Luke Kornet",
+      "line": 7.5,
+      "side": "Over",
+      "fd_decimal": 1.94,
+      "source_snapshot": "2026-04-08T12:05:38Z",
+      "reported_start": "2026-04-09T00:10:00Z",
+      "game_date": "2026-04-08",
+      "home_team": "San Antonio Spurs",
+      "away_team": "Portland Trail Blazers",
+      "team_ids": [
+        1610612759,
+        1610612757
+      ],
+      "independent_start": "2026-04-09T01:30Z",
+      "espn_game_id": "401811016",
+      "espn_matching_fixture_count": 1,
+      "source_path": "data/historical_points/08c9fd2b6b80f1f763e2c2eb3e935208.json",
+      "source_sha256": "0c2176efb501281851e928dcff00362131530194c9d9682bca7c18e203ef35e1",
+      "fd_book_age_seconds": 11.0,
+      "fd_market_age_seconds": 13.0,
+      "reference_books": [
+        "betonlineag",
+        "bovada",
+        "williamhill_us"
+      ],
+      "reference_count": 3,
+      "median_proportional_probability": 0.5437665782493368,
+      "median_power_probability": 0.5484467026480438,
+      "haircut_ev_proportional": 0.04468435013262573,
+      "haircut_ev_power": 0.05367580512742176,
+      "conservative_haircut_ev": 0.04468435013262573,
+      "actual_points": 10.0,
+      "minutes": 26.016666666666666,
+      "box_comment": null,
+      "settlement": "win",
+      "reason": "full_game_points_including_overtime",
+      "net_profit": 0.9211999999999999,
+      "raw_net_profit": 0.94
+    }
+  ]
+}

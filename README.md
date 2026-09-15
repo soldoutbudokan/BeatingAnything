@@ -1,10 +1,31 @@
 # BeatingAnything
 
-**No betting edge demonstrated.** Active research has moved to smaller models and markets with a longer season ahead. Completed failures remain visible; no betting alert or wager is enabled.
+**No betting edge demonstrated. Automatic research and collection are paused at the user's request.** Completed experiments and the next manual continuation are saved below. Do not resume scheduled runs without a new request; no betting alert or wager is enabled.
 
 Use Python 3.12 and the pinned `requirements-lock.txt` dependencies for the research commands below.
 
 For the research direction going forward, start with [NEXT-STEPS.md](NEXT-STEPS.md). For the current state, exact continuation commands, completed results and file locations, see [PROGRESS.md](PROGRESS.md).
+
+The latest batch recovered [actual historical FanDuel prop prices](docs/new-prop-archives-2026-09-13.md). A fixed [NFL reception-Over backtest](reports/nfl-short-receptions-backtest-2026-09-13.md) returned **+15.46% across 34 games in 2025**, but its unchanged [2023–24 replication](reports/nfl-short-receptions-replication-2023-24-2026-09-13.md) returned **−33.87% across 26 games**, losing in both years. Neither reaches the fixed 50-game minimum, and both intervals include zero. The positive estimate did not replicate; the lead is deprioritized. A separate [QB-switch target screen](reports/nfl-observed-qb-switch-2026-09-13.md) failed its fixed effect threshold, and the [key-margin spread backtest](reports/nfl-key-number-backtest-2026-09-13.md) selected no bets. Selections were frozen before grading; no rule was relaxed to manufacture a passing result.
+
+The [NBA points-price backtest](reports/nba-points-consensus-2026-09-13.md) screened 2,446 games from two seasons using the fully recovered 3,394-file archive. Of 13,966 valid FanDuel pairs, 6,071 had at least three eligible reference books; only one side cleared the fixed discrepancy threshold. Its single win does not supply enough evidence, and both periods remain underpowered. The source, selection and settlement checks are reproducible; the tested settings are closed.
+
+A distinct [NBA main/alternate payout check](reports/nba-points-payoff-coverage-2026-09-13.md) found no qualifying coverage trade among 40,166 same-player offer pairs. Its best minimum theoretical return after haircut was −4.49%; no scoring outcomes or wager were needed.
+
+The September 12 restart follows that direction:
+
+- [30 ranked hypothesis cards](docs/hypotheses/README.md), each with a trigger, a sport-side test, and the FanDuel evidence it needs.
+- [Exploratory tennis state results](reports/tennis-state-exploration.md), using point-by-point observations rather than another main-line regression.
+- [Market inventory](docs/market-data-inventory.md): the exact NFL archive has no FanDuel props or period markets and a four-hour median capture gap.
+- [Forward market collector](docs/forward-market-collection.md), with raw responses and separate source/collector clocks. Live odds collection requires an authorized provider key; code and synthetic checks are not live price evidence.
+
+September 13 execution: the handoff has run, and the search now includes the user's suggested golf, tennis, rugby and CFL. The [rugby yellow-card screen](reports/rugby-yellow-card-2026-09-13.md) passed its exploratory sport-side gate on 133 matched windows: 0.917 opponent tries per ten minutes versus 0.419 controls. Actual FanDuel pricing remains unverified; [the market check](docs/rugby-market-access-2026-09-13.md) records the exact coverage gap. PREM/URC have a season ahead through June 2027.
+
+The [NBA assists test](reports/nba-creator-assists-2026-09-13.md) ran but is underpowered at 25 exposures; the [new tennis changeover test](reports/tennis-return-changeover-2026-09-13.md) failed its fixed threshold. [Golf](reports/golf-source-screen-2026-09-13.md) and [CFL](reports/cfl-rouge-screen-2026-09-13.md) have concrete source/measurement results but no confirmed effect. The research task is now paused; [PROGRESS.md](PROGRESS.md) records the next work and prevents restarting completed assignments.
+
+The later September 13 batch executed [NFL garbage-time receptions](reports/nfl-garbage-receptions-2026-09-13.md): +41.4% receptions per team snap, but just 72 matched exposures, below the required 200. A new [NBA bench-minutes source check](reports/nba-blowout-source-check-2026-09-13.md) recovered all 1,230 games but failed lineup-minute reconciliation. Both remain unresolved; neither is a betting edge.
+
+The [MLB position-player pitching screen](reports/mlb-position-pitching-2026-09-13.md) passed its sport-side threshold (+0.664 runs), but further MLB work is deferred this season. FanDuel pricing remains untested. The [tennis follow-up](reports/tennis-followup-2026-09-13.md) and negative [NFL main-line price comparison](reports/nfl-price-screen-2026-09-13.md) remain completed exploration.
 
 The new [timestamped FanDuel MLB pilot](reports/timestamped-mlb-research-report.md) tested the unchanged physical model on 100 September 2026 forecasts. It produced zero qualifying bets and worse log loss than FanDuel on available settled outcomes. Unlike the original archive, this source permits a limited near-start price comparison, but bookmaker freshness remains unverified and one week cannot establish an edge.
 
@@ -25,9 +46,9 @@ python -m beating.tennis_pipeline
 python -S tools/audit_tennis_forecasts.py --output reports --report reports/tennis-independent-audit.json
 ```
 
-The [additional source audit](docs/source-search-v2.md) also identifies a free 2025 NFL archive with FanDuel capture and bookmaker-update timestamps. It is an untested research lead. [Pitch-level MLB source research](docs/matchup-research-v2.md) verifies a free route to pitch movement and matchup data, while documenting historical lineup-publication limits.
+The earlier [additional source audit](docs/source-search-v2.md) identified the free 2025 NFL main-line archive subsequently used in the completed price screens above. [Pitch-level MLB source research](docs/matchup-research-v2.md) verifies a free route to pitch movement and matchup data, while documenting historical lineup-publication limits.
 
-[NFL film-charting research](docs/football-charting-feasibility.md) verifies free play-level pressure and passing-quality fields. Exact 2024 charting and play-by-play assets predate the 2025 season; retained within-2025 charting versions have later retrieval dates that cannot be treated as timely early-season features. A [fixture audit](docs/nfl-fixture-feasibility.md) finds 285 paired FanDuel entries but only 77 usable nearstart references. No NFL model or betting return has been tested.
+[NFL film-charting research](docs/football-charting-feasibility.md) verifies free play-level pressure and passing-quality fields. Exact 2024 charting and play-by-play assets predate the 2025 season; retained within-2025 charting versions have later retrieval dates that cannot be treated as timely early-season features. A [fixture audit](docs/nfl-fixture-feasibility.md) found 285 paired FanDuel entries but only 77 usable nearstart references. The proposed generic charting model remains untested; later mechanism-specific NFL price backtests are reported above.
 
 The completed [six-league soccer totals experiment](reports/soccer-research-report.md) tested three small pricing models on **7,741 holdout/replication forecasts**. None produced a bet at the fixed 3% EV threshold. Unlike the earlier MLB archive, its source provides usable same-line historical closing benchmarks. All 42 pinned files match primary source downloads. See [metrics](reports/soccer-metrics.json), [protocol](docs/protocol-narrow-v1.md), [pre-result review](docs/narrow-review-before-results.md) and [source investigation](docs/odds-source-investigation.md).
 

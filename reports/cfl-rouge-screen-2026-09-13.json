@@ -1,0 +1,310 @@
+{
+  "generated_at_utc": "2026-09-13T04:21:46.287018+00:00",
+  "hypothesis": "cfl-rouge-rule-scoring",
+  "status": "unresolved: kick trajectories/touches absent",
+  "fixed_screen": {
+    "seasons": [
+      2024,
+      2025
+    ],
+    "minimum_classified_single_kicks": 100,
+    "minimum_game_coverage": 0.9,
+    "minimum_removed_points_per_game": 0.5
+  },
+  "sources": [
+    {
+      "file": "fixtures-2024.json",
+      "url": "https://echo.pims.cfl.ca/api/seasons/33/fixtures?limit=100",
+      "bytes": 57517,
+      "sha256": "e17e3b1f381cd5281499a86bf3e44310d396c18f7615eb2af70c5c836cc35749"
+    },
+    {
+      "file": "fixtures-2025.json",
+      "url": "https://echo.pims.cfl.ca/api/seasons/34/fixtures?limit=100",
+      "bytes": 56606,
+      "sha256": "f905213cfcb73b1f1d78c6b05d730c2b915f70897c7870ed587394ceb5d91a24"
+    },
+    {
+      "file": "fixtures-2026.json",
+      "url": "https://echo.pims.cfl.ca/api/seasons/75/fixtures?limit=100",
+      "bytes": 51912,
+      "sha256": "1fe037922c8850284e3663222dac4d335878487f01dc86c28efc67382f69298a"
+    },
+    {
+      "file": "official-team-stats.json",
+      "url": "https://api.stats.cfl.ca/stats/teams",
+      "bytes": 670347,
+      "sha256": "7cf7638b6341aa697851f57912d7158e40c522f1711e8a0de57922a5934b8f58"
+    },
+    {
+      "file": "teamrecords-2024.json",
+      "url": "https://echo.pims.cfl.ca/api/stats/teamrecords?season_id=33",
+      "bytes": 67342,
+      "sha256": "cdbd1d8580370faa56e1a1ba651b3f28ac589daeaad3d44c1640289fe127c567"
+    }
+  ],
+  "result": {
+    "seasons": [
+      {
+        "year": 2024,
+        "games": 81,
+        "teams": [
+          {
+            "team": "TOR",
+            "team_games": 18,
+            "singles": 6,
+            "singles_allowed": 15,
+            "punt_singles": 4,
+            "kickoff_singles": 1,
+            "fixture_points_scored": 514,
+            "aggregate_points_scored": 514,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "EDM",
+            "team_games": 18,
+            "singles": 26,
+            "singles_allowed": 4,
+            "punt_singles": 15,
+            "kickoff_singles": 7,
+            "fixture_points_scored": 504,
+            "aggregate_points_scored": 504,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "CGY",
+            "team_games": 18,
+            "singles": 8,
+            "singles_allowed": 15,
+            "punt_singles": 7,
+            "kickoff_singles": 1,
+            "fixture_points_scored": 410,
+            "aggregate_points_scored": 410,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "WPG",
+            "team_games": 18,
+            "singles": 4,
+            "singles_allowed": 8,
+            "punt_singles": null,
+            "kickoff_singles": 1,
+            "fixture_points_scored": 447,
+            "aggregate_points_scored": 447,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "SSK",
+            "team_games": 18,
+            "singles": 6,
+            "singles_allowed": 7,
+            "punt_singles": 3,
+            "kickoff_singles": 1,
+            "fixture_points_scored": 478,
+            "aggregate_points_scored": 478,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "BC",
+            "team_games": 18,
+            "singles": 6,
+            "singles_allowed": 8,
+            "punt_singles": 4,
+            "kickoff_singles": null,
+            "fixture_points_scored": 448,
+            "aggregate_points_scored": 448,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "OTT",
+            "team_games": 18,
+            "singles": 7,
+            "singles_allowed": 11,
+            "punt_singles": 5,
+            "kickoff_singles": null,
+            "fixture_points_scored": 443,
+            "aggregate_points_scored": 443,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "MTL",
+            "team_games": 18,
+            "singles": 10,
+            "singles_allowed": 5,
+            "punt_singles": 6,
+            "kickoff_singles": 2,
+            "fixture_points_scored": 455,
+            "aggregate_points_scored": 453,
+            "fixture_minus_aggregate_points": 2
+          },
+          {
+            "team": "HAM",
+            "team_games": 18,
+            "singles": 8,
+            "singles_allowed": 8,
+            "punt_singles": 6,
+            "kickoff_singles": null,
+            "fixture_points_scored": 495,
+            "aggregate_points_scored": 495,
+            "fixture_minus_aggregate_points": 0
+          }
+        ],
+        "all_scored_singles": 81,
+        "classified_abolished_singles": 0,
+        "removed_points_per_game_bounds": [
+          0,
+          1.0
+        ]
+      },
+      {
+        "year": 2025,
+        "games": 81,
+        "teams": [
+          {
+            "team": "TOR",
+            "team_games": 18,
+            "singles": 12,
+            "singles_allowed": 9,
+            "punt_singles": 7,
+            "kickoff_singles": 2,
+            "fixture_points_scored": 497,
+            "aggregate_points_scored": 497,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "EDM",
+            "team_games": 18,
+            "singles": 12,
+            "singles_allowed": 4,
+            "punt_singles": 6,
+            "kickoff_singles": 3,
+            "fixture_points_scored": 422,
+            "aggregate_points_scored": 422,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "CGY",
+            "team_games": 18,
+            "singles": 9,
+            "singles_allowed": 13,
+            "punt_singles": 5,
+            "kickoff_singles": 3,
+            "fixture_points_scored": 488,
+            "aggregate_points_scored": 488,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "WPG",
+            "team_games": 18,
+            "singles": 3,
+            "singles_allowed": 9,
+            "punt_singles": 2,
+            "kickoff_singles": 1,
+            "fixture_points_scored": 459,
+            "aggregate_points_scored": 459,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "SSK",
+            "team_games": 18,
+            "singles": 12,
+            "singles_allowed": 7,
+            "punt_singles": 5,
+            "kickoff_singles": 1,
+            "fixture_points_scored": 472,
+            "aggregate_points_scored": 472,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "BC",
+            "team_games": 18,
+            "singles": 3,
+            "singles_allowed": 7,
+            "punt_singles": 3,
+            "kickoff_singles": null,
+            "fixture_points_scored": 559,
+            "aggregate_points_scored": 559,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "OTT",
+            "team_games": 18,
+            "singles": 7,
+            "singles_allowed": 9,
+            "punt_singles": 2,
+            "kickoff_singles": 2,
+            "fixture_points_scored": 417,
+            "aggregate_points_scored": 417,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "MTL",
+            "team_games": 18,
+            "singles": 9,
+            "singles_allowed": 6,
+            "punt_singles": 5,
+            "kickoff_singles": 1,
+            "fixture_points_scored": 445,
+            "aggregate_points_scored": 445,
+            "fixture_minus_aggregate_points": 0
+          },
+          {
+            "team": "HAM",
+            "team_games": 18,
+            "singles": 6,
+            "singles_allowed": 9,
+            "punt_singles": 5,
+            "kickoff_singles": null,
+            "fixture_points_scored": 525,
+            "aggregate_points_scored": 525,
+            "fixture_minus_aggregate_points": 0
+          }
+        ],
+        "all_scored_singles": 73,
+        "classified_abolished_singles": 0,
+        "removed_points_per_game_bounds": [
+          0,
+          0.9012345679012346
+        ]
+      }
+    ],
+    "games": 162,
+    "scored_singles": 154,
+    "classified_abolished_singles": 0,
+    "removed_points_per_game_bounds": [
+      0,
+      0.9506172839506173
+    ],
+    "point_total_discrepancies": [
+      {
+        "year": 2024,
+        "team": "MTL",
+        "team_games": 18,
+        "singles": 10,
+        "singles_allowed": 5,
+        "punt_singles": 6,
+        "kickoff_singles": 2,
+        "fixture_points_scored": 455,
+        "aggregate_points_scored": 453,
+        "fixture_minus_aggregate_points": 2
+      }
+    ],
+    "removed_points_per_team_game_bounds": [
+      0,
+      0.47530864197530864
+    ],
+    "requested_2024_legacy_endpoint_returned_years": [
+      2026
+    ],
+    "2026_regular_season_end": "2026-10-24",
+    "days_to_2026_regular_season_end_from_screen": 41
+  },
+  "limitations": [
+    "These arithmetic bounds condition on reported single counts; they are not effect estimates or confidence intervals.",
+    "Montreal 2024 aggregate points are two below the fixture sum. Reconcile before treating the source as exact scoring truth.",
+    "Season totals cannot distinguish untouched end-zone exits from still-valid returner concessions.",
+    "Null punt/kickoff subcategories remain null; they are not silently zero-filled.",
+    "2026 behavior can change, and further 2027 field/goalpost rules require a new definition.",
+    "No FanDuel prices, score-distribution fit, expected return or edge were calculated."
+  ]
+}

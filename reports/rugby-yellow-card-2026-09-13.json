@@ -1,0 +1,1138 @@
+{
+  "date": "2026-09-13",
+  "status": "unresolved",
+  "competition": "Gallagher Premiership",
+  "season": "2024-25",
+  "source_url": "https://rugby-union-feeds.incrowdsports.com/v1/matches?provider=rugbyviz&season=202401&compId=1011&sort=date&form=true&images=false",
+  "listed_games": 93,
+  "accepted_games": 83,
+  "excluded": {
+    "first_yellow_insufficient_half_remaining": 15,
+    "red_card_match": 10
+  },
+  "score_mismatch_details": [],
+  "event_types": {
+    "First Half Start": 93,
+    "Try": 722,
+    "Missed conversion": 196,
+    "Penalty": 153,
+    "First Half End": 93,
+    "Second Half Start": 93,
+    "Conversion": 526,
+    "Sub Off": 1571,
+    "Sub On": 1571,
+    "Second Half End": 93,
+    "End": 93,
+    "Missed penalty": 32,
+    "Yellow card": 109,
+    "Drop goal": 6,
+    "Red card": 11,
+    "Missed drop goal": 10,
+    "Penalty Try": 9
+  },
+  "qualifying_exposures": 44,
+  "matched_exposures": 44,
+  "control_windows": 1018,
+  "exposed_try_mean_per_10_minutes": 0.75,
+  "standardized_control_try_mean_per_10_minutes": 0.5235615079365079,
+  "relative_change": 0.43249644718143077,
+  "exposed_minutes": 440,
+  "post_trigger_additional_cards": 6,
+  "threshold_minimum_exposures": 100,
+  "threshold_relative_change": 0.3,
+  "exposure_rows": [
+    {
+      "match_id": 283166,
+      "team_id": 4293,
+      "period": "First Half",
+      "start_seconds": 1104,
+      "clock_bin": 1,
+      "margin": 5,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 1,
+      "control_windows": 15,
+      "control_mean_tries": 0.4666666666666667
+    },
+    {
+      "match_id": 283167,
+      "team_id": 1229,
+      "period": "Second Half",
+      "start_seconds": 2781,
+      "clock_bin": 4,
+      "margin": 21,
+      "margin_band": 1,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 1,
+      "control_mean_tries": 1.0
+    },
+    {
+      "match_id": 283170,
+      "team_id": 2448,
+      "period": "First Half",
+      "start_seconds": 993,
+      "clock_bin": 1,
+      "margin": 0,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 11,
+      "control_mean_tries": 0.18181818181818182
+    },
+    {
+      "match_id": 283171,
+      "team_id": 3436,
+      "period": "Second Half",
+      "start_seconds": 2569,
+      "clock_bin": 4,
+      "margin": -1,
+      "margin_band": 0,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 3,
+      "control_mean_tries": 1.0
+    },
+    {
+      "match_id": 283173,
+      "team_id": 2448,
+      "period": "Second Half",
+      "start_seconds": 2918,
+      "clock_bin": 4,
+      "margin": -22,
+      "margin_band": -1,
+      "tries": 2,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 3,
+      "control_mean_tries": 0.3333333333333333
+    },
+    {
+      "match_id": 283174,
+      "team_id": 2038,
+      "period": "Second Half",
+      "start_seconds": 2846,
+      "clock_bin": 4,
+      "margin": -22,
+      "margin_band": -1,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 2,
+      "control_windows": 4,
+      "control_mean_tries": 0.25
+    },
+    {
+      "match_id": 283175,
+      "team_id": 2581,
+      "period": "Second Half",
+      "start_seconds": 2427,
+      "clock_bin": 4,
+      "margin": 17,
+      "margin_band": 1,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 6,
+      "control_mean_tries": 1.0
+    },
+    {
+      "match_id": 283176,
+      "team_id": 3964,
+      "period": "First Half",
+      "start_seconds": 1708,
+      "clock_bin": 2,
+      "margin": 18,
+      "margin_band": 1,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 2,
+      "control_mean_tries": 0.5
+    },
+    {
+      "match_id": 283177,
+      "team_id": 1574,
+      "period": "First Half",
+      "start_seconds": 930,
+      "clock_bin": 1,
+      "margin": -2,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 12,
+      "control_mean_tries": 0.4166666666666667
+    },
+    {
+      "match_id": 283178,
+      "team_id": 2448,
+      "period": "Second Half",
+      "start_seconds": 2839,
+      "clock_bin": 4,
+      "margin": 7,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 9,
+      "control_mean_tries": 0.7777777777777778
+    },
+    {
+      "match_id": 283179,
+      "team_id": 3436,
+      "period": "First Half",
+      "start_seconds": 749,
+      "clock_bin": 1,
+      "margin": -7,
+      "margin_band": 0,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 12,
+      "control_mean_tries": 0.5833333333333334
+    },
+    {
+      "match_id": 283180,
+      "team_id": 2581,
+      "period": "First Half",
+      "start_seconds": 637,
+      "clock_bin": 1,
+      "margin": 0,
+      "margin_band": 0,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 10,
+      "control_mean_tries": 0.9
+    },
+    {
+      "match_id": 283182,
+      "team_id": 3436,
+      "period": "First Half",
+      "start_seconds": 1114,
+      "clock_bin": 1,
+      "margin": 2,
+      "margin_band": 0,
+      "tries": 3,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 12,
+      "control_mean_tries": 0.5833333333333334
+    },
+    {
+      "match_id": 283183,
+      "team_id": 2581,
+      "period": "First Half",
+      "start_seconds": 893,
+      "clock_bin": 1,
+      "margin": -8,
+      "margin_band": -1,
+      "tries": 2,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 1,
+      "control_mean_tries": 0.0
+    },
+    {
+      "match_id": 283184,
+      "team_id": 1229,
+      "period": "First Half",
+      "start_seconds": 1697,
+      "clock_bin": 2,
+      "margin": 7,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 10,
+      "control_mean_tries": 0.8
+    },
+    {
+      "match_id": 283187,
+      "team_id": 2038,
+      "period": "Second Half",
+      "start_seconds": 3025,
+      "clock_bin": 5,
+      "margin": -26,
+      "margin_band": -1,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 7,
+      "control_mean_tries": 0.2857142857142857
+    },
+    {
+      "match_id": 283191,
+      "team_id": 4581,
+      "period": "Second Half",
+      "start_seconds": 2581,
+      "clock_bin": 4,
+      "margin": 4,
+      "margin_band": 0,
+      "tries": 2,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 5,
+      "control_mean_tries": 0.4
+    },
+    {
+      "match_id": 283193,
+      "team_id": 3436,
+      "period": "Second Half",
+      "start_seconds": 3510,
+      "clock_bin": 5,
+      "margin": -8,
+      "margin_band": -1,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 3,
+      "control_mean_tries": 0.3333333333333333
+    },
+    {
+      "match_id": 283194,
+      "team_id": 1574,
+      "period": "First Half",
+      "start_seconds": 1488,
+      "clock_bin": 2,
+      "margin": -2,
+      "margin_band": 0,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 7,
+      "control_mean_tries": 0.0
+    },
+    {
+      "match_id": 283195,
+      "team_id": 3964,
+      "period": "Second Half",
+      "start_seconds": 3187,
+      "clock_bin": 5,
+      "margin": 18,
+      "margin_band": 1,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 6,
+      "control_mean_tries": 0.5
+    },
+    {
+      "match_id": 283197,
+      "team_id": 1711,
+      "period": "Second Half",
+      "start_seconds": 2974,
+      "clock_bin": 4,
+      "margin": -23,
+      "margin_band": -1,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 2,
+      "control_mean_tries": 1.5
+    },
+    {
+      "match_id": 283199,
+      "team_id": 3964,
+      "period": "Second Half",
+      "start_seconds": 2984,
+      "clock_bin": 4,
+      "margin": 18,
+      "margin_band": 1,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 6,
+      "control_mean_tries": 0.3333333333333333
+    },
+    {
+      "match_id": 283200,
+      "team_id": 3436,
+      "period": "Second Half",
+      "start_seconds": 2734,
+      "clock_bin": 4,
+      "margin": -17,
+      "margin_band": -1,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 5,
+      "control_mean_tries": 0.4
+    },
+    {
+      "match_id": 283201,
+      "team_id": 3964,
+      "period": "First Half",
+      "start_seconds": 1287,
+      "clock_bin": 2,
+      "margin": 10,
+      "margin_band": 1,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 2,
+      "control_mean_tries": 0.5
+    },
+    {
+      "match_id": 283206,
+      "team_id": 2038,
+      "period": "First Half",
+      "start_seconds": 1518,
+      "clock_bin": 2,
+      "margin": -7,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 7,
+      "control_mean_tries": 0.2857142857142857
+    },
+    {
+      "match_id": 283208,
+      "team_id": 1711,
+      "period": "Second Half",
+      "start_seconds": 3934,
+      "clock_bin": 6,
+      "margin": -1,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 6,
+      "control_mean_tries": 0.3333333333333333
+    },
+    {
+      "match_id": 283209,
+      "team_id": 4581,
+      "period": "First Half",
+      "start_seconds": 1554,
+      "clock_bin": 2,
+      "margin": -7,
+      "margin_band": 0,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 5,
+      "control_mean_tries": 0.6
+    },
+    {
+      "match_id": 283213,
+      "team_id": 4293,
+      "period": "Second Half",
+      "start_seconds": 3534,
+      "clock_bin": 5,
+      "margin": 3,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 4,
+      "control_mean_tries": 0.5
+    },
+    {
+      "match_id": 283211,
+      "team_id": 4581,
+      "period": "Second Half",
+      "start_seconds": 4014,
+      "clock_bin": 6,
+      "margin": 3,
+      "margin_band": 0,
+      "tries": 3,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 1,
+      "control_mean_tries": 1.0
+    },
+    {
+      "match_id": 283218,
+      "team_id": 2038,
+      "period": "Second Half",
+      "start_seconds": 3786,
+      "clock_bin": 6,
+      "margin": -24,
+      "margin_band": -1,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 9,
+      "control_mean_tries": 0.6666666666666666
+    },
+    {
+      "match_id": 283216,
+      "team_id": 2448,
+      "period": "Second Half",
+      "start_seconds": 3158,
+      "clock_bin": 5,
+      "margin": 2,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 3,
+      "control_mean_tries": 0.3333333333333333
+    },
+    {
+      "match_id": 283225,
+      "team_id": 3964,
+      "period": "First Half",
+      "start_seconds": 602,
+      "clock_bin": 1,
+      "margin": 5,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 1,
+      "control_windows": 11,
+      "control_mean_tries": 0.2727272727272727
+    },
+    {
+      "match_id": 283221,
+      "team_id": 2448,
+      "period": "First Half",
+      "start_seconds": 205,
+      "clock_bin": 0,
+      "margin": 5,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 16,
+      "control_mean_tries": 0.4375
+    },
+    {
+      "match_id": 283227,
+      "team_id": 2448,
+      "period": "First Half",
+      "start_seconds": 624,
+      "clock_bin": 1,
+      "margin": 4,
+      "margin_band": 0,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 11,
+      "control_mean_tries": 0.18181818181818182
+    },
+    {
+      "match_id": 283232,
+      "team_id": 4293,
+      "period": "Second Half",
+      "start_seconds": 4002,
+      "clock_bin": 6,
+      "margin": 65,
+      "margin_band": 1,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 4,
+      "control_mean_tries": 0.25
+    },
+    {
+      "match_id": 283236,
+      "team_id": 2448,
+      "period": "First Half",
+      "start_seconds": 748,
+      "clock_bin": 1,
+      "margin": 0,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 1,
+      "control_windows": 11,
+      "control_mean_tries": 0.18181818181818182
+    },
+    {
+      "match_id": 283238,
+      "team_id": 4293,
+      "period": "Second Half",
+      "start_seconds": 3116,
+      "clock_bin": 5,
+      "margin": -26,
+      "margin_band": -1,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 1,
+      "control_windows": 2,
+      "control_mean_tries": 1.0
+    },
+    {
+      "match_id": 283237,
+      "team_id": 3436,
+      "period": "First Half",
+      "start_seconds": 1263,
+      "clock_bin": 2,
+      "margin": -7,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 8,
+      "control_mean_tries": 0.25
+    },
+    {
+      "match_id": 283241,
+      "team_id": 2448,
+      "period": "First Half",
+      "start_seconds": 618,
+      "clock_bin": 1,
+      "margin": 2,
+      "margin_band": 0,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 11,
+      "control_mean_tries": 0.18181818181818182
+    },
+    {
+      "match_id": 283242,
+      "team_id": 1229,
+      "period": "First Half",
+      "start_seconds": 835,
+      "clock_bin": 1,
+      "margin": 7,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 12,
+      "control_mean_tries": 0.3333333333333333
+    },
+    {
+      "match_id": 283249,
+      "team_id": 1711,
+      "period": "First Half",
+      "start_seconds": 1313,
+      "clock_bin": 2,
+      "margin": 4,
+      "margin_band": 0,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 10,
+      "control_mean_tries": 0.6
+    },
+    {
+      "match_id": 283250,
+      "team_id": 2581,
+      "period": "First Half",
+      "start_seconds": 1546,
+      "clock_bin": 2,
+      "margin": 5,
+      "margin_band": 0,
+      "tries": 1,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 8,
+      "control_mean_tries": 0.75
+    },
+    {
+      "match_id": 283251,
+      "team_id": 2448,
+      "period": "First Half",
+      "start_seconds": 1332,
+      "clock_bin": 2,
+      "margin": -10,
+      "margin_band": -1,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 1,
+      "control_mean_tries": 1.0
+    },
+    {
+      "match_id": 283253,
+      "team_id": 2448,
+      "period": "First Half",
+      "start_seconds": 1728,
+      "clock_bin": 2,
+      "margin": 3,
+      "margin_band": 0,
+      "tries": 0,
+      "minutes": 10,
+      "later_cards_in_window": 0,
+      "control_windows": 6,
+      "control_mean_tries": 0.8333333333333334
+    }
+  ],
+  "match_hashes": [
+    {
+      "match_id": 283162,
+      "sha256": "8942eacf4e49a1f1a5167b65b459ecc013ed46535babb5763552f77791b6e363",
+      "bytes": 219603
+    },
+    {
+      "match_id": 283161,
+      "sha256": "7de655647dcd23dae172f7394c03327e0b0b1fb62a804fa6bfda0a35887ac56f",
+      "bytes": 220137
+    },
+    {
+      "match_id": 283163,
+      "sha256": "b518aca7b6d4b12580cb05d23a0f33997ec32f3721186e82d201a2226bd4fa47",
+      "bytes": 221548
+    },
+    {
+      "match_id": 283164,
+      "sha256": "f37f2ee45dfd65c12071ca68614435d3200e8c8a172187081d95311daead1292",
+      "bytes": 220443
+    },
+    {
+      "match_id": 283165,
+      "sha256": "521d588cdc7b656e9eb479f7274dfe0d79cc4120dbe63b37ff9ddd9aa3ab468a",
+      "bytes": 220929
+    },
+    {
+      "match_id": 283166,
+      "sha256": "68e17a61782ebf27d5df78a676f9674c33b1a752e8b8c04f135a36055ca1c5ea",
+      "bytes": 220807
+    },
+    {
+      "match_id": 283167,
+      "sha256": "3c8f7e562cfacaa3b35a2a3b2e5aee6d71f44dee2670fade7adc9dad5892196b",
+      "bytes": 221624
+    },
+    {
+      "match_id": 283168,
+      "sha256": "2c14bd08fd7c1328ac9a44c6055f863f4f5be774007266449cf005c76d175587",
+      "bytes": 224681
+    },
+    {
+      "match_id": 283169,
+      "sha256": "74482361e91f2163afa107081fc02073a02cd5b64935c23365a40ccfe0813395",
+      "bytes": 219987
+    },
+    {
+      "match_id": 283170,
+      "sha256": "c68581fc1fa1d375ab10d682af140e60da8da403c36a2b92226682c7a39f0b78",
+      "bytes": 220944
+    },
+    {
+      "match_id": 283171,
+      "sha256": "9c5a12843dbf0a2971a4b310f6204ed9922a04433cf43d194dcd5718cba50939",
+      "bytes": 219945
+    },
+    {
+      "match_id": 283172,
+      "sha256": "7109218c2e18b49b64289c9548b1d38ab25dedec6460cc793b659286ffad6142",
+      "bytes": 218684
+    },
+    {
+      "match_id": 283173,
+      "sha256": "a566e0fb995ae877dfb07eb6fc22c669bf186755e768d19f9c037204a307eac4",
+      "bytes": 223354
+    },
+    {
+      "match_id": 283174,
+      "sha256": "126ef417949915d60f86448723019e7d24196e7af8601b6edb1a53ecd9feaecf",
+      "bytes": 221959
+    },
+    {
+      "match_id": 283175,
+      "sha256": "3609d2cfce34102d9873daa4f16c9da56fdecf360b4ba9673a4caea7b4e96934",
+      "bytes": 219943
+    },
+    {
+      "match_id": 283176,
+      "sha256": "01c9db1383572af69c11e50b59429b2c4e98536b02aa5a7d253e851eda8f6cd5",
+      "bytes": 220855
+    },
+    {
+      "match_id": 283177,
+      "sha256": "cd8fd365cd396e4430123614a970cfd230ae416dc458d5bf21e39c4295331a9f",
+      "bytes": 224206
+    },
+    {
+      "match_id": 283178,
+      "sha256": "61254d599a6e1e0bcd052463df810982a6cb7f7d58944cd9c6776a8709f58221",
+      "bytes": 224325
+    },
+    {
+      "match_id": 283179,
+      "sha256": "0d977cbfa246da568b72f5f89311598d54925819aea53d8a9cf3df8e8d4bd0bb",
+      "bytes": 222481
+    },
+    {
+      "match_id": 283180,
+      "sha256": "a7de94090a0ba7d9e249263ec02f20428f8b4e73bcbb4fcb76f7b33a6daced26",
+      "bytes": 219130
+    },
+    {
+      "match_id": 283181,
+      "sha256": "a3bd55eb08bc91cdb390f75ba5372c25614627cb1077a711205dbc0c292c15b0",
+      "bytes": 218626
+    },
+    {
+      "match_id": 283182,
+      "sha256": "364a9abd2bac1b2b40a3ae36274d177a552890c88ff3bb71d56c89ae86757924",
+      "bytes": 223353
+    },
+    {
+      "match_id": 283183,
+      "sha256": "4a8b47cb44d7976466d34c3ee8d3c39de54602c753299f951d76945a63347763",
+      "bytes": 222979
+    },
+    {
+      "match_id": 283184,
+      "sha256": "0cc441a1599926c8fe14af0a6059892954471857349e9026976785c84a6da762",
+      "bytes": 220703
+    },
+    {
+      "match_id": 283185,
+      "sha256": "adcb76bf2b50856df140dfa0e24c4ec73b2bf80eb966e8d04fd4e663f8e74bab",
+      "bytes": 220251
+    },
+    {
+      "match_id": 283186,
+      "sha256": "f7f3c1e2cdb5106c2a19a823ac79ed055ba7a7c2323e09ced0a4e0c86478f8c1",
+      "bytes": 221706
+    },
+    {
+      "match_id": 283187,
+      "sha256": "3f5617e4ef57fd7fb931b54eaa629d37087e128680468505040244c1d19fc358",
+      "bytes": 221452
+    },
+    {
+      "match_id": 283188,
+      "sha256": "c492d0e61762b8821567c6138a0f51822b8a9cbf7405d101996690eb49575adf",
+      "bytes": 222861
+    },
+    {
+      "match_id": 283189,
+      "sha256": "26810ace402afb5f6285d423ee1991d5f4478a67c6e5f69ae363a32d0394a099",
+      "bytes": 220061
+    },
+    {
+      "match_id": 283190,
+      "sha256": "11baa9a6118f4e79f84fab3b53f6b2cebf060e10bb1dd970385514cec7411bcc",
+      "bytes": 219421
+    },
+    {
+      "match_id": 283191,
+      "sha256": "40a066360be8a4fb9ab335b02eb421b1cc82cc7075572c2999faa6a969450e47",
+      "bytes": 222319
+    },
+    {
+      "match_id": 283192,
+      "sha256": "20f0e65720961883b6cc5903a821afd9135b9afc7aff6346eae4ff33f0502185",
+      "bytes": 217696
+    },
+    {
+      "match_id": 283193,
+      "sha256": "bcc2f37840d2758a6441d2a4afd3831c9b455efd2e363fda3f3598647b4cca9c",
+      "bytes": 220465
+    },
+    {
+      "match_id": 283194,
+      "sha256": "ce2de5d6afd757e11849e2ba33925dac15be39702369a05a9c7fc700b61839f7",
+      "bytes": 219112
+    },
+    {
+      "match_id": 283195,
+      "sha256": "2588055ff22f1611c3d129d0bde5f748b3ca754e1b87e9a7cbe7c589160f0e06",
+      "bytes": 221490
+    },
+    {
+      "match_id": 283196,
+      "sha256": "2ce99e09635af8791e886550bec175b17dd1d3d750576c6feded1300247ba7b5",
+      "bytes": 216785
+    },
+    {
+      "match_id": 283197,
+      "sha256": "49cf5f613afb31e9cde65eb654b290a500cee926c1695a8811dd9923e2b1aeb7",
+      "bytes": 222200
+    },
+    {
+      "match_id": 283198,
+      "sha256": "ddcc0e72632fa273eb3dbee4a9a969c1705766a2d04c311f5a7f91e8dbc9a991",
+      "bytes": 220146
+    },
+    {
+      "match_id": 283199,
+      "sha256": "8a7089c1e1648f8c2da2f08d554a4607eef9f823b794c8d534158d117cb2e80c",
+      "bytes": 220530
+    },
+    {
+      "match_id": 283200,
+      "sha256": "8a8ba90563fc7aaac716035a35311e748a78cabf40265cbfe60210c419832db4",
+      "bytes": 221175
+    },
+    {
+      "match_id": 283201,
+      "sha256": "dcdf047abdcb119c6d8c8c62d030bbaa568732fe7e51b26feefc5d2b60570b6f",
+      "bytes": 222530
+    },
+    {
+      "match_id": 283202,
+      "sha256": "574a9aaf2f0b997d70f8050c18ca3d17f12478b52bde9b33a3cdad4a11764221",
+      "bytes": 220994
+    },
+    {
+      "match_id": 283203,
+      "sha256": "0a217572a8559e372ca1b39a9d40dd8b8336f0d27970bb8ade238b78b6dbb268",
+      "bytes": 220000
+    },
+    {
+      "match_id": 283204,
+      "sha256": "c5b6050ed57baaf45472c7cc94b0ba61a9f8d9f1dc72ed33596b154791074c0e",
+      "bytes": 219515
+    },
+    {
+      "match_id": 283205,
+      "sha256": "26e1bead5b37f3581f056e626693da62e57532d9afc5260fc0b8cf9b67e38f0b",
+      "bytes": 220303
+    },
+    {
+      "match_id": 283206,
+      "sha256": "0866d79d32774daa8a59a65cf9377df808af6e8b5e5e68df925aad638f4b328c",
+      "bytes": 219898
+    },
+    {
+      "match_id": 283207,
+      "sha256": "49bc135957d9522b63ff63f3601125fbf42025bd1c161b0e8fcbaa61f625c2a6",
+      "bytes": 221351
+    },
+    {
+      "match_id": 283208,
+      "sha256": "1532942b6a2bc139d520d416c368c9fdc651143f942b5fd59c72ba512c69de31",
+      "bytes": 219865
+    },
+    {
+      "match_id": 283209,
+      "sha256": "53b3109072f8e1ef9b8605598717bd2b52790ed7144bc592e19fc8c15090c769",
+      "bytes": 220996
+    },
+    {
+      "match_id": 283210,
+      "sha256": "b96f92120ec5b57c7119de0e86de23b9f4101eed390ba3cc29a6917db1cbf06f",
+      "bytes": 222781
+    },
+    {
+      "match_id": 283214,
+      "sha256": "0bc4c4be62d9b8f059feece244265c268f66d27e659d95b06ffdb2754dd464e8",
+      "bytes": 218997
+    },
+    {
+      "match_id": 283213,
+      "sha256": "85773fa893b735684cf4ce89c8b154822315c171c330651f55743c88732b3dc0",
+      "bytes": 219559
+    },
+    {
+      "match_id": 283212,
+      "sha256": "be5bc85686502cd06ffd135412ad49a914e10be997b472992eb1e312c8b1e8c7",
+      "bytes": 220714
+    },
+    {
+      "match_id": 283215,
+      "sha256": "59f62f7b970d3e65f6d35870c0403d53150a5e313404989253dd6424b68f052f",
+      "bytes": 222595
+    },
+    {
+      "match_id": 283211,
+      "sha256": "e596173549b9c162f2439ce858076aeaaeda56594098f45f0f3a0f79645b1843",
+      "bytes": 222076
+    },
+    {
+      "match_id": 283219,
+      "sha256": "13c34e0b1abea1950f1065734bfc8e129a55c79cdc2b95f43e86c23d452921fd",
+      "bytes": 220568
+    },
+    {
+      "match_id": 283218,
+      "sha256": "2523b061a800e70c12f8f60152551eb703935a53471fc47708d54b5500dcd239",
+      "bytes": 222234
+    },
+    {
+      "match_id": 283220,
+      "sha256": "331b3beed96b2a2983d2bac1c14d367fa240fdd6b0f0dd4c3cd8808be4f01529",
+      "bytes": 220747
+    },
+    {
+      "match_id": 283217,
+      "sha256": "45c42ab79bb9e4d6287824f4c884dd8e0e3dc3d38090aa943f57e96c478ccfa5",
+      "bytes": 228506
+    },
+    {
+      "match_id": 283216,
+      "sha256": "e556d8b37e7f83e4e22e5834086d57c3961a21482f912c685e4aa4ee42294e5a",
+      "bytes": 220530
+    },
+    {
+      "match_id": 283225,
+      "sha256": "87e8bdd9147cda520b22dec2c207311ccd1fbaa843d177042dddb18469014748",
+      "bytes": 220243
+    },
+    {
+      "match_id": 283222,
+      "sha256": "e92bf5aa5dd479e5b6238efd27132073af7f52c7c528b4fa0f23dd4a0fbc903b",
+      "bytes": 218744
+    },
+    {
+      "match_id": 283221,
+      "sha256": "c5c9b6345579b3fc3520f5795ae472f9a5450315bd26073060fa7f8d72ab8ce8",
+      "bytes": 221076
+    },
+    {
+      "match_id": 283223,
+      "sha256": "3070f04872be9d9120835899514003a31c77183431cdfe89dc3a0abade9305c1",
+      "bytes": 221563
+    },
+    {
+      "match_id": 283224,
+      "sha256": "6f0f1fefe5762be4fc75c6f08864e44687f4c62aaf1e5bbc1ce4e0dff75d3af8",
+      "bytes": 219684
+    },
+    {
+      "match_id": 283229,
+      "sha256": "2985abd7aeb3e7dea195b306ce8636b8a9eba7f45f0d16e59d74eedd54ddcaac",
+      "bytes": 218416
+    },
+    {
+      "match_id": 283227,
+      "sha256": "0203e322b7b13d59ee5bf09685229b4f2003b779a0e4f9a277f2a64a013a1f42",
+      "bytes": 219613
+    },
+    {
+      "match_id": 283228,
+      "sha256": "03b32e1423f364f8a9c8b599d366e1235070bfc6ff3ce82fb8360fd703dd3825",
+      "bytes": 221144
+    },
+    {
+      "match_id": 283230,
+      "sha256": "1f35a4e2ce8e07c64939bd7bb8ca97c37079209e9ea9f27dbb211e1485c353cf",
+      "bytes": 220049
+    },
+    {
+      "match_id": 283226,
+      "sha256": "76cbdd4d6d3bc88a4efe114771fe0c4b98b47928a803b4f64dd170e63f997a00",
+      "bytes": 223276
+    },
+    {
+      "match_id": 283235,
+      "sha256": "f0a14832e34a4cebedad2e7a95691988ff42f339e99a1fad192a79dbda55652b",
+      "bytes": 220727
+    },
+    {
+      "match_id": 283231,
+      "sha256": "53c23f6f70a400f1b92ef0a78640b204a70326adfde7a0f7fa94ac0d68c92705",
+      "bytes": 221841
+    },
+    {
+      "match_id": 283233,
+      "sha256": "b5530f7f608eff9cdfa95e06c586d4b94c08e0259c7071010c78eee30a97b142",
+      "bytes": 221499
+    },
+    {
+      "match_id": 283234,
+      "sha256": "c4745a4303a386bf60c634f0deab2c050098ef9c0a2b7e91674d41cad6061d66",
+      "bytes": 221486
+    },
+    {
+      "match_id": 283232,
+      "sha256": "3a891cade4ee3e5049a85ec0437cd4716ceb5607667c12a806251a7462f81510",
+      "bytes": 224143
+    },
+    {
+      "match_id": 283239,
+      "sha256": "bbba4b0f517f74afe299ca7f88aa901fa070acdbcd5174c2c6edc32fa947fe2f",
+      "bytes": 222306
+    },
+    {
+      "match_id": 283240,
+      "sha256": "707ed3d3fe18544feb8ef95646828ed1341809ce61ac4c8f511481edc686c041",
+      "bytes": 223640
+    },
+    {
+      "match_id": 283236,
+      "sha256": "f634827e3d270b68de9aadb5a50c59ffcf65a4cb51b4c53e31ab9eaf1a3a9a99",
+      "bytes": 223548
+    },
+    {
+      "match_id": 283238,
+      "sha256": "ebdbc92ecaa93dc4e2a8b86cb5f88794a221754d32dd8a96766a96c7d398de7e",
+      "bytes": 222074
+    },
+    {
+      "match_id": 283237,
+      "sha256": "702e8370780cb7fa3f6b31965b67749ceaec9b74c2dea439fa3158bb5de6e309",
+      "bytes": 219990
+    },
+    {
+      "match_id": 283245,
+      "sha256": "72b8f98e5a396911dd646724fc9af90f5d76f6cdfa944fbeab09b419bd9e64e6",
+      "bytes": 222271
+    },
+    {
+      "match_id": 283243,
+      "sha256": "e885ee62295f09329cf01c9699e5f925c90b444506c63621b1a5d8d94774ca58",
+      "bytes": 219934
+    },
+    {
+      "match_id": 283244,
+      "sha256": "c8776860141607f79803c6871072c0bfacce581769815031fc9125103a7efdad",
+      "bytes": 220222
+    },
+    {
+      "match_id": 283241,
+      "sha256": "b3d06ef00a09704586ea896f132bfeca858768465af461138f8d0caa35518410",
+      "bytes": 223361
+    },
+    {
+      "match_id": 283242,
+      "sha256": "ff28138a74627ff9c91d098e1c443f49a3a9d92488bd1667750abb960cf68ec0",
+      "bytes": 219729
+    },
+    {
+      "match_id": 283247,
+      "sha256": "a8f86a90cbcd218a307d2b072b7870cd22665709a8b2aa1765e03fa14d0a988a",
+      "bytes": 219985
+    },
+    {
+      "match_id": 283248,
+      "sha256": "46c903a92af11a0601885401e897f7ac61784e58db62a9c0eb1ef4fd8389afa6",
+      "bytes": 222587
+    },
+    {
+      "match_id": 283249,
+      "sha256": "5d51c030245d65d3e2cc1c52739272c1cdc9f695179418d257ccb5b4c43adda8",
+      "bytes": 221377
+    },
+    {
+      "match_id": 283246,
+      "sha256": "f8540bb3c66942ab41cbfdc35329c020c5f2da1236e12616bf289205fef54ec9",
+      "bytes": 221162
+    },
+    {
+      "match_id": 283250,
+      "sha256": "3221b74df35637fee9bc2d9b9966f5e5b50d656363f9802453dcb29d2a1ef4d1",
+      "bytes": 223440
+    },
+    {
+      "match_id": 283251,
+      "sha256": "b0d9b316de7fe9e3e950a019aea283ecd9c98af5f0a9cb5f57b3012455ea6b14",
+      "bytes": 222125
+    },
+    {
+      "match_id": 283252,
+      "sha256": "a5717e56eab1010a9088be9fc3df5f375fa2281cc36f0a2a15ad21faefe825e1",
+      "bytes": 219361
+    },
+    {
+      "match_id": 283253,
+      "sha256": "a6daff745fe25e19482e8480a15246e10f1f7b19dc1cff720f62ef95e13c699e",
+      "bytes": 218648
+    }
+  ],
+  "list_sha256": "b72d3aa051ab07edf0ac764b1d6094e3244d53b43b91e6ae07d7768b6ec4b7c5",
+  "actual_fanduel_quotes": 0,
+  "caveats": [
+    "Each season is preserved separately; combined results are exploratory, with a fixed stop after 2022\u201323 through 2024\u201325.",
+    "Trigger windows, not independently verified continuous 15v14 exposure.",
+    "Card selection and field position may explain scoring differences; this is not a causal yellow-card effect.",
+    "Controls are ten-minute aligned windows; exposed windows retain card seconds and are only matched to the same ten-minute start bin.",
+    "Entire red-card matches are excluded retrospectively; the screen is not a directly deployable trigger rule.",
+    "No FanDuel market availability, suspension behavior or live-price evidence has been obtained."
+  ]
+}

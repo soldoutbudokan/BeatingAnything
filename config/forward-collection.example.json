@@ -1,0 +1,10 @@
+{
+  "sports": ["*"],
+  "cycles": 1,
+  "interval_seconds": 180,
+  "max_requests": 500,
+  "max_credits": 100,
+  "market_batch_size": 20,
+  "timeout_seconds": 30,
+  "mlb_game_state": false
+}
