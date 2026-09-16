@@ -1,0 +1,1804 @@
+{
+  "card": "G11",
+  "scope": "exploratory; eight predeclared editions; first rounds; no prices",
+  "declaration": "reports/golf-rotation-declaration-2026-09-14.md",
+  "sources": [
+    {
+      "path": "reports/golf-rotation-declaration-2026-09-14.md",
+      "sha256": "7d3e0b6132058902adeb354956afe6ce54dc7f622997e213241f8891e6e09795"
+    },
+    {
+      "path": "data/raw/golf-rotation/tournaments.json",
+      "sha256": "3051427ea6caa4af7885f839888372b2049ce5a0c4ce9d54f74e5b1e3cb6af5d"
+    },
+    {
+      "path": "data/raw/golf-sport/scoreboard-2022.json",
+      "sha256": "fbeb36b482e6ed0c4c335204ee021af725f890d4a1e94238626fe36db1d47782"
+    },
+    {
+      "path": "data/raw/golf-sport/scoreboard-2023.json",
+      "sha256": "bc5c87456898c6d49c3cf2cdff8a2354f3e92b4660209b5292da7035afae2aa3"
+    },
+    {
+      "path": "data/raw/golf-sport/scoreboard-2024.json",
+      "sha256": "329cc2d0cd2a076bfadc8c52a75e06066c8271b86fba88b6405c12998bc5142e"
+    },
+    {
+      "path": "data/raw/golf-sport/scoreboard-2025.json",
+      "sha256": "8a7a69cec1cd431e2c0b082820fe0af6fc2f461de287154913b2ba02ae787a45"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023004-tee-decoded.json",
+      "sha256": "a23959791c9f82fd0a8cf5a6aa95d1e9d4caa6e5b84bf69517eca3fce9c2b299"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023004-tee.json",
+      "sha256": "a52d30715a51e7a0710c7a18d4218928ffc2cbdd90a4ee45a7c5344d704836f4"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023004-course-par.json",
+      "sha256": "cca3e63b49d4772052e30fe7bc4cbbb1c24dda4a7c03ed1729d69609d574730f"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024004-tee-decoded.json",
+      "sha256": "d1164fc0ded3a325fcd8fad91b7ee6ca3d3f3a4bcc972cba42ddb427201b6766"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024004-tee.json",
+      "sha256": "6f04b2c0f8f3719ac7d33cbc4783e4e98ec4799d5221fe111f98f3821326de67"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024004-course-par.json",
+      "sha256": "395f60ea975d6397b04b4ab53a5a7ddaa75e15356b00e647228e17a02c420eb9"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025004-tee-decoded.json",
+      "sha256": "b4f9b627776e7134349d898de006ddbe13cb93edbe46d1904440c3bb5e9348b2"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025004-tee.json",
+      "sha256": "17a0d00b6bc7b3cb8c87db4199d6b02240fc517f2b54e1742227311cc1a9e5f8"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025004-course-par.json",
+      "sha256": "97a4cc81d2b3ba99e924d9d25aa21e209b093b0bd371b61df509fed97c3e7c31"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023005-tee-decoded.json",
+      "sha256": "80dd7e15759926ec0c9aaee72e09f6267fc1f9eb857a4883fc31c88120f42791"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023005-tee.json",
+      "sha256": "4f308443c42d7616dd9e02991a2717c01bee832f46f70a8a6b71627b6620e17b"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023005-course-par.json",
+      "sha256": "822d5522e83988115e003480897d9cb29b541d602bb7f211eab92daca2e8515f"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024005-tee-decoded.json",
+      "sha256": "cdf2503568962dcf010267bab61fc54bef4c291e4331d311ff2190680f1f0862"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024005-tee.json",
+      "sha256": "934c483b355421f61e1dcda3d3247277e931329e5a1e6dd1fcc9dc5f682ada8f"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024005-course-par.json",
+      "sha256": "e2757b535d7b6bea177a525d4190d94488803e76327b6da53378e29c800cc930"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025005-tee-decoded.json",
+      "sha256": "b7f2e4bf94adca02d58e4d462b2013d4846f48478e325ddea2a36562480ff5cf"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025005-tee.json",
+      "sha256": "166a47786acdb68916e73427add36f273b3268880677d4c034fc9b9fb48d02d6"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025005-course-par.json",
+      "sha256": "5b28220e0cee30096a02f7e70a239cd245c5901aadb705fcb79caafadf477dd0"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024493-tee-decoded.json",
+      "sha256": "8c88b4c29d98551af7379d1e36a18916dedb7919a6ad0d7e39af8ef01d5d2ddb"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024493-tee.json",
+      "sha256": "d3bbf92b0027c76aabfb03e30705da2674255533e2df33ec82041c19cfa23b7a"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024493-course-par.json",
+      "sha256": "688ef25e7d213f42707ad200fe42b54c327fb0009ce5c34a5c8afaafa1d76fd8"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025493-tee-decoded.json",
+      "sha256": "9fb2a5761401c4da1300e16e14fd8010f278c7cdf5d90bbac492627f3a0cc19f"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025493-tee.json",
+      "sha256": "b1dd875387e27a2213df97f79b5e291486cc8938e3936e2d7152e0791029165e"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025493-course-par.json",
+      "sha256": "6ee5bc4f05b76af6de080d9d58f38c5ecdc2cbfa2c6c15b06047c1964d56acae"
+    }
+  ],
+  "course_metadata": {
+    "R2023004": {
+      "004": {
+        "name": "Torrey Pines Golf Course (South Course)",
+        "par": 72
+      },
+      "104": {
+        "name": "Torrey Pines Golf Course (North Course)",
+        "par": 72
+      }
+    },
+    "R2024004": {
+      "004": {
+        "name": "Torrey Pines Golf Course (South Course)",
+        "par": 72
+      },
+      "104": {
+        "name": "Torrey Pines Golf Course (North Course)",
+        "par": 72
+      }
+    },
+    "R2025004": {
+      "004": {
+        "name": "Torrey Pines Golf Course (South Course)",
+        "par": 72
+      },
+      "104": {
+        "name": "Torrey Pines Golf Course (North Course)",
+        "par": 72
+      }
+    },
+    "R2023005": {
+      "005": {
+        "name": "Pebble Beach Golf Links",
+        "par": 72
+      },
+      "205": {
+        "name": "Spyglass Hill Golf Course",
+        "par": 72
+      },
+      "769": {
+        "name": "Monterey Peninsula CC ",
+        "par": 71
+      }
+    },
+    "R2024005": {
+      "005": {
+        "name": "Pebble Beach Golf Links",
+        "par": 72
+      },
+      "205": {
+        "name": "Spyglass Hill Golf Course",
+        "par": 72
+      }
+    },
+    "R2025005": {
+      "005": {
+        "name": "Pebble Beach Golf Links",
+        "par": 72
+      },
+      "205": {
+        "name": "Spyglass Hill Golf Course",
+        "par": 72
+      }
+    },
+    "R2024493": {
+      "776": {
+        "name": "Sea Island Golf Club (Seaside Course)",
+        "par": 70
+      },
+      "889": {
+        "name": "Sea Island Golf Club (Plantation Course)",
+        "par": 72
+      }
+    },
+    "R2025493": {
+      "776": {
+        "name": "Sea Island Golf Club (Seaside Course)",
+        "par": 70
+      },
+      "889": {
+        "name": "Sea Island Golf Club (Plantation Course)",
+        "par": 72
+      }
+    }
+  },
+  "history_attrition": {
+    "counts": {
+      "included_history_events": 155,
+      "included_history_rounds": 61240,
+      "incomplete_or_inconsistent_history_rounds": 684
+    },
+    "excluded_events": [
+      {
+        "id": "401353233",
+        "name": "The American Express",
+        "reason": "american express"
+      },
+      {
+        "id": "401353234",
+        "name": "Farmers Insurance Open",
+        "reason": "farmers insurance"
+      },
+      {
+        "id": "401353235",
+        "name": "AT&T Pebble Beach Pro-Am",
+        "reason": "pebble beach"
+      },
+      {
+        "id": "401353230",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "zurich classic"
+      },
+      {
+        "id": "401430881",
+        "name": "The Match",
+        "reason": "the match"
+      },
+      {
+        "id": "401353216",
+        "name": "Barracuda Championship",
+        "reason": "barracuda"
+      },
+      {
+        "id": "401353276",
+        "name": "TOUR Championship",
+        "reason": "tour championship"
+      },
+      {
+        "id": "401465497",
+        "reason": "not one competition"
+      },
+      {
+        "id": "401465506",
+        "name": "The RSM Classic",
+        "reason": "rsm classic"
+      },
+      {
+        "id": "401465507",
+        "name": "Hero World Challenge",
+        "reason": "hero world challenge"
+      },
+      {
+        "id": "401502171",
+        "name": "The Match",
+        "reason": "the match"
+      },
+      {
+        "id": "401465514",
+        "name": "The American Express",
+        "reason": "american express"
+      },
+      {
+        "id": "401465516",
+        "name": "Farmers Insurance Open",
+        "reason": "farmers insurance"
+      },
+      {
+        "id": "401465517",
+        "name": "AT&T Pebble Beach Pro-Am",
+        "reason": "pebble beach"
+      },
+      {
+        "id": "401465511",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "zurich classic"
+      },
+      {
+        "id": "401546052",
+        "name": "The Match",
+        "reason": "the match"
+      },
+      {
+        "id": "401465540",
+        "name": "Barracuda Championship",
+        "reason": "barracuda"
+      },
+      {
+        "id": "401465545",
+        "name": "TOUR Championship",
+        "reason": "tour championship"
+      },
+      {
+        "id": "401552863",
+        "reason": "not one competition"
+      },
+      {
+        "id": "401552860",
+        "name": "The RSM Classic",
+        "reason": "rsm classic"
+      },
+      {
+        "id": "401552861",
+        "name": "Hero World Challenge",
+        "reason": "hero world challenge"
+      },
+      {
+        "id": "401558309",
+        "name": "PGA TOUR Q-School presented by Korn Ferry",
+        "reason": "q-school"
+      },
+      {
+        "id": "401580331",
+        "name": "The American Express",
+        "reason": "american express"
+      },
+      {
+        "id": "401580332",
+        "name": "Farmers Insurance Open",
+        "reason": "farmers insurance"
+      },
+      {
+        "id": "401580333",
+        "name": "AT&T Pebble Beach Pro-Am",
+        "reason": "pebble beach"
+      },
+      {
+        "id": "401580347",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "zurich classic"
+      },
+      {
+        "id": "401580361",
+        "name": "Barracuda Championship",
+        "reason": "barracuda"
+      },
+      {
+        "id": "401580366",
+        "name": "TOUR Championship",
+        "reason": "tour championship"
+      },
+      {
+        "id": "401656722",
+        "reason": "not one competition"
+      },
+      {
+        "id": "401693943",
+        "name": "The RSM Classic",
+        "reason": "rsm classic"
+      },
+      {
+        "id": "401693956",
+        "name": "Hero World Challenge",
+        "reason": "hero world challenge"
+      },
+      {
+        "id": "401693957",
+        "name": "PGA TOUR Q-School presented by Korn Ferry",
+        "reason": "q-school"
+      },
+      {
+        "id": "401734787",
+        "reason": "not one competition"
+      },
+      {
+        "id": "401703491",
+        "name": "The American Express",
+        "reason": "american express"
+      },
+      {
+        "id": "401703492",
+        "name": "Farmers Insurance Open",
+        "reason": "farmers insurance"
+      },
+      {
+        "id": "401703493",
+        "name": "AT&T Pebble Beach Pro-Am",
+        "reason": "pebble beach"
+      },
+      {
+        "id": "401703507",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "zurich classic"
+      },
+      {
+        "id": "401703522",
+        "name": "Barracuda Championship",
+        "reason": "barracuda"
+      },
+      {
+        "id": "401703531",
+        "name": "TOUR Championship",
+        "reason": "tour championship"
+      },
+      {
+        "id": "401734110",
+        "reason": "not one competition"
+      },
+      {
+        "id": "401738559",
+        "name": "The RSM Classic",
+        "reason": "rsm classic"
+      },
+      {
+        "id": "401738560",
+        "name": "Hero World Challenge",
+        "reason": "hero world challenge"
+      },
+      {
+        "id": "401833647",
+        "name": "PGA TOUR Q-School presented by Korn Ferry",
+        "reason": "q-school"
+      }
+    ],
+    "malformed_source_events": [
+      {
+        "source_year": 2022,
+        "source_index": 12,
+        "reason": "missing event ID",
+        "keys": []
+      },
+      {
+        "source_year": 2023,
+        "source_index": 12,
+        "reason": "missing event ID",
+        "keys": []
+      }
+    ]
+  },
+  "target_attrition": {
+    "R2023004": {
+      "counts": {
+        "official_r1_players": 156,
+        "espn_players": 156,
+        "unique_name_join": 155,
+        "eligible_before_paired_bins": 145,
+        "insufficient_prior_rounds": 10,
+        "unmatched_name": 1,
+        "official_not_joined_to_espn": 1
+      },
+      "excluded_espn_rows": [
+        {
+          "espn_player_id": "5077279",
+          "name": "Taiga Semikawa",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "6954",
+          "name": "Matt NeSmith",
+          "reason": "unmatched_name"
+        },
+        {
+          "espn_player_id": "3312",
+          "name": "Michael Block",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5125011",
+          "name": "Michael Herrera",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5104297",
+          "name": "Patrick Welch",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5125010",
+          "name": "Joey Vrzich",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5110034",
+          "name": "Caleb Surratt",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "10357",
+          "name": "Anders Albertson",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5125027",
+          "name": "Harrison Kingsley",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "1067",
+          "name": "J.B. Holmes",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "1257",
+          "name": "Spencer Levin",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        }
+      ],
+      "official_not_joined_to_espn": [
+        {
+          "pga_player_id": "36871",
+          "pga_name": "Matthew NeSmith",
+          "course_id": "004",
+          "group_number": 15,
+          "tee_time_epoch_ms": 1674666600000,
+          "start_tee": 10
+        }
+      ]
+    },
+    "R2024004": {
+      "counts": {
+        "official_r1_players": 156,
+        "espn_players": 156,
+        "unique_name_join": 156,
+        "eligible_before_paired_bins": 135,
+        "insufficient_prior_rounds": 21,
+        "official_not_joined_to_espn": 0
+      },
+      "excluded_espn_rows": [
+        {
+          "espn_player_id": "9843",
+          "name": "Jake Knapp",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "10177",
+          "name": "Tom Whitney",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "11183",
+          "name": "Trace Crowe",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "10562",
+          "name": "Hayden Springer",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4868733",
+          "name": "Joe Highsmith",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "10929",
+          "name": "Kevin Dougherty",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5076011",
+          "name": "Adrien Dumont de Chassart",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4587989",
+          "name": "Chandler Phillips",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "11407",
+          "name": "Norman Xiong",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "11101",
+          "name": "Max Greyserman",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "10591",
+          "name": "Ryan McCormick",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5027435",
+          "name": "Blaine Hale Jr.",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4791222",
+          "name": "Mac Meissner",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4358083",
+          "name": "Patrick Fishburn",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4399279",
+          "name": "Wilson Furr",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "11385",
+          "name": "Rico Hoey",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4808913",
+          "name": "Chad Hambright",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4610384",
+          "name": "Alex Chiarella",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4643737",
+          "name": "Raul Pereda",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "10990",
+          "name": "Jimmy Stanger",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4901452",
+          "name": "Cameron Sisk",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        }
+      ],
+      "official_not_joined_to_espn": []
+    },
+    "R2025004": {
+      "counts": {
+        "official_r1_players": 155,
+        "espn_players": 155,
+        "unique_name_join": 153,
+        "eligible_before_paired_bins": 131,
+        "unmatched_name": 2,
+        "insufficient_prior_rounds": 21,
+        "missing_complete_r1": 1,
+        "official_not_joined_to_espn": 2
+      },
+      "excluded_espn_rows": [
+        {
+          "espn_player_id": "4351896",
+          "name": "Kristoffer Ventura",
+          "reason": "unmatched_name"
+        },
+        {
+          "espn_player_id": "4691931",
+          "name": "Ricky Castillo",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4408319",
+          "name": "Danny Walker",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5215013",
+          "name": "Jackson Koivun",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4426182",
+          "name": "Steven Fisk",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4339409",
+          "name": "Noah Goodwin",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5076025",
+          "name": "William Mouw",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4708134",
+          "name": "Quade Cummins",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "11398",
+          "name": "Charlie Reiter",
+          "reason": "unmatched_name"
+        },
+        {
+          "espn_player_id": "11096",
+          "name": "Mason Andersen",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "10588",
+          "name": "Jeremy Paul",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "9525",
+          "name": "Brian Campbell",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5210224",
+          "name": "Will Chandler",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4870467",
+          "name": "Chris Korte",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4355611",
+          "name": "Willie Mack III",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4610386",
+          "name": "Taylor Dickson",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5143176",
+          "name": "Matthew Riedel",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4375973",
+          "name": "Tim Widing",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4873899",
+          "name": "Ryan Hall",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5007595",
+          "name": "Kevin Velo",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "10793",
+          "name": "Thomas Rosenmueller",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5264301",
+          "name": "Cavin Mccall",
+          "course_id": "104",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "9600",
+          "name": "Paul Peterson",
+          "course_id": "004",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "11094",
+          "name": "Braden Thornberry",
+          "course_id": "004",
+          "reason": "missing_complete_r1"
+        }
+      ],
+      "official_not_joined_to_espn": [
+        {
+          "pga_player_id": "54303",
+          "pga_name": "Charles Reiter",
+          "course_id": "004",
+          "group_number": 7,
+          "tee_time_epoch_ms": 1737568560000,
+          "start_tee": 1
+        },
+        {
+          "pga_player_id": "35658",
+          "pga_name": "Kris Ventura",
+          "course_id": "104",
+          "group_number": 38,
+          "tee_time_epoch_ms": 1737571860000,
+          "start_tee": 1
+        }
+      ]
+    },
+    "R2023005": {
+      "counts": {
+        "official_r1_players": 156,
+        "espn_players": 156,
+        "unique_name_join": 155,
+        "eligible_before_paired_bins": 95,
+        "outside_declared_course_pair": 52,
+        "unmatched_name": 1,
+        "insufficient_prior_rounds": 7,
+        "missing_complete_r1": 1,
+        "official_not_joined_to_espn": 1
+      },
+      "excluded_espn_rows": [
+        {
+          "espn_player_id": "809",
+          "name": "Ryan Moore",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "8974",
+          "name": "Michael Kim",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "6011",
+          "name": "Beau Hossler",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4638",
+          "name": "Ben Martin",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "10522",
+          "name": "Eric Cole",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "11387",
+          "name": "Hank Lebioda",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "3792",
+          "name": "Nick Taylor",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "6151",
+          "name": "Martin Trainer",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "11332",
+          "name": "Andrew Novak",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "10941",
+          "name": "Brent Grant",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4423323",
+          "name": "Dylan Wu",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "10364",
+          "name": "Kurt Kitayama",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4589438",
+          "name": "Harry Hall",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "10372",
+          "name": "Adam Schenk",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "5285",
+          "name": "Byeong Hun An",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "16",
+          "name": "Aaron Baddeley",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4698579",
+          "name": "S.H. Kim",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "6015",
+          "name": "Adam Long",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "10940",
+          "name": "Augusto N\u00fa\u00f1ez",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4844",
+          "name": "Harry Higgs",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "6954",
+          "name": "Matt NeSmith",
+          "reason": "unmatched_name"
+        },
+        {
+          "espn_player_id": "1077",
+          "name": "Kevin Streelman",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "3375",
+          "name": "Fabi\u00e1n G\u00f3mez",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "74",
+          "name": "Greg Chalmers",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "3599",
+          "name": "Brian Stuard",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "328",
+          "name": "Geoff Ogilvy",
+          "course_id": "005",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "11150",
+          "name": "Paul O'Hara",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "1336",
+          "name": "Marcel Siem",
+          "course_id": "205",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "11383",
+          "name": "Max McGreevy",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "10933",
+          "name": "Trevor Cone",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4591",
+          "name": "Scott Brown",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "676",
+          "name": "Lucas Glover",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "5075659",
+          "name": "RJ Manke",
+          "course_id": "005",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5557",
+          "name": "Erik Barnes",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "10357",
+          "name": "Anders Albertson",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4425898",
+          "name": "Austin Eckroat",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "10134",
+          "name": "Ben Taylor",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4691933",
+          "name": "John Pak",
+          "course_id": "205",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "1254",
+          "name": "Robert Garrigus",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "9517",
+          "name": "Austin Cook",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "712",
+          "name": "Bo Van Pelt",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "5729",
+          "name": "Matthias Schwab",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "1037",
+          "name": "Scott Piercy",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "5502",
+          "name": "Andrew Putnam",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "1614",
+          "name": "Webb Simpson",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "1067",
+          "name": "J.B. Holmes",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "377",
+          "name": "Rory Sabbatini",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "11074",
+          "name": "Brandon Matthews",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4408316",
+          "name": "Nico Echavarria",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4566443",
+          "name": "Matti Schmid",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4868348",
+          "name": "Garett Reband",
+          "course_id": "205",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "1752",
+          "name": "Tom Johnson",
+          "course_id": "005",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "2283",
+          "name": "Brice Garnett",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "5119559",
+          "name": "Charles Porter",
+          "course_id": "205",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "11056",
+          "name": "Austin Smotherman",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "1548",
+          "name": "Ryan Brehm",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "11456",
+          "name": "Doug Ghim",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "159",
+          "name": "Brian Gay",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "4682",
+          "name": "Andrew Landry",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "1121",
+          "name": "Cameron Percy",
+          "course_id": "769",
+          "reason": "outside_declared_course_pair"
+        },
+        {
+          "espn_player_id": "10583",
+          "name": "Justin Suh",
+          "course_id": "205",
+          "reason": "missing_complete_r1"
+        }
+      ],
+      "official_not_joined_to_espn": [
+        {
+          "pga_player_id": "36871",
+          "pga_name": "Matthew NeSmith",
+          "course_id": "005",
+          "group_number": 70,
+          "tee_time_epoch_ms": 1675355400000,
+          "start_tee": 10
+        }
+      ]
+    },
+    "R2024005": {
+      "counts": {
+        "official_r1_players": 80,
+        "espn_players": 80,
+        "unique_name_join": 80,
+        "eligible_before_paired_bins": 79,
+        "insufficient_prior_rounds": 1,
+        "official_not_joined_to_espn": 0
+      },
+      "excluded_espn_rows": [
+        {
+          "espn_player_id": "4832046",
+          "name": "Nick Dunlap",
+          "course_id": "005",
+          "reason": "insufficient_prior_rounds"
+        }
+      ],
+      "official_not_joined_to_espn": []
+    },
+    "R2025005": {
+      "counts": {
+        "official_r1_players": 80,
+        "espn_players": 80,
+        "unique_name_join": 80,
+        "eligible_before_paired_bins": 80,
+        "official_not_joined_to_espn": 0
+      },
+      "excluded_espn_rows": [],
+      "official_not_joined_to_espn": []
+    },
+    "R2024493": {
+      "counts": {
+        "official_r1_players": 156,
+        "espn_players": 156,
+        "unique_name_join": 156,
+        "eligible_before_paired_bins": 149,
+        "insufficient_prior_rounds": 7,
+        "official_not_joined_to_espn": 0
+      },
+      "excluded_espn_rows": [
+        {
+          "espn_player_id": "9600",
+          "name": "Paul Peterson",
+          "course_id": "776",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5085807",
+          "name": "Blake McShea",
+          "course_id": "776",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "4426182",
+          "name": "Steven Fisk",
+          "course_id": "776",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5255075",
+          "name": "Drew Doyle",
+          "course_id": "889",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5255076",
+          "name": "Jacob Modleski",
+          "course_id": "889",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5191434",
+          "name": "Reid Davenport",
+          "course_id": "889",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "3089127",
+          "name": "Francisco Bid\u00e9",
+          "course_id": "776",
+          "reason": "insufficient_prior_rounds"
+        }
+      ],
+      "official_not_joined_to_espn": []
+    },
+    "R2025493": {
+      "counts": {
+        "official_r1_players": 156,
+        "espn_players": 156,
+        "unique_name_join": 154,
+        "eligible_before_paired_bins": 149,
+        "unmatched_name": 2,
+        "insufficient_prior_rounds": 5,
+        "official_not_joined_to_espn": 2
+      },
+      "excluded_espn_rows": [
+        {
+          "espn_player_id": "4351896",
+          "name": "Kristoffer Ventura",
+          "reason": "unmatched_name"
+        },
+        {
+          "espn_player_id": "4382434",
+          "name": "Niklas N\u00f8rgaard",
+          "reason": "unmatched_name"
+        },
+        {
+          "espn_player_id": "4781810",
+          "name": "Peter Knade",
+          "course_id": "889",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5214988",
+          "name": "Kyle Cottam",
+          "course_id": "776",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "9788",
+          "name": "Matt Atkins",
+          "course_id": "889",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5289811",
+          "name": "Mason Howell",
+          "course_id": "776",
+          "reason": "insufficient_prior_rounds"
+        },
+        {
+          "espn_player_id": "5326472",
+          "name": "Matt Sanders",
+          "course_id": "776",
+          "reason": "insufficient_prior_rounds"
+        }
+      ],
+      "official_not_joined_to_espn": [
+        {
+          "pga_player_id": "35706",
+          "pga_name": "Niklas Norgaard",
+          "course_id": "776",
+          "group_number": 20,
+          "tee_time_epoch_ms": 1763649360000,
+          "start_tee": 10
+        },
+        {
+          "pga_player_id": "35658",
+          "pga_name": "Kris Ventura",
+          "course_id": "776",
+          "group_number": 12,
+          "tee_time_epoch_ms": 1763652660000,
+          "start_tee": 1
+        }
+      ]
+    }
+  },
+  "results": {
+    "events": [
+      {
+        "pga_tournament_id": "R2023004",
+        "event_id": "401465516",
+        "event_name": "Farmers Insurance Open",
+        "harder_course": "004",
+        "easier_course": "104",
+        "eligible_before_paired_bins": 145,
+        "paired_player_events": 143,
+        "weight": 34.77179639532581,
+        "ability_bins": [
+          {
+            "ability_bin": -2,
+            "harder_n": 8,
+            "easier_n": 9,
+            "weight": 4.235294117647059,
+            "relative_gap": 1.0015185434153473,
+            "gross_gap": 1.0015185434153437
+          },
+          {
+            "ability_bin": -1,
+            "harder_n": 32,
+            "easier_n": 23,
+            "weight": 13.381818181818181,
+            "relative_gap": 2.7344797272439987,
+            "gross_gap": 2.7344797272440076
+          },
+          {
+            "ability_bin": 0,
+            "harder_n": 22,
+            "easier_n": 32,
+            "weight": 13.037037037037036,
+            "relative_gap": 2.3104107436439274,
+            "gross_gap": 2.310410743643928
+          },
+          {
+            "ability_bin": 1,
+            "harder_n": 10,
+            "easier_n": 7,
+            "weight": 4.117647058823529,
+            "relative_gap": 3.9372469252831572,
+            "gross_gap": 3.937246925283148
+          }
+        ],
+        "relative_gap": 2.506834527439434,
+        "gross_gap": 2.5068345274394357
+      },
+      {
+        "pga_tournament_id": "R2024004",
+        "event_id": "401580332",
+        "event_name": "Farmers Insurance Open",
+        "harder_course": "004",
+        "easier_course": "104",
+        "eligible_before_paired_bins": 135,
+        "paired_player_events": 134,
+        "weight": 32.54918157594214,
+        "ability_bins": [
+          {
+            "ability_bin": -2,
+            "harder_n": 6,
+            "easier_n": 9,
+            "weight": 3.6,
+            "relative_gap": 3.100513964910065,
+            "gross_gap": 3.100513964910064
+          },
+          {
+            "ability_bin": -1,
+            "harder_n": 36,
+            "easier_n": 35,
+            "weight": 17.746478873239436,
+            "relative_gap": 2.1956410219263867,
+            "gross_gap": 2.1956410219263915
+          },
+          {
+            "ability_bin": 0,
+            "harder_n": 23,
+            "easier_n": 14,
+            "weight": 8.702702702702704,
+            "relative_gap": 2.322623522914342,
+            "gross_gap": 2.3226235229143555
+          },
+          {
+            "ability_bin": 1,
+            "harder_n": 3,
+            "easier_n": 6,
+            "weight": 2.0,
+            "relative_gap": 3.6501417701628385,
+            "gross_gap": 3.6501417701628327
+          },
+          {
+            "ability_bin": 2,
+            "harder_n": 1,
+            "easier_n": 1,
+            "weight": 0.5,
+            "relative_gap": 8.07635774722893,
+            "gross_gap": 8.076357747228926
+          }
+        ],
+        "relative_gap": 2.5093814268758363,
+        "gross_gap": 2.5093814268758416
+      },
+      {
+        "pga_tournament_id": "R2025004",
+        "event_id": "401703492",
+        "event_name": "Farmers Insurance Open",
+        "harder_course": "004",
+        "easier_course": "104",
+        "eligible_before_paired_bins": 131,
+        "paired_player_events": 131,
+        "weight": 31.5838298955946,
+        "ability_bins": [
+          {
+            "ability_bin": -2,
+            "harder_n": 9,
+            "easier_n": 13,
+            "weight": 5.318181818181818,
+            "relative_gap": 1.8551611964195562,
+            "gross_gap": 1.8551611964195587
+          },
+          {
+            "ability_bin": -1,
+            "harder_n": 29,
+            "easier_n": 22,
+            "weight": 12.509803921568627,
+            "relative_gap": 2.4582120970753336,
+            "gross_gap": 2.4582120970753323
+          },
+          {
+            "ability_bin": 0,
+            "harder_n": 16,
+            "easier_n": 24,
+            "weight": 9.6,
+            "relative_gap": 1.7116742253093775,
+            "gross_gap": 1.7116742253093804
+          },
+          {
+            "ability_bin": 1,
+            "harder_n": 5,
+            "easier_n": 6,
+            "weight": 2.727272727272727,
+            "relative_gap": 1.5902689922529725,
+            "gross_gap": 1.5902689922529731
+          },
+          {
+            "ability_bin": 2,
+            "harder_n": 2,
+            "easier_n": 5,
+            "weight": 1.4285714285714286,
+            "relative_gap": 8.203008846860904,
+            "gross_gap": 8.203008846860897
+          }
+        ],
+        "relative_gap": 2.3146524661452004,
+        "gross_gap": 2.314652466145201
+      },
+      {
+        "pga_tournament_id": "R2023005",
+        "event_id": "401465517",
+        "event_name": "AT&T Pebble Beach Pro-Am",
+        "harder_course": "205",
+        "easier_course": "005",
+        "eligible_before_paired_bins": 95,
+        "paired_player_events": 93,
+        "weight": 21.973863636363635,
+        "ability_bins": [
+          {
+            "ability_bin": -2,
+            "harder_n": 9,
+            "easier_n": 7,
+            "weight": 3.9375,
+            "relative_gap": 1.568581329200776,
+            "gross_gap": 1.568581329200768
+          },
+          {
+            "ability_bin": -1,
+            "harder_n": 13,
+            "easier_n": 13,
+            "weight": 6.5,
+            "relative_gap": 0.8393964696766081,
+            "gross_gap": 0.8393964696766005
+          },
+          {
+            "ability_bin": 0,
+            "harder_n": 22,
+            "easier_n": 18,
+            "weight": 9.9,
+            "relative_gap": 1.7687045030348258,
+            "gross_gap": 1.7687045030348258
+          },
+          {
+            "ability_bin": 1,
+            "harder_n": 2,
+            "easier_n": 9,
+            "weight": 1.6363636363636365,
+            "relative_gap": 4.2227721531391795,
+            "gross_gap": 4.222772153139189
+          }
+        ],
+        "relative_gap": 1.64070060729124,
+        "gross_gap": 1.6407006072912371
+      },
+      {
+        "pga_tournament_id": "R2024005",
+        "event_id": "401580333",
+        "event_name": "AT&T Pebble Beach Pro-Am",
+        "harder_course": "205",
+        "easier_course": "005",
+        "eligible_before_paired_bins": 79,
+        "paired_player_events": 76,
+        "weight": 18.743822843822844,
+        "ability_bins": [
+          {
+            "ability_bin": -2,
+            "harder_n": 13,
+            "easier_n": 9,
+            "weight": 5.318181818181818,
+            "relative_gap": -0.592347150975675,
+            "gross_gap": -0.5923471509756695
+          },
+          {
+            "ability_bin": -1,
+            "harder_n": 18,
+            "easier_n": 21,
+            "weight": 9.692307692307692,
+            "relative_gap": -0.1645507897577494,
+            "gross_gap": -0.1645507897577545
+          },
+          {
+            "ability_bin": 0,
+            "harder_n": 8,
+            "easier_n": 7,
+            "weight": 3.7333333333333334,
+            "relative_gap": -0.8804026601667544,
+            "gross_gap": -0.8804026601667516
+          }
+        ],
+        "relative_gap": -0.4285104163966122,
+        "gross_gap": -0.42851041639661275
+      },
+      {
+        "pga_tournament_id": "R2025005",
+        "event_id": "401703493",
+        "event_name": "AT&T Pebble Beach Pro-Am",
+        "harder_course": "205",
+        "easier_course": "005",
+        "eligible_before_paired_bins": 80,
+        "paired_player_events": 79,
+        "weight": 19.528455284552845,
+        "ability_bins": [
+          {
+            "ability_bin": -2,
+            "harder_n": 14,
+            "easier_n": 10,
+            "weight": 5.833333333333333,
+            "relative_gap": 1.6837026213554402,
+            "gross_gap": 1.683702621355451
+          },
+          {
+            "ability_bin": -1,
+            "harder_n": 19,
+            "easier_n": 22,
+            "weight": 10.195121951219512,
+            "relative_gap": 1.3016753961452099,
+            "gross_gap": 1.3016753961452139
+          },
+          {
+            "ability_bin": 0,
+            "harder_n": 7,
+            "easier_n": 7,
+            "weight": 3.5,
+            "relative_gap": 1.660329121170415,
+            "gross_gap": 1.6603291211704203
+          }
+        ],
+        "relative_gap": 1.4800704680484953,
+        "gross_gap": 1.4800704680485015
+      },
+      {
+        "pga_tournament_id": "R2024493",
+        "event_id": "401693943",
+        "event_name": "The RSM Classic",
+        "harder_course": "776",
+        "easier_course": "889",
+        "eligible_before_paired_bins": 149,
+        "paired_player_events": 146,
+        "weight": 35.97262532038761,
+        "ability_bins": [
+          {
+            "ability_bin": -2,
+            "harder_n": 6,
+            "easier_n": 6,
+            "weight": 3.0,
+            "relative_gap": 1.8063769007611534,
+            "gross_gap": -0.1936230992388488
+          },
+          {
+            "ability_bin": -1,
+            "harder_n": 32,
+            "easier_n": 26,
+            "weight": 14.344827586206897,
+            "relative_gap": 1.9398139511296797,
+            "gross_gap": -0.060186048870320974
+          },
+          {
+            "ability_bin": 0,
+            "harder_n": 24,
+            "easier_n": 23,
+            "weight": 11.74468085106383,
+            "relative_gap": 1.8588167388568957,
+            "gross_gap": -0.1411832611431123
+          },
+          {
+            "ability_bin": 1,
+            "harder_n": 10,
+            "easier_n": 12,
+            "weight": 5.454545454545454,
+            "relative_gap": 0.08906340112766553,
+            "gross_gap": -1.9109365988723397
+          },
+          {
+            "ability_bin": 2,
+            "harder_n": 2,
+            "easier_n": 5,
+            "weight": 1.4285714285714286,
+            "relative_gap": -0.2707531763630029,
+            "gross_gap": -2.2707531763630016
+          }
+        ],
+        "relative_gap": 1.5338231882012827,
+        "gross_gap": -0.46617681179872134
+      },
+      {
+        "pga_tournament_id": "R2025493",
+        "event_id": "401738559",
+        "event_name": "The RSM Classic",
+        "harder_course": "776",
+        "easier_course": "889",
+        "eligible_before_paired_bins": 149,
+        "paired_player_events": 148,
+        "weight": 36.581091705121786,
+        "ability_bins": [
+          {
+            "ability_bin": -2,
+            "harder_n": 5,
+            "easier_n": 6,
+            "weight": 2.727272727272727,
+            "relative_gap": 4.260250740709032,
+            "gross_gap": 2.26025074070904
+          },
+          {
+            "ability_bin": -1,
+            "harder_n": 27,
+            "easier_n": 24,
+            "weight": 12.705882352941176,
+            "relative_gap": 1.2167500985742818,
+            "gross_gap": -0.7832499014257195
+          },
+          {
+            "ability_bin": 0,
+            "harder_n": 29,
+            "easier_n": 30,
+            "weight": 14.745762711864407,
+            "relative_gap": 0.07718262847905599,
+            "gross_gap": -1.9228173715209351
+          },
+          {
+            "ability_bin": 1,
+            "harder_n": 10,
+            "easier_n": 13,
+            "weight": 5.6521739130434785,
+            "relative_gap": 2.0031916381034276,
+            "gross_gap": 0.003191638103430705
+          },
+          {
+            "ability_bin": 2,
+            "harder_n": 1,
+            "easier_n": 3,
+            "weight": 0.75,
+            "relative_gap": 3.2122118604645897,
+            "gross_gap": 1.2122118604645777
+          }
+        ],
+        "relative_gap": 1.146723906988099,
+        "gross_gap": -0.8532760930118971
+      }
+    ],
+    "pooled": {
+      "relative_gap": 1.709068722076869,
+      "gross_gap": 1.0828084220814613
+    },
+    "unique_paired_players": 311,
+    "paired_player_events": 950,
+    "paired_editions": 8,
+    "relative_gap_event_bootstrap_95": [
+      1.1113315221471736,
+      2.191812323978667
+    ],
+    "sample_gate_pass": true,
+    "effect_gate_pass": true,
+    "status": "sport-side effect: investigate prices"
+  },
+  "derived_rows": {
+    "path": "data/raw/golf-rotation/screen-rotation-rows.json",
+    "sha256": "01628abb50cd5f2d9dec6c59a7ee754d1de44a356f413fb976a036d073430f22",
+    "count_before_paired_bins": 963,
+    "count_after_paired_bins": 950
+  },
+  "fanduel_price_test": null
+}

@@ -1,0 +1,4537 @@
+{
+  "as_of_local_date": "2026-09-14",
+  "status": "sport-side dead at fixed screen",
+  "same_variance": 15.429552250939134,
+  "different_time_variance": 16.143089734200576,
+  "variance_reduction": 0.04420080015721828,
+  "same_pair_mean": 0.05401261026162592,
+  "different_time_pair_mean": 0.03906581078629292,
+  "actual_groups": 1377,
+  "events": 24,
+  "players": 285,
+  "same_pairs": 3204,
+  "different_time_pairs": 104701,
+  "sample_gate_met": true,
+  "volatile_rounds": 37,
+  "unclassified_rounds": [
+    {
+      "pga_id": "R2025524",
+      "round": 1,
+      "course_id": "876",
+      "classified": false,
+      "volatile": null,
+      "wind_range_kmh": null,
+      "wind_values_kmh": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "valid_times_utc": [
+        "2025-06-26T10:00:00Z",
+        "2025-06-26T11:00:00Z",
+        "2025-06-26T12:00:00Z",
+        "2025-06-26T13:00:00Z",
+        "2025-06-26T14:00:00Z",
+        "2025-06-26T15:00:00Z",
+        "2025-06-26T16:00:00Z",
+        "2025-06-26T17:00:00Z",
+        "2025-06-26T18:00:00Z",
+        "2025-06-26T19:00:00Z",
+        "2025-06-26T20:00:00Z",
+        "2025-06-26T21:00:00Z",
+        "2025-06-26T22:00:00Z",
+        "2025-06-26T23:00:00Z",
+        "2025-06-27T00:00:00Z"
+      ],
+      "reason": "missing_venue",
+      "run_utc": "2025-06-25T00:00:00Z",
+      "decision_cutoff_utc": "2025-06-25T22:45:00Z",
+      "source_files": [],
+      "hour_errors": {
+        "2025-06-26T10:00:00Z": "pending",
+        "2025-06-26T11:00:00Z": "pending",
+        "2025-06-26T12:00:00Z": "pending",
+        "2025-06-26T13:00:00Z": "pending",
+        "2025-06-26T14:00:00Z": "pending",
+        "2025-06-26T15:00:00Z": "pending",
+        "2025-06-26T16:00:00Z": "pending",
+        "2025-06-26T17:00:00Z": "pending",
+        "2025-06-26T18:00:00Z": "pending",
+        "2025-06-26T19:00:00Z": "pending",
+        "2025-06-26T20:00:00Z": "pending",
+        "2025-06-26T21:00:00Z": "pending",
+        "2025-06-26T22:00:00Z": "pending",
+        "2025-06-26T23:00:00Z": "pending",
+        "2025-06-27T00:00:00Z": "pending"
+      }
+    },
+    {
+      "pga_id": "R2025524",
+      "round": 2,
+      "course_id": "876",
+      "classified": false,
+      "volatile": null,
+      "wind_range_kmh": null,
+      "wind_values_kmh": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "valid_times_utc": [
+        "2025-06-27T10:00:00Z",
+        "2025-06-27T11:00:00Z",
+        "2025-06-27T12:00:00Z",
+        "2025-06-27T13:00:00Z",
+        "2025-06-27T14:00:00Z",
+        "2025-06-27T15:00:00Z",
+        "2025-06-27T16:00:00Z",
+        "2025-06-27T17:00:00Z",
+        "2025-06-27T18:00:00Z",
+        "2025-06-27T19:00:00Z",
+        "2025-06-27T20:00:00Z",
+        "2025-06-27T21:00:00Z",
+        "2025-06-27T22:00:00Z",
+        "2025-06-27T23:00:00Z",
+        "2025-06-28T00:00:00Z"
+      ],
+      "reason": "missing_venue",
+      "run_utc": "2025-06-25T00:00:00Z",
+      "decision_cutoff_utc": "2025-06-25T22:45:00Z",
+      "source_files": [],
+      "hour_errors": {
+        "2025-06-27T10:00:00Z": "pending",
+        "2025-06-27T11:00:00Z": "pending",
+        "2025-06-27T12:00:00Z": "pending",
+        "2025-06-27T13:00:00Z": "pending",
+        "2025-06-27T14:00:00Z": "pending",
+        "2025-06-27T15:00:00Z": "pending",
+        "2025-06-27T16:00:00Z": "pending",
+        "2025-06-27T17:00:00Z": "pending",
+        "2025-06-27T18:00:00Z": "pending",
+        "2025-06-27T19:00:00Z": "pending",
+        "2025-06-27T20:00:00Z": "pending",
+        "2025-06-27T21:00:00Z": "pending",
+        "2025-06-27T22:00:00Z": "pending",
+        "2025-06-27T23:00:00Z": "pending",
+        "2025-06-28T00:00:00Z": "pending"
+      }
+    },
+    {
+      "pga_id": "R2025457",
+      "round": 1,
+      "course_id": "919",
+      "classified": false,
+      "volatile": null,
+      "wind_range_kmh": null,
+      "wind_values_kmh": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "valid_times_utc": [
+        "2025-11-06T13:00:00Z",
+        "2025-11-06T14:00:00Z",
+        "2025-11-06T15:00:00Z",
+        "2025-11-06T16:00:00Z",
+        "2025-11-06T17:00:00Z",
+        "2025-11-06T18:00:00Z",
+        "2025-11-06T19:00:00Z",
+        "2025-11-06T20:00:00Z",
+        "2025-11-06T21:00:00Z",
+        "2025-11-06T22:00:00Z",
+        "2025-11-06T23:00:00Z",
+        "2025-11-07T00:00:00Z",
+        "2025-11-07T01:00:00Z"
+      ],
+      "reason": "missing_venue",
+      "run_utc": "2025-11-05T00:00:00Z",
+      "decision_cutoff_utc": "2025-11-06T01:30:00Z",
+      "source_files": [],
+      "hour_errors": {
+        "2025-11-06T13:00:00Z": "pending",
+        "2025-11-06T14:00:00Z": "pending",
+        "2025-11-06T15:00:00Z": "pending",
+        "2025-11-06T16:00:00Z": "pending",
+        "2025-11-06T17:00:00Z": "pending",
+        "2025-11-06T18:00:00Z": "pending",
+        "2025-11-06T19:00:00Z": "pending",
+        "2025-11-06T20:00:00Z": "pending",
+        "2025-11-06T21:00:00Z": "pending",
+        "2025-11-06T22:00:00Z": "pending",
+        "2025-11-06T23:00:00Z": "pending",
+        "2025-11-07T00:00:00Z": "pending",
+        "2025-11-07T01:00:00Z": "pending"
+      }
+    },
+    {
+      "pga_id": "R2025457",
+      "round": 2,
+      "course_id": "919",
+      "classified": false,
+      "volatile": null,
+      "wind_range_kmh": null,
+      "wind_values_kmh": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "valid_times_utc": [
+        "2025-11-07T13:00:00Z",
+        "2025-11-07T14:00:00Z",
+        "2025-11-07T15:00:00Z",
+        "2025-11-07T16:00:00Z",
+        "2025-11-07T17:00:00Z",
+        "2025-11-07T18:00:00Z",
+        "2025-11-07T19:00:00Z",
+        "2025-11-07T20:00:00Z",
+        "2025-11-07T21:00:00Z",
+        "2025-11-07T22:00:00Z",
+        "2025-11-07T23:00:00Z",
+        "2025-11-08T00:00:00Z",
+        "2025-11-08T01:00:00Z"
+      ],
+      "reason": "missing_venue",
+      "run_utc": "2025-11-05T00:00:00Z",
+      "decision_cutoff_utc": "2025-11-06T01:30:00Z",
+      "source_files": [],
+      "hour_errors": {
+        "2025-11-07T13:00:00Z": "pending",
+        "2025-11-07T14:00:00Z": "pending",
+        "2025-11-07T15:00:00Z": "pending",
+        "2025-11-07T16:00:00Z": "pending",
+        "2025-11-07T17:00:00Z": "pending",
+        "2025-11-07T18:00:00Z": "pending",
+        "2025-11-07T19:00:00Z": "pending",
+        "2025-11-07T20:00:00Z": "pending",
+        "2025-11-07T21:00:00Z": "pending",
+        "2025-11-07T22:00:00Z": "pending",
+        "2025-11-07T23:00:00Z": "pending",
+        "2025-11-08T00:00:00Z": "pending",
+        "2025-11-08T01:00:00Z": "pending"
+      }
+    }
+  ],
+  "event_bootstrap_95_interval": [
+    -0.004190470037269023,
+    0.09283639679521316
+  ],
+  "bootstrap": {
+    "seed": 20260915,
+    "requested_replicates": 5000,
+    "valid_replicates": 5000,
+    "conditioning": "Resample contributing events and retain their course-round cells; weather labels and original sample gate remain fixed."
+  },
+  "cells": [
+    {
+      "pga_id": "R2025016",
+      "round": 1,
+      "course_id": "656",
+      "ability_gap_bin": 0,
+      "same_pairs": 32,
+      "different_time_pairs": 45,
+      "same_variance": 25.066011271259317,
+      "different_time_variance": 31.15098262306058,
+      "same_mean": 0.6131948495512158,
+      "different_time_mean": -1.0784432979899956
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 1,
+      "course_id": "656",
+      "ability_gap_bin": 1,
+      "same_pairs": 14,
+      "different_time_pairs": 36,
+      "same_variance": 14.605522642507623,
+      "different_time_variance": 15.246747350210603,
+      "same_mean": -1.3901339272222006,
+      "different_time_mean": -1.232150130589914
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 1,
+      "course_id": "656",
+      "ability_gap_bin": 2,
+      "same_pairs": 4,
+      "different_time_pairs": 35,
+      "same_variance": 51.592990064209665,
+      "different_time_variance": 27.21855835349033,
+      "same_mean": 2.548093708964412,
+      "different_time_mean": -0.2228672311613986
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 1,
+      "course_id": "656",
+      "ability_gap_bin": 3,
+      "same_pairs": 2,
+      "different_time_pairs": 14,
+      "same_variance": 0.001239969102380062,
+      "different_time_variance": 7.314914649810501,
+      "same_mean": 3.2664266593045914,
+      "different_time_mean": -0.5836242981278363
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 1,
+      "course_id": "656",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 5,
+      "same_variance": 6.640748998128221,
+      "different_time_variance": 9.178419648902207,
+      "same_mean": -0.3655700418230181,
+      "different_time_mean": 2.816777337549746
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 2,
+      "course_id": "656",
+      "ability_gap_bin": 0,
+      "same_pairs": 32,
+      "different_time_pairs": 42,
+      "same_variance": 12.739450239383213,
+      "different_time_variance": 13.603843167983602,
+      "same_mean": 0.581944849551216,
+      "different_time_mean": 0.567436987448419
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 2,
+      "course_id": "656",
+      "ability_gap_bin": 1,
+      "same_pairs": 14,
+      "different_time_pairs": 35,
+      "same_variance": 8.640737575740431,
+      "different_time_variance": 24.190441863398796,
+      "same_mean": 0.5384375013492279,
+      "different_time_mean": -0.09681307790662684
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 2,
+      "course_id": "656",
+      "ability_gap_bin": 2,
+      "same_pairs": 4,
+      "different_time_pairs": 22,
+      "same_variance": 10.490451156108945,
+      "different_time_variance": 36.24193701946962,
+      "same_mean": 2.798093708964412,
+      "different_time_mean": 1.5655814437362057
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 2,
+      "course_id": "656",
+      "ability_gap_bin": 3,
+      "same_pairs": 2,
+      "different_time_pairs": 14,
+      "same_variance": 0.4514409911534289,
+      "different_time_variance": 33.82273127836737,
+      "same_mean": 5.766426659304591,
+      "different_time_mean": -2.5050385087069658
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 2,
+      "course_id": "656",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 11,
+      "same_variance": 14.68898204197021,
+      "different_time_variance": 26.44223971431443,
+      "same_mean": 4.884429958176982,
+      "different_time_mean": -3.821652219508149
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 2,
+      "course_id": "656",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 3,
+      "same_variance": 13.992904886388903,
+      "different_time_variance": 47.7296293335095,
+      "same_mean": -7.250258376294612,
+      "different_time_mean": -0.6609058279195225
+    },
+    {
+      "pga_id": "R2025006",
+      "round": 1,
+      "course_id": "006",
+      "ability_gap_bin": 0,
+      "same_pairs": 30,
+      "different_time_pairs": 958,
+      "same_variance": 13.233786189887597,
+      "different_time_variance": 11.351649646902718,
+      "same_mean": 0.03349764127665558,
+      "different_time_mean": 0.002029408305276614
+    },
+    {
+      "pga_id": "R2025006",
+      "round": 1,
+      "course_id": "006",
+      "ability_gap_bin": 1,
+      "same_pairs": 24,
+      "different_time_pairs": 771,
+      "same_variance": 13.302437318860054,
+      "different_time_variance": 11.368465443059801,
+      "same_mean": -0.7929986496946366,
+      "different_time_mean": -0.02322561225077111
+    },
+    {
+      "pga_id": "R2025006",
+      "round": 1,
+      "course_id": "006",
+      "ability_gap_bin": 2,
+      "same_pairs": 32,
+      "different_time_pairs": 527,
+      "same_variance": 14.98187747593633,
+      "different_time_variance": 14.16491275978731,
+      "same_mean": 0.5601724302419745,
+      "different_time_mean": -0.3738508956583291
+    },
+    {
+      "pga_id": "R2025006",
+      "round": 1,
+      "course_id": "006",
+      "ability_gap_bin": 3,
+      "same_pairs": 6,
+      "different_time_pairs": 294,
+      "same_variance": 13.500866471950353,
+      "different_time_variance": 16.867623453678014,
+      "same_mean": -2.474016118710798,
+      "different_time_mean": -0.8424281143071478
+    },
+    {
+      "pga_id": "R2025006",
+      "round": 1,
+      "course_id": "006",
+      "ability_gap_bin": 4,
+      "same_pairs": 9,
+      "different_time_pairs": 165,
+      "same_variance": 10.94522000134145,
+      "different_time_variance": 16.953833129732143,
+      "same_mean": 0.03665260844449398,
+      "different_time_mean": -0.6197007295624246
+    },
+    {
+      "pga_id": "R2025003",
+      "round": 1,
+      "course_id": "510",
+      "ability_gap_bin": 0,
+      "same_pairs": 39,
+      "different_time_pairs": 1411,
+      "same_variance": 16.9607822819119,
+      "different_time_variance": 15.406814543213107,
+      "same_mean": -0.8869748144476189,
+      "different_time_mean": 0.16585486662766716
+    },
+    {
+      "pga_id": "R2025003",
+      "round": 1,
+      "course_id": "510",
+      "ability_gap_bin": 1,
+      "same_pairs": 39,
+      "different_time_pairs": 1103,
+      "same_variance": 16.53396997879519,
+      "different_time_variance": 16.398188006867823,
+      "same_mean": 0.4386698692990301,
+      "different_time_mean": -0.05426834141275184
+    },
+    {
+      "pga_id": "R2025003",
+      "round": 1,
+      "course_id": "510",
+      "ability_gap_bin": 2,
+      "same_pairs": 29,
+      "different_time_pairs": 716,
+      "same_variance": 17.63518222305859,
+      "different_time_variance": 18.022327054085114,
+      "same_mean": -0.7397920241087423,
+      "different_time_mean": 0.02205807697176517
+    },
+    {
+      "pga_id": "R2025003",
+      "round": 1,
+      "course_id": "510",
+      "ability_gap_bin": 3,
+      "same_pairs": 9,
+      "different_time_pairs": 368,
+      "same_variance": 34.18667642077513,
+      "different_time_variance": 21.217859255429406,
+      "same_mean": -2.8166858521809344,
+      "different_time_mean": -0.47263806163582167
+    },
+    {
+      "pga_id": "R2025003",
+      "round": 1,
+      "course_id": "510",
+      "ability_gap_bin": 4,
+      "same_pairs": 3,
+      "different_time_pairs": 190,
+      "same_variance": 4.364254897309016,
+      "different_time_variance": 23.818488763395322,
+      "same_mean": 3.673873217590321,
+      "different_time_mean": -0.970388709864846
+    },
+    {
+      "pga_id": "R2025003",
+      "round": 1,
+      "course_id": "510",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 73,
+      "same_variance": 50.817578350311464,
+      "different_time_variance": 23.94711442020508,
+      "same_mean": 0.538852160596532,
+      "different_time_mean": -1.74777173123555
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 1,
+      "course_id": "978",
+      "ability_gap_bin": 0,
+      "same_pairs": 22,
+      "different_time_pairs": 607,
+      "same_variance": 9.863781406517655,
+      "different_time_variance": 11.356812067523895,
+      "same_mean": 1.2020101484785009,
+      "different_time_mean": 0.666623000368067
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 1,
+      "course_id": "978",
+      "ability_gap_bin": 1,
+      "same_pairs": 19,
+      "different_time_pairs": 466,
+      "same_variance": 8.108598977887532,
+      "different_time_variance": 10.205759503549336,
+      "same_mean": -0.15962763705148308,
+      "different_time_mean": 0.6750129551360048
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 1,
+      "course_id": "978",
+      "ability_gap_bin": 2,
+      "same_pairs": 14,
+      "different_time_pairs": 337,
+      "same_variance": 10.635000317520856,
+      "different_time_variance": 13.247389781494324,
+      "same_mean": 1.6665238451789297,
+      "different_time_mean": 0.7805928685393928
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 1,
+      "course_id": "978",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 185,
+      "same_variance": 3.7403127783564303,
+      "different_time_variance": 13.175083869183078,
+      "same_mean": 0.844528754777502,
+      "different_time_mean": 0.7915033686670347
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 1,
+      "course_id": "978",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 107,
+      "same_variance": 7.042329503234785,
+      "different_time_variance": 13.351070712196083,
+      "same_mean": -1.8529538831516232,
+      "different_time_mean": 0.6424504647509818
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 1,
+      "course_id": "978",
+      "ability_gap_bin": 5,
+      "same_pairs": 4,
+      "different_time_pairs": 72,
+      "same_variance": 35.651410959277065,
+      "different_time_variance": 20.446405868343188,
+      "same_mean": -1.6804036089038725,
+      "different_time_mean": 0.7020100606910076
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 2,
+      "course_id": "978",
+      "ability_gap_bin": 0,
+      "same_pairs": 22,
+      "different_time_pairs": 603,
+      "same_variance": 13.450589031320568,
+      "different_time_variance": 15.936579732419096,
+      "same_mean": -0.5252625787942263,
+      "different_time_mean": -0.016523154638476527
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 2,
+      "course_id": "978",
+      "ability_gap_bin": 1,
+      "same_pairs": 19,
+      "different_time_pairs": 463,
+      "same_variance": 13.293763911351373,
+      "different_time_variance": 14.296276639398078,
+      "same_mean": -0.7385750054725357,
+      "different_time_mean": -0.060295274758370064
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 2,
+      "course_id": "978",
+      "ability_gap_bin": 2,
+      "same_pairs": 14,
+      "different_time_pairs": 336,
+      "same_variance": 9.685179606266539,
+      "different_time_variance": 16.08484756157734,
+      "same_mean": 0.4522381308932154,
+      "different_time_mean": 0.0284345331232189
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 2,
+      "course_id": "978",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 181,
+      "same_variance": 19.697783160320537,
+      "different_time_variance": 14.692133004423791,
+      "same_mean": 1.9695287547775022,
+      "different_time_mean": -0.8640540563823567
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 2,
+      "course_id": "978",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 105,
+      "same_variance": 26.884323904003313,
+      "different_time_variance": 14.717083662240974,
+      "same_mean": -0.10295388315162313,
+      "different_time_mean": -0.37379420412233727
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 2,
+      "course_id": "978",
+      "ability_gap_bin": 5,
+      "same_pairs": 4,
+      "different_time_pairs": 70,
+      "same_variance": 21.619510545627346,
+      "different_time_variance": 20.61778107032938,
+      "same_mean": -1.9304036089038723,
+      "different_time_mean": -0.18085745613157322
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 1,
+      "course_id": "940",
+      "ability_gap_bin": 0,
+      "same_pairs": 24,
+      "different_time_pairs": 692,
+      "same_variance": 7.066378242247862,
+      "different_time_variance": 8.354537641038549,
+      "same_mean": 0.48516825011083164,
+      "different_time_mean": 0.8624281861488969
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 1,
+      "course_id": "940",
+      "ability_gap_bin": 1,
+      "same_pairs": 17,
+      "different_time_pairs": 559,
+      "same_variance": 6.8668076919121,
+      "different_time_variance": 9.355338715855224,
+      "same_mean": 2.138644717687773,
+      "different_time_mean": 1.2538433068762946
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 1,
+      "course_id": "940",
+      "ability_gap_bin": 2,
+      "same_pairs": 13,
+      "different_time_pairs": 386,
+      "same_variance": 14.66624296404366,
+      "different_time_variance": 10.022023382756258,
+      "same_mean": -0.19029464068377724,
+      "different_time_mean": 1.2674286304404807
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 1,
+      "course_id": "940",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 218,
+      "same_variance": 10.219754281966617,
+      "different_time_variance": 12.656532579995234,
+      "same_mean": 0.3615562583874417,
+      "different_time_mean": 0.930273518407447
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 1,
+      "course_id": "940",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 108,
+      "same_variance": 36.60106320485067,
+      "different_time_variance": 12.465951654675473,
+      "same_mean": 0.8133854775591063,
+      "different_time_mean": 0.6915541576329378
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 2,
+      "course_id": "940",
+      "ability_gap_bin": 0,
+      "same_pairs": 24,
+      "different_time_pairs": 665,
+      "same_variance": 13.968769506009435,
+      "different_time_variance": 10.460427545943995,
+      "same_mean": 0.6935015834441649,
+      "different_time_mean": 0.5553521248167782
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 2,
+      "course_id": "940",
+      "ability_gap_bin": 1,
+      "same_pairs": 16,
+      "different_time_pairs": 545,
+      "same_variance": 9.362435437982631,
+      "different_time_variance": 12.635894276608678,
+      "same_mean": -0.5800272793975391,
+      "different_time_mean": 0.5455099473260343
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 2,
+      "course_id": "940",
+      "ability_gap_bin": 2,
+      "same_pairs": 13,
+      "different_time_pairs": 379,
+      "same_variance": 18.045819255317678,
+      "different_time_variance": 15.856312882888,
+      "same_mean": -0.1133715637607004,
+      "different_time_mean": 0.40690935521575056
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 2,
+      "course_id": "940",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 214,
+      "same_variance": 26.864925696240604,
+      "different_time_variance": 18.785919783774435,
+      "same_mean": 0.7365562583874418,
+      "different_time_mean": 0.17666185827379347
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 2,
+      "course_id": "940",
+      "ability_gap_bin": 4,
+      "same_pairs": 3,
+      "different_time_pairs": 107,
+      "same_variance": 44.25167281190446,
+      "different_time_variance": 23.15800561155115,
+      "same_mean": 0.4404003676090742,
+      "different_time_mean": -0.7244714485515373
+    },
+    {
+      "pga_id": "R2025011",
+      "round": 2,
+      "course_id": "011",
+      "ability_gap_bin": 0,
+      "same_pairs": 53,
+      "different_time_pairs": 1809,
+      "same_variance": 20.789088433039705,
+      "different_time_variance": 21.999134392790992,
+      "same_mean": 0.03197294472975894,
+      "different_time_mean": 0.08703819838029413
+    },
+    {
+      "pga_id": "R2025011",
+      "round": 2,
+      "course_id": "011",
+      "ability_gap_bin": 1,
+      "same_pairs": 38,
+      "different_time_pairs": 1439,
+      "same_variance": 15.90530339642421,
+      "different_time_variance": 21.335543036000352,
+      "same_mean": -0.4947774989632958,
+      "different_time_mean": 0.056998642936120975
+    },
+    {
+      "pga_id": "R2025011",
+      "round": 2,
+      "course_id": "011",
+      "ability_gap_bin": 2,
+      "same_pairs": 26,
+      "different_time_pairs": 912,
+      "same_variance": 24.377283350895315,
+      "different_time_variance": 21.28593298403922,
+      "same_mean": 0.27002687889025595,
+      "different_time_mean": -0.04825117745282055
+    },
+    {
+      "pga_id": "R2025011",
+      "round": 2,
+      "course_id": "011",
+      "ability_gap_bin": 3,
+      "same_pairs": 13,
+      "different_time_pairs": 473,
+      "same_variance": 27.156511312611396,
+      "different_time_variance": 24.742768474933033,
+      "same_mean": -0.8135189077213629,
+      "different_time_mean": -0.3187332158244514
+    },
+    {
+      "pga_id": "R2025011",
+      "round": 2,
+      "course_id": "011",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 182,
+      "same_variance": 7.178372971588888,
+      "different_time_variance": 25.282038689889593,
+      "same_mean": 1.3748364138264892,
+      "different_time_mean": -0.5949846960760697
+    },
+    {
+      "pga_id": "R2025011",
+      "round": 2,
+      "course_id": "011",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 63,
+      "same_variance": 117.4136693777045,
+      "different_time_variance": 33.83895604816151,
+      "same_mean": 6.905671973957704,
+      "different_time_mean": -1.0130612465078945
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 1,
+      "course_id": "665",
+      "ability_gap_bin": 0,
+      "same_pairs": 40,
+      "different_time_pairs": 1783,
+      "same_variance": 13.807925843035736,
+      "different_time_variance": 17.443810422577247,
+      "same_mean": 0.36843205009731517,
+      "different_time_mean": -0.2265741150829788
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 1,
+      "course_id": "665",
+      "ability_gap_bin": 1,
+      "same_pairs": 46,
+      "different_time_pairs": 1500,
+      "same_variance": 17.02733684639717,
+      "different_time_variance": 17.62173362823714,
+      "same_mean": -0.1673322064143277,
+      "different_time_mean": -0.1030027286506761
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 1,
+      "course_id": "665",
+      "ability_gap_bin": 2,
+      "same_pairs": 25,
+      "different_time_pairs": 937,
+      "same_variance": 15.318797847932544,
+      "different_time_variance": 16.235795517467263,
+      "same_mean": 0.25921760486029094,
+      "different_time_mean": -0.2884117449066754
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 1,
+      "course_id": "665",
+      "ability_gap_bin": 3,
+      "same_pairs": 11,
+      "different_time_pairs": 521,
+      "same_variance": 13.790490316520076,
+      "different_time_variance": 16.5237315592162,
+      "same_mean": 1.0080628754530274,
+      "different_time_mean": 0.06038801791635613
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 1,
+      "course_id": "665",
+      "ability_gap_bin": 4,
+      "same_pairs": 6,
+      "different_time_pairs": 226,
+      "same_variance": 7.997871182037658,
+      "different_time_variance": 14.443449061383191,
+      "same_mean": -3.418121071278086,
+      "different_time_mean": -0.16416473992826908
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 1,
+      "course_id": "665",
+      "ability_gap_bin": 7,
+      "same_pairs": 2,
+      "different_time_pairs": 5,
+      "same_variance": 61.727140905599306,
+      "different_time_variance": 13.472216997364082,
+      "same_mean": 2.0552083450855845,
+      "different_time_mean": 3.812651076637338
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 2,
+      "course_id": "665",
+      "ability_gap_bin": 0,
+      "same_pairs": 40,
+      "different_time_pairs": 1782,
+      "same_variance": 16.390123301899877,
+      "different_time_variance": 15.842497761211064,
+      "same_mean": -0.1565679499026848,
+      "different_time_mean": -0.14660806557795847
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 2,
+      "course_id": "665",
+      "ability_gap_bin": 1,
+      "same_pairs": 46,
+      "different_time_pairs": 1499,
+      "same_variance": 15.33912813828167,
+      "different_time_variance": 16.26616524917934,
+      "same_mean": 1.0283199674987158,
+      "different_time_mean": -0.1475127785013732
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 2,
+      "course_id": "665",
+      "ability_gap_bin": 2,
+      "same_pairs": 25,
+      "different_time_pairs": 936,
+      "same_variance": 19.885817811502132,
+      "different_time_variance": 15.74169883334688,
+      "same_mean": 0.05921760486029092,
+      "different_time_mean": -0.2589481647695927
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 2,
+      "course_id": "665",
+      "ability_gap_bin": 3,
+      "same_pairs": 11,
+      "different_time_pairs": 521,
+      "same_variance": 23.242987294706364,
+      "different_time_variance": 17.77174806666789,
+      "same_mean": 1.0080628754530276,
+      "different_time_mean": -0.0554558927919045
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 2,
+      "course_id": "665",
+      "ability_gap_bin": 4,
+      "same_pairs": 6,
+      "different_time_pairs": 224,
+      "same_variance": 9.311559549912682,
+      "different_time_variance": 19.0109128780551,
+      "same_mean": -3.751454404611419,
+      "different_time_mean": -0.5086445399345062
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 2,
+      "course_id": "665",
+      "ability_gap_bin": 7,
+      "same_pairs": 2,
+      "different_time_pairs": 5,
+      "same_variance": 61.727140905599306,
+      "different_time_variance": 1.7359765262918072,
+      "same_mean": 2.0552083450855845,
+      "different_time_mean": 0.4126510766373378
+    },
+    {
+      "pga_id": "R2025020",
+      "round": 1,
+      "course_id": "897",
+      "ability_gap_bin": 0,
+      "same_pairs": 42,
+      "different_time_pairs": 1739,
+      "same_variance": 11.877500522894627,
+      "different_time_variance": 12.039726868742394,
+      "same_mean": 0.5091020173406879,
+      "different_time_mean": 0.556955051760118
+    },
+    {
+      "pga_id": "R2025020",
+      "round": 1,
+      "course_id": "897",
+      "ability_gap_bin": 1,
+      "same_pairs": 36,
+      "different_time_pairs": 1475,
+      "same_variance": 11.07417217434255,
+      "different_time_variance": 12.96927469274773,
+      "same_mean": 0.10018033757135275,
+      "different_time_mean": 0.3786943720159713
+    },
+    {
+      "pga_id": "R2025020",
+      "round": 1,
+      "course_id": "897",
+      "ability_gap_bin": 2,
+      "same_pairs": 35,
+      "different_time_pairs": 974,
+      "same_variance": 17.36524925319763,
+      "different_time_variance": 13.262217532913844,
+      "same_mean": -0.20125250187888952,
+      "different_time_mean": 0.6714428994790582
+    },
+    {
+      "pga_id": "R2025020",
+      "round": 1,
+      "course_id": "897",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 567,
+      "same_variance": 13.926675078661122,
+      "different_time_variance": 14.320503629906044,
+      "same_mean": -1.1319039874474284,
+      "different_time_mean": 0.8365827852152168
+    },
+    {
+      "pga_id": "R2025020",
+      "round": 1,
+      "course_id": "897",
+      "ability_gap_bin": 4,
+      "same_pairs": 5,
+      "different_time_pairs": 273,
+      "same_variance": 23.376003045280545,
+      "different_time_variance": 17.967222418874474,
+      "same_mean": 3.4594561408651243,
+      "different_time_mean": 1.3538778983784474
+    },
+    {
+      "pga_id": "R2025020",
+      "round": 1,
+      "course_id": "897",
+      "ability_gap_bin": 5,
+      "same_pairs": 7,
+      "different_time_pairs": 85,
+      "same_variance": 20.78744018655993,
+      "different_time_variance": 26.768008844640896,
+      "same_mean": -2.280692648313996,
+      "different_time_mean": 1.2613053089766377
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 0,
+      "same_pairs": 44,
+      "different_time_pairs": 1492,
+      "same_variance": 16.68861568022542,
+      "different_time_variance": 12.023318149124263,
+      "same_mean": 1.0949566331240894,
+      "different_time_mean": -0.1509356514699277
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 1,
+      "same_pairs": 37,
+      "different_time_pairs": 1254,
+      "same_variance": 11.270164278948048,
+      "different_time_variance": 11.286526907363394,
+      "same_mean": -0.6589449579408071,
+      "different_time_mean": -0.16496311581998924
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 2,
+      "same_pairs": 21,
+      "different_time_pairs": 920,
+      "same_variance": 8.69144654481867,
+      "different_time_variance": 12.240805565073318,
+      "same_mean": 0.6135883425263876,
+      "different_time_mean": -0.1695956728138099
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 3,
+      "same_pairs": 14,
+      "different_time_pairs": 498,
+      "same_variance": 6.899098725405676,
+      "different_time_variance": 10.489253840741645,
+      "same_mean": -0.9188587777811019,
+      "different_time_mean": -0.0122455370955172
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 4,
+      "same_pairs": 7,
+      "different_time_pairs": 253,
+      "same_variance": 9.931298322464789,
+      "different_time_variance": 10.569695882107082,
+      "same_mean": 1.5661102822808755,
+      "different_time_mean": -0.4525371774521054
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 89,
+      "same_variance": 1.6391117163487896,
+      "different_time_variance": 8.08674651828101,
+      "same_mean": -1.6054426349528188,
+      "different_time_mean": 0.25949593982167524
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 0,
+      "same_pairs": 44,
+      "different_time_pairs": 1492,
+      "same_variance": 21.210815678469825,
+      "different_time_variance": 14.81682153619414,
+      "same_mean": -0.04140700323954704,
+      "different_time_mean": -0.337262729217917
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 1,
+      "same_pairs": 37,
+      "different_time_pairs": 1254,
+      "same_variance": 14.303232070006358,
+      "different_time_variance": 14.122733888055802,
+      "same_mean": 0.15186585287000381,
+      "different_time_mean": -0.20722786861105782
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 2,
+      "same_pairs": 21,
+      "different_time_pairs": 920,
+      "same_variance": 17.256999717961133,
+      "different_time_variance": 16.53011889804103,
+      "same_mean": -0.6245068955688504,
+      "different_time_mean": -0.1685087162920708
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 3,
+      "same_pairs": 14,
+      "different_time_pairs": 498,
+      "same_variance": 14.573679192321755,
+      "different_time_variance": 15.045636046758018,
+      "same_mean": -1.7045730634953875,
+      "different_time_mean": -0.21304874994692283
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 4,
+      "same_pairs": 7,
+      "different_time_pairs": 253,
+      "same_variance": 10.204382360838961,
+      "different_time_variance": 12.856928195892841,
+      "same_mean": 1.1375388537094469,
+      "different_time_mean": -0.4051063474125798
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 89,
+      "same_variance": 1.6391117163487896,
+      "different_time_variance": 11.86702078621747,
+      "same_mean": -1.6054426349528188,
+      "different_time_mean": -0.5944366444479877
+    },
+    {
+      "pga_id": "R2025014",
+      "round": 2,
+      "course_id": "014",
+      "ability_gap_bin": 0,
+      "same_pairs": 20,
+      "different_time_pairs": 233,
+      "same_variance": 13.140839144013711,
+      "different_time_variance": 9.819662655315572,
+      "same_mean": -0.3536901463147312,
+      "different_time_mean": -0.2281299136114405
+    },
+    {
+      "pga_id": "R2025014",
+      "round": 2,
+      "course_id": "014",
+      "ability_gap_bin": 1,
+      "same_pairs": 24,
+      "different_time_pairs": 201,
+      "same_variance": 12.981241320750335,
+      "different_time_variance": 11.162859602421301,
+      "same_mean": -0.26417526607807656,
+      "different_time_mean": -0.0570930679688786
+    },
+    {
+      "pga_id": "R2025014",
+      "round": 2,
+      "course_id": "014",
+      "ability_gap_bin": 2,
+      "same_pairs": 11,
+      "different_time_pairs": 155,
+      "same_variance": 8.765526880499404,
+      "different_time_variance": 10.988146520960838,
+      "same_mean": 0.2559063904389158,
+      "different_time_mean": -0.3183808788554261
+    },
+    {
+      "pga_id": "R2025014",
+      "round": 2,
+      "course_id": "014",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 107,
+      "same_variance": 12.33924861257635,
+      "different_time_variance": 13.112245942269931,
+      "same_mean": 0.04335599044804056,
+      "different_time_mean": 0.2303209008930728
+    },
+    {
+      "pga_id": "R2025014",
+      "round": 2,
+      "course_id": "014",
+      "ability_gap_bin": 4,
+      "same_pairs": 5,
+      "different_time_pairs": 76,
+      "same_variance": 20.039744899921008,
+      "different_time_variance": 11.776250211301605,
+      "same_mean": 0.2598286465794004,
+      "different_time_mean": -0.7205533192392428
+    },
+    {
+      "pga_id": "R2025012",
+      "round": 1,
+      "course_id": "012",
+      "ability_gap_bin": 0,
+      "same_pairs": 12,
+      "different_time_pairs": 281,
+      "same_variance": 14.912722521749552,
+      "different_time_variance": 15.60670139189772,
+      "same_mean": -0.673005311931397,
+      "different_time_mean": -1.0960541204094747
+    },
+    {
+      "pga_id": "R2025012",
+      "round": 1,
+      "course_id": "012",
+      "ability_gap_bin": 1,
+      "same_pairs": 15,
+      "different_time_pairs": 243,
+      "same_variance": 6.7186984158473715,
+      "different_time_variance": 15.867052288142018,
+      "same_mean": -1.9615096678156414,
+      "different_time_mean": -0.5832716592255773
+    },
+    {
+      "pga_id": "R2025012",
+      "round": 1,
+      "course_id": "012",
+      "ability_gap_bin": 2,
+      "same_pairs": 5,
+      "different_time_pairs": 139,
+      "same_variance": 25.34731691882429,
+      "different_time_variance": 14.78748313030426,
+      "same_mean": -2.72708756617925,
+      "different_time_mean": -1.4034525360433299
+    },
+    {
+      "pga_id": "R2025012",
+      "round": 1,
+      "course_id": "012",
+      "ability_gap_bin": 3,
+      "same_pairs": 3,
+      "different_time_pairs": 59,
+      "same_variance": 5.313449517920858,
+      "different_time_variance": 12.9705880271473,
+      "same_mean": -0.40981687434345204,
+      "different_time_mean": -1.567663262540686
+    },
+    {
+      "pga_id": "R2025522",
+      "round": 1,
+      "course_id": "244",
+      "ability_gap_bin": 0,
+      "same_pairs": 21,
+      "different_time_pairs": 886,
+      "same_variance": 16.28860950293444,
+      "different_time_variance": 13.921325787426811,
+      "same_mean": 0.17144008097625932,
+      "different_time_mean": 0.09416708343487737
+    },
+    {
+      "pga_id": "R2025522",
+      "round": 1,
+      "course_id": "244",
+      "ability_gap_bin": 1,
+      "same_pairs": 29,
+      "different_time_pairs": 741,
+      "same_variance": 13.750879947277191,
+      "different_time_variance": 13.965104433578656,
+      "same_mean": -0.46429714555754104,
+      "different_time_mean": -0.18263108562159144
+    },
+    {
+      "pga_id": "R2025522",
+      "round": 1,
+      "course_id": "244",
+      "ability_gap_bin": 2,
+      "same_pairs": 17,
+      "different_time_pairs": 507,
+      "same_variance": 9.706554618521952,
+      "different_time_variance": 14.044121351551528,
+      "same_mean": -0.33830130988236484,
+      "different_time_mean": 0.017031229912692628
+    },
+    {
+      "pga_id": "R2025522",
+      "round": 1,
+      "course_id": "244",
+      "ability_gap_bin": 3,
+      "same_pairs": 9,
+      "different_time_pairs": 315,
+      "same_variance": 18.98266548590136,
+      "different_time_variance": 18.26052616653447,
+      "same_mean": -3.4753880185350283,
+      "different_time_mean": 0.027997992739919948
+    },
+    {
+      "pga_id": "R2025522",
+      "round": 1,
+      "course_id": "244",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 137,
+      "same_variance": 13.513596263199325,
+      "different_time_variance": 17.639846547152604,
+      "same_mean": -0.34239430780552804,
+      "different_time_mean": -0.009663957902374613
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 0,
+      "same_pairs": 37,
+      "different_time_pairs": 2035,
+      "same_variance": 8.104884853829367,
+      "different_time_variance": 13.372485225723374,
+      "same_mean": 0.49746711248921793,
+      "different_time_mean": 0.007591522332207468
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 1,
+      "same_pairs": 34,
+      "different_time_pairs": 1615,
+      "same_variance": 9.87754564467358,
+      "different_time_variance": 14.050062711081706,
+      "same_mean": 0.04868577911394445,
+      "different_time_mean": 0.005950426766996507
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 2,
+      "same_pairs": 35,
+      "different_time_pairs": 1111,
+      "same_variance": 15.11478468992752,
+      "different_time_variance": 14.224080025809192,
+      "same_mean": 0.29645395609278624,
+      "different_time_mean": -0.022202112080262328
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 3,
+      "same_pairs": 13,
+      "different_time_pairs": 668,
+      "same_variance": 24.050237606940843,
+      "different_time_variance": 14.697385315870592,
+      "same_mean": 2.333566748199537,
+      "different_time_mean": -0.16727758761626402
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 4,
+      "same_pairs": 7,
+      "different_time_pairs": 257,
+      "same_variance": 14.07263483893285,
+      "different_time_variance": 12.608015547510458,
+      "same_mean": -0.7132241794687932,
+      "different_time_mean": -0.4457500849730205
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 6,
+      "same_pairs": 2,
+      "different_time_pairs": 88,
+      "same_variance": 0.0003310409484751783,
+      "different_time_variance": 12.508147756402991,
+      "same_mean": -2.472169836673694,
+      "different_time_mean": 0.16803818389524902
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 7,
+      "same_pairs": 2,
+      "different_time_pairs": 41,
+      "same_variance": 1.6911993890571146,
+      "different_time_variance": 6.1873966514157965,
+      "same_mean": -0.6120154228168626,
+      "different_time_mean": -0.07906622146472267
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 1,
+      "course_id": "925",
+      "ability_gap_bin": 0,
+      "same_pairs": 32,
+      "different_time_pairs": 1124,
+      "same_variance": 14.775858434162647,
+      "different_time_variance": 14.700311434052644,
+      "same_mean": 1.3350699847456873,
+      "different_time_mean": 0.036486327552113854
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 1,
+      "course_id": "925",
+      "ability_gap_bin": 1,
+      "same_pairs": 32,
+      "different_time_pairs": 837,
+      "same_variance": 11.683080200546657,
+      "different_time_variance": 14.552001958708164,
+      "same_mean": -0.2988458776318123,
+      "different_time_mean": 0.13419479406909726
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 1,
+      "course_id": "925",
+      "ability_gap_bin": 2,
+      "same_pairs": 19,
+      "different_time_pairs": 686,
+      "same_variance": 11.084124077755504,
+      "different_time_variance": 16.488710127158694,
+      "same_mean": -0.6597892076741569,
+      "different_time_mean": -0.13831557322921467
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 1,
+      "course_id": "925",
+      "ability_gap_bin": 3,
+      "same_pairs": 9,
+      "different_time_pairs": 389,
+      "same_variance": 23.96431330390598,
+      "different_time_variance": 18.03850452712856,
+      "same_mean": -2.227019863825781,
+      "different_time_mean": -0.01008698308255438
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 1,
+      "course_id": "925",
+      "ability_gap_bin": 4,
+      "same_pairs": 6,
+      "different_time_pairs": 147,
+      "same_variance": 19.272915318543184,
+      "different_time_variance": 23.20411200604964,
+      "same_mean": -3.099999383948804,
+      "different_time_mean": -0.2397046795854461
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 1,
+      "course_id": "925",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 72,
+      "same_variance": 0.8216644755248859,
+      "different_time_variance": 19.99417747766528,
+      "same_mean": -1.2961565436888154,
+      "different_time_mean": -0.06959336157142572
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 2,
+      "course_id": "925",
+      "ability_gap_bin": 0,
+      "same_pairs": 32,
+      "different_time_pairs": 1120,
+      "same_variance": 8.3088778069369,
+      "different_time_variance": 15.682349679725679,
+      "same_mean": -0.6024300152543126,
+      "different_time_mean": 0.3283964348878961
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 2,
+      "course_id": "925",
+      "ability_gap_bin": 1,
+      "same_pairs": 32,
+      "different_time_pairs": 834,
+      "same_variance": 16.66766796603294,
+      "different_time_variance": 17.9126028999197,
+      "same_mean": -0.3613458776318123,
+      "different_time_mean": 0.06904759134218047
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 2,
+      "course_id": "925",
+      "ability_gap_bin": 2,
+      "same_pairs": 19,
+      "different_time_pairs": 681,
+      "same_variance": 20.335493837375605,
+      "different_time_variance": 16.58570321267052,
+      "same_mean": -0.5018944708320516,
+      "different_time_mean": -0.27554189024439607
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 2,
+      "course_id": "925",
+      "ability_gap_bin": 3,
+      "same_pairs": 9,
+      "different_time_pairs": 389,
+      "same_variance": 21.606577377812073,
+      "different_time_variance": 14.469249281912703,
+      "same_mean": -2.782575419381337,
+      "different_time_mean": -0.1874648751134027
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 2,
+      "course_id": "925",
+      "ability_gap_bin": 4,
+      "same_pairs": 6,
+      "different_time_pairs": 147,
+      "same_variance": 13.412181950507303,
+      "different_time_variance": 16.033323892124177,
+      "same_mean": -2.2666660506154703,
+      "different_time_mean": 0.4133565449043498
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 2,
+      "course_id": "925",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 72,
+      "same_variance": 0.8216644755248859,
+      "different_time_variance": 11.218319640705731,
+      "same_mean": -1.2961565436888154,
+      "different_time_mean": 0.11096219398412982
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 0,
+      "same_pairs": 35,
+      "different_time_pairs": 1167,
+      "same_variance": 16.94773439975038,
+      "different_time_variance": 19.072976697467066,
+      "same_mean": -0.42739380012270506,
+      "different_time_mean": 0.30026170143793407
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 1,
+      "same_pairs": 21,
+      "different_time_pairs": 998,
+      "same_variance": 16.227196352129436,
+      "different_time_variance": 19.42476902576503,
+      "same_mean": 0.8512493712793007,
+      "different_time_mean": 0.2777838163454392
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 2,
+      "same_pairs": 18,
+      "different_time_pairs": 685,
+      "same_variance": 19.666252428886583,
+      "different_time_variance": 20.412143491732706,
+      "same_mean": -1.0951595052905159,
+      "different_time_mean": 0.3553937364433359
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 3,
+      "same_pairs": 11,
+      "different_time_pairs": 433,
+      "same_variance": 17.27615920202091,
+      "different_time_variance": 21.223296485502686,
+      "same_mean": 2.0413432147072355,
+      "different_time_mean": 0.43026694502824714
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 4,
+      "same_pairs": 10,
+      "different_time_pairs": 224,
+      "same_variance": 10.853068684947843,
+      "different_time_variance": 19.54266828785887,
+      "same_mean": 3.4948662825436587,
+      "different_time_mean": 0.2473383854834988
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 0,
+      "same_pairs": 35,
+      "different_time_pairs": 1159,
+      "same_variance": 19.390986767576482,
+      "different_time_variance": 14.840180059790182,
+      "same_mean": -1.0845366572655621,
+      "different_time_mean": 0.08125347819458799
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 1,
+      "same_pairs": 21,
+      "different_time_pairs": 977,
+      "same_variance": 17.549232610944806,
+      "different_time_variance": 16.5896011076632,
+      "same_mean": 0.18458270461263404,
+      "different_time_mean": 0.2701756818944752
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 2,
+      "same_pairs": 18,
+      "different_time_pairs": 669,
+      "same_variance": 18.368812555148587,
+      "different_time_variance": 19.89981259660503,
+      "same_mean": -0.3173817275127381,
+      "different_time_mean": -0.15000209014691906
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 3,
+      "same_pairs": 10,
+      "different_time_pairs": 421,
+      "same_variance": 15.104413829663777,
+      "different_time_variance": 24.7069292984907,
+      "same_mean": -0.8728250789374017,
+      "different_time_mean": 0.12925885850195204
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 4,
+      "same_pairs": 10,
+      "different_time_pairs": 222,
+      "same_variance": 9.130609230372245,
+      "different_time_variance": 25.57725744230481,
+      "same_mean": 1.394866282543659,
+      "different_time_mean": -0.2508904960481976
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 0,
+      "same_pairs": 46,
+      "different_time_pairs": 1445,
+      "same_variance": 12.375652037909822,
+      "different_time_variance": 12.62552755912642,
+      "same_mean": -0.09678208166623345,
+      "different_time_mean": 0.05509254774063608
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 1,
+      "same_pairs": 32,
+      "different_time_pairs": 1142,
+      "same_variance": 13.372480076913128,
+      "different_time_variance": 13.375791326459295,
+      "same_mean": 1.1661413838181045,
+      "different_time_mean": 0.11742646222215201
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 2,
+      "same_pairs": 21,
+      "different_time_pairs": 744,
+      "same_variance": 15.282073473509747,
+      "different_time_variance": 14.388033214753998,
+      "same_mean": 0.1996730984652994,
+      "different_time_mean": 0.09618282569711908
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 3,
+      "same_pairs": 16,
+      "different_time_pairs": 410,
+      "same_variance": 9.70100256449067,
+      "different_time_variance": 15.537839860801382,
+      "same_mean": -0.517691680966505,
+      "different_time_mean": 0.051866779452206774
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 4,
+      "same_pairs": 6,
+      "different_time_pairs": 167,
+      "same_variance": 17.14857955462923,
+      "different_time_variance": 22.304518230673047,
+      "same_mean": 0.20928212997567056,
+      "different_time_mean": 0.447498733715567
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 0,
+      "same_pairs": 15,
+      "different_time_pairs": 277,
+      "same_variance": 14.797503834942946,
+      "different_time_variance": 16.37951932968172,
+      "same_mean": 0.8466880951360054,
+      "different_time_mean": 0.23875285231726315
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 1,
+      "same_pairs": 9,
+      "different_time_pairs": 224,
+      "same_variance": 16.172381699813425,
+      "different_time_variance": 15.000867785856778,
+      "same_mean": -0.4846607822084316,
+      "different_time_mean": 0.4377518081683513
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 2,
+      "same_pairs": 8,
+      "different_time_pairs": 146,
+      "same_variance": 19.46356296255621,
+      "different_time_variance": 18.88113579840893,
+      "same_mean": -0.39030972724639473,
+      "different_time_mean": 0.9478194295019011
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 0,
+      "same_pairs": 37,
+      "different_time_pairs": 1334,
+      "same_variance": 8.486708782561308,
+      "different_time_variance": 12.171848714635736,
+      "same_mean": 0.13155478637784915,
+      "different_time_mean": 0.07277173325007506
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 1,
+      "same_pairs": 39,
+      "different_time_pairs": 1158,
+      "same_variance": 10.328448533185215,
+      "different_time_variance": 12.534000416859955,
+      "same_mean": 0.8666907932700871,
+      "different_time_mean": -0.16020486168030054
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 2,
+      "same_pairs": 9,
+      "different_time_pairs": 724,
+      "same_variance": 4.077744990791593,
+      "different_time_variance": 12.317534578587779,
+      "same_mean": -1.1324119494957332,
+      "different_time_mean": 0.12839265157244842
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 3,
+      "same_pairs": 13,
+      "different_time_pairs": 410,
+      "same_variance": 18.700378881081917,
+      "different_time_variance": 14.290767607648412,
+      "same_mean": 0.1342787961803598,
+      "different_time_mean": -0.10005685429299191
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 219,
+      "same_variance": 10.943465798811026,
+      "different_time_variance": 15.476846925041627,
+      "same_mean": 0.38190027707595897,
+      "different_time_mean": -0.48183438425466585
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 113,
+      "same_variance": 4.982239729441789,
+      "different_time_variance": 18.89506270065918,
+      "same_mean": -3.709005663978833,
+      "different_time_mean": -0.5483248134663548
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 6,
+      "same_pairs": 2,
+      "different_time_pairs": 69,
+      "same_variance": 3.4067063656693235,
+      "different_time_variance": 16.626686465408724,
+      "same_mean": -0.7339828765764063,
+      "different_time_mean": 0.13204780905263586
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 0,
+      "same_pairs": 14,
+      "different_time_pairs": 264,
+      "same_variance": 10.74620701306373,
+      "different_time_variance": 14.623542174917779,
+      "same_mean": 0.8999082418752874,
+      "different_time_mean": -0.008743786098704265
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 1,
+      "same_pairs": 11,
+      "different_time_pairs": 161,
+      "same_variance": 18.559816844825253,
+      "different_time_variance": 13.902298416039415,
+      "same_mean": 2.1527429424804945,
+      "different_time_mean": -0.11198940751304072
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 2,
+      "same_pairs": 3,
+      "different_time_pairs": 129,
+      "same_variance": 0.9989676050684727,
+      "different_time_variance": 19.214233283136807,
+      "same_mean": 0.22088771401072282,
+      "different_time_mean": 0.02705288445031909
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 3,
+      "same_pairs": 4,
+      "different_time_pairs": 78,
+      "same_variance": 2.0977516408685934,
+      "different_time_variance": 24.985355001094756,
+      "same_mean": -1.4750280829824272,
+      "different_time_mean": 0.5638304716996815
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 4,
+      "same_pairs": 2,
+      "different_time_pairs": 37,
+      "same_variance": 53.18387860401417,
+      "different_time_variance": 23.021281808195397,
+      "same_mean": -3.5539759935199964,
+      "different_time_mean": 1.0752462854774478
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 0,
+      "same_pairs": 13,
+      "different_time_pairs": 222,
+      "same_variance": 9.1992931954674,
+      "different_time_variance": 14.516198737698856,
+      "same_mean": -1.303424317655952,
+      "different_time_mean": -0.6427886152853558
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 1,
+      "same_pairs": 11,
+      "different_time_pairs": 184,
+      "same_variance": 32.03564326198354,
+      "different_time_variance": 17.399121292597545,
+      "same_mean": -0.6654388757013239,
+      "different_time_mean": -0.31624125659792524
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 2,
+      "same_pairs": 3,
+      "different_time_pairs": 169,
+      "same_variance": 42.26296519046986,
+      "different_time_variance": 16.326789990370674,
+      "same_mean": 0.554221047344056,
+      "different_time_mean": -0.32937370135038974
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 3,
+      "same_pairs": 4,
+      "different_time_pairs": 86,
+      "same_variance": 13.592108058703317,
+      "different_time_variance": 13.797818537381723,
+      "same_mean": 1.0249719170175728,
+      "different_time_mean": 0.009272279161513663
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 4,
+      "same_pairs": 2,
+      "different_time_pairs": 28,
+      "same_variance": 1.4221840537371009,
+      "different_time_variance": 18.85708504903575,
+      "same_mean": -0.5539759935199966,
+      "different_time_mean": -0.2300010871864922
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 0,
+      "same_pairs": 55,
+      "different_time_pairs": 1818,
+      "same_variance": 17.640728538301115,
+      "different_time_variance": 18.68291805198025,
+      "same_mean": -0.12673495365887083,
+      "different_time_mean": -0.14464667241703968
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 1,
+      "same_pairs": 38,
+      "different_time_pairs": 1486,
+      "same_variance": 13.00648665397837,
+      "different_time_variance": 20.15793455183299,
+      "same_mean": -0.20909246372263887,
+      "different_time_mean": -0.29814859556285583
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 2,
+      "same_pairs": 25,
+      "different_time_pairs": 956,
+      "same_variance": 27.49317168621543,
+      "different_time_variance": 22.775402608668365,
+      "same_mean": -1.875023765296304,
+      "different_time_mean": -0.3550845925204316
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 535,
+      "same_variance": 15.901970822309126,
+      "different_time_variance": 22.943551570530484,
+      "same_mean": 0.19038466756726888,
+      "different_time_mean": -0.4454302552877293
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 4,
+      "same_pairs": 5,
+      "different_time_pairs": 270,
+      "same_variance": 10.31564106719938,
+      "different_time_variance": 23.6071042367302,
+      "same_mean": 2.171692141415842,
+      "different_time_mean": 0.5608227703843048
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 131,
+      "same_variance": 99.18647174389605,
+      "different_time_variance": 20.689713957122503,
+      "same_mean": 1.2460125242939903,
+      "different_time_mean": 0.2149737875709916
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 0,
+      "same_pairs": 53,
+      "different_time_pairs": 1765,
+      "same_variance": 14.734699544537731,
+      "different_time_variance": 17.76527261276659,
+      "same_mean": 0.4763896348981494,
+      "different_time_mean": 0.1524132277021174
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 1,
+      "same_pairs": 35,
+      "different_time_pairs": 1423,
+      "same_variance": 17.631813995922116,
+      "different_time_variance": 18.86912126800942,
+      "same_mean": 0.8097438668958312,
+      "different_time_mean": 0.19787999864795078
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 2,
+      "same_pairs": 25,
+      "different_time_pairs": 902,
+      "same_variance": 15.414429369985806,
+      "different_time_variance": 20.08307875841963,
+      "same_mean": 1.124976234703696,
+      "different_time_mean": 0.33293336358483894
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 510,
+      "same_variance": 5.276755581425767,
+      "different_time_variance": 20.201645932720684,
+      "same_mean": 1.315384667567269,
+      "different_time_mean": 0.5609615160137122
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 4,
+      "same_pairs": 5,
+      "different_time_pairs": 254,
+      "same_variance": 9.52843775083687,
+      "different_time_variance": 16.16302109190093,
+      "same_mean": 0.771692141415842,
+      "different_time_mean": 0.9331956593700126
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 130,
+      "same_variance": 41.26400666921407,
+      "different_time_variance": 19.947976485605782,
+      "same_mean": 2.7460125242939903,
+      "different_time_mean": 1.550376731317286
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 0,
+      "same_pairs": 18,
+      "different_time_pairs": 775,
+      "same_variance": 10.000031992380135,
+      "different_time_variance": 11.3886990796279,
+      "same_mean": 1.1807354348943049,
+      "different_time_mean": -0.3731606445046342
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 1,
+      "same_pairs": 14,
+      "different_time_pairs": 634,
+      "same_variance": 10.409637520371025,
+      "different_time_variance": 11.72606220131349,
+      "same_mean": -1.3004542251463598,
+      "different_time_mean": -0.3703345842946604
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 2,
+      "same_pairs": 11,
+      "different_time_pairs": 438,
+      "same_variance": 8.092491810239414,
+      "different_time_variance": 10.282950743695425,
+      "same_mean": -1.2397687402457889,
+      "different_time_mean": -0.33699238275812265
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 3,
+      "same_pairs": 4,
+      "different_time_pairs": 258,
+      "same_variance": 4.5599646725948215,
+      "different_time_variance": 9.874951993043032,
+      "same_mean": 0.7881570130548645,
+      "different_time_mean": -0.6550471396620107
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 4,
+      "same_pairs": 3,
+      "different_time_pairs": 129,
+      "same_variance": 5.928466815599955,
+      "different_time_variance": 8.635862533416548,
+      "same_mean": -0.5053090081534637,
+      "different_time_mean": -1.019798214014362
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 6,
+      "same_pairs": 3,
+      "different_time_pairs": 30,
+      "same_variance": 4.242971465323494,
+      "different_time_variance": 6.4342269168087585,
+      "same_mean": -1.386355532264916,
+      "different_time_mean": -1.7525029602472149
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 1,
+      "course_id": "885",
+      "ability_gap_bin": 0,
+      "same_pairs": 30,
+      "different_time_pairs": 820,
+      "same_variance": 7.707229621787383,
+      "different_time_variance": 16.302679349734127,
+      "same_mean": -0.12647682136099822,
+      "different_time_mean": -0.552659830587613
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 1,
+      "course_id": "885",
+      "ability_gap_bin": 1,
+      "same_pairs": 18,
+      "different_time_pairs": 718,
+      "same_variance": 13.586488483960364,
+      "different_time_variance": 15.806295050383666,
+      "same_mean": 1.2778877523611136,
+      "different_time_mean": -0.5516342145361692
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 1,
+      "course_id": "885",
+      "ability_gap_bin": 2,
+      "same_pairs": 17,
+      "different_time_pairs": 495,
+      "same_variance": 15.00337052661728,
+      "different_time_variance": 18.075030323025914,
+      "same_mean": -0.9751390682017113,
+      "different_time_mean": -0.42916346743560496
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 1,
+      "course_id": "885",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 278,
+      "same_variance": 22.225630888556154,
+      "different_time_variance": 17.389224549873177,
+      "same_mean": 0.46321147360904646,
+      "different_time_mean": -0.4779150991363377
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 1,
+      "course_id": "885",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 135,
+      "same_variance": 11.801101865861508,
+      "different_time_variance": 15.399078733590224,
+      "same_mean": -0.6400432798831353,
+      "different_time_mean": -0.6936913897625206
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 2,
+      "course_id": "885",
+      "ability_gap_bin": 0,
+      "same_pairs": 30,
+      "different_time_pairs": 872,
+      "same_variance": 8.500166957296601,
+      "different_time_variance": 14.700045333226141,
+      "same_mean": 0.8735231786390018,
+      "different_time_mean": 0.2549918555896824
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 2,
+      "course_id": "885",
+      "ability_gap_bin": 1,
+      "same_pairs": 18,
+      "different_time_pairs": 735,
+      "same_variance": 12.084046885057324,
+      "different_time_variance": 13.813513263028312,
+      "same_mean": 0.3889988634722248,
+      "different_time_mean": 0.09471440383659592
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 2,
+      "course_id": "885",
+      "ability_gap_bin": 2,
+      "same_pairs": 17,
+      "different_time_pairs": 500,
+      "same_variance": 18.85222583134541,
+      "different_time_variance": 15.160355096308937,
+      "same_mean": -0.5045508329075936,
+      "different_time_mean": 0.07690199399709816
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 2,
+      "course_id": "885",
+      "ability_gap_bin": 3,
+      "same_pairs": 8,
+      "different_time_pairs": 271,
+      "same_variance": 8.229243772455195,
+      "different_time_variance": 12.518372240749125,
+      "same_mean": 1.5882114736090465,
+      "different_time_mean": -0.14392329154630346
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 2,
+      "course_id": "885",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 128,
+      "same_variance": 31.81217724036204,
+      "different_time_variance": 17.111999936257863,
+      "same_mean": -0.8900432798831351,
+      "different_time_mean": 0.0487036781596092
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 0,
+      "same_pairs": 29,
+      "different_time_pairs": 1262,
+      "same_variance": 17.90963476610094,
+      "different_time_variance": 19.776526461875196,
+      "same_mean": -1.0299616032217214,
+      "different_time_mean": 0.2099797863998072
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 1,
+      "same_pairs": 37,
+      "different_time_pairs": 1173,
+      "same_variance": 27.943607010714167,
+      "different_time_variance": 19.27946994971372,
+      "same_mean": -1.26963000498769,
+      "different_time_mean": 0.342335572243298
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 2,
+      "same_pairs": 32,
+      "different_time_pairs": 808,
+      "same_variance": 24.799730505899912,
+      "different_time_variance": 20.678292108354096,
+      "same_mean": 1.4711510359480935,
+      "different_time_mean": 0.32998233288284995
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 3,
+      "same_pairs": 15,
+      "different_time_pairs": 555,
+      "same_variance": 16.50568632019798,
+      "different_time_variance": 21.50115544943192,
+      "same_mean": -0.8420909929940628,
+      "different_time_mean": -0.08187930646155936
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 4,
+      "same_pairs": 7,
+      "different_time_pairs": 357,
+      "same_variance": 18.907720293868273,
+      "different_time_variance": 20.597412148945292,
+      "same_mean": -0.8298069765698942,
+      "different_time_mean": 0.04495201654591532
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 166,
+      "same_variance": 9.243830788738203,
+      "different_time_variance": 21.887556531421154,
+      "same_mean": 0.6289982890677788,
+      "different_time_mean": -0.7016296512870908
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 1,
+      "course_id": "930",
+      "ability_gap_bin": 0,
+      "same_pairs": 38,
+      "different_time_pairs": 1023,
+      "same_variance": 17.041623310802933,
+      "different_time_variance": 16.00713980982318,
+      "same_mean": 1.4712900293273834,
+      "different_time_mean": 0.2691008413542864
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 1,
+      "course_id": "930",
+      "ability_gap_bin": 1,
+      "same_pairs": 22,
+      "different_time_pairs": 870,
+      "same_variance": 10.539839467998798,
+      "different_time_variance": 16.441706030274844,
+      "same_mean": -0.5209709844280781,
+      "different_time_mean": 0.34879931697027067
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 1,
+      "course_id": "930",
+      "ability_gap_bin": 2,
+      "same_pairs": 24,
+      "different_time_pairs": 674,
+      "same_variance": 16.09231626202808,
+      "different_time_variance": 17.47951043755418,
+      "same_mean": 0.07384365193505589,
+      "different_time_mean": 0.5627339213468074
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 1,
+      "course_id": "930",
+      "ability_gap_bin": 3,
+      "same_pairs": 13,
+      "different_time_pairs": 457,
+      "same_variance": 16.03378572736747,
+      "different_time_variance": 19.28800756619132,
+      "same_mean": 3.438711490707346,
+      "different_time_mean": 0.578804299436873
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 1,
+      "course_id": "930",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 239,
+      "same_variance": 14.567239399114149,
+      "different_time_variance": 21.57679455305275,
+      "same_mean": -4.8630420767802685,
+      "different_time_mean": 1.0058810359365435
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 1,
+      "course_id": "930",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 135,
+      "same_variance": 32.58498338149394,
+      "different_time_variance": 24.984593737529536,
+      "same_mean": -1.7618783102073916,
+      "different_time_mean": 0.15051296114308446
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 2,
+      "course_id": "930",
+      "ability_gap_bin": 0,
+      "same_pairs": 36,
+      "different_time_pairs": 932,
+      "same_variance": 15.039911063709893,
+      "different_time_variance": 18.416557392193056,
+      "same_mean": 0.6543271445603837,
+      "different_time_mean": 0.9233587582538642
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 2,
+      "course_id": "930",
+      "ability_gap_bin": 1,
+      "same_pairs": 21,
+      "different_time_pairs": 797,
+      "same_variance": 21.34621564842348,
+      "different_time_variance": 16.702838372361363,
+      "same_mean": 0.4194235957814535,
+      "different_time_mean": 0.3707238415773251
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 2,
+      "course_id": "930",
+      "ability_gap_bin": 2,
+      "same_pairs": 20,
+      "different_time_pairs": 620,
+      "same_variance": 30.781612169318926,
+      "different_time_variance": 18.489366940683986,
+      "same_mean": 0.5051431925594873,
+      "different_time_mean": 0.28161462305534224
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 2,
+      "course_id": "930",
+      "ability_gap_bin": 3,
+      "same_pairs": 13,
+      "different_time_pairs": 418,
+      "same_variance": 30.08766682909913,
+      "different_time_variance": 20.730365074449367,
+      "same_mean": -0.3305192785234233,
+      "different_time_mean": 0.0011572219105901022
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 2,
+      "course_id": "930",
+      "ability_gap_bin": 4,
+      "same_pairs": 4,
+      "different_time_pairs": 220,
+      "same_variance": 6.0973624540532985,
+      "different_time_variance": 25.183716815231623,
+      "same_mean": -3.613042076780268,
+      "different_time_mean": 0.02182814689834909
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 2,
+      "course_id": "930",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 126,
+      "same_variance": 8.29381635074378,
+      "different_time_variance": 20.61084016124919,
+      "same_mean": -3.7618783102073916,
+      "different_time_mean": -0.2335662523489655
+    }
+  ],
+  "omitted_cells": [
+    {
+      "pga_id": "R2025016",
+      "round": 1,
+      "course_id": "656",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 2,
+      "course_id": "656",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025016",
+      "round": 2,
+      "course_id": "656",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025006",
+      "round": 1,
+      "course_id": "006",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 83
+    },
+    {
+      "pga_id": "R2025006",
+      "round": 1,
+      "course_id": "006",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 44
+    },
+    {
+      "pga_id": "R2025006",
+      "round": 1,
+      "course_id": "006",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 13
+    },
+    {
+      "pga_id": "R2025006",
+      "round": 1,
+      "course_id": "006",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025003",
+      "round": 1,
+      "course_id": "510",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 27
+    },
+    {
+      "pga_id": "R2025003",
+      "round": 1,
+      "course_id": "510",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 6
+    },
+    {
+      "pga_id": "R2025007",
+      "round": 1,
+      "course_id": "939",
+      "ability_gap_bin": 0,
+      "same_pairs": 33,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025007",
+      "round": 1,
+      "course_id": "939",
+      "ability_gap_bin": 1,
+      "same_pairs": 21,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025007",
+      "round": 1,
+      "course_id": "939",
+      "ability_gap_bin": 2,
+      "same_pairs": 8,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025007",
+      "round": 1,
+      "course_id": "939",
+      "ability_gap_bin": 3,
+      "same_pairs": 3,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025007",
+      "round": 1,
+      "course_id": "939",
+      "ability_gap_bin": 4,
+      "same_pairs": 3,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025007",
+      "round": 1,
+      "course_id": "939",
+      "ability_gap_bin": 5,
+      "same_pairs": 2,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 1,
+      "course_id": "978",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 13
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 1,
+      "course_id": "978",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 7
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 2,
+      "course_id": "978",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 11
+    },
+    {
+      "pga_id": "R2025540",
+      "round": 2,
+      "course_id": "978",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 7
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 1,
+      "course_id": "940",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 44
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 1,
+      "course_id": "940",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 13
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 1,
+      "course_id": "940",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 1,
+      "course_id": "940",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 2,
+      "course_id": "940",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 43
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 2,
+      "course_id": "940",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 13
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 2,
+      "course_id": "940",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025483",
+      "round": 2,
+      "course_id": "940",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025011",
+      "round": 2,
+      "course_id": "011",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 19
+    },
+    {
+      "pga_id": "R2025011",
+      "round": 2,
+      "course_id": "011",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 1,
+      "course_id": "665",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 83
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 1,
+      "course_id": "665",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 31
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 1,
+      "course_id": "665",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 2,
+      "course_id": "665",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 82
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 2,
+      "course_id": "665",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 31
+    },
+    {
+      "pga_id": "R2025475",
+      "round": 2,
+      "course_id": "665",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025020",
+      "round": 1,
+      "course_id": "897",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 34
+    },
+    {
+      "pga_id": "R2025020",
+      "round": 1,
+      "course_id": "897",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 6
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 33
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 11
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 5
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 1,
+      "course_id": "770",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 33
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 11
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 5
+    },
+    {
+      "pga_id": "R2025041",
+      "round": 2,
+      "course_id": "770",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025014",
+      "round": 2,
+      "course_id": "014",
+      "ability_gap_bin": 5,
+      "same_pairs": 0,
+      "different_time_pairs": 30
+    },
+    {
+      "pga_id": "R2025014",
+      "round": 2,
+      "course_id": "014",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 12
+    },
+    {
+      "pga_id": "R2025014",
+      "round": 2,
+      "course_id": "014",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025012",
+      "round": 1,
+      "course_id": "012",
+      "ability_gap_bin": 4,
+      "same_pairs": 1,
+      "different_time_pairs": 23
+    },
+    {
+      "pga_id": "R2025012",
+      "round": 1,
+      "course_id": "012",
+      "ability_gap_bin": 5,
+      "same_pairs": 0,
+      "different_time_pairs": 12
+    },
+    {
+      "pga_id": "R2025012",
+      "round": 1,
+      "course_id": "012",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025522",
+      "round": 1,
+      "course_id": "244",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 39
+    },
+    {
+      "pga_id": "R2025522",
+      "round": 1,
+      "course_id": "244",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 17
+    },
+    {
+      "pga_id": "R2025522",
+      "round": 1,
+      "course_id": "244",
+      "ability_gap_bin": 7,
+      "same_pairs": 1,
+      "different_time_pairs": 7
+    },
+    {
+      "pga_id": "R2025522",
+      "round": 1,
+      "course_id": "244",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 118
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 11
+    },
+    {
+      "pga_id": "R2025019",
+      "round": 2,
+      "course_id": "921",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 2
+    },
+    {
+      "pga_id": "R2025480",
+      "round": 1,
+      "course_id": "379",
+      "ability_gap_bin": 0,
+      "same_pairs": 32,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025480",
+      "round": 1,
+      "course_id": "379",
+      "ability_gap_bin": 1,
+      "same_pairs": 22,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025480",
+      "round": 1,
+      "course_id": "379",
+      "ability_gap_bin": 2,
+      "same_pairs": 12,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025480",
+      "round": 1,
+      "course_id": "379",
+      "ability_gap_bin": 3,
+      "same_pairs": 3,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025480",
+      "round": 1,
+      "course_id": "379",
+      "ability_gap_bin": 4,
+      "same_pairs": 2,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025480",
+      "round": 1,
+      "course_id": "379",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 0
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 1,
+      "course_id": "925",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 30
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 1,
+      "course_id": "925",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 2,
+      "course_id": "925",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 30
+    },
+    {
+      "pga_id": "R2025553",
+      "round": 2,
+      "course_id": "925",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 5,
+      "same_pairs": 0,
+      "different_time_pairs": 112
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 62
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 7,
+      "same_pairs": 1,
+      "different_time_pairs": 23
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 13
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 2
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 1,
+      "course_id": "241",
+      "ability_gap_bin": 11,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 5,
+      "same_pairs": 0,
+      "different_time_pairs": 111
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 62
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 7,
+      "same_pairs": 1,
+      "different_time_pairs": 22
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 13
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 2
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025033",
+      "round": 2,
+      "course_id": "241",
+      "ability_gap_bin": 11,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 73
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 51
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 25
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 17
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 2
+    },
+    {
+      "pga_id": "R2025021",
+      "round": 1,
+      "course_id": "021",
+      "ability_gap_bin": 12,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 3,
+      "same_pairs": 1,
+      "different_time_pairs": 63
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 4,
+      "same_pairs": 1,
+      "different_time_pairs": 17
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 5,
+      "same_pairs": 0,
+      "different_time_pairs": 10
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 6
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 8,
+      "same_pairs": 1,
+      "different_time_pairs": 5
+    },
+    {
+      "pga_id": "R2025023",
+      "round": 2,
+      "course_id": "023",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 46
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 12
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 9,
+      "same_pairs": 1,
+      "different_time_pairs": 8
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025032",
+      "round": 1,
+      "course_id": "935",
+      "ability_gap_bin": 11,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 5,
+      "same_pairs": 0,
+      "different_time_pairs": 15
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 11
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 7
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 6
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 1,
+      "course_id": "503",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 5,
+      "same_pairs": 0,
+      "different_time_pairs": 8
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 9
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 7
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 5
+    },
+    {
+      "pga_id": "R2025034",
+      "round": 2,
+      "course_id": "503",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 2
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 39
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 7,
+      "same_pairs": 1,
+      "different_time_pairs": 17
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 2
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 1,
+      "course_id": "669",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 38
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 7,
+      "same_pairs": 1,
+      "different_time_pairs": 15
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 2
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025030",
+      "round": 2,
+      "course_id": "669",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 63
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 10
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 2
+    },
+    {
+      "pga_id": "R2025541",
+      "round": 1,
+      "course_id": "977",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 1,
+      "course_id": "885",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 55
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 1,
+      "course_id": "885",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 11
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 1,
+      "course_id": "885",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 7
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 2,
+      "course_id": "885",
+      "ability_gap_bin": 5,
+      "same_pairs": 1,
+      "different_time_pairs": 53
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 2,
+      "course_id": "885",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 13
+    },
+    {
+      "pga_id": "R2025100",
+      "round": 2,
+      "course_id": "885",
+      "ability_gap_bin": 7,
+      "same_pairs": 0,
+      "different_time_pairs": 6
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 6,
+      "same_pairs": 1,
+      "different_time_pairs": 101
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 7,
+      "same_pairs": 1,
+      "different_time_pairs": 43
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 14
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 9,
+      "same_pairs": 0,
+      "different_time_pairs": 6
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 10,
+      "same_pairs": 0,
+      "different_time_pairs": 3
+    },
+    {
+      "pga_id": "R2025464",
+      "round": 1,
+      "course_id": "926",
+      "ability_gap_bin": 12,
+      "same_pairs": 0,
+      "different_time_pairs": 1
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 1,
+      "course_id": "930",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 58
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 1,
+      "course_id": "930",
+      "ability_gap_bin": 7,
+      "same_pairs": 1,
+      "different_time_pairs": 20
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 1,
+      "course_id": "930",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 4
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 2,
+      "course_id": "930",
+      "ability_gap_bin": 6,
+      "same_pairs": 0,
+      "different_time_pairs": 53
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 2,
+      "course_id": "930",
+      "ability_gap_bin": 7,
+      "same_pairs": 1,
+      "different_time_pairs": 20
+    },
+    {
+      "pga_id": "R2025554",
+      "round": 2,
+      "course_id": "930",
+      "ability_gap_bin": 8,
+      "same_pairs": 0,
+      "different_time_pairs": 4
+    }
+  ],
+  "event_results": [
+    {
+      "pga_id": "R2025003",
+      "same_variance": 18.513418444758692,
+      "different_time_variance": 17.13514886323211,
+      "variance_reduction": -0.08043522659345048,
+      "same_pair_mean": -0.4313116550050651,
+      "different_time_pair_mean": -0.04685035893574501
+    },
+    {
+      "pga_id": "R2025006",
+      "same_variance": 13.615884548742642,
+      "different_time_variance": 13.073862447954138,
+      "variance_reduction": -0.04145845215568422,
+      "same_pair_mean": -0.1447103348801264,
+      "different_time_pair_mean": -0.2286300629488262
+    },
+    {
+      "pga_id": "R2025011",
+      "same_variance": 21.73976515326629,
+      "different_time_variance": 22.21030200588946,
+      "variance_reduction": 0.021185522488545994,
+      "same_pair_mean": -0.009936295852483205,
+      "different_time_pair_mean": -0.022243755522669745
+    },
+    {
+      "pga_id": "R2025012",
+      "same_variance": 12.068859418473977,
+      "different_time_variance": 15.375296593081888,
+      "variance_reduction": 0.215048675945259,
+      "same_pair_mean": -1.4961027775525142,
+      "different_time_pair_mean": -0.9606279086038876
+    },
+    {
+      "pga_id": "R2025014",
+      "same_variance": 12.789707112705758,
+      "different_time_variance": 11.013981086612638,
+      "variance_reduction": -0.1612247208460793,
+      "same_pair_mean": -0.13166246854204502,
+      "different_time_pair_mean": -0.16463560235210611
+    },
+    {
+      "pga_id": "R2025016",
+      "same_variance": 16.647072562552555,
+      "different_time_variance": 22.441528454140585,
+      "variance_reduction": 0.2582023725981516,
+      "same_pair_mean": 0.6082991195685656,
+      "different_time_pair_mean": -0.36057427020460575
+    },
+    {
+      "pga_id": "R2025019",
+      "same_variance": 12.148302686775565,
+      "different_time_variance": 13.746462255279946,
+      "variance_reduction": 0.11625969931940383,
+      "same_pair_mean": 0.3816378158965693,
+      "different_time_pair_mean": -0.041621449195393435
+    },
+    {
+      "pga_id": "R2025020",
+      "same_variance": 14.12868000948447,
+      "different_time_variance": 13.748242361836017,
+      "variance_reduction": -0.027671729784493504,
+      "same_pair_mean": 0.07685819234334348,
+      "different_time_pair_mean": 0.6226827066520104
+    },
+    {
+      "pga_id": "R2025021",
+      "same_variance": 13.0266976653587,
+      "different_time_variance": 13.994882932505844,
+      "variance_reduction": 0.06918137663719537,
+      "same_pair_mean": 0.2481843758487094,
+      "different_time_pair_mean": 0.09774053058137466
+    },
+    {
+      "pga_id": "R2025023",
+      "same_variance": 16.350703016341086,
+      "different_time_variance": 16.617177700162756,
+      "variance_reduction": 0.016036097623187806,
+      "same_pair_mean": 0.16299676778728245,
+      "different_time_pair_mean": 0.47198795294654117
+    },
+    {
+      "pga_id": "R2025030",
+      "same_variance": 17.183066347612357,
+      "different_time_variance": 19.510690882825088,
+      "variance_reduction": 0.11929995453219433,
+      "same_pair_mean": 0.2094624055396679,
+      "different_time_pair_mean": 0.027163792933068902
+    },
+    {
+      "pga_id": "R2025032",
+      "same_variance": 9.973340599109882,
+      "different_time_variance": 12.912953724887569,
+      "variance_reduction": 0.22764839001258652,
+      "same_pair_mean": 0.21569819684519104,
+      "different_time_pair_mean": -0.060948417573414196
+    },
+    {
+      "pga_id": "R2025033",
+      "same_variance": 16.966720039501062,
+      "different_time_variance": 19.0508057170537,
+      "variance_reduction": 0.10939619607201323,
+      "same_pair_mean": 0.03192071755535162,
+      "different_time_pair_mean": 0.18278959924971022
+    },
+    {
+      "pga_id": "R2025034",
+      "same_variance": 16.840972140287615,
+      "different_time_variance": 16.168183410788526,
+      "variance_reduction": -0.04161189370539664,
+      "same_pair_mean": 0.06453345727496206,
+      "different_time_pair_mean": -0.1509442292535169
+    },
+    {
+      "pga_id": "R2025041",
+      "same_variance": 14.427332474835941,
+      "different_time_variance": 13.146722283559651,
+      "variance_reduction": -0.09740908521949465,
+      "same_pair_mean": 0.012562779390634219,
+      "different_time_pair_mean": -0.20871797378934795
+    },
+    {
+      "pga_id": "R2025100",
+      "same_variance": 12.609927180605121,
+      "different_time_variance": 15.568473579631732,
+      "variance_reduction": 0.19003445545858033,
+      "same_pair_mean": 0.2438419404101408,
+      "different_time_pair_mean": -0.1993357069016729
+    },
+    {
+      "pga_id": "R2025464",
+      "same_variance": 22.502551165898954,
+      "different_time_variance": 20.156060105311948,
+      "variance_reduction": -0.11641615714216935,
+      "same_pair_mean": -0.3848391859049189,
+      "different_time_pair_mean": 0.22129901514074976
+    },
+    {
+      "pga_id": "R2025475",
+      "same_variance": 16.673185185831183,
+      "different_time_variance": 16.53125334250658,
+      "variance_reduction": -0.008585667425448973,
+      "same_pair_mean": 0.16700632709866742,
+      "different_time_pair_mean": -0.1371807549753723
+    },
+    {
+      "pga_id": "R2025483",
+      "same_variance": 13.634398182006723,
+      "different_time_variance": 11.692846499228821,
+      "variance_reduction": -0.16604611057760432,
+      "same_pair_mean": 0.4982814017318149,
+      "different_time_pair_mean": 0.7329607842242142
+    },
+    {
+      "pga_id": "R2025522",
+      "same_variance": 14.134326512168055,
+      "different_time_variance": 14.637375684669257,
+      "variance_reduction": 0.03436744286259452,
+      "same_pair_mean": -0.6032945898338101,
+      "different_time_pair_mean": -0.03519919649160214
+    },
+    {
+      "pga_id": "R2025540",
+      "same_variance": 12.368581905767531,
+      "different_time_variance": 13.916279784218617,
+      "variance_reduction": 0.11121491536884809,
+      "same_pair_mean": 0.19528777556411114,
+      "different_time_pair_mean": 0.2808946909544532
+    },
+    {
+      "pga_id": "R2025541",
+      "same_variance": 8.745416690449433,
+      "different_time_variance": 10.697811108588468,
+      "variance_reduction": 0.18250410278525142,
+      "same_pair_mean": -0.24741401954133782,
+      "different_time_pair_mean": -0.500860076848694
+    },
+    {
+      "pga_id": "R2025553",
+      "same_variance": 14.262217495425443,
+      "different_time_variance": 16.149728792404545,
+      "variance_reduction": 0.1168757272175881,
+      "same_pair_mean": -0.5111231168366747,
+      "different_time_pair_mean": 0.04831697529108909
+    },
+    {
+      "pga_id": "R2025554",
+      "same_variance": 18.26637288845828,
+      "different_time_variance": 17.94729580046166,
+      "variance_reduction": -0.017778560711548153,
+      "same_pair_mean": 0.4228195606711435,
+      "different_time_pair_mean": 0.4499882885173207
+    }
+  ],
+  "sources": [
+    {
+      "file": "reports/golf-weather-acquisition-2026-09-14.json",
+      "sha256": "b6048331010c1b03dd0f30ca9474f7520651f98cbf3b8e03cc932221b9f1bda3"
+    },
+    {
+      "file": "data/raw/golf-weather/plan.json",
+      "sha256": "bfcdb5bb03765e0f6afbe74165157fff6af94b568882210c668a015e2c75c172"
+    },
+    {
+      "file": "data/raw/golf-weather/rounds.json",
+      "sha256": "adf4e4dc71105469649ed4f8a30ac887563c3f3d9fccfa973dfcaac3477e1100"
+    },
+    {
+      "file": "data/raw/golf-weather/prepared.json",
+      "sha256": "d141d5736f30d6df056ceb3970eca6d1fdc1a118f076257c0db1d39ad822a8fc"
+    },
+    {
+      "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+      "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2024.json",
+      "sha256": "329cc2d0cd2a076bfadc8c52a75e06066c8271b86fba88b6405c12998bc5142e"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2025.json",
+      "sha256": "8a7a69cec1cd431e2c0b082820fe0af6fc2f461de287154913b2ba02ae787a45"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025016-teetimes.json",
+      "sha256": "c0eda3c96340d271c4d35a8865989ec0557bdbc52e76aac5d1644e7ac9cedb5e"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025006-teetimes.json",
+      "sha256": "791b0885ba4cd4440f54da5deab027ed26320dfa0fbeb108d523f92f0963d3de"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025003-teetimes.json",
+      "sha256": "387c710af34412ca9b969cc697515d9f9402bd73292f0fe6ada210fc1413fe7f"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025007-teetimes.json",
+      "sha256": "99ac67688a5d7c6c0ac5757cd0cb7bd0c13dff8d10a9cf72a89ebaedcf2f12ee"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025540-teetimes.json",
+      "sha256": "71a065fef996112b69f3bc5b10869dddca386e80128370807e7b24db05dc69ee"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025010-teetimes.json",
+      "sha256": "55cda092f41b88215536c07df7626522dc522f5f7a31813651d69f167787d595"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025009-teetimes.json",
+      "sha256": "079c525e4e1dce51517fd66f5aa906da5a48759043a08feb8054e4d2e50f1382"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025483-teetimes.json",
+      "sha256": "df3d3c0e80be0a90ea733bb2e3b05da397f008625db1fd04d8ce3c15610752a0"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025011-teetimes.json",
+      "sha256": "c59c16a35f558d631b63168fa0134f9d2524783b9f06b610e9f43f0d98c64df8"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025475-teetimes.json",
+      "sha256": "0713160f0a0169b2ae33d77d283c157bf09ff9b006c259029058fb41436fab6f"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025020-teetimes.json",
+      "sha256": "8428c6a41be609ae3087ed0cf4cf59d12a238f62ead1daeebf456d711743c341"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025041-teetimes.json",
+      "sha256": "fb9e5968073847bcbcf161d31a491d7a8bfd6ecbfe03b1eca6b5a484cd0364a1"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025014-teetimes.json",
+      "sha256": "556aa9ba60953db1e03542feb7294834a1554610b89c15d53c8877689d0056ad"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025012-teetimes.json",
+      "sha256": "64b039926fd7fcda20df646ab47ed31c7a90d65bed7c3c087bc2138ef783511c"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025522-teetimes.json",
+      "sha256": "8c5b81d51308f39a7d38c1e56f170e5b4feb9e0dd4aae986351bad530ef1c752"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025019-teetimes.json",
+      "sha256": "d20007a9e2ba3c2f1ef1c496b30b3acb74c43b1cd6b5b2b25e06e7d722fe1d41"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025480-teetimes.json",
+      "sha256": "1c200c15dc64fd759fd776134c79365171cd4156da865fc3f5c1a43df5df1f87"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025553-teetimes.json",
+      "sha256": "208c00111bc3ead458392b82a2c0de8523ee1534fa730ee5b8bd2302f7ffef30"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025033-teetimes.json",
+      "sha256": "e95715f6f42392f0a06ed6351d9b6080602d61faee19edd4b698812d3f89393e"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025021-teetimes.json",
+      "sha256": "df79900ec1de5f2be6db06ef8daf45019f472ececf6bccc9e9a3fb08c6f1b67e"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025023-teetimes.json",
+      "sha256": "4b6a0c648f3724b0f9f56282dcb1a47d582b4a76d6bb3643f7f3d604da621761"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025032-teetimes.json",
+      "sha256": "d1dfa782d78efca706cad4e257f457e13b66d041b5ea9159ecfe8a59e98961cc"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025026-teetimes.json",
+      "sha256": "c22fabfa00dfc4f30a3a96ef5a1be8ce4047297df0730dd15878b72ce96e93e0"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025034-teetimes.json",
+      "sha256": "7d7858e804e8437a7c30241e34c014ed2aeac144f279844841d08b1a2191eea9"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025524-teetimes.json",
+      "sha256": "75b7f4a322261dd7990cbdc35f0a7981bd3fbd7445b01a0359fbb13519ee6e49"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025030-teetimes.json",
+      "sha256": "0ba7f1f1773b508c90359196512eac822d271d53d1ed7642921a34b2eb95f080"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025541-teetimes.json",
+      "sha256": "3940bdddc455ecf990570a8cc8ce719fa2257c03870854ba496a8115d1f54966"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025518-teetimes.json",
+      "sha256": "464914588efdc88e1a041066dca173e516b955f9dbb3425bbb13a325c4137339"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025100-teetimes.json",
+      "sha256": "b0b7c88da6c242bc6614d907b8a38e19ac78f741697552b5e6504a35335ad9f8"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025525-teetimes.json",
+      "sha256": "f7bb1fb56b2fb5280a25bcd08ac49a607e812ef127f81c1f49a4a256e41de9af"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025013-teetimes.json",
+      "sha256": "50cc8c95e66bda6ea168d6130e50a8246e69b00ed530cc0486eb07a71d10a05d"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025027-teetimes.json",
+      "sha256": "699fd893ddff4c44be230757b6013c6a9577bd4e2c234cf5a3298580494224fe"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025028-teetimes.json",
+      "sha256": "dadfbf7ba4d0292352d9df73f0a762f825ab2115404c04472e28494752a065d8"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025060-teetimes.json",
+      "sha256": "0f69445fc6720814491cd5cc478e7563950a4264115ffa37577d4499817cc7d7"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025464-teetimes.json",
+      "sha256": "33d1bef92a2e92286bc596ad96e453fabaa0ccaaf1b829c37dde615a1c375373"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025054-teetimes.json",
+      "sha256": "77c0718fa429b4be560aef538017dc643b4fa738fb7d0d5e8661b19d24ab40a1"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025527-teetimes.json",
+      "sha256": "eb37b81650398f97c8c3d69e95b14a5397e0b3a44688396b8576ba5c7dc2c54e"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025554-teetimes.json",
+      "sha256": "e9d29d264c7bcfc914984da53eb68683a65c77123b8484753373dc1f41c66b89"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025457-teetimes.json",
+      "sha256": "e2fac36c08c518120e24fed11545740f7080691a762bb5c30973dd458353a50c"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025528-teetimes.json",
+      "sha256": "d91c0b016de2cb05c5bf74e9555a3f76bf4094d849eb6caa89102594ec9aea82"
+    }
+  ],
+  "player_attrition": [
+    {
+      "pga_id": "R2025016",
+      "event_id": "401703489",
+      "counts": {
+        "official_player_rounds": 118,
+        "joined_complete_prior_eligible": 118
+      }
+    },
+    {
+      "pga_id": "R2025006",
+      "event_id": "401703490",
+      "counts": {
+        "official_player_rounds": 284,
+        "joined_complete_prior_eligible": 214,
+        "insufficient_prior_rounds": 68,
+        "unmatched_or_ambiguous_name": 2
+      }
+    },
+    {
+      "pga_id": "R2025003",
+      "event_id": "401703494",
+      "counts": {
+        "official_player_rounds": 263,
+        "joined_complete_prior_eligible": 248,
+        "insufficient_prior_rounds": 10,
+        "unmatched_or_ambiguous_name": 4,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025007",
+      "event_id": "401703495",
+      "counts": {
+        "official_player_rounds": 144,
+        "joined_complete_prior_eligible": 142,
+        "insufficient_prior_rounds": 2
+      }
+    },
+    {
+      "pga_id": "R2025540",
+      "event_id": "401703496",
+      "counts": {
+        "official_player_rounds": 264,
+        "joined_complete_prior_eligible": 170,
+        "insufficient_prior_rounds": 90,
+        "unmatched_or_ambiguous_name": 4
+      }
+    },
+    {
+      "pga_id": "R2025010",
+      "event_id": "401703497",
+      "counts": {
+        "official_player_rounds": 288,
+        "joined_complete_prior_eligible": 242,
+        "insufficient_prior_rounds": 42,
+        "unmatched_or_ambiguous_name": 4
+      }
+    },
+    {
+      "pga_id": "R2025009",
+      "event_id": "401703498",
+      "counts": {
+        "official_player_rounds": 144,
+        "joined_complete_prior_eligible": 140,
+        "insufficient_prior_rounds": 4
+      }
+    },
+    {
+      "pga_id": "R2025483",
+      "event_id": "401703499",
+      "counts": {
+        "official_player_rounds": 264,
+        "joined_complete_prior_eligible": 179,
+        "insufficient_prior_rounds": 82,
+        "unmatched_or_ambiguous_name": 2,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025011",
+      "event_id": "401703500",
+      "counts": {
+        "official_player_rounds": 288,
+        "joined_complete_prior_eligible": 281,
+        "insufficient_prior_rounds": 4,
+        "unmatched_or_ambiguous_name": 2,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025475",
+      "event_id": "401703501",
+      "counts": {
+        "official_player_rounds": 306,
+        "joined_complete_prior_eligible": 286,
+        "incomplete_or_inconsistent_round": 2,
+        "insufficient_prior_rounds": 14,
+        "unmatched_or_ambiguous_name": 4
+      }
+    },
+    {
+      "pga_id": "R2025020",
+      "event_id": "401703502",
+      "counts": {
+        "official_player_rounds": 305,
+        "joined_complete_prior_eligible": 287,
+        "unmatched_or_ambiguous_name": 6,
+        "insufficient_prior_rounds": 12
+      }
+    },
+    {
+      "pga_id": "R2025041",
+      "event_id": "401703503",
+      "counts": {
+        "official_player_rounds": 288,
+        "joined_complete_prior_eligible": 270,
+        "insufficient_prior_rounds": 14,
+        "unmatched_or_ambiguous_name": 4
+      }
+    },
+    {
+      "pga_id": "R2025014",
+      "event_id": "401703504",
+      "counts": {
+        "official_player_rounds": 190,
+        "joined_complete_prior_eligible": 160,
+        "insufficient_prior_rounds": 28,
+        "unmatched_or_ambiguous_name": 2
+      }
+    },
+    {
+      "pga_id": "R2025012",
+      "event_id": "401703505",
+      "counts": {
+        "official_player_rounds": 144,
+        "joined_complete_prior_eligible": 144
+      }
+    },
+    {
+      "pga_id": "R2025522",
+      "event_id": "401703506",
+      "counts": {
+        "official_player_rounds": 263,
+        "joined_complete_prior_eligible": 205,
+        "insufficient_prior_rounds": 56,
+        "unmatched_or_ambiguous_name": 2
+      }
+    },
+    {
+      "pga_id": "R2025019",
+      "event_id": "401703508",
+      "counts": {
+        "official_player_rounds": 312,
+        "joined_complete_prior_eligible": 287,
+        "insufficient_prior_rounds": 20,
+        "unmatched_or_ambiguous_name": 4,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025480",
+      "event_id": "401703509",
+      "counts": {
+        "official_player_rounds": 144,
+        "joined_complete_prior_eligible": 144
+      }
+    },
+    {
+      "pga_id": "R2025553",
+      "event_id": "401703510",
+      "counts": {
+        "official_player_rounds": 264,
+        "joined_complete_prior_eligible": 230,
+        "insufficient_prior_rounds": 30,
+        "unmatched_or_ambiguous_name": 4
+      }
+    },
+    {
+      "pga_id": "R2025033",
+      "event_id": "401703511",
+      "counts": {
+        "official_player_rounds": 312,
+        "joined_complete_prior_eligible": 243,
+        "insufficient_prior_rounds": 66,
+        "unmatched_or_ambiguous_name": 2,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025021",
+      "event_id": "401703512",
+      "counts": {
+        "official_player_rounds": 269,
+        "insufficient_prior_rounds": 10,
+        "joined_complete_prior_eligible": 256,
+        "unmatched_or_ambiguous_name": 2,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025023",
+      "event_id": "401703513",
+      "counts": {
+        "official_player_rounds": 144,
+        "joined_complete_prior_eligible": 143,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025032",
+      "event_id": "401703514",
+      "counts": {
+        "official_player_rounds": 310,
+        "joined_complete_prior_eligible": 254,
+        "insufficient_prior_rounds": 46,
+        "unmatched_or_ambiguous_name": 8,
+        "incomplete_or_inconsistent_round": 2
+      }
+    },
+    {
+      "pga_id": "R2025026",
+      "event_id": "401703515",
+      "counts": {
+        "official_player_rounds": 312,
+        "insufficient_prior_rounds": 93,
+        "joined_complete_prior_eligible": 208,
+        "unmatched_or_ambiguous_name": 10,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025034",
+      "event_id": "401703516",
+      "counts": {
+        "official_player_rounds": 143,
+        "joined_complete_prior_eligible": 141,
+        "incomplete_or_inconsistent_round": 2
+      }
+    },
+    {
+      "pga_id": "R2025524",
+      "event_id": "401703517",
+      "counts": {
+        "official_player_rounds": 312,
+        "joined_complete_prior_eligible": 284,
+        "insufficient_prior_rounds": 26,
+        "unmatched_or_ambiguous_name": 2
+      }
+    },
+    {
+      "pga_id": "R2025030",
+      "event_id": "401703518",
+      "counts": {
+        "official_player_rounds": 310,
+        "joined_complete_prior_eligible": 287,
+        "insufficient_prior_rounds": 20,
+        "unmatched_or_ambiguous_name": 2,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025541",
+      "event_id": "401703519",
+      "counts": {
+        "official_player_rounds": 312,
+        "joined_complete_prior_eligible": 194,
+        "insufficient_prior_rounds": 112,
+        "unmatched_or_ambiguous_name": 4,
+        "incomplete_or_inconsistent_round": 2
+      }
+    },
+    {
+      "pga_id": "R2025518",
+      "event_id": "401703520",
+      "counts": {
+        "official_player_rounds": 312,
+        "joined_complete_prior_eligible": 197,
+        "insufficient_prior_rounds": 104,
+        "unmatched_or_ambiguous_name": 10,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025100",
+      "event_id": "401703521",
+      "counts": {
+        "official_player_rounds": 312,
+        "joined_complete_prior_eligible": 206,
+        "insufficient_prior_rounds": 102,
+        "unmatched_or_ambiguous_name": 4
+      }
+    },
+    {
+      "pga_id": "R2025525",
+      "event_id": "401703523",
+      "counts": {
+        "official_player_rounds": 311,
+        "joined_complete_prior_eligible": 285,
+        "insufficient_prior_rounds": 22,
+        "unmatched_or_ambiguous_name": 4
+      }
+    },
+    {
+      "pga_id": "R2025013",
+      "event_id": "401703524",
+      "counts": {
+        "official_player_rounds": 310,
+        "joined_complete_prior_eligible": 291,
+        "insufficient_prior_rounds": 10,
+        "unmatched_or_ambiguous_name": 4,
+        "incomplete_or_inconsistent_round": 5
+      }
+    },
+    {
+      "pga_id": "R2025027",
+      "event_id": "401703525",
+      "counts": {
+        "official_player_rounds": 138,
+        "joined_complete_prior_eligible": 138
+      }
+    },
+    {
+      "pga_id": "R2025028",
+      "event_id": "401703530",
+      "counts": {
+        "official_player_rounds": 98,
+        "joined_complete_prior_eligible": 98
+      }
+    },
+    {
+      "pga_id": "R2025060",
+      "event_id": "401703531",
+      "counts": {
+        "official_player_rounds": 60,
+        "joined_complete_prior_eligible": 60
+      }
+    },
+    {
+      "pga_id": "R2025464",
+      "event_id": "401738553",
+      "counts": {
+        "official_player_rounds": 288,
+        "joined_complete_prior_eligible": 268,
+        "unmatched_or_ambiguous_name": 2,
+        "insufficient_prior_rounds": 18
+      }
+    },
+    {
+      "pga_id": "R2025054",
+      "event_id": "401738554",
+      "counts": {
+        "official_player_rounds": 264,
+        "joined_complete_prior_eligible": 250,
+        "unmatched_or_ambiguous_name": 4,
+        "insufficient_prior_rounds": 10
+      }
+    },
+    {
+      "pga_id": "R2025527",
+      "event_id": "401738555",
+      "counts": {
+        "official_player_rounds": 156,
+        "joined_complete_prior_eligible": 134,
+        "insufficient_prior_rounds": 22
+      }
+    },
+    {
+      "pga_id": "R2025554",
+      "event_id": "401738556",
+      "counts": {
+        "official_player_rounds": 261,
+        "joined_complete_prior_eligible": 231,
+        "insufficient_prior_rounds": 24,
+        "unmatched_or_ambiguous_name": 2,
+        "incomplete_or_inconsistent_round": 4
+      }
+    },
+    {
+      "pga_id": "R2025457",
+      "event_id": "401738557",
+      "counts": {
+        "official_player_rounds": 240,
+        "joined_complete_prior_eligible": 215,
+        "unmatched_or_ambiguous_name": 4,
+        "insufficient_prior_rounds": 20,
+        "incomplete_or_inconsistent_round": 1
+      }
+    },
+    {
+      "pga_id": "R2025528",
+      "event_id": "401738558",
+      "counts": {
+        "official_player_rounds": 239,
+        "joined_complete_prior_eligible": 209,
+        "unmatched_or_ambiguous_name": 4,
+        "insufficient_prior_rounds": 26
+      }
+    }
+  ],
+  "market_prices_compared": false
+}

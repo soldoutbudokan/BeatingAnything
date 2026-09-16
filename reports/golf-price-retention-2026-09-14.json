@@ -1,0 +1,61 @@
+{
+  "as_of_local_date": "2026-09-14",
+  "scope": "Three ordinary public requests testing whether completed-event REST markets retain the historical fixture prices. No outcome/price comparison.",
+  "result": "All three HTTP200 responses contain empty market arrays; historical quote history not recovered. No inference that every other source is empty.",
+  "requests": [
+    {
+      "url": "https://data-api.pgatour.com/odds/tournament/R2025493",
+      "request_started_utc": "2026-09-15T01:12:42.660260+00:00",
+      "received_utc": "2026-09-15T01:12:42.969706+00:00",
+      "status": 200,
+      "sha256": "3017595709ec28e873762aadbc65291e1a88befdc616723b28c1965a9f2ed6d4",
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Date": "Tue, 15 Sep 2026 01:12:43 GMT"
+      },
+      "file": "data/raw/golf-price-retention/rsm-2025-markets.json",
+      "available_market_count": 0,
+      "player_market_count": null,
+      "message": {
+        "header": "Tournament complete",
+        "body": "The tournament has concluded and all markets are now closed. Check back later in the week for the next tournament's odds."
+      }
+    },
+    {
+      "url": "https://data-api.pgatour.com/odds/tournament/R2026027",
+      "request_started_utc": "2026-09-15T01:12:37.863501+00:00",
+      "received_utc": "2026-09-15T01:12:38.470341+00:00",
+      "status": 200,
+      "sha256": "3017595709ec28e873762aadbc65291e1a88befdc616723b28c1965a9f2ed6d4",
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Date": "Tue, 15 Sep 2026 01:12:38 GMT"
+      },
+      "file": "data/raw/golf-price-retention/stjude-2026-markets.json",
+      "available_market_count": 0,
+      "player_market_count": null,
+      "message": {
+        "header": "Tournament complete",
+        "body": "The tournament has concluded and all markets are now closed. Check back later in the week for the next tournament's odds."
+      }
+    },
+    {
+      "url": "https://data-api.pgatour.com/odds/tournament/R2026027/player/46046",
+      "request_started_utc": "2026-09-15T01:12:40.476206+00:00",
+      "received_utc": "2026-09-15T01:12:40.656926+00:00",
+      "status": 200,
+      "sha256": "d35a8b45ad0d31466959173b24f60c9cc828852fb6cf41046a7918c60cb29e16",
+      "response_headers": {
+        "Content-Type": "application/json",
+        "Date": "Tue, 15 Sep 2026 01:12:40 GMT"
+      },
+      "file": "data/raw/golf-price-retention/stjude-2026-scheffler.json",
+      "available_market_count": null,
+      "player_market_count": 0,
+      "message": {
+        "header": "Odds are unavailable",
+        "body": "There are currently no Odds to display for this player"
+      }
+    }
+  ]
+}

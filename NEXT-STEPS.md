@@ -1,6 +1,16 @@
 # Next steps: creativity for the edge, brute force for the data
 
-**Latest user instruction, September 13:** continuous runs are paused because their failure emails were unwanted. Do not resume scheduled research, collection or watches without an explicit new request. The completed results and next manual research candidate are preserved below; this pause supersedes earlier instructions to keep running automatically.
+**Direction, September 15, 2026: the golf sport side is spent. Get a price, not another screen.**
+
+Six declared screens reached their fixed gates. Four fail with adequate samples: [G3 dead-heat allocation](reports/golf-sport-screen-2026-09-14.md) at a best correction of **0.470 points versus 1.0**, [G1 wave direction](reports/golf-wave-screen-2026-09-14.md) at **+0.259 versus +0.3 strokes**, [G10 shared-weather variance](reports/golf-weather-screen-2026-09-14.md) at **4.42% versus 10%**, and the older [Sunday chasing-variance card](reports/golf-sunday-screen-2026-09-14.md) at a **1.0327 ratio versus 1.15**. Two are unresolved for want of power, not evidence against them: G2 repeat withdrawal at four exposed WDs against ten, and G5 weekend information at 11 matched events against 15. Only [G11 course rotation](docs/hypotheses/golf-course-rotation-order.md) survives, at **+1.709 strokes relative to par**, and it is blocked on actual FanDuel cross-course offers.
+
+**Do not open new golf sport-side screens.** Another screen cannot establish an edge while the price side is inaccessible. Direct FanDuel returns 403, the [Biltmore captures](docs/golf-collection.md) return zero posted prices across nine HTTP 200 responses, and no free historical FanDuel golf archive has been verified. The book side is the binding constraint, so that is where the next unit of work goes.
+
+**The next step is the one thing that unblocks G11:** bounded manual captures of real FanDuel derivative prices during the eight-event FedExCup Fall series, preserving the real bookmaker label, the market-specific jurisdiction and rules, and all three clocks. G11 needs complete cross-course offers carrying the displayed gross/relative scoring convention. A capture that returns no prices is a recorded result, not a reason to retry the same endpoint. Do not rerun the weather acquisition, retune the closed screens, expand G2/G5, or select G3's favorable diagnostic after the fact. G4/G6 have explicit remaining prerequisites; G7/G8/G9/G12 stay conditional or parked.
+
+The original thirty-card exercise, tennis screens, NFL market inventory and the completed golf batch are already done; preserve them rather than restart them. Follow the latest PROGRESS entry for file locations and standing gates. The older NBA assignment below remains deferred.
+
+**Standing September 13 instruction:** scheduled research and watches remain paused because their failure emails were unwanted. Captures stay bounded and manual; no scheduled job is resumed.
 
 Written September 9, 2026. This file sets the research direction. It supersedes the "next research decision" in [PROGRESS.md](PROGRESS.md). PROGRESS.md stays accurate about what was done, where files live, which holdouts are spent and which gates must hold before any alert or wager. Read it for those things only.
 

@@ -1,6 +1,10 @@
 # Golf model plan
 
-Written September 13, 2026. Status: plan only. No golf data has been collected and no card has been tested. The rules in [NEXT-STEPS.md](NEXT-STEPS.md) apply: no fit without a one-sentence mechanism, sport-side tests before book-side tests, no verifier for a card that has not shown an effect. The gates in [PROGRESS.md](PROGRESS.md) and [docs/monitoring.md](docs/monitoring.md) stand. No alert or wager is enabled.
+Written September 13, 2026; execution began September 14. The [ranked golf cards](docs/hypotheses/GOLF-QUEUE.md), [current rules/source corrections](docs/golf-rules-and-sources.md), [sport-side screens](reports/golf-sport-screen-2026-09-14.md), [weekend screen](reports/golf-weekend-screen-2026-09-14.md), and [working collector](docs/golf-collection.md) now carry this plan forward. Use [PROGRESS.md](PROGRESS.md) for completed results and the next runnable step. The rules in [NEXT-STEPS.md](NEXT-STEPS.md) apply: mechanisms first, sport-side before book-side, and no verifier for an unpromising card. Existing monitoring gates stand. No golf alert or wager is enabled; this manual batch does not restart paused scheduled jobs.
+
+**Corrections to the original premise:** FanDuel's actual pricing formula is unknown. The cited Data Golf study is from December 2020 and analyzes 2019–2020; it cannot establish a current 2026 edge or prove market efficiency. Ontario rules require one stroke for participation and tournament-matchup settlement depends on cut/placing states. Previous Runs is not a single Wednesday forecast, and earlier ECMWF Single Runs include hindcasts. Top-100 status already applied to the 2025 Fall. The linked rules note is authoritative for these corrections; original research priorities and exploratory gates remain visible below.
+
+**September 14 continuation completed:** [G11 course rotation](reports/golf-rotation-screen-2026-09-14.md) passes its sport-side screen. The [original Sunday variance card](reports/golf-sunday-screen-2026-09-14.md) fails, as do the completed [G10 weather variance](reports/golf-weather-screen-2026-09-14.md) and [G1 wave-direction](reports/golf-wave-screen-2026-09-14.md) screens: **4.42% versus 10%**, and **+0.259 versus +0.3 strokes**. Both weather samples are adequate; the declared specifications are closed. The operational NOAA archive and official cut-rule inputs are retained. No usable FanDuel cross-course price series or market edge is established. See the [continuation report](reports/golf-continuation-2026-09-14.md).
 
 ## Short answer
 
@@ -10,13 +14,13 @@ The premise has three parts. Two need correcting.
 
 **"Courses and flight paths are public."** Partly. Ball flight (launch, apex, curve) is captured by radar on a few holes and is not public in bulk. Shot start and end coordinates, lie and distance are visible per player-round through the PGA Tour website's own API, which an open R client ([pgatouR](https://github.com/WalrusQuant/pgatouR)) wraps. That is undocumented site data, not a licensed dataset. Bulk ShotLink is not public; the academic ShotLink Intelligence program has been discontinued. Course geometry exists as OpenStreetMap polygons (fairway, green, bunker, water, hole path) at uneven quality, plus published yardages. Shot data from the DP World Tour, Korn Ferry Tour and LPGA is thinner still.
 
-**"A sophisticated public-data model may beat the market."** This is the wrong target, and it is the same target the four failed experiments in this repo chose. Golf already has a sophisticated public model: Data Golf. The market has converged on it. Data Golf's own published test of its model against 11 books' closing lines since 2019 found 72-hole matchups at 0.1% ROI and single-round matchups at 1.7% at the threshold that maximised profit, and put the best blend at about 45% its model, 55% the market. A strokes-gained model built here would converge on Data Golf and then test whether the market is efficient against it. It is.
+**"A sophisticated public-data model may beat the market."** That is a possible research target, but not the first one here. Data Golf already builds a detailed public-data model. Its [December 2020 study](https://datagolf.com/how-sharp-are-bookmakers) of 2019–2020 lines reported small matchup returns at retrospectively selected thresholds and a roughly 45% model / 55% market blend. Those historical results justify skepticism about duplicating generic skill ratings; they do not prove that today's market is efficient or that another model must fail.
 
-The same study found 3-balls at 9.7% ROI over 3,542 bets. That is the pattern NEXT-STEPS.md predicts: main lines are sharp, formula-priced derivatives are not. Golf's edge, if one remains, lives in how FanDuel turns a player's skill into 3-ball, 2-ball, matchup, finishing-position and cut prices under its own tie, dead-heat and withdrawal rules, and in what changes after those prices post: tee times, wind forecasts, withdrawals, and where a player stands on Saturday night.
+The same historical study reported stronger 3-ball performance. That motivates checking derivative conversion and settlement, without assuming a current FanDuel error or a particular internal formula. The cards test tie/dead-heat/withdrawal handling and changes after prices post: tee times, forecasts, withdrawals and in-tournament state.
 
-**"Assuming the betting info is available."** Right to flag it. No free historical FanDuel golf odds exist. Two routes exist that the tennis and MLB work did not have. The PGA Tour site exposes odds, markets, matchups, finishes, props and 3-balls through the same API as scores and tee times, and FanDuel is the Tour's official betting operator; the book label in that feed has to be verified on your machine. Data Golf sells opening and closing lines from 11 books since 2019 for 72-hole matchups, round matchups and 3-balls on the $270-per-year Scratch Plus annual plan. The forward route is free and golf's calendar makes it fast: a full-field event posts roughly 250 to 350 derivative prices, the fall series has eight events starting Thursday, and the tours run nearly year-round.
+**"Assuming the betting info is available."** No usable free historical FanDuel golf archive has been verified for this batch. The PGA Tour site exposes odds alongside sport data; its partner configuration alone does not establish that actual FanDuel derivatives are available. Data Golf advertises historical FanDuel matchup coverage through Scratch Plus annual, currently displayed at $270/year; individual market coverage and timestamp meaning still require inspection. The eight-event fall calendar creates an opportunity to collect new observations, not a guaranteed quote or bet count.
 
-So: yes to golf, no to ShotLink golf. Build the smallest fair-price engine that prices FanDuel's derivative golf markets correctly from the book's own main line, and test where the book's formula is wrong.
+Continue with the golf derivative cards. Build a settlement-aware fair-price engine only after a sport-side effect survives its screen and actual FanDuel offers permit a price comparison. Market prices constrain a skill model; they do not uniquely identify player means without additional distribution and dependence assumptions.
 
 ## What is public, checked September 13, 2026
 
@@ -34,15 +38,15 @@ So: yes to golf, no to ShotLink golf. Build the smallest fair-price engine that 
 | FanDuel sportsbook | Everything | PerimeterX denial from the cloud, as in the tennis check | No |
 | ShotLink bulk | Every shot, every event | Not available; academic program discontinued | — |
 
-Every sport and odds host that matters is blocked from this container. Collection runs on your machine, as NEXT-STEPS.md already assumed. Do not bypass blocks, challenges or terms. Take ordinary denials as denials.
+The table above records the original cloud-session observations. September 14 local checks recovered PGA REST/GraphQL/HTML and ESPN historical data; the original blanket access conclusion is obsolete. Current direct FanDuel price-page access remains denied. Follow the current [source report](reports/golf-source-check-2026-09-14.json); take ordinary denials as denials.
 
 ## Why not the shot-level model first
 
 Three reasons, in order of weight.
 
-1. **It reproduces the market.** Data Golf's blend test put the optimal weight on its own model at about 45%, the market at 55%. A public model built from less data than Data Golf has will not out-weight the market.
+1. **It may duplicate information already in prices.** Data Golf's historical blend test put the weight on its own model at about 45%, the market at 55%. That is a reason to prioritize a specific derivative mechanism; it does not prove another public model cannot improve on current prices.
 2. **The data rights are weak and the engineering is large.** Per-event shot pulls from an undocumented site API, digitised OSM polygons of uneven quality, no ball flight. Months of work before the first sentence about a wrong price.
-3. **Course fit is small.** Data Golf runs a course-specific model and reports modest gains over its baseline. Any effect that survives is already in the book's price through that model.
+3. **Course fit alone does not show a pricing error.** Data Golf reports modest gains from its course-specific model. Whether FanDuel's particular market incorporates those effects must be tested with actual offers.
 
 Park it as card G9. Return to it only if a card that used the book's own skill line shows a residual that course geometry could explain.
 
@@ -50,13 +54,13 @@ Park it as card G9. Return to it only if a card that used the book's own skill l
 
 FanDuel's dead-heat, withdrawal and tie rules below come from its published house rules and secondary summaries. Re-verify each on the current FanDuel rules page before freezing anything.
 
-| Market | How FanDuel prices it | Settlement rule that matters | Fits the fixed policy (1.20–6.00, two-way overround 0–8%, 3% EV) | Role |
+| Market | Hypothesized pricing step; internal method unverified | Settlement rule that matters | Fits the fixed policy (1.20–6.00, two-way overround 0–8%, 3% EV) | Role |
 | --- | --- | --- | --- | --- |
 | Outright winner | Full-field simulation, heavy overround | Withdrawal before teeing off: void | No: multiway, long prices | Skill source only (invert to per-player mean) |
 | Top 5 / 10 / 20 | Same simulation, place terms | Dead heat: stake divided by players tied, times places | No: multiway | Later, needs a multiway policy |
 | Make / miss cut | Simulation against projected cut | Cut rule varies: top 65 and ties for full-field events; top 50 and ties plus within 10 shots at the three player-hosted Signature Events; no cut at the other five | Two-way, yes, if overround ≤ 8% | Card G4 |
 | First-round leader | Simulation, wave split, heavy overround | Dead heat | No: long prices | Wave signal check only |
-| 72-hole matchup | Skill difference plus a formula | Withdrawal after starting: player completing more holes wins; before starting: void | Two-way, yes | Card G2, control for G3 |
+| 72-hole matchup | Internal method unverified | Ontario: placing/cut rules; after-cut withdrawal can beat a missed cut; before-cut WD loses; ties refund | Two-way, subject to actual terms and refund-aware EV | Card G2, control for G3 |
 | Round matchup (2-ball) | Skill difference for one round | Tie: push (two-way, no tie price) | Two-way, yes | Cards G1, G2, G5 |
 | 3-ball | Skill for the three players in a pairing | Ties: dead heat, stake split by players tied for low | Three-way; the policy has no three-way overround rule yet | Cards G2, G3; the largest market |
 | Live hole-by-hole, closest to pin, longest drive, birdies | IMG Arena Golf Event Centre on the official ShotLink feed | Various | Blocked: live | Card G8, low priority |
@@ -68,7 +72,7 @@ Two policy points to settle before any golf card reaches confirmation, and to re
 
 ## The mechanism: price the derivative from the book's own main line
 
-Do not estimate skill. Take it from the market, then test only the step where FanDuel turns skill into a derivative price.
+Use the market to constrain baseline skill, then test a specific derivative conversion. The inversion requires explicit assumptions about score variance, dependence, withdrawals, cuts and overround; it cannot reveal FanDuel's internal skill estimates or pricing formula.
 
 1. Invert FanDuel's outright and 72-hole matchup prices into a per-player expected score relative to the field for the tournament. Use Data Golf's free skill estimates as a cross-check, not as the fair price.
 2. Give each player a round-score distribution: an integer score with that mean and a spread calibrated on the sport side (about three strokes per round; calibrate by tour and course, do not assume).
@@ -78,8 +82,8 @@ Do not estimate skill. Take it from the market, then test only the step where Fa
 The rule-correct formulas, with `d` the decimal price:
 
 - **3-ball, dead heat.** Effective probability for player i is `P(i alone lowest) + P(i in a two-way tie for low) / 2 + P(three-way tie) / 3`. These three effective probabilities sum to one, so the market is a three-way market on them. EV is `d × p_eff − 1`. Ties are common: two equal players with a three-stroke spread tie about 9% of the time, and a 3-ball has a tie for low about 13% of the time at that spread, more when the spread is tighter (a quick integer-score simulation; calibrate on real rounds). A book that prices from strict win probabilities and adds a flat shade misallocates that tie mass, and the error lands on whichever player's tie share differs most from their strict-win share.
-- **2-ball, tie is a push.** Effective probability is `P(i lower) / (1 − P(tie))`. EV per unit risked is `d × p_eff − 1` on the settled stakes.
-- **72-hole matchup with a withdrawal rule.** Add `P(opponent withdraws after starting) × P(i completes more holes | that)` to i's win probability, and void probability for pre-start withdrawal. A skill-difference formula ignores this term.
+- **2-ball, tie is a push.** Conditional fair probability is `P(i lower) / (1 − P(tie))` when both play and complete. Original-stake EV is `(1 − P(tie)) × (d × p_eff − 1)`. Additional voids require separate refund states; do not apply an original-stake threshold directly to decided-stake EV.
+- **72-hole matchup with withdrawal.** Enumerate disjoint participation, cut, finish, tie and refund states using the actual market's rules. Do not add a withdrawal probability to an existing win probability: that can double-count outcomes. More holes completed is not the verified Ontario tournament-matchup rule.
 - **Wave adjustment.** Shift each player's round mean by the wave's expected difficulty difference from the as-issued forecast, then reprice cross-wave round matchups, make-cut and first-round leader. Within a 3-ball or same-group 2-ball the shift cancels; that is why wave bias is not a 3-ball card.
 
 This engine is a few hundred lines, in the spirit of `beating/tennis_kernel.py`: a distribution kernel and rule-specific settlement, no regression.
@@ -105,7 +109,7 @@ Status: idea
 
 ```
 Sport / market / book: Golf, 72-hole matchups, round 2-balls, 3-balls, FanDuel
-Structural fact: Withdrawal after starting loses the bet (after three holes per the house rules); pre-start withdrawal voids. Injury and illness withdrawals cluster on players with recent withdrawals, recent injury news, and late-season low-status players.
+Structural fact: Participation and withdrawal settlement vary by market; verified Ontario rules use one stroke and cut/placing states, not three holes. Whether prior withdrawals predict another after-start withdrawal is tested, not assumed.
 Predicted behavior (measurable): P(withdraw after starting) for flagged players is several times the field base rate.
 Why FanDuel's price ignores it: Matchup formulas use skill difference only; withdrawal enters the outright by field renormalisation, not the matchup.
 Trigger (observable, timestamped): Field withdrawn flags, news items and the previous week's mid-round withdrawal, all timestamped on the Tour site API before the round.
@@ -121,7 +125,7 @@ Sport / market / book: Golf, round 1 and 2 cross-wave 2-balls, make-cut, first-r
 Structural fact: Half the field plays the morning wave Thursday and the afternoon Friday, the other half the reverse. Wind and green firmness differ by wave. Data Golf fits wave splits from tee-time residuals; splits of several strokes across two rounds occur.
 Predicted behavior (measurable): The wave with the calmer as-issued forecast scores better by an amount predictable on Wednesday.
 Why FanDuel's price ignores it: Round markets post soon after tee times with a skill formula; repricing to a forecast requires a manual trader or a model that reads weather. Whether FanDuel does is the question.
-Trigger (observable, timestamped): Tee times (Tuesday evening) and the Wednesday forecast run. Open-Meteo Previous Runs gives the forecast as issued 1–7 days ahead from January 2024; the Tour site's hourly forecast is a second, timestamped source.
+Trigger (observable, timestamped): Posted tee times and a forecast demonstrably available before the decision. Open-Meteo Previous Runs has fixed leads by valid hour, not one Wednesday information set. Single Runs requires initialization, operational/hindcast identity and availability checks; capture future raw forecasts prospectively.
 Sport-side test: 2015–2025 realised wind by wave from ERA5 versus wave residual scoring; then 2024–2026 as-issued Wednesday forecast versus realised wave split. Kill: as-issued forecast explains under 0.3 strokes of wave split on average.
 Book-side test: Do FanDuel cross-wave 2-ball, make-cut and first-round-leader prices move between Tuesday post and Thursday open by at least 70% of the derived shift? If yes, dead. If no, forward paper on cross-wave 2-balls and make-cut.
 Status: idea
@@ -144,11 +148,11 @@ Status: idea
 
 ```
 Sport / market / book: Golf, FedExCup Fall 2-balls, 3-balls, make-cut, FanDuel
-Structural fact: From 2026, full status requires the top 100 in FedExCup Fall points, down from 125; 101–125 get conditional status. Eight fall events decide it, plus Aon Next 10 and Swing 5 access to Signature Events.
+Structural fact: Top-100 status already applied to the 2025 Fall for the 2026 season; 101–125 received conditional status. Classify each historical year and other player exemptions correctly before comparing incentives.
 Predicted behavior (measurable): Players within reach of the line play the fall harder than their skill rating implies; players safely above rest or coast; players out of reach withdraw or skip more.
 Why FanDuel's price ignores it: A skill rating does not know a player's status position.
 Trigger (observable, timestamped): The projected points list and bubble table on the Tour site each Monday.
-Sport-side test: 2023–2025 fall residuals by distance to the then-125 line; the line moved, so treat the historical effect as shape evidence only. Kill: no residual beyond 0.15 strokes per round for bubble players.
+Sport-side test: Historical fall residuals by distance to the year's actual status line and exemption-adjusted risk; 2025 is not a top-125 control. Treat different rule eras as shape evidence only. Kill: no residual beyond 0.15 strokes per round for bubble players.
 Book-side test: Forward across the eight 2026 fall events; derived versus FanDuel 2-ball and make-cut prices for bubble players. Kill: no signed residual by end of the RSM Classic.
 Status: idea
 ```
@@ -205,12 +209,12 @@ Status: parked
 
 ### Sport side, free, start now, on your machine
 
-One script, `tools/golf_sport_side.py`, in `# %%` cells, one raw directory `data/raw/golf/` (ignored by Git; only manifests and hashes are tracked).
+Implemented in `tools/explore_golf_sport.py` and the separate G5 screen `tools/explore_golf_weekend.py`. Raw sources and intermediate rows use ignored `data/raw/golf-sport/`; compact reports retain sources and hashes. The annual `--fetch-history-only` command banks 2015–2025 scoring responses without changing the fixed 2025 exploratory screens. Full official historical group, course, weather and status coverage is a separate prerequisite.
 
 1. **Schedule and events.** Tour site schedule 2015–2026, tour code R; Korn Ferry (H) later if G7 survives its first check. Store tournament IDs, courses, dates, cut rule per event.
 2. **Rounds.** For each event, hole-by-hole scores for the field, round totals, status flags (cut, withdrawn, disqualified, made cut but did not finish). Past results endpoints cover decades; hole-by-hole may not reach back as far. Record what each endpoint returns per year before relying on it.
 3. **Tee times and groups.** Current-event tee-time endpoints are certain; historical groups may not be exposed. Check first. If the site does not keep historical tee times, the free fallback is ESPN's per-round leaderboard, and the paid fallback is Data Golf's round-level raw data with tee times.
-4. **Weather.** Open-Meteo ERA5 hourly wind speed, gusts, direction and rain at each course's coordinates for 2015–2025; Previous Runs from January 2024 for the as-issued Wednesday forecast. Course coordinates from the Tour site or OSM.
+4. **Weather.** ERA5 can measure retrospective conditions. Previous Runs measures fixed forecast leads, not a frozen Wednesday run. Single Runs and forward captures require model, initialization, publication/receipt and valid-hour clocks; 2024 ECMWF hindcasts are not operational-availability evidence. Verify course coordinates and model/lead variable coverage.
 5. **Fields and withdrawals.** Field lists with withdrawn and alternate flags per event, and the leaderboard status for mid-round withdrawals.
 6. **Skill reference.** Data Golf's free rankings page for a per-player skill estimate, read by hand or captured weekly; Tour site strokes-gained stats as a fallback.
 
@@ -235,11 +239,11 @@ Every book-side row carries three times: the collector's clock, the source's own
 
 ## Fair-price engine
 
-Build `beating/golf_kernel.py` only after G3's sport-side test has produced tie rates and a spread. Contents:
+G3 has now produced tie rates and a spread, but failed its pooled effect screen. Under NEXT-STEPS' explore-first rule, `beating/golf_kernel.py` remains deferred until a surviving card needs a pricing engine. Its eventual scope is:
 
 - Integer round-score distribution per player from a mean and a spread; spread calibrated by tour, with a course-day multiplier from sport-side data.
 - Joint distribution for two or three players in a group, with ties.
-- Settlement functions: 3-ball dead heat, 2-ball push, 72-hole matchup with withdrawal and holes-completed rules, make-cut against a projected cut distribution.
+- Settlement functions: 3-ball dead heat, 2-ball push, market-specific participation/cut/placing/refund states, make-cut against a projected cut distribution. Leave undocumented settlement cases unresolved.
 - Inversion: from FanDuel's no-vig outright or 72-hole matchup probabilities to per-player means, by the same distribution.
 - Wave shift as an additive term per player-round.
 
@@ -260,7 +264,7 @@ Keep it to pure functions and unit tests against a brute-force simulation, as `t
 | Now to Tue Sept 15 | Write the cards, add your own, re-rank. Start the collector on your machine before tee times post for the Biltmore Championship (Sept 17–20). Verify the odds book label, FanDuel page reachability, and the current FanDuel golf rules. Decide on the Data Golf purchase. |
 | Sept 16–20 | Pull sport-side data (rounds, groups, fields, weather). Run G3 and G2 sport-side. Watch what the collector captures at Biltmore: markets, cadence, overround on 3-balls. |
 | Sept 21–Oct 4 | G1, G5, G4 sport-side. If Data Golf was bought, run G3, G2, G5 book-side on the archive. Bank of Utah (Oct 1–4) is the second forward event. |
-| Oct 5–Nov 22 | Baycurrent (Oct 8–11), Butterfield Bermuda (Oct 22–25), Mexico Open (Oct 29–Nov 1), WWT Championship (Nov 5–8), Good Good Championship (Nov 12–15), RSM Classic (Nov 19–22). Book-side residuals per event for every live card. G6 runs across all eight. Kill or advance each card by the RSM Classic. |
+| Oct 5–Nov 22 | Baycurrent (Oct 8–11), Butterfield Bermuda (Oct 22–25), Mexico Open (Oct 29–Nov 1), WWT Championship (Nov 5–8), Austin event (Nov 12–15; former Good Good sponsor withdrew), RSM Classic (Nov 19–22). Book-side residuals per event for every live card, if prices are available. G6 needs correct status/exemption inputs. |
 | Late Nov–Dec | DP World Tour season start for G7 if PGA Tour cards found residuals. Build `golf_kernel.py` for any surviving card. Register the golf protocol, ledger schema and three-way cap. |
 | January 2027 | First frozen forward cohort at the season's first full-field events. The 90-day, 1,000-bet gate then runs through spring. |
 
@@ -269,7 +273,7 @@ Keep it to pure functions and unit tests against a brute-force simulation, as `t
 These could not be checked from the cloud session.
 
 - [ ] The Tour site odds endpoints: which book, which markets, update cadence, whether prices carry a book timestamp.
-- [ ] FanDuel golf page access from ordinary residential access, and the current golf house rules: pre-start withdrawal void, three-hole withdrawal rule, 2-ball tie push, 3-ball dead heat, top-N dead heat, 72-hole matchup withdrawal rule, weather-shortened tournaments.
+- [x] Current Ontario golf house rules checked and original three-hole/more-holes assumptions corrected; actual quote jurisdiction still required. Direct FanDuel page returned 403.
 - [ ] Typical FanDuel overround on 3-balls, 2-balls, make-cut and 72-hole matchups.
 - [ ] Whether the Tour site keeps historical tee times and groups; how far back hole-by-hole scores go.
 - [ ] Open-Meteo Previous Runs availability of gusts and wind at the lead times needed; its non-commercial terms.

@@ -1,0 +1,67 @@
+{
+  "complete": true,
+  "pending_event_hours": 0,
+  "pending_http_requests_upper_bound": 0,
+  "events": 40,
+  "rounds": 80,
+  "planned_event_hours": 1027,
+  "unique_source_hours": 940,
+  "stop_reason": null,
+  "successful_event_hours": 1027,
+  "failed_event_hours": 0,
+  "classified_rounds": 76,
+  "volatile_rounds": 37,
+  "unclassified_rounds": [
+    {
+      "pga_id": "R2025524",
+      "round": 1,
+      "reason": "missing_venue"
+    },
+    {
+      "pga_id": "R2025524",
+      "round": 2,
+      "reason": "missing_venue"
+    },
+    {
+      "pga_id": "R2025457",
+      "round": 1,
+      "reason": "missing_venue"
+    },
+    {
+      "pga_id": "R2025457",
+      "round": 2,
+      "reason": "missing_venue"
+    }
+  ],
+  "network": {
+    "network_requests": 1882,
+    "network_bytes": 1838505980,
+    "source_blocked": null,
+    "first_started_at_utc": "2026-09-15T01:09:57.181238Z",
+    "updated_at_utc": "2026-09-15T03:08:52.936426Z",
+    "remote_disconnected_resume_used": true,
+    "transport_recovery_file": "data/raw/golf-weather/retained-failed-attempts/transport-2/recovery.json",
+    "transport_recoveries_used": 2
+  },
+  "caps": {
+    "requests": 3000,
+    "bytes": 3000000000
+  },
+  "request_spacing_seconds": 1,
+  "network_timeout_seconds": 45,
+  "total_response_deadline_seconds": 45,
+  "transport_recovery_enabled": true,
+  "transport_recovery_policy": {
+    "path": "reports/golf-weather-acquisition-policy-2026-09-14.md",
+    "sha256": "3132b12011382d254b93289caf4670237a8e33df1c768547e09bdee368262262"
+  },
+  "decoder_version": "2.48.0",
+  "plan_file": "data/raw/golf-weather/plan.json",
+  "plan_sha256": "bfcdb5bb03765e0f6afbe74165157fff6af94b568882210c668a015e2c75c172",
+  "rounds_file": "data/raw/golf-weather/rounds.json",
+  "recorded_at_utc": "2026-09-15T03:08:52.994329Z",
+  "historical_public_availability_proven": false,
+  "outcomes_loaded": false,
+  "hours_sha256": "31aac322017b32dbbd1696a0122e3470d94265cbc9a409aa62c8d6dd1d6381db",
+  "rounds_sha256": "adf4e4dc71105469649ed4f8a30ac887563c3f3d9fccfa973dfcaac3477e1100"
+}

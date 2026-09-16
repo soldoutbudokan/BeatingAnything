@@ -1,0 +1,2694 @@
+{
+  "as_of": "2026-09-14 America/Toronto",
+  "card": "golf-sunday-chasing-variance",
+  "scope": "2025 exploratory sport-side comparison; 2015\u20132024 and strictly earlier 2025 events supply prior ability",
+  "declaration": {
+    "file": "reports/golf-sunday-declaration-2026-09-14.md",
+    "sha256": "a9941bb935a8c83a5912f9fc04e0e9079dfac50ce9a110583f054b83917b2ebc"
+  },
+  "sources": [
+    {
+      "file": "data/raw/golf-sport/scoreboard-2015.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2015",
+      "bytes": 32668569,
+      "sha256": "08bf22e0b81797e60228dbd9d87ee722c0dc360487c006406c966abe568997dd"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2016.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2016",
+      "bytes": 33082247,
+      "sha256": "5e3380f613a5bb14fc6803a8d322ed3c6d67fb12cc07f5588d923ea382ef3075"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2017.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2017",
+      "bytes": 33978160,
+      "sha256": "483823e2f62fe6d9edc88ce87aa41f36f0d6f202dd35dcaaaf83be99f8c3c607"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2018.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2018",
+      "bytes": 33192906,
+      "sha256": "7fcb215e3b3fd7a5792e6606d3a7392a55e5513a6c705f33d4a42e6c0a24b9da"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2019.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2019",
+      "bytes": 34781304,
+      "sha256": "07b4c2dea5f0e4dc9602dd0fdd6f087014d38fb2a522624ef3ec5ac7adf2651b"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2020.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2020",
+      "bytes": 24057367,
+      "sha256": "a4a97f76726e8d94267e94e3ef3cb57d78d66936a013511979c99d4f51c1d432"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2021.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2021",
+      "bytes": 33701913,
+      "sha256": "7b456a555538611365989772742f87e6a8f11888358117af138c486cc0866c40"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2022.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2022",
+      "bytes": 35080813,
+      "sha256": "fbeb36b482e6ed0c4c335204ee021af725f890d4a1e94238626fe36db1d47782"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2023.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2023",
+      "bytes": 34626428,
+      "sha256": "bc5c87456898c6d49c3cf2cdff8a2354f3e92b4660209b5292da7035afae2aa3"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2024.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2024",
+      "bytes": 34382494,
+      "sha256": "329cc2d0cd2a076bfadc8c52a75e06066c8271b86fba88b6405c12998bc5142e"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2025.json",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2025",
+      "bytes": 34373541,
+      "sha256": "8a7a69cec1cd431e2c0b082820fe0af6fc2f461de287154913b2ba02ae787a45"
+    },
+    {
+      "file": "data/raw/golf-sunday-chasing/schedule-2025.html",
+      "url": "https://www.pgatour.com/schedule/2025",
+      "bytes": 422235,
+      "sha256": "231ba0097e38ce159410d9fa0a169cb08cb18443db8d153166ec6a1e57a5ec10"
+    }
+  ],
+  "format_sources": [
+    "https://www.pgatour.com/article/news/latest/2025/05/28/what-do-top-players-think-of-tour-championship-changes-scottie-scheffler",
+    "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/heroworldchallenge/roundInfo/R2_Notes.pdf",
+    "https://www.pgatour.com/article/news/how-it-works/pga-tour-q-school-presented-by-korn-ferry-schedule-registration-dates-sites-locations-benefits-status-eligibility"
+  ],
+  "source_audit": {
+    "excluded_events": [
+      {
+        "year": 2015,
+        "event_id": "2264",
+        "name": "World Golf Championships-Cadillac Match Play",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2015,
+        "event_id": "2265",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2015,
+        "event_id": "2259",
+        "name": "The Presidents Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2015,
+        "event_id": "2605",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2016,
+        "event_id": "2516",
+        "name": "World Golf Championships-Dell Match Play",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2016,
+        "event_id": "2517",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2016,
+        "event_id": "2526",
+        "name": "The Greenbrier Classic",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2016,
+        "event_id": "2515",
+        "name": "Ryder Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2016,
+        "event_id": "3069",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2017,
+        "event_id": "2720",
+        "name": "World Golf Championships-Dell Technologies Match Play",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2017,
+        "event_id": "2698",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "team format since 2017"
+      },
+      {
+        "year": 2017,
+        "event_id": "2721",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2017,
+        "event_id": "3070",
+        "name": "Presidents Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2017,
+        "event_id": "3791",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2018,
+        "event_id": "401025248",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "team format since 2017"
+      },
+      {
+        "year": 2018,
+        "event_id": "401025262",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2018,
+        "event_id": "401025269",
+        "name": "Ryder Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2018,
+        "event_id": "401077167",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2019,
+        "event_id": "401056529",
+        "name": "Zurich Classic Of New Orleans",
+        "reason": "team format since 2017"
+      },
+      {
+        "year": 2019,
+        "event_id": "401056560",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2019,
+        "event_id": "401056542",
+        "name": "Tour Championship",
+        "reason": "starting-stroke format"
+      },
+      {
+        "year": 2019,
+        "event_id": "401148244",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2019,
+        "event_id": "401148245",
+        "name": "Presidents Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2020,
+        "event_id": "401155428",
+        "name": "THE PLAYERS Championship",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401219495",
+        "name": "Valspar Championship",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401219496",
+        "name": "WGC-Dell Technologies Match Play",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2020,
+        "event_id": "401219497",
+        "name": "Valero Texas Open",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401219499",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "team format since 2017"
+      },
+      {
+        "year": 2020,
+        "event_id": "401219500",
+        "name": "Wells Fargo Championship",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401219501",
+        "name": "AT&T Byron Nelson",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401220113",
+        "name": "The Match: Champions for Charity",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2020,
+        "event_id": "401223553",
+        "name": "RBC Canadian Open",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401230732",
+        "name": "John Deere Classic",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401231118",
+        "name": "Barbasol Championship",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401231117",
+        "name": "The Open Championship",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401155468",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2020,
+        "event_id": "401155476",
+        "name": "Tour Championship",
+        "reason": "starting-stroke format"
+      },
+      {
+        "year": 2020,
+        "event_id": "401256493",
+        "name": "WGC-HSBC CHAMPIONS",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2020,
+        "event_id": "401251634",
+        "name": "The Match: Champions for Change",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2020,
+        "event_id": "401268081",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2021,
+        "event_id": "401243012",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "team format since 2017"
+      },
+      {
+        "year": 2021,
+        "event_id": "401335227",
+        "name": "RBC Canadian Open",
+        "reason": "not one completed competition"
+      },
+      {
+        "year": 2021,
+        "event_id": "401330868",
+        "name": "The Match",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2021,
+        "event_id": "401243406",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2021,
+        "event_id": "401243402",
+        "name": "TOUR Championship",
+        "reason": "starting-stroke format"
+      },
+      {
+        "year": 2021,
+        "event_id": "401219595",
+        "name": "Ryder Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2021,
+        "event_id": "401380903",
+        "name": "The Match",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2021,
+        "event_id": "401366873",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2022,
+        "event_id": "401353230",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "team format since 2017"
+      },
+      {
+        "year": 2022,
+        "event_id": "401430881",
+        "name": "The Match",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2022,
+        "event_id": "401353216",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2022,
+        "event_id": "401353276",
+        "name": "TOUR Championship",
+        "reason": "starting-stroke format"
+      },
+      {
+        "year": 2022,
+        "event_id": "401465497",
+        "name": "Presidents Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2022,
+        "event_id": "401465507",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2022,
+        "event_id": "401502171",
+        "name": "The Match",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2023,
+        "event_id": "401465511",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "team format since 2017"
+      },
+      {
+        "year": 2023,
+        "event_id": "401546052",
+        "name": "The Match",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2023,
+        "event_id": "401465540",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2023,
+        "event_id": "401465545",
+        "name": "TOUR Championship",
+        "reason": "starting-stroke format"
+      },
+      {
+        "year": 2023,
+        "event_id": "401552863",
+        "name": "Ryder Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2023,
+        "event_id": "401552861",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2023,
+        "event_id": "401558309",
+        "name": "PGA TOUR Q-School presented by Korn Ferry",
+        "reason": "qualifying event"
+      },
+      {
+        "year": 2024,
+        "event_id": "401580347",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "team format since 2017"
+      },
+      {
+        "year": 2024,
+        "event_id": "401580361",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2024,
+        "event_id": "401580366",
+        "name": "TOUR Championship",
+        "reason": "starting-stroke format"
+      },
+      {
+        "year": 2024,
+        "event_id": "401656722",
+        "name": "Presidents Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2024,
+        "event_id": "401693956",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2024,
+        "event_id": "401693957",
+        "name": "PGA TOUR Q-School presented by Korn Ferry",
+        "reason": "qualifying event"
+      },
+      {
+        "year": 2024,
+        "event_id": "401734787",
+        "name": "Crypto.com Showdown",
+        "reason": "team/exhibition format"
+      },
+      {
+        "year": 2025,
+        "event_id": "401703507",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "team format since 2017"
+      },
+      {
+        "year": 2025,
+        "event_id": "401703522",
+        "name": "Barracuda Championship",
+        "reason": "modified Stableford"
+      },
+      {
+        "year": 2025,
+        "event_id": "401734110",
+        "name": "Ryder Cup",
+        "reason": "match/team format"
+      },
+      {
+        "year": 2025,
+        "event_id": "401738560",
+        "name": "Hero World Challenge",
+        "reason": "unofficial event"
+      },
+      {
+        "year": 2025,
+        "event_id": "401833647",
+        "name": "PGA TOUR Q-School presented by Korn Ferry",
+        "reason": "qualifying event"
+      }
+    ],
+    "entries_without_id_or_date": [
+      {
+        "source_year": 2018,
+        "id": null,
+        "date": null
+      },
+      {
+        "source_year": 2018,
+        "id": null,
+        "date": null
+      },
+      {
+        "source_year": 2019,
+        "id": null,
+        "date": null
+      },
+      {
+        "source_year": 2021,
+        "id": null,
+        "date": null
+      },
+      {
+        "source_year": 2022,
+        "id": null,
+        "date": null
+      },
+      {
+        "source_year": 2023,
+        "id": null,
+        "date": null
+      }
+    ],
+    "unscored_player_entries_without_id": [
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Scott Piercy",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Will Wilcox",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Robby Shelton",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Whee Kim",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Ricky Barnes",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Andrew Loupe",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Boo Weekley",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Austin Cook",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Mark Hensby",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Aaron Baddeley",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Andres Romero",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Blayne Barber",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Johnson Wagner",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Vaughn Taylor",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Emiliano Grillo",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Scott Langley",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Tom Hoge",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Jason Gore",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Martin Flores",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "David Toms",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Jonathan Byrd",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Martin Piller",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Roberto Castro",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Duffy Waldorf",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "J.J. Henry",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Ryo Ishikawa",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Alex Prugh",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Steven Alker",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Ken Duke",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Alex Cejka",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Kyle Stanley",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Chris Stroud",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Zac Blair",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Trevor Immelman",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Sam Saunders",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Wes Homan",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Charlie Beljan",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Glen Day",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Charles Howell III",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Matt Bettencourt",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Erik Compton",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Troy Matteson",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Chesson Hadley",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Michael Thompson",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Doug LaBelle II",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Spencer Levin",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Jonathan Randolph",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Carlos Sainz Jr.",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Chad Campbell",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Garrett Willis",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Arjun Atwal",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Shaun Micheel",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Roger Sloan",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Mark Wilson",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Andres Gonzales",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "John Merrick",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Andrew Svoboda",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Ryan Armour",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Kyle Reifers",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Carlos Ortiz",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Cameron Beckman",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Gonzalo Fernandez-Castano",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Parker McLachlin",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Tyrone Van Aswegen",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Bill Lunde",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Byron Smith",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Smylie Kaufman",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Chris Riley",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Chris Smith",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "John Peterson",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Michael Block",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Brandt Jobe",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Billy Hurley III",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Richy Werenski",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "D.A. Points",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Steve Lowery",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Josh Teater",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Maverick McNealy",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "D.J. Trahan",
+        "complete_rounds": 0
+      },
+      {
+        "year": 2015,
+        "event_id": "2277",
+        "name": "Zack Sucher",
+        "complete_rounds": 0
+      }
+    ],
+    "official_schedule_events_outside_retained_cohort": [
+      {
+        "official_id": "R2025018",
+        "name": "Zurich Classic of New Orleans",
+        "format_exclusion": "team format since 2017"
+      },
+      {
+        "official_id": "R2025472",
+        "name": "Barracuda Championship",
+        "format_exclusion": "modified Stableford"
+      },
+      {
+        "official_id": "R2025468",
+        "name": "Ryder Cup",
+        "format_exclusion": "match/team format"
+      },
+      {
+        "official_id": "R2025478",
+        "name": "Hero World Challenge",
+        "format_exclusion": "unofficial event"
+      },
+      {
+        "official_id": "R2025088",
+        "name": "PGA TOUR Q-School presented by Korn Ferry",
+        "format_exclusion": "qualifying event"
+      },
+      {
+        "official_id": "R2025551",
+        "name": "Grant Thornton Invitational",
+        "format_exclusion": "team/exhibition format"
+      }
+    ]
+  },
+  "attrition": {
+    "counts": {
+      "player_entries": 5400,
+      "complete_r1_r2_r3": 3115,
+      "r3_other": 1847,
+      "eligible_other": 1787,
+      "eligible_other_r4_observed": 1706,
+      "r3_exposed": 431,
+      "eligible_exposed": 421,
+      "eligible_exposed_r4_observed": 421,
+      "r3_control": 837,
+      "eligible_control": 809,
+      "eligible_control_r4_observed": 807,
+      "eligible_other_r4_missing": 81,
+      "r3_exposed_insufficient_prior": 10,
+      "r3_control_insufficient_prior": 28,
+      "r3_other_insufficient_prior": 60,
+      "eligible_control_r4_missing": 2
+    },
+    "event_count": 44,
+    "events": [
+      {
+        "event_id": "401703489",
+        "official_event_id": "R2025016",
+        "name": "The Sentry",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 70.71186440677967,
+          "2": 68.10169491525424,
+          "3": 67.49152542372882,
+          "4": 68.67241379310344
+        },
+        "r3_leader_gross": 192,
+        "r3_leaders": [
+          "Hideki Matsuyama"
+        ],
+        "invalid_rounds_by_period": {
+          "4": 1
+        },
+        "counts": {
+          "player_entries": 59,
+          "complete_r1_r2_r3": 59,
+          "r3_other": 45,
+          "eligible_other": 45,
+          "eligible_other_r4_observed": 44,
+          "r3_exposed": 2,
+          "eligible_exposed": 2,
+          "eligible_exposed_r4_observed": 2,
+          "r3_control": 12,
+          "eligible_control": 12,
+          "eligible_control_r4_observed": 12,
+          "eligible_other_r4_missing": 1
+        }
+      },
+      {
+        "event_id": "401703490",
+        "official_event_id": "R2025006",
+        "name": "Sony Open in Hawaii",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 68.96503496503496,
+          "2": 68.72340425531915,
+          "3": 68.78947368421052,
+          "4": 68.22368421052632
+        },
+        "r3_leader_gross": 197,
+        "r3_leaders": [
+          "J.J. Spaun"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 2,
+          "3": 2
+        },
+        "counts": {
+          "player_entries": 143,
+          "complete_r1_r2_r3": 76,
+          "r3_other": 35,
+          "eligible_other": 33,
+          "eligible_other_r4_observed": 33,
+          "r3_exposed": 21,
+          "r3_exposed_insufficient_prior": 1,
+          "eligible_exposed": 20,
+          "eligible_exposed_r4_observed": 20,
+          "r3_control": 20,
+          "eligible_control": 18,
+          "eligible_control_r4_observed": 18,
+          "r3_control_insufficient_prior": 2,
+          "r3_other_insufficient_prior": 2
+        }
+      },
+      {
+        "event_id": "401703491",
+        "official_event_id": "R2025002",
+        "name": "The American Express",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.5576923076923,
+          "2": 69.39354838709677,
+          "3": 69.61688311688312,
+          "4": 70.56338028169014
+        },
+        "r3_leader_gross": 193,
+        "r3_leaders": [
+          "Sepp Straka"
+        ],
+        "invalid_rounds_by_period": {
+          "3": 2,
+          "2": 1
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 154,
+          "r3_other": 129,
+          "eligible_other": 117,
+          "eligible_other_r4_observed": 43,
+          "r3_exposed": 6,
+          "eligible_exposed": 6,
+          "eligible_exposed_r4_observed": 6,
+          "r3_control": 19,
+          "eligible_control": 19,
+          "eligible_control_r4_observed": 19,
+          "r3_other_insufficient_prior": 12,
+          "eligible_other_r4_missing": 74
+        }
+      },
+      {
+        "event_id": "401703492",
+        "official_event_id": "R2025004",
+        "name": "Farmers Insurance Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 71.33766233766234,
+          "2": 75.40689655172413,
+          "3": 71.87142857142857,
+          "4": 74.75714285714285
+        },
+        "r3_leader_gross": 207,
+        "r3_leaders": [
+          "Harris English"
+        ],
+        "invalid_rounds_by_period": {
+          "3": 10,
+          "2": 10,
+          "1": 1
+        },
+        "counts": {
+          "player_entries": 155,
+          "complete_r1_r2_r3": 70,
+          "r3_other": 26,
+          "eligible_other": 25,
+          "eligible_other_r4_observed": 25,
+          "r3_exposed": 21,
+          "eligible_exposed": 21,
+          "eligible_exposed_r4_observed": 21,
+          "r3_control": 23,
+          "eligible_control": 21,
+          "eligible_control_r4_observed": 21,
+          "r3_control_insufficient_prior": 2,
+          "r3_other_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401703493",
+        "official_event_id": "R2025005",
+        "name": "AT&T Pebble Beach Pro-Am",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 68.975,
+          "2": 70.0886075949367,
+          "3": 71.55696202531645,
+          "4": 69.67948717948718
+        },
+        "r3_leader_gross": 200,
+        "r3_leaders": [
+          "Sepp Straka"
+        ],
+        "invalid_rounds_by_period": {
+          "4": 1,
+          "2": 1
+        },
+        "counts": {
+          "player_entries": 80,
+          "complete_r1_r2_r3": 79,
+          "r3_other": 46,
+          "eligible_other": 46,
+          "eligible_other_r4_observed": 45,
+          "r3_exposed": 7,
+          "eligible_exposed": 7,
+          "eligible_exposed_r4_observed": 7,
+          "r3_control": 26,
+          "eligible_control": 26,
+          "eligible_control_r4_observed": 26,
+          "eligible_other_r4_missing": 1
+        }
+      },
+      {
+        "event_id": "401703494",
+        "official_event_id": "R2025003",
+        "name": "WM Phoenix Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 70.85606060606061,
+          "2": 69.29230769230769,
+          "3": 69.7012987012987,
+          "4": 69.8051948051948
+        },
+        "r3_leader_gross": 195,
+        "r3_leaders": [
+          "Thomas Detry"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 2,
+          "3": 2
+        },
+        "counts": {
+          "player_entries": 132,
+          "complete_r1_r2_r3": 77,
+          "r3_other": 53,
+          "eligible_other": 53,
+          "eligible_other_r4_observed": 53,
+          "r3_exposed": 5,
+          "eligible_exposed": 5,
+          "eligible_exposed_r4_observed": 5,
+          "r3_control": 19,
+          "eligible_control": 18,
+          "eligible_control_r4_observed": 18,
+          "r3_control_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401703495",
+        "official_event_id": "R2025007",
+        "name": "The Genesis Invitational",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 74.27777777777777,
+          "2": 71.79166666666667,
+          "3": 72.11111111111111,
+          "4": 70.12962962962963
+        },
+        "r3_leader_gross": 208,
+        "r3_leaders": [
+          "Patrick Rodgers"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 72,
+          "complete_r1_r2_r3": 54,
+          "r3_other": 20,
+          "eligible_other": 20,
+          "eligible_other_r4_observed": 20,
+          "r3_exposed": 12,
+          "eligible_exposed": 12,
+          "eligible_exposed_r4_observed": 12,
+          "r3_control": 22,
+          "eligible_control": 22,
+          "eligible_control_r4_observed": 22
+        }
+      },
+      {
+        "event_id": "401703496",
+        "official_event_id": "R2025540",
+        "name": "Mexico Open at VidantaWorld",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.59848484848484,
+          "2": 69.37121212121212,
+          "3": 69.44155844155844,
+          "4": 69.66233766233766
+        },
+        "r3_leader_gross": 193,
+        "r3_leaders": [
+          "Aldrich Potgieter"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 132,
+          "complete_r1_r2_r3": 77,
+          "r3_other": 61,
+          "eligible_other": 56,
+          "eligible_other_r4_observed": 56,
+          "r3_exposed": 3,
+          "eligible_exposed": 3,
+          "eligible_exposed_r4_observed": 3,
+          "r3_control": 13,
+          "eligible_control": 12,
+          "eligible_control_r4_observed": 12,
+          "r3_control_insufficient_prior": 1,
+          "r3_other_insufficient_prior": 5
+        }
+      },
+      {
+        "event_id": "401703497",
+        "official_event_id": "R2025010",
+        "name": "Cognizant Classic in The Palm Beaches",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 68.625,
+          "2": 69.47916666666667,
+          "3": 68.8970588235294,
+          "4": 70.51470588235294
+        },
+        "r3_leader_gross": 197,
+        "r3_leaders": [
+          "Jake Knapp"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 144,
+          "complete_r1_r2_r3": 68,
+          "r3_exposed": 27,
+          "eligible_exposed": 26,
+          "eligible_exposed_r4_observed": 26,
+          "r3_other": 25,
+          "eligible_other": 24,
+          "eligible_other_r4_observed": 24,
+          "r3_control": 16,
+          "eligible_control": 16,
+          "eligible_control_r4_observed": 16,
+          "r3_exposed_insufficient_prior": 1,
+          "r3_other_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401703498",
+        "official_event_id": "R2025009",
+        "name": "Arnold Palmer Invitational pres. by Mastercard",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 74.625,
+          "2": 71.95833333333333,
+          "3": 71.70588235294117,
+          "4": 71.43137254901961
+        },
+        "r3_leader_gross": 206,
+        "r3_leaders": [
+          "Collin Morikawa"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 72,
+          "complete_r1_r2_r3": 51,
+          "r3_other": 32,
+          "eligible_other": 32,
+          "eligible_other_r4_observed": 32,
+          "r3_exposed": 5,
+          "eligible_exposed": 5,
+          "eligible_exposed_r4_observed": 5,
+          "r3_control": 14,
+          "eligible_control": 14,
+          "eligible_control_r4_observed": 14
+        }
+      },
+      {
+        "event_id": "401703499",
+        "official_event_id": "R2025483",
+        "name": "Puerto Rico Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.17424242424242,
+          "2": 69.8854961832061,
+          "3": 69.7051282051282,
+          "4": 69.82051282051282
+        },
+        "r3_leader_gross": 198,
+        "r3_leaders": [
+          "Karl Vilips"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 132,
+          "complete_r1_r2_r3": 78,
+          "r3_other": 32,
+          "eligible_other": 29,
+          "eligible_other_r4_observed": 29,
+          "r3_exposed": 18,
+          "r3_exposed_insufficient_prior": 1,
+          "r3_other_insufficient_prior": 3,
+          "eligible_exposed": 17,
+          "eligible_exposed_r4_observed": 17,
+          "r3_control": 28,
+          "eligible_control": 26,
+          "eligible_control_r4_observed": 26,
+          "r3_control_insufficient_prior": 2
+        }
+      },
+      {
+        "event_id": "401703500",
+        "official_event_id": "R2025011",
+        "name": "THE PLAYERS Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 72.31944444444444,
+          "2": 71.41958041958041,
+          "3": 74.02777777777777,
+          "4": 72.84722222222223
+        },
+        "r3_leader_gross": 204,
+        "r3_leaders": [
+          "J.J. Spaun"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 144,
+          "complete_r1_r2_r3": 72,
+          "r3_exposed": 11,
+          "eligible_exposed": 11,
+          "eligible_exposed_r4_observed": 11,
+          "r3_other": 39,
+          "eligible_other": 39,
+          "eligible_other_r4_observed": 39,
+          "r3_control": 22,
+          "eligible_control": 22,
+          "eligible_control_r4_observed": 22
+        }
+      },
+      {
+        "event_id": "401703501",
+        "official_event_id": "R2025475",
+        "name": "Valspar Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 72.55263157894737,
+          "2": 72.0657894736842,
+          "3": 71.1025641025641,
+          "4": 70.8974358974359
+        },
+        "r3_leader_gross": 206,
+        "r3_leaders": [
+          "Viktor Hovland",
+          "Jacob Bridgeman",
+          "Nico Echavarria"
+        ],
+        "invalid_rounds_by_period": {
+          "1": 2,
+          "2": 2
+        },
+        "counts": {
+          "player_entries": 154,
+          "complete_r1_r2_r3": 78,
+          "r3_other": 36,
+          "eligible_other": 35,
+          "eligible_other_r4_observed": 35,
+          "r3_exposed": 23,
+          "eligible_exposed": 23,
+          "eligible_exposed_r4_observed": 23,
+          "r3_control": 19,
+          "eligible_control": 19,
+          "eligible_control_r4_observed": 19,
+          "r3_other_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401703502",
+        "official_event_id": "R2025020",
+        "name": "Texas Children's Houston Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 70.29411764705883,
+          "2": 68.01315789473684,
+          "3": 68.08695652173913,
+          "4": 68.34782608695652
+        },
+        "r3_leader_gross": 193,
+        "r3_leaders": [
+          "Min Woo Lee"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 153,
+          "complete_r1_r2_r3": 69,
+          "r3_other": 40,
+          "eligible_other": 40,
+          "eligible_other_r4_observed": 40,
+          "r3_exposed": 8,
+          "eligible_exposed": 8,
+          "eligible_exposed_r4_observed": 8,
+          "r3_control": 21,
+          "eligible_control": 21,
+          "eligible_control_r4_observed": 21
+        }
+      },
+      {
+        "event_id": "401703503",
+        "official_event_id": "R2025041",
+        "name": "Valero Texas Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 72,
+          "2": 71.24305555555556,
+          "3": 73.87878787878788,
+          "4": 74.8030303030303
+        },
+        "r3_leader_gross": 204,
+        "r3_leaders": [
+          "Brian Harman"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 144,
+          "complete_r1_r2_r3": 66,
+          "r3_other": 32,
+          "eligible_other": 32,
+          "eligible_other_r4_observed": 32,
+          "r3_control": 29,
+          "eligible_control": 29,
+          "eligible_control_r4_observed": 29,
+          "r3_exposed": 5,
+          "eligible_exposed": 5,
+          "eligible_exposed_r4_observed": 5
+        }
+      },
+      {
+        "event_id": "401703504",
+        "official_event_id": "R2025014",
+        "name": "Masters Tournament",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 73.58947368421053,
+          "2": 72.67368421052632,
+          "3": 72.37735849056604,
+          "4": 72.0754716981132
+        },
+        "r3_leader_gross": 204,
+        "r3_leaders": [
+          "Rory McIlroy"
+        ],
+        "invalid_rounds_by_period": {
+          "3": 42
+        },
+        "counts": {
+          "player_entries": 95,
+          "complete_r1_r2_r3": 53,
+          "r3_other": 39,
+          "eligible_other": 39,
+          "eligible_other_r4_observed": 39,
+          "r3_exposed": 3,
+          "eligible_exposed": 3,
+          "eligible_exposed_r4_observed": 3,
+          "r3_control": 11,
+          "eligible_control": 11,
+          "eligible_control_r4_observed": 11
+        }
+      },
+      {
+        "event_id": "401703505",
+        "official_event_id": "R2025012",
+        "name": "RBC Heritage",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.29166666666667,
+          "2": 69.33333333333333,
+          "3": 69.09722222222223,
+          "4": 69.75
+        },
+        "r3_leader_gross": 198,
+        "r3_leaders": [
+          "Si Woo Kim"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 72,
+          "complete_r1_r2_r3": 72,
+          "r3_other": 38,
+          "eligible_other": 38,
+          "eligible_other_r4_observed": 38,
+          "r3_exposed": 9,
+          "eligible_exposed": 9,
+          "eligible_exposed_r4_observed": 9,
+          "r3_control": 25,
+          "eligible_control": 25,
+          "eligible_control_r4_observed": 25
+        }
+      },
+      {
+        "event_id": "401703506",
+        "official_event_id": "R2025522",
+        "name": "Corales Puntacana Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.56818181818181,
+          "2": 71.36641221374046,
+          "3": 71.9,
+          "4": 73.12857142857143
+        },
+        "r3_leader_gross": 199,
+        "r3_leaders": [
+          "Joel Dahmen"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1,
+          "4": 1
+        },
+        "counts": {
+          "player_entries": 132,
+          "complete_r1_r2_r3": 70,
+          "r3_other": 46,
+          "eligible_other": 44,
+          "eligible_other_r4_observed": 44,
+          "r3_control": 18,
+          "eligible_control": 17,
+          "eligible_control_r4_observed": 17,
+          "r3_exposed": 6,
+          "eligible_exposed": 6,
+          "eligible_exposed_r4_observed": 6,
+          "r3_control_insufficient_prior": 1,
+          "r3_other_insufficient_prior": 2
+        }
+      },
+      {
+        "event_id": "401703508",
+        "official_event_id": "R2025019",
+        "name": "THE CJ CUP Byron Nelson",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 68.7051282051282,
+          "2": 69.88387096774194,
+          "3": 69.08571428571429,
+          "4": 68.42857142857143
+        },
+        "r3_leader_gross": 190,
+        "r3_leaders": [
+          "Scottie Scheffler"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 70,
+          "r3_other": 60,
+          "eligible_other": 59,
+          "eligible_other_r4_observed": 59,
+          "r3_control": 10,
+          "eligible_control": 10,
+          "eligible_control_r4_observed": 10,
+          "r3_other_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401703509",
+        "official_event_id": "R2025480",
+        "name": "Truist Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 66.79166666666667,
+          "2": 70.04166666666667,
+          "3": 70.1,
+          "4": 69.1159420289855
+        },
+        "r3_leader_gross": 196,
+        "r3_leaders": [
+          "Sepp Straka",
+          "Shane Lowry"
+        ],
+        "invalid_rounds_by_period": {
+          "3": 2,
+          "4": 2
+        },
+        "counts": {
+          "player_entries": 72,
+          "complete_r1_r2_r3": 70,
+          "r3_other": 46,
+          "eligible_other": 46,
+          "eligible_other_r4_observed": 45,
+          "r3_control": 18,
+          "eligible_control": 18,
+          "eligible_control_r4_observed": 18,
+          "r3_exposed": 6,
+          "eligible_exposed": 6,
+          "eligible_exposed_r4_observed": 6,
+          "eligible_other_r4_missing": 1
+        }
+      },
+      {
+        "event_id": "401703510",
+        "official_event_id": "R2025553",
+        "name": "ONEflight Myrtle Beach Classic",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 70.01515151515152,
+          "2": 70.60606060606061,
+          "3": 70.95652173913044,
+          "4": 69.43478260869566
+        },
+        "r3_leader_gross": 200,
+        "r3_leaders": [
+          "Carson Young"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 132,
+          "complete_r1_r2_r3": 69,
+          "r3_other": 36,
+          "eligible_other": 31,
+          "eligible_other_r4_observed": 31,
+          "r3_exposed": 15,
+          "eligible_exposed": 15,
+          "eligible_exposed_r4_observed": 15,
+          "r3_control": 18,
+          "eligible_control": 15,
+          "eligible_control_r4_observed": 15,
+          "r3_other_insufficient_prior": 5,
+          "r3_control_insufficient_prior": 3
+        }
+      },
+      {
+        "event_id": "401703511",
+        "official_event_id": "R2025033",
+        "name": "PGA Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 72.75641025641026,
+          "2": 72.41935483870968,
+          "3": 72.51351351351352,
+          "4": 72.14864864864865
+        },
+        "r3_leader_gross": 202,
+        "r3_leaders": [
+          "Scottie Scheffler"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 74,
+          "r3_other": 45,
+          "eligible_other": 43,
+          "eligible_other_r4_observed": 43,
+          "r3_exposed": 10,
+          "eligible_exposed": 10,
+          "eligible_exposed_r4_observed": 10,
+          "r3_control": 19,
+          "eligible_control": 19,
+          "eligible_control_r4_observed": 19,
+          "r3_other_insufficient_prior": 2
+        }
+      },
+      {
+        "event_id": "401703512",
+        "official_event_id": "R2025021",
+        "name": "Charles Schwab Challenge",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 70.34328358208955,
+          "2": 69.81343283582089,
+          "3": 70.01282051282051,
+          "4": 71.14102564102564
+        },
+        "r3_leader_gross": 197,
+        "r3_leaders": [
+          "Ben Griffin",
+          "Matti Schmid"
+        ],
+        "invalid_rounds_by_period": {
+          "3": 1,
+          "1": 1,
+          "2": 1
+        },
+        "counts": {
+          "player_entries": 135,
+          "complete_r1_r2_r3": 78,
+          "r3_other": 46,
+          "eligible_other": 46,
+          "eligible_other_r4_observed": 46,
+          "r3_exposed": 7,
+          "eligible_exposed": 7,
+          "eligible_exposed_r4_observed": 7,
+          "r3_control": 25,
+          "eligible_control": 25,
+          "eligible_control_r4_observed": 25
+        }
+      },
+      {
+        "event_id": "401703513",
+        "official_event_id": "R2025023",
+        "name": "the Memorial Tournament pres. by Workday",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 73.94444444444444,
+          "2": 72.95774647887323,
+          "3": 73.84210526315789,
+          "4": 72.73684210526316
+        },
+        "r3_leader_gross": 208,
+        "r3_leaders": [
+          "Scottie Scheffler"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 72,
+          "complete_r1_r2_r3": 57,
+          "r3_other": 40,
+          "eligible_other": 40,
+          "eligible_other_r4_observed": 40,
+          "r3_exposed": 6,
+          "eligible_exposed": 6,
+          "eligible_exposed_r4_observed": 6,
+          "r3_control": 11,
+          "eligible_control": 11,
+          "eligible_control_r4_observed": 11
+        }
+      },
+      {
+        "event_id": "401703514",
+        "official_event_id": "R2025032",
+        "name": "RBC Canadian Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 68.75483870967741,
+          "2": 69.52941176470588,
+          "3": 67.79411764705883,
+          "4": 67.91176470588235
+        },
+        "r3_leader_gross": 196,
+        "r3_leaders": [
+          "Ryan Fox",
+          "Matteo Manassero"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 3,
+          "3": 1,
+          "1": 1
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 68,
+          "r3_other": 33,
+          "eligible_other": 31,
+          "eligible_other_r4_observed": 31,
+          "r3_exposed": 20,
+          "eligible_exposed": 20,
+          "eligible_exposed_r4_observed": 20,
+          "r3_control": 15,
+          "eligible_control": 15,
+          "eligible_control_r4_observed": 15,
+          "r3_other_insufficient_prior": 2
+        }
+      },
+      {
+        "event_id": "401703515",
+        "official_event_id": "R2025026",
+        "name": "U.S. Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 74.63461538461539,
+          "2": 74.78064516129032,
+          "3": 72.67164179104478,
+          "4": 73.21212121212122
+        },
+        "r3_leader_gross": 206,
+        "r3_leaders": [
+          "Sam Burns"
+        ],
+        "invalid_rounds_by_period": {
+          "3": 88,
+          "2": 1,
+          "4": 1
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 67,
+          "r3_other": 39,
+          "eligible_other": 36,
+          "eligible_other_r4_observed": 35,
+          "r3_exposed": 4,
+          "eligible_exposed": 4,
+          "eligible_exposed_r4_observed": 4,
+          "r3_control": 24,
+          "eligible_control": 24,
+          "eligible_control_r4_observed": 24,
+          "r3_other_insufficient_prior": 3,
+          "eligible_other_r4_missing": 1
+        }
+      },
+      {
+        "event_id": "401703516",
+        "official_event_id": "R2025034",
+        "name": "Travelers Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 68.84507042253522,
+          "2": 70.68571428571428,
+          "3": 68,
+          "4": 69.43283582089552
+        },
+        "r3_leader_gross": 194,
+        "r3_leaders": [
+          "Tommy Fleetwood"
+        ],
+        "invalid_rounds_by_period": {
+          "4": 3,
+          "2": 2,
+          "3": 1,
+          "1": 1
+        },
+        "counts": {
+          "player_entries": 72,
+          "complete_r1_r2_r3": 70,
+          "r3_other": 52,
+          "eligible_other": 52,
+          "eligible_other_r4_observed": 51,
+          "r3_control": 17,
+          "eligible_control": 17,
+          "eligible_control_r4_observed": 15,
+          "r3_exposed": 1,
+          "eligible_exposed": 1,
+          "eligible_exposed_r4_observed": 1,
+          "eligible_control_r4_missing": 2,
+          "eligible_other_r4_missing": 1
+        }
+      },
+      {
+        "event_id": "401703517",
+        "official_event_id": "R2025524",
+        "name": "Rocket Classic",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.1025641025641,
+          "2": 69.62179487179488,
+          "3": 70.19767441860465,
+          "4": 69.80232558139535
+        },
+        "r3_leader_gross": 197,
+        "r3_leaders": [
+          "Aldrich Potgieter"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 86,
+          "r3_other": 45,
+          "eligible_other": 45,
+          "eligible_other_r4_observed": 45,
+          "r3_exposed": 19,
+          "eligible_exposed": 19,
+          "eligible_exposed_r4_observed": 19,
+          "r3_control": 22,
+          "eligible_control": 21,
+          "eligible_control_r4_observed": 21,
+          "r3_control_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401703518",
+        "official_event_id": "R2025030",
+        "name": "John Deere Classic",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.57692307692308,
+          "2": 69.54901960784314,
+          "3": 69.8923076923077,
+          "4": 68.359375
+        },
+        "r3_leader_gross": 198,
+        "r3_leaders": [
+          "Davis Thompson"
+        ],
+        "invalid_rounds_by_period": {
+          "4": 1,
+          "2": 3,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 65,
+          "r3_other": 24,
+          "eligible_other": 24,
+          "eligible_other_r4_observed": 23,
+          "r3_exposed": 22,
+          "eligible_exposed": 22,
+          "eligible_exposed_r4_observed": 22,
+          "r3_control": 19,
+          "eligible_control": 18,
+          "eligible_control_r4_observed": 18,
+          "r3_control_insufficient_prior": 1,
+          "eligible_other_r4_missing": 1
+        }
+      },
+      {
+        "event_id": "401703519",
+        "official_event_id": "R2025541",
+        "name": "Genesis Scottish Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.90322580645162,
+          "2": 69.85161290322581,
+          "3": 70.58227848101266,
+          "4": 70.0253164556962
+        },
+        "r3_leader_gross": 199,
+        "r3_leaders": [
+          "Chris Gotterup",
+          "Rory McIlroy"
+        ],
+        "invalid_rounds_by_period": {
+          "3": 1,
+          "4": 1,
+          "1": 1,
+          "2": 1
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 79,
+          "r3_other": 32,
+          "eligible_other": 29,
+          "eligible_other_r4_observed": 29,
+          "r3_exposed": 21,
+          "eligible_exposed": 19,
+          "eligible_exposed_r4_observed": 19,
+          "r3_control": 26,
+          "eligible_control": 23,
+          "eligible_control_r4_observed": 23,
+          "r3_exposed_insufficient_prior": 2,
+          "r3_control_insufficient_prior": 3,
+          "r3_other_insufficient_prior": 3
+        }
+      },
+      {
+        "event_id": "401703520",
+        "official_event_id": "R2025518",
+        "name": "ISCO Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 71.15384615384616,
+          "2": 71.27096774193548,
+          "3": 71.27941176470588,
+          "4": 70.52941176470588
+        },
+        "r3_leader_gross": 202,
+        "r3_leaders": [
+          "Paul Peterson"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 68,
+          "r3_other": 27,
+          "eligible_other": 26,
+          "eligible_other_r4_observed": 26,
+          "r3_exposed": 15,
+          "r3_exposed_insufficient_prior": 2,
+          "eligible_exposed": 13,
+          "eligible_exposed_r4_observed": 13,
+          "r3_control": 26,
+          "eligible_control": 22,
+          "eligible_control_r4_observed": 22,
+          "r3_control_insufficient_prior": 4,
+          "r3_other_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401703521",
+        "official_event_id": "R2025100",
+        "name": "The Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 73.03846153846153,
+          "2": 71.41025641025641,
+          "3": 69.97142857142858,
+          "4": 69.88571428571429
+        },
+        "r3_leader_gross": 199,
+        "r3_leaders": [
+          "Scottie Scheffler"
+        ],
+        "invalid_rounds_by_period": {
+          "3": 86
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 70,
+          "r3_other": 44,
+          "eligible_other": 40,
+          "eligible_other_r4_observed": 40,
+          "r3_exposed": 6,
+          "eligible_exposed": 6,
+          "eligible_exposed_r4_observed": 6,
+          "r3_control": 20,
+          "eligible_control": 18,
+          "eligible_control_r4_observed": 18,
+          "r3_control_insufficient_prior": 2,
+          "r3_other_insufficient_prior": 4
+        }
+      },
+      {
+        "event_id": "401703523",
+        "official_event_id": "R2025525",
+        "name": "3M Open",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 68.8974358974359,
+          "2": 69.12258064516129,
+          "3": 68.09210526315789,
+          "4": 68.89473684210526
+        },
+        "r3_leader_gross": 195,
+        "r3_leaders": [
+          "Thorbj\u00f8rn Olesen",
+          "Akshay Bhatia"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 76,
+          "r3_other": 34,
+          "eligible_other": 34,
+          "eligible_other_r4_observed": 34,
+          "r3_exposed": 13,
+          "eligible_exposed": 12,
+          "eligible_exposed_r4_observed": 12,
+          "r3_control": 29,
+          "eligible_control": 28,
+          "eligible_control_r4_observed": 28,
+          "r3_control_insufficient_prior": 1,
+          "r3_exposed_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401703524",
+        "official_event_id": "R2025013",
+        "name": "Wyndham Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 68.47435897435898,
+          "2": 69.40268456375838,
+          "3": 70.02666666666667,
+          "4": 69.28
+        },
+        "r3_leader_gross": 190,
+        "r3_leaders": [
+          "Cameron Young"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 7,
+          "3": 5
+        },
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 75,
+          "r3_other": 68,
+          "eligible_other": 68,
+          "eligible_other_r4_observed": 68,
+          "r3_control": 6,
+          "eligible_control": 6,
+          "eligible_control_r4_observed": 6,
+          "r3_exposed": 1,
+          "eligible_exposed": 1,
+          "eligible_exposed_r4_observed": 1
+        }
+      },
+      {
+        "event_id": "401703525",
+        "official_event_id": "R2025027",
+        "name": "FedEx St. Jude Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.08695652173913,
+          "2": 68.76811594202898,
+          "3": 69.31884057971014,
+          "4": 69.31884057971014
+        },
+        "r3_leader_gross": 196,
+        "r3_leaders": [
+          "Tommy Fleetwood"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 69,
+          "complete_r1_r2_r3": 69,
+          "r3_other": 51,
+          "eligible_other": 51,
+          "eligible_other_r4_observed": 51,
+          "r3_control": 14,
+          "eligible_control": 14,
+          "eligible_control_r4_observed": 14,
+          "r3_exposed": 4,
+          "eligible_exposed": 4,
+          "eligible_exposed_r4_observed": 4
+        }
+      },
+      {
+        "event_id": "401703530",
+        "official_event_id": "R2025028",
+        "name": "BMW Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 70.71428571428571,
+          "2": 69.51020408163265,
+          "3": 70.75510204081633,
+          "4": 70.72916666666667
+        },
+        "r3_leader_gross": 194,
+        "r3_leaders": [
+          "Robert MacIntyre"
+        ],
+        "invalid_rounds_by_period": {
+          "4": 1
+        },
+        "counts": {
+          "player_entries": 49,
+          "complete_r1_r2_r3": 49,
+          "r3_exposed": 2,
+          "eligible_exposed": 2,
+          "eligible_exposed_r4_observed": 2,
+          "r3_other": 40,
+          "eligible_other": 40,
+          "eligible_other_r4_observed": 39,
+          "r3_control": 7,
+          "eligible_control": 7,
+          "eligible_control_r4_observed": 7,
+          "eligible_other_r4_missing": 1
+        }
+      },
+      {
+        "event_id": "401703531",
+        "official_event_id": "R2025060",
+        "name": "TOUR Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 67.26666666666667,
+          "2": 66.8,
+          "3": 69.56666666666666,
+          "4": 67.63333333333334
+        },
+        "r3_leader_gross": 194,
+        "r3_leaders": [
+          "Tommy Fleetwood",
+          "Patrick Cantlay"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 30,
+          "complete_r1_r2_r3": 30,
+          "r3_other": 18,
+          "eligible_other": 18,
+          "eligible_other_r4_observed": 18,
+          "r3_control": 10,
+          "eligible_control": 10,
+          "eligible_control_r4_observed": 10,
+          "r3_exposed": 2,
+          "eligible_exposed": 2,
+          "eligible_exposed_r4_observed": 2
+        }
+      },
+      {
+        "event_id": "401738553",
+        "official_event_id": "R2025464",
+        "name": "Procore Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 71.77777777777777,
+          "2": 72.04166666666667,
+          "3": 71.05555555555556,
+          "4": 70.30555555555556
+        },
+        "r3_leader_gross": 200,
+        "r3_leaders": [
+          "Ben Griffin"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 144,
+          "complete_r1_r2_r3": 72,
+          "r3_other": 50,
+          "eligible_other": 49,
+          "eligible_other_r4_observed": 49,
+          "r3_exposed": 4,
+          "eligible_exposed": 4,
+          "eligible_exposed_r4_observed": 4,
+          "r3_control": 18,
+          "eligible_control": 18,
+          "eligible_control_r4_observed": 18,
+          "r3_other_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401738554",
+        "official_event_id": "R2025054",
+        "name": "Sanderson Farms Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 70.43939393939394,
+          "2": 70.17424242424242,
+          "3": 69.41791044776119,
+          "4": 69.97014925373135
+        },
+        "r3_leader_gross": 198,
+        "r3_leaders": [
+          "Garrick Higgo"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 132,
+          "complete_r1_r2_r3": 67,
+          "r3_other": 37,
+          "eligible_other": 37,
+          "eligible_other_r4_observed": 37,
+          "r3_exposed": 9,
+          "eligible_exposed": 9,
+          "eligible_exposed_r4_observed": 9,
+          "r3_control": 21,
+          "eligible_control": 20,
+          "eligible_control_r4_observed": 20,
+          "r3_control_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401738555",
+        "official_event_id": "R2025527",
+        "name": "Baycurrent Classic",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 72.05128205128206,
+          "2": 68.98717948717949,
+          "3": 71.42307692307692,
+          "4": 67.71794871794872
+        },
+        "r3_leader_gross": 201,
+        "r3_leaders": [
+          "Xander Schauffele",
+          "Max Greyserman"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 78,
+          "complete_r1_r2_r3": 78,
+          "r3_other": 52,
+          "eligible_other": 48,
+          "eligible_other_r4_observed": 48,
+          "r3_exposed": 10,
+          "eligible_exposed": 9,
+          "eligible_exposed_r4_observed": 9,
+          "r3_control": 16,
+          "eligible_control": 15,
+          "eligible_control_r4_observed": 15,
+          "r3_exposed_insufficient_prior": 1,
+          "r3_control_insufficient_prior": 1,
+          "r3_other_insufficient_prior": 4
+        }
+      },
+      {
+        "event_id": "401738556",
+        "official_event_id": "R2025554",
+        "name": "Bank of Utah Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 70.26717557251908,
+          "2": 70.52380952380952,
+          "3": 68.08955223880596,
+          "4": 69.29850746268657
+        },
+        "r3_leader_gross": 196,
+        "r3_leaders": [
+          "Michael Brennan"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 6,
+          "3": 5,
+          "1": 1
+        },
+        "counts": {
+          "player_entries": 132,
+          "complete_r1_r2_r3": 67,
+          "r3_other": 30,
+          "r3_other_insufficient_prior": 2,
+          "eligible_other": 28,
+          "eligible_other_r4_observed": 28,
+          "r3_exposed": 10,
+          "eligible_exposed": 9,
+          "eligible_exposed_r4_observed": 9,
+          "r3_control": 27,
+          "eligible_control": 26,
+          "eligible_control_r4_observed": 26,
+          "r3_exposed_insufficient_prior": 1,
+          "r3_control_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401738557",
+        "official_event_id": "R2025457",
+        "name": "World Wide Technology Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 69.56666666666666,
+          "2": 68.78151260504201,
+          "3": 69.01333333333334,
+          "4": 67.90666666666667
+        },
+        "r3_leader_gross": 194,
+        "r3_leaders": [
+          "Garrick Higgo"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 120,
+          "complete_r1_r2_r3": 75,
+          "r3_other": 53,
+          "eligible_other": 49,
+          "eligible_other_r4_observed": 49,
+          "r3_exposed": 9,
+          "eligible_exposed": 9,
+          "eligible_exposed_r4_observed": 9,
+          "r3_control": 13,
+          "eligible_control": 13,
+          "eligible_control_r4_observed": 13,
+          "r3_other_insufficient_prior": 4
+        }
+      },
+      {
+        "event_id": "401738558",
+        "official_event_id": "R2025528",
+        "name": "Butterfield Bermuda Championship",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 71.95,
+          "2": 69.84033613445378,
+          "3": 70.7,
+          "4": 73.11428571428571
+        },
+        "r3_leader_gross": 201,
+        "r3_leaders": [
+          "Adam Schenk",
+          "Braden Thornberry"
+        ],
+        "invalid_rounds_by_period": {
+          "2": 1,
+          "3": 1
+        },
+        "counts": {
+          "player_entries": 120,
+          "complete_r1_r2_r3": 70,
+          "r3_other": 40,
+          "eligible_other": 39,
+          "eligible_other_r4_observed": 39,
+          "r3_exposed": 6,
+          "eligible_exposed": 6,
+          "eligible_exposed_r4_observed": 6,
+          "r3_control": 24,
+          "eligible_control": 23,
+          "eligible_control_r4_observed": 23,
+          "r3_control_insufficient_prior": 1,
+          "r3_other_insufficient_prior": 1
+        }
+      },
+      {
+        "event_id": "401738559",
+        "official_event_id": "R2025493",
+        "name": "The RSM Classic",
+        "eligible_four_round_event": true,
+        "complete_round_field_means": {
+          "1": 68.13461538461539,
+          "2": 67.78205128205128,
+          "3": 68.68493150684931,
+          "4": 67.04109589041096
+        },
+        "r3_leader_gross": 193,
+        "r3_leaders": [
+          "Sami V\u00e4lim\u00e4ki"
+        ],
+        "invalid_rounds_by_period": {},
+        "counts": {
+          "player_entries": 156,
+          "complete_r1_r2_r3": 73,
+          "r3_other": 31,
+          "eligible_other": 31,
+          "eligible_other_r4_observed": 31,
+          "r3_exposed": 17,
+          "eligible_exposed": 17,
+          "eligible_exposed_r4_observed": 17,
+          "r3_control": 25,
+          "eligible_control": 25,
+          "eligible_control_r4_observed": 25
+        }
+      }
+    ]
+  },
+  "comparison": {
+    "exposed_observed_in_contributing_bins": 421,
+    "control_observed_in_contributing_bins": 807,
+    "exposed_events_in_contributing_bins": 43,
+    "all_contributing_events": 44,
+    "exposed_variance": 6.623809743488262,
+    "control_variance": 6.414124026281515,
+    "exposed_mean": -0.1437952160190244,
+    "control_mean": -0.23395220497003621,
+    "variance_ratio": 1.0326912476820795,
+    "weighted_mean_difference": 0.09015698895101182,
+    "sample_gate_met": true,
+    "status": "sport-side dead at fixed screen",
+    "contributing_bins": [
+      {
+        "ability_bin_lower": -4,
+        "exposed": 3,
+        "control": 2,
+        "weight": 3,
+        "exposed_variance": 3.0960067428940548,
+        "control_variance": 0.7450720780374978,
+        "exposed_mean": -1.5998918100183914,
+        "control_mean": -3.822478516508369
+      },
+      {
+        "ability_bin_lower": -3,
+        "exposed": 6,
+        "control": 4,
+        "weight": 6,
+        "exposed_variance": 2.733742046714806,
+        "control_variance": 4.03519992953365,
+        "exposed_mean": -1.2930340229695645,
+        "control_mean": 0.3329269472665679
+      },
+      {
+        "ability_bin_lower": -2,
+        "exposed": 70,
+        "control": 126,
+        "weight": 70,
+        "exposed_variance": 4.646294921845221,
+        "control_variance": 5.78957173457695,
+        "exposed_mean": -0.5302443181665193,
+        "control_mean": -0.42408797008798294
+      },
+      {
+        "ability_bin_lower": -1,
+        "exposed": 204,
+        "control": 349,
+        "weight": 204,
+        "exposed_variance": 8.087465752682709,
+        "control_variance": 5.887569916833065,
+        "exposed_mean": -0.21134472704651494,
+        "control_mean": -0.36935948955903536
+      },
+      {
+        "ability_bin_lower": 0,
+        "exposed": 104,
+        "control": 249,
+        "weight": 104,
+        "exposed_variance": 4.863141027809397,
+        "control_variance": 7.911455750286076,
+        "exposed_mean": -0.10586292697267666,
+        "control_mean": 0.05997601470874968
+      },
+      {
+        "ability_bin_lower": 1,
+        "exposed": 30,
+        "control": 67,
+        "weight": 30,
+        "exposed_variance": 8.899900505357826,
+        "control_variance": 7.473702275694632,
+        "exposed_mean": 1.4082623350844565,
+        "control_mean": 0.20490014697662948
+      },
+      {
+        "ability_bin_lower": 2,
+        "exposed": 4,
+        "control": 10,
+        "weight": 4,
+        "exposed_variance": 3.771522342559232,
+        "control_variance": 5.140762124570156,
+        "exposed_mean": 0.25334864140834057,
+        "control_mean": 0.906744852683407
+      }
+    ],
+    "omitted_bins": [],
+    "unmatched_exposed_observed": 0,
+    "unmatched_control_observed": 0
+  },
+  "bootstrap": {
+    "unit": "tournament",
+    "replicates_requested": 2000,
+    "valid_replicates": 2000,
+    "seed": 20260915,
+    "percentile_method": "NumPy linear",
+    "variance_ratio_95_interval": [
+      0.8672564531981454,
+      1.1941265982468445
+    ],
+    "weighted_mean_difference_95_interval": [
+      -0.21258472014110685,
+      0.40161063779501205
+    ]
+  },
+  "derived_rows": {
+    "file": "data/raw/golf-sunday-chasing/screen-rows.json",
+    "count": 3017,
+    "sha256": "76e55bf360a52b9a03c2bd28fdd2bca2fc3d9ccb077029bb62fb09251db3a911"
+  },
+  "historical_live_trigger_verified": false,
+  "fanduel_price_test": null
+}

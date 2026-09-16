@@ -1,0 +1,1766 @@
+{
+  "scope": "Tee-schedule preparation only; forecast values and prepared scores were not read",
+  "counts": {
+    "declared_events": 40,
+    "declared_rounds": 80,
+    "two_wave_schedule_rounds": 53,
+    "two_wave_schedule_events": 27,
+    "schedule_exclusion_reasons": {
+      "no_60_minute_schedule_gap": 26,
+      "scheduled_tees_span_multiple_local_dates": 1
+    }
+  },
+  "prepared_source": {
+    "file": "data/raw/golf-wave/prepared.json",
+    "sha256": "c8501dabb8156831afcf97a75f2c12dfbf101b868570da6fefaab3b4e6ff52a0"
+  },
+  "sources": [
+    {
+      "file": "reports/golf-wave-declaration-2026-09-14.md",
+      "sha256": "dbb33c551f64d7a9b20c6e26b6ce91ba222005ee40550eb489b74fa04661c339"
+    },
+    {
+      "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+      "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+    },
+    {
+      "file": "data/raw/golf-weather/prepared.json",
+      "sha256": "d141d5736f30d6df056ceb3970eca6d1fdc1a118f076257c0db1d39ad822a8fc"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025016-teetimes.json",
+      "sha256": "c0eda3c96340d271c4d35a8865989ec0557bdbc52e76aac5d1644e7ac9cedb5e"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025006-teetimes.json",
+      "sha256": "791b0885ba4cd4440f54da5deab027ed26320dfa0fbeb108d523f92f0963d3de"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025003-teetimes.json",
+      "sha256": "387c710af34412ca9b969cc697515d9f9402bd73292f0fe6ada210fc1413fe7f"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025007-teetimes.json",
+      "sha256": "99ac67688a5d7c6c0ac5757cd0cb7bd0c13dff8d10a9cf72a89ebaedcf2f12ee"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025540-teetimes.json",
+      "sha256": "71a065fef996112b69f3bc5b10869dddca386e80128370807e7b24db05dc69ee"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025010-teetimes.json",
+      "sha256": "55cda092f41b88215536c07df7626522dc522f5f7a31813651d69f167787d595"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025009-teetimes.json",
+      "sha256": "079c525e4e1dce51517fd66f5aa906da5a48759043a08feb8054e4d2e50f1382"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025483-teetimes.json",
+      "sha256": "df3d3c0e80be0a90ea733bb2e3b05da397f008625db1fd04d8ce3c15610752a0"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025011-teetimes.json",
+      "sha256": "c59c16a35f558d631b63168fa0134f9d2524783b9f06b610e9f43f0d98c64df8"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025475-teetimes.json",
+      "sha256": "0713160f0a0169b2ae33d77d283c157bf09ff9b006c259029058fb41436fab6f"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025020-teetimes.json",
+      "sha256": "8428c6a41be609ae3087ed0cf4cf59d12a238f62ead1daeebf456d711743c341"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025041-teetimes.json",
+      "sha256": "fb9e5968073847bcbcf161d31a491d7a8bfd6ecbfe03b1eca6b5a484cd0364a1"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025014-teetimes.json",
+      "sha256": "556aa9ba60953db1e03542feb7294834a1554610b89c15d53c8877689d0056ad"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025012-teetimes.json",
+      "sha256": "64b039926fd7fcda20df646ab47ed31c7a90d65bed7c3c087bc2138ef783511c"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025522-teetimes.json",
+      "sha256": "8c5b81d51308f39a7d38c1e56f170e5b4feb9e0dd4aae986351bad530ef1c752"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025019-teetimes.json",
+      "sha256": "d20007a9e2ba3c2f1ef1c496b30b3acb74c43b1cd6b5b2b25e06e7d722fe1d41"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025480-teetimes.json",
+      "sha256": "1c200c15dc64fd759fd776134c79365171cd4156da865fc3f5c1a43df5df1f87"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025553-teetimes.json",
+      "sha256": "208c00111bc3ead458392b82a2c0de8523ee1534fa730ee5b8bd2302f7ffef30"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025033-teetimes.json",
+      "sha256": "e95715f6f42392f0a06ed6351d9b6080602d61faee19edd4b698812d3f89393e"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025021-teetimes.json",
+      "sha256": "df79900ec1de5f2be6db06ef8daf45019f472ececf6bccc9e9a3fb08c6f1b67e"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025023-teetimes.json",
+      "sha256": "4b6a0c648f3724b0f9f56282dcb1a47d582b4a76d6bb3643f7f3d604da621761"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025032-teetimes.json",
+      "sha256": "d1dfa782d78efca706cad4e257f457e13b66d041b5ea9159ecfe8a59e98961cc"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025026-teetimes.json",
+      "sha256": "c22fabfa00dfc4f30a3a96ef5a1be8ce4047297df0730dd15878b72ce96e93e0"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025034-teetimes.json",
+      "sha256": "7d7858e804e8437a7c30241e34c014ed2aeac144f279844841d08b1a2191eea9"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025524-teetimes.json",
+      "sha256": "75b7f4a322261dd7990cbdc35f0a7981bd3fbd7445b01a0359fbb13519ee6e49"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025030-teetimes.json",
+      "sha256": "0ba7f1f1773b508c90359196512eac822d271d53d1ed7642921a34b2eb95f080"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025541-teetimes.json",
+      "sha256": "3940bdddc455ecf990570a8cc8ce719fa2257c03870854ba496a8115d1f54966"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025518-teetimes.json",
+      "sha256": "464914588efdc88e1a041066dca173e516b955f9dbb3425bbb13a325c4137339"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025100-teetimes.json",
+      "sha256": "b0b7c88da6c242bc6614d907b8a38e19ac78f741697552b5e6504a35335ad9f8"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025525-teetimes.json",
+      "sha256": "f7bb1fb56b2fb5280a25bcd08ac49a607e812ef127f81c1f49a4a256e41de9af"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025013-teetimes.json",
+      "sha256": "50cc8c95e66bda6ea168d6130e50a8246e69b00ed530cc0486eb07a71d10a05d"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025027-teetimes.json",
+      "sha256": "699fd893ddff4c44be230757b6013c6a9577bd4e2c234cf5a3298580494224fe"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025028-teetimes.json",
+      "sha256": "dadfbf7ba4d0292352d9df73f0a762f825ab2115404c04472e28494752a065d8"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025060-teetimes.json",
+      "sha256": "0f69445fc6720814491cd5cc478e7563950a4264115ffa37577d4499817cc7d7"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025464-teetimes.json",
+      "sha256": "33d1bef92a2e92286bc596ad96e453fabaa0ccaaf1b829c37dde615a1c375373"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025054-teetimes.json",
+      "sha256": "77c0718fa429b4be560aef538017dc643b4fa738fb7d0d5e8661b19d24ab40a1"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025527-teetimes.json",
+      "sha256": "eb37b81650398f97c8c3d69e95b14a5397e0b3a44688396b8576ba5c7dc2c54e"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025554-teetimes.json",
+      "sha256": "e9d29d264c7bcfc914984da53eb68683a65c77123b8484753373dc1f41c66b89"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025457-teetimes.json",
+      "sha256": "e2fac36c08c518120e24fed11545740f7080691a762bb5c30973dd458353a50c"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025528-teetimes.json",
+      "sha256": "d91c0b016de2cb05c5bf74e9555a3f76bf4094d849eb6caa89102594ec9aea82"
+    }
+  ],
+  "rounds": [
+    {
+      "pga_id": "R2025016",
+      "event_id": "401703489",
+      "event_name": "The Sentry",
+      "round": 1,
+      "timezone": "Pacific/Honolulu",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "656",
+      "scheduled_players": 59,
+      "scheduled_groups": 20,
+      "local_dates": [
+        "2025-01-02"
+      ],
+      "largest_gap_minutes": 18.0,
+      "largest_gap_ties": 1
+    },
+    {
+      "pga_id": "R2025016",
+      "event_id": "401703489",
+      "event_name": "The Sentry",
+      "round": 2,
+      "timezone": "Pacific/Honolulu",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "656",
+      "scheduled_players": 59,
+      "scheduled_groups": 20,
+      "local_dates": [
+        "2025-01-03"
+      ],
+      "largest_gap_minutes": 18.0,
+      "largest_gap_ties": 1
+    },
+    {
+      "pga_id": "R2025006",
+      "event_id": "401703490",
+      "event_name": "Sony Open in Hawaii",
+      "round": 1,
+      "timezone": "Pacific/Honolulu",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "006",
+      "scheduled_players": 143,
+      "scheduled_groups": 48,
+      "local_dates": [
+        "2025-01-09"
+      ],
+      "largest_gap_minutes": 170.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 72,
+      "late_scheduled_players": 71,
+      "last_early_tee_time_ms": 1736449200000,
+      "first_late_tee_time_ms": 1736459400000
+    },
+    {
+      "pga_id": "R2025006",
+      "event_id": "401703490",
+      "event_name": "Sony Open in Hawaii",
+      "round": 2,
+      "timezone": "Pacific/Honolulu",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "006",
+      "scheduled_players": 141,
+      "scheduled_groups": 48,
+      "local_dates": [
+        "2025-01-10"
+      ],
+      "largest_gap_minutes": 170.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 70,
+      "late_scheduled_players": 71,
+      "last_early_tee_time_ms": 1736535600000,
+      "first_late_tee_time_ms": 1736545800000
+    },
+    {
+      "pga_id": "R2025003",
+      "event_id": "401703494",
+      "event_name": "WM Phoenix Open",
+      "round": 1,
+      "timezone": "America/Phoenix",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "510",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-02-06"
+      ],
+      "largest_gap_minutes": 170.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1738858200000,
+      "first_late_tee_time_ms": 1738868400000
+    },
+    {
+      "pga_id": "R2025003",
+      "event_id": "401703494",
+      "event_name": "WM Phoenix Open",
+      "round": 2,
+      "timezone": "America/Phoenix",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "510",
+      "scheduled_players": 131,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-02-07"
+      ],
+      "largest_gap_minutes": 170.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 65,
+      "last_early_tee_time_ms": 1738944600000,
+      "first_late_tee_time_ms": 1738954800000
+    },
+    {
+      "pga_id": "R2025007",
+      "event_id": "401703495",
+      "event_name": "The Genesis Invitational",
+      "round": 1,
+      "timezone": "America/Los_Angeles",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "939",
+      "scheduled_players": 72,
+      "scheduled_groups": 24,
+      "local_dates": [
+        "2025-02-13"
+      ],
+      "largest_gap_minutes": 11.0,
+      "largest_gap_ties": 11
+    },
+    {
+      "pga_id": "R2025007",
+      "event_id": "401703495",
+      "event_name": "The Genesis Invitational",
+      "round": 2,
+      "timezone": "America/Los_Angeles",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "939",
+      "scheduled_players": 72,
+      "scheduled_groups": 24,
+      "local_dates": [
+        "2025-02-14"
+      ],
+      "largest_gap_minutes": 11.0,
+      "largest_gap_ties": 11
+    },
+    {
+      "pga_id": "R2025540",
+      "event_id": "401703496",
+      "event_name": "Mexico Open at VidantaWorld",
+      "round": 1,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "978",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-02-20"
+      ],
+      "largest_gap_minutes": 170.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1740064800000,
+      "first_late_tee_time_ms": 1740075000000
+    },
+    {
+      "pga_id": "R2025540",
+      "event_id": "401703496",
+      "event_name": "Mexico Open at VidantaWorld",
+      "round": 2,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "978",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-02-21"
+      ],
+      "largest_gap_minutes": 170.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1740151200000,
+      "first_late_tee_time_ms": 1740161400000
+    },
+    {
+      "pga_id": "R2025010",
+      "event_id": "401703497",
+      "event_name": "Cognizant Classic in The Palm Beaches",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "928",
+      "scheduled_players": 144,
+      "scheduled_groups": 48,
+      "local_dates": [
+        "2025-02-27"
+      ],
+      "largest_gap_minutes": 179.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 72,
+      "late_scheduled_players": 72,
+      "last_early_tee_time_ms": 1740663960000,
+      "first_late_tee_time_ms": 1740674700000
+    },
+    {
+      "pga_id": "R2025010",
+      "event_id": "401703497",
+      "event_name": "Cognizant Classic in The Palm Beaches",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "928",
+      "scheduled_players": 144,
+      "scheduled_groups": 48,
+      "local_dates": [
+        "2025-02-28"
+      ],
+      "largest_gap_minutes": 179.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 72,
+      "late_scheduled_players": 72,
+      "last_early_tee_time_ms": 1740750360000,
+      "first_late_tee_time_ms": 1740761100000
+    },
+    {
+      "pga_id": "R2025009",
+      "event_id": "401703498",
+      "event_name": "Arnold Palmer Invitational pres. by Mastercard",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "009",
+      "scheduled_players": 72,
+      "scheduled_groups": 36,
+      "local_dates": [
+        "2025-03-06"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 4
+    },
+    {
+      "pga_id": "R2025009",
+      "event_id": "401703498",
+      "event_name": "Arnold Palmer Invitational pres. by Mastercard",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "009",
+      "scheduled_players": 72,
+      "scheduled_groups": 36,
+      "local_dates": [
+        "2025-03-07"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 4
+    },
+    {
+      "pga_id": "R2025483",
+      "event_id": "401703499",
+      "event_name": "Puerto Rico Open",
+      "round": 1,
+      "timezone": "America/Puerto_Rico",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "940",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-03-06"
+      ],
+      "largest_gap_minutes": 175.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1741264500000,
+      "first_late_tee_time_ms": 1741275000000
+    },
+    {
+      "pga_id": "R2025483",
+      "event_id": "401703499",
+      "event_name": "Puerto Rico Open",
+      "round": 2,
+      "timezone": "America/Puerto_Rico",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "940",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-03-07"
+      ],
+      "largest_gap_minutes": 175.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1741350900000,
+      "first_late_tee_time_ms": 1741361400000
+    },
+    {
+      "pga_id": "R2025011",
+      "event_id": "401703500",
+      "event_name": "THE PLAYERS Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "011",
+      "scheduled_players": 144,
+      "scheduled_groups": 48,
+      "local_dates": [
+        "2025-03-13"
+      ],
+      "largest_gap_minutes": 184.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 72,
+      "late_scheduled_players": 72,
+      "last_early_tee_time_ms": 1741873260000,
+      "first_late_tee_time_ms": 1741884300000
+    },
+    {
+      "pga_id": "R2025011",
+      "event_id": "401703500",
+      "event_name": "THE PLAYERS Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "011",
+      "scheduled_players": 144,
+      "scheduled_groups": 48,
+      "local_dates": [
+        "2025-03-14"
+      ],
+      "largest_gap_minutes": 184.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 72,
+      "late_scheduled_players": 72,
+      "last_early_tee_time_ms": 1741959660000,
+      "first_late_tee_time_ms": 1741970700000
+    },
+    {
+      "pga_id": "R2025475",
+      "event_id": "401703501",
+      "event_name": "Valspar Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "665",
+      "scheduled_players": 154,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-03-20"
+      ],
+      "largest_gap_minutes": 173.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 76,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1742478720000,
+      "first_late_tee_time_ms": 1742489100000
+    },
+    {
+      "pga_id": "R2025475",
+      "event_id": "401703501",
+      "event_name": "Valspar Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "665",
+      "scheduled_players": 152,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-03-21"
+      ],
+      "largest_gap_minutes": 173.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 77,
+      "late_scheduled_players": 75,
+      "last_early_tee_time_ms": 1742565120000,
+      "first_late_tee_time_ms": 1742575500000
+    },
+    {
+      "pga_id": "R2025020",
+      "event_id": "401703502",
+      "event_name": "Texas Children's Houston Open",
+      "round": 1,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "897",
+      "scheduled_players": 153,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-03-27"
+      ],
+      "largest_gap_minutes": 173.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 76,
+      "late_scheduled_players": 77,
+      "last_early_tee_time_ms": 1743086220000,
+      "first_late_tee_time_ms": 1743096600000
+    },
+    {
+      "pga_id": "R2025020",
+      "event_id": "401703502",
+      "event_name": "Texas Children's Houston Open",
+      "round": 2,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "897",
+      "scheduled_players": 152,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-03-28"
+      ],
+      "largest_gap_minutes": 178.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 77,
+      "late_scheduled_players": 75,
+      "last_early_tee_time_ms": 1743172320000,
+      "first_late_tee_time_ms": 1743183000000
+    },
+    {
+      "pga_id": "R2025041",
+      "event_id": "401703503",
+      "event_name": "Valero Texas Open",
+      "round": 1,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "770",
+      "scheduled_players": 144,
+      "scheduled_groups": 49,
+      "local_dates": [
+        "2025-04-03"
+      ],
+      "largest_gap_minutes": 189.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 70,
+      "late_scheduled_players": 74,
+      "last_early_tee_time_ms": 1743690060000,
+      "first_late_tee_time_ms": 1743701400000
+    },
+    {
+      "pga_id": "R2025041",
+      "event_id": "401703503",
+      "event_name": "Valero Texas Open",
+      "round": 2,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "770",
+      "scheduled_players": 144,
+      "scheduled_groups": 49,
+      "local_dates": [
+        "2025-04-04"
+      ],
+      "largest_gap_minutes": 188.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 74,
+      "late_scheduled_players": 70,
+      "last_early_tee_time_ms": 1743777120000,
+      "first_late_tee_time_ms": 1743788400000
+    },
+    {
+      "pga_id": "R2025014",
+      "event_id": "401703504",
+      "event_name": "Masters Tournament",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "014",
+      "scheduled_players": 95,
+      "scheduled_groups": 32,
+      "local_dates": [
+        "2025-04-10"
+      ],
+      "largest_gap_minutes": 17.0,
+      "largest_gap_ties": 4
+    },
+    {
+      "pga_id": "R2025014",
+      "event_id": "401703504",
+      "event_name": "Masters Tournament",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "014",
+      "scheduled_players": 95,
+      "scheduled_groups": 32,
+      "local_dates": [
+        "2025-04-11"
+      ],
+      "largest_gap_minutes": 17.0,
+      "largest_gap_ties": 4
+    },
+    {
+      "pga_id": "R2025012",
+      "event_id": "401703505",
+      "event_name": "RBC Heritage",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "012",
+      "scheduled_players": 72,
+      "scheduled_groups": 36,
+      "local_dates": [
+        "2025-04-17"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 4
+    },
+    {
+      "pga_id": "R2025012",
+      "event_id": "401703505",
+      "event_name": "RBC Heritage",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "012",
+      "scheduled_players": 72,
+      "scheduled_groups": 36,
+      "local_dates": [
+        "2025-04-18"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 4
+    },
+    {
+      "pga_id": "R2025522",
+      "event_id": "401703506",
+      "event_name": "Corales Puntacana Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "244",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-04-17"
+      ],
+      "largest_gap_minutes": 180.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1744893900000,
+      "first_late_tee_time_ms": 1744904700000
+    },
+    {
+      "pga_id": "R2025522",
+      "event_id": "401703506",
+      "event_name": "Corales Puntacana Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "244",
+      "scheduled_players": 131,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-04-18"
+      ],
+      "largest_gap_minutes": 180.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 65,
+      "last_early_tee_time_ms": 1744980300000,
+      "first_late_tee_time_ms": 1744991100000
+    },
+    {
+      "pga_id": "R2025019",
+      "event_id": "401703508",
+      "event_name": "THE CJ CUP Byron Nelson",
+      "round": 1,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "921",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-05-01"
+      ],
+      "largest_gap_minutes": 178.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1746108120000,
+      "first_late_tee_time_ms": 1746118800000
+    },
+    {
+      "pga_id": "R2025019",
+      "event_id": "401703508",
+      "event_name": "THE CJ CUP Byron Nelson",
+      "round": 2,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": false,
+      "reason": "scheduled_tees_span_multiple_local_dates",
+      "course_id": "921",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-05-02",
+        "2025-05-03"
+      ],
+      "largest_gap_minutes": 681.0,
+      "largest_gap_ties": 1
+    },
+    {
+      "pga_id": "R2025480",
+      "event_id": "401703509",
+      "event_name": "Truist Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "379",
+      "scheduled_players": 72,
+      "scheduled_groups": 24,
+      "local_dates": [
+        "2025-05-08"
+      ],
+      "largest_gap_minutes": 11.0,
+      "largest_gap_ties": 11
+    },
+    {
+      "pga_id": "R2025480",
+      "event_id": "401703509",
+      "event_name": "Truist Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "379",
+      "scheduled_players": 72,
+      "scheduled_groups": 24,
+      "local_dates": [
+        "2025-05-09"
+      ],
+      "largest_gap_minutes": 11.0,
+      "largest_gap_ties": 11
+    },
+    {
+      "pga_id": "R2025553",
+      "event_id": "401703510",
+      "event_name": "ONEflight Myrtle Beach Classic",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "925",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-05-08"
+      ],
+      "largest_gap_minutes": 170.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1746708000000,
+      "first_late_tee_time_ms": 1746718200000
+    },
+    {
+      "pga_id": "R2025553",
+      "event_id": "401703510",
+      "event_name": "ONEflight Myrtle Beach Classic",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "925",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-05-09"
+      ],
+      "largest_gap_minutes": 170.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1746800400000,
+      "first_late_tee_time_ms": 1746810600000
+    },
+    {
+      "pga_id": "R2025033",
+      "event_id": "401703511",
+      "event_name": "PGA Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "241",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-05-15"
+      ],
+      "largest_gap_minutes": 188.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1747315020000,
+      "first_late_tee_time_ms": 1747326300000
+    },
+    {
+      "pga_id": "R2025033",
+      "event_id": "401703511",
+      "event_name": "PGA Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "241",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-05-16"
+      ],
+      "largest_gap_minutes": 188.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1747401420000,
+      "first_late_tee_time_ms": 1747412700000
+    },
+    {
+      "pga_id": "R2025021",
+      "event_id": "401703512",
+      "event_name": "Charles Schwab Challenge",
+      "round": 1,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "021",
+      "scheduled_players": 135,
+      "scheduled_groups": 45,
+      "local_dates": [
+        "2025-05-22"
+      ],
+      "largest_gap_minutes": 169.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 69,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1747922460000,
+      "first_late_tee_time_ms": 1747932600000
+    },
+    {
+      "pga_id": "R2025021",
+      "event_id": "401703512",
+      "event_name": "Charles Schwab Challenge",
+      "round": 2,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "021",
+      "scheduled_players": 134,
+      "scheduled_groups": 45,
+      "local_dates": [
+        "2025-05-23"
+      ],
+      "largest_gap_minutes": 180.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 65,
+      "late_scheduled_players": 69,
+      "last_early_tee_time_ms": 1748008200000,
+      "first_late_tee_time_ms": 1748019000000
+    },
+    {
+      "pga_id": "R2025023",
+      "event_id": "401703513",
+      "event_name": "the Memorial Tournament pres. by Workday",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "023",
+      "scheduled_players": 72,
+      "scheduled_groups": 36,
+      "local_dates": [
+        "2025-05-29"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 4
+    },
+    {
+      "pga_id": "R2025023",
+      "event_id": "401703513",
+      "event_name": "the Memorial Tournament pres. by Workday",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "023",
+      "scheduled_players": 72,
+      "scheduled_groups": 36,
+      "local_dates": [
+        "2025-05-30"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 4
+    },
+    {
+      "pga_id": "R2025032",
+      "event_id": "401703514",
+      "event_name": "RBC Canadian Open",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "935",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-06-05"
+      ],
+      "largest_gap_minutes": 183.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1749128220000,
+      "first_late_tee_time_ms": 1749139200000
+    },
+    {
+      "pga_id": "R2025032",
+      "event_id": "401703514",
+      "event_name": "RBC Canadian Open",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "935",
+      "scheduled_players": 154,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-06-06"
+      ],
+      "largest_gap_minutes": 183.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 77,
+      "late_scheduled_players": 77,
+      "last_early_tee_time_ms": 1749214620000,
+      "first_late_tee_time_ms": 1749225600000
+    },
+    {
+      "pga_id": "R2025026",
+      "event_id": "401703515",
+      "event_name": "U.S. Open",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "608",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-06-12"
+      ],
+      "largest_gap_minutes": 213.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1749733020000,
+      "first_late_tee_time_ms": 1749745800000
+    },
+    {
+      "pga_id": "R2025026",
+      "event_id": "401703515",
+      "event_name": "U.S. Open",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "608",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-06-13"
+      ],
+      "largest_gap_minutes": 213.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1749819420000,
+      "first_late_tee_time_ms": 1749832200000
+    },
+    {
+      "pga_id": "R2025034",
+      "event_id": "401703516",
+      "event_name": "Travelers Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "503",
+      "scheduled_players": 72,
+      "scheduled_groups": 36,
+      "local_dates": [
+        "2025-06-19"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 3
+    },
+    {
+      "pga_id": "R2025034",
+      "event_id": "401703516",
+      "event_name": "Travelers Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "503",
+      "scheduled_players": 71,
+      "scheduled_groups": 36,
+      "local_dates": [
+        "2025-06-20"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 3
+    },
+    {
+      "pga_id": "R2025524",
+      "event_id": "401703517",
+      "event_name": "Rocket Classic",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "876",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-06-26"
+      ],
+      "largest_gap_minutes": 193.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1750942620000,
+      "first_late_tee_time_ms": 1750954200000
+    },
+    {
+      "pga_id": "R2025524",
+      "event_id": "401703517",
+      "event_name": "Rocket Classic",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "876",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-06-27"
+      ],
+      "largest_gap_minutes": 193.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1751029020000,
+      "first_late_tee_time_ms": 1751040600000
+    },
+    {
+      "pga_id": "R2025030",
+      "event_id": "401703518",
+      "event_name": "John Deere Classic",
+      "round": 1,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "669",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-03"
+      ],
+      "largest_gap_minutes": 188.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1751551020000,
+      "first_late_tee_time_ms": 1751562300000
+    },
+    {
+      "pga_id": "R2025030",
+      "event_id": "401703518",
+      "event_name": "John Deere Classic",
+      "round": 2,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "669",
+      "scheduled_players": 154,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-04"
+      ],
+      "largest_gap_minutes": 188.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 77,
+      "late_scheduled_players": 77,
+      "last_early_tee_time_ms": 1751637420000,
+      "first_late_tee_time_ms": 1751648700000
+    },
+    {
+      "pga_id": "R2025541",
+      "event_id": "401703519",
+      "event_name": "Genesis Scottish Open",
+      "round": 1,
+      "timezone": "Europe/London",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "977",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-10"
+      ],
+      "largest_gap_minutes": 183.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1752135120000,
+      "first_late_tee_time_ms": 1752146100000
+    },
+    {
+      "pga_id": "R2025541",
+      "event_id": "401703519",
+      "event_name": "Genesis Scottish Open",
+      "round": 2,
+      "timezone": "Europe/London",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "977",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-11"
+      ],
+      "largest_gap_minutes": 183.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1752221520000,
+      "first_late_tee_time_ms": 1752232500000
+    },
+    {
+      "pga_id": "R2025518",
+      "event_id": "401703520",
+      "event_name": "ISCO Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "934",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-10"
+      ],
+      "largest_gap_minutes": 193.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1752152220000,
+      "first_late_tee_time_ms": 1752163800000
+    },
+    {
+      "pga_id": "R2025518",
+      "event_id": "401703520",
+      "event_name": "ISCO Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "934",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-11"
+      ],
+      "largest_gap_minutes": 193.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1752238620000,
+      "first_late_tee_time_ms": 1752250200000
+    },
+    {
+      "pga_id": "R2025100",
+      "event_id": "401703521",
+      "event_name": "The Open",
+      "round": 1,
+      "timezone": "Europe/London",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "885",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-17"
+      ],
+      "largest_gap_minutes": 21.0,
+      "largest_gap_ties": 1
+    },
+    {
+      "pga_id": "R2025100",
+      "event_id": "401703521",
+      "event_name": "The Open",
+      "round": 2,
+      "timezone": "Europe/London",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "885",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-18"
+      ],
+      "largest_gap_minutes": 21.0,
+      "largest_gap_ties": 1
+    },
+    {
+      "pga_id": "R2025525",
+      "event_id": "401703523",
+      "event_name": "3M Open",
+      "round": 1,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "883",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-24"
+      ],
+      "largest_gap_minutes": 193.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1753365420000,
+      "first_late_tee_time_ms": 1753377000000
+    },
+    {
+      "pga_id": "R2025525",
+      "event_id": "401703523",
+      "event_name": "3M Open",
+      "round": 2,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "883",
+      "scheduled_players": 155,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-25"
+      ],
+      "largest_gap_minutes": 193.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 77,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1753451820000,
+      "first_late_tee_time_ms": 1753463400000
+    },
+    {
+      "pga_id": "R2025013",
+      "event_id": "401703524",
+      "event_name": "Wyndham Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "752",
+      "scheduled_players": 156,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-07-31"
+      ],
+      "largest_gap_minutes": 188.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 78,
+      "late_scheduled_players": 78,
+      "last_early_tee_time_ms": 1753966920000,
+      "first_late_tee_time_ms": 1753978200000
+    },
+    {
+      "pga_id": "R2025013",
+      "event_id": "401703524",
+      "event_name": "Wyndham Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "752",
+      "scheduled_players": 154,
+      "scheduled_groups": 52,
+      "local_dates": [
+        "2025-08-01"
+      ],
+      "largest_gap_minutes": 188.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 77,
+      "late_scheduled_players": 77,
+      "last_early_tee_time_ms": 1754053320000,
+      "first_late_tee_time_ms": 1754064600000
+    },
+    {
+      "pga_id": "R2025027",
+      "event_id": "401703525",
+      "event_name": "FedEx St. Jude Championship",
+      "round": 1,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "513",
+      "scheduled_players": 69,
+      "scheduled_groups": 35,
+      "local_dates": [
+        "2025-08-07"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 3
+    },
+    {
+      "pga_id": "R2025027",
+      "event_id": "401703525",
+      "event_name": "FedEx St. Jude Championship",
+      "round": 2,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "513",
+      "scheduled_players": 69,
+      "scheduled_groups": 35,
+      "local_dates": [
+        "2025-08-08"
+      ],
+      "largest_gap_minutes": 15.0,
+      "largest_gap_ties": 3
+    },
+    {
+      "pga_id": "R2025028",
+      "event_id": "401703530",
+      "event_name": "BMW Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "882",
+      "scheduled_players": 49,
+      "scheduled_groups": 25,
+      "local_dates": [
+        "2025-08-14"
+      ],
+      "largest_gap_minutes": 16.0,
+      "largest_gap_ties": 3
+    },
+    {
+      "pga_id": "R2025028",
+      "event_id": "401703530",
+      "event_name": "BMW Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "882",
+      "scheduled_players": 49,
+      "scheduled_groups": 25,
+      "local_dates": [
+        "2025-08-15"
+      ],
+      "largest_gap_minutes": 16.0,
+      "largest_gap_ties": 3
+    },
+    {
+      "pga_id": "R2025060",
+      "event_id": "401703531",
+      "event_name": "TOUR Championship",
+      "round": 1,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "688",
+      "scheduled_players": 30,
+      "scheduled_groups": 15,
+      "local_dates": [
+        "2025-08-21"
+      ],
+      "largest_gap_minutes": 16.0,
+      "largest_gap_ties": 2
+    },
+    {
+      "pga_id": "R2025060",
+      "event_id": "401703531",
+      "event_name": "TOUR Championship",
+      "round": 2,
+      "timezone": "America/New_York",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "688",
+      "scheduled_players": 30,
+      "scheduled_groups": 15,
+      "local_dates": [
+        "2025-08-22"
+      ],
+      "largest_gap_minutes": 16.0,
+      "largest_gap_ties": 2
+    },
+    {
+      "pga_id": "R2025464",
+      "event_id": "401738553",
+      "event_name": "Procore Championship",
+      "round": 1,
+      "timezone": "America/Los_Angeles",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "926",
+      "scheduled_players": 144,
+      "scheduled_groups": 48,
+      "local_dates": [
+        "2025-09-11"
+      ],
+      "largest_gap_minutes": 184.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 72,
+      "late_scheduled_players": 72,
+      "last_early_tee_time_ms": 1757606460000,
+      "first_late_tee_time_ms": 1757617500000
+    },
+    {
+      "pga_id": "R2025464",
+      "event_id": "401738553",
+      "event_name": "Procore Championship",
+      "round": 2,
+      "timezone": "America/Los_Angeles",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "926",
+      "scheduled_players": 144,
+      "scheduled_groups": 48,
+      "local_dates": [
+        "2025-09-12"
+      ],
+      "largest_gap_minutes": 184.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 72,
+      "late_scheduled_players": 72,
+      "last_early_tee_time_ms": 1757692860000,
+      "first_late_tee_time_ms": 1757703900000
+    },
+    {
+      "pga_id": "R2025054",
+      "event_id": "401738554",
+      "event_name": "Sanderson Farms Championship",
+      "round": 1,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "746",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-10-02"
+      ],
+      "largest_gap_minutes": 175.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1759413300000,
+      "first_late_tee_time_ms": 1759423800000
+    },
+    {
+      "pga_id": "R2025054",
+      "event_id": "401738554",
+      "event_name": "Sanderson Farms Championship",
+      "round": 2,
+      "timezone": "America/Chicago",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "746",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-10-03"
+      ],
+      "largest_gap_minutes": 175.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1759499700000,
+      "first_late_tee_time_ms": 1759510200000
+    },
+    {
+      "pga_id": "R2025527",
+      "event_id": "401738555",
+      "event_name": "Baycurrent Classic",
+      "round": 1,
+      "timezone": "Asia/Tokyo",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "936",
+      "scheduled_players": 78,
+      "scheduled_groups": 26,
+      "local_dates": [
+        "2025-10-09"
+      ],
+      "largest_gap_minutes": 11.0,
+      "largest_gap_ties": 12
+    },
+    {
+      "pga_id": "R2025527",
+      "event_id": "401738555",
+      "event_name": "Baycurrent Classic",
+      "round": 2,
+      "timezone": "Asia/Tokyo",
+      "scheduled_two_waves": false,
+      "reason": "no_60_minute_schedule_gap",
+      "course_id": "936",
+      "scheduled_players": 78,
+      "scheduled_groups": 26,
+      "local_dates": [
+        "2025-10-10"
+      ],
+      "largest_gap_minutes": 11.0,
+      "largest_gap_ties": 12
+    },
+    {
+      "pga_id": "R2025554",
+      "event_id": "401738556",
+      "event_name": "Bank of Utah Championship",
+      "round": 1,
+      "timezone": "America/Denver",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "930",
+      "scheduled_players": 132,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-10-23"
+      ],
+      "largest_gap_minutes": 185.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 66,
+      "late_scheduled_players": 66,
+      "last_early_tee_time_ms": 1761234300000,
+      "first_late_tee_time_ms": 1761245400000
+    },
+    {
+      "pga_id": "R2025554",
+      "event_id": "401738556",
+      "event_name": "Bank of Utah Championship",
+      "round": 2,
+      "timezone": "America/Denver",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "930",
+      "scheduled_players": 129,
+      "scheduled_groups": 44,
+      "local_dates": [
+        "2025-10-24"
+      ],
+      "largest_gap_minutes": 190.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 65,
+      "late_scheduled_players": 64,
+      "last_early_tee_time_ms": 1761321900000,
+      "first_late_tee_time_ms": 1761333300000
+    },
+    {
+      "pga_id": "R2025457",
+      "event_id": "401738557",
+      "event_name": "World Wide Technology Championship",
+      "round": 1,
+      "timezone": "America/Phoenix",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "919",
+      "scheduled_players": 120,
+      "scheduled_groups": 40,
+      "local_dates": [
+        "2025-11-06"
+      ],
+      "largest_gap_minutes": 176.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 60,
+      "late_scheduled_players": 60,
+      "last_early_tee_time_ms": 1762441740000,
+      "first_late_tee_time_ms": 1762452300000
+    },
+    {
+      "pga_id": "R2025457",
+      "event_id": "401738557",
+      "event_name": "World Wide Technology Championship",
+      "round": 2,
+      "timezone": "America/Phoenix",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "919",
+      "scheduled_players": 120,
+      "scheduled_groups": 40,
+      "local_dates": [
+        "2025-11-07"
+      ],
+      "largest_gap_minutes": 176.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 60,
+      "late_scheduled_players": 60,
+      "last_early_tee_time_ms": 1762528140000,
+      "first_late_tee_time_ms": 1762538700000
+    },
+    {
+      "pga_id": "R2025528",
+      "event_id": "401738558",
+      "event_name": "Butterfield Bermuda Championship",
+      "round": 1,
+      "timezone": "Atlantic/Bermuda",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "765",
+      "scheduled_players": 120,
+      "scheduled_groups": 40,
+      "local_dates": [
+        "2025-11-13"
+      ],
+      "largest_gap_minutes": 171.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 60,
+      "late_scheduled_players": 60,
+      "last_early_tee_time_ms": 1763037540000,
+      "first_late_tee_time_ms": 1763047800000
+    },
+    {
+      "pga_id": "R2025528",
+      "event_id": "401738558",
+      "event_name": "Butterfield Bermuda Championship",
+      "round": 2,
+      "timezone": "Atlantic/Bermuda",
+      "scheduled_two_waves": true,
+      "reason": null,
+      "course_id": "765",
+      "scheduled_players": 119,
+      "scheduled_groups": 40,
+      "local_dates": [
+        "2025-11-14"
+      ],
+      "largest_gap_minutes": 171.0,
+      "largest_gap_ties": 1,
+      "early_scheduled_players": 60,
+      "late_scheduled_players": 59,
+      "last_early_tee_time_ms": 1763123940000,
+      "first_late_tee_time_ms": 1763134200000
+    }
+  ]
+}

@@ -1,0 +1,631 @@
+{
+  "checked_local_date": "2026-09-14",
+  "saved_at_utc": "2026-09-15T00:28:21.870024+00:00",
+  "sources": [
+    {
+      "file": "data/raw/golf-source-check/web-config.json",
+      "url": "https://data-api.pgatour.com/web-config",
+      "sha256": "f249b63cb2fcb66b47e86f906c98f8fd912e82dd035b4e53d7e72fc1960cfd16",
+      "bytes": 42,
+      "status": 403,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:17:07.511497+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/config-correct.json",
+      "url": "https://orchestrator-config.pgatour.com/web-config",
+      "sha256": "d6bc9f4331d377f2d34c5066061c7c9d0a9b24c8ce7da37102b1192de3ed7048",
+      "bytes": 6773,
+      "status": 200,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:23:20.122901+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/schedule-2026.html",
+      "url": "https://www.pgatour.com/schedule/2026",
+      "sha256": "fea9441c85f10e5a783e93f19b9dbcf6eece51f38bc1cc853f16f09bfe84224a",
+      "bytes": 433834,
+      "status": 200,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:17:08.407825+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/biltmore.html",
+      "url": "https://www.pgatour.com/tournaments/2026/biltmore-championship-asheville/R2026557/odds",
+      "sha256": "cbc8f6c32b9a2ca5c54834729a0ebe03a4ae4011cbdb7b871234019c7454a27d",
+      "bytes": 240373,
+      "status": 200,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:17:55.603985+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/biltmore-markets.json",
+      "url": "https://data-api.pgatour.com/odds/tournament/R2026557",
+      "sha256": "0f63727b07934c0ed3b8b48545db1a8c4c15a12ab058eca0435da30eaad7356e",
+      "bytes": 158,
+      "status": 200,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:23:20.534613+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/fanduel.html",
+      "url": "https://sportsbook.fanduel.com/navigation/pga",
+      "sha256": "1d27694ae6849679aaff9a8cd19462017b4b1b8a3e193ce341ce6f1a67591a53",
+      "bytes": 5771,
+      "status": 403,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:18:25.516535+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/datagolf-matchups.html",
+      "url": "https://datagolf.com/betting-tool-matchups",
+      "sha256": "79e1eec2a46fc56bcceff2aeb8a11051888380e316818af9e9b26396e14fbdf1",
+      "bytes": 308121,
+      "status": 200,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:19:07.963777+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/datagolf-finish.html",
+      "url": "https://datagolf.com/betting-tool-finish",
+      "sha256": "306020e4239b9903dc499afa10855bb6f11c12a06d73bbb888349d0687452b6b",
+      "bytes": 1630314,
+      "status": 200,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:19:08.499816+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/openmeteo-single.json",
+      "url": "https://single-runs-api.open-meteo.com/v1/forecast?latitude=35.5&longitude=-82.6&hourly=wind_speed_10m,wind_gusts_10m,wind_direction_10m,precipitation&models=gfs_global&run=2026-09-13T00:00&forecast_days=7&timezone=GMT",
+      "sha256": "5350808104cf98d9f14db4f52efcb37ee639368cf340b314767fd0999d9e6675",
+      "bytes": 6525,
+      "status": 200,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:24:42.448399+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/openmeteo-previous.json",
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=35.5&longitude=-82.6&hourly=wind_speed_10m_previous_day1,wind_gusts_10m_previous_day1,wind_direction_10m_previous_day1,precipitation_previous_day1&models=gfs_global&start_date=2026-09-10&end_date=2026-09-11&timezone=GMT",
+      "sha256": "fdb0dc55d5f9605f5360ef5bcc0cdc42b9b1b6fdab63fb2fc520b9ebc7719321",
+      "bytes": 2234,
+      "status": 200,
+      "request_started_at": null,
+      "received_at": null,
+      "file_saved_at": "2026-09-15T00:24:43.371618+00:00",
+      "clock_note": "File mtime is recorded for initial curl probes; no original request-start clock was saved. The collector run has separate request/receipt clocks."
+    },
+    {
+      "file": "data/raw/golf-source-check/biltmore-field.json",
+      "url": "https://orchestrator.pgatour.com/graphql",
+      "sha256": "fad02a4b6f1e886a3408d03039052657e5a5595b2236f7b5f35da1ddf0a659bc",
+      "bytes": 34890,
+      "status": 200,
+      "request_started_at": "2026-09-15T00:23:50.646075+00:00",
+      "received_at": "2026-09-15T00:23:51.040474+00:00",
+      "file_saved_at": "2026-09-15T00:23:51.040288+00:00",
+      "clock_note": "Original request/receipt clocks saved in per-request metadata.",
+      "operation": "Field"
+    },
+    {
+      "file": "data/raw/golf-source-check/biltmore-teetimes.json",
+      "url": "https://orchestrator.pgatour.com/graphql",
+      "sha256": "c2e99afc40043485540482d66252e108f88a3389119870d35b9df9d7c4b35c46",
+      "bytes": 252,
+      "status": 200,
+      "request_started_at": "2026-09-15T00:24:05.948973+00:00",
+      "received_at": "2026-09-15T00:24:06.225244+00:00",
+      "file_saved_at": "2026-09-15T00:24:06.225056+00:00",
+      "clock_note": "Original request/receipt clocks saved in per-request metadata.",
+      "operation": "TeeTimesCompressedV2"
+    },
+    {
+      "file": "data/raw/golf-source-check/datagolf-coverage.html",
+      "url": "https://datagolf.com/api-historical-coverage",
+      "sha256": "b9214107f7b529030e9d998d61501e2dbf87699432906404fad05edc7ff58dfa",
+      "bytes": 136114,
+      "status": 200,
+      "clock_note": "Agent source research snapshot; original capture clock unavailable. No paid odds downloaded."
+    },
+    {
+      "file": "data/raw/golf-source-check/datagolf-archive-index.html",
+      "url": "https://datagolf.com/matchup-odds-archive",
+      "sha256": "97334f296be2385a930093b507f04e7e1577b6fc688aedcf2b65e5e89ef7e78b",
+      "bytes": 259788,
+      "status": 200,
+      "clock_note": "Agent source research snapshot; original capture clock unavailable. No paid odds downloaded."
+    },
+    {
+      "file": "data/raw/golf-source-check/datagolf-explicit-free-pinnacle-sample.json",
+      "url": "https://feeds.datagolf.com/historical-odds/matchups-sample?odds_format=decimal&file_format=json",
+      "sha256": "8e58b3dd54777398482db6d7a32fb53fa1dfa19e374fd244501fb12b67b361d6",
+      "bytes": 72343,
+      "status": 200,
+      "clock_note": "Agent source research snapshot; original capture clock unavailable. No paid odds downloaded."
+    },
+    {
+      "file": "data/raw/golf-source-check/sony-2025-teetimes.json",
+      "bytes": 17984,
+      "url": "https://orchestrator.pgatour.com/graphql",
+      "operation": "TeeTimesCompressedV2",
+      "tournament_id": "R2025006",
+      "request_started_at": "2026-09-15T00:34:10.484099+00:00",
+      "received_at": "2026-09-15T00:34:10.794863+00:00",
+      "status": 200,
+      "sha256": "791b0885ba4cd4440f54da5deab027ed26320dfa0fbeb108d523f92f0963d3de"
+    }
+  ],
+  "findings": {
+    "tournament_id": "R2026557",
+    "tournament_name": "Biltmore Championship Asheville",
+    "scheduled_dates": "2026-09-17 through 2026-09-20",
+    "current_pga_default_id": "R2026060",
+    "default_id_limitation": "Provider default remains completed TOUR Championship; use explicitly verified upcoming tournament ID.",
+    "pga_rest": "HTTP200 correct documented tournament markets path; no available markets",
+    "pga_config_initial_path_error": "Initial data-api host/web-config path returned403 Missing Authentication Token. Correct documented orchestrator-config host returned200; this was not a general PGA access denial.",
+    "pga_field_players": 135,
+    "pga_field_alternates": 10,
+    "pga_field_source_last_updated_epoch_ms": 1789424158135,
+    "pga_tee_time_rounds": 0,
+    "pga_html_partner_config": {
+      "oddsUrl": "https://sportsbook.fanduel.com/navigation/pga",
+      "country": "CA",
+      "region": "OR"
+    },
+    "partner_config_limitation": "Link is not a bookmaker-tagged quote or verified jurisdiction. Mixed/stale other-event content is retained.",
+    "direct_fanduel_http": 403,
+    "direct_fanduel_retry": false,
+    "datagolf_preview": "Ordinary page HTML reachable; full/multibook table explicitly subscription-restricted. No protected values extracted for tests, no purchase, no sustained scrape.",
+    "browser_preview": "No browser available through CUA; rendered free FanDuel preview not verified.",
+    "usable_fanduel_odds_series": false,
+    "observed_overrounds": null,
+    "weather_schema_probes": {
+      "single": {
+        "returned_latitude": 35.554832,
+        "returned_longitude": -82.61719,
+        "first_valid_hour": "2026-09-13T00:00",
+        "last_valid_hour": "2026-09-19T23:00",
+        "hour_count": 168,
+        "nonnull_values": {
+          "wind_speed_10m": 168,
+          "wind_gusts_10m": 168,
+          "wind_direction_10m": 168,
+          "precipitation": 167
+        },
+        "units": {
+          "time": "iso8601",
+          "wind_speed_10m": "km/h",
+          "wind_gusts_10m": "km/h",
+          "wind_direction_10m": "\u00b0",
+          "precipitation": "mm"
+        }
+      },
+      "previous": {
+        "returned_latitude": 35.554832,
+        "returned_longitude": -82.61719,
+        "first_valid_hour": "2026-09-10T00:00",
+        "last_valid_hour": "2026-09-11T23:00",
+        "hour_count": 48,
+        "nonnull_values": {
+          "wind_speed_10m_previous_day1": 48,
+          "wind_gusts_10m_previous_day1": 48,
+          "wind_direction_10m_previous_day1": 48,
+          "precipitation_previous_day1": 48
+        },
+        "units": {
+          "time": "iso8601",
+          "wind_speed_10m_previous_day1": "km/h",
+          "wind_gusts_10m_previous_day1": "km/h",
+          "wind_direction_10m_previous_day1": "\u00b0",
+          "precipitation_previous_day1": "mm"
+        }
+      }
+    },
+    "weather_limit": "Approximate Asheville coordinates only, not verified course coordinates. Source schema tests, no wave effect or historical operational-availability claim. Initialization is not publication.",
+    "current_espn_default": "Optional bare current scoreboard request returned403 in first integration; disabled in default config, not retried. Historical season queries are separately accessible.",
+    "historical_official_groups": {
+      "tournament_id": "R2025006",
+      "course": "Waialae Country Club",
+      "scope": "Sony Open2025 source spot-check only",
+      "rounds": 4,
+      "explicit_group_ids": true,
+      "start_tee_and_course_ids": true,
+      "exact_reconstructed_complete_triple_memberships": 138,
+      "reconstructed_complete_triples": 140,
+      "unmatched": 2,
+      "unmatched_note": "Two groups have Kris/Kristoffer Ventura source-name variation; retained unmatched, no alias rewrite."
+    }
+  },
+  "collector_first_run": {
+    "alerts_enabled": false,
+    "cycles_completed": 1,
+    "disabled_operations": [],
+    "disabled_sources": {
+      "espn": "http_403"
+    },
+    "explicitly_fanduel_price_field_observations": 0,
+    "exploratory_only": true,
+    "failures": 1,
+    "kind": "run_end",
+    "ledger_entries_created": 0,
+    "price_field_observations": 0,
+    "quote_status": "no_quotes",
+    "recorded_at": "2026-09-15T00:25:46.626120+00:00",
+    "requests": 10,
+    "run_id": "9abd36edec9543b7bcd03fc29659c82e",
+    "started_at": "2026-09-15T00:25:28.310213+00:00",
+    "stop_reason": "cycles_complete",
+    "successful_odds_responses": 3,
+    "wagers_enabled": false
+  },
+  "next_input": "Posted actual bookmaker-tagged derivatives and groups; record current rules/jurisdiction/update clocks before a price test. G1 requires a valid predecision weather information set; historical hindcasts do not establish it.",
+  "collector_final_run": {
+    "alerts_enabled": false,
+    "cycles_completed": 1,
+    "disabled_operations": [],
+    "disabled_sources": {},
+    "explicitly_fanduel_price_field_observations": 0,
+    "exploratory_only": true,
+    "failures": 0,
+    "kind": "run_end",
+    "ledger_entries_created": 0,
+    "price_field_observations": 0,
+    "quote_status": "no_quotes",
+    "recorded_at": "2026-09-15T00:30:07.466636+00:00",
+    "requests": 9,
+    "run_id": "c38cc788393444059c215fa734823953",
+    "started_at": "2026-09-15T00:29:51.199135+00:00",
+    "stop_reason": "cycles_complete",
+    "successful_odds_responses": 3,
+    "unvalidated_price_field_observations": 0,
+    "wagers_enabled": false
+  },
+  "collector_additional_runs": [
+    {
+      "checkpoint": "one additional manual Biltmore cycle after the previous default-config capture",
+      "tournament_id": "R2026557",
+      "summary": {
+        "alerts_enabled": false,
+        "cycles_completed": 1,
+        "disabled_operations": [],
+        "disabled_sources": {},
+        "explicitly_fanduel_price_field_observations": 0,
+        "exploratory_only": true,
+        "failures": 0,
+        "fanduel_selection_link_price_field_observations": 0,
+        "kind": "run_end",
+        "ledger_entries_created": 0,
+        "price_field_observations": 0,
+        "quote_status": "no_quotes",
+        "recorded_at": "2026-09-15T02:50:08.286666+00:00",
+        "requests": 9,
+        "run_id": "9a4a9d0227b7463bb2829870c2966489",
+        "started_at": "2026-09-15T02:49:51.879508+00:00",
+        "stop_reason": "cycles_complete",
+        "successful_odds_responses": 3,
+        "unvalidated_price_field_observations": 0,
+        "wagers_enabled": false
+      },
+      "summary_file": "data/raw/golf-forward/9a4a9d0227b7463bb2829870c2966489/summary.json",
+      "summary_sha256": "32f9a86bdac7743786dd5ec33a4793d6811c513675c3917a51b83e4a83654980",
+      "config": {
+        "api_enabled": true,
+        "cycles": 1,
+        "espn_dates": null,
+        "espn_state": false,
+        "interval_seconds": 300,
+        "max_players_per_tournament": 180,
+        "max_requests": 240,
+        "max_seconds": 1800,
+        "max_tournaments": 3,
+        "pga_pages": [
+          "https://www.pgatour.com/tournaments/2026/biltmore-championship-asheville/R2026557/odds"
+        ],
+        "player_odds": true,
+        "request_interval_seconds": 2,
+        "timeout_seconds": 30,
+        "tournament_ids": [
+          "R2026557"
+        ],
+        "tours": [
+          "R"
+        ]
+      },
+      "config_sha256": "f44840a5408a81e48c8808f8a92ac9559557211dff8b693e710929ef9708b013",
+      "seconds_since_previous_default_run_end": 8384.412872,
+      "http_status_counts": {
+        "200": 9
+      },
+      "responses": [
+        {
+          "provider": "pga_html",
+          "operation": null,
+          "source_url": "https://www.pgatour.com/tournaments/2026/biltmore-championship-asheville/R2026557/odds",
+          "status": 200,
+          "error": null,
+          "quote_status": "no_quotes",
+          "collector_request_started_at": "2026-09-15T02:49:51.880163+00:00",
+          "collector_response_received_at": "2026-09-15T02:49:52.723524+00:00",
+          "provider_http_date": "Tue, 15 Sep 2026 02:49:52 GMT",
+          "request": {
+            "bytes": 281,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000001.request.json",
+            "sha256": "646abb8933082df47a4219953457bfdceb2034e4e326578f13f53575ebda083a"
+          },
+          "response": {
+            "bytes": 240355,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000001.body",
+            "sha256": "76d4579d1f4315009488c4f264225a4fb6c61521b66cdc49052214da65042a98"
+          },
+          "decoded": {
+            "bytes": 124800,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000001.decoded.json",
+            "sha256": "ee7762a2d9b33d28ecad49e42cb20c2492b1cdcaa88b773b8e878cf0aad49819"
+          }
+        },
+        {
+          "provider": "pga_rest",
+          "operation": null,
+          "source_url": "https://data-api.pgatour.com/odds/interactivity",
+          "status": 200,
+          "error": null,
+          "quote_status": "not_an_odds_request",
+          "collector_request_started_at": "2026-09-15T02:49:53.886483+00:00",
+          "collector_response_received_at": "2026-09-15T02:49:54.194581+00:00",
+          "provider_http_date": "Tue, 15 Sep 2026 02:49:54 GMT",
+          "request": {
+            "bytes": 242,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000002.request.json",
+            "sha256": "d7282d9f956feb47c40b760080a10780b08da86b41d0d9d590f63d6cb1077742"
+          },
+          "response": {
+            "bytes": 107,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000002.body",
+            "sha256": "18dbafda347bf3a9aa0c0f6f7dd08716cc06ff69d6e8ed21c9f809be2fe037ab"
+          },
+          "decoded": null
+        },
+        {
+          "provider": "pga_rest",
+          "operation": null,
+          "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557",
+          "status": 200,
+          "error": null,
+          "quote_status": "no_quotes",
+          "collector_request_started_at": "2026-09-15T02:49:55.893507+00:00",
+          "collector_response_received_at": "2026-09-15T02:49:56.202723+00:00",
+          "provider_http_date": "Tue, 15 Sep 2026 02:49:56 GMT",
+          "request": {
+            "bytes": 248,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000003.request.json",
+            "sha256": "635ae88c07126fbe7d5a1f44109255c0c397ee08cd293015817b4fdd61df6f4b"
+          },
+          "response": {
+            "bytes": 158,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000003.body",
+            "sha256": "0f63727b07934c0ed3b8b48545db1a8c4c15a12ab058eca0435da30eaad7356e"
+          },
+          "decoded": null
+        },
+        {
+          "provider": "pga_graphql",
+          "operation": "Tournaments",
+          "source_url": "https://orchestrator.pgatour.com/graphql",
+          "status": 200,
+          "error": null,
+          "quote_status": "not_an_odds_request",
+          "collector_request_started_at": "2026-09-15T02:49:57.900697+00:00",
+          "collector_response_received_at": "2026-09-15T02:49:58.281929+00:00",
+          "provider_http_date": "Tue, 15 Sep 2026 02:49:58 GMT",
+          "request": {
+            "bytes": 805,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000004.request.json",
+            "sha256": "4d9e5d151920c324b4097d413a48cc045f8fe3c1197388a59339f37496610bfc"
+          },
+          "response": {
+            "bytes": 552,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000004.body",
+            "sha256": "1cc52b7da6509e5d843f579fc9ecdcbecfc233c4bd3f6c3c0acf23cd33f2a2b8"
+          },
+          "decoded": {
+            "bytes": 596,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000004.decoded.json",
+            "sha256": "ad12571c114d8ba69263dbe2c53dedeadf4b53dce68c642915c312bddc8d67c1"
+          }
+        },
+        {
+          "provider": "pga_graphql",
+          "operation": "Field",
+          "source_url": "https://orchestrator.pgatour.com/graphql",
+          "status": 200,
+          "error": null,
+          "quote_status": "not_an_odds_request",
+          "collector_request_started_at": "2026-09-15T02:49:59.904174+00:00",
+          "collector_response_received_at": "2026-09-15T02:50:00.258019+00:00",
+          "provider_http_date": "Tue, 15 Sep 2026 02:50:00 GMT",
+          "request": {
+            "bytes": 916,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000005.request.json",
+            "sha256": "eba5b65b0e799c4b3388194af70dc32d6051100e6019acacad50d7e77fdf6db1"
+          },
+          "response": {
+            "bytes": 34890,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000005.body",
+            "sha256": "fad02a4b6f1e886a3408d03039052657e5a5595b2236f7b5f35da1ddf0a659bc"
+          },
+          "decoded": {
+            "bytes": 38092,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000005.decoded.json",
+            "sha256": "72f910b342c2cd5fad46a7ce9aa9073c137dff242f28ea61d0eaa8bda3239385"
+          }
+        },
+        {
+          "provider": "pga_graphql",
+          "operation": "LeaderboardCompressedV3",
+          "source_url": "https://orchestrator.pgatour.com/graphql",
+          "status": 200,
+          "error": null,
+          "quote_status": "not_an_odds_request",
+          "collector_request_started_at": "2026-09-15T02:50:01.910887+00:00",
+          "collector_response_received_at": "2026-09-15T02:50:02.394944+00:00",
+          "provider_http_date": "Tue, 15 Sep 2026 02:50:02 GMT",
+          "request": {
+            "bytes": 652,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000006.request.json",
+            "sha256": "f3110e80e6c2e40d97211a562d722c57f178d886534376286a6e92fafc3576c4"
+          },
+          "response": {
+            "bytes": 459,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000006.body",
+            "sha256": "2702668742c4d0bd4e6f780df7cfd694ccdcea92fedcdbf3f21715640fdd6b36"
+          },
+          "decoded": {
+            "bytes": 594,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000006.decoded.json",
+            "sha256": "7d07990b907ee7181bd032570359bcf7344978117d384e954e7f295320a5457f"
+          }
+        },
+        {
+          "provider": "pga_graphql",
+          "operation": "TeeTimesCompressedV2",
+          "source_url": "https://orchestrator.pgatour.com/graphql",
+          "status": 200,
+          "error": null,
+          "quote_status": "not_an_odds_request",
+          "collector_request_started_at": "2026-09-15T02:50:03.913352+00:00",
+          "collector_response_received_at": "2026-09-15T02:50:04.277316+00:00",
+          "provider_http_date": "Tue, 15 Sep 2026 02:50:04 GMT",
+          "request": {
+            "bytes": 631,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000007.request.json",
+            "sha256": "c3e50eca8725bf5c4990fda401e1f1939330f7954cd9c7f025968b812514039c"
+          },
+          "response": {
+            "bytes": 252,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000007.body",
+            "sha256": "c2e99afc40043485540482d66252e108f88a3389119870d35b9df9d7c4b35c46"
+          },
+          "decoded": {
+            "bytes": 245,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000007.decoded.json",
+            "sha256": "09a4b75b810fa1c89d5c513d02422542195eb1389f982cb0eb48e31edcb02b3d"
+          }
+        },
+        {
+          "provider": "pga_graphql",
+          "operation": "oddsToWinCompressed",
+          "source_url": "https://orchestrator.pgatour.com/graphql",
+          "status": 200,
+          "error": null,
+          "quote_status": "no_quotes",
+          "collector_request_started_at": "2026-09-15T02:50:05.920514+00:00",
+          "collector_response_received_at": "2026-09-15T02:50:06.664301+00:00",
+          "provider_http_date": "Tue, 15 Sep 2026 02:50:06 GMT",
+          "request": {
+            "bytes": 606,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000008.request.json",
+            "sha256": "2156695c26887dca1479e2b9a4c3fdd0c6b7acd520b7a3a9aa2f51ebc0fb0bc7"
+          },
+          "response": {
+            "bytes": 341,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000008.body",
+            "sha256": "a482d9f6c5cf1c869bf4fbd0c280182f86611a2a0e245b5a77b2c070a174ef54"
+          },
+          "decoded": {
+            "bytes": 330,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000008.decoded.json",
+            "sha256": "c96975dd5bd6d115a8d60292541ef25ad5be3e04406e2c15a2a2b4bd429c96bf"
+          }
+        },
+        {
+          "provider": "pga_graphql",
+          "operation": "Weather",
+          "source_url": "https://orchestrator.pgatour.com/graphql",
+          "status": 200,
+          "error": null,
+          "quote_status": "not_an_odds_request",
+          "collector_request_started_at": "2026-09-15T02:50:07.925902+00:00",
+          "collector_response_received_at": "2026-09-15T02:50:08.281802+00:00",
+          "provider_http_date": "Tue, 15 Sep 2026 02:50:08 GMT",
+          "request": {
+            "bytes": 1063,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000009.request.json",
+            "sha256": "e33aa4ee473a7637caa7793925c71886f2eece7d7f3ece8c9925488b2e20e07e"
+          },
+          "response": {
+            "bytes": 4210,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000009.body",
+            "sha256": "8a38ac92c7d11523b843a4427091660477e16a53f824df9b49b972bac23a5150"
+          },
+          "decoded": {
+            "bytes": 4607,
+            "file": "9a4a9d0227b7463bb2829870c2966489/raw/000009.decoded.json",
+            "sha256": "2903dea071074bc989e8af29eca8f40f996a0e81a89bfed7d70782de3fdad5cc"
+          }
+        }
+      ],
+      "observed": {
+        "field_players": 135,
+        "field_alternates": 10,
+        "field_source_last_updated_epoch_ms": 1789424158135,
+        "tee_time_rounds": 0,
+        "tee_time_groups": 0,
+        "tee_time_player_assignments": 0,
+        "leaderboard_players": 0,
+        "available_market_catalog_entries": 0,
+        "actual_price_field_observations": 0,
+        "unvalidated_price_field_observations": 0,
+        "explicitly_fanduel_price_field_observations": 0,
+        "fanduel_selection_link_price_field_observations": 0,
+        "player_market_requests": 0,
+        "player_market_skip_reason": "no_available_markets",
+        "partner_config": {
+          "interactive": true,
+          "oddsUrl": "https://sportsbook.fanduel.com/navigation/pga",
+          "country": "CA",
+          "region": "ON"
+        },
+        "attribution_limitation": "FanDuel navigation partner link only; no actual quote or selection-specific attribution. CA/ON response fields do not verify jurisdiction, settlement terms or tradability.",
+        "catalog_message": {
+          "header": "Odds are unavailable",
+          "body": "Odds are currently unavailable. Please check back later."
+        },
+        "outright_widget_message": {
+          "body": "The tournament has concluded and all markets are now closed. Check back later in the week for the next tournament's odds.",
+          "header": "Tournament complete"
+        },
+        "tournament_status": "NOT_STARTED",
+        "source_inconsistency": "Outright widget says Tournament complete while official Biltmore metadata says NOT_STARTED for Sep 17-20, 2026; no quote or completed-event status inferred."
+      },
+      "integrity": {
+        "verified_request_body_and_decoded_artifacts": 25,
+        "all_hashes_match": true
+      },
+      "scope": {
+        "current_espn_requested": false,
+        "direct_fanduel_requested": false,
+        "scheduled_jobs_created": false,
+        "additional_polling": false,
+        "betting_evaluation_performed": false
+      },
+      "conclusion": "No actual derivatives or tee groups appeared. Stopped after the single authorized cycle; no usable FanDuel price series or book-side test."
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "as_of_local_date": "2026-09-14",
+  "recorded_at_utc": "2026-09-15T01:11:05.228099+00:00",
+  "card": "G6",
+  "status": "unresolved: complete Monday standings and next-season exemption inputs not recovered",
+  "scope": {
+    "targeted_web_queries": 8,
+    "new_sample_pdf_files": 4,
+    "additional_api_requests": 0,
+    "source_prerequisites_only": true,
+    "scores_joined": false,
+    "sport_effect_estimated": false,
+    "market_prices_tested": false,
+    "paid_queries": false,
+    "scheduled_jobs": false,
+    "sample_2024_represents_top125_era": true,
+    "2023_field_snapshots_not_sampled": true
+  },
+  "search_queries": [
+    "site:pgatourmedia.pgatourhq.com 2024 Procore Championship field FedExCup exemption",
+    "site:pgatourmedia.pgatourhq.com 2024 RSM Classic pre tournament notes exempt",
+    "site:pgatourmedia.pgatourhq.com 2025 Procore Championship exemptions FedExCup",
+    "site:pgatourmedia.pgatourhq.com 2025 RSM Classic exempt field notes",
+    "site:pgatourmedia.pgatourhq.com \"2024\" \"RSM\" \"125\" \"exempt\"",
+    "site:pgatourmedia.pgatourhq.com \"2025\" \"RSM\" \"100\" \"exempt\"",
+    "site:pgatour.com \"FedExCup Fall\" \"2025\" \"week\" \"standings\"",
+    "site:pgatour.com \"2023\" \"FedExCup Fall\" \"125\" \"exempt\""
+  ],
+  "sample_files": [
+    {
+      "season": 2024,
+      "event": "Procore Championship",
+      "role": "early Fall / top125 era",
+      "monday_before_event": "2024-09-09",
+      "pdf_document_clock_raw": "D:20240911132115-04'00'",
+      "field_list_printed_clock": "Sep 11, 2024, 1:15 PM (timezone not printed)",
+      "field_count": 144,
+      "content_check": "Visually inspected rendered full single page. Alphabetic field list, alternates and sponsor/open-qualifier/section-champion/foreign entry markers only; no FedEx points/ranks or complete next-season exemptions. Printed field update is after the required Monday.",
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2024/pgatour/procore-championship/updatedTournamentField/Current%20Field.pdf",
+      "file": "data/raw/golf-fall-source/procore-2024-field.pdf",
+      "request_started_utc": "2026-09-15T01:07:42.957494+00:00",
+      "received_utc": "2026-09-15T01:07:43.931371+00:00",
+      "status": 200,
+      "bytes": 267293,
+      "sha256": "f8e5f95395724936995af5d543e83398290e1cd0d52dbd0fddcc85100fde4d7c",
+      "response_headers": {
+        "Date": "Tue, 15 Sep 2026 01:07:43 GMT",
+        "ETag": "\"0ab693f0e20d3f3cfc16e5ddec0d60c3b\"",
+        "Content-Type": "application/pdf"
+      },
+      "complete_monday_points_rank_list": false,
+      "complete_next_season_exemption_ledger": false,
+      "monday_contemporaneous_availability_verified": false,
+      "visual_check": {
+        "renderer": "macOS PDFKit, full page on white background",
+        "file": "data/raw/golf-fall-source/procore-2024-field.png",
+        "sha256": "f4dbc4017fe1e9618de8c1fa5c4a1d01ee3b51bed28942ab4a7227a10dc5409d"
+      }
+    },
+    {
+      "season": 2024,
+      "event": "The RSM Classic",
+      "role": "final Fall / top125 era",
+      "monday_before_event": "2024-11-18",
+      "pdf_document_clock_raw": "D:20241121072604-05'00'",
+      "field_list_printed_clock": "Nov 20, 2024, 11:24 PM (timezone not printed)",
+      "field_count": 156,
+      "content_check": "Visually inspected rendered full single page. Alphabetic field list, alternates and sponsor/open-qualifier/section-champion/foreign entry markers only; no FedEx points/ranks or complete next-season exemptions. Printed field update is after the required Monday.",
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2024/pgatour/thersmclassic/updatedTournamentField/Current%20Field.pdf",
+      "file": "data/raw/golf-fall-source/rsm-2024-field.pdf",
+      "request_started_utc": "2026-09-15T01:07:44.938017+00:00",
+      "received_utc": "2026-09-15T01:07:47.348512+00:00",
+      "status": 200,
+      "bytes": 284444,
+      "sha256": "d8bcfd109a498f2d9f3c0cf337e28628ac38b45482d7b9140031cece38ce78bd",
+      "response_headers": {
+        "Date": "Tue, 15 Sep 2026 01:07:45 GMT",
+        "ETag": "\"03c3fd575a9d4d1eb1732e70c26456dcf\"",
+        "Content-Type": "application/pdf"
+      },
+      "complete_monday_points_rank_list": false,
+      "complete_next_season_exemption_ledger": false,
+      "monday_contemporaneous_availability_verified": false,
+      "visual_check": {
+        "renderer": "macOS PDFKit, full page on white background",
+        "file": "data/raw/golf-fall-source/rsm-2024-field.png",
+        "sha256": "3ab95b79586dd254a0f036271ab06c98dee0ce5a2ed8c0a375227fdae3bb5517"
+      }
+    },
+    {
+      "season": 2025,
+      "event": "Procore Championship",
+      "role": "early Fall / top100 era",
+      "monday_before_event": "2025-09-08",
+      "pdf_document_clock_raw": "D:20250905171011-04'00'",
+      "field_list_printed_clock": "Sep 5, 2025, 5:10 PM (timezone not printed in field-list heading)",
+      "field_count": 144,
+      "content_check": "Alphabetic field list plus alternates and entry-route markers. Friday list precedes Monday but does not include Monday changes. No FedEx points/ranks or complete next-season exemptions.",
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/procorechampionship/updatedTournamentField/Friday.pdf",
+      "file": "data/raw/golf-fall-source/procore-2025-field.pdf",
+      "request_started_utc": "2026-09-15T01:07:48.352457+00:00",
+      "received_utc": "2026-09-15T01:07:48.936816+00:00",
+      "status": 200,
+      "bytes": 4038,
+      "sha256": "a146e33249e0be56c791649018627c429d1415d8fa97b4c6a5bd0fc34534383e",
+      "response_headers": {
+        "Date": "Tue, 15 Sep 2026 01:07:49 GMT",
+        "ETag": "\"09efd2384f782b2286e2b28e672b4cd2d\"",
+        "Content-Type": "application/pdf"
+      },
+      "complete_monday_points_rank_list": false,
+      "complete_next_season_exemption_ledger": false,
+      "monday_contemporaneous_availability_verified": false
+    },
+    {
+      "season": 2025,
+      "event": "The RSM Classic",
+      "role": "final Fall / top100 era",
+      "monday_before_event": "2025-11-17",
+      "pdf_document_clock_raw": "D:20251118152635",
+      "field_list_printed_clock": "Nov 18, 2025, 3:24 PM (timezone not printed)",
+      "field_count": 156,
+      "content_check": "Alphabetic field list plus alternates and entry-route markers, updated Tuesday. No FedEx points/ranks or complete next-season exemptions.",
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/thersmclassic/updatedTournamentField/Current%20Field.pdf",
+      "file": "data/raw/golf-fall-source/rsm-2025-field.pdf",
+      "request_started_utc": "2026-09-15T01:07:49.944219+00:00",
+      "received_utc": "2026-09-15T01:07:50.381047+00:00",
+      "status": 200,
+      "bytes": 3913,
+      "sha256": "58bb948e37f7c767c973cadb32de8a032fcc825be327214ce14cd6a8aeb10605",
+      "response_headers": {
+        "Date": "Tue, 15 Sep 2026 01:07:50 GMT",
+        "ETag": "\"0af47d3b204efbf24b5681c611fd3c738\"",
+        "Content-Type": "application/pdf"
+      },
+      "complete_monday_points_rank_list": false,
+      "complete_next_season_exemption_ledger": false,
+      "monday_contemporaneous_availability_verified": false
+    }
+  ],
+  "web_inspected_primary_references": {
+    "2023_cutoff": "https://www.pgatour.com/article/news/latest/2023/04/12/pga-tour-announces-reimagined-2023-fedexcup-fall",
+    "2024_cutoff": "https://www.pgatour.com/article/news/latest/2023/08/07/pga-tour-announces-full-2024-fedexcup-schedule-calendar-including-eight-signature-events-playoffs",
+    "2025_early_notes": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/procorechampionship/preTournamentNotes/Pre-Tournament%20Notes.pdf",
+    "2025_eligibility_overview": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/procorechampionship/preTournamentNotes/Overview%20of%20eligibility%20changes%20for%202026.pdf",
+    "2025_final_pre_event_release": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/pressreleases/2025/11/11.17.25_2025_Season_Concludes.pdf",
+    "2023_final_partial_ranks": "https://www.pgatour.com/article/news/latest/2023/11/13/2022-2023-pga-tour-season-concludes-at-the-rsm-classic-whats-at-stake",
+    "2023_partial_exemptions": "https://www.pgatour.com/article/news/stats-report/2023/10/24/storylines-to-follow-fedexcup-fall-top-125-bubble-watch-signature-events-mackenzie-hughes-thomas-detry-keith-mitchell",
+    "2024_final_media_index": "https://pgatourmedia.pgatourhq.com/tours/2024/pgatour/thersmclassic",
+    "2025_final_media_index": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/thersmclassic",
+    "2024_early_media_index": "https://pgatourmedia.pgatourhq.com/tours/2024/pgatour/procore-championship",
+    "2025_early_media_index": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/procorechampionship"
+  },
+  "cutoff_rules": {
+    "2023_fall_for2024": 125,
+    "2024_fall_for2025": 125,
+    "2025_fall_for2026": 100,
+    "2026_fall_for2027_verified_in_this_task": false
+  },
+  "source_examples_not_cohort_labels": [
+    {
+      "event": "2025 Procore Championship",
+      "player": "Max Homa",
+      "entering_rank": 111,
+      "exempt_through": 2028,
+      "source": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/procorechampionship/preTournamentNotes/Pre-Tournament%20Notes.pdf",
+      "interpretation": "Would enter rank-only comparison band but is already exempt for2026."
+    },
+    {
+      "event": "2025 Procore Championship",
+      "player": "Patton Kizzire",
+      "entering_rank": 180,
+      "exempt_through": 2026,
+      "source": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/procorechampionship/preTournamentNotes/Pre-Tournament%20Notes.pdf",
+      "interpretation": "Confirms that low standings do not imply no next-season exemption; outside declared bands."
+    },
+    {
+      "event": "2023 RSM Classic",
+      "rank_range_reported_pre_event": [
+        121,
+        140
+      ],
+      "source": "https://www.pgatour.com/article/news/latest/2023/11/13/2022-2023-pga-tour-season-concludes-at-the-rsm-classic-whats-at-stake",
+      "interpretation": "Pre-event ranks for20 players are partial coverage, not cutoff\u00b130 with points and exemption history."
+    }
+  ],
+  "existing_field_api_schema_check": {
+    "file": "data/raw/golf-source-check/biltmore-field.json",
+    "sha256": "fad02a4b6f1e886a3408d03039052657e5a5595b2236f7b5f35da1ddf0a659bc",
+    "event": "R2026557 Biltmore2026 (already cached)",
+    "fields": [
+      "id",
+      "firstName",
+      "lastName",
+      "displayName",
+      "amateur",
+      "qualifier",
+      "alternate",
+      "withdrawn",
+      "status",
+      "owgr",
+      "rankingPoints"
+    ],
+    "limitations": "No FedExCup Fall points/ranks or dated next-season exemption categories in the collector-selected fields. Other API schemas were not probed in this bounded task. owgr/rankingPoints are not relabeled as FedExCup."
+  },
+  "required_missing_inputs": [
+    "Official Monday as-of full FedExCup Fall points and ranks, with stable player IDs, for every target event; 2023\u201324 ranks95\u2013155 and2025 ranks70\u2013130 need full coverage rather than selected-player articles.",
+    "Same-time complete next-season full-status exemptions by player: applicable multi-year wins/major/PLAYERS, prior top30 second year, elected/available career-money categories, life membership, PGA TOUR University/accelerated, earned DP World Tour/Korn Ferry Tour/Q-School routes and relevant medical-extension terms.",
+    "Effective start/expiry and utilization dates: a current-event entry category or a career-money rank alone does not establish status for the following season.",
+    "Monday field and change history with source clocks, stable player IDs, and explicit treatment of later withdrawals/entries; final standings and later field updates cannot be substituted.",
+    "A consistent policy for conditional/medical categories whose access differs from fully exempt status; ambiguity must remain unknown rather than assigned non-exempt."
+  ],
+  "decision": "Do not label remaining players non-exempt by subtracting only known winners. Do not calculateG6 until complete required exemptions/standings are retained. This bounded source result does not reject the mechanism or prove such archives do not exist."
+}

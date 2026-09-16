@@ -1,0 +1,79 @@
+{
+  "complete": true,
+  "source_only": true,
+  "outcomes_loaded": false,
+  "recorded_at_utc": "2026-09-15T03:08:59.689493Z",
+  "acquisition_summary": "reports/golf-weather-acquisition-2026-09-14.json",
+  "acquisition_summary_sha256": "b6048331010c1b03dd0f30ca9474f7520651f98cbf3b8e03cc932221b9f1bda3",
+  "hashes": {
+    "plan": "bfcdb5bb03765e0f6afbe74165157fff6af94b568882210c668a015e2c75c172",
+    "rounds": "adf4e4dc71105469649ed4f8a30ac887563c3f3d9fccfa973dfcaac3477e1100",
+    "hours": "31aac322017b32dbbd1696a0122e3470d94265cbc9a409aa62c8d6dd1d6381db",
+    "inventory": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2",
+    "venues": "02150c6cc0249b7a0b003a8e80efafe846f84d05faeeaac9d71fc58da5e44dfe",
+    "declaration": "c29f1cf95910caf34f061cfb83512e5008340631d220f9836d58d52e91e5a3aa",
+    "transport_recovery_policy": "3132b12011382d254b93289caf4670237a8e33df1c768547e09bdee368262262",
+    "acquirer_code": "0c2f5d978a4cce5d90e67c54b951db254ddb6f85881d24e6f1006384ee452412"
+  },
+  "events": 40,
+  "rounds": 80,
+  "successful_event_hours": 1027,
+  "failed_event_hours": 0,
+  "classified_rounds": 76,
+  "unclassified_rounds": [
+    {
+      "pga_id": "R2025524",
+      "round": 1,
+      "reason": "missing_venue"
+    },
+    {
+      "pga_id": "R2025524",
+      "round": 2,
+      "reason": "missing_venue"
+    },
+    {
+      "pga_id": "R2025457",
+      "round": 1,
+      "reason": "missing_venue"
+    },
+    {
+      "pga_id": "R2025457",
+      "round": 2,
+      "reason": "missing_venue"
+    }
+  ],
+  "unique_successful_forecast_objects": 940,
+  "unique_successful_indices": 940,
+  "clock_counts_unit": "successful event-hour uses; shared objects counted separately for each event cutoff",
+  "clock_counts": {
+    "object_equal_cutoff": 0,
+    "object_after_cutoff": 0,
+    "index_equal_cutoff": 0,
+    "index_after_cutoff": 0,
+    "index_missing": 0,
+    "index_invalid": 0
+  },
+  "clock_examples": {},
+  "minimum_object_seconds_before_cutoff": 48201.0,
+  "minimum_index_seconds_before_cutoff": 48173.0,
+  "all_retained_body_hashes_verified": true,
+  "all_recovery_original_metadata_hashes_verified": true,
+  "retained_network_attempts": 1882,
+  "retained_network_bytes": 1838505980,
+  "http_status_counts": {
+    "206": 941,
+    "200": 940,
+    "None": 1
+  },
+  "retained_failure_counts": {
+    "network_error:BrokenPipeError": 1,
+    "network_error:RemoteDisconnected": 1
+  },
+  "transport_recoveries": 2,
+  "notes": [
+    "Object LastModified equality audited separately because current acquisition rejects only times strictly after the cutoff.",
+    "Index clocks are recorded metadata and did not change the declared forecast-object eligibility gate.",
+    "S3 LastModified metadata does not independently prove historical public availability.",
+    "All 40 declared events remain; unresolved venue coordinates are intentional missing inputs, not pending acquisition."
+  ]
+}

@@ -1,0 +1,2067 @@
+{
+  "as_of_local_date": "2026-09-14",
+  "scope": "Identity/group acquisition only; no weather classification, player score joins or outcome comparison.",
+  "cohort": "2025 official PGA individual single-course medal events, rounds 1\u20132; TOUR Championship included under its unadjusted 2025 format.",
+  "sources": [
+    {
+      "file": "data/raw/golf-weather-source/schedule-2025.html",
+      "sha256": "231ba0097e38ce159410d9fa0a169cb08cb18443db8d153166ec6a1e57a5ec10"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2025.json",
+      "sha256": "8a7a69cec1cd431e2c0b082820fe0af6fc2f461de287154913b2ba02ae787a45"
+    }
+  ],
+  "events": [
+    {
+      "espn_id": "401703489",
+      "pga_id": "R2025016",
+      "name": "The Sentry",
+      "start_date": "2025-01-02",
+      "official_name": "The Sentry",
+      "venue": {
+        "name": "Plantation Course at Kapalua",
+        "city": "Kapalua, Maui",
+        "stateCode": "HI",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "Pacific/Honolulu",
+      "courses": [
+        {
+          "id": "656",
+          "courseName": "Plantation Course at Kapalua",
+          "courseCode": "PC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 20,
+          "players": 59,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "656"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 20,
+          "players": 59,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "656"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025016-teetimes.json",
+        "sha256": "c0eda3c96340d271c4d35a8865989ec0557bdbc52e76aac5d1644e7ac9cedb5e"
+      }
+    },
+    {
+      "espn_id": "401703490",
+      "pga_id": "R2025006",
+      "name": "Sony Open in Hawaii",
+      "start_date": "2025-01-09",
+      "official_name": "Sony Open in Hawaii",
+      "venue": {
+        "name": "Waialae Country Club",
+        "city": "Honolulu",
+        "stateCode": "HI",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "Pacific/Honolulu",
+      "courses": [
+        {
+          "id": "006",
+          "courseName": "Waialae Country Club",
+          "courseCode": "WC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 48,
+          "players": 143,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "006"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 48,
+          "players": 141,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "006"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025006-teetimes.json",
+        "sha256": "791b0885ba4cd4440f54da5deab027ed26320dfa0fbeb108d523f92f0963d3de"
+      }
+    },
+    {
+      "espn_id": "401703494",
+      "pga_id": "R2025003",
+      "name": "WM Phoenix Open",
+      "start_date": "2025-02-06",
+      "official_name": "WM Phoenix Open",
+      "venue": {
+        "name": "TPC Scottsdale (Stadium Course)",
+        "city": "Scottsdale",
+        "stateCode": "AZ",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Phoenix",
+      "courses": [
+        {
+          "id": "510",
+          "courseName": "TPC Scottsdale (Stadium Course)",
+          "courseCode": "TS",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "510"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 44,
+          "players": 131,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "510"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025003-teetimes.json",
+        "sha256": "387c710af34412ca9b969cc697515d9f9402bd73292f0fe6ada210fc1413fe7f"
+      }
+    },
+    {
+      "espn_id": "401703495",
+      "pga_id": "R2025007",
+      "name": "The Genesis Invitational",
+      "start_date": "2025-02-13",
+      "official_name": "The Genesis Invitational",
+      "venue": {
+        "name": "Torrey Pines Golf Course (South Course)",
+        "city": "San Diego",
+        "stateCode": "CA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Los_Angeles",
+      "courses": [
+        {
+          "id": "939",
+          "courseName": "Torrey Pines Golf Course (South Course)",
+          "courseCode": "SC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 24,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "939"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 24,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "939"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025007-teetimes.json",
+        "sha256": "99ac67688a5d7c6c0ac5757cd0cb7bd0c13dff8d10a9cf72a89ebaedcf2f12ee"
+      }
+    },
+    {
+      "espn_id": "401703496",
+      "pga_id": "R2025540",
+      "name": "Mexico Open at VidantaWorld",
+      "start_date": "2025-02-20",
+      "official_name": "Mexico Open at VidantaWorld",
+      "venue": {
+        "name": "Vidanta Vallarta",
+        "city": "Vallarta",
+        "stateCode": "",
+        "country": "Mexico",
+        "countryCode": "MEX"
+      },
+      "timezone": "America/Chicago",
+      "courses": [
+        {
+          "id": "978",
+          "courseName": "Vidanta Vallarta",
+          "courseCode": "VV",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "978"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "978"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025540-teetimes.json",
+        "sha256": "71a065fef996112b69f3bc5b10869dddca386e80128370807e7b24db05dc69ee"
+      }
+    },
+    {
+      "espn_id": "401703497",
+      "pga_id": "R2025010",
+      "name": "Cognizant Classic in The Palm Beaches",
+      "start_date": "2025-02-27",
+      "official_name": "Cognizant Classic in The Palm Beaches",
+      "venue": {
+        "name": "PGA National Resort (The Champion Course)",
+        "city": "Palm Beach Gardens",
+        "stateCode": "FL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "928",
+          "courseName": "PGA National Resort (The Champion Course)",
+          "courseCode": "CC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 48,
+          "players": 144,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "928"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 48,
+          "players": 144,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "928"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025010-teetimes.json",
+        "sha256": "55cda092f41b88215536c07df7626522dc522f5f7a31813651d69f167787d595"
+      }
+    },
+    {
+      "espn_id": "401703498",
+      "pga_id": "R2025009",
+      "name": "Arnold Palmer Invitational pres. by Mastercard",
+      "start_date": "2025-03-06",
+      "official_name": "Arnold Palmer Invitational presented by Mastercard",
+      "venue": {
+        "name": "Arnold Palmer's Bay Hill Club & Lodge",
+        "city": "Orlando",
+        "stateCode": "FL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "009",
+          "courseName": "Arnold Palmer's Bay Hill Club & Lodge",
+          "courseCode": "BH",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 36,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "009"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 36,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "009"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025009-teetimes.json",
+        "sha256": "079c525e4e1dce51517fd66f5aa906da5a48759043a08feb8054e4d2e50f1382"
+      }
+    },
+    {
+      "espn_id": "401703499",
+      "pga_id": "R2025483",
+      "name": "Puerto Rico Open",
+      "start_date": "2025-03-06",
+      "official_name": "Puerto Rico Open",
+      "venue": {
+        "name": "Grand Reserve Golf Club",
+        "city": "Rio Grande",
+        "stateCode": "",
+        "country": "Puerto Rico",
+        "countryCode": "PUR"
+      },
+      "timezone": "America/Puerto_Rico",
+      "courses": [
+        {
+          "id": "940",
+          "courseName": "Grand Reserve Golf Club",
+          "courseCode": "GR",
+          "hostCourse": true,
+          "scoringLevel": "STATS"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "940"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "940"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025483-teetimes.json",
+        "sha256": "df3d3c0e80be0a90ea733bb2e3b05da397f008625db1fd04d8ce3c15610752a0"
+      }
+    },
+    {
+      "espn_id": "401703500",
+      "pga_id": "R2025011",
+      "name": "THE PLAYERS Championship",
+      "start_date": "2025-03-13",
+      "official_name": "THE PLAYERS Championship",
+      "venue": {
+        "name": "TPC Sawgrass (THE PLAYERS Stadium Course)",
+        "city": "Ponte Vedra Beach",
+        "stateCode": "FL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "011",
+          "courseName": "TPC Sawgrass (THE PLAYERS Stadium Course)",
+          "courseCode": "SA",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 48,
+          "players": 144,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "011"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 48,
+          "players": 144,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "011"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025011-teetimes.json",
+        "sha256": "c59c16a35f558d631b63168fa0134f9d2524783b9f06b610e9f43f0d98c64df8"
+      }
+    },
+    {
+      "espn_id": "401703501",
+      "pga_id": "R2025475",
+      "name": "Valspar Championship",
+      "start_date": "2025-03-20",
+      "official_name": "Valspar Championship",
+      "venue": {
+        "name": "Innisbrook Resort (Copperhead Course)",
+        "city": "Palm Harbor",
+        "stateCode": "FL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "665",
+          "courseName": "Innisbrook Resort (Copperhead Course)",
+          "courseCode": "WI",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 154,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "665"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 152,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "665"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025475-teetimes.json",
+        "sha256": "0713160f0a0169b2ae33d77d283c157bf09ff9b006c259029058fb41436fab6f"
+      }
+    },
+    {
+      "espn_id": "401703502",
+      "pga_id": "R2025020",
+      "name": "Texas Children's Houston Open",
+      "start_date": "2025-03-27",
+      "official_name": "Texas Children's Houston Open",
+      "venue": {
+        "name": "Memorial Park Golf Course",
+        "city": "Houston",
+        "stateCode": "TX",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Chicago",
+      "courses": [
+        {
+          "id": "897",
+          "courseName": "Memorial Park Golf Course",
+          "courseCode": "MP",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 153,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "897"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 152,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "897"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025020-teetimes.json",
+        "sha256": "8428c6a41be609ae3087ed0cf4cf59d12a238f62ead1daeebf456d711743c341"
+      }
+    },
+    {
+      "espn_id": "401703503",
+      "pga_id": "R2025041",
+      "name": "Valero Texas Open",
+      "start_date": "2025-04-03",
+      "official_name": "Valero Texas Open",
+      "venue": {
+        "name": "TPC San Antonio (Oaks Course)",
+        "city": "San Antonio",
+        "stateCode": "TX",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Chicago",
+      "courses": [
+        {
+          "id": "770",
+          "courseName": "TPC San Antonio (Oaks Course)",
+          "courseCode": "SA",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 49,
+          "players": 144,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "770"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 49,
+          "players": 144,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "770"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025041-teetimes.json",
+        "sha256": "fb9e5968073847bcbcf161d31a491d7a8bfd6ecbfe03b1eca6b5a484cd0364a1"
+      }
+    },
+    {
+      "espn_id": "401703504",
+      "pga_id": "R2025014",
+      "name": "Masters Tournament",
+      "start_date": "2025-04-10",
+      "official_name": "Masters Tournament",
+      "venue": {
+        "name": "Augusta National Golf Club",
+        "city": "Augusta",
+        "stateCode": "GA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "014",
+          "courseName": "Augusta National Golf Club",
+          "courseCode": "AN",
+          "hostCourse": true,
+          "scoringLevel": "BASIC"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 32,
+          "players": 95,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "014"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 32,
+          "players": 95,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "014"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025014-teetimes.json",
+        "sha256": "556aa9ba60953db1e03542feb7294834a1554610b89c15d53c8877689d0056ad"
+      }
+    },
+    {
+      "espn_id": "401703505",
+      "pga_id": "R2025012",
+      "name": "RBC Heritage",
+      "start_date": "2025-04-17",
+      "official_name": "RBC Heritage",
+      "venue": {
+        "name": "Harbour Town Golf Links",
+        "city": "Hilton Head Island",
+        "stateCode": "SC",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "012",
+          "courseName": "Harbour Town Golf Links",
+          "courseCode": "HT",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 36,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "012"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 36,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "012"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025012-teetimes.json",
+        "sha256": "64b039926fd7fcda20df646ab47ed31c7a90d65bed7c3c087bc2138ef783511c"
+      }
+    },
+    {
+      "espn_id": "401703506",
+      "pga_id": "R2025522",
+      "name": "Corales Puntacana Championship",
+      "start_date": "2025-04-17",
+      "official_name": "Corales Puntacana Championship",
+      "venue": {
+        "name": "Puntacana Resort & Club (Corales Golf Course)",
+        "city": "Punta Cana",
+        "stateCode": "",
+        "country": "Dominican Republic",
+        "countryCode": "DOM"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "244",
+          "courseName": "Puntacana Resort & Club (Corales Golf Course)",
+          "courseCode": "CR",
+          "hostCourse": true,
+          "scoringLevel": "STATS"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "244"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 44,
+          "players": 131,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "244"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025522-teetimes.json",
+        "sha256": "8c5b81d51308f39a7d38c1e56f170e5b4feb9e0dd4aae986351bad530ef1c752"
+      }
+    },
+    {
+      "espn_id": "401703508",
+      "pga_id": "R2025019",
+      "name": "THE CJ CUP Byron Nelson",
+      "start_date": "2025-05-01",
+      "official_name": "THE CJ CUP Byron Nelson",
+      "venue": {
+        "name": "TPC Craig Ranch",
+        "city": "McKinney",
+        "stateCode": "TX",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Chicago",
+      "courses": [
+        {
+          "id": "921",
+          "courseName": "TPC Craig Ranch",
+          "courseCode": "CR",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "921"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "921"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025019-teetimes.json",
+        "sha256": "d20007a9e2ba3c2f1ef1c496b30b3acb74c43b1cd6b5b2b25e06e7d722fe1d41"
+      }
+    },
+    {
+      "espn_id": "401703509",
+      "pga_id": "R2025480",
+      "name": "Truist Championship",
+      "start_date": "2025-05-08",
+      "official_name": "Truist Championship",
+      "venue": {
+        "name": "The Philadelphia Cricket Club (Wissahickon Course)",
+        "city": "Flourtown",
+        "stateCode": "PA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "379",
+          "courseName": "The Philadelphia Cricket Club (Wissahickon Course)",
+          "courseCode": "PC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 24,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "379"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 24,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "379"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025480-teetimes.json",
+        "sha256": "1c200c15dc64fd759fd776134c79365171cd4156da865fc3f5c1a43df5df1f87"
+      }
+    },
+    {
+      "espn_id": "401703510",
+      "pga_id": "R2025553",
+      "name": "ONEflight Myrtle Beach Classic",
+      "start_date": "2025-05-08",
+      "official_name": "ONEflight Myrtle Beach Classic",
+      "venue": {
+        "name": "Dunes Golf and Beach Club",
+        "city": "Myrtle Beach",
+        "stateCode": "SC",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "925",
+          "courseName": "Dunes Golf and Beach Club",
+          "courseCode": "DG",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "925"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "925"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025553-teetimes.json",
+        "sha256": "208c00111bc3ead458392b82a2c0de8523ee1534fa730ee5b8bd2302f7ffef30"
+      }
+    },
+    {
+      "espn_id": "401703511",
+      "pga_id": "R2025033",
+      "name": "PGA Championship",
+      "start_date": "2025-05-15",
+      "official_name": "PGA Championship",
+      "venue": {
+        "name": "Quail Hollow Club",
+        "city": "Charlotte",
+        "stateCode": "NC",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "241",
+          "courseName": "Quail Hollow Club",
+          "courseCode": "QH",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "241"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "241"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025033-teetimes.json",
+        "sha256": "e95715f6f42392f0a06ed6351d9b6080602d61faee19edd4b698812d3f89393e"
+      }
+    },
+    {
+      "espn_id": "401703512",
+      "pga_id": "R2025021",
+      "name": "Charles Schwab Challenge",
+      "start_date": "2025-05-22",
+      "official_name": "Charles Schwab Challenge",
+      "venue": {
+        "name": "Colonial Country Club",
+        "city": "Fort Worth",
+        "stateCode": "TX",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Chicago",
+      "courses": [
+        {
+          "id": "021",
+          "courseName": "Colonial Country Club",
+          "courseCode": "CC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 45,
+          "players": 135,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "021"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 45,
+          "players": 134,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "021"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025021-teetimes.json",
+        "sha256": "df79900ec1de5f2be6db06ef8daf45019f472ececf6bccc9e9a3fb08c6f1b67e"
+      }
+    },
+    {
+      "espn_id": "401703513",
+      "pga_id": "R2025023",
+      "name": "the Memorial Tournament pres. by Workday",
+      "start_date": "2025-05-29",
+      "official_name": "the Memorial Tournament presented by Workday",
+      "venue": {
+        "name": "Muirfield Village Golf Club",
+        "city": "Dublin",
+        "stateCode": "OH",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "023",
+          "courseName": "Muirfield Village Golf Club",
+          "courseCode": "MV",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 36,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "023"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 36,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "023"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025023-teetimes.json",
+        "sha256": "4b6a0c648f3724b0f9f56282dcb1a47d582b4a76d6bb3643f7f3d604da621761"
+      }
+    },
+    {
+      "espn_id": "401703514",
+      "pga_id": "R2025032",
+      "name": "RBC Canadian Open",
+      "start_date": "2025-06-05",
+      "official_name": "RBC Canadian Open",
+      "venue": {
+        "name": "TPC Toronto at Osprey Valley (North Course)",
+        "city": "Caledon, Ontario",
+        "stateCode": "",
+        "country": "Canada",
+        "countryCode": "CAN"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "935",
+          "courseName": "TPC Toronto at Osprey Valley (North Course)",
+          "courseCode": "OV",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "935"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 154,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "935"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025032-teetimes.json",
+        "sha256": "d1dfa782d78efca706cad4e257f457e13b66d041b5ea9159ecfe8a59e98961cc"
+      }
+    },
+    {
+      "espn_id": "401703515",
+      "pga_id": "R2025026",
+      "name": "U.S. Open",
+      "start_date": "2025-06-12",
+      "official_name": "U.S. Open",
+      "venue": {
+        "name": "Oakmont Country Club",
+        "city": "Oakmont",
+        "stateCode": "PA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "608",
+          "courseName": "Oakmont Country Club",
+          "courseCode": "OC",
+          "hostCourse": true,
+          "scoringLevel": "BASIC"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "608"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "608"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025026-teetimes.json",
+        "sha256": "c22fabfa00dfc4f30a3a96ef5a1be8ce4047297df0730dd15878b72ce96e93e0"
+      }
+    },
+    {
+      "espn_id": "401703516",
+      "pga_id": "R2025034",
+      "name": "Travelers Championship",
+      "start_date": "2025-06-19",
+      "official_name": "Travelers Championship",
+      "venue": {
+        "name": "TPC River Highlands",
+        "city": "Cromwell",
+        "stateCode": "CT",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "503",
+          "courseName": "TPC River Highlands",
+          "courseCode": "TR",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 36,
+          "players": 72,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "503"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 36,
+          "players": 71,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "503"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025034-teetimes.json",
+        "sha256": "7d7858e804e8437a7c30241e34c014ed2aeac144f279844841d08b1a2191eea9"
+      }
+    },
+    {
+      "espn_id": "401703517",
+      "pga_id": "R2025524",
+      "name": "Rocket Classic",
+      "start_date": "2025-06-26",
+      "official_name": "Rocket Classic",
+      "venue": {
+        "name": "Detroit Golf Club",
+        "city": "Detroit",
+        "stateCode": "MI",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "876",
+          "courseName": "Detroit Golf Club",
+          "courseCode": "DG",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "876"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "876"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025524-teetimes.json",
+        "sha256": "75b7f4a322261dd7990cbdc35f0a7981bd3fbd7445b01a0359fbb13519ee6e49"
+      }
+    },
+    {
+      "espn_id": "401703518",
+      "pga_id": "R2025030",
+      "name": "John Deere Classic",
+      "start_date": "2025-07-03",
+      "official_name": "John Deere Classic",
+      "venue": {
+        "name": "TPC Deere Run",
+        "city": "Silvis",
+        "stateCode": "IL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Chicago",
+      "courses": [
+        {
+          "id": "669",
+          "courseName": "TPC Deere Run",
+          "courseCode": "DR",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "669"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 154,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "669"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025030-teetimes.json",
+        "sha256": "0ba7f1f1773b508c90359196512eac822d271d53d1ed7642921a34b2eb95f080"
+      }
+    },
+    {
+      "espn_id": "401703519",
+      "pga_id": "R2025541",
+      "name": "Genesis Scottish Open",
+      "start_date": "2025-07-10",
+      "official_name": "Genesis Scottish Open",
+      "venue": {
+        "name": "The Renaissance Club",
+        "city": "North Berwick",
+        "stateCode": "",
+        "country": "Scotland",
+        "countryCode": "SCO"
+      },
+      "timezone": "Europe/London",
+      "courses": [
+        {
+          "id": "977",
+          "courseName": "The Renaissance Club",
+          "courseCode": "RC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "977"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "977"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025541-teetimes.json",
+        "sha256": "3940bdddc455ecf990570a8cc8ce719fa2257c03870854ba496a8115d1f54966"
+      }
+    },
+    {
+      "espn_id": "401703520",
+      "pga_id": "R2025518",
+      "name": "ISCO Championship",
+      "start_date": "2025-07-10",
+      "official_name": "ISCO Championship",
+      "venue": {
+        "name": "Hurstbourne Country Club",
+        "city": "Louisville",
+        "stateCode": "KY",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "934",
+          "courseName": "Hurstbourne Country Club",
+          "courseCode": "HB",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "934"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "934"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025518-teetimes.json",
+        "sha256": "464914588efdc88e1a041066dca173e516b955f9dbb3425bbb13a325c4137339"
+      }
+    },
+    {
+      "espn_id": "401703521",
+      "pga_id": "R2025100",
+      "name": "The Open",
+      "start_date": "2025-07-17",
+      "official_name": "The Open Championship",
+      "venue": {
+        "name": "Royal Portrush Golf Club",
+        "city": "Portrush",
+        "stateCode": "",
+        "country": "Northern Ireland",
+        "countryCode": "NIR"
+      },
+      "timezone": "Europe/London",
+      "courses": [
+        {
+          "id": "885",
+          "courseName": "Royal Portrush Golf Club",
+          "courseCode": "RP",
+          "hostCourse": true,
+          "scoringLevel": "BASIC"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "885"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "885"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025100-teetimes.json",
+        "sha256": "b0b7c88da6c242bc6614d907b8a38e19ac78f741697552b5e6504a35335ad9f8"
+      }
+    },
+    {
+      "espn_id": "401703523",
+      "pga_id": "R2025525",
+      "name": "3M Open",
+      "start_date": "2025-07-24",
+      "official_name": "3M Open",
+      "venue": {
+        "name": "TPC Twin Cities",
+        "city": "Blaine",
+        "stateCode": "MN",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Chicago",
+      "courses": [
+        {
+          "id": "883",
+          "courseName": "TPC Twin Cities",
+          "courseCode": "TC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "883"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 155,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "883"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025525-teetimes.json",
+        "sha256": "f7bb1fb56b2fb5280a25bcd08ac49a607e812ef127f81c1f49a4a256e41de9af"
+      }
+    },
+    {
+      "espn_id": "401703524",
+      "pga_id": "R2025013",
+      "name": "Wyndham Championship",
+      "start_date": "2025-07-31",
+      "official_name": "Wyndham Championship",
+      "venue": {
+        "name": "Sedgefield Country Club",
+        "city": "Greensboro",
+        "stateCode": "NC",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "752",
+          "courseName": "Sedgefield Country Club",
+          "courseCode": "SF",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 52,
+          "players": 156,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "752"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 52,
+          "players": 154,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "752"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025013-teetimes.json",
+        "sha256": "50cc8c95e66bda6ea168d6130e50a8246e69b00ed530cc0486eb07a71d10a05d"
+      }
+    },
+    {
+      "espn_id": "401703525",
+      "pga_id": "R2025027",
+      "name": "FedEx St. Jude Championship",
+      "start_date": "2025-08-07",
+      "official_name": "FedEx St. Jude Championship",
+      "venue": {
+        "name": "TPC Southwind",
+        "city": "Memphis",
+        "stateCode": "TN",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Chicago",
+      "courses": [
+        {
+          "id": "513",
+          "courseName": "TPC Southwind",
+          "courseCode": "SW",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 35,
+          "players": 69,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "513"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 35,
+          "players": 69,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "513"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025027-teetimes.json",
+        "sha256": "699fd893ddff4c44be230757b6013c6a9577bd4e2c234cf5a3298580494224fe"
+      }
+    },
+    {
+      "espn_id": "401703530",
+      "pga_id": "R2025028",
+      "name": "BMW Championship",
+      "start_date": "2025-08-14",
+      "official_name": "BMW Championship",
+      "venue": {
+        "name": "Caves Valley Golf Club",
+        "city": "Owings Mills",
+        "stateCode": "MD",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "882",
+          "courseName": "Caves Valley Golf Club",
+          "courseCode": "CV",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 25,
+          "players": 49,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "882"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 25,
+          "players": 49,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "882"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025028-teetimes.json",
+        "sha256": "dadfbf7ba4d0292352d9df73f0a762f825ab2115404c04472e28494752a065d8"
+      }
+    },
+    {
+      "espn_id": "401703531",
+      "pga_id": "R2025060",
+      "name": "TOUR Championship",
+      "start_date": "2025-08-21",
+      "official_name": "TOUR Championship",
+      "venue": {
+        "name": "East Lake Golf Club",
+        "city": "Atlanta",
+        "stateCode": "GA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/New_York",
+      "courses": [
+        {
+          "id": "688",
+          "courseName": "East Lake Golf Club",
+          "courseCode": "EL",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 15,
+          "players": 30,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "688"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 15,
+          "players": 30,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "688"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025060-teetimes.json",
+        "sha256": "0f69445fc6720814491cd5cc478e7563950a4264115ffa37577d4499817cc7d7"
+      }
+    },
+    {
+      "espn_id": "401738553",
+      "pga_id": "R2025464",
+      "name": "Procore Championship",
+      "start_date": "2025-09-11",
+      "official_name": "Procore Championship",
+      "venue": {
+        "name": "Silverado Resort (North Course)",
+        "city": "Napa",
+        "stateCode": "CA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Los_Angeles",
+      "courses": [
+        {
+          "id": "926",
+          "courseName": "Silverado Resort (North Course)",
+          "courseCode": "SC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 48,
+          "players": 144,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "926"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 48,
+          "players": 144,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "926"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025464-teetimes.json",
+        "sha256": "33d1bef92a2e92286bc596ad96e453fabaa0ccaaf1b829c37dde615a1c375373"
+      }
+    },
+    {
+      "espn_id": "401738554",
+      "pga_id": "R2025054",
+      "name": "Sanderson Farms Championship",
+      "start_date": "2025-10-02",
+      "official_name": "Sanderson Farms Championship",
+      "venue": {
+        "name": "The Country Club of Jackson",
+        "city": "Jackson",
+        "stateCode": "MS",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Chicago",
+      "courses": [
+        {
+          "id": "746",
+          "courseName": "The Country Club of Jackson",
+          "courseCode": "CJ",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "746"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "746"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025054-teetimes.json",
+        "sha256": "77c0718fa429b4be560aef538017dc643b4fa738fb7d0d5e8661b19d24ab40a1"
+      }
+    },
+    {
+      "espn_id": "401738555",
+      "pga_id": "R2025527",
+      "name": "Baycurrent Classic",
+      "start_date": "2025-10-09",
+      "official_name": "Baycurrent Classic",
+      "venue": {
+        "name": "Yokohama Country Club (West Course)",
+        "city": "Yokohama",
+        "stateCode": "",
+        "country": "Japan",
+        "countryCode": "JPN"
+      },
+      "timezone": "Asia/Tokyo",
+      "courses": [
+        {
+          "id": "936",
+          "courseName": "Yokohama Country Club (West Course)",
+          "courseCode": "YH",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 26,
+          "players": 78,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "936"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 26,
+          "players": 78,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "936"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025527-teetimes.json",
+        "sha256": "eb37b81650398f97c8c3d69e95b14a5397e0b3a44688396b8576ba5c7dc2c54e"
+      }
+    },
+    {
+      "espn_id": "401738556",
+      "pga_id": "R2025554",
+      "name": "Bank of Utah Championship",
+      "start_date": "2025-10-23",
+      "official_name": "Bank of Utah Championship",
+      "venue": {
+        "name": "Black Desert Resort",
+        "city": "Ivins",
+        "stateCode": "UT",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "timezone": "America/Denver",
+      "courses": [
+        {
+          "id": "930",
+          "courseName": "Black Desert Resort",
+          "courseCode": "BD",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 44,
+          "players": 132,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "930"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 44,
+          "players": 129,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "930"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025554-teetimes.json",
+        "sha256": "e9d29d264c7bcfc914984da53eb68683a65c77123b8484753373dc1f41c66b89"
+      }
+    },
+    {
+      "espn_id": "401738557",
+      "pga_id": "R2025457",
+      "name": "World Wide Technology Championship",
+      "start_date": "2025-11-06",
+      "official_name": "World Wide Technology Championship",
+      "venue": {
+        "name": "El Cardonal at Diamante",
+        "city": "Los Cabos",
+        "stateCode": "",
+        "country": "Mexico",
+        "countryCode": "MEX"
+      },
+      "timezone": "America/Phoenix",
+      "courses": [
+        {
+          "id": "919",
+          "courseName": "El Cardonal at Diamante",
+          "courseCode": "CD",
+          "hostCourse": true,
+          "scoringLevel": "STATS"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 40,
+          "players": 120,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "919"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 40,
+          "players": 120,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "919"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025457-teetimes.json",
+        "sha256": "e2fac36c08c518120e24fed11545740f7080691a762bb5c30973dd458353a50c"
+      }
+    },
+    {
+      "espn_id": "401738558",
+      "pga_id": "R2025528",
+      "name": "Butterfield Bermuda Championship",
+      "start_date": "2025-11-13",
+      "official_name": "Butterfield Bermuda Championship",
+      "venue": {
+        "name": "Port Royal Golf Course",
+        "city": "Southampton",
+        "stateCode": "",
+        "country": "Bermuda",
+        "countryCode": "BER"
+      },
+      "timezone": "Atlantic/Bermuda",
+      "courses": [
+        {
+          "id": "765",
+          "courseName": "Port Royal Golf Course",
+          "courseCode": "PR",
+          "hostCourse": true,
+          "scoringLevel": "STATS"
+        }
+      ],
+      "format_type": "STROKE_PLAY",
+      "rounds": [
+        {
+          "round": 1,
+          "groups": 40,
+          "players": 120,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "765"
+          ]
+        },
+        {
+          "round": 2,
+          "groups": 40,
+          "players": 119,
+          "missing_tee_time": 0,
+          "course_ids": [
+            "765"
+          ]
+        }
+      ],
+      "group_source_status": "present",
+      "source": {
+        "file": "data/raw/golf-weather-groups/R2025528-teetimes.json",
+        "sha256": "d91c0b016de2cb05c5bf74e9555a3f76bf4094d849eb6caa89102594ec9aea82"
+      }
+    }
+  ],
+  "excluded": [
+    {
+      "espn_id": "401703491",
+      "name": "The American Express",
+      "reason": "multiple courses"
+    },
+    {
+      "espn_id": "401703492",
+      "name": "Farmers Insurance Open",
+      "reason": "multiple courses"
+    },
+    {
+      "espn_id": "401703493",
+      "name": "AT&T Pebble Beach Pro-Am",
+      "reason": "multiple courses"
+    },
+    {
+      "espn_id": "401703507",
+      "name": "Zurich Classic of New Orleans",
+      "reason": "team competition"
+    },
+    {
+      "espn_id": "401703522",
+      "name": "Barracuda Championship",
+      "reason": "modified Stableford"
+    },
+    {
+      "espn_id": "401734110",
+      "name": "Ryder Cup",
+      "reason": "team match play"
+    },
+    {
+      "espn_id": "401738559",
+      "name": "The RSM Classic",
+      "reason": "multiple courses"
+    },
+    {
+      "espn_id": "401738560",
+      "name": "Hero World Challenge",
+      "reason": "unofficial event"
+    },
+    {
+      "espn_id": "401833647",
+      "name": "PGA TOUR Q-School presented by Korn Ferry",
+      "reason": "qualifying / multiple courses"
+    }
+  ],
+  "event_count": 40,
+  "events_with_r1_r2": 40,
+  "groups_r1_r2": 3390
+}

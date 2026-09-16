@@ -1,0 +1,1538 @@
+{
+  "as_of": "2026-09-14",
+  "history_years": [
+    2024,
+    2025
+  ],
+  "primary_screen_year": 2025,
+  "source": "ESPN public season scoreboards and event leaderboard HTML",
+  "scope": "2025 exploratory outcomes with 2024 warmup; not the planned full 2015\u20132025 archive or the separate fixed 2025 Sunday-variance card",
+  "event_inventory": [
+    {
+      "id": "401580329",
+      "name": "The Sentry",
+      "date": "2024-01-04",
+      "players": 59,
+      "html_status_rows": 59
+    },
+    {
+      "id": "401580330",
+      "name": "Sony Open in Hawaii",
+      "date": "2024-01-11",
+      "players": 144,
+      "html_status_rows": 144
+    },
+    {
+      "id": "401580331",
+      "name": "The American Express",
+      "excluded": "multiple courses"
+    },
+    {
+      "id": "401580332",
+      "name": "Farmers Insurance Open",
+      "excluded": "multiple courses"
+    },
+    {
+      "id": "401580333",
+      "name": "AT&T Pebble Beach Pro-Am",
+      "excluded": "multiple courses"
+    },
+    {
+      "id": "401580334",
+      "name": "WM Phoenix Open",
+      "date": "2024-02-08",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401580335",
+      "name": "The Genesis Invitational",
+      "date": "2024-02-15",
+      "players": 70,
+      "html_status_rows": 70
+    },
+    {
+      "id": "401580336",
+      "name": "Mexico Open at Vidanta",
+      "date": "2024-02-22",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401580337",
+      "name": "Cognizant Classic",
+      "date": "2024-02-29",
+      "players": 144,
+      "html_status_rows": 144
+    },
+    {
+      "id": "401580338",
+      "name": "Arnold Palmer Invitational pres. by Mastercard",
+      "date": "2024-03-07",
+      "players": 69,
+      "html_status_rows": 69
+    },
+    {
+      "id": "401580339",
+      "name": "Puerto Rico Open",
+      "date": "2024-03-07",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401580340",
+      "name": "THE PLAYERS Championship",
+      "date": "2024-03-14",
+      "players": 144,
+      "html_status_rows": 144
+    },
+    {
+      "id": "401580341",
+      "name": "Valspar Championship",
+      "date": "2024-03-21",
+      "players": 152,
+      "html_status_rows": 152
+    },
+    {
+      "id": "401580342",
+      "name": "Texas Children's Houston Open",
+      "date": "2024-03-28",
+      "players": 144,
+      "html_status_rows": 144
+    },
+    {
+      "id": "401580343",
+      "name": "Valero Texas Open",
+      "date": "2024-04-04",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580344",
+      "name": "Masters Tournament",
+      "date": "2024-04-11",
+      "players": 89,
+      "html_status_rows": 89
+    },
+    {
+      "id": "401580345",
+      "name": "RBC Heritage",
+      "date": "2024-04-18",
+      "players": 69,
+      "html_status_rows": 69
+    },
+    {
+      "id": "401580346",
+      "name": "Corales Puntacana Championship",
+      "date": "2024-04-18",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401580347",
+      "name": "Zurich Classic of New Orleans",
+      "excluded": "team competition"
+    },
+    {
+      "id": "401580348",
+      "name": "THE CJ CUP Byron Nelson",
+      "date": "2024-05-02",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580349",
+      "name": "Wells Fargo Championship",
+      "date": "2024-05-09",
+      "players": 68,
+      "html_status_rows": 68
+    },
+    {
+      "id": "401580350",
+      "name": "Myrtle Beach Classic",
+      "date": "2024-05-09",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401580351",
+      "name": "PGA Championship",
+      "date": "2024-05-16",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580352",
+      "name": "Charles Schwab Challenge",
+      "date": "2024-05-23",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401580353",
+      "name": "RBC Canadian Open",
+      "date": "2024-05-30",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580354",
+      "name": "the Memorial Tournament pres. by Workday",
+      "date": "2024-06-06",
+      "players": 73,
+      "html_status_rows": 73
+    },
+    {
+      "id": "401580355",
+      "name": "U.S. Open",
+      "date": "2024-06-13",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580356",
+      "name": "Travelers Championship",
+      "date": "2024-06-20",
+      "players": 71,
+      "html_status_rows": 71
+    },
+    {
+      "id": "401580357",
+      "name": "Rocket Mortgage Classic",
+      "date": "2024-06-27",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580358",
+      "name": "John Deere Classic",
+      "date": "2024-07-04",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580359",
+      "name": "Genesis Scottish Open",
+      "date": "2024-07-11",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401634279",
+      "name": "ISCO Championship",
+      "date": "2024-07-11",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580360",
+      "name": "The Open",
+      "date": "2024-07-18",
+      "players": 157,
+      "html_status_rows": 157
+    },
+    {
+      "id": "401580361",
+      "name": "Barracuda Championship",
+      "excluded": "modified Stableford"
+    },
+    {
+      "id": "401580362",
+      "name": "3M Open",
+      "date": "2024-07-25",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580363",
+      "name": "Wyndham Championship",
+      "date": "2024-08-08",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401580364",
+      "name": "FedEx St. Jude Championship",
+      "date": "2024-08-15",
+      "players": 70,
+      "html_status_rows": 70
+    },
+    {
+      "id": "401580365",
+      "name": "BMW Championship",
+      "date": "2024-08-22",
+      "players": 50,
+      "html_status_rows": 50
+    },
+    {
+      "id": "401580366",
+      "name": "TOUR Championship",
+      "excluded": "starting-stroke format changed between years"
+    },
+    {
+      "id": "401693936",
+      "name": "Procore Championship",
+      "date": "2024-09-12",
+      "players": 144,
+      "html_status_rows": 144
+    },
+    {
+      "id": "401656722",
+      "name": "Presidents Cup",
+      "excluded": "team match play"
+    },
+    {
+      "id": "401693937",
+      "name": "Sanderson Farms Championship",
+      "date": "2024-10-03",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401693938",
+      "name": "Black Desert Championship",
+      "date": "2024-10-10",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401693939",
+      "name": "Shriners Children's Open",
+      "date": "2024-10-17",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401693940",
+      "name": "ZOZO CHAMPIONSHIP",
+      "date": "2024-10-24",
+      "players": 78,
+      "html_status_rows": 78
+    },
+    {
+      "id": "401693941",
+      "name": "World Wide Technology Championship",
+      "date": "2024-11-07",
+      "players": 120,
+      "html_status_rows": 120
+    },
+    {
+      "id": "401693942",
+      "name": "Butterfield Bermuda Championship",
+      "date": "2024-11-14",
+      "players": 120,
+      "html_status_rows": 120
+    },
+    {
+      "id": "401693943",
+      "name": "The RSM Classic",
+      "excluded": "multiple courses"
+    },
+    {
+      "id": "401693956",
+      "name": "Hero World Challenge",
+      "date": "2024-12-05",
+      "players": 20,
+      "html_status_rows": 20
+    },
+    {
+      "id": "401693957",
+      "name": "PGA TOUR Q-School presented by Korn Ferry",
+      "excluded": "multiple courses / qualifying"
+    },
+    {
+      "id": "401734787",
+      "name": "Crypto.com Showdown",
+      "excluded": "team exhibition / mixed formats"
+    },
+    {
+      "id": "401703489",
+      "name": "The Sentry",
+      "date": "2025-01-02",
+      "players": 59,
+      "html_status_rows": 59
+    },
+    {
+      "id": "401703490",
+      "name": "Sony Open in Hawaii",
+      "date": "2025-01-09",
+      "players": 143,
+      "html_status_rows": 143
+    },
+    {
+      "id": "401703491",
+      "name": "The American Express",
+      "excluded": "multiple courses"
+    },
+    {
+      "id": "401703492",
+      "name": "Farmers Insurance Open",
+      "excluded": "multiple courses"
+    },
+    {
+      "id": "401703493",
+      "name": "AT&T Pebble Beach Pro-Am",
+      "excluded": "multiple courses"
+    },
+    {
+      "id": "401703494",
+      "name": "WM Phoenix Open",
+      "date": "2025-02-06",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401703495",
+      "name": "The Genesis Invitational",
+      "date": "2025-02-13",
+      "players": 72,
+      "html_status_rows": 72
+    },
+    {
+      "id": "401703496",
+      "name": "Mexico Open at VidantaWorld",
+      "date": "2025-02-20",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401703497",
+      "name": "Cognizant Classic in The Palm Beaches",
+      "date": "2025-02-27",
+      "players": 144,
+      "html_status_rows": 144
+    },
+    {
+      "id": "401703498",
+      "name": "Arnold Palmer Invitational pres. by Mastercard",
+      "date": "2025-03-06",
+      "players": 72,
+      "html_status_rows": 72
+    },
+    {
+      "id": "401703499",
+      "name": "Puerto Rico Open",
+      "date": "2025-03-06",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401703500",
+      "name": "THE PLAYERS Championship",
+      "date": "2025-03-13",
+      "players": 144,
+      "html_status_rows": 144
+    },
+    {
+      "id": "401703501",
+      "name": "Valspar Championship",
+      "date": "2025-03-20",
+      "players": 154,
+      "html_status_rows": 154
+    },
+    {
+      "id": "401703502",
+      "name": "Texas Children's Houston Open",
+      "date": "2025-03-27",
+      "players": 153,
+      "html_status_rows": 153
+    },
+    {
+      "id": "401703503",
+      "name": "Valero Texas Open",
+      "date": "2025-04-03",
+      "players": 144,
+      "html_status_rows": 144
+    },
+    {
+      "id": "401703504",
+      "name": "Masters Tournament",
+      "date": "2025-04-10",
+      "players": 95,
+      "html_status_rows": 95
+    },
+    {
+      "id": "401703505",
+      "name": "RBC Heritage",
+      "date": "2025-04-17",
+      "players": 72,
+      "html_status_rows": 72
+    },
+    {
+      "id": "401703506",
+      "name": "Corales Puntacana Championship",
+      "date": "2025-04-17",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401703507",
+      "name": "Zurich Classic of New Orleans",
+      "excluded": "team competition"
+    },
+    {
+      "id": "401703508",
+      "name": "THE CJ CUP Byron Nelson",
+      "date": "2025-05-01",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703509",
+      "name": "Truist Championship",
+      "date": "2025-05-08",
+      "players": 72,
+      "html_status_rows": 72
+    },
+    {
+      "id": "401703510",
+      "name": "ONEflight Myrtle Beach Classic",
+      "date": "2025-05-08",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401703511",
+      "name": "PGA Championship",
+      "date": "2025-05-15",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703512",
+      "name": "Charles Schwab Challenge",
+      "date": "2025-05-22",
+      "players": 135,
+      "html_status_rows": 135
+    },
+    {
+      "id": "401703513",
+      "name": "the Memorial Tournament pres. by Workday",
+      "date": "2025-05-29",
+      "players": 72,
+      "html_status_rows": 72
+    },
+    {
+      "id": "401703514",
+      "name": "RBC Canadian Open",
+      "date": "2025-06-05",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703515",
+      "name": "U.S. Open",
+      "date": "2025-06-12",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703516",
+      "name": "Travelers Championship",
+      "date": "2025-06-19",
+      "players": 72,
+      "html_status_rows": 72
+    },
+    {
+      "id": "401703517",
+      "name": "Rocket Classic",
+      "date": "2025-06-26",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703518",
+      "name": "John Deere Classic",
+      "date": "2025-07-03",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703519",
+      "name": "Genesis Scottish Open",
+      "date": "2025-07-10",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703520",
+      "name": "ISCO Championship",
+      "date": "2025-07-10",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703521",
+      "name": "The Open",
+      "date": "2025-07-17",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703522",
+      "name": "Barracuda Championship",
+      "excluded": "modified Stableford"
+    },
+    {
+      "id": "401703523",
+      "name": "3M Open",
+      "date": "2025-07-24",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703524",
+      "name": "Wyndham Championship",
+      "date": "2025-07-31",
+      "players": 156,
+      "html_status_rows": 156
+    },
+    {
+      "id": "401703525",
+      "name": "FedEx St. Jude Championship",
+      "date": "2025-08-07",
+      "players": 69,
+      "html_status_rows": 69
+    },
+    {
+      "id": "401703530",
+      "name": "BMW Championship",
+      "date": "2025-08-14",
+      "players": 49,
+      "html_status_rows": 49
+    },
+    {
+      "id": "401703531",
+      "name": "TOUR Championship",
+      "excluded": "starting-stroke format changed between years"
+    },
+    {
+      "id": "401738553",
+      "name": "Procore Championship",
+      "date": "2025-09-11",
+      "players": 144,
+      "html_status_rows": 144
+    },
+    {
+      "id": "401734110",
+      "name": "Ryder Cup",
+      "excluded": "team match play"
+    },
+    {
+      "id": "401738554",
+      "name": "Sanderson Farms Championship",
+      "date": "2025-10-02",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401738555",
+      "name": "Baycurrent Classic",
+      "date": "2025-10-09",
+      "players": 78,
+      "html_status_rows": 78
+    },
+    {
+      "id": "401738556",
+      "name": "Bank of Utah Championship",
+      "date": "2025-10-23",
+      "players": 132,
+      "html_status_rows": 132
+    },
+    {
+      "id": "401738557",
+      "name": "World Wide Technology Championship",
+      "date": "2025-11-06",
+      "players": 120,
+      "html_status_rows": 120
+    },
+    {
+      "id": "401738558",
+      "name": "Butterfield Bermuda Championship",
+      "date": "2025-11-13",
+      "players": 120,
+      "html_status_rows": 120
+    },
+    {
+      "id": "401738559",
+      "name": "The RSM Classic",
+      "excluded": "multiple courses"
+    },
+    {
+      "id": "401738560",
+      "name": "Hero World Challenge",
+      "date": "2025-12-04",
+      "players": 20,
+      "html_status_rows": 20
+    },
+    {
+      "id": "401833647",
+      "name": "PGA TOUR Q-School presented by Korn Ferry",
+      "excluded": "multiple courses / qualifying"
+    }
+  ],
+  "attrition": {
+    "player_event_records": 9802,
+    "g2_warmup_not_outcome": 4958,
+    "round_records": 30994,
+    "g3_source_groups_size_3": 7444,
+    "g3_triples_insufficient_prior_rounds": 2800,
+    "g3_source_groups_size_2": 4108,
+    "g3_missing_time_or_start_hole": 391,
+    "excluded_events": 19,
+    "g3_triples_incomplete_scores": 59,
+    "g3_source_groups_size_1": 55,
+    "g2_zero_holes_unknown_start": 2,
+    "g3_triples_tied_prior_ability": 4
+  },
+  "attrition_by_year": {
+    "2024": {
+      "player_event_records": 4959,
+      "g2_warmup_not_outcome": 4958,
+      "round_records": 15600,
+      "g3_source_groups_size_3": 3763,
+      "g3_triples_insufficient_prior_rounds": 1796,
+      "g3_source_groups_size_2": 2083,
+      "g3_missing_time_or_start_hole": 116,
+      "excluded_events": 10,
+      "g3_triples_incomplete_scores": 37,
+      "g3_source_groups_size_1": 29,
+      "g2_zero_holes_unknown_start": 1
+    },
+    "2025": {
+      "player_event_records": 4843,
+      "round_records": 15394,
+      "g3_source_groups_size_3": 3681,
+      "g3_source_groups_size_2": 2025,
+      "g3_triples_insufficient_prior_rounds": 1004,
+      "g3_missing_time_or_start_hole": 275,
+      "excluded_events": 9,
+      "g3_source_groups_size_1": 26,
+      "g3_triples_incomplete_scores": 22,
+      "g3_triples_tied_prior_ability": 4,
+      "g2_zero_holes_unknown_start": 1
+    }
+  },
+  "dispersion": {
+    "complete_player_rounds": 15088,
+    "course_round_cells": 160,
+    "pooled_within_course_round_sd": 2.8987994681510294,
+    "prior_ability_adjusted_residual_sd": 2.810442231381355,
+    "prior_ability_adjusted_rounds": 13477,
+    "median_course_round_sd": 2.836907925597231,
+    "interpretation": "Observed score dispersion, not identified intrinsic player sigma. Field strength, noisy ability, weather/waves and survivor selection remain."
+  },
+  "g3": {
+    "groups": 2651,
+    "events": 35,
+    "unique_winner_groups": 2231,
+    "two_way_low_ties": 381,
+    "three_way_ties": 39,
+    "tie_for_low_rate": 0.15843078083741985,
+    "dead_heat_effective_probabilities_best_middle_worst": [
+      0.37136929460580936,
+      0.32893247831007183,
+      0.2996982270841193
+    ],
+    "normalized_strict_win_probabilities_best_middle_worst": [
+      0.3760645450470641,
+      0.32496638278798745,
+      0.29896907216494845
+    ],
+    "correction_percentage_points_best_middle_worst": [
+      -0.4695250441254739,
+      0.39660955220843785,
+      0.07291549191708602
+    ],
+    "max_absolute_correction_percentage_points": 0.4695250441254739,
+    "official_group_spotcheck": {
+      "official_event": "R2025006",
+      "espn_event": "401703490",
+      "official_groups": 148,
+      "inferred_groups": 148,
+      "exact_normalized_membership_matches": 146,
+      "complete_triples": 140,
+      "matched_complete_triples": 138,
+      "unmatched": [
+        {
+          "round": 1,
+          "start_tee": 1,
+          "names": [
+            "Paul Peterson",
+            "Kristoffer Ventura",
+            "Ben Polland"
+          ]
+        },
+        {
+          "round": 2,
+          "start_tee": 10,
+          "names": [
+            "Paul Peterson",
+            "Kristoffer Ventura",
+            "Ben Polland"
+          ]
+        }
+      ],
+      "source_file": "data/raw/golf-source-check/sony-2025-teetimes.decoded.json",
+      "sha256": "476aae9075ef3c62f72c553a6f724549e2a39136da18ff7041600f0e4e6ec5f7",
+      "scope": "One event only; normalized names, round and start tee, no fuzzy aliases or cross-provider ID rewrite. Time-zone labels not validated."
+    },
+    "event_bootstrap_95_correction_percentage_points": [
+      [
+        -0.8828905317832703,
+        -0.05942164352865653
+      ],
+      [
+        -0.019310754604850988,
+        0.8145793730850948
+      ],
+      [
+        -0.38559178355997425,
+        0.5084524828919801
+      ]
+    ],
+    "complete_actual_triples_before_ability_filter": 3659,
+    "complete_actual_triples_tie_rate_before_ability_filter": 0.15195408581579667,
+    "by_year": {
+      "2024": {
+        "groups": 0
+      },
+      "2025": {
+        "groups": 2651,
+        "events": 35,
+        "unique_winner_groups": 2231,
+        "two_way_low_ties": 381,
+        "three_way_ties": 39,
+        "tie_for_low_rate": 0.15843078083741985,
+        "dead_heat_effective_probabilities_best_middle_worst": [
+          0.37136929460580936,
+          0.32893247831007183,
+          0.2996982270841193
+        ],
+        "normalized_strict_win_probabilities_best_middle_worst": [
+          0.3760645450470641,
+          0.32496638278798745,
+          0.29896907216494845
+        ],
+        "correction_percentage_points_best_middle_worst": [
+          -0.4695250441254739,
+          0.39660955220843785,
+          0.07291549191708602
+        ],
+        "max_absolute_correction_percentage_points": 0.4695250441254739
+      }
+    },
+    "by_round": {
+      "1": {
+        "groups": 1023,
+        "events": 33,
+        "unique_winner_groups": 872,
+        "two_way_low_ties": 141,
+        "three_way_ties": 10,
+        "tie_for_low_rate": 0.14760508308895406,
+        "dead_heat_effective_probabilities_best_middle_worst": [
+          0.385467579015966,
+          0.3180188986640599,
+          0.2965135223199739
+        ],
+        "normalized_strict_win_probabilities_best_middle_worst": [
+          0.38990825688073394,
+          0.31077981651376146,
+          0.2993119266055046
+        ],
+        "correction_percentage_points_best_middle_worst": [
+          -0.4440677864767928,
+          0.7239082150298448,
+          -0.2798404285530687
+        ],
+        "max_absolute_correction_percentage_points": 0.7239082150298448
+      },
+      "2": {
+        "groups": 1002,
+        "events": 33,
+        "unique_winner_groups": 838,
+        "two_way_low_ties": 142,
+        "three_way_ties": 22,
+        "tie_for_low_rate": 0.16367265469061876,
+        "dead_heat_effective_probabilities_best_middle_worst": [
+          0.35662009314703913,
+          0.33166999334663994,
+          0.3117099135063206
+        ],
+        "normalized_strict_win_probabilities_best_middle_worst": [
+          0.35918854415274465,
+          0.3305489260143198,
+          0.31026252983293556
+        ],
+        "correction_percentage_points_best_middle_worst": [
+          -0.2568451005705519,
+          0.1121067332320147,
+          0.14473836733850387
+        ],
+        "max_absolute_correction_percentage_points": 0.2568451005705519
+      },
+      "3": {
+        "groups": 319,
+        "events": 16,
+        "unique_winner_groups": 274,
+        "two_way_low_ties": 40,
+        "three_way_ties": 5,
+        "tie_for_low_rate": 0.14106583072100312,
+        "dead_heat_effective_probabilities_best_middle_worst": [
+          0.37513061650992685,
+          0.3563218390804598,
+          0.26854754440961337
+        ],
+        "normalized_strict_win_probabilities_best_middle_worst": [
+          0.38686131386861317,
+          0.35036496350364965,
+          0.26277372262773724
+        ],
+        "correction_percentage_points_best_middle_worst": [
+          -1.1730697358686315,
+          0.5956875576810128,
+          0.5773821781876132
+        ],
+        "max_absolute_correction_percentage_points": 1.1730697358686315
+      },
+      "4": {
+        "groups": 307,
+        "events": 17,
+        "unique_winner_groups": 247,
+        "two_way_low_ties": 58,
+        "three_way_ties": 2,
+        "tie_for_low_rate": 0.19543973941368079,
+        "dead_heat_effective_probabilities_best_middle_worst": [
+          0.3686210640608034,
+          0.32790445168295335,
+          0.30347448425624324
+        ],
+        "normalized_strict_win_probabilities_best_middle_worst": [
+          0.3724696356275304,
+          0.32793522267206476,
+          0.29959514170040485
+        ],
+        "correction_percentage_points_best_middle_worst": [
+          -0.3848571566726966,
+          -0.003077098911141718,
+          0.3879342555838383
+        ],
+        "max_absolute_correction_percentage_points": 0.3879342555838383
+      }
+    },
+    "by_skill_gap": {
+      "under_1_stroke": {
+        "groups": 984,
+        "events": 35,
+        "unique_winner_groups": 821,
+        "two_way_low_ties": 146,
+        "three_way_ties": 17,
+        "tie_for_low_rate": 0.16565040650406504,
+        "dead_heat_effective_probabilities_best_middle_worst": [
+          0.3670392953929538,
+          0.3096205962059621,
+          0.323340108401084
+        ],
+        "normalized_strict_win_probabilities_best_middle_worst": [
+          0.3763702801461632,
+          0.30085261875761266,
+          0.3227771010962241
+        ],
+        "correction_percentage_points_best_middle_worst": [
+          -0.933098475320937,
+          0.8767977448349451,
+          0.056300730485991934
+        ],
+        "max_absolute_correction_percentage_points": 0.933098475320937
+      },
+      "1_to_2_strokes": {
+        "groups": 1176,
+        "events": 35,
+        "unique_winner_groups": 1000,
+        "two_way_low_ties": 163,
+        "three_way_ties": 13,
+        "tie_for_low_rate": 0.14965986394557823,
+        "dead_heat_effective_probabilities_best_middle_worst": [
+          0.3506235827664398,
+          0.3404195011337868,
+          0.30895691609977316
+        ],
+        "normalized_strict_win_probabilities_best_middle_worst": [
+          0.348,
+          0.34,
+          0.312
+        ],
+        "correction_percentage_points_best_middle_worst": [
+          0.26235827664398137,
+          0.041950113378674825,
+          -0.30430839002268395
+        ],
+        "max_absolute_correction_percentage_points": 0.30430839002268395
+      },
+      "2_plus_strokes": {
+        "groups": 491,
+        "events": 35,
+        "unique_winner_groups": 410,
+        "two_way_low_ties": 72,
+        "three_way_ties": 9,
+        "tie_for_low_rate": 0.164969450101833,
+        "dead_heat_effective_probabilities_best_middle_worst": [
+          0.42973523421588594,
+          0.34012219959266804,
+          0.23014256619144596
+        ],
+        "normalized_strict_win_probabilities_best_middle_worst": [
+          0.44390243902439025,
+          0.33658536585365856,
+          0.21951219512195122
+        ],
+        "correction_percentage_points_best_middle_worst": [
+          -1.4167204808504308,
+          0.3536833739009482,
+          1.0630371069494742
+        ],
+        "max_absolute_correction_percentage_points": 1.4167204808504308
+      }
+    },
+    "passes_sample_gate": true,
+    "passes_pooled_correction_gate": false,
+    "decision": "dead_pooled_screen"
+  },
+  "g2": {
+    "data_complete": true,
+    "observed_started_player_events": 4842,
+    "prior_unknown_timing_excluded": 2,
+    "overall": {
+      "starts": 4840,
+      "after_start_withdrawals": 52,
+      "rate": 0.010743801652892562,
+      "events": 40,
+      "wilson_95_interval": [
+        0.00820269377766416,
+        0.01406095745321011
+      ]
+    },
+    "prior90_after_start_wd": {
+      "starts": 199,
+      "after_start_withdrawals": 4,
+      "rate": 0.020100502512562814,
+      "events": 39,
+      "wilson_95_interval": [
+        0.007843654225620098,
+        0.05053490323004975
+      ]
+    },
+    "no_observed_prior90_after_start_wd": {
+      "starts": 4641,
+      "after_start_withdrawals": 48,
+      "rate": 0.010342598577892695,
+      "events": 40,
+      "wilson_95_interval": [
+        0.007809965497751812,
+        0.013685191624506135
+      ]
+    },
+    "rate_difference_percentage_points": 0.9757903934670119,
+    "relative_risk": 1.9434673366834172,
+    "event_bootstrap_95_rate_difference_percentage_points": [
+      -0.5976702508960573,
+      2.9471092843431768
+    ],
+    "player_bootstrap_95_rate_difference_percentage_points": [
+      -0.9699769053117783,
+      3.3904616087188435
+    ],
+    "wd_timing_counts": {
+      "after_start_proven": 122,
+      "unknown_zero_recorded_holes": 2
+    },
+    "passes_sample_gate": false,
+    "passes_rate_gate": false,
+    "by_year": {
+      "2024": {
+        "exposed": {
+          "starts": 0,
+          "after_start_withdrawals": 0,
+          "rate": null,
+          "wilson_95_interval": null
+        },
+        "unexposed": {
+          "starts": 0,
+          "after_start_withdrawals": 0,
+          "rate": null,
+          "wilson_95_interval": null
+        }
+      },
+      "2025": {
+        "exposed": {
+          "starts": 199,
+          "after_start_withdrawals": 4,
+          "rate": 0.020100502512562814,
+          "events": 39,
+          "wilson_95_interval": [
+            0.007843654225620098,
+            0.05053490323004975
+          ]
+        },
+        "unexposed": {
+          "starts": 4641,
+          "after_start_withdrawals": 48,
+          "rate": 0.010342598577892695,
+          "events": 40,
+          "wilson_95_interval": [
+            0.007809965497751812,
+            0.013685191624506135
+          ]
+        }
+      }
+    },
+    "fall_calendar_proxy": {
+      "fall": {
+        "starts": 743,
+        "after_start_withdrawals": 7,
+        "rate": 0.009421265141318977,
+        "events": 7,
+        "wilson_95_interval": [
+          0.00457094928279876,
+          0.019318453771342836
+        ]
+      },
+      "other": {
+        "starts": 4097,
+        "after_start_withdrawals": 45,
+        "rate": 0.010983646570661459,
+        "events": 33,
+        "wilson_95_interval": [
+          0.008218995350714013,
+          0.014664502514699758
+        ]
+      }
+    },
+    "limitations": [
+      "Prior withdrawal means observed in retained single-course PGA events; excluded formats, other tours and unlisted pre-start entrants are not covered.",
+      "Zero-hole withdrawals have unknown timing; they are not asserted pre-start and their next-90-day starts are censored.",
+      "At least one completed hole proves a start, but first-hole withdrawals after a stroke are missing from this lower-bound after-start sample.",
+      "Final historical WD labels are used retrospectively with event-end dates; no as-published injury news or pre-round snapshot was recovered.",
+      "Age and true FedExCup status-position effects untested; calendar fall is a descriptive proxy only.",
+      "This is withdrawal incidence, not matchup settlement or an executable book-side discrepancy."
+    ],
+    "decision": "unresolved_inadequate_sample_or_status_coverage"
+  },
+  "source_files": [
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580329.html",
+      "bytes": 512322,
+      "sha256": "5f8b1c20fcfb7a678c2623b87191f9c42c6c89f9f44dfc930cc16bf44660e630"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580330.html",
+      "bytes": 630871,
+      "sha256": "ee14d622eee67148bfe5db1a0d1f759b3cf7fb22722c9277935f553231351799"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580334.html",
+      "bytes": 613546,
+      "sha256": "4c3d64da5368c21cd4ac2cb636116b352c006865d6aba46c4242a36bfc0c32f7"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580335.html",
+      "bytes": 526197,
+      "sha256": "e36543f8426b6b6d9dd89e641f75bf7a1b8eb2bd225d2a39121595e16619bc77"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580336.html",
+      "bytes": 611833,
+      "sha256": "7e9bb35fac8e77dabc040d8ef4d1d8c44c7deddab2a83947713b04243044685f"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580337.html",
+      "bytes": 628768,
+      "sha256": "64b022f8e205a2b323f1dc430b879fcaa0b99dc765333840468025485763ee8f"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580338.html",
+      "bytes": 525685,
+      "sha256": "260e3c60470b9377f348a836d8de7b171fede9ac44d4091b1693c48b51e6c405"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580339.html",
+      "bytes": 613097,
+      "sha256": "761397309c5287810050fe185fdddbc2e4e3df19ecfff3c1961e4535540d6fe6"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580340.html",
+      "bytes": 629517,
+      "sha256": "4e9ca3d10f82356f8ea72b4c87a7d8a8bc879d5c7f252473f3acd3e3e2a1b3c9"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580341.html",
+      "bytes": 640431,
+      "sha256": "21c5ec5a414897c9ee504a6afa9168a411af34df985be925bde0d2a93aa70e39"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580342.html",
+      "bytes": 630703,
+      "sha256": "fc8ac22e37db6650f1daefb047b2d596916b8a86c08f2c6b20db5af2c54803c5"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580343.html",
+      "bytes": 647044,
+      "sha256": "617dea8aadd201c67b7c42e11dd1e06809a944bb54be511bdd2ef8feae770491"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580344.html",
+      "bytes": 553144,
+      "sha256": "497f62f2744f04488eb636bcc61aa25dcdd261cb36be64e6d12f9fe50217e8a2"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580345.html",
+      "bytes": 526033,
+      "sha256": "4cfbcd995d482bb2c933584c324331953ece9f777c91bed1f2a8988d7f223c07"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580346.html",
+      "bytes": 612256,
+      "sha256": "9022261e529055d9a147baea32664b1264c208085e35d3a9c39b2fb7bf89852d"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580348.html",
+      "bytes": 645784,
+      "sha256": "26918420bf75cf739638b912e8c5afb6080cea1433d9eeca6902e374ce912dbb"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580349.html",
+      "bytes": 524566,
+      "sha256": "b931591a579afe82f604dd48bc829c9c9643834a82c2625a2f6a9ded757e2725"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580350.html",
+      "bytes": 612137,
+      "sha256": "dcc995701b12a05370c795453b89660769f58754696cd701b8aed6b52879d41f"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580351.html",
+      "bytes": 646513,
+      "sha256": "d78f6de2395a38371c0557ad476c872f71a686eefa701ff1610e43751826c518"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580352.html",
+      "bytes": 612424,
+      "sha256": "e8520ee47292fd83da627656faa15e74c17f52ad71e8db130ad185d2dfaaab45"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580353.html",
+      "bytes": 645151,
+      "sha256": "c68c50350b2fd425faf3ef57ff42b7c264a83d353c3a808bfc122c5df186ef8c"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580354.html",
+      "bytes": 530860,
+      "sha256": "d4d3ecc012bef378523d84f406bcc48821c0c4ff5ee5549fc926893ea4537d84"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580355.html",
+      "bytes": 646300,
+      "sha256": "977c0e6019f25bc29750ddb733cf93ce898aea4255666f3925a8a5dadedbd584"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580356.html",
+      "bytes": 529494,
+      "sha256": "2ef5e6e00ab835721dfa504a15d4d54f2e578e8e542085ae380fb1651681af07"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580357.html",
+      "bytes": 645771,
+      "sha256": "6bd4e52b9c4c340bb1ab3c73a96410fe48d90817e40c641f4c36beacccf96e12"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580358.html",
+      "bytes": 646148,
+      "sha256": "216e4aa7e346e95963eeac48dc31a13a44868185fd6ee59b3d137f35b77e0da2"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580359.html",
+      "bytes": 645142,
+      "sha256": "47ca9acf6d27ca364aa4f459b949f5bd0f7fc57195081699aac74d7e6f4d45df"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580360.html",
+      "bytes": 646486,
+      "sha256": "d53c6448a0a639cc4f24e1449c3d4afb992f9d853789f476c325330c2b61684e"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580362.html",
+      "bytes": 645427,
+      "sha256": "62fb62dc1d945fd7ca9608fb497abc51294212cde75ed4d185aadad29088c0aa"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580363.html",
+      "bytes": 646450,
+      "sha256": "bba2af6787031728e52c52bdfc6823608329f93560e0c0946e32a53884956a55"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580364.html",
+      "bytes": 528138,
+      "sha256": "1ee08649f8ede1de4769456914717df2b42f2a513c946bc23df3acc75fe682bd"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401580365.html",
+      "bytes": 499395,
+      "sha256": "27f527287eaa334b4b0f9417d303da5364abd991e2b9e7c785db2dbfbb4be002"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401634279.html",
+      "bytes": 648694,
+      "sha256": "9e7b586ec397d40ed957ab65593f5c8f5654311c344887b689a83ba79d399d64"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401693936.html",
+      "bytes": 623796,
+      "sha256": "dd2d68c7048a15089a1299d38a1af5329a11adbc9fe5d2fe0fffa61658f2422c"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401693937.html",
+      "bytes": 608646,
+      "sha256": "4fba7f59b0d629156e3e1205f13e27dfd354bae5ea95faa7fcee0d950ee8483f"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401693938.html",
+      "bytes": 607989,
+      "sha256": "4cc2638de69ced1d35732f7dd5ac7335c65a868097ab3e5c674b57a81f256e8b"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401693939.html",
+      "bytes": 608758,
+      "sha256": "1998b6f964cb9e5b720e04b2aa17ee02d3f993928905c9d66efb5c36ee28334d"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401693940.html",
+      "bytes": 536363,
+      "sha256": "875e4dee24829f0da5bdf3fbc480b51b1597bcf0092d12f0bb47c4601ce65340"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401693941.html",
+      "bytes": 592638,
+      "sha256": "d88d16781db82b2a79f8503860de6840d72fd0e1dae1b0a58d29648862fee2d1"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401693942.html",
+      "bytes": 592474,
+      "sha256": "debb7b30a5ee94e133d9de1d7b19722e23d5870ed91205fc9b0a0626348bc5a2"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401693956.html",
+      "bytes": 454321,
+      "sha256": "a08b277b2488fef7ff32343f5dd60f7f62e6f96c2f58cac0296ee4c9839e64f4"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703489.html",
+      "bytes": 512449,
+      "sha256": "f7c8203b6dea32450b236f7347e39a7c106d0bdb67dd1407c9186f273c6b4a5c"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703490.html",
+      "bytes": 629721,
+      "sha256": "bd82ec883f9a48eb5090a5f93a4a370faa223da63a446dec737244aa3e2481df"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703494.html",
+      "bytes": 613932,
+      "sha256": "950d9e45d9b31143cd1450180bdcc5f47dfc941b938e326986d2a0bf3c80a56e"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703495.html",
+      "bytes": 529672,
+      "sha256": "06ed080c080d1e53db428cc3ee516894b1ede421a33b1c7dc34d06c06d37e493"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703496.html",
+      "bytes": 615126,
+      "sha256": "2fa54d08d2738fae4ed18e092c4e8c0fcb1d1c4272a443bbc088c76894c52db4"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703497.html",
+      "bytes": 629785,
+      "sha256": "9d4f301ce2ba5bddf2d64fd1fb9ce69a4ac7377ea5dccb588c78cdd1a9a361db"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703498.html",
+      "bytes": 529763,
+      "sha256": "d96028b25ca76a8e6feffa14e25460549439d57db2cdff5e5e36e5c8c4907211"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703499.html",
+      "bytes": 613048,
+      "sha256": "98b81ce4a9a02f3284d78736e68dad74f4d3ee4db41e59c360884a1b68ed77b3"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703500.html",
+      "bytes": 631537,
+      "sha256": "de34df9f54f89628a22ad1ab7e25bf10b204085756b424e092ee979fbf6b9cf4"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703501.html",
+      "bytes": 644127,
+      "sha256": "48e3856d4d8c4f1fc9c68551c2c03e010fd581ae3eaa20f984b677a842ff87d9"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703502.html",
+      "bytes": 642715,
+      "sha256": "4a3e389b93e1e1dcbcf29de8024d9f3ccdc8e66f4beef7895f4e9d3c9e8c159d"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703503.html",
+      "bytes": 629531,
+      "sha256": "8bd2901e3507b26d7c027cb05644d22aeb1729eab5417e44bacbdb7ae208231a"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703504.html",
+      "bytes": 562199,
+      "sha256": "c5786694f80373fc0d00237ad0583d45452e6a8c14b2809241c9b92d1365f782"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703505.html",
+      "bytes": 530944,
+      "sha256": "f02e0cd1406960810afe946288a88f3f2f41605d9110783d44ab1121a1de992d"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703506.html",
+      "bytes": 612395,
+      "sha256": "1082f2081616408a8d7b701db0a61007733537c9ff177d92cefd68e6745cb807"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703508.html",
+      "bytes": 646192,
+      "sha256": "24717224d97c483e7e2604ff2143c5bb6388acad93659a851d6c97b0dd9871b5"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703509.html",
+      "bytes": 530819,
+      "sha256": "3e137838407729ef9425f2528d1a58bb7dfcbc305b40c68eefe3779aa4064216"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703510.html",
+      "bytes": 614163,
+      "sha256": "cbc3bf62576a59bca107abe5551c6f354d7a8b2ff37597849140a2e6156a5dcd"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703511.html",
+      "bytes": 646535,
+      "sha256": "cfe8df20af5dd4eb0574917d4fd75950cebdb29e8b2bfd488af4807c9a907107"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703512.html",
+      "bytes": 617532,
+      "sha256": "52681d4024c1bcda1c9363de7c610eb593752cc69435a7e17cea85d04c9a2750"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703513.html",
+      "bytes": 529875,
+      "sha256": "7d8dd00b119fe2d2f8a0cbe6080159a3c6905cc362cb96041e403e9ca84c8717"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703514.html",
+      "bytes": 646941,
+      "sha256": "0606b9707f3d2aacd109e16ef626b84ac18078b71f5189210fd2b1da00602c6c"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703515.html",
+      "bytes": 646457,
+      "sha256": "a4eb18fdee0091978dff10761c9b54f19b40aea04eaec3a1291048d3fbe2432b"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703516.html",
+      "bytes": 530899,
+      "sha256": "123da4887819029c18064e2543a6172a9b47d31fe43a0a5082bf016c477a5e25"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703517.html",
+      "bytes": 648731,
+      "sha256": "4e4a0e0646ead02689a6e7b2904ddfb85ff2c3fd72159afd0555fdb6eec9a69c"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703518.html",
+      "bytes": 646341,
+      "sha256": "214f8cc2c3dae11832f47d587935520d0bd03331b8a55b76bbe95dd134a41078"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703519.html",
+      "bytes": 647187,
+      "sha256": "a4cf540ece0cdd1d3451078f10a37c6d62733d9eb58b620d6811e0aec442bba3"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703520.html",
+      "bytes": 645048,
+      "sha256": "e7f68c8ceadd17aca32bb82fbde53b37ab9977c8e0efbd990d664650a1220f40"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703521.html",
+      "bytes": 644873,
+      "sha256": "e2b40615d63cabbf7e194e4c24deb48f020b9eee6070280ae547bcc07c31a861"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703523.html",
+      "bytes": 646245,
+      "sha256": "2bed8727c8aca16c83ba9351973cfeb66c565d03812db9104c70e49e64521279"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703524.html",
+      "bytes": 646267,
+      "sha256": "cd238805db4a27abc15d12d999fb4ad295d007bfd2e7af6ba7424e0a30e96be8"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703525.html",
+      "bytes": 527579,
+      "sha256": "41393ee84948c6dee1ba542b671fbacd6ffdc6689e93f479e7f08874ccedc438"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703530.html",
+      "bytes": 497663,
+      "sha256": "3322398f3ec535dbe27c3b5f52c35c821050bc445c284a04ea726b3a006af7b3"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738553.html",
+      "bytes": 624165,
+      "sha256": "5bf17375406b41cc8104943809a7b7bc0671c62808f233f1ebd631fbd88ef5eb"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738554.html",
+      "bytes": 608241,
+      "sha256": "98326fe695f6f07dc32eefc1c0bc9fd01c3fd1e65e812bcc80668fe980157c60"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738555.html",
+      "bytes": 536596,
+      "sha256": "ec90c4be55a27b56dbf484afbc01a89b947b838432993667e26e6abff4414653"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738556.html",
+      "bytes": 608512,
+      "sha256": "82fc618861998da6239c21419815865c50f7abda3fc7386f60d03d6ca24668c6"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738557.html",
+      "bytes": 593184,
+      "sha256": "4d50edd7b0129aebcebc6b554f132f20b3b6037f29cad2318edecfa05bfc9064"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738558.html",
+      "bytes": 592342,
+      "sha256": "f42c577864694aa77fd813ae5f226af0c77401f152fb0edb895def30e38a0ac2"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738560.html",
+      "bytes": 455860,
+      "sha256": "00d276cd1a57bd01816d7164fedca521afa49d1c2d96e097a0e832fb45d011b3"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2024.json",
+      "bytes": 34382494,
+      "sha256": "329cc2d0cd2a076bfadc8c52a75e06066c8271b86fba88b6405c12998bc5142e"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2025.json",
+      "bytes": 34373541,
+      "sha256": "8a7a69cec1cd431e2c0b082820fe0af6fc2f461de287154913b2ba02ae787a45"
+    }
+  ]
+}

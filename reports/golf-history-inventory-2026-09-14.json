@@ -1,0 +1,213 @@
+{
+  "as_of": "2026-09-14",
+  "scope": "Calendar-year 2015\u20132025 ESPN scoreboard acquisition only; no additional outcomes compared. Declared screens remain 2025 with 2024 warmup.",
+  "validation": "Every available event start date is in the requested calendar year. Missing/empty event entries are counted separately. Season labels can differ for historical fall events.",
+  "calendar_years": [
+    {
+      "year": 2015,
+      "raw_event_entries": 49,
+      "events": 49,
+      "dated_events": 49,
+      "entries_missing_date": 0,
+      "entries_missing_event_id": 0,
+      "player_event_records": 5793,
+      "round_records": 17989,
+      "season_labels": {
+        "2015": 41,
+        "2016": 8
+      },
+      "bytes": 32668569,
+      "sha256": "08bf22e0b81797e60228dbd9d87ee722c0dc360487c006406c966abe568997dd",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2015",
+      "file": "data/raw/golf-sport/scoreboard-2015.json"
+    },
+    {
+      "year": 2016,
+      "raw_event_entries": 49,
+      "events": 49,
+      "dated_events": 49,
+      "entries_missing_date": 0,
+      "entries_missing_event_id": 0,
+      "player_event_records": 5710,
+      "round_records": 17842,
+      "season_labels": {
+        "2016": 41,
+        "2017": 8
+      },
+      "bytes": 33082247,
+      "sha256": "5e3380f613a5bb14fc6803a8d322ed3c6d67fb12cc07f5588d923ea382ef3075",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2016",
+      "file": "data/raw/golf-sport/scoreboard-2016.json"
+    },
+    {
+      "year": 2017,
+      "raw_event_entries": 50,
+      "events": 50,
+      "dated_events": 50,
+      "entries_missing_date": 0,
+      "entries_missing_event_id": 0,
+      "player_event_records": 5793,
+      "round_records": 18335,
+      "season_labels": {
+        "2017": 41,
+        "2018": 9
+      },
+      "bytes": 33978160,
+      "sha256": "483823e2f62fe6d9edc88ce87aa41f36f0d6f202dd35dcaaaf83be99f8c3c607",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2017",
+      "file": "data/raw/golf-sport/scoreboard-2017.json"
+    },
+    {
+      "year": 2018,
+      "raw_event_entries": 51,
+      "events": 49,
+      "dated_events": 49,
+      "entries_missing_date": 2,
+      "entries_missing_event_id": 2,
+      "player_event_records": 5755,
+      "round_records": 18301,
+      "season_labels": {
+        "2018": 40,
+        "None": 2,
+        "2019": 9
+      },
+      "bytes": 33192906,
+      "sha256": "7fcb215e3b3fd7a5792e6606d3a7392a55e5513a6c705f33d4a42e6c0a24b9da",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2018",
+      "file": "data/raw/golf-sport/scoreboard-2018.json"
+    },
+    {
+      "year": 2019,
+      "raw_event_entries": 51,
+      "events": 50,
+      "dated_events": 50,
+      "entries_missing_date": 1,
+      "entries_missing_event_id": 1,
+      "player_event_records": 5977,
+      "round_records": 18957,
+      "season_labels": {
+        "2019": 37,
+        "None": 1,
+        "2020": 13
+      },
+      "bytes": 34781304,
+      "sha256": "07b4c2dea5f0e4dc9602dd0fdd6f087014d38fb2a522624ef3ec5ac7adf2651b",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2019",
+      "file": "data/raw/golf-sport/scoreboard-2019.json"
+    },
+    {
+      "year": 2020,
+      "raw_event_entries": 52,
+      "events": 52,
+      "dated_events": 52,
+      "entries_missing_date": 0,
+      "entries_missing_event_id": 0,
+      "player_event_records": 4123,
+      "round_records": 13121,
+      "season_labels": {
+        "2020": 37,
+        "2021": 15
+      },
+      "bytes": 24057367,
+      "sha256": "a4a97f76726e8d94267e94e3ef3cb57d78d66936a013511979c99d4f51c1d432",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2020",
+      "file": "data/raw/golf-sport/scoreboard-2020.json"
+    },
+    {
+      "year": 2021,
+      "raw_event_entries": 52,
+      "events": 51,
+      "dated_events": 51,
+      "entries_missing_date": 1,
+      "entries_missing_event_id": 1,
+      "player_event_records": 5887,
+      "round_records": 18214,
+      "season_labels": {
+        "2021": 39,
+        "None": 1,
+        "2022": 12
+      },
+      "bytes": 33701913,
+      "sha256": "7b456a555538611365989772742f87e6a8f11888358117af138c486cc0866c40",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2021",
+      "file": "data/raw/golf-sport/scoreboard-2021.json"
+    },
+    {
+      "year": 2022,
+      "raw_event_entries": 51,
+      "events": 50,
+      "dated_events": 50,
+      "entries_missing_date": 1,
+      "entries_missing_event_id": 1,
+      "player_event_records": 6047,
+      "round_records": 18987,
+      "season_labels": {
+        "2022": 38,
+        "None": 1,
+        "2023": 12
+      },
+      "bytes": 35080813,
+      "sha256": "fbeb36b482e6ed0c4c335204ee021af725f890d4a1e94238626fe36db1d47782",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2022",
+      "file": "data/raw/golf-sport/scoreboard-2022.json"
+    },
+    {
+      "year": 2023,
+      "raw_event_entries": 49,
+      "events": 48,
+      "dated_events": 48,
+      "entries_missing_date": 1,
+      "entries_missing_event_id": 1,
+      "player_event_records": 5941,
+      "round_records": 18738,
+      "season_labels": {
+        "2023": 48,
+        "None": 1
+      },
+      "bytes": 34626428,
+      "sha256": "bc5c87456898c6d49c3cf2cdff8a2354f3e92b4660209b5292da7035afae2aa3",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2023",
+      "file": "data/raw/golf-sport/scoreboard-2023.json"
+    },
+    {
+      "year": 2024,
+      "raw_event_entries": 51,
+      "events": 51,
+      "dated_events": 51,
+      "entries_missing_date": 0,
+      "entries_missing_event_id": 0,
+      "player_event_records": 5891,
+      "round_records": 18688,
+      "season_labels": {
+        "2024": 51
+      },
+      "bytes": 34382494,
+      "sha256": "329cc2d0cd2a076bfadc8c52a75e06066c8271b86fba88b6405c12998bc5142e",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2024",
+      "file": "data/raw/golf-sport/scoreboard-2024.json"
+    },
+    {
+      "year": 2025,
+      "raw_event_entries": 49,
+      "events": 49,
+      "dated_events": 49,
+      "entries_missing_date": 0,
+      "entries_missing_event_id": 0,
+      "player_event_records": 5774,
+      "round_records": 18757,
+      "season_labels": {
+        "2025": 49
+      },
+      "bytes": 34373541,
+      "sha256": "8a7a69cec1cd431e2c0b082820fe0af6fc2f461de287154913b2ba02ae787a45",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2025",
+      "file": "data/raw/golf-sport/scoreboard-2025.json"
+    }
+  ],
+  "events": 548,
+  "raw_event_entries": 554,
+  "entries_missing_date": 6,
+  "bytes": 363925742,
+  "player_event_records": 62691,
+  "round_records": 197929
+}

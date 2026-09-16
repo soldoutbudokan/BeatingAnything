@@ -1,0 +1,548 @@
+{
+  "checked_local_date": "2026-09-14",
+  "recorded_at_utc": "2026-09-15T00:56:42.005335+00:00",
+  "status": "Historical 2025 operational NOAA GFS forecast archive found and decoded through permitted anonymous byte-range requests.",
+  "historical_operational_archive_found": true,
+  "entire_2025_coverage_verified": false,
+  "historical_public_availability_proven": false,
+  "golf_effect_tested": false,
+  "edge_established": false,
+  "scope": {
+    "web_search_queries": 2,
+    "model_runs_sampled": 1,
+    "full_forecast_object_paths_requested": 1,
+    "range_requests": 3,
+    "own_retained_http_responses": 9,
+    "account_created": false,
+    "subscription_purchased": false,
+    "access_denial_retried": false
+  },
+  "source": {
+    "bucket": "noaa-gfs-bdp-pds",
+    "official_registry": "https://registry.opendata.aws/noaa-gfs-bdp-pds/",
+    "official_noaa_overview": "https://www.ncei.noaa.gov/products/weather-climate-models/global-forecast",
+    "anonymous_access": true,
+    "operational_data_permission": "NOAA registry says public data may be used as desired, with attribution and no NOAA endorsement."
+  },
+  "objects": [
+    {
+      "Key": "gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f024",
+      "LastModified": "2025-07-16T15:38:40.000Z",
+      "Size": "540733832",
+      "ETag": "\"00e33efbd6541f6efa1438c69595b5de\"",
+      "StorageClass": "STANDARD"
+    },
+    {
+      "Key": "gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f024.idx",
+      "LastModified": "2025-07-16T15:39:22.000Z",
+      "Size": "41252",
+      "ETag": "\"fa6651259333b84024e1db2d44b734f3\"",
+      "StorageClass": "STANDARD"
+    }
+  ],
+  "prefix_listing_sample": [
+    {
+      "Key": "gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f000",
+      "LastModified": "2025-07-16T15:46:55.000Z",
+      "Size": "494545131",
+      "ETag": "\"75f47ae09b10ae812646b2f2d0b426d5\"",
+      "StorageClass": "STANDARD"
+    },
+    {
+      "Key": "gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f000.idx",
+      "LastModified": "2025-07-16T15:47:06.000Z",
+      "Size": "31813",
+      "ETag": "\"70b10a206472ca1ad17931a0412c9801\"",
+      "StorageClass": "STANDARD"
+    },
+    {
+      "Key": "gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f001",
+      "LastModified": "2025-07-16T15:32:24.000Z",
+      "Size": "529107316",
+      "ETag": "\"1c305829436aee04e1cc98390b3f7308\"",
+      "StorageClass": "STANDARD"
+    }
+  ],
+  "forecast": {
+    "model": "NOAA GFS",
+    "grid": "0.25-degree regular latitude-longitude",
+    "reference_time_utc": "2025-07-16T12:00:00Z",
+    "reference_weekday": "Wednesday",
+    "lead_hours": 24,
+    "valid_time_utc": "2025-07-17T12:00:00Z",
+    "object_last_modified_utc": "2025-07-16T15:38:40.000Z",
+    "index_last_modified_utc": "2025-07-16T15:39:22.000Z",
+    "edition": 2,
+    "production_status_code": 0,
+    "production_status_meaning": "Operational products",
+    "processed_data_type_code": 1,
+    "processed_data_type_meaning": "Forecast products",
+    "centre_code": 7,
+    "centre_name_from_decoder": "kwbc",
+    "generating_process_identifier": 96,
+    "model_version_not_inferred": true,
+    "fields": [
+      {
+        "source_file": "data/raw/golf-weather-source/gfs-20250716-12-f024-gust.grib2",
+        "sha256": "a307056f918b7bfc88cfcb47df1f081c9a8908ce457f5eb297fd393fc9b548dd",
+        "metadata": {
+          "edition": 2,
+          "centre": "kwbc",
+          "generatingProcessIdentifier": 96,
+          "productionStatusOfProcessedData": 0,
+          "typeOfProcessedData": "fc",
+          "dataDate": 20250716,
+          "dataTime": 1200,
+          "forecastTime": 24,
+          "stepUnits": 1,
+          "startStep": 24,
+          "endStep": 24,
+          "stepType": "instant",
+          "validityDate": 20250717,
+          "validityTime": 1200,
+          "shortName": "gust",
+          "name": "Wind speed (gust)",
+          "units": "m s**-1",
+          "typeOfLevel": "surface",
+          "level": 0,
+          "gridType": "regular_ll",
+          "Ni": 1440,
+          "Nj": 721,
+          "iDirectionIncrementInDegrees": 0.25,
+          "jDirectionIncrementInDegrees": 0.25,
+          "numberOfDataPoints": 1038240,
+          "latitudeOfFirstGridPointInDegrees": 90.0,
+          "longitudeOfFirstGridPointInDegrees": 0.0,
+          "latitudeOfLastGridPointInDegrees": -90.0,
+          "longitudeOfLastGridPointInDegrees": 359.75,
+          "typeOfProcessedDataCode": 1,
+          "centreCode": 7
+        },
+        "nearest_grid_point": {
+          "lat": 55.25,
+          "lon": 353.25,
+          "value": 11.311169291287662,
+          "distance": 8.434310955046952,
+          "index": 201573
+        }
+      },
+      {
+        "source_file": "data/raw/golf-weather-source/gfs-20250716-12-f024-ugrd.grib2",
+        "sha256": "0b6e5e72e2c5df56f2ffa780fe55a1336eb84327a7d62cb0e6df29ec76a4ac2e",
+        "metadata": {
+          "edition": 2,
+          "centre": "kwbc",
+          "generatingProcessIdentifier": 96,
+          "productionStatusOfProcessedData": 0,
+          "typeOfProcessedData": "fc",
+          "dataDate": 20250716,
+          "dataTime": 1200,
+          "forecastTime": 24,
+          "stepUnits": 1,
+          "startStep": 24,
+          "endStep": 24,
+          "stepType": "instant",
+          "validityDate": 20250717,
+          "validityTime": 1200,
+          "shortName": "10u",
+          "name": "10 metre U wind component",
+          "units": "m s**-1",
+          "typeOfLevel": "heightAboveGround",
+          "level": 10,
+          "gridType": "regular_ll",
+          "Ni": 1440,
+          "Nj": 721,
+          "iDirectionIncrementInDegrees": 0.25,
+          "jDirectionIncrementInDegrees": 0.25,
+          "numberOfDataPoints": 1038240,
+          "latitudeOfFirstGridPointInDegrees": 90.0,
+          "longitudeOfFirstGridPointInDegrees": 0.0,
+          "latitudeOfLastGridPointInDegrees": -90.0,
+          "longitudeOfLastGridPointInDegrees": 359.75,
+          "typeOfProcessedDataCode": 1,
+          "centreCode": 7
+        },
+        "nearest_grid_point": {
+          "lat": 55.25,
+          "lon": 353.25,
+          "value": -3.5717895507812503,
+          "distance": 8.434310955046952,
+          "index": 201573
+        }
+      },
+      {
+        "source_file": "data/raw/golf-weather-source/gfs-20250716-12-f024-vgrd.grib2",
+        "sha256": "045f1339ddfc8ee08a65afb5b0d05a815abc7a841aa5fa6737b86dd044cd7925",
+        "metadata": {
+          "edition": 2,
+          "centre": "kwbc",
+          "generatingProcessIdentifier": 96,
+          "productionStatusOfProcessedData": 0,
+          "typeOfProcessedData": "fc",
+          "dataDate": 20250716,
+          "dataTime": 1200,
+          "forecastTime": 24,
+          "stepUnits": 1,
+          "startStep": 24,
+          "endStep": 24,
+          "stepType": "instant",
+          "validityDate": 20250717,
+          "validityTime": 1200,
+          "shortName": "10v",
+          "name": "10 metre V wind component",
+          "units": "m s**-1",
+          "typeOfLevel": "heightAboveGround",
+          "level": 10,
+          "gridType": "regular_ll",
+          "Ni": 1440,
+          "Nj": 721,
+          "iDirectionIncrementInDegrees": 0.25,
+          "jDirectionIncrementInDegrees": 0.25,
+          "numberOfDataPoints": 1038240,
+          "latitudeOfFirstGridPointInDegrees": 90.0,
+          "longitudeOfFirstGridPointInDegrees": 0.0,
+          "latitudeOfLastGridPointInDegrees": -90.0,
+          "longitudeOfLastGridPointInDegrees": 359.75,
+          "typeOfProcessedDataCode": 1,
+          "centreCode": 7
+        },
+        "nearest_grid_point": {
+          "lat": 55.25,
+          "lon": 353.25,
+          "value": 6.82205322265625,
+          "distance": 8.434310955046952,
+          "index": 201573
+        }
+      }
+    ]
+  },
+  "decoded_point_example": {
+    "request_point": {
+      "latitude": 55.2,
+      "longitude": -6.65
+    },
+    "point_note": "Approximate Portrush vicinity chosen only for a source-decoding example; no validated golf-course coordinate or course weather observation.",
+    "wind_speed_m_per_s": 7.700525356612019,
+    "wind_speed_km_per_h": 27.72189128380327,
+    "meteorological_direction_from_degrees": 152.36501122202105
+  },
+  "decoder": {
+    "library": {
+      "python_package": "2.48.0",
+      "library": "2.48.0"
+    },
+    "isolated_dependency_directory": "/tmp/golf-weather-eccodes",
+    "runtime": "state/runtime/research-venv/bin/python",
+    "command": "PYTHONPATH=/tmp/golf-weather-eccodes state/runtime/research-venv/bin/python data/raw/golf-weather-source/decode_grib_sample.py",
+    "script": "data/raw/golf-weather-source/decode_grib_sample.py",
+    "script_sha256": "f83271f0823e81dac6a381859fc6ca102b094fb18df846789f4199205bfe545a",
+    "output": "data/raw/golf-weather-source/decoded-20250716-12-f024.json",
+    "output_sha256": "a1737eecdb1ee27bd53f1b6d0cbe18659a31c0dec53f83e6ea4d518f9b9ea865",
+    "project_dependency_files_changed": false
+  },
+  "download_cost": {
+    "full_object_bytes": 540733832,
+    "selected_three_fields_bytes": 2536039,
+    "selected_uv_only_bytes": 1921000,
+    "index_bytes": 41252,
+    "selected_fields_fraction_of_full_object": 0.004689995058419056,
+    "one_hour_per_event_estimate": "Observed U/V messages total 1,921,000bytes for this single lead. Compressed size varies by lead/run.",
+    "example_not_a_download_plan": {
+      "events": 40,
+      "hours_per_event": 36,
+      "uv_only_bytes_at_sample_size": 2766240000,
+      "uv_and_gust_bytes_at_sample_size": 3651896160
+    },
+    "access_charge_observed": 0,
+    "charge_note": "Anonymous public HTTP without an account or purchase; local bandwidth/storage and future provider changes remain separate."
+  },
+  "clock_interpretation": [
+    "GRIB referenceTime identifies model initialization; validity identifies the forecast target hour.",
+    "Operational production code 0 and forecast type 1 establish the sampled file is marked as an operational forecast, not a reanalysis or labeled hindcast.",
+    "S3 Last-Modified is a system-controlled object creation/modification clock. AWS documentation notes multipart object creation can mean upload initiation. It is not an independent record of public availability or successful historical client receipt.",
+    "For a historical decision, retain each required forecast object and its index LastModified separately. Do not substitute one f000 time for every lead, and do not use local 2026 retrieval time as a 2025 publication time.",
+    "A conservative predetermined lag may make exploratory timing more plausible but does not turn metadata into observed historical access.",
+    "The 2025 Open FanDuel article publication 14:07:04Z precedes this f024 object 15:38:40Z on July 16, so this 12Z run is not valid evidence for that quoted article decision."
+  ],
+  "limits": [
+    "One Wednesday2025 run and one forecast lead were downloaded. This does not verify all 2025 events, all leads or complete archive retention.",
+    "The approximate point 55.2,-6.65 is a decoding example, not verified course coordinates. Nearest gridpoint 55.25,-6.75 lies 8.434km away and may reflect coast/ocean; no course weather observation is asserted.",
+    "No local topography correction, interpolation, score response, volatility classifier, settlement, price residual or return was fitted.",
+    "NCEI overview advertises a 30-day cloud window, but this direct 2025 S3 sample contradicts treating that text as a hard current retention bound.",
+    "NCEI THREDDS lists July 2025 and July 16, but daily catalog request timed out once. No dataset payload was downloaded through THREDDS."
+  ],
+  "citations": [
+    {
+      "url": "https://registry.opendata.aws/noaa-gfs-bdp-pds/",
+      "supports": "Official NOAA-managed public S3 bucket, no account access and reuse terms."
+    },
+    {
+      "url": "https://www.ncei.noaa.gov/products/weather-climate-models/global-forecast",
+      "supports": "Operational GFS overview, approximate NCEI coverage and alternative archive links."
+    },
+    {
+      "url": "https://codes.ecmwf.int/grib/format/grib2/ctables/1/3/",
+      "supports": "Production status 0 means operational products."
+    },
+    {
+      "url": "https://codes.ecmwf.int/grib/format/grib2/ctables/1/4/",
+      "supports": "Data type 1 means forecast products."
+    },
+    {
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingMetadata.html",
+      "supports": "Last-Modified definition, system control and multipart qualification."
+    },
+    {
+      "url": "https://sites.ecmwf.int/docs/eccodes/namespaceec_codes.html",
+      "supports": "Nearest-grid-point decoder API."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.ncei.noaa.gov/products/weather-climate-models/global-forecast",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:50:19.685398+00:00",
+      "received_at": "2026-09-15T00:50:22.297464+00:00",
+      "path": "data/raw/golf-weather-source/noaa-gfs-product.html",
+      "bytes": 44322,
+      "sha256": "5aac8959d167d6cc9273fbe00809dad51762d0caf5277444f23ebe7c0eec211d",
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 00:50:20 GMT",
+        "Server": "Apache",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Drupal-Dynamic-Cache": "MISS",
+        "Content-Language": "en",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-Generator": "Drupal 10 (https://www.drupal.org)",
+        "X-Drupal-Cache": "MISS",
+        "Last-Modified": "Mon, 14 Sep 2026 19:50:18 GMT",
+        "ETag": "\"1789415418-gzip\"",
+        "X-Request-ID": "v-82f7f4fe-b075-11f1-a14f-6b6a3f371aaa",
+        "X-AH-Environment": "prod",
+        "X-Age": "0",
+        "Vary": "Accept-Encoding",
+        "Cache-Control": "public, max-age=42",
+        "Expires": "Tue, 15 Sep 2026 00:51:02 GMT",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
+        "Connection": "close",
+        "Transfer-Encoding": "chunked"
+      }
+    },
+    {
+      "url": "https://registry.opendata.aws/noaa-gfs-bdp-pds/",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:50:19.685602+00:00",
+      "received_at": "2026-09-15T00:50:20.316229+00:00",
+      "path": "data/raw/golf-weather-source/aws-gfs-registry.html",
+      "bytes": 15300,
+      "sha256": "f2780dd16faecb93593282ad71d0c1432fcc00d52a8c18bf2c8671be5fe20b2a",
+      "headers": {
+        "Content-Type": "text/html",
+        "Content-Length": "15300",
+        "Connection": "close",
+        "Last-Modified": "Thu, 10 Sep 2026 18:10:52 GMT",
+        "x-amz-version-id": "bOcw9NahnFZIvVajLuoOwcptoo0nRL7T",
+        "Server": "AmazonS3",
+        "Strict-Transport-Security": "max-age= 63072000; includeSubdomains; preload",
+        "Content-Security-Policy": "default-src 'self' studiolab.sagemaker.aws assets.opendata.aws a0.awsstatic.com; object-src 'none'",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "same-origin",
+        "Date": "Tue, 15 Sep 2026 00:50:21 GMT",
+        "ETag": "\"d73d1c55ff1d3ef2523be369e90af9e8\"",
+        "Vary": "Accept-Encoding",
+        "X-Cache": "RefreshHit from cloudfront",
+        "Via": "1.1 f0f239c25f8c987fec1b377e81642e4e.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Pop": "YUL62-P4",
+        "X-Amz-Cf-Id": "lMXcFSbasuW3ZV6xJBdU-h1My5Bot4uN4V7cn_guq7IyoCjq3fzMXQ=="
+      }
+    },
+    {
+      "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/?list-type=2&prefix=gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f0&max-keys=3",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:50:19.685669+00:00",
+      "received_at": "2026-09-15T00:50:19.916670+00:00",
+      "path": "data/raw/golf-weather-source/gfs-20250716-12-s3-list.xml",
+      "bytes": 1448,
+      "sha256": "7458b7feeb9be2cd25054204193ea2912a1604740a29f09aef06c1f577b6df50",
+      "headers": {
+        "x-amz-id-2": "dfXy+W7K+VqT/5de08/YLNzM4mHXFfhb1IWilmfpLC2lOcRrHYLeVmfSjX24CZi7rj0tLdxiOHI=",
+        "x-amz-request-id": "F49FBHGZ6SEF9SH2",
+        "Date": "Tue, 15 Sep 2026 00:50:21 GMT",
+        "x-amz-bucket-region": "us-east-1",
+        "Content-Type": "application/xml",
+        "Transfer-Encoding": "chunked",
+        "Server": "AmazonS3",
+        "Connection": "close"
+      }
+    },
+    {
+      "url": "https://www.ncei.noaa.gov/oa/prod-model/index.html",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:50:19.685707+00:00",
+      "received_at": "2026-09-15T00:50:20.134148+00:00",
+      "path": "data/raw/golf-weather-source/ncei-object-explorer.html",
+      "bytes": 33179,
+      "sha256": "c87f9a9d37ca54b2ac5c5f04025524d8278e6d0e1ea64bcb98e77dcf7bc959af",
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 00:50:20 GMT",
+        "Server": "Apache",
+        "Strict-Transport-Security": "max-age=31536000",
+        "accept-ranges": "bytes",
+        "last-modified": "Wed, 29 May 2024 03:57:56 GMT",
+        "x-rgw-object-type": "Normal",
+        "etag": "\"7a5d43b2e147d6f68e098041c7202fbc\"",
+        "x-amz-meta-mtime": "1688071669.657663395",
+        "x-amz-request-id": "tx00000dee6bb5100900d8a-006aa8964c-21a38f3-ncei-nc-1",
+        "content-type": "text/html",
+        "Vary": "Accept-Encoding",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
+        "Connection": "close",
+        "Transfer-Encoding": "chunked"
+      }
+    },
+    {
+      "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/?list-type=2&prefix=gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f024&max-keys=3",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:51:10.683723+00:00",
+      "received_at": "2026-09-15T00:51:10.875803+00:00",
+      "path": "data/raw/golf-weather-source/gfs-20250716-12-f024-list.xml",
+      "bytes": 960,
+      "sha256": "28926f29ab519b4819c37a380e70da6397b13f1f3bbb4a2e9a449941298bc833",
+      "headers": {
+        "x-amz-id-2": "iv7BowJ/kaUtViz1hTY0umlpcK3LXg0L1v/zychYT5GPbhSJCWxbINd11U6eyUH8A7jT8w+Wa/o=",
+        "x-amz-request-id": "08FWE3C3XYXT5FTK",
+        "Date": "Tue, 15 Sep 2026 00:51:12 GMT",
+        "x-amz-bucket-region": "us-east-1",
+        "Content-Type": "application/xml",
+        "Transfer-Encoding": "chunked",
+        "Server": "AmazonS3",
+        "Connection": "close"
+      }
+    },
+    {
+      "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f024.idx",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:51:10.683917+00:00",
+      "received_at": "2026-09-15T00:51:11.191933+00:00",
+      "path": "data/raw/golf-weather-source/gfs-20250716-12-f024.idx",
+      "bytes": 41252,
+      "sha256": "6d7ee8479d30a35ed2054bc6e873ace1a0532eeffb3165d96e448af18ed95315",
+      "headers": {
+        "x-amz-id-2": "FPO7SnqfDSzphw3QntN0FOz1WaLD6qEuwwSBvs22IYupcqAZR3YrPnj2geKcZ9pNEbAcoT40Ixc=",
+        "x-amz-request-id": "08FMDBYEDQW1AZ1B",
+        "Date": "Tue, 15 Sep 2026 00:51:12 GMT",
+        "Last-Modified": "Wed, 16 Jul 2025 15:39:22 GMT",
+        "ETag": "\"fa6651259333b84024e1db2d44b734f3\"",
+        "x-amz-server-side-encryption": "AES256",
+        "Accept-Ranges": "bytes",
+        "Content-Type": "binary/octet-stream",
+        "Content-Length": "41252",
+        "Server": "AmazonS3",
+        "Connection": "close"
+      }
+    },
+    {
+      "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f024",
+      "request_headers": {
+        "Range": "bytes=6853307-7468345"
+      },
+      "status": 206,
+      "request_started_at": "2026-09-15T00:51:47.305653+00:00",
+      "received_at": "2026-09-15T00:51:47.877695+00:00",
+      "path": "data/raw/golf-weather-source/gfs-20250716-12-f024-gust.grib2",
+      "bytes": 615039,
+      "sha256": "a307056f918b7bfc88cfcb47df1f081c9a8908ce457f5eb297fd393fc9b548dd",
+      "headers": {
+        "x-amz-id-2": "IBkYKX1SK98EwxtwvslOiAhRIJN20KaCGNmUhpoYHWg+jd0cJzWl4CYPDZP6s75S/Nk0fkIaX/bCfV94CnFytB1hamcuqhNN",
+        "x-amz-request-id": "1Y0978Z04PZ9HKJV",
+        "Date": "Tue, 15 Sep 2026 00:51:48 GMT",
+        "Last-Modified": "Wed, 16 Jul 2025 15:38:40 GMT",
+        "ETag": "\"00e33efbd6541f6efa1438c69595b5de\"",
+        "x-amz-server-side-encryption": "AES256",
+        "Accept-Ranges": "bytes",
+        "Content-Range": "bytes 6853307-7468345/540733832",
+        "Content-Type": "binary/octet-stream",
+        "Content-Length": "615039",
+        "Server": "AmazonS3",
+        "Connection": "close"
+      },
+      "index": {
+        "variable": "GUST",
+        "start": 6853307,
+        "end": 7468345,
+        "index_record": "14:6853307:d=2025071612:GUST:surface:24 hour fcst:"
+      }
+    },
+    {
+      "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f024",
+      "request_headers": {
+        "Range": "bytes=422430942-423404267"
+      },
+      "status": 206,
+      "request_started_at": "2026-09-15T00:51:47.305977+00:00",
+      "received_at": "2026-09-15T00:51:47.798659+00:00",
+      "path": "data/raw/golf-weather-source/gfs-20250716-12-f024-ugrd.grib2",
+      "bytes": 973326,
+      "sha256": "0b6e5e72e2c5df56f2ffa780fe55a1336eb84327a7d62cb0e6df29ec76a4ac2e",
+      "headers": {
+        "x-amz-id-2": "f4j3vIJNMyQJUGGMwjfNRIm667V+Dt4G27lRevu2Czy8vzWWfcXa7tIlB10MJDnvrKiz/bZDksduqBnWlW0kXw+z+hxdVBzv",
+        "x-amz-request-id": "1Y05K8R1F1W3TXYM",
+        "Date": "Tue, 15 Sep 2026 00:51:48 GMT",
+        "Last-Modified": "Wed, 16 Jul 2025 15:38:40 GMT",
+        "ETag": "\"00e33efbd6541f6efa1438c69595b5de\"",
+        "x-amz-server-side-encryption": "AES256",
+        "Accept-Ranges": "bytes",
+        "Content-Range": "bytes 422430942-423404267/540733832",
+        "Content-Type": "binary/octet-stream",
+        "Content-Length": "973326",
+        "Server": "AmazonS3",
+        "Connection": "close"
+      },
+      "index": {
+        "variable": "UGRD",
+        "start": 422430942,
+        "end": 423404267,
+        "index_record": "588:422430942:d=2025071612:UGRD:10 m above ground:24 hour fcst:"
+      }
+    },
+    {
+      "url": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20250716/12/atmos/gfs.t12z.pgrb2.0p25.f024",
+      "request_headers": {
+        "Range": "bytes=423404268-424351941"
+      },
+      "status": 206,
+      "request_started_at": "2026-09-15T00:51:47.306078+00:00",
+      "received_at": "2026-09-15T00:51:49.472739+00:00",
+      "path": "data/raw/golf-weather-source/gfs-20250716-12-f024-vgrd.grib2",
+      "bytes": 947674,
+      "sha256": "045f1339ddfc8ee08a65afb5b0d05a815abc7a841aa5fa6737b86dd044cd7925",
+      "headers": {
+        "x-amz-id-2": "zviQF0+Cx2/pjJNJ9rvsGNF7/ecmgfs5iPvzOlXSzL3X1CecvpLybzDcrJW6LXqS+FFHtdLmZthiNE173zMZdS6k/6nQrAnB",
+        "x-amz-request-id": "1Y0010B1S79F3JRP",
+        "Date": "Tue, 15 Sep 2026 00:51:48 GMT",
+        "Last-Modified": "Wed, 16 Jul 2025 15:38:40 GMT",
+        "ETag": "\"00e33efbd6541f6efa1438c69595b5de\"",
+        "x-amz-server-side-encryption": "AES256",
+        "Accept-Ranges": "bytes",
+        "Content-Range": "bytes 423404268-424351941/540733832",
+        "Content-Type": "binary/octet-stream",
+        "Content-Length": "947674",
+        "Server": "AmazonS3",
+        "Connection": "close"
+      },
+      "index": {
+        "variable": "VGRD",
+        "start": 423404268,
+        "end": 424351941,
+        "index_record": "589:423404268:d=2025071612:VGRD:10 m above ground:24 hour fcst:"
+      }
+    }
+  ],
+  "next_action": "Use this verified source path and isolated decoder for bounded historical operational-weather acquisition after the event, course, run, validhour and timing rules are fixed. Preserve missing files and forecast clocks. Price confirmation still needs actual FanDuel quotes."
+}

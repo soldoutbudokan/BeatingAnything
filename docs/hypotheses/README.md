@@ -1,3 +1,7 @@
+# Current priority: golf derivative exploration
+
+September 14: [12 declared golf cards and ranked assumptions](GOLF-QUEUE.md) now lead the active exploration under the user’s latest instruction. Prior results below remain historical evidence, including failed and underpowered screens. No golf pricing effect has been established by the declaration itself.
+
 # Hypothesis queue
 
 **September 13 user priority:** execute the handoff and broaden the search to **golf, tennis, rugby, CFL and other markets with substantial season runway**. NFL and NBA remain candidates. Further MLB research is deferred for the 2026 season, including book-side follow-up of the [positive position-player screen](../../reports/mlb-position-pitching-2026-09-13.md). Preserve that result; it does not establish FanDuel mispricing. PREM/URC run through June 2027; CFL's October 24 regular-season end makes it a secondary runway choice. The latest executed batch is recorded in [PROGRESS.md](../../PROGRESS.md).
@@ -12,7 +16,7 @@
 | Price-source follow-up | [Rugby yellow cards](rugby-yellow-card-next-try.md) | 133 matched windows pass the fixed sport-side screen: +119.17% opponent try rate. Exploratory association, no edge. [Market-access check](../rugby-market-access-2026-09-13.md) found no verified FanDuel PREM/URC live quote route; do not repeat the same catalog check or expand historical seasons. |
 | NBA completed, unresolved | [Missing creator and assists](basketball-star-out-assists.md) | [Fixed 2024–25 screen](../../reports/nba-creator-assists-2026-09-13.md): +0.96 assists across only 25 exposures; below the 100-exposure requirement. Do not rerun the same cohort. |
 | New tennis screen failed | [Long return game and changeover](tennis-long-return-changeover.md) | [Screen](../../reports/tennis-return-changeover-2026-09-13.md): +1.93 percentage-point adjusted break contrast, below the fixed +3-point threshold. No subgroup rescue. |
-| Golf source gap | [Sunday chasing variance](golf-sunday-chasing-variance.md) | [Source checkpoint](../../reports/golf-source-screen-2026-09-13.md): free 2021 sample establishes schema only; the fixed 2025 cohort is unavailable. No effect measured. |
+| Golf screen failed | [Sunday chasing variance](golf-sunday-chasing-variance.md) | [2025 execution](../../reports/golf-sunday-screen-2026-09-14.md): 421 exposed rounds / 43 events; variance ratio 1.0327, below 1.15. Source gap resolved; no price-test advance. |
 | CFL classification gap | [Rouge rule and scoring](cfl-rouge-rule-scoring.md) | [Checkpoint](../../reports/cfl-rouge-screen-2026-09-13.md): 154 reported singles in 162 games; kick trajectories missing and one team-season score mismatch. No rule-change effect measured. |
 | NFL completed | [Wind and long kicks](football-wind-long-kicks.md) | [785-drive screen](../../reports/nfl-wind-kicks-2026-09-13.md) fails the fixed reduction threshold. Deprioritize this retrospective route; timely-forecast variant remains unresolved. |
 | NFL completed, unresolved | [Garbage-time receptions](football-garbage-time-receptions.md) | [Fixed test](../../reports/nfl-garbage-receptions-2026-09-13.md): +41.4% receptions/team snap, but only 72 matched exposures. Participation acquired; source-identity caveat recorded. No matching relaxation or season expansion. |

@@ -1,0 +1,383 @@
+{
+  "card": "G5",
+  "scope": "exploratory 2025, 2024 history warmup; no prices",
+  "sources": [
+    {
+      "path": "data/raw/golf-sport/scoreboard-2024.json",
+      "sha256": "329cc2d0cd2a076bfadc8c52a75e06066c8271b86fba88b6405c12998bc5142e",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2024"
+    },
+    {
+      "path": "data/raw/golf-sport/scoreboard-2025.json",
+      "sha256": "8a7a69cec1cd431e2c0b082820fe0af6fc2f461de287154913b2ba02ae787a45",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=2025"
+    }
+  ],
+  "attrition": {
+    "counts": {
+      "events_2024": 40,
+      "incomplete_or_inconsistent_rounds": 464,
+      "events_2025": 39,
+      "player_events_2025": 4823,
+      "insufficient_prior_rounds": 624,
+      "missing_complete_early_rounds": 38
+    },
+    "excluded_events": [
+      {
+        "id": "401580331",
+        "name": "The American Express",
+        "reason": "american express"
+      },
+      {
+        "id": "401580332",
+        "name": "Farmers Insurance Open",
+        "reason": "farmers insurance"
+      },
+      {
+        "id": "401580333",
+        "name": "AT&T Pebble Beach Pro-Am",
+        "reason": "pebble beach"
+      },
+      {
+        "id": "401580347",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "zurich classic"
+      },
+      {
+        "id": "401580361",
+        "name": "Barracuda Championship",
+        "reason": "barracuda"
+      },
+      {
+        "id": "401580366",
+        "name": "TOUR Championship",
+        "reason": "tour championship"
+      },
+      {
+        "id": "401656722",
+        "name": "Presidents Cup",
+        "reason": "presidents cup"
+      },
+      {
+        "id": "401693943",
+        "name": "The RSM Classic",
+        "reason": "rsm classic"
+      },
+      {
+        "id": "401693956",
+        "name": "Hero World Challenge",
+        "reason": "hero world challenge"
+      },
+      {
+        "id": "401693957",
+        "name": "PGA TOUR Q-School presented by Korn Ferry",
+        "reason": "q-school"
+      },
+      {
+        "id": "401734787",
+        "name": "Crypto.com Showdown",
+        "reason": "showdown"
+      },
+      {
+        "id": "401703491",
+        "name": "The American Express",
+        "reason": "american express"
+      },
+      {
+        "id": "401703492",
+        "name": "Farmers Insurance Open",
+        "reason": "farmers insurance"
+      },
+      {
+        "id": "401703493",
+        "name": "AT&T Pebble Beach Pro-Am",
+        "reason": "pebble beach"
+      },
+      {
+        "id": "401703507",
+        "name": "Zurich Classic of New Orleans",
+        "reason": "zurich classic"
+      },
+      {
+        "id": "401703522",
+        "name": "Barracuda Championship",
+        "reason": "barracuda"
+      },
+      {
+        "id": "401703531",
+        "name": "TOUR Championship",
+        "reason": "tour championship"
+      },
+      {
+        "id": "401734110",
+        "name": "Ryder Cup",
+        "reason": "ryder cup"
+      },
+      {
+        "id": "401738559",
+        "name": "The RSM Classic",
+        "reason": "rsm classic"
+      },
+      {
+        "id": "401738560",
+        "name": "Hero World Challenge",
+        "reason": "hero world challenge"
+      },
+      {
+        "id": "401833647",
+        "name": "PGA TOUR Q-School presented by Korn Ferry",
+        "reason": "q-school"
+      }
+    ]
+  },
+  "results": {
+    "round3_residual": {
+      "bins": {
+        "low": {
+          "early_eligible": 787,
+          "later_observed": 775,
+          "later_missing": 12,
+          "early_mean": -3.091093062378262,
+          "later_mean": -0.255324206830265
+        },
+        "middle": {
+          "early_eligible": 2758,
+          "later_observed": 1649,
+          "later_missing": 1109,
+          "early_mean": -0.5101637800051672,
+          "later_mean": 0.3420755578469927
+        },
+        "high": {
+          "early_eligible": 616,
+          "later_observed": 102,
+          "later_missing": 514,
+          "early_mean": 3.1469157241435743,
+          "later_mean": 0.8361419165483682
+        }
+      },
+      "matched_player_events": 200,
+      "matched_events": 11,
+      "early_gap": 6.097522410794479,
+      "later_gap": 0.973482327817574,
+      "contrast_per_early_stroke": 0.15965211150256908,
+      "status": "unresolved: sample below gate",
+      "event_contrasts": [
+        {
+          "event_id": "401703489",
+          "low": 11,
+          "high": 15,
+          "weight": 6.346153846153846,
+          "early_gap": 5.943948075731026,
+          "later_gap": 0.8500086817916325
+        },
+        {
+          "event_id": "401703495",
+          "low": 8,
+          "high": 3,
+          "weight": 2.1818181818181817,
+          "early_gap": 5.233161975365813,
+          "later_gap": -0.32933802463418704
+        },
+        {
+          "event_id": "401703498",
+          "low": 9,
+          "high": 1,
+          "weight": 0.9,
+          "early_gap": 5.638738561907902,
+          "later_gap": 5.638738561907902
+        },
+        {
+          "event_id": "401703505",
+          "low": 5,
+          "high": 16,
+          "weight": 3.8095238095238093,
+          "early_gap": 5.749614396826024,
+          "later_gap": 2.287114396826024
+        },
+        {
+          "event_id": "401703509",
+          "low": 5,
+          "high": 10,
+          "weight": 3.3333333333333335,
+          "early_gap": 5.1548327038056065,
+          "later_gap": 1.154832703805607
+        },
+        {
+          "event_id": "401703512",
+          "low": 20,
+          "high": 1,
+          "weight": 0.9523809523809523,
+          "early_gap": 6.139513726951094,
+          "later_gap": -2.5354862730489063
+        },
+        {
+          "event_id": "401703513",
+          "low": 4,
+          "high": 1,
+          "weight": 0.8,
+          "early_gap": 6.626072456712469,
+          "later_gap": -1.9989275432875306
+        },
+        {
+          "event_id": "401703516",
+          "low": 10,
+          "high": 15,
+          "weight": 6.0,
+          "early_gap": 6.188599926729896,
+          "later_gap": -1.2947334066034377
+        },
+        {
+          "event_id": "401703525",
+          "low": 7,
+          "high": 15,
+          "weight": 4.7727272727272725,
+          "early_gap": 6.323319451574063,
+          "later_gap": 0.37093849919311106
+        },
+        {
+          "event_id": "401703530",
+          "low": 6,
+          "high": 15,
+          "weight": 4.285714285714286,
+          "early_gap": 6.606544170830467,
+          "later_gap": 2.6732108374971335
+        },
+        {
+          "event_id": "401738555",
+          "low": 13,
+          "high": 10,
+          "weight": 5.6521739130434785,
+          "early_gap": 6.7118994078359435,
+          "later_gap": 2.519591715528251
+        }
+      ]
+    },
+    "round4_residual": {
+      "bins": {
+        "low": {
+          "early_eligible": 787,
+          "later_observed": 773,
+          "later_missing": 14,
+          "early_mean": -3.0926368359371006,
+          "later_mean": -0.1415940812425093
+        },
+        "middle": {
+          "early_eligible": 2758,
+          "later_observed": 1645,
+          "later_missing": 1113,
+          "early_mean": -0.5124230841916809,
+          "later_mean": 0.31215375411176843
+        },
+        "high": {
+          "early_eligible": 616,
+          "later_observed": 100,
+          "later_missing": 516,
+          "early_mean": 3.1082542902782313,
+          "later_mean": 0.5288617560520017
+        }
+      },
+      "matched_player_events": 197,
+      "matched_events": 11,
+      "early_gap": 6.063314612156489,
+      "later_gap": 0.5069359667911306,
+      "contrast_per_early_stroke": 0.08360706960096746,
+      "status": "unresolved: sample below gate",
+      "event_contrasts": [
+        {
+          "event_id": "401703489",
+          "low": 11,
+          "high": 14,
+          "weight": 6.16,
+          "early_gap": 5.708908266991019,
+          "later_gap": 0.26085631893907013
+        },
+        {
+          "event_id": "401703495",
+          "low": 8,
+          "high": 3,
+          "weight": 2.1818181818181817,
+          "early_gap": 5.233161975365813,
+          "later_gap": 0.8373286420324796
+        },
+        {
+          "event_id": "401703498",
+          "low": 9,
+          "high": 1,
+          "weight": 0.9,
+          "early_gap": 5.638738561907902,
+          "later_gap": -1.9168169936476542
+        },
+        {
+          "event_id": "401703505",
+          "low": 5,
+          "high": 16,
+          "weight": 3.8095238095238093,
+          "early_gap": 5.749614396826024,
+          "later_gap": -0.1628856031739762
+        },
+        {
+          "event_id": "401703509",
+          "low": 5,
+          "high": 10,
+          "weight": 3.3333333333333335,
+          "early_gap": 5.1548327038056065,
+          "later_gap": 0.4548327038056067
+        },
+        {
+          "event_id": "401703512",
+          "low": 20,
+          "high": 1,
+          "weight": 0.9523809523809523,
+          "early_gap": 6.139513726951094,
+          "later_gap": 1.164513726951094
+        },
+        {
+          "event_id": "401703513",
+          "low": 4,
+          "high": 1,
+          "weight": 0.8,
+          "early_gap": 6.626072456712469,
+          "later_gap": 3.0010724567124694
+        },
+        {
+          "event_id": "401703516",
+          "low": 9,
+          "high": 14,
+          "weight": 5.478260869565218,
+          "early_gap": 6.217026774365795,
+          "later_gap": -0.17186211452309388
+        },
+        {
+          "event_id": "401703525",
+          "low": 7,
+          "high": 15,
+          "weight": 4.7727272727272725,
+          "early_gap": 6.323319451574063,
+          "later_gap": 0.6661765944312062
+        },
+        {
+          "event_id": "401703530",
+          "low": 6,
+          "high": 15,
+          "weight": 4.285714285714286,
+          "early_gap": 6.606544170830467,
+          "later_gap": 0.7732108374971336
+        },
+        {
+          "event_id": "401738555",
+          "low": 13,
+          "high": 10,
+          "weight": 5.6521739130434785,
+          "early_gap": 6.7118994078359435,
+          "later_gap": 1.3734378693744047
+        }
+      ]
+    }
+  },
+  "derived_rows": {
+    "file": "data/raw/golf-sport/screen-weekend-rows.json",
+    "count": 4161,
+    "sha256": "6755b838d22ccf024b8e59bb1b6ede261803129944fe70a67ab6a028f839c39a"
+  },
+  "fanduel_price_test": null
+}

@@ -1,0 +1,2670 @@
+{
+  "schema_version": 1,
+  "declared_cohort": "Fixed 40 individual single-course 2025 PGA TOUR editions from reports/golf-weather-group-inventory-2026-09-14.json; no scoring or weather comparisons used for selection.",
+  "created_utc": "2026-09-15T01:06:55.421229+00:00",
+  "coordinate_selection": "Human-reviewed named golf polygon representative point, or a map embedded by the official club at its identified address; never a city center. OSM combined properties spanning multiple nearest 0.25-degree GFS cells are ambiguous and excluded until a subcourse position is verified.",
+  "ambiguous_definition": "True means no defensible position for the declared venue at the weather-grid resolution; such rows are ineligible. False can still be a golf-property centroid or official clubhouse/map-center position, as explicitly described by quality and coordinate_scope.",
+  "geometry_limit": "OSM was queried in September2026 and is not a historical geometry snapshot. Official2025 PGA course identities choose the venue; weather point is a static representative position, not a historical tee location.",
+  "attribution": "Map data © OpenStreetMap contributors, ODbL1.0: https://www.openstreetmap.org/copyright . Official embedded maps are attributed to their club pages / Google Maps.",
+  "nominatim_policy": "https://operations.osmfoundation.org/policies/nominatim/",
+  "collection_method": "Single-machine, single-thread, one-time bounded named-course queries; identifying application User-Agent; 2 seconds between requests; cached each response, no recurring service. Stopped PGA.com after one403 fallback; did not retry it.",
+  "events": [
+    {
+      "pga_id": "R2025016",
+      "espn_id": "401703489",
+      "tournament": "The Sentry",
+      "official_venue": {
+        "name": "Plantation Course at Kapalua",
+        "city": "Kapalua, Maui",
+        "stateCode": "HI",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "656",
+          "courseName": "Plantation Course at Kapalua",
+          "courseCode": "PC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "656",
+      "latitude": 21.0045967,
+      "longitude": -156.6349994,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/12152889",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025016-nominatim.json",
+          "sha256": "6c8f80f081b4659274d9b64d078a71dbd9ed0623677b4d93deb678f61cce97be"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025016-nominatim.meta.json",
+          "sha256": "5342ac6c40dcc61a3cff72232d73de4137503156129a21a781e4c8fcbbdaa01a"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 12152889,
+      "source_name": "The Plantation Course",
+      "source_address": "The Plantation Course, Mahana Ridge Street, Kapalua, Maui County, Hawaii, 95761, United States",
+      "source_bounds_south_north_west_east": [
+        20.9963107,
+        21.0112013,
+        -156.648291,
+        -156.6328315
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        21.0,
+        -156.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          21.0,
+          -156.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025006",
+      "espn_id": "401703490",
+      "tournament": "Sony Open in Hawaii",
+      "official_venue": {
+        "name": "Waialae Country Club",
+        "city": "Honolulu",
+        "stateCode": "HI",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "006",
+          "courseName": "Waialae Country Club",
+          "courseCode": "WC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "006",
+      "latitude": 21.274543,
+      "longitude": -157.7707646,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/925998200",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025006-nominatim.json",
+          "sha256": "f9c2688eb0cbf4bdec809a18b7fd055120d2c24b034af3dac75633ee368d362f"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025006-nominatim.meta.json",
+          "sha256": "7ae20ed5e68849582111c874e78ac6f25a6a78038784967b3e846b2616bd1525"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 925998200,
+      "source_name": "Waiʻalae Country Club",
+      "source_address": "Waiʻalae Country Club, 4997, Kahala Avenue, Waialae-Kahala, Wailupe, Kāhala, East Honolulu, Honolulu, Honolulu County, Hawaii, 96816, United States",
+      "source_bounds_south_north_west_east": [
+        21.2711467,
+        21.2780502,
+        -157.783932,
+        -157.7668289
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        21.25,
+        -157.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          21.25,
+          -157.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025003",
+      "espn_id": "401703494",
+      "tournament": "WM Phoenix Open",
+      "official_venue": {
+        "name": "TPC Scottsdale (Stadium Course)",
+        "city": "Scottsdale",
+        "stateCode": "AZ",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "510",
+          "courseName": "TPC Scottsdale (Stadium Course)",
+          "courseCode": "TS",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "510",
+      "latitude": 33.6401402,
+      "longitude": -111.9156552,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/78388948",
+      "identity_note": "Selected Stadium Course, rejected the separate Champions Course.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025003-nominatim.json",
+          "sha256": "7e669858e8aa29dbff593a874611669ee35c36345169b5ad663d60eb498f810a"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025003-nominatim.meta.json",
+          "sha256": "d9576c4139e7c23ccde61ef77a04fc35c503e743f66b0653ee17fb0ca34126a3"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 78388948,
+      "source_name": "TPC Scottsdale Stadium Course",
+      "source_address": "TPC Scottsdale Stadium Course, 7020, North Hayden Road, Scottsdale, Maricopa County, Arizona, 85255, United States",
+      "source_bounds_south_north_west_east": [
+        33.6358956,
+        33.6443963,
+        -111.9240061,
+        -111.9077734
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        33.75,
+        -112.0
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          33.75,
+          -112.0
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025007",
+      "espn_id": "401703495",
+      "tournament": "The Genesis Invitational",
+      "official_venue": {
+        "name": "Torrey Pines Golf Course (South Course)",
+        "city": "San Diego",
+        "stateCode": "CA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "939",
+          "courseName": "Torrey Pines Golf Course (South Course)",
+          "courseCode": "SC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "939",
+      "latitude": 32.8968959,
+      "longitude": -117.2455316,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/35679036",
+      "identity_note": "Official 2025 Genesis venue is Torrey Pines South; selected South course polygon and rejected North. Not Riviera.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025007-nominatim.json",
+          "sha256": "68b47317602655432e32a36fb544041b55152ea41dbd744985e1d218ad1a8b18"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025007-nominatim.meta.json",
+          "sha256": "38b8ccf09a33a1ed2afc5799850d7eff1c1a30196facffc9bfd0822840ebd592"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 35679036,
+      "source_name": "Torrey Pines South Course",
+      "source_address": "Torrey Pines South Course, 11480, North Torrey Pines Road, Torrey Pines, San Diego, San Diego County, California, 92037, United States",
+      "source_bounds_south_north_west_east": [
+        32.8900716,
+        32.9042011,
+        -117.2523439,
+        -117.2429501
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        33.0,
+        -117.25
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          33.0,
+          -117.25
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025540",
+      "espn_id": "401703496",
+      "tournament": "Mexico Open at VidantaWorld",
+      "official_venue": {
+        "name": "Vidanta Vallarta",
+        "city": "Vallarta",
+        "stateCode": "",
+        "country": "Mexico",
+        "countryCode": "MEX"
+      },
+      "courses": [
+        {
+          "id": "978",
+          "courseName": "Vidanta Vallarta",
+          "courseCode": "VV",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "978",
+      "latitude": 20.6837792,
+      "longitude": -105.2658044,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/1038918827",
+      "identity_note": "Official Vidanta page identifies the Norman Signature Course as Vidanta Vallarta / Mexico Open host. Selected Greg Norman golf course in Las Jarretaderas, Nayarit; rejected Acapulco Vidanta course and hotel-only initial matches.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025540-nominatim-2.json",
+          "sha256": "10ba38ccbbf4d47e3626d554c97e872914d41abe94f5571c585a1fbef4a12b80"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025540-nominatim-2.meta.json",
+          "sha256": "eadbb3691bffd68c4a1f7459c847fcd46b04a1e32edddaf915506bd3e26817a6"
+        }
+      ],
+      "supporting_identity_urls": [
+        "https://vidanta.com/es/web/nuevo-nayarit/the-norman-signature-course"
+      ],
+      "osm_type": "way",
+      "osm_id": 1038918827,
+      "source_name": "Vidanta Greg Norman Golf Course",
+      "source_address": "Vidanta Greg Norman Golf Course, Vidanta Acceso principal, Las Jarretaderas, Bahía de Banderas, Nayarit, 48339, México",
+      "source_bounds_south_north_west_east": [
+        20.6785641,
+        20.6889079,
+        -105.2737518,
+        -105.259326
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        20.75,
+        -105.25
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          20.75,
+          -105.25
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025010",
+      "espn_id": "401703497",
+      "tournament": "Cognizant Classic in The Palm Beaches",
+      "official_venue": {
+        "name": "PGA National Resort (The Champion Course)",
+        "city": "Palm Beach Gardens",
+        "stateCode": "FL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "928",
+          "courseName": "PGA National Resort (The Champion Course)",
+          "courseCode": "CC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "928",
+      "latitude": 26.8188745,
+      "longitude": -80.1435242,
+      "quality": "verified_named_golf_property",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.openstreetmap.org/way/1483954804",
+      "identity_note": "OSM golf-course polygon covers PGA National property, not a separately identified Champion course polygon; hotel result rejected.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025010-nominatim.json",
+          "sha256": "7390d232aa57fe787a181cabe96487b1163d6d68935d1febc94449eab752560d"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025010-nominatim.meta.json",
+          "sha256": "c75a5f85a9dbcfbfc809a628e634ef322e90a4bc1201ba4893b0e7f1d9e8b613"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 1483954804,
+      "source_name": "PGA National Resort",
+      "source_address": "PGA National Resort, PGA Boulevard, Palm Beach Gardens, Palm Beach County, Florida, 33418, United States",
+      "source_bounds_south_north_west_east": [
+        26.8097771,
+        26.840036,
+        -80.1663383,
+        -80.1303973
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        26.75,
+        -80.25
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          26.75,
+          -80.25
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025009",
+      "espn_id": "401703498",
+      "tournament": "Arnold Palmer Invitational presented by Mastercard",
+      "official_venue": {
+        "name": "Arnold Palmer's Bay Hill Club & Lodge",
+        "city": "Orlando",
+        "stateCode": "FL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "009",
+          "courseName": "Arnold Palmer's Bay Hill Club & Lodge",
+          "courseCode": "BH",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "009",
+      "latitude": 28.4653696,
+      "longitude": -81.5103932,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/5462405",
+      "identity_note": "OSM Bay Hill Golf Club has 9000 Bay Hill Boulevard, matching the club official address.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025009-nominatim-3.json",
+          "sha256": "7b5f96b048686fcf0e236198fea471e874fa54415c6ab53738f92e677fe273ed"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025009-nominatim-3.meta.json",
+          "sha256": "2cb619d7163f476410d901d9c4b2beb7ec835694dd4586b1e6ab803cbd1f86e8"
+        }
+      ],
+      "supporting_identity_urls": [
+        "https://www.bayhill.com/home-page/about-us"
+      ],
+      "osm_type": "relation",
+      "osm_id": 5462405,
+      "source_name": "Bay Hill Golf Club",
+      "source_address": "Bay Hill Golf Club, 9000, Bay Hill Boulevard, Orlando, Orange County, Florida, 32819, United States",
+      "source_bounds_south_north_west_east": [
+        28.4522982,
+        28.4722264,
+        -81.5152962,
+        -81.5022338
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        28.5,
+        -81.5
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          28.5,
+          -81.5
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025483",
+      "espn_id": "401703499",
+      "tournament": "Puerto Rico Open",
+      "official_venue": {
+        "name": "Grand Reserve Golf Club",
+        "city": "Rio Grande",
+        "stateCode": "",
+        "country": "Puerto Rico",
+        "countryCode": "PUR"
+      },
+      "courses": [
+        {
+          "id": "940",
+          "courseName": "Grand Reserve Golf Club",
+          "courseCode": "GR",
+          "hostCourse": true,
+          "scoringLevel": "STATS"
+        }
+      ],
+      "course_id": "940",
+      "latitude": 18.4048854,
+      "longitude": -65.7999434,
+      "quality": "verified_named_golf_property",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.openstreetmap.org/way/373634946",
+      "identity_note": "OSM retains the former Coco Beach Golf & Country Club name. PGA TOUR 2016 Puerto Rico Open at Coco Beach course page identifies the same venue as Grand Reserve Golf Club; official current club is Rio Grande PR00745. Whole golf property point.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025483-nominatim-3.json",
+          "sha256": "17545d4ab88e84c78c1f88268e7752e12bce46ed87da1f7bf508e8b28f798585"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025483-nominatim-3.meta.json",
+          "sha256": "5a747e7d5d4222c0770e636abbcae74004be8f98d9b620b0ce371640f5176395"
+        }
+      ],
+      "supporting_identity_urls": [
+        "https://www.pgatour.com/tournaments/2016/puerto-rico-open-at-coco-beach/R2016483/course-stats",
+        "https://www.grandreservegolfclub.com/contact"
+      ],
+      "osm_type": "way",
+      "osm_id": 373634946,
+      "source_name": "Coco Beach Golf & Country Club",
+      "source_address": "Coco Beach Golf & Country Club, Avenida B, Zarzal, Río Grande, Puerto Rico, 00745, United States",
+      "source_bounds_south_north_west_east": [
+        18.3932154,
+        18.4166626,
+        -65.8094397,
+        -65.7916659
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        18.5,
+        -65.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          18.5,
+          -65.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025011",
+      "espn_id": "401703500",
+      "tournament": "THE PLAYERS Championship",
+      "official_venue": {
+        "name": "TPC Sawgrass (THE PLAYERS Stadium Course)",
+        "city": "Ponte Vedra Beach",
+        "stateCode": "FL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "011",
+          "courseName": "TPC Sawgrass (THE PLAYERS Stadium Course)",
+          "courseCode": "SA",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "011",
+      "latitude": 30.1960044,
+      "longitude": -81.3937539,
+      "quality": "verified_named_golf_property",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.openstreetmap.org/relation/1783123",
+      "identity_note": "OSM polygon covers named TPC Sawgrass golf property, not a separately identified THE PLAYERS Stadium course polygon.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025011-nominatim.json",
+          "sha256": "3614e34d0383ffa92c915ee516a94767c20c54fa9b6e281d60d557b5d22e68e5"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025011-nominatim.meta.json",
+          "sha256": "9485a10228a70a2fc48ba7fad181c2ca45d85b7484ca1524a1ff07adb6dc5cd2"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 1783123,
+      "source_name": "TPC Sawgrass",
+      "source_address": "TPC Sawgrass, 110, Championship Way, Palm Valley, Ponte Vedra Beach, Saint Johns County, Florida, 32082, United States",
+      "source_bounds_south_north_west_east": [
+        30.1874942,
+        30.2176078,
+        -81.4061811,
+        -81.3855238
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        30.25,
+        -81.5
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          30.25,
+          -81.5
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025475",
+      "espn_id": "401703501",
+      "tournament": "Valspar Championship",
+      "official_venue": {
+        "name": "Innisbrook Resort (Copperhead Course)",
+        "city": "Palm Harbor",
+        "stateCode": "FL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "665",
+          "courseName": "Innisbrook Resort (Copperhead Course)",
+          "courseCode": "WI",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "665",
+      "latitude": 28.1149291,
+      "longitude": -82.7510341,
+      "quality": "verified_named_golf_property",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.openstreetmap.org/relation/5462778",
+      "identity_note": "OSM description explicitly includes Copperhead plus South, North and Island courses. Point represents the combined Innisbrook golf property.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025475-nominatim.json",
+          "sha256": "d53da43385c03fcfabf356963dbb22fe658839b5d7c3a06763ee4837de245114"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025475-nominatim.meta.json",
+          "sha256": "1933abf969ec93462ab4fe9392853bece6210e05303af050278ece7b5e9342bf"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 5462778,
+      "source_name": "Innisbrook Golf Resort",
+      "source_address": "Innisbrook Golf Resort, 36750, Harry Street, Palm Harbor, Pinellas County, Florida, 34684, United States",
+      "source_bounds_south_north_west_east": [
+        28.1010203,
+        28.1228633,
+        -82.7712962,
+        -82.7480069
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        28.0,
+        -82.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          28.0,
+          -82.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025020",
+      "espn_id": "401703502",
+      "tournament": "Texas Children's Houston Open",
+      "official_venue": {
+        "name": "Memorial Park Golf Course",
+        "city": "Houston",
+        "stateCode": "TX",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "897",
+          "courseName": "Memorial Park Golf Course",
+          "courseCode": "MP",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "897",
+      "latitude": 29.7712695,
+      "longitude": -95.4370656,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/13729803",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025020-nominatim.json",
+          "sha256": "4f124c82966d662b4eefc8b18b504ea8e580b5449ce2cdb24d7e993f9da47e63"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025020-nominatim.meta.json",
+          "sha256": "d8a063e83c4a31da36ba77cae2cc35f3b6ad3fe22188de1dfdab38c98c16ce2c"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 13729803,
+      "source_name": "Memorial Park Golf Course",
+      "source_address": "Memorial Park Golf Course, 1001, East Memorial Loop Drive, Washington Avenue Coalition / Memorial Park, Houston, Harris County, Texas, 77007, United States",
+      "source_bounds_south_north_west_east": [
+        29.7655216,
+        29.7771889,
+        -95.4424208,
+        -95.4319063
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        29.75,
+        -95.5
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          29.75,
+          -95.5
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025041",
+      "espn_id": "401703503",
+      "tournament": "Valero Texas Open",
+      "official_venue": {
+        "name": "TPC San Antonio (Oaks Course)",
+        "city": "San Antonio",
+        "stateCode": "TX",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "770",
+          "courseName": "TPC San Antonio (Oaks Course)",
+          "courseCode": "SA",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "770",
+      "latitude": 29.666493481896996,
+      "longitude": -98.40356670125324,
+      "quality": "verified_official_venue_map_center",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://tpc.com/sanantonio/contact-us-directions/",
+      "identity_note": "Official TPC San Antonio contact map names TPC San Antonio; the club confirms the clubhouse at 23808 Resort Parkway overlooks the Oaks 18th green. This is a clubhouse-area map center, not separately mapped Oaks geometry.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/sanantonio-contact-official.html",
+          "sha256": "a1a30119b14fe79abcc649411d9ef46c606d75920044820051e0907ce476ee1b"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/sanantonio-contact-official.meta.json",
+          "sha256": "64b6a79e5390d1d92a7425168383a1888105e087216fd5d4b2a9c595abaff243"
+        }
+      ],
+      "supporting_identity_urls": [
+        "https://tpc.com/sanantonio/clubhouse/"
+      ],
+      "coordinate_scope": "Map viewport center embedded by the named club on its contact page; not a surveyed tee or weather station.",
+      "nearest_gfs_025_latlon": [
+        29.75,
+        -98.5
+      ],
+      "bbox_single_gfs_025_cell": null
+    },
+    {
+      "pga_id": "R2025014",
+      "espn_id": "401703504",
+      "tournament": "Masters Tournament",
+      "official_venue": {
+        "name": "Augusta National Golf Club",
+        "city": "Augusta",
+        "stateCode": "GA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "014",
+          "courseName": "Augusta National Golf Club",
+          "courseCode": "AN",
+          "hostCourse": true,
+          "scoringLevel": "BASIC"
+        }
+      ],
+      "course_id": "014",
+      "latitude": 33.500558,
+      "longitude": -82.0225816,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/871993734",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025014-nominatim.json",
+          "sha256": "fecefef580e746c6bff3e704fc7e18a1f3fd00567e3f920dad6efeb61395edb8"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025014-nominatim.meta.json",
+          "sha256": "f3e489c9ec75c8280f0f45714f2b1c80a9c5d8b47e956397606d5bb1b19edff6"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 871993734,
+      "source_name": "Augusta National Golf Club",
+      "source_address": "Augusta National Golf Club, 2604, Washington Road, Windsor Court, National Hills, Augusta, Richmond County, Georgia, 30904, United States",
+      "source_bounds_south_north_west_east": [
+        33.4930529,
+        33.5088489,
+        -82.0309711,
+        -82.0147293
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        33.5,
+        -82.0
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          33.5,
+          -82.0
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025012",
+      "espn_id": "401703505",
+      "tournament": "RBC Heritage",
+      "official_venue": {
+        "name": "Harbour Town Golf Links",
+        "city": "Hilton Head Island",
+        "stateCode": "SC",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "012",
+          "courseName": "Harbour Town Golf Links",
+          "courseCode": "HT",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "012",
+      "latitude": 32.1307456,
+      "longitude": -80.8107889,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/4813858",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025012-nominatim.json",
+          "sha256": "6b5ee2c53606f67b217e5825512820c76c765d720e7bd8ce67b828c34564191f"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025012-nominatim.meta.json",
+          "sha256": "29e3ff57df0d15298f2d9b494854c994622f12d1204c9fa29ef7b3b8cd0ffd05"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 4813858,
+      "source_name": "Harbour Town Golf Links",
+      "source_address": "Harbour Town Golf Links, 11, Lighthouse Lane, Harbour Town, Hilton Head Island, Beaufort County, South Carolina, 29928, United States",
+      "source_bounds_south_north_west_east": [
+        32.1236022,
+        32.1378381,
+        -80.8164745,
+        -80.8020428
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        32.25,
+        -80.75
+      ],
+      "bbox_single_gfs_025_cell": false,
+      "bbox_gfs_025_cells": [
+        [
+          32.0,
+          -80.75
+        ],
+        [
+          32.25,
+          -80.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025522",
+      "espn_id": "401703506",
+      "tournament": "Corales Puntacana Championship",
+      "official_venue": {
+        "name": "Puntacana Resort & Club (Corales Golf Course)",
+        "city": "Punta Cana",
+        "stateCode": "",
+        "country": "Dominican Republic",
+        "countryCode": "DOM"
+      },
+      "courses": [
+        {
+          "id": "244",
+          "courseName": "Puntacana Resort & Club (Corales Golf Course)",
+          "courseCode": "CR",
+          "hostCourse": true,
+          "scoringLevel": "STATS"
+        }
+      ],
+      "course_id": "244",
+      "latitude": 18.5655603,
+      "longitude": -68.3448484,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/234341795",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025522-nominatim-2.json",
+          "sha256": "d9035d4832623bd7fa52af3bcacf0e5c3e732ac4553cd36e6afd8370f5f8c08f"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025522-nominatim-2.meta.json",
+          "sha256": "3ff8c548dfd3d5abfc019d4c4676ce6bc2c7e689b2b887ebbaf2d31bd973f6b1"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 234341795,
+      "source_name": "Corales Golf Course",
+      "source_address": "Corales Golf Course, Paseo La Salina, Punta Cana, Higüey, La Altagracia, 41201, República Dominicana",
+      "source_bounds_south_north_west_east": [
+        18.5621023,
+        18.569106,
+        -68.3547191,
+        -68.3363513
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        18.5,
+        -68.25
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          18.5,
+          -68.25
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025019",
+      "espn_id": "401703508",
+      "tournament": "THE CJ CUP Byron Nelson",
+      "official_venue": {
+        "name": "TPC Craig Ranch",
+        "city": "McKinney",
+        "stateCode": "TX",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "921",
+          "courseName": "TPC Craig Ranch",
+          "courseCode": "CR",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "921",
+      "latitude": 33.1405369,
+      "longitude": -96.7218732,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/448674021",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025019-nominatim.json",
+          "sha256": "a7aae1c3af20b365e6eb2cb970bcded73bf802fbd96c975766dde4de77fb200b"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025019-nominatim.meta.json",
+          "sha256": "72ec7b4c8206d501bd87d980e3c56feffef10c0b8c317d5ab1f13018e189fa66"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 448674021,
+      "source_name": "TPC Craig Ranch",
+      "source_address": "TPC Craig Ranch, Tonkawa Trail, Settlement at Craig Ranch, McKinney, Collin County, Texas, 75072, United States",
+      "source_bounds_south_north_west_east": [
+        33.1301097,
+        33.1519812,
+        -96.727722,
+        -96.7181952
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        33.25,
+        -96.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          33.25,
+          -96.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025480",
+      "espn_id": "401703509",
+      "tournament": "Truist Championship",
+      "official_venue": {
+        "name": "The Philadelphia Cricket Club (Wissahickon Course)",
+        "city": "Flourtown",
+        "stateCode": "PA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "379",
+          "courseName": "The Philadelphia Cricket Club (Wissahickon Course)",
+          "courseCode": "PC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "379",
+      "latitude": 40.1081485,
+      "longitude": -75.224154,
+      "quality": "verified_official_clubhouse_address_map",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.philacricket.com/about-us/directions",
+      "identity_note": "The club identifies Wissahickon clubhouse as 6025 West Valley Green Road, Flourtown. The corresponding official embedded map resolves that address. Rejected St. Martins at Willow Grove Avenue and the separate Militia Hill map.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/philadelphia-wissahickon-official-map.html",
+          "sha256": "51eea0fa219ddb41890337284c9585984153e8ad3f9004afc8227df297626385"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/philadelphia-wissahickon-official-map.meta.json",
+          "sha256": "bfeff6acf4a9df81973a2ee8d86754d2c5d8ef563f66b597c8e76a633f894832"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/philadelphia-contact-official.html",
+          "sha256": "c78fc2abdce868b30f600c2861b261c478ff5f3bf4f478e5464c2904d594d5fc"
+        }
+      ],
+      "supporting_identity_urls": [
+        "https://www.philacricket.com/golf"
+      ],
+      "coordinate_scope": "Exact address marker in the public map embedded for Wissahickon clubhouse; not a surveyed tee or weather station.",
+      "nearest_gfs_025_latlon": [
+        40.0,
+        -75.25
+      ],
+      "bbox_single_gfs_025_cell": null
+    },
+    {
+      "pga_id": "R2025553",
+      "espn_id": "401703510",
+      "tournament": "ONEflight Myrtle Beach Classic",
+      "official_venue": {
+        "name": "Dunes Golf and Beach Club",
+        "city": "Myrtle Beach",
+        "stateCode": "SC",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "925",
+          "courseName": "Dunes Golf and Beach Club",
+          "courseCode": "DG",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "925",
+      "latitude": 33.7571443,
+      "longitude": -78.7956003,
+      "quality": "verified_official_venue_map_center",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.thedunesclub.com/contact-us",
+      "identity_note": "Official Dunes Golf and Beach Club contact page embeds a map explicitly named Dunes Golf and Beach Club at 9000 North Ocean Boulevard, Myrtle Beach.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/dunes-contact-official.html",
+          "sha256": "ac6e7bea8cc1451474c1437f98e1ba8eb38e32adef3f5391ba8efaabde3f5cef"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/dunes-contact-official.meta.json",
+          "sha256": "a9f946aae8343abe471251f37aca149b65cd91924ae52c696c55cd90a5d928d5"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "coordinate_scope": "Map viewport center embedded by the named club on its contact page; not a surveyed tee or weather station.",
+      "nearest_gfs_025_latlon": [
+        33.75,
+        -78.75
+      ],
+      "bbox_single_gfs_025_cell": null
+    },
+    {
+      "pga_id": "R2025033",
+      "espn_id": "401703511",
+      "tournament": "PGA Championship",
+      "official_venue": {
+        "name": "Quail Hollow Club",
+        "city": "Charlotte",
+        "stateCode": "NC",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "241",
+          "courseName": "Quail Hollow Club",
+          "courseCode": "QH",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "241",
+      "latitude": 35.114081,
+      "longitude": -80.841676,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/877659537",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025033-nominatim.json",
+          "sha256": "c1277e5d948406df1f9786f3d228707392ea58c2e1507b11ec5b112685f0ff8e"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025033-nominatim.meta.json",
+          "sha256": "f4cd4e74e576ad37e5348ee08046b31a7a4894f53615649a89abf396a5d20387"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 877659537,
+      "source_name": "Quail Hollow Club",
+      "source_address": "Quail Hollow Club, 3700, Gleneagles Road, Quail Hollow II, Quail Hollow, Charlotte, Mecklenburg County, North Carolina, 28210, United States",
+      "source_bounds_south_north_west_east": [
+        35.1084292,
+        35.1196997,
+        -80.8494741,
+        -80.8352114
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        35.0,
+        -80.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          35.0,
+          -80.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025021",
+      "espn_id": "401703512",
+      "tournament": "Charles Schwab Challenge",
+      "official_venue": {
+        "name": "Colonial Country Club",
+        "city": "Fort Worth",
+        "stateCode": "TX",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "021",
+          "courseName": "Colonial Country Club",
+          "courseCode": "CC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "021",
+      "latitude": 32.7192029,
+      "longitude": -97.3719937,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/27865544",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025021-nominatim.json",
+          "sha256": "06dc531506c980720148e29f28275a213d7cdcd65ed177bf6755c61224a3551f"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025021-nominatim.meta.json",
+          "sha256": "aa141b401f5fb2a108d0c5cf410c1f3c1cbacb97b19e78dbefcceafd52534291"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 27865544,
+      "source_name": "Colonial Country Club",
+      "source_address": "Colonial Country Club, Trinity Trail, Fort Worth, Tarrant County, Texas, 76109, United States",
+      "source_bounds_south_north_west_east": [
+        32.7149714,
+        32.7232823,
+        -97.3776357,
+        -97.3637341
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        32.75,
+        -97.25
+      ],
+      "bbox_single_gfs_025_cell": false,
+      "bbox_gfs_025_cells": [
+        [
+          32.75,
+          -97.5
+        ],
+        [
+          32.75,
+          -97.25
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025023",
+      "espn_id": "401703513",
+      "tournament": "the Memorial Tournament presented by Workday",
+      "official_venue": {
+        "name": "Muirfield Village Golf Club",
+        "city": "Dublin",
+        "stateCode": "OH",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "023",
+          "courseName": "Muirfield Village Golf Club",
+          "courseCode": "MV",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "023",
+      "latitude": 40.1442555,
+      "longitude": -83.1500922,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/337418",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025023-nominatim.json",
+          "sha256": "0bebdaecace45a74232ee8875df8d38e6f4de1879413476fdfc3309b889d8776"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025023-nominatim.meta.json",
+          "sha256": "42bfbe68296a3cd0e941ab7380c385e9d3e06c2e6336def4049375296546c22b"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 337418,
+      "source_name": "Muirfield Village Golf Club",
+      "source_address": "Muirfield Village Golf Club, 5750, Memorial Drive, Dublin, Washington Township, Franklin County, Ohio, 43017, United States",
+      "source_bounds_south_north_west_east": [
+        40.13705,
+        40.1514976,
+        -83.1540736,
+        -83.1287586
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        40.25,
+        -83.25
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          40.25,
+          -83.25
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025032",
+      "espn_id": "401703514",
+      "tournament": "RBC Canadian Open",
+      "official_venue": {
+        "name": "TPC Toronto at Osprey Valley (North Course)",
+        "city": "Caledon, Ontario",
+        "stateCode": "",
+        "country": "Canada",
+        "countryCode": "CAN"
+      },
+      "courses": [
+        {
+          "id": "935",
+          "courseName": "TPC Toronto at Osprey Valley (North Course)",
+          "courseCode": "OV",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "935",
+      "latitude": 43.8478111,
+      "longitude": -80.0389348,
+      "quality": "verified_named_golf_property",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.openstreetmap.org/relation/17057039",
+      "identity_note": "OSM TPC Toronto at Osprey Valley property represents the club, not a separately identified North-course polygon.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025032-nominatim.json",
+          "sha256": "946319a88d1479825633fff8f2b1f6732c55e144ff43e9ec47392da1a7e37302"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025032-nominatim.meta.json",
+          "sha256": "f0dc33ccdc57a520e6cd9763defff4364e2ce314845625a78d1337d1558aacb7"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 17057039,
+      "source_name": "TPC Toronto at Osprey Valley",
+      "source_address": "TPC Toronto at Osprey Valley, Beech Grove Sideroad, Alton, Caledon, Peel Region, Golden Horseshoe, Ontario, L7K 0E1, Canada",
+      "source_bounds_south_north_west_east": [
+        43.8396544,
+        43.8594136,
+        -80.0618928,
+        -80.0265237
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        43.75,
+        -80.0
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          43.75,
+          -80.0
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025026",
+      "espn_id": "401703515",
+      "tournament": "U.S. Open",
+      "official_venue": {
+        "name": "Oakmont Country Club",
+        "city": "Oakmont",
+        "stateCode": "PA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "608",
+          "courseName": "Oakmont Country Club",
+          "courseCode": "OC",
+          "hostCourse": true,
+          "scoringLevel": "BASIC"
+        }
+      ],
+      "course_id": "608",
+      "latitude": 40.5289164,
+      "longitude": -79.8260486,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/6174192",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025026-nominatim.json",
+          "sha256": "484caa359229a4cac602ad043164160c6519b5e8b0cea1c9a2dbb5d6cb409f05"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025026-nominatim.meta.json",
+          "sha256": "a5ac68efe5a57e79e40cdb43e20c908462664938769e85a92fc879d879fede4c"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 6174192,
+      "source_name": "Oakmont Country Club",
+      "source_address": "Oakmont Country Club, Wade Lane, Oakmont, Allegheny County, Pennsylvania, 15139, United States",
+      "source_bounds_south_north_west_east": [
+        40.5246454,
+        40.5334496,
+        -79.8338234,
+        -79.8161207
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        40.5,
+        -79.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          40.5,
+          -79.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025034",
+      "espn_id": "401703516",
+      "tournament": "Travelers Championship",
+      "official_venue": {
+        "name": "TPC River Highlands",
+        "city": "Cromwell",
+        "stateCode": "CT",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "503",
+          "courseName": "TPC River Highlands",
+          "courseCode": "TR",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "503",
+      "latitude": 41.6293852,
+      "longitude": -72.6390605,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/4091841",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025034-nominatim.json",
+          "sha256": "1bdd69e44f518ea66e29bfde1e9bee6486f8428d2f25710fefe138d1b6f8d298"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025034-nominatim.meta.json",
+          "sha256": "39557c033e1e15a850d1408c58218df33a07a4f1a96a390db7bcb88f11bfe815"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 4091841,
+      "source_name": "TPC River Highlands",
+      "source_address": "TPC River Highlands, 1, Golf Club Road, TPC River Highlands, Cromwell, Lower Connecticut River Valley Planning Region, Connecticut, 06416, United States",
+      "source_bounds_south_north_west_east": [
+        41.6211872,
+        41.637444,
+        -72.6463628,
+        -72.632997
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        41.75,
+        -72.75
+      ],
+      "bbox_single_gfs_025_cell": false,
+      "bbox_gfs_025_cells": [
+        [
+          41.5,
+          -72.75
+        ],
+        [
+          41.75,
+          -72.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025524",
+      "espn_id": "401703517",
+      "tournament": "Rocket Classic",
+      "official_venue": {
+        "name": "Detroit Golf Club",
+        "city": "Detroit",
+        "stateCode": "MI",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "876",
+          "courseName": "Detroit Golf Club",
+          "courseCode": "DG",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "876",
+      "latitude": 42.4247524,
+      "longitude": -83.1272865,
+      "quality": "ambiguous_subcourse_grid_cell",
+      "ambiguous": true,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.openstreetmap.org/relation/909401",
+      "identity_note": "OSM category is club/sport, with extratags sport=golf and leisure=golf_course and official club website. Point represents the club golf property. Combined property spans more than one nearest 0.25-degree GFS cell; subcourse point is unresolved, so do not admit this coordinate. Final bounded check of the exact OSM relation and its complete members recovered only the combined club boundary; it did not identify a separate North-course geometry. Ambiguity remains.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025524-nominatim.json",
+          "sha256": "35962c81407688c408549029418db93c900b4674f7a1427f8b4161eac26ee962"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025524-nominatim.meta.json",
+          "sha256": "7790606f377bd5cbad2adddcf4f64e39bcccc1c32428d8d1ce89fdd731720ba3"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/detroit-osm-full.json",
+          "sha256": "f9efbba115bf8c35329a2ece0591faf0da6748747b1007ef1b2bc0892bccea76"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/detroit-osm-full.meta.json",
+          "sha256": "b12740b77f8a0504f4582275884ba310b9bb386a709a3726cfae7af15ca9645a"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 909401,
+      "source_name": "Detroit Golf Club",
+      "source_address": "Detroit Golf Club, 17911, Hamilton Road, Detroit, Wayne County, Michigan, 48203, United States",
+      "source_bounds_south_north_west_east": [
+        42.4180264,
+        42.4311699,
+        -83.1307504,
+        -83.1182647
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        42.5,
+        -83.25
+      ],
+      "bbox_single_gfs_025_cell": false,
+      "bbox_gfs_025_cells": [
+        [
+          42.5,
+          -83.25
+        ],
+        [
+          42.5,
+          -83.0
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025030",
+      "espn_id": "401703518",
+      "tournament": "John Deere Classic",
+      "official_venue": {
+        "name": "TPC Deere Run",
+        "city": "Silvis",
+        "stateCode": "IL",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "669",
+          "courseName": "TPC Deere Run",
+          "courseCode": "DR",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "669",
+      "latitude": 41.4766909,
+      "longitude": -90.3921581,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/12585470",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025030-nominatim.json",
+          "sha256": "c4584292f0e45a3655566fb90ede1eb780007ccbdfec600b1f44080495cb02a6"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025030-nominatim.meta.json",
+          "sha256": "8b8ef9035bb8ee146d0243a6977054397477e0f575cae73b2fa300f0356715c3"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 12585470,
+      "source_name": "TPC Deere Run",
+      "source_address": "TPC Deere Run, 3100, Heather Knoll, Silvis, Rock Island County, Illinois, 61282, United States",
+      "source_bounds_south_north_west_east": [
+        41.4676105,
+        41.4840413,
+        -90.4044483,
+        -90.3863754
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        41.5,
+        -90.5
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          41.5,
+          -90.5
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025541",
+      "espn_id": "401703519",
+      "tournament": "Genesis Scottish Open",
+      "official_venue": {
+        "name": "The Renaissance Club",
+        "city": "North Berwick",
+        "stateCode": "",
+        "country": "Scotland",
+        "countryCode": "SCO"
+      },
+      "courses": [
+        {
+          "id": "977",
+          "courseName": "The Renaissance Club",
+          "courseCode": "RC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "977",
+      "latitude": 56.0546412,
+      "longitude": -2.8093185,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/161230026",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025541-nominatim-2.json",
+          "sha256": "f7f587c2790a393e748733316bbb8ae1dc1266a01a2aca96977e2f4b2c512128"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025541-nominatim-2.meta.json",
+          "sha256": "f590c74fb219874b08c7d6648d6ad89899d14715754624857a12731928cc8358"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 161230026,
+      "source_name": "The Renaissance Club",
+      "source_address": "The Renaissance Club, Cowden Hill Drive, Dirleton, East Lothian, Alba / Scotland, EH39 5HS, United Kingdom",
+      "source_bounds_south_north_west_east": [
+        56.0451403,
+        56.0631968,
+        -2.8171784,
+        -2.7976365
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        56.0,
+        -2.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          56.0,
+          -2.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025518",
+      "espn_id": "401703520",
+      "tournament": "ISCO Championship",
+      "official_venue": {
+        "name": "Hurstbourne Country Club",
+        "city": "Louisville",
+        "stateCode": "KY",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "934",
+          "courseName": "Hurstbourne Country Club",
+          "courseCode": "HB",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "934",
+      "latitude": 38.2398101,
+      "longitude": -85.59123,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/220489681",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025518-nominatim-2.json",
+          "sha256": "5e73aeb19b15e9b81c85590c0e5aaea97e230903e47c08eb5eb1950f8ae52be8"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025518-nominatim-2.meta.json",
+          "sha256": "2e961e51860a70067c78cbd896bd18f739b2d4e4d456a0b2238c61fcade4d6ca"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 220489681,
+      "source_name": "Hurstbourne Country Club",
+      "source_address": "Hurstbourne Country Club, Hurstbourne Club Lane, Hurstbourne, Jefferson County, Kentucky, 40222, United States",
+      "source_bounds_south_north_west_east": [
+        38.2330986,
+        38.2466509,
+        -85.6018154,
+        -85.5826808
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        38.25,
+        -85.5
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          38.25,
+          -85.5
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025100",
+      "espn_id": "401703521",
+      "tournament": "The Open Championship",
+      "official_venue": {
+        "name": "Royal Portrush Golf Club",
+        "city": "Portrush",
+        "stateCode": "",
+        "country": "Northern Ireland",
+        "countryCode": "NIR"
+      },
+      "courses": [
+        {
+          "id": "885",
+          "courseName": "Royal Portrush Golf Club",
+          "courseCode": "RP",
+          "hostCourse": true,
+          "scoringLevel": "BASIC"
+        }
+      ],
+      "course_id": "885",
+      "latitude": 55.2026851,
+      "longitude": -6.621682,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/1413316756",
+      "identity_note": "Selected explicitly named Dunluce Links golf-course polygon instead of the clubhouse building or unrelated chalet.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025100-nominatim-3.json",
+          "sha256": "d791bd157968a1e39eab299094c7166a70c345591bc67537dc148548070f7e35"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025100-nominatim-3.meta.json",
+          "sha256": "97803e8492f10d5f94e351f6190843ec0bce0bd0edb536d6e829a4d096921023"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 1413316756,
+      "source_name": "Dunluce Links",
+      "source_address": "Dunluce Links, Dunluce Road, Portrush, Causeway Coast and Glens District, County Antrim, Northern Ireland / Tuaisceart Éireann, BT56 8JQ, United Kingdom",
+      "source_bounds_south_north_west_east": [
+        55.1983956,
+        55.2071119,
+        -6.6364632,
+        -6.6140584
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        55.25,
+        -6.5
+      ],
+      "bbox_single_gfs_025_cell": false,
+      "bbox_gfs_025_cells": [
+        [
+          55.25,
+          -6.75
+        ],
+        [
+          55.25,
+          -6.5
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025525",
+      "espn_id": "401703523",
+      "tournament": "3M Open",
+      "official_venue": {
+        "name": "TPC Twin Cities",
+        "city": "Blaine",
+        "stateCode": "MN",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "883",
+          "courseName": "TPC Twin Cities",
+          "courseCode": "TC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "883",
+      "latitude": 45.1733222,
+      "longitude": -93.211862,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/16135348",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025525-nominatim.json",
+          "sha256": "3850092a6e941a87cbac440315404867445c0422f4a63604804a4accbaafbabb"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025525-nominatim.meta.json",
+          "sha256": "309345a8797820096ea952f12f174b6753c34fbc42ebf37e581f7bb5c50294d6"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 16135348,
+      "source_name": "TPC Twin Cities",
+      "source_address": "TPC Twin Cities, 11444, Tournament Players Parkway, The Lakes, Blaine, Anoka County, Minnesota, 55449, United States",
+      "source_bounds_south_north_west_east": [
+        45.1682464,
+        45.1817609,
+        -93.2235269,
+        -93.2034934
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        45.25,
+        -93.25
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          45.25,
+          -93.25
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025013",
+      "espn_id": "401703524",
+      "tournament": "Wyndham Championship",
+      "official_venue": {
+        "name": "Sedgefield Country Club",
+        "city": "Greensboro",
+        "stateCode": "NC",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "752",
+          "courseName": "Sedgefield Country Club",
+          "courseCode": "SF",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "752",
+      "latitude": 36.0143960192366,
+      "longitude": -79.88903148538442,
+      "quality": "verified_official_venue_map_center",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.sedgefieldcc.com/contact",
+      "identity_note": "Official Sedgefield site identifies its Donald Ross course and 3201 Forsyth Drive address; contact map at that address supplies coordinates. Rejected OSM Dye Course at 5700 Cardinal Way.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/sedgefield-contact-official.html",
+          "sha256": "d3f8a9c357bdbdde54b003d5ed82b001677faf651e7f0a0d46e3652704392867"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/sedgefield-contact-official.meta.json",
+          "sha256": "3b8aefdc37ab59c4de289b1f1772d2287fe089fa8077ac57783b68970f4062c0"
+        }
+      ],
+      "supporting_identity_urls": [
+        "https://www.sedgefieldcc.com/the-course"
+      ],
+      "coordinate_scope": "Map viewport center embedded by the named club on its contact page; not a surveyed tee or weather station.",
+      "nearest_gfs_025_latlon": [
+        36.0,
+        -80.0
+      ],
+      "bbox_single_gfs_025_cell": null
+    },
+    {
+      "pga_id": "R2025027",
+      "espn_id": "401703525",
+      "tournament": "FedEx St. Jude Championship",
+      "official_venue": {
+        "name": "TPC Southwind",
+        "city": "Memphis",
+        "stateCode": "TN",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "513",
+          "courseName": "TPC Southwind",
+          "courseCode": "SW",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "513",
+      "latitude": 35.0545946,
+      "longitude": -89.7857855,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/4849522",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025027-nominatim.json",
+          "sha256": "1723b0028e4b2ed4e8d9b277dc00c2daf45490fbcc6e67e312de058ebff943d2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025027-nominatim.meta.json",
+          "sha256": "f50e29410c0da8a2a1f99fbd0dbc5e8a12cc5b47e73ebb98414bdefe90f820be"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 4849522,
+      "source_name": "TPC Southwind",
+      "source_address": "TPC Southwind, 3325, Club at Southwind, Memphis, Shelby County, West Tennessee, Tennessee, 38125, United States",
+      "source_bounds_south_north_west_east": [
+        35.0500812,
+        35.0590886,
+        -89.7935357,
+        -89.764683
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        35.0,
+        -89.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          35.0,
+          -89.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025028",
+      "espn_id": "401703530",
+      "tournament": "BMW Championship",
+      "official_venue": {
+        "name": "Caves Valley Golf Club",
+        "city": "Owings Mills",
+        "stateCode": "MD",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "882",
+          "courseName": "Caves Valley Golf Club",
+          "courseCode": "CV",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "882",
+      "latitude": 39.4464308,
+      "longitude": -76.7385259,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/relation/9363443",
+      "identity_note": "Caves Valley Golf Club polygon in Baltimore County; official 2025 BMW venue is Caves Valley, not Castle Pines.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025028-nominatim-2.json",
+          "sha256": "e6ec9a43e5828c216468428f2ede0e03de36a91f14373d841680643940004980"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025028-nominatim-2.meta.json",
+          "sha256": "1135ead2ce18cf76ee874dc99fecc64318655110ef752bcff9f01e595df2a06f"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "relation",
+      "osm_id": 9363443,
+      "source_name": "Caves Valley Golf Club",
+      "source_address": "Caves Valley Golf Club, Breeds Road, Caves Valley Golf Club Residences, Towson, Baltimore County, Maryland, 21117, United States",
+      "source_bounds_south_north_west_east": [
+        39.4387234,
+        39.4538912,
+        -76.749579,
+        -76.7298782
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        39.5,
+        -76.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          39.5,
+          -76.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025060",
+      "espn_id": "401703531",
+      "tournament": "TOUR Championship",
+      "official_venue": {
+        "name": "East Lake Golf Club",
+        "city": "Atlanta",
+        "stateCode": "GA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "688",
+          "courseName": "East Lake Golf Club",
+          "courseCode": "EL",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "688",
+      "latitude": 33.7436053,
+      "longitude": -84.3024566,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/25587469",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025060-nominatim.json",
+          "sha256": "e7d23563bd34bde9e858dd343effafe0a7289b75cf1fc3c61edce1c923f215c8"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025060-nominatim.meta.json",
+          "sha256": "3e5b901718d559991824f20ddb8ac3f010b6a6a04e84134b80cd108b16cfe9ec"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 25587469,
+      "source_name": "East Lake Golf Club",
+      "source_address": "East Lake Golf Club, 2575, Alston Drive Southeast, Atlanta, DeKalb County, Georgia, 30317, United States",
+      "source_bounds_south_north_west_east": [
+        33.739465,
+        33.7452734,
+        -84.3097096,
+        -84.29518
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        33.75,
+        -84.25
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          33.75,
+          -84.25
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025464",
+      "espn_id": "401738553",
+      "tournament": "Procore Championship",
+      "official_venue": {
+        "name": "Silverado Resort (North Course)",
+        "city": "Napa",
+        "stateCode": "CA",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "926",
+          "courseName": "Silverado Resort (North Course)",
+          "courseCode": "SC",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "926",
+      "latitude": 38.3513895,
+      "longitude": -122.2613026,
+      "quality": "verified_named_golf_property",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.openstreetmap.org/way/35828614",
+      "identity_note": "Selected golf-course polygon, not Silverado Resort census area. Polygon covers the named resort golf property without isolating North course.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025464-nominatim.json",
+          "sha256": "375de2f574e1d54f6ef06c53ef7da7b6cc4a27dc518e45ea5e565fdd889c47d1"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025464-nominatim.meta.json",
+          "sha256": "1e10ec7db88f7f10ecb1ba0bb610920d909ff14365633a229712d240ca5cc660"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 35828614,
+      "source_name": "Silverado Resort",
+      "source_address": "Silverado Resort, Olympic Circle, Vichy Springs, Napa County, California, 94558, United States",
+      "source_bounds_south_north_west_east": [
+        38.3408278,
+        38.3619858,
+        -122.2671263,
+        -122.2555494
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        38.25,
+        -122.25
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          38.25,
+          -122.25
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025054",
+      "espn_id": "401738554",
+      "tournament": "Sanderson Farms Championship",
+      "official_venue": {
+        "name": "The Country Club of Jackson",
+        "city": "Jackson",
+        "stateCode": "MS",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "746",
+          "courseName": "The Country Club of Jackson",
+          "courseCode": "CJ",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "746",
+      "latitude": 32.3957001,
+      "longitude": -90.0935379,
+      "quality": "verified_named_golf_property",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.openstreetmap.org/way/300114519",
+      "identity_note": "Selected golf-course polygon, not the larger residential country-club neighborhood; property can contain multiple nines.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025054-nominatim.json",
+          "sha256": "880a9184143ed428330dbb42fcb24617aecfb66e5206eb17b494b7afe35a7fe6"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025054-nominatim.meta.json",
+          "sha256": "bf1492ae3576dfa2edc4ae2f025c733203813c57df69f0bf79eaa4279e3996d5"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 300114519,
+      "source_name": "The Country Club of Jackson",
+      "source_address": "The Country Club of Jackson, 345, Saint Andrews Drive, The Country Club of Jackson, Rolling Meadows, Jackson, Hinds County, Mississippi, 39211, United States",
+      "source_bounds_south_north_west_east": [
+        32.3921205,
+        32.3993447,
+        -90.1097223,
+        -90.0848795
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        32.5,
+        -90.0
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          32.5,
+          -90.0
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025527",
+      "espn_id": "401738555",
+      "tournament": "Baycurrent Classic",
+      "official_venue": {
+        "name": "Yokohama Country Club (West Course)",
+        "city": "Yokohama",
+        "stateCode": "",
+        "country": "Japan",
+        "countryCode": "JPN"
+      },
+      "courses": [
+        {
+          "id": "936",
+          "courseName": "Yokohama Country Club (West Course)",
+          "courseCode": "YH",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "936",
+      "latitude": 35.4449463,
+      "longitude": 139.5496425,
+      "quality": "verified_named_golf_property",
+      "ambiguous": false,
+      "subcourse_separately_resolved": false,
+      "source_url": "https://www.openstreetmap.org/relation/2194674",
+      "identity_note": "Japanese named golf polygon 横浜カントリークラブ matches the official bilingual Yokohama Country Club website address in Imaicho, Hodogaya. Rejected Yokohama Country & Athletic Club sports centre in a different district. Point represents combined golf property, not separately West course.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025527-nominatim-2.json",
+          "sha256": "f9bcb32091621c963dbfda9948222cff6e197d12b5eb83ca202b7a5421aac070"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025527-nominatim-2.meta.json",
+          "sha256": "8b5801843b5a9d906ca48f645bad84c8b56ba4b34f8caa2b7e9473b5535107e3"
+        }
+      ],
+      "supporting_identity_urls": [
+        "https://www.yokohama-cc.jp/access/",
+        "https://www.yokohama-cc.jp/aboutus/"
+      ],
+      "osm_type": "relation",
+      "osm_id": 2194674,
+      "source_name": "横浜カントリークラブ",
+      "source_address": "横浜カントリークラブ, 今井川せせらぎ緑道, 今井町, 保土ヶ谷区, 横浜市, 神奈川県, 231-0017, 日本",
+      "source_bounds_south_north_west_east": [
+        35.438229,
+        35.4516207,
+        139.5374786,
+        139.5579932
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        35.5,
+        139.5
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          35.5,
+          139.5
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025554",
+      "espn_id": "401738556",
+      "tournament": "Bank of Utah Championship",
+      "official_venue": {
+        "name": "Black Desert Resort",
+        "city": "Ivins",
+        "stateCode": "UT",
+        "country": "United States of America",
+        "countryCode": "USA"
+      },
+      "courses": [
+        {
+          "id": "930",
+          "courseName": "Black Desert Resort",
+          "courseCode": "BD",
+          "hostCourse": true,
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "course_id": "930",
+      "latitude": 37.1546331,
+      "longitude": -113.6518667,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/1180990815",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025554-nominatim-2.json",
+          "sha256": "6cc9d6484f83feba271810c616974b5c3c7374e61008cf8b141e5c7fc595402c"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025554-nominatim-2.meta.json",
+          "sha256": "45a300804ed74c036c9a12db2b7d94f80d4dd7374e16446864e88e05f0be0ede"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 1180990815,
+      "source_name": "Black Desert Golf Course",
+      "source_address": "Black Desert Golf Course, 250, Black Desert Boulevard, Ivins, Washington County, Utah, 84738, United States",
+      "source_bounds_south_north_west_east": [
+        37.1449124,
+        37.1643662,
+        -113.6564897,
+        -113.6461539
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        37.25,
+        -113.75
+      ],
+      "bbox_single_gfs_025_cell": true,
+      "bbox_gfs_025_cells": [
+        [
+          37.25,
+          -113.75
+        ]
+      ]
+    },
+    {
+      "pga_id": "R2025457",
+      "espn_id": "401738557",
+      "tournament": "World Wide Technology Championship",
+      "official_venue": {
+        "name": "El Cardonal at Diamante",
+        "city": "Los Cabos",
+        "stateCode": "",
+        "country": "Mexico",
+        "countryCode": "MEX"
+      },
+      "courses": [
+        {
+          "id": "919",
+          "courseName": "El Cardonal at Diamante",
+          "courseCode": "CD",
+          "hostCourse": true,
+          "scoringLevel": "STATS"
+        }
+      ],
+      "course_id": "919",
+      "latitude": null,
+      "longitude": null,
+      "quality": "unresolved",
+      "ambiguous": true,
+      "subcourse_separately_resolved": false,
+      "source_url": null,
+      "identity_note": "El Cardonal at Diamante is identified in the official schedule, but four retained Nominatim query variants returned no matching golf-course geometry. Non-golf Mexican locality matches were rejected. No city or resort coordinates substituted; event is unclassified until a course position is verified. Final bounded check of the designer course page and its linked official Diamante resort homepage confirmed identity but exposed no course coordinate. Position remains unknown.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025457-nominatim-2.json",
+          "sha256": "be0ecd39389e68dc804fc725d55fcd78de96b00fc67e9cb1a44f7d485fb8749c"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025457-nominatim-2.meta.json",
+          "sha256": "c205277a7df1afc23b59206a20e4170b5bace4552f388fd05ac01ec3e417171b"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025457-nominatim-3.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025457-nominatim-3.meta.json",
+          "sha256": "01e457f6ccdbbbb45a6d7ac235f9c123cc724a738d7a174d3c4753b049143345"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025457-nominatim-4.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025457-nominatim-4.meta.json",
+          "sha256": "102cf1383180c9cac98cef50b1c84450d13ab73aa622eade723fb8b04ba57eee"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025457-nominatim.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025457-nominatim.meta.json",
+          "sha256": "959fb6c29dbb04ac27df6f321d6fd4165c94b4924225d568f6a2e2ef6166500f"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/elcardonal-designer.html",
+          "sha256": "c1a95fea2f4e5f79125c72ce17fe1b7748755c59ed0c7380144710e10d71106f"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/elcardonal-designer.meta.json",
+          "sha256": "0a0aae303436e0a8f38e412eb7b6ddca946a2a825d98146fdcc050b0148a9680"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/elcardonal-official-resort.html",
+          "sha256": "bd3d4d643adadccf38d2c9a29e60966af8eaa9308539cb88659258bc696a3055"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/elcardonal-official-resort.meta.json",
+          "sha256": "4e896005d7438d3b29c01153b07eb17434b7d88f58c41e9dca1e78672f13501a"
+        }
+      ],
+      "supporting_identity_urls": [
+        "https://tgrdesign.tigerwoods.com/courses/el-cardonal-at-diamante/"
+      ]
+    },
+    {
+      "pga_id": "R2025528",
+      "espn_id": "401738558",
+      "tournament": "Butterfield Bermuda Championship",
+      "official_venue": {
+        "name": "Port Royal Golf Course",
+        "city": "Southampton",
+        "stateCode": "",
+        "country": "Bermuda",
+        "countryCode": "BER"
+      },
+      "courses": [
+        {
+          "id": "765",
+          "courseName": "Port Royal Golf Course",
+          "courseCode": "PR",
+          "hostCourse": true,
+          "scoringLevel": "STATS"
+        }
+      ],
+      "course_id": "765",
+      "latitude": 32.2624549,
+      "longitude": -64.874448,
+      "quality": "verified_named_golf_course",
+      "ambiguous": false,
+      "subcourse_separately_resolved": true,
+      "source_url": "https://www.openstreetmap.org/way/174882622",
+      "identity_note": "Named golf-course feature and mapped locality match the official 2025 PGA TOUR venue.",
+      "sources": [
+        {
+          "file": "reports/golf-weather-group-inventory-2026-09-14.json",
+          "sha256": "e7d5b0a2532c5573069129f8ba834624e1ae5f87280a7613b141e26b88b75af2"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025528-nominatim.json",
+          "sha256": "fd05c4e8e1f1303277014ab68e525c73df046cfaf1544dd1ac62447e0d3df1e4"
+        },
+        {
+          "file": "data/raw/golf-weather-venues/R2025528-nominatim.meta.json",
+          "sha256": "602170ea9887b919ba2d99cd1d04501959762d210ccab52e6fcf1a6f0c84f97b"
+        }
+      ],
+      "supporting_identity_urls": [],
+      "osm_type": "way",
+      "osm_id": 174882622,
+      "source_name": "Port Royal Golf Course",
+      "source_address": "Port Royal Golf Course, Rose Hill Road, Southampton, SB 03, Bermuda",
+      "source_bounds_south_north_west_east": [
+        32.2560879,
+        32.2688285,
+        -64.8781584,
+        -64.8678613
+      ],
+      "coordinate_scope": "Nominatim representative point for the named golf polygon; not a surveyed tee or weather station",
+      "nearest_gfs_025_latlon": [
+        32.25,
+        -64.75
+      ],
+      "bbox_single_gfs_025_cell": false,
+      "bbox_gfs_025_cells": [
+        [
+          32.25,
+          -65.0
+        ],
+        [
+          32.25,
+          -64.75
+        ]
+      ]
+    }
+  ],
+  "summary": {
+    "events": 40,
+    "coordinates_present": 39,
+    "unambiguous_positions": 38,
+    "unknown_positions": 1,
+    "ambiguous_positions_with_coordinates": 1
+  },
+  "mapping_finalized_utc": "2026-09-15T01:09:01.564136+00:00",
+  "pre_weather_outcome_audit": "All source selection, unknowns and coordinate quality flags finalized before any golf-weather score or forecast-effect comparisons. Future changes require a newly documented mapping and cannot silently enter this frozen acquisition."
+}

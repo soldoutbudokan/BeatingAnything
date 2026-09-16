@@ -1,0 +1,431 @@
+{
+  "checked_local_date": "2026-09-14",
+  "recorded_at_utc": "2026-09-15T00:48:32.518195+00:00",
+  "status": "Two permitted public historical samples retained; no usable FanDuel quote series or established edge",
+  "scope": {
+    "web_search_queries": 10,
+    "direct_downloads": 12,
+    "quotes_fit_to_returns": false,
+    "purchases": false,
+    "wagers": false,
+    "denied_routes_retried": false
+  },
+  "search_queries": [
+    "site:github.com golf odds \"fanduel\" \"csv\"",
+    "site:github.com \"pgatour\" \"odds\" \"fanduel\"",
+    "golf \"3-ball\" \"FanDuel\" \"2026\" odds round",
+    "site:github.com golf odds historical data matchups",
+    "\"golf-odds\" github",
+    "\"FanDuel\" \"three-ball\" odds archive",
+    "site:fanduel.com/research golf \"3-ball\"",
+    "\"golf\" \"fanduel\" \"odds\" \"snapshot\" github",
+    "site:fanduel.com/research \"3-Ball Odds\"",
+    "site:github.com golf \"fanduel\" \"json\" \"odds\""
+  ],
+  "public_article_sample": {
+    "source_url": "https://www.fanduel.com/research/best-prop-bets-for-the-british-open-championship-first-round-leader-3-balls-and-finishing-positions",
+    "source_file": "data/raw/golf-price-source-continuation/fanduel-open-2025-article.html",
+    "publisher": "FanDuel Research",
+    "author": "Jim Sannes",
+    "book_attribution": "Article explicitly describes these as FanDuel Sportsbook golf odds; same article includes all three prices.",
+    "event": "2025 Open Championship at Royal Portrush",
+    "round": 1,
+    "market_type": "3-ball",
+    "selections": [
+      {
+        "player_name": "Daniel Berger",
+        "american_odds": 185,
+        "decimal_odds": 2.85
+      },
+      {
+        "player_name": "Keegan Bradley",
+        "american_odds": 160,
+        "decimal_odds": 2.6
+      },
+      {
+        "player_name": "Sungjae Im",
+        "american_odds": 200,
+        "decimal_odds": 3.0
+      }
+    ],
+    "article_date_published_utc": "2025-07-16T14:07:04Z",
+    "article_date_modified_utc": "2025-07-16T14:07:04Z",
+    "provider_quote_timestamp": null,
+    "collector_historical_receipt_time": null,
+    "contemporaneous_access_proof": false,
+    "is_accessible_for_free_schema": true,
+    "implied_probability_sum": 1.068825910931174,
+    "arithmetic_overround": 0.06882591093117396,
+    "historical_rules_verified": false,
+    "jurisdiction": null,
+    "original_book_group_id": null,
+    "settlement": "Three-ball label supports applying a dead-heat research hypothesis; article itself does not preserve the governing 2025 market terms. No final settlement or ROI assigned.",
+    "limits": [
+      "One editorially selected group; unselected groups absent.",
+      "Publication date is not an exchangeable bookmaker update timestamp.",
+      "Retrieved in 2026, so archived text alone does not prove which exact text was live at a 2025 decision time.",
+      "US multi-state promotional footer does not identify the quote jurisdiction.",
+      "No market identifier, availability window, accepted stake, or actual settlement."
+    ]
+  },
+  "pgatour_github_fixture_sample": {
+    "repository": "https://github.com/WalrusQuant/pgatouR",
+    "tree_sha": "74551e5bebc9e189781d75a88d57c68c87ec4860",
+    "file_add_commit": "f99fd279e504313e36718c72a768c3ef1ff8fd90",
+    "commit_author_date_utc": "2026-08-15T14:12:17Z",
+    "commit_committer_date_utc": "2026-08-15T14:12:17Z",
+    "commit_date_is_quote_time": false,
+    "fixture_event_id_from_capture_code": "R2026027",
+    "fixture_event_name_from_profile_url": "2026 FedEx St. Jude Championship",
+    "capture_code_player_id": "46046",
+    "provider_quote_timestamp": null,
+    "original_request_receipt_clock": null,
+    "price_fixture": "data/raw/golf-price-source-continuation/pgatour-odds_player.rds",
+    "extraction_file": "data/raw/golf-price-source-continuation/pgatour-odds_player.extracted.tsv",
+    "extraction_sha256": "7e241d675e03e22e2662a12e825ca69626d85ccdc82017d5da500f7a0c52dae1",
+    "rows": [
+      {
+        "market_type": "FINISH",
+        "title": "Top 10 Finish (Incl. Ties)",
+        "group_id": "",
+        "player_id": "46046",
+        "player_name": "Scottie Scheffler",
+        "odds_value": "-50000",
+        "option_id": "42.598693460",
+        "entity_id": "46046",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.598693460&selectionId=14753599&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "FINISH",
+        "title": "Top 20 Finish (Incl. Ties)",
+        "group_id": "",
+        "player_id": "46046",
+        "player_name": "Scottie Scheffler",
+        "odds_value": "-50000",
+        "option_id": "42.598693490",
+        "entity_id": "46046",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.598693490&selectionId=14753599&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "FINISH",
+        "title": "Top 5 Finish (Incl. Ties)",
+        "group_id": "",
+        "player_id": "46046",
+        "player_name": "Scottie Scheffler",
+        "odds_value": "-50000",
+        "option_id": "42.598693509",
+        "entity_id": "46046",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.598693509&selectionId=14753599&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "FINISH",
+        "title": "Top 5",
+        "group_id": "",
+        "player_id": "46046",
+        "player_name": "Scottie Scheffler",
+        "odds_value": "-2500",
+        "option_id": "42.598681703",
+        "entity_id": "46046",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.598681703&selectionId=14753599&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "GROUP",
+        "title": "Group C",
+        "group_id": "Group A",
+        "player_id": "46046",
+        "player_name": "Scottie Scheffler",
+        "odds_value": "-1250",
+        "option_id": "42.598710081",
+        "entity_id": "46046",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.598710081&selectionId=14753599&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "GROUP",
+        "title": "Group C",
+        "group_id": "Group A",
+        "player_id": "48081",
+        "player_name": "Xander Schauffele",
+        "odds_value": "+8000",
+        "option_id": "42.598710081",
+        "entity_id": "48081",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.598710081&selectionId=21082036&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "GROUP",
+        "title": "Group C",
+        "group_id": "Group A",
+        "player_id": "30911",
+        "player_name": "Tommy Fleetwood",
+        "odds_value": "+900",
+        "option_id": "42.598710081",
+        "entity_id": "30911",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.598710081&selectionId=13496408&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "GROUP",
+        "title": "Group C",
+        "group_id": "Group A",
+        "player_id": "47504",
+        "player_name": "Sam Burns",
+        "odds_value": "+3500",
+        "option_id": "42.598710081",
+        "entity_id": "47504",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.598710081&selectionId=13525829&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "GROUP",
+        "title": "Group H",
+        "group_id": "Holes 1-3 Winner (Round 3) - Im / Scheffler",
+        "player_id": "46046",
+        "player_name": "Scottie Scheffler",
+        "odds_value": "-170",
+        "option_id": "42.599892631",
+        "entity_id": "46046",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.599892631&selectionId=14753599&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "GROUP",
+        "title": "Group H",
+        "group_id": "Holes 1-3 Winner (Round 3) - Im / Scheffler",
+        "player_id": "39971",
+        "player_name": "Sungjae Im",
+        "odds_value": "+135",
+        "option_id": "42.599892631",
+        "entity_id": "39971",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.599892631&selectionId=16731128&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "MATCHUP_PROPS",
+        "title": "18 Hole Matchbet - Round 3",
+        "group_id": "(Round 3) Tommy Fleetwood vs Scottie Scheffler",
+        "player_id": "46046",
+        "player_name": "Scottie Scheffler",
+        "odds_value": "-163",
+        "option_id": "42.599903063",
+        "entity_id": "46046",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.599903063&selectionId=14753599&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "MATCHUP_PROPS",
+        "title": "18 Hole Matchbet - Round 3",
+        "group_id": "(Round 3) Tommy Fleetwood vs Scottie Scheffler",
+        "player_id": "30911",
+        "player_name": "Tommy Fleetwood",
+        "odds_value": "+125",
+        "option_id": "42.599903063",
+        "entity_id": "30911",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.599903063&selectionId=13496408&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "ODDS_TO_WIN",
+        "title": "Win Only",
+        "group_id": "",
+        "player_id": "46046",
+        "player_name": "Scottie Scheffler",
+        "odds_value": "-230",
+        "option_id": "42.598681706",
+        "entity_id": "46046",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.598681706&selectionId=14753599&shareBetId=partner_sportstechinc"
+      },
+      {
+        "market_type": "PLAYER_PROPS",
+        "title": "3rd Round Leader",
+        "group_id": "",
+        "player_id": "46046",
+        "player_name": "Scottie Scheffler",
+        "odds_value": "-280",
+        "option_id": "42.599891992",
+        "entity_id": "46046",
+        "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.599891992&selectionId=14753599&shareBetId=partner_sportstechinc"
+      }
+    ],
+    "price_rows": 14,
+    "explicit_book_field_in_price_payload": false,
+    "book_attribution": "Every extracted quote row has its own FanDuel addToBetslip URL carrying that row market/selection IDs. The separate retained catalog labels markets fanduel. This is stronger than a widget partner URL but does not meet the collector explicit ancestor-book-field criterion.",
+    "round_matchup": {
+      "round": 3,
+      "title": "18 Hole Matchbet - Round 3",
+      "market_id": "42.599903063",
+      "selections": [
+        {
+          "player_name": "Scottie Scheffler",
+          "american_odds": -163
+        },
+        {
+          "player_name": "Tommy Fleetwood",
+          "american_odds": 125
+        }
+      ],
+      "betting_period": 3,
+      "tie_rule": null
+    },
+    "historical_rules_verified": false,
+    "jurisdiction": null,
+    "settlement": "No tie/withdrawal rule retained. Two visible selections alone do not prove push-on-tie; quoted prices have not been graded.",
+    "schema_findings": [
+      "playerMarkets[].oddsDataGroup[].oddsData[].group[] contains signed American oddsValue, players, optionId, entityId and per-selection URL.",
+      "THREE_BALL exists in the separate seven-market catalog, but this player fixture contains no THREE_BALL price rows.",
+      "Source title Group C accompanies groupId Group A; preserve both raw fields.",
+      "One GROUP record is a three-hole round-3 matchup; do not conflate it with 18-hole 2-ball.",
+      "bettingPeriod=1 accompanies title 3rd Round Leader; preserve conflict rather than overriding title.",
+      "The separate historical odds.rds GraphQL fixture is R2024003; do not join it with the 2026 REST rows."
+    ],
+    "limits": [
+      "Repository fixture is a publisher-supplied sample labeled as recaptured, not a historical quote archive.",
+      "No original HTTP capture metadata or provider timestamps.",
+      "Commit date establishes repository chronology only.",
+      "Only one player endpoint and one file revision found; no representative time series.",
+      "No actual jurisdiction, stake availability or settlement record."
+    ]
+  },
+  "other_candidates": [
+    {
+      "url": "https://the-odds-api.com/sports/golf-odds.html",
+      "finding": "Official documentation limits covered golf to tournament-winner futures for four majors. Current data have a free plan; history paid. This does not fill round 2/3-ball gap."
+    },
+    {
+      "url": "https://github.com/gmalbert/golf-predictions/blob/main/docs/02_data_sources.md",
+      "finding": "Source ideas and API examples, not a saved FanDuel derivative series; official Odds API documentation narrows its golf coverage."
+    },
+    {
+      "url": "https://github.com/leopard888/unified-odds-system/blob/main/docs/API_REFERENCE.md",
+      "finding": "An unaffiliated live aggregation API is advertised. No golf sample, origin permission, or execution-jurisdiction evidence established; no endpoint invoked."
+    },
+    {
+      "url": "https://www.fanduel.com/fanduel-sportsbook-house-rules-nj",
+      "finding": "Public search index shows rules, but direct ordinary request returned403; no retry. Those indexed rules do not establish jurisdiction/historical settlement for either sample."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.fanduel.com/fanduel-sportsbook-house-rules-nj",
+      "final_url": "https://www.fanduel.com/fanduel-sportsbook-house-rules-nj",
+      "status": 403,
+      "request_started_at": "2026-09-15T00:45:41.200168+00:00",
+      "received_at": "2026-09-15T00:45:41.579183+00:00",
+      "path": "data/raw/golf-price-source-continuation/fanduel-nj-rules.html",
+      "bytes": 5803,
+      "sha256": "b5d20ef020e49a617c7d76650da5dd02cea7cc6a54eb15fd28622b25e4f7a740",
+      "http_date": "Tue, 15 Sep 2026 00:45:41 GMT",
+      "content_type": "text/html"
+    },
+    {
+      "url": "https://www.fanduel.com/research/best-prop-bets-for-the-british-open-championship-first-round-leader-3-balls-and-finishing-positions",
+      "final_url": "https://www.fanduel.com/research/best-prop-bets-for-the-british-open-championship-first-round-leader-3-balls-and-finishing-positions",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:45:41.199967+00:00",
+      "received_at": "2026-09-15T00:45:41.686975+00:00",
+      "path": "data/raw/golf-price-source-continuation/fanduel-open-2025-article.html",
+      "bytes": 352806,
+      "sha256": "6223dbc7009d37c4b65a44a84cd07d4f260d0996075e522fdc28097b853710ff",
+      "http_date": "Tue, 15 Sep 2026 00:45:41 GMT",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://the-odds-api.com/sports/golf-odds.html",
+      "final_url": "https://the-odds-api.com/sports/golf-odds.html",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:45:41.200268+00:00",
+      "received_at": "2026-09-15T00:45:41.522920+00:00",
+      "path": "data/raw/golf-price-source-continuation/odds-api-golf.html",
+      "bytes": 24308,
+      "sha256": "9130456a7a73b3eab6fb1e2e06404ad75cdbae6be442e20cd33a3e93c785fbb7",
+      "http_date": "Tue, 15 Sep 2026 00:45:41 GMT",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/WalrusQuant/pgatouR/74551e5bebc9e189781d75a88d57c68c87ec4860/LICENSE",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:46:12.540376+00:00",
+      "received_at": "2026-09-15T00:46:12.710168+00:00",
+      "path": "data/raw/golf-price-source-continuation/pgatour-LICENSE",
+      "bytes": 43,
+      "sha256": "aadcf63e0aa5aeac86b1c341b3445476ee48b6143996e960ebb8178dcf45e1d4",
+      "http_date": "Tue, 15 Sep 2026 00:46:12 GMT"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/WalrusQuant/pgatouR/74551e5bebc9e189781d75a88d57c68c87ec4860/data-raw/capture-new-fixtures.R",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:46:12.492554+00:00",
+      "received_at": "2026-09-15T00:46:12.652318+00:00",
+      "path": "data/raw/golf-price-source-continuation/pgatour-capture-new-fixtures.R",
+      "bytes": 3853,
+      "sha256": "684e66d2f93fe81f4c8b72b17771a28577c1106456637c0cfa997132456d5beb",
+      "http_date": "Tue, 15 Sep 2026 00:46:12 GMT"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/WalrusQuant/pgatouR/74551e5bebc9e189781d75a88d57c68c87ec4860/data-raw/fixtures.R",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:46:12.272445+00:00",
+      "received_at": "2026-09-15T00:46:12.538549+00:00",
+      "path": "data/raw/golf-price-source-continuation/pgatour-fixtures.R",
+      "bytes": 7753,
+      "sha256": "976bb183a67d62817d4ed0947a541928b1d100c39d577b88c46b31a6b3b399e2",
+      "http_date": "Tue, 15 Sep 2026 00:46:12 GMT"
+    },
+    {
+      "url": "https://api.github.com/repos/WalrusQuant/pgatouR/git/trees/main?recursive=1",
+      "final_url": "https://api.github.com/repos/WalrusQuant/pgatouR/git/trees/main?recursive=1",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:45:41.200231+00:00",
+      "received_at": "2026-09-15T00:45:41.623179+00:00",
+      "path": "data/raw/golf-price-source-continuation/pgatour-github-tree.json",
+      "bytes": 53785,
+      "sha256": "f379361d9a09b9ea6029ce5ab29a6c76f9f0504f472cf6991fdc97a88dd91d75",
+      "http_date": "Tue, 15 Sep 2026 00:45:41 GMT",
+      "content_type": "application/json; charset=utf-8"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/WalrusQuant/pgatouR/74551e5bebc9e189781d75a88d57c68c87ec4860/tests/testthat/helper-fixtures.R",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:46:12.588641+00:00",
+      "received_at": "2026-09-15T00:46:12.783790+00:00",
+      "path": "data/raw/golf-price-source-continuation/pgatour-helper-fixtures.R",
+      "bytes": 1787,
+      "sha256": "fe0f7d5afb93d4f6b9eedec21b2967049e317a87e0b63b7f83e0505de9fdf702",
+      "http_date": "Tue, 15 Sep 2026 00:46:12 GMT"
+    },
+    {
+      "url": "https://api.github.com/repos/WalrusQuant/pgatouR/commits?path=tests/testthat/fixtures/odds_player.rds&per_page=10",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:46:59.848352+00:00",
+      "received_at": "2026-09-15T00:47:00.211589+00:00",
+      "path": "data/raw/golf-price-source-continuation/pgatour-odds-player-commit-history.json",
+      "bytes": 3728,
+      "sha256": "e6d95f17e08c797ac1cf3b8b44ff4d51eafb3d625b8d3f4d0e4c4f9fe057c390",
+      "http_date": "Tue, 15 Sep 2026 00:47:00 GMT"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/WalrusQuant/pgatouR/74551e5bebc9e189781d75a88d57c68c87ec4860/tests/testthat/fixtures/odds.rds",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:46:12.272049+00:00",
+      "received_at": "2026-09-15T00:46:12.588062+00:00",
+      "path": "data/raw/golf-price-source-continuation/pgatour-odds.rds",
+      "bytes": 367,
+      "sha256": "fd8d4983e11e18bccca9e0c2680d649de2a77f27d124b834971a7255542e45ca",
+      "http_date": "Tue, 15 Sep 2026 00:46:12 GMT"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/WalrusQuant/pgatouR/74551e5bebc9e189781d75a88d57c68c87ec4860/tests/testthat/fixtures/odds_markets.rds",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:46:12.272343+00:00",
+      "received_at": "2026-09-15T00:46:12.490695+00:00",
+      "path": "data/raw/golf-price-source-continuation/pgatour-odds_markets.rds",
+      "bytes": 377,
+      "sha256": "f3b649eb96dbdd8ee759a877db03ab652dd47c4a1d9161e5dcae5207e80d6d48",
+      "http_date": "Tue, 15 Sep 2026 00:46:12 GMT"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/WalrusQuant/pgatouR/74551e5bebc9e189781d75a88d57c68c87ec4860/tests/testthat/fixtures/odds_player.rds",
+      "status": 200,
+      "request_started_at": "2026-09-15T00:46:12.272404+00:00",
+      "received_at": "2026-09-15T00:46:12.761513+00:00",
+      "path": "data/raw/golf-price-source-continuation/pgatour-odds_player.rds",
+      "bytes": 1307,
+      "sha256": "f4ddfb1b5bb3082d91aabce1d6ddd5841c043e632e70667692384b8562f2ce3b",
+      "http_date": "Tue, 15 Sep 2026 00:46:12 GMT"
+    }
+  ],
+  "decision": "Use samples for schema/provenance research only. Actual representative predecision FanDuel quote history and contemporaneous terms remain needed before price residual, CLV or ROI claims.",
+  "next_action": "Retain the existing PGA collector for newly posted market capture. A lawful user-supplied book export or entitled historical archive is an independent route; do not infer entitlement or purchase. Public editorial articles can offer sanity-check examples, not a selection-unbiased backtest."
+}

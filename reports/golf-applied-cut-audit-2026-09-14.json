@@ -1,0 +1,3471 @@
+{
+  "as_of_local_date": "2026-09-14",
+  "completed_utc": "2026-09-15T02:44:51.330638+00:00",
+  "scope": "Bounded applied-cut source audit for fixed 25 ordinary-rule events. No weather values or effects. Planned rule labels unchanged.",
+  "summary": {
+    "fixed_ordinary_events": 25,
+    "source_requests": 59,
+    "http_200": 57,
+    "http_404": 2,
+    "search_queries": 0,
+    "explicit_cut_thresholds": 23,
+    "thresholds_reconciled_with_complete_cached_36_hole_ranking": 22,
+    "official_R2_qualifier_count_statements": 22,
+    "official_R2_qualifier_counts_matching_cached_36_hole_totals": 21,
+    "unresolved_source_conflicts": 1,
+    "unresolved_missing_official_threshold": 2,
+    "wave_venue_and_threshold_upper_bound": 20,
+    "comparable_effect_sample_gate": "not_evaluated",
+    "new_weather_or_effect_estimates": 0
+  },
+  "acquisition_budget": {
+    "initial_index_cap": 25,
+    "initial_R2_note_cap": 25,
+    "initial_final_referee_followup_cap": 10,
+    "overall_file_cap": 60,
+    "actual_by_kind": {
+      "index": 25,
+      "r2": 23,
+      "followup": 10,
+      "reallocated_r2_slot_final_metadata": 1
+    },
+    "administrative_reallocation": "After 58 requests, parent explicitly reassigned exactly one unused R2-note slot to one Bermuda final LeaderboardCompressedV3 request. It became request 59. No further acquisition occurred.",
+    "method": "Single worker, cache, one-second spacing. Ordinary official media GETs plus one existing public-client GraphQL query. No retries or denial bypass.",
+    "stop_status": "finished_no_further_acquisition"
+  },
+  "source_snapshot_before_reconciliation": {
+    "file": "data/raw/golf-cut-audit/official-cut-statements-r2-initial.json",
+    "sha256": "d66dcedc20f8616fa71aa59fbb60e519cc0f2cd9d6f3fa02e20a4b36a75651fd",
+    "bermuda_addendum": {
+      "created_utc": "2026-09-15T02:42:12.127883+00:00",
+      "scope": "Bermuda explicit cut metadata recorded before any Bermuda score reconciliation",
+      "initial_r2_source_snapshot": "data/raw/golf-cut-audit/official-cut-statements-r2-initial.json",
+      "initial_sha256": "d66dcedc20f8616fa71aa59fbb60e519cc0f2cd9d6f3fa02e20a4b36a75651fd"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/wmphoenixopen",
+      "pga_id": "R2025003",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:31:43.581817+00:00",
+      "file": "data/raw/golf-cut-audit/R2025003-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:31:44 GMT",
+        "ETag": "\"0f8bd017d8140ef6c65a3aac1e15a35a5\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:31:44.777325+00:00",
+      "bytes": 98556,
+      "sha256": "5f36c66ac119fe8b1d634ffa3ffe84aad6b75182ce8b379a0ea3b013f4e2e9a2",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/wmphoenixopen/roundInfo/R2%20Notes.pdf",
+      "pga_id": "R2025003",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:31:45.788744+00:00",
+      "file": "data/raw/golf-cut-audit/R2025003-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:31:46 GMT",
+        "ETag": "\"031a50bb17a9eade5a05c098fa787eb77\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:31:53.235797+00:00",
+      "bytes": 942505,
+      "sha256": "acfdb32cdceeff1efa8d9148186beca60cb14fd10ffc416e21e1542343e71ecd",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/sonyopeninhawaii",
+      "request_started_utc": "2026-09-15T01:30:06.142629+00:00",
+      "kind": "index",
+      "pga_id": "R2025006",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:30:06 GMT",
+        "ETag": "\"0861770805ea6b765a0f25e4297e58887\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:30:06.831556+00:00",
+      "file": "data/raw/golf-cut-audit/R2025006-index.html",
+      "bytes": 98486,
+      "sha256": "7367a7a4a414f773536d05891870179a7e7d41a81a6f23e05e6c16c424fac7d1"
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/sonyopeninhawaii/roundInfo/2025_Sony_Open_R2_Notes.pdf",
+      "pga_id": "R2025006",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:31:41.775008+00:00",
+      "file": "data/raw/golf-cut-audit/R2025006-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:31:42 GMT",
+        "ETag": "\"0b0298f69aabc558a9a3b9eba48c53876\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:31:42.575233+00:00",
+      "bytes": 249152,
+      "sha256": "d986f44525fb8e67b0d1c605b68ffcdffe9fbb029acb93b73177b6938375a62f",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/cognizantclassicinthepalmbeaches",
+      "pga_id": "R2025010",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:31:59.223664+00:00",
+      "file": "data/raw/golf-cut-audit/R2025010-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:00 GMT",
+        "ETag": "\"05fa57db4e453eb9cca35821e0d52d4d5\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:32:00.184061+00:00",
+      "bytes": 103355,
+      "sha256": "c88881aaa548529d4c8a45d2b46b736a348b021565f85f36337291863d643894",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/cognizantclassicinthepalmbeaches/roundInfo/R2%20Notes.pdf",
+      "pga_id": "R2025010",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:32:01.196355+00:00",
+      "file": "data/raw/golf-cut-audit/R2025010-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:01 GMT",
+        "ETag": "\"07ca102536c99384c8dd6f1bf72c2fcc0\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:32:02.815437+00:00",
+      "bytes": 280570,
+      "sha256": "fba299e8717ff139b19be338bfda2eb33f1f26be767913eb4a4071232bad0e9d",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/theplayerschampionship",
+      "pga_id": "R2025011",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:32:14.998916+00:00",
+      "file": "data/raw/golf-cut-audit/R2025011-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:15 GMT",
+        "ETag": "\"0b2fc22be880b250f763c9b0c115ac74d\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:32:15.812307+00:00",
+      "bytes": 102595,
+      "sha256": "f6f8844f253c3da5e8374c08481ce1c899aa57cc12b83d1dc1a60bcacdaaea4d",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/theplayerschampionship/roundInfo/2025_PLAYERS_Championship_R2_Notes.pdf",
+      "pga_id": "R2025011",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:32:16.818931+00:00",
+      "file": "data/raw/golf-cut-audit/R2025011-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:17 GMT",
+        "ETag": "\"092f499ef93c6381feafa8d8770782943\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:32:20.134116+00:00",
+      "bytes": 216061,
+      "sha256": "1e971dc2743c27e6bff3f4df0b15bd48ce4967a414382051535528ba700a6a3e",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/wyndhamchampionship",
+      "pga_id": "R2025013",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:34:03.581022+00:00",
+      "file": "data/raw/golf-cut-audit/R2025013-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:04 GMT",
+        "ETag": "\"0df1ad0a9adbc302e446c8b5c6ced2c4e\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:34:07.018897+00:00",
+      "bytes": 102617,
+      "sha256": "19ff47ed12612e6775d0f5e42e3ed6505ce3f695f81baecd81746cc5da73a4ac",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/wyndhamchampionship/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025013",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:34:08.032586+00:00",
+      "file": "data/raw/golf-cut-audit/R2025013-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:08 GMT",
+        "ETag": "\"0f2d367eb61abcabe2a6932524b1d809f\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:34:14.140241+00:00",
+      "bytes": 850188,
+      "sha256": "4492a1732452bb7b0b59100f2112fcb1a4be4e26463325a9e1a3a03f024da8e4",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/thecjcupbyronnelson",
+      "pga_id": "R2025019",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:13.989953+00:00",
+      "file": "data/raw/golf-cut-audit/R2025019-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:14 GMT",
+        "ETag": "\"0aafc142350952a030b39c83e05994a44\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:33:14.596947+00:00",
+      "bytes": 101049,
+      "sha256": "36b83ca571436aed32a391e19a4dd653521d5bda52aae7d0452c05e69786053e",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/thecjcupbyronnelson/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025019",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:33:15.608772+00:00",
+      "file": "data/raw/golf-cut-audit/R2025019-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:16 GMT",
+        "ETag": "\"0ec4c0f279a1543b2b14bf086774a8a7d\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:33:17.068472+00:00",
+      "bytes": 186279,
+      "sha256": "acf5716730a1c3bdb444ea5746f2b5d11b027685048401eaccc1784acd0dd5a0",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/texaschildrenshoustonopen",
+      "pga_id": "R2025020",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:32:31.531481+00:00",
+      "file": "data/raw/golf-cut-audit/R2025020-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:32 GMT",
+        "ETag": "\"06da075aa484aa3d1a676b7ea11a718e7\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:32:32.572755+00:00",
+      "bytes": 102219,
+      "sha256": "126344657c2df3925136ecdf4e22e234bab03ca3ce123f7d10e636b9f3059b34",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/texaschildrenshoustonopen/roundInfo/R2%20Notes.pdf",
+      "pga_id": "R2025020",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:32:33.587334+00:00",
+      "file": "data/raw/golf-cut-audit/R2025020-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:34 GMT",
+        "ETag": "\"01c2a8a9e5c2421332921e8ee7f2f09aa\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:32:44.890437+00:00",
+      "bytes": 964935,
+      "sha256": "cd4108e0a6aba18f15942595a52deee0151f2cbe809e456496774d7f46d7503f",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/charlesschwabchallenge",
+      "pga_id": "R2025021",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:19.848997+00:00",
+      "file": "data/raw/golf-cut-audit/R2025021-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:20 GMT",
+        "ETag": "\"07d51db16a377b1ba352a9c4d36f99ad3\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:33:20.780982+00:00",
+      "bytes": 101257,
+      "sha256": "e0d1abd0361f29873ce7c6d9fae1e54cedcdbce22aa8497519d77e8e4b37b293",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/charlesschwabchallenge/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025021",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:33:21.796135+00:00",
+      "file": "data/raw/golf-cut-audit/R2025021-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:22 GMT",
+        "ETag": "\"0239a4d2ef01d293a605d4633191a85c7\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:33:22.514189+00:00",
+      "bytes": 191358,
+      "sha256": "c356eb1656c72b67440a7d55f213530b688a886cc0dce778262f81b166436879",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/charlesschwabchallenge/roundInfo/R3%20Notes.pdf",
+      "pga_id": "R2025021",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T02:37:46.701832+00:00",
+      "file": "data/raw/golf-cut-audit/R2025021-r3.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 02:37:47 GMT",
+        "ETag": "\"0ce0e8b6222607a9507557bbd93712d0c\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T02:37:51.931477+00:00",
+      "bytes": 942385,
+      "sha256": "298c0acecb0e410382522a659d4ce1fd4c78f011ab46a3a6460728ebcc21ee39",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/charlesschwabchallenge/roundInfo/R4_Notes.pdf",
+      "pga_id": "R2025021",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T02:36:24.210487+00:00",
+      "file": "data/raw/golf-cut-audit/R2025021-r4.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 02:36:24 GMT",
+        "ETag": "\"03c9132e4c6cf86b1b12cfdbfee1fcf1a\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T02:36:25.107939+00:00",
+      "bytes": 275391,
+      "sha256": "2eff91a2d59317c95776fe21232da23f236a25e7f495a3bf7f0470a113b8e115",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/johndeereclassic",
+      "pga_id": "R2025030",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:32.221212+00:00",
+      "file": "data/raw/golf-cut-audit/R2025030-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:32 GMT",
+        "ETag": "\"0648b7ee582f3d37b01b74fc258567cba\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:33:32.765483+00:00",
+      "bytes": 97662,
+      "sha256": "261d7ad8bad88095dd611b058ad2312dacb8761eb4f11935fe0ca3fe4b6c910f",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/johndeereclassic/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025030",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:33:33.779813+00:00",
+      "file": "data/raw/golf-cut-audit/R2025030-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:34 GMT",
+        "ETag": "\"0e265b6e16bc0a1e78ef0ec5830b63d2b\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:33:35.235697+00:00",
+      "bytes": 257119,
+      "sha256": "6a0c57de8538e87df3e36eb5979c46c97b82f1a2263825ac68902f8553803e18",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/johndeereclassic/roundInfo/R4_Notes.pdf",
+      "pga_id": "R2025030",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T02:36:26.123529+00:00",
+      "file": "data/raw/golf-cut-audit/R2025030-r4.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 02:36:26 GMT",
+        "ETag": "\"062157d03d4bbc77a715746bac8b439d0\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T02:36:27.944146+00:00",
+      "bytes": 259037,
+      "sha256": "b8dd498356713a4975bccf0b974b5859ed5f6740e18b6dbd06543426ce7e61e4",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/rbccanadianopen",
+      "pga_id": "R2025032",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:23.524804+00:00",
+      "file": "data/raw/golf-cut-audit/R2025032-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:24 GMT",
+        "ETag": "\"090aa826564923a8639975aa754db481f\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:33:24.192263+00:00",
+      "bytes": 102145,
+      "sha256": "2d12e83a5845803fa0db6b14d7acf88cbd3f50b5316b9441749edfdfb3b0ee9f",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/rbccanadianopen/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025032",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:33:25.204925+00:00",
+      "file": "data/raw/golf-cut-audit/R2025032-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:25 GMT",
+        "ETag": "\"0e81da92ff844cd97a6c2e72e3a66be63\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:33:26.876309+00:00",
+      "bytes": 251827,
+      "sha256": "6b8721d21163fd9e55f48ca3c3c2fb9ac9414bf5ddb4c9f6d12880981c203b7a",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/valerotexasopen",
+      "pga_id": "R2025041",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:32:45.902147+00:00",
+      "file": "data/raw/golf-cut-audit/R2025041-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:46 GMT",
+        "ETag": "\"03df5f0705c7c25cddc00bc7433ff7ca3\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:32:46.738288+00:00",
+      "bytes": 99974,
+      "sha256": "ef229aced5d52633586f4ba0cccdf9e80519faa1a041efb0c050ed43675e48ad",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/valerotexasopen/roundInfo/R2%20Notes.pdf",
+      "pga_id": "R2025041",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:32:47.749291+00:00",
+      "file": "data/raw/golf-cut-audit/R2025041-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:49 GMT",
+        "ETag": "\"02f31396c0f41f3797629e3f888084379\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:33:00.538864+00:00",
+      "bytes": 850717,
+      "sha256": "e6766012b27f71e62d4b063ca862c5e49a70eb1384b77037ce6ec50d19b39c39",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/sandersonfarmschampionship",
+      "pga_id": "R2025054",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:34:21.469328+00:00",
+      "file": "data/raw/golf-cut-audit/R2025054-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:21 GMT",
+        "ETag": "\"0d56359d6b7f323363e1271ed57d4537c\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:34:22.127175+00:00",
+      "bytes": 99626,
+      "sha256": "a43f4f5c02a96dd9c8bc8df68af23762c4a06c51e493c423d6bdfef620334c6f",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/sandersonfarmschampionship/roundInfo/R2%20Notes.pdf",
+      "pga_id": "R2025054",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:34:23.146664+00:00",
+      "file": "data/raw/golf-cut-audit/R2025054-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:23 GMT",
+        "ETag": "\"0d3180c55bad9bd9e3b83a3ac1bad002a\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:34:24.923145+00:00",
+      "bytes": 230533,
+      "sha256": "bb5ed949b386a3e0e58724cbd8e0a7b1faac1284fcdd1bcc365af6cba4828002",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/worldwidetechnologychampionship",
+      "pga_id": "R2025457",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:34:27.334360+00:00",
+      "file": "data/raw/golf-cut-audit/R2025457-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:27 GMT",
+        "ETag": "\"08f24bdd5df0e4da13c09cf03d232c0c0\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:34:27.834050+00:00",
+      "bytes": 101253,
+      "sha256": "f510ae31c9daa5f8fe8d4b14f0c4624b9468c3b929eab539bce23a2ed801856f",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/worldwidetechnologychampionship/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025457",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:34:28.845381+00:00",
+      "file": "data/raw/golf-cut-audit/R2025457-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:29 GMT",
+        "ETag": "\"03fdd3477fa61dd1383e490e4c3c96e0f\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:34:30.426271+00:00",
+      "bytes": 215674,
+      "sha256": "c55da9e2197a1893854e6f6131af94bfe518a5d3891e508cfa039821e63cc3de",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/worldwidetechnologychampionship/roundInfo/R3_Notes.pdf",
+      "pga_id": "R2025457",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T02:36:38.477000+00:00",
+      "file": "data/raw/golf-cut-audit/R2025457-r3.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 02:36:38 GMT",
+        "ETag": "\"0fed60dbe9379a818e321becd45bba047\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T02:36:41.400847+00:00",
+      "bytes": 239584,
+      "sha256": "218b5024d61be60c1a5128543a574cfbf220549f43fb9f7e7239ae56d808bfc4",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/worldwidetechnologychampionship/roundInfo/R4_Notes.pdf",
+      "pga_id": "R2025457",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T02:36:35.674845+00:00",
+      "file": "data/raw/golf-cut-audit/R2025457-r4.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 02:36:36 GMT",
+        "ETag": "\"0e97dd14b426ecf9168f43a007a481df7\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T02:36:37.459719+00:00",
+      "bytes": 256892,
+      "sha256": "6ef138b9996aefab592ecb023b6f4c9c4db7b0a8367acbf5b9ca15e7c4d66f4e",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/procorechampionship",
+      "pga_id": "R2025464",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:34:15.157344+00:00",
+      "file": "data/raw/golf-cut-audit/R2025464-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:15 GMT",
+        "ETag": "\"009310fb62c285b0a46158fb6c2e2de08\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:34:15.755365+00:00",
+      "bytes": 99261,
+      "sha256": "a530537f5c756e6b696bed5253fbcbda15e79798b0f2503d9c37aff323261849",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/procorechampionship/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025464",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:34:16.768699+00:00",
+      "file": "data/raw/golf-cut-audit/R2025464-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:17 GMT",
+        "ETag": "\"04eb54717c446f4bdf8e8f506b14cd8d9\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:34:20.460053+00:00",
+      "bytes": 747656,
+      "sha256": "6b2ae4750bf1f9e2ffb7efaf1da5cf80243dec7f874d2b73ac794d231d770e68",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/valsparchampionship",
+      "pga_id": "R2025475",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:32:21.143210+00:00",
+      "file": "data/raw/golf-cut-audit/R2025475-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:21 GMT",
+        "ETag": "\"0fbed14bd8a52f6b1ee26787619a9e0a2\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:32:22.009951+00:00",
+      "bytes": 101173,
+      "sha256": "e882cd521378eab7f3a9f890b3109ba31c833c0e196721b5bc9fcdd3ddbe3e22",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/valsparchampionship/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025475",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:32:23.021903+00:00",
+      "file": "data/raw/golf-cut-audit/R2025475-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:23 GMT",
+        "ETag": "\"04657730e114710effe0afaa9e26d804e\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:32:30.526212+00:00",
+      "bytes": 809455,
+      "sha256": "d61a2c9c304a3bdc1bca2bbeb1ac36ab4e6dfa12342d85ed022949912fd86de0",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/puertoricoopen",
+      "pga_id": "R2025483",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:32:03.823186+00:00",
+      "file": "data/raw/golf-cut-audit/R2025483-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:04 GMT",
+        "ETag": "\"05732d10f2032620f07f2bee18b0330ed\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:32:05.186606+00:00",
+      "bytes": 96968,
+      "sha256": "64a762afa1c3f655b109c74d25e153d064bf0b8c0f644dab677a0871d85d4643",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/puertoricoopen/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025483",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:32:06.195670+00:00",
+      "file": "data/raw/golf-cut-audit/R2025483-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:32:07 GMT",
+        "ETag": "\"00905de135a2772807756b5ad76aef64f\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:32:13.987169+00:00",
+      "bytes": 822414,
+      "sha256": "bf6840a90ac603cfffe3ace7c4d13b81edba68e6d61f8819c8ee9c3ad7384cd9",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/iscochampionship",
+      "pga_id": "R2025518",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:48.163734+00:00",
+      "file": "data/raw/golf-cut-audit/R2025518-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:48 GMT",
+        "ETag": "\"08d8aaa3b0c12c1bb0daa7f8a2c020e17\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:33:49.429870+00:00",
+      "bytes": 99295,
+      "sha256": "bbc4b67344337f1b4c6bdbf83cfdf83dc541866448ea88a82e6d009e68ca967f",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/iscochampionship/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025518",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:33:50.438659+00:00",
+      "file": "data/raw/golf-cut-audit/R2025518-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:51 GMT",
+        "ETag": "\"0385115362cea4933cfe1275800fb4429\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:33:57.189116+00:00",
+      "bytes": 654184,
+      "sha256": "6ff8609f18e317bc71380a8a3462c2774537bcf48efd3ea4991277967f68dc21",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/coralespuntacanachampionship",
+      "pga_id": "R2025522",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:01.546561+00:00",
+      "file": "data/raw/golf-cut-audit/R2025522-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:02 GMT",
+        "ETag": "\"02266722337bbe3e410fc59f1b47f478b\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:33:03.703020+00:00",
+      "bytes": 101240,
+      "sha256": "f4356148aa7ec7daf58dc653d2dc786007a05359babe494e06d4a612918e9cdf",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/coralespuntacanachampionship/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025522",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:33:04.713579+00:00",
+      "file": "data/raw/golf-cut-audit/R2025522-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:05 GMT",
+        "ETag": "\"0ae8af0680eddc46d71b8beeff4217eae\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:33:12.978263+00:00",
+      "bytes": 684406,
+      "sha256": "53334b08083b9b2740d23123fb8d93fc98080d18733c75cbe54e5a62e0f70bb1",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/coralespuntacanachampionship/roundInfo/R4_Notes.pdf",
+      "pga_id": "R2025522",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T02:36:21.199883+00:00",
+      "file": "data/raw/golf-cut-audit/R2025522-r4.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 02:36:22 GMT",
+        "ETag": "\"0b0f343dd37f321745fccc59fed3b2850\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T02:36:23.196906+00:00",
+      "bytes": 673825,
+      "sha256": "64ec068f1ede1c9f2327e1d1673a4f3504fe5ebc9bac45fbd847ffb0c43a352e",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/rocketclassic",
+      "pga_id": "R2025524",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:27.889793+00:00",
+      "file": "data/raw/golf-cut-audit/R2025524-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:28 GMT",
+        "ETag": "\"03e2a41c5eea7ce8ad77e4d6d44a497e5\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:33:28.702066+00:00",
+      "bytes": 99282,
+      "sha256": "ac3db1642c750e902a78df7f9acac5262dc24517cde7a4f1a7ed0204dec3f5a5",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/rocketclassic/roundInfo/R2-Notes.pdf",
+      "pga_id": "R2025524",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:33:29.716210+00:00",
+      "file": "data/raw/golf-cut-audit/R2025524-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:30 GMT",
+        "ETag": "\"0dfa486aee891afbdc9b71a5eb2afe207\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:33:31.212065+00:00",
+      "bytes": 251546,
+      "sha256": "7e1bc594fa8c6c5df2407a0812f78b3a83fcc89314aa2dbc1090096f09cffe01",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/3mopen",
+      "pga_id": "R2025525",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:58.202170+00:00",
+      "file": "data/raw/golf-cut-audit/R2025525-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:58 GMT",
+        "ETag": "\"08ed927759630dc3dda096d31a286e059\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:33:58.671836+00:00",
+      "bytes": 98674,
+      "sha256": "26e8a348a493aa0ee825451f7fb99c55f257d8c9075c00ba3e79708cf3713fc4",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/3mopen/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025525",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:33:59.685229+00:00",
+      "file": "data/raw/golf-cut-audit/R2025525-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:00 GMT",
+        "ETag": "\"06b73d02820f549c82c7ff732299c44e7\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:34:02.564330+00:00",
+      "bytes": 159863,
+      "sha256": "38ca7303c1312eca33fc8089ecb4f37f6ca840f34b39b20e3783fa7aeb09a369",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/3mopen/roundInfo/R4_Notes.pdf",
+      "pga_id": "R2025525",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T02:36:33.494859+00:00",
+      "file": "data/raw/golf-cut-audit/R2025525-r4.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 02:36:33 GMT",
+        "ETag": "\"0218a385e2c083cfbf9b02fe9b3f7b8f3\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T02:36:34.655073+00:00",
+      "bytes": 161455,
+      "sha256": "3be6a9d392a46e86c48a6ee67349ea9fe2cae5ef0c498d633118b464b4ce7eb3",
+      "complete": true
+    },
+    {
+      "url": "https://orchestrator.pgatour.com/graphql",
+      "request": {
+        "query": "query LeaderboardCompressedV3($leaderboardCompressedV3Id: ID!) {\n      leaderboardCompressedV3(id: $leaderboardCompressedV3Id) { id payload }\n    }",
+        "operationName": "LeaderboardCompressedV3",
+        "variables": {
+          "leaderboardCompressedV3Id": "R2025528"
+        }
+      },
+      "pga_id": "R2025528",
+      "kind": "reallocated_r2_slot_final_metadata",
+      "request_started_utc": "2026-09-15T02:40:10.978499+00:00",
+      "received_utc": "2026-09-15T02:40:12.072112+00:00",
+      "status": 200,
+      "file": "data/raw/golf-cut-audit/R2025528-final-leaderboard.json",
+      "bytes": 18631,
+      "sha256": "8a1178285e3dbe53e42596b3c868d91f15db6c8f2e77be7a58dae7532d98589c",
+      "complete": true,
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Date": "Tue, 15 Sep 2026 02:40:12 GMT"
+      },
+      "budget_reallocation": "Parent expressly reassigned exactly one unused R2-note slot to an explicit official final leaderboard cut-metadata check, total request 59 of 60; no further acquisition authorized."
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/butterfieldbermudachampionship",
+      "pga_id": "R2025528",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:34:31.435916+00:00",
+      "file": "data/raw/golf-cut-audit/R2025528-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:31 GMT",
+        "ETag": "\"05da698415187ecfef6d3053d244fd509\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:34:32.901601+00:00",
+      "bytes": 98164,
+      "sha256": "6c912c67936eb0aa165d71cbe7b4498e0f370e3afecde849d964ebf9fa0761a7",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/butterfieldbermudachampionship/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025528",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:34:33.918070+00:00",
+      "file": "data/raw/golf-cut-audit/R2025528-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:34:34 GMT",
+        "ETag": "\"0e4e0d04367576068b6282edc5a376a30\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:34:35.054571+00:00",
+      "bytes": 264846,
+      "sha256": "45d329fcf03e89dbc99e28ef2007785fd0251824eb2b32217a040fb0ee668dff",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/butterfieldbermudachampionship/roundInfo/R3_Notes.pdf",
+      "pga_id": "R2025528",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T01:36:47.164455+00:00",
+      "file": "data/raw/golf-cut-audit/R2025528-r3.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:36:47 GMT",
+        "ETag": "\"0578a604c53cdc85bece5721735f84f46\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:36:53.916969+00:00",
+      "bytes": 769921,
+      "sha256": "00c3f2bca9f99047489862f2fbfeb47768bebc9d8c88bbcecc4d372ba74dc61f",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/butterfieldbermudachampionship/roundInfo/R4_Notes.pdf",
+      "pga_id": "R2025528",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T01:35:37.207823+00:00",
+      "file": "data/raw/golf-cut-audit/R2025528-r4.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:35:38 GMT",
+        "ETag": "\"0c742f0c01cf75f0c2ebb764f2472e7ab\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:35:41.808443+00:00",
+      "bytes": 261350,
+      "sha256": "f529a783ff664592d564d45f3b51c50320de8b743fd1a9a888d76e9775643fd8",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/mexicoopenatvidantaworld",
+      "pga_id": "R2025540",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:31:54.245650+00:00",
+      "file": "data/raw/golf-cut-audit/R2025540-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:31:54 GMT",
+        "ETag": "\"06663663cbc9f7b0117171de1e057239a\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:31:55.627971+00:00",
+      "bytes": 99559,
+      "sha256": "2b6217538f2e5add858003699bb3b7abf533563207db03796247a94afb276540",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/mexicoopenatvidantaworld/roundInfo/R2_Notes.pdf",
+      "pga_id": "R2025540",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:31:56.634861+00:00",
+      "file": "data/raw/golf-cut-audit/R2025540-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:31:57 GMT",
+        "ETag": "\"09dc6e69c01b82e28f69911add7ad16f0\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:31:58.214229+00:00",
+      "bytes": 211050,
+      "sha256": "d73734e13393351b2e710d3a882ce84e56478df87455c99af56582e230570cef",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/genesisscottishopen",
+      "pga_id": "R2025541",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:36.242700+00:00",
+      "file": "data/raw/golf-cut-audit/R2025541-index.html",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:36 GMT",
+        "ETag": "\"08c5f7231a63129d526d5b7ea9812b95c\"",
+        "Content-Type": "text/html;charset=UTF-8"
+      },
+      "received_utc": "2026-09-15T01:33:36.841330+00:00",
+      "bytes": 97509,
+      "sha256": "e39bdf396cebb77bd8a294ccb56cb09e1ed97cabd1cecadbbdbf0af77e2e9120",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/genesisscottishopen/roundInfo/R2%20Notes.pdf",
+      "pga_id": "R2025541",
+      "kind": "r2",
+      "request_started_utc": "2026-09-15T01:33:37.856392+00:00",
+      "file": "data/raw/golf-cut-audit/R2025541-r2.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 01:33:38 GMT",
+        "ETag": "\"0bacd64b589aa391d829a4ebe26ef56e0\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T01:33:47.154115+00:00",
+      "bytes": 807875,
+      "sha256": "0d63b40d6770c48ad632f459983b1992d35bd07be09ec615e39424a5016d480f",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/genesisscottishopen/roundInfo/R4_Notes.pdf",
+      "pga_id": "R2025541",
+      "kind": "followup",
+      "request_started_utc": "2026-09-15T02:36:28.962147+00:00",
+      "file": "data/raw/golf-cut-audit/R2025541-r4.pdf",
+      "status": 200,
+      "headers": {
+        "Date": "Tue, 15 Sep 2026 02:36:29 GMT",
+        "ETag": "\"0a29ceef9591370aadc2dfbdbcf761404\"",
+        "Content-Type": "application/pdf"
+      },
+      "received_utc": "2026-09-15T02:36:32.473024+00:00",
+      "bytes": 856098,
+      "sha256": "f30d5bfe5b45f191f4b88012696e820538f45ec3bde10c4055e1a65fcf5b6cf6",
+      "complete": true
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/oneflightmyrtlebeachclassic",
+      "pga_id": "R2025553",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:33:18.076588+00:00",
+      "file": "data/raw/golf-cut-audit/R2025553-index.html",
+      "status": 404,
+      "error": "HTTP Error 404: 404",
+      "received_utc": "2026-09-15T01:33:18.836121+00:00",
+      "bytes": 387,
+      "sha256": "d4a1401cfa74fb6e58cf9166793248c9a517f6247bfe777559e8d903ff701e1b",
+      "complete": false
+    },
+    {
+      "url": "https://pgatourmedia.pgatourhq.com/tours/2025/pgatour/bankofutahchampionship",
+      "pga_id": "R2025554",
+      "kind": "index",
+      "request_started_utc": "2026-09-15T01:34:25.936725+00:00",
+      "file": "data/raw/golf-cut-audit/R2025554-index.html",
+      "status": 404,
+      "error": "HTTP Error 404: 404",
+      "received_utc": "2026-09-15T01:34:26.318402+00:00",
+      "bytes": 387,
+      "sha256": "d4a1401cfa74fb6e58cf9166793248c9a517f6247bfe777559e8d903ff701e1b",
+      "complete": false
+    }
+  ],
+  "cached_sources": [
+    {
+      "file": "data/raw/golf-cut-audit/official-cut-statements.json",
+      "sha256": "4814069b5accb89ff986c907c84763f69f62a49e3312a8ad56f54413b372174a"
+    },
+    {
+      "file": "data/raw/golf-sport/scoreboard-2025.json",
+      "sha256": "8a7a69cec1cd431e2c0b082820fe0af6fc2f461de287154913b2ba02ae787a45"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025006-teetimes.json",
+      "sha256": "791b0885ba4cd4440f54da5deab027ed26320dfa0fbeb108d523f92f0963d3de"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703490.html",
+      "sha256": "bd82ec883f9a48eb5090a5f93a4a370faa223da63a446dec737244aa3e2481df"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025003-teetimes.json",
+      "sha256": "387c710af34412ca9b969cc697515d9f9402bd73292f0fe6ada210fc1413fe7f"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703494.html",
+      "sha256": "950d9e45d9b31143cd1450180bdcc5f47dfc941b938e326986d2a0bf3c80a56e"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025540-teetimes.json",
+      "sha256": "71a065fef996112b69f3bc5b10869dddca386e80128370807e7b24db05dc69ee"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703496.html",
+      "sha256": "2fa54d08d2738fae4ed18e092c4e8c0fcb1d1c4272a443bbc088c76894c52db4"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025010-teetimes.json",
+      "sha256": "55cda092f41b88215536c07df7626522dc522f5f7a31813651d69f167787d595"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703497.html",
+      "sha256": "9d4f301ce2ba5bddf2d64fd1fb9ce69a4ac7377ea5dccb588c78cdd1a9a361db"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025483-teetimes.json",
+      "sha256": "df3d3c0e80be0a90ea733bb2e3b05da397f008625db1fd04d8ce3c15610752a0"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703499.html",
+      "sha256": "98b81ce4a9a02f3284d78736e68dad74f4d3ee4db41e59c360884a1b68ed77b3"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025011-teetimes.json",
+      "sha256": "c59c16a35f558d631b63168fa0134f9d2524783b9f06b610e9f43f0d98c64df8"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703500.html",
+      "sha256": "de34df9f54f89628a22ad1ab7e25bf10b204085756b424e092ee979fbf6b9cf4"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025475-teetimes.json",
+      "sha256": "0713160f0a0169b2ae33d77d283c157bf09ff9b006c259029058fb41436fab6f"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703501.html",
+      "sha256": "48e3856d4d8c4f1fc9c68551c2c03e010fd581ae3eaa20f984b677a842ff87d9"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025020-teetimes.json",
+      "sha256": "8428c6a41be609ae3087ed0cf4cf59d12a238f62ead1daeebf456d711743c341"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703502.html",
+      "sha256": "4a3e389b93e1e1dcbcf29de8024d9f3ccdc8e66f4beef7895f4e9d3c9e8c159d"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025041-teetimes.json",
+      "sha256": "fb9e5968073847bcbcf161d31a491d7a8bfd6ecbfe03b1eca6b5a484cd0364a1"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703503.html",
+      "sha256": "8bd2901e3507b26d7c027cb05644d22aeb1729eab5417e44bacbdb7ae208231a"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025522-teetimes.json",
+      "sha256": "8c5b81d51308f39a7d38c1e56f170e5b4feb9e0dd4aae986351bad530ef1c752"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703506.html",
+      "sha256": "1082f2081616408a8d7b701db0a61007733537c9ff177d92cefd68e6745cb807"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025019-teetimes.json",
+      "sha256": "d20007a9e2ba3c2f1ef1c496b30b3acb74c43b1cd6b5b2b25e06e7d722fe1d41"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703508.html",
+      "sha256": "24717224d97c483e7e2604ff2143c5bb6388acad93659a851d6c97b0dd9871b5"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025021-teetimes.json",
+      "sha256": "df79900ec1de5f2be6db06ef8daf45019f472ececf6bccc9e9a3fb08c6f1b67e"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703512.html",
+      "sha256": "52681d4024c1bcda1c9363de7c610eb593752cc69435a7e17cea85d04c9a2750"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025032-teetimes.json",
+      "sha256": "d1dfa782d78efca706cad4e257f457e13b66d041b5ea9159ecfe8a59e98961cc"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703514.html",
+      "sha256": "0606b9707f3d2aacd109e16ef626b84ac18078b71f5189210fd2b1da00602c6c"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025524-teetimes.json",
+      "sha256": "75b7f4a322261dd7990cbdc35f0a7981bd3fbd7445b01a0359fbb13519ee6e49"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703517.html",
+      "sha256": "4e4a0e0646ead02689a6e7b2904ddfb85ff2c3fd72159afd0555fdb6eec9a69c"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025030-teetimes.json",
+      "sha256": "0ba7f1f1773b508c90359196512eac822d271d53d1ed7642921a34b2eb95f080"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703518.html",
+      "sha256": "214f8cc2c3dae11832f47d587935520d0bd03331b8a55b76bbe95dd134a41078"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025541-teetimes.json",
+      "sha256": "3940bdddc455ecf990570a8cc8ce719fa2257c03870854ba496a8115d1f54966"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703519.html",
+      "sha256": "a4cf540ece0cdd1d3451078f10a37c6d62733d9eb58b620d6811e0aec442bba3"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025518-teetimes.json",
+      "sha256": "464914588efdc88e1a041066dca173e516b955f9dbb3425bbb13a325c4137339"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703520.html",
+      "sha256": "e7f68c8ceadd17aca32bb82fbde53b37ab9977c8e0efbd990d664650a1220f40"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025525-teetimes.json",
+      "sha256": "f7bb1fb56b2fb5280a25bcd08ac49a607e812ef127f81c1f49a4a256e41de9af"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703523.html",
+      "sha256": "2bed8727c8aca16c83ba9351973cfeb66c565d03812db9104c70e49e64521279"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025013-teetimes.json",
+      "sha256": "50cc8c95e66bda6ea168d6130e50a8246e69b00ed530cc0486eb07a71d10a05d"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401703524.html",
+      "sha256": "cd238805db4a27abc15d12d999fb4ad295d007bfd2e7af6ba7424e0a30e96be8"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025464-teetimes.json",
+      "sha256": "33d1bef92a2e92286bc596ad96e453fabaa0ccaaf1b829c37dde615a1c375373"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738553.html",
+      "sha256": "5bf17375406b41cc8104943809a7b7bc0671c62808f233f1ebd631fbd88ef5eb"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025054-teetimes.json",
+      "sha256": "77c0718fa429b4be560aef538017dc643b4fa738fb7d0d5e8661b19d24ab40a1"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738554.html",
+      "sha256": "98326fe695f6f07dc32eefc1c0bc9fd01c3fd1e65e812bcc80668fe980157c60"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025457-teetimes.json",
+      "sha256": "e2fac36c08c518120e24fed11545740f7080691a762bb5c30973dd458353a50c"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738557.html",
+      "sha256": "4d50edd7b0129aebcebc6b554f132f20b3b6037f29cad2318edecfa05bfc9064"
+    },
+    {
+      "file": "data/raw/golf-weather-groups/R2025528-teetimes.json",
+      "sha256": "d91c0b016de2cb05c5bf74e9555a3f76bf4094d849eb6caa89102594ec9aea82"
+    },
+    {
+      "file": "data/raw/golf-sport/leaderboard-401738558.html",
+      "sha256": "f42c577864694aa77fd813ae5f226af0c77401f152fb0edb895def30e38a0ac2"
+    }
+  ],
+  "events": [
+    {
+      "pga_id": "R2025006",
+      "espn_id": "401703490",
+      "name": "Sony Open in Hawaii",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 137,
+        "relative_to_par": -3,
+        "qualifiers": 76,
+        "professionals": 76,
+        "amateurs": 0,
+        "field_professionals": 140,
+        "field_amateurs": 3,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "January 10, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/sonyopeninhawaii/roundInfo/2025_Sony_Open_R2_Notes.pdf",
+          "pga_id": "R2025006",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:31:41.775008+00:00",
+          "file": "data/raw/golf-cut-audit/R2025006-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:31:42 GMT",
+            "ETag": "\"0b0298f69aabc558a9a3b9eba48c53876\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:31:42.575233+00:00",
+          "bytes": 249152,
+          "sha256": "d986f44525fb8e67b0d1c605b68ffcdffe9fbb029acb93b73177b6938375a62f",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 143,
+        "complete36_records": 141,
+        "incomplete36_records": 2,
+        "cached_count_at_or_below_official_cut": 76,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 137,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 76,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Brian Campbell",
+          "espn_player_id": "9525",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0,
+            "3": 0
+          },
+          "official_note_phase": "before_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Tim Widing",
+          "espn_player_id": "4375973",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0,
+            "3": 0
+          },
+          "official_note_phase": "before_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025003",
+      "espn_id": "401703494",
+      "name": "WM Phoenix Open",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 140,
+        "relative_to_par": -2,
+        "qualifiers": 77,
+        "professionals": 77,
+        "amateurs": 0,
+        "field_professionals": 130,
+        "field_amateurs": 2,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "February 8, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/wmphoenixopen/roundInfo/R2%20Notes.pdf",
+          "pga_id": "R2025003",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:31:45.788744+00:00",
+          "file": "data/raw/golf-cut-audit/R2025003-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:31:46 GMT",
+            "ETag": "\"031a50bb17a9eade5a05c098fa787eb77\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:31:53.235797+00:00",
+          "bytes": 942505,
+          "sha256": "acfdb32cdceeff1efa8d9148186beca60cb14fd10ffc416e21e1542343e71ecd",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 132,
+        "complete36_records": 130,
+        "incomplete36_records": 2,
+        "cached_count_at_or_below_official_cut": 77,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": false,
+        "conditional_65th_complete_score": 140,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 77,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [
+          "joseluisballesterbarrio"
+        ],
+        "qualifiers_absent_official_r3_tee": [
+          "Kristoffer Ventura"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "J.J. Spaun",
+          "espn_player_id": "10166",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0,
+            "3": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Rickie Fowler",
+          "espn_player_id": "3702",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0,
+            "3": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025540",
+      "espn_id": "401703496",
+      "name": "Mexico Open at VidantaWorld",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 139,
+        "relative_to_par": -3,
+        "qualifiers": 77,
+        "professionals": 75,
+        "amateurs": 2,
+        "field_professionals": 126,
+        "field_amateurs": 6,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "February 21, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/mexicoopenatvidantaworld/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025540",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:31:56.634861+00:00",
+          "file": "data/raw/golf-cut-audit/R2025540-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:31:57 GMT",
+            "ETag": "\"09dc6e69c01b82e28f69911add7ad16f0\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:31:58.214229+00:00",
+          "bytes": 211050,
+          "sha256": "d73734e13393351b2e710d3a882ce84e56478df87455c99af56582e230570cef",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 132,
+        "complete36_records": 132,
+        "incomplete36_records": 0,
+        "cached_count_at_or_below_official_cut": 77,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": false,
+        "conditional_65th_complete_score": 139,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 77,
+        "official_r3_tee_amateurs": 2,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Josele Ballester",
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [
+          "joseluisballesterbarrio"
+        ],
+        "qualifiers_absent_official_r3_tee": [
+          "Josele Ballester",
+          "Kristoffer Ventura"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025010",
+      "espn_id": "401703497",
+      "name": "Cognizant Classic in The Palm Beaches",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 137,
+        "relative_to_par": -5,
+        "qualifiers": 68,
+        "professionals": 67,
+        "amateurs": 1,
+        "field_professionals": 143,
+        "field_amateurs": 1,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "February 28, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/cognizantclassicinthepalmbeaches/roundInfo/R2%20Notes.pdf",
+          "pga_id": "R2025010",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:32:01.196355+00:00",
+          "file": "data/raw/golf-cut-audit/R2025010-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:32:01 GMT",
+            "ETag": "\"07ca102536c99384c8dd6f1bf72c2fcc0\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:32:02.815437+00:00",
+          "bytes": 280570,
+          "sha256": "fba299e8717ff139b19be338bfda2eb33f1f26be767913eb4a4071232bad0e9d",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 144,
+        "complete36_records": 144,
+        "incomplete36_records": 0,
+        "cached_count_at_or_below_official_cut": 68,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 137,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 68,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Niklas Nørgaard",
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Niklas Nørgaard",
+          "Kristoffer Ventura"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025483",
+      "espn_id": "401703499",
+      "name": "Puerto Rico Open",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 139,
+        "relative_to_par": -5,
+        "qualifiers": 78,
+        "professionals": 77,
+        "amateurs": 1,
+        "field_professionals": 126,
+        "field_amateurs": 6,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "March 7, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/puertoricoopen/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025483",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:32:06.195670+00:00",
+          "file": "data/raw/golf-cut-audit/R2025483-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:32:07 GMT",
+            "ETag": "\"00905de135a2772807756b5ad76aef64f\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:32:13.987169+00:00",
+          "bytes": 822414,
+          "sha256": "bf6840a90ac603cfffe3ace7c4d13b81edba68e6d61f8819c8ee9c3ad7384cd9",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 132,
+        "complete36_records": 131,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 78,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 139,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 78,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Niklas Nørgaard"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Niklas Nørgaard"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Sangmoon Bae",
+          "espn_player_id": "4015",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 12,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025011",
+      "espn_id": "401703500",
+      "name": "THE PLAYERS Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 143,
+        "relative_to_par": -1,
+        "qualifiers": 72,
+        "professionals": 72,
+        "amateurs": 0,
+        "field_professionals": 144,
+        "field_amateurs": 0,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "March 14, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/theplayerschampionship/roundInfo/2025_PLAYERS_Championship_R2_Notes.pdf",
+          "pga_id": "R2025011",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:32:16.818931+00:00",
+          "file": "data/raw/golf-cut-audit/R2025011-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:32:17 GMT",
+            "ETag": "\"092f499ef93c6381feafa8d8770782943\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:32:20.134116+00:00",
+          "bytes": 216061,
+          "sha256": "1e971dc2743c27e6bff3f4df0b15bd48ce4967a414382051535528ba700a6a3e",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 144,
+        "complete36_records": 143,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 72,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 143,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 72,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Wyndham Clark",
+          "espn_player_id": "11119",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 9,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025475",
+      "espn_id": "401703501",
+      "name": "Valspar Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 144,
+        "relative_to_par": 2,
+        "qualifiers": 78,
+        "professionals": 77,
+        "amateurs": 1,
+        "field_professionals": 152,
+        "field_amateurs": 2,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "March 21, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/valsparchampionship/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025475",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:32:23.021903+00:00",
+          "file": "data/raw/golf-cut-audit/R2025475-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:32:23 GMT",
+            "ETag": "\"04657730e114710effe0afaa9e26d804e\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:32:30.526212+00:00",
+          "bytes": 809455,
+          "sha256": "d61a2c9c304a3bdc1bca2bbeb1ac36ab4e6dfa12342d85ed022949912fd86de0",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 154,
+        "complete36_records": 152,
+        "incomplete36_records": 2,
+        "cached_count_at_or_below_official_cut": 78,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 144,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 78,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Kristoffer Ventura"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Patton Kizzire",
+          "espn_player_id": "3980",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 8,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Charley Hoffman",
+          "espn_player_id": "205",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 8,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025020",
+      "espn_id": "401703502",
+      "name": "Texas Children's Houston Open",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 137,
+        "relative_to_par": -3,
+        "qualifiers": 69,
+        "professionals": 69,
+        "amateurs": 0,
+        "field_professionals": 152,
+        "field_amateurs": 1,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "March 29, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/texaschildrenshoustonopen/roundInfo/R2%20Notes.pdf",
+          "pga_id": "R2025020",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:32:33.587334+00:00",
+          "file": "data/raw/golf-cut-audit/R2025020-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:32:34 GMT",
+            "ETag": "\"01c2a8a9e5c2421332921e8ee7f2f09aa\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:32:44.890437+00:00",
+          "bytes": 964935,
+          "sha256": "cd4108e0a6aba18f15942595a52deee0151f2cbe809e456496774d7f46d7503f",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 153,
+        "complete36_records": 152,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 69,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 137,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 69,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Charlie Reiter"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Charlie Reiter"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "K.H. Lee",
+          "espn_player_id": "7083",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0,
+            "3": 0
+          },
+          "official_note_phase": "before_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025041",
+      "espn_id": "401703503",
+      "name": "Valero Texas Open",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 142,
+        "relative_to_par": -2,
+        "qualifiers": 66,
+        "professionals": 65,
+        "amateurs": 1,
+        "field_professionals": 143,
+        "field_amateurs": 1,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "April 4, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/valerotexasopen/roundInfo/R2%20Notes.pdf",
+          "pga_id": "R2025041",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:32:47.749291+00:00",
+          "file": "data/raw/golf-cut-audit/R2025041-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:32:49 GMT",
+            "ETag": "\"02f31396c0f41f3797629e3f888084379\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:33:00.538864+00:00",
+          "bytes": 850717,
+          "sha256": "e6766012b27f71e62d4b063ca862c5e49a70eb1384b77037ce6ec50d19b39c39",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 144,
+        "complete36_records": 144,
+        "incomplete36_records": 0,
+        "cached_count_at_or_below_official_cut": 66,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 142,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 66,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [],
+        "missing_final_status": []
+      },
+      "wd_dq": [],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025522",
+      "espn_id": "401703506",
+      "name": "Corales Puntacana Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 141,
+        "relative_to_par": -3,
+        "qualifiers": 71,
+        "professionals": 71,
+        "amateurs": 0,
+        "field_professionals": 129,
+        "field_amateurs": 3,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "April 18, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/coralespuntacanachampionship/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025522",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:33:04.713579+00:00",
+          "file": "data/raw/golf-cut-audit/R2025522-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:33:05 GMT",
+            "ETag": "\"0ae8af0680eddc46d71b8beeff4217eae\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:33:12.978263+00:00",
+          "bytes": 684406,
+          "sha256": "53334b08083b9b2740d23123fb8d93fc98080d18733c75cbe54e5a62e0f70bb1",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/coralespuntacanachampionship/roundInfo/R4_Notes.pdf",
+          "pga_id": "R2025522",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T02:36:21.199883+00:00",
+          "file": "data/raw/golf-cut-audit/R2025522-r4.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 02:36:22 GMT",
+            "ETag": "\"0b0f343dd37f321745fccc59fed3b2850\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T02:36:23.196906+00:00",
+          "bytes": 673825,
+          "sha256": "64ec068f1ede1c9f2327e1d1673a4f3504fe5ebc9bac45fbd847ffb0c43a352e",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 132,
+        "complete36_records": 131,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 71,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 141,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 71,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Kristoffer Ventura"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Lanto Griffin",
+          "espn_player_id": "5962",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Ben Crane",
+          "espn_player_id": "693",
+          "detail": "DQ",
+          "score36": 140,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 18,
+            "3": 11,
+            "4": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "positive_scored_holes_in_R3_prove_play_after_36_hole_cut"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025019",
+      "espn_id": "401703508",
+      "name": "THE CJ CUP Byron Nelson",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 137,
+        "relative_to_par": -5,
+        "qualifiers": 70,
+        "professionals": 70,
+        "amateurs": 0,
+        "field_professionals": 152,
+        "field_amateurs": 4,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "May 3, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/thecjcupbyronnelson/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025019",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:33:15.608772+00:00",
+          "file": "data/raw/golf-cut-audit/R2025019-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:33:16 GMT",
+            "ETag": "\"0ec4c0f279a1543b2b14bf086774a8a7d\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:33:17.068472+00:00",
+          "bytes": 186279,
+          "sha256": "acf5716730a1c3bdb444ea5746f2b5d11b027685048401eaccc1784acd0dd5a0",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 156,
+        "complete36_records": 155,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 70,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 137,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 70,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Niklas Nørgaard"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Niklas Nørgaard"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Matt Wallace",
+          "espn_player_id": "10548",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 8
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025553",
+      "espn_id": "401703510",
+      "name": "ONEflight Myrtle Beach Classic",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "unresolved_no_official_threshold",
+      "official_cut": null,
+      "source_note_date": null,
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [],
+      "cached_reconciliation": {},
+      "wd_dq": [],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override.",
+      "unresolved": "Media index returned 404. No linked alternative R2 note found in cached source pages; no additional index or guessed note request."
+    },
+    {
+      "pga_id": "R2025021",
+      "espn_id": "401703512",
+      "name": "Charles Schwab Challenge",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 140,
+        "relative_to_par": 0,
+        "qualifiers": 79,
+        "professionals": 79,
+        "amateurs": 0,
+        "field_professionals": 135,
+        "field_amateurs": 0,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "May 23, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/charlesschwabchallenge/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025021",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:33:21.796135+00:00",
+          "file": "data/raw/golf-cut-audit/R2025021-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:33:22 GMT",
+            "ETag": "\"0239a4d2ef01d293a605d4633191a85c7\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:33:22.514189+00:00",
+          "bytes": 191358,
+          "sha256": "c356eb1656c72b67440a7d55f213530b688a886cc0dce778262f81b166436879",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/charlesschwabchallenge/roundInfo/R3%20Notes.pdf",
+          "pga_id": "R2025021",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T02:37:46.701832+00:00",
+          "file": "data/raw/golf-cut-audit/R2025021-r3.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 02:37:47 GMT",
+            "ETag": "\"0ce0e8b6222607a9507557bbd93712d0c\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T02:37:51.931477+00:00",
+          "bytes": 942385,
+          "sha256": "298c0acecb0e410382522a659d4ce1fd4c78f011ab46a3a6460728ebcc21ee39",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/charlesschwabchallenge/roundInfo/R4_Notes.pdf",
+          "pga_id": "R2025021",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T02:36:24.210487+00:00",
+          "file": "data/raw/golf-cut-audit/R2025021-r4.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 02:36:24 GMT",
+            "ETag": "\"03c9132e4c6cf86b1b12cfdbfee1fcf1a\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T02:36:25.107939+00:00",
+          "bytes": 275391,
+          "sha256": "2eff91a2d59317c95776fe21232da23f236a25e7f495a3bf7f0470a113b8e115",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 135,
+        "complete36_records": 134,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 79,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 140,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 78,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": false,
+        "qualifying_unknown_amateur_flag": [
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Kristoffer Ventura",
+          "Isaiah Salinda"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Isaiah Salinda",
+          "espn_player_id": "4589406",
+          "detail": "WD",
+          "score36": 140,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 18,
+            "3": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "complete_R1_R2_total_does_not_establish_withdrawal_clock"
+        },
+        {
+          "name": "Michael Thorbjornsen",
+          "espn_player_id": "4425904",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 15,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override.",
+      "evidence_note": "R2 note and complete scorecards contain 79 qualifiers; official R3 tee roster has 78. Isaiah Salinda has complete 36-hole 140, WD status and no R3 record. R3/R4 notes do not explain the withdrawal timing relative to cut/grouping approval."
+    },
+    {
+      "pga_id": "R2025032",
+      "espn_id": "401703514",
+      "name": "RBC Canadian Open",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 137,
+        "relative_to_par": -3,
+        "qualifiers": 68,
+        "professionals": 67,
+        "amateurs": 1,
+        "field_professionals": 152,
+        "field_amateurs": 4,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "June 6, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/rbccanadianopen/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025032",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:33:25.204925+00:00",
+          "file": "data/raw/golf-cut-audit/R2025032-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:33:25 GMT",
+            "ETag": "\"0e81da92ff844cd97a6c2e72e3a66be63\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:33:26.876309+00:00",
+          "bytes": 251827,
+          "sha256": "6b8721d21163fd9e55f48ca3c3c2fb9ac9414bf5ddb4c9f6d12880981c203b7a",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 156,
+        "complete36_records": 153,
+        "incomplete36_records": 3,
+        "cached_count_at_or_below_official_cut": 68,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 137,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 68,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Richard T. Lee"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Richard T. Lee"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Isaiah Salinda",
+          "espn_player_id": "4589406",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 16,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Camilo Villegas",
+          "espn_player_id": "1264",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0
+          },
+          "official_note_phase": "before_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Séamus Power",
+          "espn_player_id": "6001",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 10,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025524",
+      "espn_id": "401703517",
+      "name": "Rocket Classic",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 138,
+        "relative_to_par": -6,
+        "qualifiers": 86,
+        "professionals": 86,
+        "amateurs": 0,
+        "field_professionals": 153,
+        "field_amateurs": 3,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "June 27, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/rocketclassic/roundInfo/R2-Notes.pdf",
+          "pga_id": "R2025524",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:33:29.716210+00:00",
+          "file": "data/raw/golf-cut-audit/R2025524-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:33:30 GMT",
+            "ETag": "\"0dfa486aee891afbdc9b71a5eb2afe207\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:33:31.212065+00:00",
+          "bytes": 251546,
+          "sha256": "7e1bc594fa8c6c5df2407a0812f78b3a83fcc89314aa2dbc1090096f09cffe01",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 156,
+        "complete36_records": 156,
+        "incomplete36_records": 0,
+        "cached_count_at_or_below_official_cut": 86,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 138,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 86,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Kristoffer Ventura"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025030",
+      "espn_id": "401703518",
+      "name": "John Deere Classic",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 137,
+        "relative_to_par": -5,
+        "qualifiers": 65,
+        "professionals": 64,
+        "amateurs": 1,
+        "field_professionals": 153,
+        "field_amateurs": 3,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "July 4, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/johndeereclassic/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025030",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:33:33.779813+00:00",
+          "file": "data/raw/golf-cut-audit/R2025030-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:33:34 GMT",
+            "ETag": "\"0e265b6e16bc0a1e78ef0ec5830b63d2b\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:33:35.235697+00:00",
+          "bytes": 257119,
+          "sha256": "6a0c57de8538e87df3e36eb5979c46c97b82f1a2263825ac68902f8553803e18",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/johndeereclassic/roundInfo/R4_Notes.pdf",
+          "pga_id": "R2025030",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T02:36:26.123529+00:00",
+          "file": "data/raw/golf-cut-audit/R2025030-r4.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 02:36:26 GMT",
+            "ETag": "\"062157d03d4bbc77a715746bac8b439d0\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T02:36:27.944146+00:00",
+          "bytes": 259037,
+          "sha256": "b8dd498356713a4975bccf0b974b5859ed5f6740e18b6dbd06543426ce7e61e4",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 156,
+        "complete36_records": 153,
+        "incomplete36_records": 3,
+        "cached_count_at_or_below_official_cut": 65,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 137,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 65,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Kristoffer Ventura"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Aldrich Potgieter",
+          "espn_player_id": "5080439",
+          "detail": "WD",
+          "score36": 133,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 18,
+            "3": 18,
+            "4": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "positive_scored_holes_in_R3_prove_play_after_36_hole_cut"
+        },
+        {
+          "name": "Andrew Putnam",
+          "espn_player_id": "5502",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 9,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Stephan Jaeger",
+          "espn_player_id": "6937",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Nicholas Lindheim",
+          "espn_player_id": "6999",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0
+          },
+          "official_note_phase": "before_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025541",
+      "espn_id": "401703519",
+      "name": "Genesis Scottish Open",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 139,
+        "relative_to_par": -1,
+        "qualifiers": 80,
+        "professionals": 80,
+        "amateurs": 0,
+        "field_professionals": 156,
+        "field_amateurs": 0,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "July 11, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/genesisscottishopen/roundInfo/R2%20Notes.pdf",
+          "pga_id": "R2025541",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:33:37.856392+00:00",
+          "file": "data/raw/golf-cut-audit/R2025541-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:33:38 GMT",
+            "ETag": "\"0bacd64b589aa391d829a4ebe26ef56e0\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:33:47.154115+00:00",
+          "bytes": 807875,
+          "sha256": "0d63b40d6770c48ad632f459983b1992d35bd07be09ec615e39424a5016d480f",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/genesisscottishopen/roundInfo/R4_Notes.pdf",
+          "pga_id": "R2025541",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T02:36:28.962147+00:00",
+          "file": "data/raw/golf-cut-audit/R2025541-r4.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 02:36:29 GMT",
+            "ETag": "\"0a29ceef9591370aadc2dfbdbcf761404\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T02:36:32.473024+00:00",
+          "bytes": 856098,
+          "sha256": "f30d5bfe5b45f191f4b88012696e820538f45ec3bde10c4055e1a65fcf5b6cf6",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 156,
+        "complete36_records": 155,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 80,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 139,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 80,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Paul Waring",
+          "espn_player_id": "3474",
+          "detail": "WD",
+          "score36": 138,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 18,
+            "3": 13,
+            "4": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "positive_scored_holes_in_R3_prove_play_after_36_hole_cut"
+        },
+        {
+          "name": "Rikuya Hoshino",
+          "espn_player_id": "4350033",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 16,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025518",
+      "espn_id": "401703520",
+      "name": "ISCO Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 141,
+        "relative_to_par": 1,
+        "qualifiers": 68,
+        "professionals": 67,
+        "amateurs": 1,
+        "field_professionals": 154,
+        "field_amateurs": 2,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "July 11, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/iscochampionship/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025518",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:33:50.438659+00:00",
+          "file": "data/raw/golf-cut-audit/R2025518-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:33:51 GMT",
+            "ETag": "\"0385115362cea4933cfe1275800fb4429\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:33:57.189116+00:00",
+          "bytes": 654184,
+          "sha256": "6ff8609f18e317bc71380a8a3462c2774537bcf48efd3ea4991277967f68dc21",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 156,
+        "complete36_records": 155,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 68,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 141,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 68,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Ivan Cantero",
+          "Kristoffer Ventura",
+          "Maximilian Kieffer"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Ivan Cantero",
+          "Kristoffer Ventura",
+          "Maximilian Kieffer"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Erik Barnes",
+          "espn_player_id": "5557",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 3,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025525",
+      "espn_id": "401703523",
+      "name": "3M Open",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 137,
+        "relative_to_par": -5,
+        "qualifiers": 76,
+        "professionals": 75,
+        "amateurs": 1,
+        "field_professionals": 153,
+        "field_amateurs": 3,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "July 25, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/3mopen/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025525",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:33:59.685229+00:00",
+          "file": "data/raw/golf-cut-audit/R2025525-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:34:00 GMT",
+            "ETag": "\"06b73d02820f549c82c7ff732299c44e7\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:34:02.564330+00:00",
+          "bytes": 159863,
+          "sha256": "38ca7303c1312eca33fc8089ecb4f37f6ca840f34b39b20e3783fa7aeb09a369",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/3mopen/roundInfo/R4_Notes.pdf",
+          "pga_id": "R2025525",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T02:36:33.494859+00:00",
+          "file": "data/raw/golf-cut-audit/R2025525-r4.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 02:36:33 GMT",
+            "ETag": "\"0218a385e2c083cfbf9b02fe9b3f7b8f3\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T02:36:34.655073+00:00",
+          "bytes": 161455,
+          "sha256": "3be6a9d392a46e86c48a6ee67349ea9fe2cae5ef0c498d633118b464b4ce7eb3",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 156,
+        "complete36_records": 155,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 76,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 137,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 76,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Niklas Nørgaard"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Niklas Nørgaard"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Frankie Capan III",
+          "espn_player_id": "10469",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Dylan Wu",
+          "espn_player_id": "4423323",
+          "detail": "DQ",
+          "score36": 141,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 18,
+            "3": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "complete_R1_R2_total_does_not_establish_withdrawal_clock"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025013",
+      "espn_id": "401703524",
+      "name": "Wyndham Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 137,
+        "relative_to_par": -3,
+        "qualifiers": 75,
+        "professionals": 74,
+        "amateurs": 1,
+        "field_professionals": 155,
+        "field_amateurs": 1,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "August 2, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/wyndhamchampionship/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025013",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:34:08.032586+00:00",
+          "file": "data/raw/golf-cut-audit/R2025013-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:34:08 GMT",
+            "ETag": "\"0f2d367eb61abcabe2a6932524b1d809f\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:34:14.140241+00:00",
+          "bytes": 850188,
+          "sha256": "4492a1732452bb7b0b59100f2112fcb1a4be4e26463325a9e1a3a03f024da8e4",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 156,
+        "complete36_records": 149,
+        "incomplete36_records": 7,
+        "cached_count_at_or_below_official_cut": 75,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 137,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 75,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Aaron Wise",
+          "espn_player_id": "10577",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 10,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Isaiah Salinda",
+          "espn_player_id": "4589406",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 14,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Tom Kim",
+          "espn_player_id": "4602673",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 13,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Akshay Bhatia",
+          "espn_player_id": "4419142",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 14,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Erik van Rooyen",
+          "espn_player_id": "9364",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 14,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Nate Lashley",
+          "espn_player_id": "1600",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        },
+        {
+          "name": "Kaito Onishi",
+          "espn_player_id": "4894340",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0
+          },
+          "official_note_phase": "not_reported_in_inspected_notes",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025464",
+      "espn_id": "401738553",
+      "name": "Procore Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 143,
+        "relative_to_par": -1,
+        "qualifiers": 72,
+        "professionals": 70,
+        "amateurs": 2,
+        "field_professionals": 140,
+        "field_amateurs": 4,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "September 12, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/procorechampionship/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025464",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:34:16.768699+00:00",
+          "file": "data/raw/golf-cut-audit/R2025464-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:34:17 GMT",
+            "ETag": "\"04eb54717c446f4bdf8e8f506b14cd8d9\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:34:20.460053+00:00",
+          "bytes": 747656,
+          "sha256": "6b2ae4750bf1f9e2ffb7efaf1da5cf80243dec7f874d2b73ac794d231d770e68",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 144,
+        "complete36_records": 144,
+        "incomplete36_records": 0,
+        "cached_count_at_or_below_official_cut": 72,
+        "cached_amateurs_at_or_below_official_cut": 2,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 143,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 72,
+        "official_r3_tee_amateurs": 2,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [],
+        "missing_final_status": []
+      },
+      "wd_dq": [],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025054",
+      "espn_id": "401738554",
+      "name": "Sanderson Farms Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 140,
+        "relative_to_par": -4,
+        "qualifiers": 67,
+        "professionals": 67,
+        "amateurs": 0,
+        "field_professionals": 131,
+        "field_amateurs": 1,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "October 3, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/sandersonfarmschampionship/roundInfo/R2%20Notes.pdf",
+          "pga_id": "R2025054",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:34:23.146664+00:00",
+          "file": "data/raw/golf-cut-audit/R2025054-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:34:23 GMT",
+            "ETag": "\"0d3180c55bad9bd9e3b83a3ac1bad002a\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:34:24.923145+00:00",
+          "bytes": 230533,
+          "sha256": "bb5ed949b386a3e0e58724cbd8e0a7b1faac1284fcdd1bcc365af6cba4828002",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 132,
+        "complete36_records": 132,
+        "incomplete36_records": 0,
+        "cached_count_at_or_below_official_cut": 67,
+        "cached_amateurs_at_or_below_official_cut": 0,
+        "count_matches": true,
+        "amateurs_match": true,
+        "conditional_65th_complete_score": 140,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 67,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Kristoffer Ventura"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override."
+    },
+    {
+      "pga_id": "R2025554",
+      "espn_id": "401738556",
+      "name": "Bank of Utah Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "unresolved_no_official_threshold",
+      "official_cut": null,
+      "source_note_date": null,
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [],
+      "cached_reconciliation": {},
+      "wd_dq": [],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override.",
+      "unresolved": "Media index returned 404. No linked alternative R2 note found in cached source pages; no additional index or guessed note request."
+    },
+    {
+      "pga_id": "R2025457",
+      "espn_id": "401738557",
+      "name": "World Wide Technology Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "unresolved_official_source_conflict",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 140,
+        "relative_to_par": -5,
+        "qualifiers": 75,
+        "professionals": 75,
+        "amateurs": 0,
+        "field_professionals": 117,
+        "field_amateurs": 3,
+        "basis": "explicit_official_cut_statement"
+      },
+      "source_note_date": "November 7, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/worldwidetechnologychampionship/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025457",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:34:28.845381+00:00",
+          "file": "data/raw/golf-cut-audit/R2025457-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:34:29 GMT",
+            "ETag": "\"03fdd3477fa61dd1383e490e4c3c96e0f\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:34:30.426271+00:00",
+          "bytes": 215674,
+          "sha256": "c55da9e2197a1893854e6f6131af94bfe518a5d3891e508cfa039821e63cc3de",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/worldwidetechnologychampionship/roundInfo/R3_Notes.pdf",
+          "pga_id": "R2025457",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T02:36:38.477000+00:00",
+          "file": "data/raw/golf-cut-audit/R2025457-r3.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 02:36:38 GMT",
+            "ETag": "\"0fed60dbe9379a818e321becd45bba047\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T02:36:41.400847+00:00",
+          "bytes": 239584,
+          "sha256": "218b5024d61be60c1a5128543a574cfbf220549f43fb9f7e7239ae56d808bfc4",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/worldwidetechnologychampionship/roundInfo/R4_Notes.pdf",
+          "pga_id": "R2025457",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T02:36:35.674845+00:00",
+          "file": "data/raw/golf-cut-audit/R2025457-r4.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 02:36:36 GMT",
+            "ETag": "\"0e97dd14b426ecf9168f43a007a481df7\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T02:36:37.459719+00:00",
+          "bytes": 256892,
+          "sha256": "6ef138b9996aefab592ecb023b6f4c9c4db7b0a8367acbf5b9ca15e7c4d66f4e",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 120,
+        "complete36_records": 119,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 84,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": false,
+        "amateurs_match": false,
+        "conditional_65th_complete_score": 139,
+        "conditional_65th_matches": false,
+        "official_r3_tee_player_count": 75,
+        "official_r3_tee_amateurs": 0,
+        "official_r3_tee_amateurs_match": true,
+        "official_r3_tee_count_matches_cached_qualifiers": false,
+        "qualifying_unknown_amateur_flag": [
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Kristoffer Ventura",
+          "Mark Hubbard",
+          "Ricky Castillo",
+          "Hayden Springer",
+          "Patrick Fishburn",
+          "Tyler Weaver",
+          "Brandt Snedeker",
+          "Davis Riley",
+          "Nick Hardy",
+          "Johnny Keefer"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Camilo Villegas",
+          "espn_player_id": "1264",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 6,
+            "3": 0
+          },
+          "official_note_phase": "during_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override.",
+      "unresolved": "Official R2 note says 75 professionals at 5-under 140 on par 72. Relative score implies 139, but the published gross score is 140. Cached 65th total is 139; 84 complete totals are <=140, while the note and official R3 roster have 75. Preserve conflicting source fields; no correction from scores."
+    },
+    {
+      "pga_id": "R2025528",
+      "espn_id": "401738558",
+      "name": "Butterfield Bermuda Championship",
+      "planned_rule": "pga_top65_ties",
+      "audit_status": "threshold_reconciled",
+      "official_cut": {
+        "after_holes": 36,
+        "score_strokes": 142,
+        "relative_to_par": 0,
+        "qualifiers": null,
+        "professionals": null,
+        "amateurs": null,
+        "field_professionals": null,
+        "field_amateurs": null,
+        "basis": "explicit_official_final_leaderboard_InformationRow; gross equivalent uses published R2 note daily par 71",
+        "published_daily_par": 71
+      },
+      "source_note_date": "November 15, 2025",
+      "actual_cut_approval_timestamp": null,
+      "source_documents": [
+        {
+          "url": "https://orchestrator.pgatour.com/graphql",
+          "request": {
+            "query": "query LeaderboardCompressedV3($leaderboardCompressedV3Id: ID!) {\n      leaderboardCompressedV3(id: $leaderboardCompressedV3Id) { id payload }\n    }",
+            "operationName": "LeaderboardCompressedV3",
+            "variables": {
+              "leaderboardCompressedV3Id": "R2025528"
+            }
+          },
+          "pga_id": "R2025528",
+          "kind": "reallocated_r2_slot_final_metadata",
+          "request_started_utc": "2026-09-15T02:40:10.978499+00:00",
+          "received_utc": "2026-09-15T02:40:12.072112+00:00",
+          "status": 200,
+          "file": "data/raw/golf-cut-audit/R2025528-final-leaderboard.json",
+          "bytes": 18631,
+          "sha256": "8a1178285e3dbe53e42596b3c868d91f15db6c8f2e77be7a58dae7532d98589c",
+          "complete": true,
+          "headers": {
+            "Content-Type": "application/json;charset=UTF-8",
+            "Date": "Tue, 15 Sep 2026 02:40:12 GMT"
+          },
+          "budget_reallocation": "Parent expressly reassigned exactly one unused R2-note slot to an explicit official final leaderboard cut-metadata check, total request 59 of 60; no further acquisition authorized."
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/butterfieldbermudachampionship/roundInfo/R2_Notes.pdf",
+          "pga_id": "R2025528",
+          "kind": "r2",
+          "request_started_utc": "2026-09-15T01:34:33.918070+00:00",
+          "file": "data/raw/golf-cut-audit/R2025528-r2.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:34:34 GMT",
+            "ETag": "\"0e4e0d04367576068b6282edc5a376a30\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:34:35.054571+00:00",
+          "bytes": 264846,
+          "sha256": "45d329fcf03e89dbc99e28ef2007785fd0251824eb2b32217a040fb0ee668dff",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/butterfieldbermudachampionship/roundInfo/R3_Notes.pdf",
+          "pga_id": "R2025528",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T01:36:47.164455+00:00",
+          "file": "data/raw/golf-cut-audit/R2025528-r3.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:36:47 GMT",
+            "ETag": "\"0578a604c53cdc85bece5721735f84f46\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:36:53.916969+00:00",
+          "bytes": 769921,
+          "sha256": "00c3f2bca9f99047489862f2fbfeb47768bebc9d8c88bbcecc4d372ba74dc61f",
+          "complete": true
+        },
+        {
+          "url": "https://pgatourmedia.pgatourhq.com/static-assets/page/files/tours/2025/pgatour/butterfieldbermudachampionship/roundInfo/R4_Notes.pdf",
+          "pga_id": "R2025528",
+          "kind": "followup",
+          "request_started_utc": "2026-09-15T01:35:37.207823+00:00",
+          "file": "data/raw/golf-cut-audit/R2025528-r4.pdf",
+          "status": 200,
+          "headers": {
+            "Date": "Tue, 15 Sep 2026 01:35:38 GMT",
+            "ETag": "\"0c742f0c01cf75f0c2ebb764f2472e7ab\"",
+            "Content-Type": "application/pdf"
+          },
+          "received_utc": "2026-09-15T01:35:41.808443+00:00",
+          "bytes": 261350,
+          "sha256": "f529a783ff664592d564d45f3b51c50320de8b743fd1a9a888d76e9775643fd8",
+          "complete": true
+        }
+      ],
+      "cached_reconciliation": {
+        "api_player_records": 120,
+        "complete36_records": 119,
+        "incomplete36_records": 1,
+        "cached_count_at_or_below_official_cut": 70,
+        "cached_amateurs_at_or_below_official_cut": 1,
+        "count_matches": null,
+        "amateurs_match": null,
+        "conditional_65th_complete_score": 142,
+        "conditional_65th_matches": true,
+        "official_r3_tee_player_count": 70,
+        "official_r3_tee_amateurs": 1,
+        "official_r3_tee_amateurs_match": null,
+        "official_r3_tee_count_matches_cached_qualifiers": true,
+        "qualifying_unknown_amateur_flag": [
+          "Niklas Nørgaard",
+          "Kristoffer Ventura"
+        ],
+        "unmatched_official_amateur_names": [],
+        "qualifiers_absent_official_r3_tee": [
+          "Niklas Nørgaard",
+          "Kristoffer Ventura"
+        ],
+        "missing_final_status": []
+      },
+      "wd_dq": [
+        {
+          "name": "Luke List",
+          "espn_player_id": "1059",
+          "detail": "WD",
+          "score36": null,
+          "positive_holes_by_round": {
+            "1": 18,
+            "2": 0,
+            "3": 0
+          },
+          "official_note_phase": "before_R2",
+          "relative_to_approved_cut_clock": "unverified",
+          "cached_score_evidence": "no_valid_complete_36_hole_total"
+        }
+      ],
+      "event_specific_override": "No override identified in inspected note text; absence is not proof of no agreement/referee override.",
+      "evidence_note": "Explicit official final InformationRow states cut E; gross 142 uses daily par 71 from R2 note. Its qualifier/pro/amateur counts are not explicit. Cached totals and official R3 roster independently each contain 70 qualifiers including one amateur; this does not replace missing source counts."
+    }
+  ],
+  "eligible_upper_bound_event_ids": [
+    "R2025006",
+    "R2025003",
+    "R2025540",
+    "R2025010",
+    "R2025483",
+    "R2025011",
+    "R2025475",
+    "R2025020",
+    "R2025041",
+    "R2025522",
+    "R2025021",
+    "R2025032",
+    "R2025030",
+    "R2025541",
+    "R2025518",
+    "R2025525",
+    "R2025013",
+    "R2025464",
+    "R2025054",
+    "R2025528"
+  ],
+  "limitations": [
+    "Cut statements and present-day final metadata establish retrospective labels, not historical price/forecast availability.",
+    "No exact cut/grouping approval timestamps were established. Inspected notes do not supply a complete WD/DQ or exceptional-agreement ledger.",
+    "R3 tee rosters are supporting sources, not a substitute for explicit cut metadata or proof that everyone started.",
+    "Cross-provider name aliases remain unresolved; official R3 amateur flags corroborate source amateur counts independently. No existing score/weather dataset IDs were rewritten.",
+    "G4 still lacks declared ex-ante wind-to-stroke calibration, baseline and validation design; 20 is only an upper bound before remaining data and model prerequisites."
+  ]
+}
