@@ -1,0 +1,17 @@
+{
+  "pga_pages": [],
+  "api_enabled": true,
+  "tournament_ids": ["R2026493"],
+  "tours": ["R"],
+  "cycles": 1,
+  "interval_seconds": 300,
+  "request_interval_seconds": 2,
+  "max_requests": 240,
+  "max_seconds": 1800,
+  "timeout_seconds": 30,
+  "max_tournaments": 1,
+  "max_players_per_tournament": 180,
+  "player_odds": true,
+  "espn_state": false,
+  "espn_dates": null
+}

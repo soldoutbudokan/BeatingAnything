@@ -2,6 +2,8 @@
 
 Checked September 14, 2026 (America/Toronto). This note corrects assumptions in [GOLF-MODEL-PLAN.md](../GOLF-MODEL-PLAN.md); the [12-card queue](hypotheses/GOLF-QUEUE.md) is exploratory. No paid subscription, wager or alert was enabled.
 
+**September 19 version checkpoint:** the [Ontario page](https://www.fanduel.com/fanduel-sportsbook-house-rules-on) header now reports July 30, 2026. A follow-up retrieval of its golf section returned 403 and stopped. The June 2 archived terms referenced below must not be silently treated as the current version for a new quote. This check neither proves the golf clauses changed nor verifies the captured prices' jurisdiction. Preserve the earlier dated findings; acquire the applicable market terms before grading. See the [source record](../reports/golf-next-price-opportunity-2026-09-19.json).
+
 ## Decisions that change the implementation
 
 - Use market-specific settlement states. The plan’s three-hole requirement and generic more-holes-wins tournament rule are incorrect for the Ontario rules checked below.

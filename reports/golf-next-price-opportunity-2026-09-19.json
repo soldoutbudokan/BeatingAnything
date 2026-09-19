@@ -1,0 +1,78 @@
+{
+  "checked_on_utc_date": "2026-09-19",
+  "purpose": "Identify a future event matching G11 screened course identities; no odds request or new sport screen.",
+  "public_pga_metadata": {
+    "source_url": "https://orchestrator.pgatour.com/graphql",
+    "operation": "Tournaments",
+    "ids": [
+      "R2026493"
+    ],
+    "request_started_at": "2026-09-19T14:57:06.792266+00:00",
+    "request_sha256": "6d60629ffef47ca86422edd13117b39daaa63bdf72de86a47968d9b903696912",
+    "request_bytes": 427,
+    "status": 200,
+    "response_received_at": "2026-09-19T14:57:07.039770+00:00",
+    "response_sha256": "76bd9e04ae26188ef72d11530e052081d2ff82f08101d0cd203fd8b0d618851d",
+    "response_bytes": 663,
+    "response_headers": {
+      "content-type": "application/json;charset=UTF-8",
+      "date": "Sat, 19 Sep 2026 14:57:07 GMT"
+    },
+    "observed_payload": {
+      "data": {
+        "tournaments": [
+          {
+            "id": "R2026493",
+            "tournamentName": "The RSM Classic",
+            "tournamentLocation": "St. Simons Island",
+            "tournamentStatus": "NOT_STARTED",
+            "currentRound": -1,
+            "timezone": "America/New_York",
+            "seasonYear": "2026",
+            "displayDate": "Nov 19 - 22, 2026",
+            "formatType": "STROKE_PLAY",
+            "country": "USA",
+            "state": "Georgia",
+            "city": "St. Simons Island",
+            "features": [
+              "OVERVIEW",
+              "PAST_RESULTS"
+            ],
+            "events": [],
+            "courses": [
+              {
+                "id": "776",
+                "courseName": "Sea Island Golf Club (Seaside Course)",
+                "courseCode": "SS",
+                "hostCourse": true,
+                "scoringLevel": "TOURCAST"
+              },
+              {
+                "id": "889",
+                "courseName": "Sea Island Golf Club (Plantation Course)",
+                "courseCode": "PL",
+                "hostCourse": false,
+                "scoringLevel": "STATS"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "elapsed_seconds": 0.2474725419888273
+  },
+  "local_raw_directory": "data/raw/golf-next-course-2026-09-19",
+  "rules_checkpoint": {
+    "url": "https://www.fanduel.com/fanduel-sportsbook-house-rules-on",
+    "method": "web tool; first page extraction, then golf-section retrieval attempt",
+    "page_header_reported_last_updated": "July 30, 2026",
+    "followup_golf_section_result": "HTTP 403; stopped without retry",
+    "current_golf_section_retrieved": false,
+    "actual_quote_jurisdiction_verified": false
+  },
+  "eligible_cross_course_prices_recovered": 0,
+  "new_price_capture_started": false,
+  "scheduler_enabled": false,
+  "edge_established": false,
+  "remaining_dependency": "Actual pre-round cross-course FanDuel prices with verified market terms and clocks, from an appropriately accessible historical archive or a future event. User responses about archive access and jurisdiction are pending."
+}

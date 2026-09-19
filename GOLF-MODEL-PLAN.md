@@ -8,6 +8,8 @@ Written September 13, 2026; execution began September 14. The [ranked golf cards
 
 ## Short answer
 
+**September 19 price progress:** a [bounded Biltmore capture](reports/golf-price-capture-2026-09-19.md) recovered actual FanDuel-linked prices, including 12 complete two-player matchups. Ten are displayed as round-three markets, all same-course and captured after play began. Numeric period inconsistencies and missing bookmaker quote clocks remain explicit. The public PGA price route works; G11 still lacks the pre-round cross-course offers and verified scoring convention needed for its book-side test. No edge is established and the failed sport screens remain closed.
+
 Golf is worth doing. The reason given is not the reason to do it.
 
 The premise has three parts. Two need correcting.

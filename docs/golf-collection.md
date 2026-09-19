@@ -20,6 +20,18 @@ state/runtime/research-venv/bin/python -m beating.golf_collect --config config/g
 
 The first exhausted cap stops the run, so this command may collect fewer than 12 cycles if markets become available and the per-player requests consume the allowance. A request cap counts failed requests too. Hard validation limits cycles to 288, requests to 5,000, elapsed time to one day, tournaments to 10, player requests to 200 per tournament per cycle, request spacing to at least one second and cycle spacing to at least 60 seconds. Configuration keys are documented directly in [golf-collection.json](../config/golf-collection.json).
 
+### Future G11 opportunity: RSM
+
+One official metadata request on September 19 confirms **R2026493, November 19–22, 2026**, with Seaside `776` and Plantation `889`, the course identities in the surviving G11 screen. The [dated source record](../reports/golf-next-price-opportunity-2026-09-19.json) preserves its body hash and receipt clock. This is a calendar/course observation, not proof of future cross-course market coverage or round assignments.
+
+The separate [RSM configuration](../config/golf-collection-rsm-2026.json) is ready for a bounded manual capture **when that event's pre-round markets actually post**:
+
+```sh
+state/runtime/research-venv/bin/python -m beating.golf_collect --config config/golf-collection-rsm-2026.json
+```
+
+It uses only the existing public API operations and the observed tournament ID; it does not retain Biltmore's HTML URL. It is one cycle, capped at 240 requests and 30 minutes. It has not been run, and nothing schedules it. The current Biltmore configuration remains separate. An appropriately accessible historical archive could supply G11 prices sooner; access and suitable coverage are not established.
+
 The process prints a summary. Exit code 0 means all requested cycles completed without source errors; code 2 means a cap, source failure or interruption occurred. **A successful HTTP response is not evidence that odds exist:** inspect `quote_status`, `explicitly_fanduel_price_field_observations` and `fanduel_selection_link_price_field_observations`. The two attribution counters can overlap and must not be added together.
 
 ## Sources and what is actually captured
@@ -40,6 +52,10 @@ The API paths and GraphQL field selections follow [pgatouR's public client](http
 The collector does not request FanDuel directly, Data Golf paid tables or Open-Meteo. Its weather source is the PGA site forecast. The ordinary direct FanDuel page check on September 14 returned HTTP 403, and no bypass or retry was attempted. Data Golf paid or membership-only content is outside this collector.
 
 ## September 14 source check
+
+**Later result:** the [September 19 capture](../reports/golf-price-capture-2026-09-19.md) is no longer empty: 158 successful requests, 870 recognized price observations with direct FanDuel selection links, and 12 distinct complete two-player matchups. The latter are live same-course offers with unresolved price clocks and terms, not a G11 test. The following September 14 evidence remains a dated record.
+
+The [separate afternoon checkpoint](../reports/golf-price-capture-2026-09-19-afternoon.md), more than four hours later, records R3 official and removal of all ten round-three matchups. It retains 728 recognized observations and two 72-hole pairs, with no R4 tee groups or round matchups yet. Both completed runs and their source hashes remain separate; neither is a pre-round cross-course sample.
 
 The local ordinary requests reached PGA's public page, the correct config host, market catalog, field and tee times. Raw checks are retained locally under `data/raw/golf-source-check/`.
 
@@ -63,6 +79,16 @@ Both explicit FanDuel book-field attribution and direct selection-link attributi
 The [source-check record](../reports/golf-source-check-2026-09-14.json) retains this as a separate `collector_additional_runs` entry with the exact request/receipt clocks, all nine HTTP outcomes and response hashes. All 25 request, raw-body and decoded artifacts passed byte-count and SHA-256 checks; the summary and raw responses remain under `data/raw/golf-forward/9a4a9d0227b7463bb2829870c2966489/`.
 
 ## Retained evidence and clock meaning
+
+### Offline market inventory
+
+Once a run has completed, audit it without making another request:
+
+```sh
+state/runtime/research-venv/bin/python tools/audit_golf_price_capture.py RUN_ID --report reports/YOUR-REPORT.json
+```
+
+The audit verifies retained bytes and hashes, replays REST attribution, deduplicates market/selection identities and inventories complete two-player matchup observations. Both sides must be present in the same body with the same market ID and distinct player/selection IDs. It preserves every pair's original prices, numeric period, displayed title and timestamps; it never picks the best side from separate responses. Official tee assignments and leaderboard state are matched by IDs within the same cycle and must precede the price request. They do not replace a missing bookmaker quote-update time or verify settlement. Detailed output is local `RUN_ID/price-inventory.json`; the JSON report retains summary evidence and complete-pair examples. Its absence of cross-course offers in a single-course event is not a general coverage conclusion.
 
 Output is local and gitignored under `data/raw/golf-forward/`:
 

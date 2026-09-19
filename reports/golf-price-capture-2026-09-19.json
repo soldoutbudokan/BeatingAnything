@@ -1,0 +1,1945 @@
+{
+  "artifact_manifest_sha256": "d559bd2591de884bc4f00d4c9b88fe514e086593dac827c7bda9b10082433fb6",
+  "audit_script_sha256": "f02bee97efc38827bbc199455eb75ecf86cba25d585d0cd6229d58c544c1155b",
+  "book_quote_update_clock_verified": false,
+  "catalogs": [
+    {
+      "context": {
+        "cycle": 1,
+        "tournament_id": "R2026557"
+      },
+      "markets": [
+        {
+          "book": "fanduel",
+          "displayName": "To Win",
+          "id": 2631,
+          "marketType": "ODDS_TO_WIN",
+          "name": "Outright Winner"
+        },
+        {
+          "book": "fanduel",
+          "displayName": "Matchup",
+          "id": 2635,
+          "marketType": "MATCHUP_PROPS",
+          "name": "Matchup Props"
+        },
+        {
+          "book": "fanduel",
+          "displayName": "Finishes",
+          "id": 2632,
+          "marketType": "FINISH",
+          "name": "Finish"
+        },
+        {
+          "book": "fanduel",
+          "displayName": "Groups",
+          "id": 2633,
+          "marketType": "GROUP",
+          "name": "Group Props"
+        },
+        {
+          "book": "fanduel",
+          "displayName": "Player Props",
+          "id": 2634,
+          "marketType": "PLAYER_PROPS",
+          "name": "Player Props"
+        },
+        {
+          "book": "fanduel",
+          "displayName": "3 Ball",
+          "id": 2637,
+          "marketType": "THREE_BALL",
+          "name": "3 Ball"
+        },
+        {
+          "book": "fanduel",
+          "displayName": "Nationality",
+          "id": 2630,
+          "marketType": "NATIONALITY",
+          "name": "Nationality"
+        }
+      ]
+    }
+  ],
+  "complete_pair_observations": 24,
+  "derived_inventory": {
+    "file": "c677434604d04c5f9a10b33f250f9ab2/price-inventory.json",
+    "sha256": "efba88dad4ac20bb0646d5dd41e25e5c0994ca32ae6119b5d60bbb400d205d08"
+  },
+  "distinct_complete_matchup_markets": 12,
+  "edge_established": false,
+  "fields": [
+    {
+      "alternates": 10,
+      "id": "R2026557",
+      "last_updated_raw": 1789647054958,
+      "players": 139
+    }
+  ],
+  "http_status_counts": {
+    "200": 158
+  },
+  "jurisdiction_verified": false,
+  "limitations": [
+    "Catalog coverage is not sportsbook coverage.",
+    "All sides of each measured pair come from one response; responses are not atomic book snapshots.",
+    "Prices in different responses are not combined or chosen for a best-price synthetic pair.",
+    "Title interpretation does not repair inconsistent numeric bettingPeriod fields.",
+    "Unknown publisher source clocks, market jurisdiction, scoring convention and settlement remain unknown.",
+    "This inventory cannot demonstrate offer availability, EV, closing value or a betting edge."
+  ],
+  "market_types": {
+    "FINISH": {
+      "market_ids": 6,
+      "market_selections": 438,
+      "observations": 438
+    },
+    "GROUP": {
+      "market_ids": 5,
+      "market_selections": 17,
+      "observations": 85
+    },
+    "MATCHUP_PROPS": {
+      "market_ids": 12,
+      "market_selections": 24,
+      "observations": 48
+    },
+    "ODDS_TO_WIN": {
+      "market_ids": 1,
+      "market_selections": 76,
+      "observations": 76
+    },
+    "PLAYER_PROPS": {
+      "market_ids": 2,
+      "market_selections": 147,
+      "observations": 147
+    }
+  },
+  "matchups": [
+    {
+      "any_period_title_disagreement": false,
+      "first_complete_observation": {
+        "betting_period_raw": null,
+        "cycle": 1,
+        "drawer_player_id": "47591",
+        "group_id": "Marco Penge vs Eric Cole",
+        "market_id": "42.608134213",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.056022408963585235,
+        "provider_http_date": "Sat, 19 Sep 2026 14:40:26 GMT",
+        "received_at": "2026-09-19T14:40:26.738469+00:00",
+        "request_at": "2026-09-19T14:40:26.542716+00:00",
+        "response": {
+          "bytes": 6714,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000086.body",
+          "sha256": "ef53c0918b4759c57ceb764f49c0ba7a25e6df510f1cea9df3a60731c8030438"
+        },
+        "sides": [
+          {
+            "american": "+110",
+            "book_labels": [],
+            "decimal": 2.1,
+            "market_id": "42.608134213",
+            "players": [
+              {
+                "displayName": "Eric Cole",
+                "playerId": "47591",
+                "shortName": "E. Cole"
+              }
+            ],
+            "selection_id": "24908171",
+            "selection_link": {
+              "market_id": "42.608134213",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "24908171",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.608134213&selectionId=24908171&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          },
+          {
+            "american": "-138",
+            "book_labels": [],
+            "decimal": 1.7246376811594204,
+            "market_id": "42.608134213",
+            "players": [
+              {
+                "displayName": "Marco Penge",
+                "playerId": "51003",
+                "shortName": "M. Penge"
+              }
+            ],
+            "selection_id": "25973705",
+            "selection_link": {
+              "market_id": "42.608134213",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "25973705",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.608134213&selectionId=25973705&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/47591",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "47591",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "3",
+                "thruSort": 3
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 35,
+                "round_status": "OFFICIAL",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-17T16:51:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "51003",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "7",
+                "thruSort": 7
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 44,
+                "round_status": "OFFICIAL",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-17T18:30:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": null,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": false,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "tournament_matchup",
+          "title_round": null
+        },
+        "title": "72 Hole Matchbet",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:40:26.738469+00:00",
+      "last_received_at": "2026-09-19T14:41:04.820950+00:00",
+      "market_id": "42.608134213",
+      "observations": 2,
+      "overround_max": 0.056022408963585235,
+      "overround_min": 0.056022408963585235,
+      "period_values": [
+        null
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "72 Hole Matchbet"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": false,
+      "first_complete_observation": {
+        "betting_period_raw": null,
+        "cycle": 1,
+        "drawer_player_id": "39997",
+        "group_id": "J.T. Poston vs Corey Conners",
+        "market_id": "42.608134225",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.05555555555555558,
+        "provider_http_date": "Sat, 19 Sep 2026 14:39:58 GMT",
+        "received_at": "2026-09-19T14:39:58.641289+00:00",
+        "request_at": "2026-09-19T14:39:58.463806+00:00",
+        "response": {
+          "bytes": 7184,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000072.body",
+          "sha256": "ae8d9f5142186490501276fb369c9cc2a2ac61dd70c30eb7ed6491b2a2774930"
+        },
+        "sides": [
+          {
+            "american": "-800",
+            "book_labels": [],
+            "decimal": 1.125,
+            "market_id": "42.608134225",
+            "players": [
+              {
+                "displayName": "J.T. Poston",
+                "playerId": "49771",
+                "shortName": "J.T. Poston"
+              }
+            ],
+            "selection_id": "13469288",
+            "selection_link": {
+              "market_id": "42.608134225",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "13469288",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.608134225&selectionId=13469288&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          },
+          {
+            "american": "+500",
+            "book_labels": [],
+            "decimal": 6.0,
+            "market_id": "42.608134225",
+            "players": [
+              {
+                "displayName": "Corey Conners",
+                "playerId": "39997",
+                "shortName": "C. Conners"
+              }
+            ],
+            "selection_id": "13470440",
+            "selection_link": {
+              "market_id": "42.608134225",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "13470440",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.608134225&selectionId=13470440&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/39997",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "49771",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "5",
+                "thruSort": 5
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 27,
+                "round_status": "OFFICIAL",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-17T17:24:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "39997",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "5*",
+                "thruSort": 5
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 15,
+                "round_status": "OFFICIAL",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-17T12:33:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": null,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": false,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "tournament_matchup",
+          "title_round": null
+        },
+        "title": "72 Hole Matchbet",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:39:58.641289+00:00",
+      "last_received_at": "2026-09-19T14:40:48.765449+00:00",
+      "market_id": "42.608134225",
+      "observations": 2,
+      "overround_max": 0.05555555555555558,
+      "overround_min": 0.05555555555555558,
+      "period_values": [
+        null
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "72 Hole Matchbet"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": true,
+      "first_complete_observation": {
+        "betting_period_raw": 2,
+        "cycle": 1,
+        "drawer_player_id": "30926",
+        "group_id": "(Round 3) Chris Kirk vs Kevin Roy",
+        "market_id": "42.609409656",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.06271777003484313,
+        "provider_http_date": "Sat, 19 Sep 2026 14:38:42 GMT",
+        "received_at": "2026-09-19T14:38:42.420109+00:00",
+        "request_at": "2026-09-19T14:38:42.258754+00:00",
+        "response": {
+          "bytes": 5436,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000034.body",
+          "sha256": "286586ddbc28ddef09ee18a77f7948fb626aa91882ed2ba9b17742f4152b4ce2"
+        },
+        "sides": [
+          {
+            "american": "-250",
+            "book_labels": [],
+            "decimal": 1.4,
+            "market_id": "42.609409656",
+            "players": [
+              {
+                "displayName": "Chris Kirk",
+                "playerId": "30926",
+                "shortName": "C. Kirk"
+              }
+            ],
+            "selection_id": "13469251",
+            "selection_link": {
+              "market_id": "42.609409656",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "13469251",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409656&selectionId=13469251&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          },
+          {
+            "american": "+187",
+            "book_labels": [],
+            "decimal": 2.87,
+            "market_id": "42.609409656",
+            "players": [
+              {
+                "displayName": "Kevin Roy",
+                "playerId": "39335",
+                "shortName": "K. Roy"
+              }
+            ],
+            "selection_id": "21918902",
+            "selection_link": {
+              "market_id": "42.609409656",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "21918902",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409656&selectionId=21918902&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/30926",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "30926",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "7",
+                "thruSort": 7
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 7,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T12:39:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "39335",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "6",
+                "thruSort": 6
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 9,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:01:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": true,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:38:42.420109+00:00",
+      "last_received_at": "2026-09-19T14:39:54.590639+00:00",
+      "market_id": "42.609409656",
+      "observations": 2,
+      "overround_max": 0.06271777003484313,
+      "overround_min": 0.06271777003484313,
+      "period_values": [
+        1,
+        2
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": true,
+      "first_complete_observation": {
+        "betting_period_raw": 2,
+        "cycle": 1,
+        "drawer_player_id": "35296",
+        "group_id": "(Round 3) Haotong Li vs Zac Blair",
+        "market_id": "42.609409735",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.05731523378582204,
+        "provider_http_date": "Sat, 19 Sep 2026 14:39:22 GMT",
+        "received_at": "2026-09-19T14:39:22.537243+00:00",
+        "request_at": "2026-09-19T14:39:22.372784+00:00",
+        "response": {
+          "bytes": 5418,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000054.body",
+          "sha256": "8965363a52915356bb5aaa4a4099b4e9d5a0c07878c3dd2f185f71586b94d5af"
+        },
+        "sides": [
+          {
+            "american": "+1200",
+            "book_labels": [],
+            "decimal": 13.0,
+            "market_id": "42.609409735",
+            "players": [
+              {
+                "displayName": "Zac Blair",
+                "playerId": "40058",
+                "shortName": "Z. Blair"
+              }
+            ],
+            "selection_id": "13469190",
+            "selection_link": {
+              "market_id": "42.609409735",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "13469190",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409735&selectionId=13469190&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          },
+          {
+            "american": "-5000",
+            "book_labels": [],
+            "decimal": 1.02,
+            "market_id": "42.609409735",
+            "players": [
+              {
+                "displayName": "Haotong Li",
+                "playerId": "35296",
+                "shortName": "H. Li"
+              }
+            ],
+            "selection_id": "13485008",
+            "selection_link": {
+              "market_id": "42.609409735",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "13485008",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409735&selectionId=13485008&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/35296",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "40058",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "10*",
+                "thruSort": 10
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 16,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T11:55:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "35296",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "11*",
+                "thruSort": 11
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 14,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T11:33:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": true,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:39:22.537243+00:00",
+      "last_received_at": "2026-09-19T14:40:02.621142+00:00",
+      "market_id": "42.609409735",
+      "observations": 2,
+      "overround_max": 0.05731523378582204,
+      "overround_min": 0.05731523378582204,
+      "period_values": [
+        2,
+        3
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": false,
+      "first_complete_observation": {
+        "betting_period_raw": null,
+        "cycle": 1,
+        "drawer_player_id": "49771",
+        "group_id": "(Round 3) J.T. Poston vs Jackson Suber",
+        "market_id": "42.609409736",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.06421630756231522,
+        "provider_http_date": "Sat, 19 Sep 2026 14:40:48 GMT",
+        "received_at": "2026-09-19T14:40:48.765449+00:00",
+        "request_at": "2026-09-19T14:40:48.597258+00:00",
+        "response": {
+          "bytes": 7955,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000097.body",
+          "sha256": "f72ba3ee1832fdd052d9c8e4a517badd95909aef281ad62738bde0f2986a9445"
+        },
+        "sides": [
+          {
+            "american": "-163",
+            "book_labels": [],
+            "decimal": 1.6134969325153374,
+            "market_id": "42.609409736",
+            "players": [
+              {
+                "displayName": "J.T. Poston",
+                "playerId": "49771",
+                "shortName": "J.T. Poston"
+              }
+            ],
+            "selection_id": "13469288",
+            "selection_link": {
+              "market_id": "42.609409736",
+              "path": "$.playerMarkets[2].oddsDataGroup[1].oddsData[0].group[0].url",
+              "selection_id": "13469288",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409736&selectionId=13469288&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[1].oddsData[0].group[0].oddsValue"
+          },
+          {
+            "american": "+125",
+            "book_labels": [],
+            "decimal": 2.25,
+            "market_id": "42.609409736",
+            "players": [
+              {
+                "displayName": "Jackson Suber",
+                "playerId": "60019",
+                "shortName": "J. Suber"
+              }
+            ],
+            "selection_id": "28519437",
+            "selection_link": {
+              "market_id": "42.609409736",
+              "path": "$.playerMarkets[2].oddsDataGroup[1].oddsData[0].group[1].url",
+              "selection_id": "28519437",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409736&selectionId=28519437&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[1].oddsData[0].group[1].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/49771",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "49771",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "5",
+                "thruSort": 5
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 10,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:12:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "60019",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "4",
+                "thruSort": 4
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 11,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:23:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": false,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:40:48.765449+00:00",
+      "last_received_at": "2026-09-19T14:42:23.041420+00:00",
+      "market_id": "42.609409736",
+      "observations": 2,
+      "overround_max": 0.06421630756231522,
+      "overround_min": 0.06421630756231522,
+      "period_values": [
+        null
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": false,
+      "first_complete_observation": {
+        "betting_period_raw": 3,
+        "cycle": 1,
+        "drawer_player_id": "47917",
+        "group_id": "(Round 3) Takumi Kanaya vs Davis Chatfield",
+        "market_id": "42.609409737",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.05277777777777781,
+        "provider_http_date": "Sat, 19 Sep 2026 14:40:28 GMT",
+        "received_at": "2026-09-19T14:40:28.685807+00:00",
+        "request_at": "2026-09-19T14:40:28.546802+00:00",
+        "response": {
+          "bytes": 5540,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000087.body",
+          "sha256": "d4c038795eeae064fbde4235bb8f18e442deca633600a07b766b97242e697b94"
+        },
+        "sides": [
+          {
+            "american": "-188",
+            "book_labels": [],
+            "decimal": 1.5319148936170213,
+            "market_id": "42.609409737",
+            "players": [
+              {
+                "displayName": "Takumi Kanaya",
+                "playerId": "47917",
+                "shortName": "T. Kanaya"
+              }
+            ],
+            "selection_id": "15403740",
+            "selection_link": {
+              "market_id": "42.609409737",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "15403740",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409737&selectionId=15403740&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          },
+          {
+            "american": "+150",
+            "book_labels": [],
+            "decimal": 2.5,
+            "market_id": "42.609409737",
+            "players": [
+              {
+                "displayName": "Davis Chatfield",
+                "playerId": "59006",
+                "shortName": "D. Chatfield"
+              }
+            ],
+            "selection_id": "51649177",
+            "selection_link": {
+              "market_id": "42.609409737",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "51649177",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409737&selectionId=51649177&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/47917",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "47917",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "6*",
+                "thruSort": 6
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 21,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T12:50:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "59006",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "5*",
+                "thruSort": 5
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 23,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:12:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": false,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:40:28.685807+00:00",
+      "last_received_at": "2026-09-19T14:42:09.006248+00:00",
+      "market_id": "42.609409737",
+      "observations": 2,
+      "overround_max": 0.05277777777777781,
+      "overround_min": 0.05277777777777781,
+      "period_values": [
+        3
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": true,
+      "first_complete_observation": {
+        "betting_period_raw": null,
+        "cycle": 1,
+        "drawer_player_id": "57869",
+        "group_id": "(Round 3) Jacob Bridgeman vs Ben James",
+        "market_id": "42.609409738",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.058479532163742576,
+        "provider_http_date": "Sat, 19 Sep 2026 14:42:01 GMT",
+        "received_at": "2026-09-19T14:42:00.966521+00:00",
+        "request_at": "2026-09-19T14:42:00.763828+00:00",
+        "response": {
+          "bytes": 7131,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000133.body",
+          "sha256": "9c69c95f758a19ed819776487adc53fb95b9116712b7a30b1286dac43c1bdf64"
+        },
+        "sides": [
+          {
+            "american": "-1800",
+            "book_labels": [],
+            "decimal": 1.0555555555555556,
+            "market_id": "42.609409738",
+            "players": [
+              {
+                "displayName": "Jacob Bridgeman",
+                "playerId": "60004",
+                "shortName": "J. Bridgeman"
+              }
+            ],
+            "selection_id": "44701656",
+            "selection_link": {
+              "market_id": "42.609409738",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "44701656",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409738&selectionId=44701656&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          },
+          {
+            "american": "+800",
+            "book_labels": [],
+            "decimal": 9.0,
+            "market_id": "42.609409738",
+            "players": [
+              {
+                "displayName": "Ben James",
+                "playerId": "57869",
+                "shortName": "B. James"
+              }
+            ],
+            "selection_id": "70365742",
+            "selection_link": {
+              "market_id": "42.609409738",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "70365742",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409738&selectionId=70365742&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/57869",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "60004",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "4",
+                "thruSort": 4
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 11,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:23:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "57869",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "5",
+                "thruSort": 5
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 10,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:12:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": false,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:42:00.966521+00:00",
+      "last_received_at": "2026-09-19T14:42:21.034631+00:00",
+      "market_id": "42.609409738",
+      "observations": 2,
+      "overround_max": 0.058479532163742576,
+      "overround_min": 0.058479532163742576,
+      "period_values": [
+        1,
+        null
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": false,
+      "first_complete_observation": {
+        "betting_period_raw": null,
+        "cycle": 1,
+        "drawer_player_id": "45242",
+        "group_id": "(Round 3) Andrew Novak vs Kevin Yu",
+        "market_id": "42.609409739",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.05714285714285716,
+        "provider_http_date": "Sat, 19 Sep 2026 14:40:12 GMT",
+        "received_at": "2026-09-19T14:40:12.692827+00:00",
+        "request_at": "2026-09-19T14:40:12.504168+00:00",
+        "response": {
+          "bytes": 7073,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000079.body",
+          "sha256": "d65ecdceb90663a7ffb9d27980de44983c6fe0c6c7f612ab2ebcf554a4ec960d"
+        },
+        "sides": [
+          {
+            "american": "+400",
+            "book_labels": [],
+            "decimal": 5.0,
+            "market_id": "42.609409739",
+            "players": [
+              {
+                "displayName": "Andrew Novak",
+                "playerId": "51997",
+                "shortName": "A. Novak"
+              }
+            ],
+            "selection_id": "16011967",
+            "selection_link": {
+              "market_id": "42.609409739",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "16011967",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409739&selectionId=16011967&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          },
+          {
+            "american": "-600",
+            "book_labels": [],
+            "decimal": 1.1666666666666667,
+            "market_id": "42.609409739",
+            "players": [
+              {
+                "displayName": "Kevin Yu",
+                "playerId": "45242",
+                "shortName": "K. Yu"
+              }
+            ],
+            "selection_id": "39801472",
+            "selection_link": {
+              "market_id": "42.609409739",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "39801472",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409739&selectionId=39801472&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/45242",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "51997",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "7*",
+                "thruSort": 7
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 20,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T12:39:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "45242",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "9*",
+                "thruSort": 9
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 17,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T12:06:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": false,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:40:12.692827+00:00",
+      "last_received_at": "2026-09-19T14:41:20.860698+00:00",
+      "market_id": "42.609409739",
+      "observations": 2,
+      "overround_max": 0.05714285714285716,
+      "overround_min": 0.05714285714285716,
+      "period_values": [
+        3,
+        null
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": false,
+      "first_complete_observation": {
+        "betting_period_raw": 3,
+        "cycle": 1,
+        "drawer_player_id": "37338",
+        "group_id": "(Round 3) Austin Eckroat vs Zecheng Dou",
+        "market_id": "42.609409740",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.06421630756231522,
+        "provider_http_date": "Sat, 19 Sep 2026 14:39:48 GMT",
+        "received_at": "2026-09-19T14:39:48.630348+00:00",
+        "request_at": "2026-09-19T14:39:48.435132+00:00",
+        "response": {
+          "bytes": 5466,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000067.body",
+          "sha256": "21f04e53b01135fa53a3971f6a6b396b0a464b5be7d78ad697b9e15e04763b07"
+        },
+        "sides": [
+          {
+            "american": "+125",
+            "book_labels": [],
+            "decimal": 2.25,
+            "market_id": "42.609409740",
+            "players": [
+              {
+                "displayName": "Austin Eckroat",
+                "playerId": "57362",
+                "shortName": "A. Eckroat"
+              }
+            ],
+            "selection_id": "24513546",
+            "selection_link": {
+              "market_id": "42.609409740",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "24513546",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409740&selectionId=24513546&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          },
+          {
+            "american": "-163",
+            "book_labels": [],
+            "decimal": 1.6134969325153374,
+            "market_id": "42.609409740",
+            "players": [
+              {
+                "displayName": "Zecheng Dou",
+                "playerId": "37338",
+                "shortName": "Z. Dou"
+              }
+            ],
+            "selection_id": "61516873",
+            "selection_link": {
+              "market_id": "42.609409740",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "61516873",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409740&selectionId=61516873&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/37338",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "57362",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "7",
+                "thruSort": 7
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 7,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T12:39:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "37338",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "7",
+                "thruSort": 7
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 8,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T12:50:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": false,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:39:48.630348+00:00",
+      "last_received_at": "2026-09-19T14:41:56.895859+00:00",
+      "market_id": "42.609409740",
+      "observations": 2,
+      "overround_max": 0.07619047619047636,
+      "overround_min": 0.06421630756231522,
+      "period_values": [
+        3
+      ],
+      "price_versions": 2,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": true,
+      "first_complete_observation": {
+        "betting_period_raw": 1,
+        "cycle": 1,
+        "drawer_player_id": "59836",
+        "group_id": "(Round 3) Pierceson Coody vs Johnny Keefer",
+        "market_id": "42.609409741",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.07058823529411762,
+        "provider_http_date": "Sat, 19 Sep 2026 14:42:17 GMT",
+        "received_at": "2026-09-19T14:42:16.980048+00:00",
+        "request_at": "2026-09-19T14:42:16.834793+00:00",
+        "response": {
+          "bytes": 7220,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000141.body",
+          "sha256": "26b36f9c636389f7212232a58823b33c0f15522d159e5d364c544cb89113b8c8"
+        },
+        "sides": [
+          {
+            "american": "+900",
+            "book_labels": [],
+            "decimal": 10.0,
+            "market_id": "42.609409741",
+            "players": [
+              {
+                "displayName": "Pierceson Coody",
+                "playerId": "59836",
+                "shortName": "Pi. Coody"
+              }
+            ],
+            "selection_id": "28387373",
+            "selection_link": {
+              "market_id": "42.609409741",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "28387373",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409741&selectionId=28387373&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          },
+          {
+            "american": "-3300",
+            "book_labels": [],
+            "decimal": 1.0303030303030303,
+            "market_id": "42.609409741",
+            "players": [
+              {
+                "displayName": "Johnny Keefer",
+                "playerId": "63454",
+                "shortName": "J. Keefer"
+              }
+            ],
+            "selection_id": "83391304",
+            "selection_link": {
+              "market_id": "42.609409741",
+              "path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "83391304",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409741&selectionId=83391304&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[2].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/59836",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "59836",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "10*",
+                "thruSort": 10
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 16,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T11:55:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "63454",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "11*",
+                "thruSort": 11
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 14,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T11:33:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": true,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:42:16.980048+00:00",
+      "last_received_at": "2026-09-19T14:42:29.096593+00:00",
+      "market_id": "42.609409741",
+      "observations": 2,
+      "overround_max": 0.07058823529411762,
+      "overround_min": 0.07058823529411762,
+      "period_values": [
+        1,
+        null
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": false,
+      "first_complete_observation": {
+        "betting_period_raw": 3,
+        "cycle": 1,
+        "drawer_player_id": "51977",
+        "group_id": "(Round 3) Max Greyserman vs Neal Shipley",
+        "market_id": "42.609409742",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.07471870604782005,
+        "provider_http_date": "Sat, 19 Sep 2026 14:41:18 GMT",
+        "received_at": "2026-09-19T14:41:18.853409+00:00",
+        "request_at": "2026-09-19T14:41:18.669479+00:00",
+        "response": {
+          "bytes": 5552,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000112.body",
+          "sha256": "5f5b62a5d24f398377d5638ead4d71eada094cd65a0b8056f4453f44b74856f7"
+        },
+        "sides": [
+          {
+            "american": "-188",
+            "book_labels": [],
+            "decimal": 1.5319148936170213,
+            "market_id": "42.609409742",
+            "players": [
+              {
+                "displayName": "Max Greyserman",
+                "playerId": "51977",
+                "shortName": "M. Greyserman"
+              }
+            ],
+            "selection_id": "21918904",
+            "selection_link": {
+              "market_id": "42.609409742",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "21918904",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409742&selectionId=21918904&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          },
+          {
+            "american": "+137",
+            "book_labels": [],
+            "decimal": 2.37,
+            "market_id": "42.609409742",
+            "players": [
+              {
+                "displayName": "Neal Shipley",
+                "playerId": "63807",
+                "shortName": "N. Shipley"
+              }
+            ],
+            "selection_id": "66280362",
+            "selection_link": {
+              "market_id": "42.609409742",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "66280362",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409742&selectionId=66280362&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/51977",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "51977",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "3",
+                "thruSort": 3
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 12,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:34:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "63807",
+              "scoring_at_state_capture": {
+                "backNine": false,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "2",
+                "thruSort": 2
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 13,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 1,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:45:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": false,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:41:18.853409+00:00",
+      "last_received_at": "2026-09-19T14:42:31.091131+00:00",
+      "market_id": "42.609409742",
+      "observations": 2,
+      "overround_max": 0.07471870604782005,
+      "overround_min": 0.07471870604782005,
+      "period_values": [
+        3
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    },
+    {
+      "any_period_title_disagreement": false,
+      "first_complete_observation": {
+        "betting_period_raw": 3,
+        "cycle": 1,
+        "drawer_player_id": "57900",
+        "group_id": "(Round 3) Chandler Phillips vs William Mouw",
+        "market_id": "42.609409743",
+        "market_type": "MATCHUP_PROPS",
+        "overround": 0.056022408963585235,
+        "provider_http_date": "Sat, 19 Sep 2026 14:42:03 GMT",
+        "received_at": "2026-09-19T14:42:02.945940+00:00",
+        "request_at": "2026-09-19T14:42:02.773928+00:00",
+        "response": {
+          "bytes": 5597,
+          "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000134.body",
+          "sha256": "eeea61e1e00c6aab12a90d9cd4b29727826d0226b2be09315c86728f4c6cbb54"
+        },
+        "sides": [
+          {
+            "american": "+110",
+            "book_labels": [],
+            "decimal": 2.1,
+            "market_id": "42.609409743",
+            "players": [
+              {
+                "displayName": "Chandler Phillips",
+                "playerId": "57900",
+                "shortName": "C. Phillips"
+              }
+            ],
+            "selection_id": "26066452",
+            "selection_link": {
+              "market_id": "42.609409743",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].url",
+              "selection_id": "26066452",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409743&selectionId=26066452&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[0].oddsValue"
+          },
+          {
+            "american": "-138",
+            "book_labels": [],
+            "decimal": 1.7246376811594204,
+            "market_id": "42.609409743",
+            "players": [
+              {
+                "displayName": "William Mouw",
+                "playerId": "63121",
+                "shortName": "W. Mouw"
+              }
+            ],
+            "selection_id": "45743767",
+            "selection_link": {
+              "market_id": "42.609409743",
+              "path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].url",
+              "selection_id": "45743767",
+              "status": "attributed",
+              "url": "https://account.sportsbook.fanduel.com/sportsbook/addToBetslip?marketId=42.609409743&selectionId=45743767&shareBetId=partner_sportstechinc"
+            },
+            "source_path": "$.playerMarkets[1].oddsDataGroup[0].oddsData[0].group[1].oddsValue"
+          }
+        ],
+        "source_clocks": [],
+        "source_url": "https://data-api.pgatour.com/odds/tournament/R2026557/player/57900",
+        "sport_context": {
+          "assignments": [
+            {
+              "assignment_count": 1,
+              "player_id": "57900",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "5*",
+                "thruSort": 5
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 23,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:12:00+00:00"
+              }
+            },
+            {
+              "assignment_count": 1,
+              "player_id": "63121",
+              "scoring_at_state_capture": {
+                "backNine": true,
+                "currentRound": 3,
+                "playerState": "ACTIVE",
+                "roundStatus": "",
+                "state_received_at": "2026-09-19T14:37:46.408809+00:00",
+                "thru": "5*",
+                "thruSort": 5
+              },
+              "tee_assignment": {
+                "course_id": "942",
+                "group_number": 24,
+                "round_status": "IN_PROGRESS",
+                "start_tee": 10,
+                "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+                "tee_time": "2026-09-19T13:23:00+00:00"
+              }
+            }
+          ],
+          "both_have_completed_holes_in_state_capture": true,
+          "course_ids": [
+            "942"
+          ],
+          "cross_course_under_title": false,
+          "group_label_disagrees_with_title": false,
+          "raw_period_disagrees_with_title": false,
+          "received_before_both_scheduled_starts": false,
+          "same_official_group_under_title": false,
+          "title_interpretation": "round_matchup",
+          "title_round": 3
+        },
+        "title": "18 Hole Matchbet - Round 3",
+        "tournament_id": "R2026557"
+      },
+      "first_received_at": "2026-09-19T14:42:02.945940+00:00",
+      "last_received_at": "2026-09-19T14:42:27.047234+00:00",
+      "market_id": "42.609409743",
+      "observations": 2,
+      "overround_max": 0.056022408963585235,
+      "overround_min": 0.056022408963585235,
+      "period_values": [
+        3
+      ],
+      "price_versions": 1,
+      "selection_identity_consistent": true,
+      "titles": [
+        "18 Hole Matchbet - Round 3"
+      ],
+      "tournament_id": "R2026557"
+    }
+  ],
+  "player_drawers": {
+    "requested": 149,
+    "with_prices": 84,
+    "without_prices": 65
+  },
+  "price_test_performed": false,
+  "rejected_matchup_groups": [],
+  "rest_selection_observations": 794,
+  "run": {
+    "alerts_enabled": false,
+    "cycles_completed": 1,
+    "disabled_operations": [],
+    "disabled_sources": {},
+    "explicitly_fanduel_price_field_observations": 0,
+    "exploratory_only": true,
+    "failures": 0,
+    "fanduel_selection_link_price_field_observations": 870,
+    "kind": "run_end",
+    "ledger_entries_created": 0,
+    "price_field_observations": 870,
+    "quote_status": "price_fields_observed",
+    "recorded_at": "2026-09-19T14:42:51.141502+00:00",
+    "requests": 158,
+    "run_id": "c677434604d04c5f9a10b33f250f9ab2",
+    "started_at": "2026-09-19T14:37:36.101170+00:00",
+    "stop_reason": "cycles_complete",
+    "successful_odds_responses": 152,
+    "unvalidated_price_field_observations": 155,
+    "wagers_enabled": false
+  },
+  "run_index_records_sha256": "961bce9a918d19268742c074384d360daaee67b34e668293cad2b85049883efe",
+  "settlement_verified": false,
+  "summary_sha256": "7b6ce0c335b8e5a1e79389de6abae811b4b22e3ddb0c0f0c3d671ce6fe46ba1b",
+  "tee_time_rounds": [
+    {
+      "cycle": 1,
+      "groups": 44,
+      "round": 1,
+      "round_status": "OFFICIAL",
+      "source_artifact": {
+        "bytes": 155095,
+        "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000007.decoded.json",
+        "sha256": "1e3e3c4f7a6c5b4617c4a8e89bd59d5392627e2c123ab21b1ac4506303193866"
+      },
+      "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+      "tournament_id": "R2026557"
+    },
+    {
+      "cycle": 1,
+      "groups": 44,
+      "round": 2,
+      "round_status": "OFFICIAL",
+      "source_artifact": {
+        "bytes": 155095,
+        "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000007.decoded.json",
+        "sha256": "1e3e3c4f7a6c5b4617c4a8e89bd59d5392627e2c123ab21b1ac4506303193866"
+      },
+      "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+      "tournament_id": "R2026557"
+    },
+    {
+      "cycle": 1,
+      "groups": 26,
+      "round": 3,
+      "round_status": "IN_PROGRESS",
+      "source_artifact": {
+        "bytes": 155095,
+        "file": "c677434604d04c5f9a10b33f250f9ab2/raw/000007.decoded.json",
+        "sha256": "1e3e3c4f7a6c5b4617c4a8e89bd59d5392627e2c123ab21b1ac4506303193866"
+      },
+      "state_received_at": "2026-09-19T14:37:48.331688+00:00",
+      "tournament_id": "R2026557"
+    }
+  ],
+  "tournaments": [
+    {
+      "city": "Asheville",
+      "country": "USA",
+      "courses": [
+        {
+          "courseCode": "TC",
+          "courseName": "The Cliffs at Walnut Cove",
+          "hostCourse": true,
+          "id": "942",
+          "scoringLevel": "TOURCAST"
+        }
+      ],
+      "currentRound": 3,
+      "displayDate": "Sep 17 - 20, 2026",
+      "events": [],
+      "features": [
+        "LEADERBOARD",
+        "RECAP",
+        "TEE_TIMES",
+        "ODDS",
+        "FIELD",
+        "FEDEXFALL_STANDINGS",
+        "COURSE_STATS",
+        "TOURCAST",
+        "PAST_RESULTS",
+        "OVERVIEW"
+      ],
+      "formatType": "STROKE_PLAY",
+      "id": "R2026557",
+      "seasonYear": "2026",
+      "state": "North Carolina",
+      "timezone": "America/New_York",
+      "tournamentLocation": "Asheville",
+      "tournamentName": "Biltmore Championship Asheville",
+      "tournamentStatus": "IN_PROGRESS"
+    }
+  ],
+  "tradability_verified": false,
+  "unique_rest_market_selections": 702,
+  "unique_rest_markets": 26,
+  "verified_artifacts": 323
+}
