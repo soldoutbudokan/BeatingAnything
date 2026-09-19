@@ -1,6 +1,6 @@
 # Current priority: NBA first-basket scorer
 
-September 19: the user redirected work to a different creative market with actual historical prices. [Card 41: opening possession and first scorer](basketball-first-score-opening-possession.md) now has a [verified archive](../../reports/nba-first-basket-source-2026-09-19.md): 580 pregame FanDuel ten-runner boards and 449 games with complete price/identity/outcome/starter coverage. Source feasibility is complete; the sport-side screen and price comparison remain untested. Preserve prior failures and keep golf G11 parked on its separate source dependency.
+September 19: the active objective is to find an edge in FanDuel first-basket markets. [Card 41](basketball-first-score-opening-possession.md) passes its sport screen but both fixed price candidates [fail advancement](../../reports/nba-first-basket-backtest-2026-09-19.md); preserve those inspected periods and do not retune the candidates. [Card 42: free-throw settlement difference](basketball-first-score-free-throw-wedge.md) passes its [prior-season screen](../../reports/nba-first-score-wedge-screen-2026-09-19.md): 80/1,319 games have a different first-score and first-field-goal winner. Its next prerequisite is verified historical reference-market definitions before a frozen price-conversion test. No edge is established. The [additional-source audit](../../reports/nba-first-basket-additional-source-2026-09-19.md) does not add a qualified price cohort. Keep golf G11 parked and scheduled jobs paused.
 
 ## Earlier priority: golf derivative exploration
 

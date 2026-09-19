@@ -1,0 +1,19 @@
+# Card 42 — First score versus first field goal
+
+**Declared:** September 19, 2026, after both card 41 price candidates failed advancement, before reading 2024 independent first-score/first-field-goal pairs or estimating their disagreement. This is a separate settlement-conversion hypothesis; it does not retune card 41's tip or role models. The 2024–25 price periods have already been inspected and cannot become untouched validation for this card.
+
+**Market / target:** NBA first-basket scorer at FanDuel, including made free throws under the documented convention.
+
+**Structural fact:** A made free throw can settle first score before anyone makes a field goal. The eventual first-field-goal scorer can therefore differ from the first scorer. Converting a first-field-goal distribution into first-score probabilities must transfer probability between players, rather than average these markets as identical outcomes.
+
+**Rule evidence:** FanDuel's [published NJ rules](https://www.fanduel.com/fanduel-sportsbook-house-rules-nj) include free throws and void selected nonstarters. The [Gold Strike DraftKings retail rules dated July 26, 2024](https://goldstrike.com/-/media/GoldStrike/Casino/Sportsbook/Betting-Rules/GS-Sportsbook-DK---Retail-House-Rules-072624-Approved.pdf), PDF page 40, exclude free throws from first-field-goal wagers and void nonstarters. These establish that the two definitions exist, not that every normalized `player_first_basket` quote in the archive has a verified jurisdiction/displayed market. DraftKings Predictions, Pick6 and sportsbook markets must not be conflated. Historical quote semantics remain a prerequisite for a price comparison.
+
+**Hypothesis:** FanDuel could underweight the extra first-score opportunities of players who draw opening-possession fouls when its price resembles a first-field-goal reference. Whether it actually does so is unknown. No competing book is assumed sharp merely because it offers a different settlement definition.
+
+**Fixed cheap screen:** use the independent `play_by_play_2024.parquet` release, SHA-256 `62b609ea487d23aec11e6756d7477a8b1df3a1e57e97fc90c7230b62a5835af1`, for the entire 2023–24 NBA season available in that file. Sort plays by their sequence. Identify the first positive scoring play and first made two/three-point field goal. Require period one, a first-score scoreboard consistent with that play, distinct valid sequence order, and nonmissing scorer IDs. A one-point first score must be labelled a free throw; a two/three-point first score must equal the first field goal. Preserve malformed/missing games in attrition.
+
+Report games, free-throw first scores, different first-score/first-field-goal winners, and calendar-week counts. Advance only if there are at least **1,000 valid games**, at least **50 different-winner games**, and a different-winner fraction of at least **5%**. This descriptive gate tests whether the settlement difference is material enough to investigate; it is not a pricing edge or a significance claim. Do not choose player subsets or tune this gate after seeing results.
+
+**Book-side prerequisite:** recover contemporaneous FanDuel and explicitly identified first-field-goal offers with matching complete candidate identities, clocks and historical terms. The current source keeps normalized market keys but not original display labels/jurisdiction, so do not silently assume the missing mapping. If the cheap screen passes, freeze a single probability-conversion estimator and sample before comparing prices. Account for any additional candidate in the existing research family; the current count of 15 is unchanged until a new pricing candidate is declared. Keep prior inspected results visible and require additional/prospective validation for an edge claim.
+
+**Status:** declared; screen not run. No wagers, alerts or schedules enabled.

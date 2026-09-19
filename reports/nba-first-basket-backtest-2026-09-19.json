@@ -1,0 +1,724 @@
+{
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 1729,
+  "comparisons": 15,
+  "forecast_freeze": "reports/nba-first-basket-forecast-freeze-2026-09-19.json",
+  "forecast_games": 473,
+  "forecast_sha256": "99900cee748540e74fbc51cc2da34af666d0c516a4f47f945fc8bbd7ed14742a",
+  "gates": {
+    "tip": {
+      "exploratory_lead": false,
+      "historical_advantage": false,
+      "prospective_promotion": false
+    },
+    "tip_role": {
+      "exploratory_lead": false,
+      "historical_advantage": false,
+      "prospective_promotion": false
+    }
+  },
+  "graded_path": "data/raw/nba-first-basket-backtest-2026-09-19/graded.json",
+  "graded_sha256": "7072153de7d7dbc3d583dcc65194b7eaa9e8326ed94336cba4ef767f582723b7",
+  "limitations": [
+    "Historical simulations, not accepted wagers; quote jurisdiction and historical rule version unverified.",
+    "Original odds JSON and general closing prices absent; market lineup assumptions unresolved.",
+    "Publisher has studied the archive; no independently untouched holdout claimed.",
+    "Retrospective prior-game corrections are not contemporaneous publication proof.",
+    "No prospective paper cohort, closing-EV evidence, wagers, alerts or schedules."
+  ],
+  "outcome_counts": {
+    "resolved": 467,
+    "unresolved": 6
+  },
+  "outcome_unresolved_reasons": {
+    "independent_scorer_identity": 5,
+    "missing_or_invalid_independent_first_score": 1
+  },
+  "protocol_sha256": "f4240fd25467d1481f0616ac11cbdf0059aa672a5995ed238c77278a0c8f27f7",
+  "publisher_reconciled": 434,
+  "reserve_probability_sensitivity": {
+    "discovery": {
+      "tip": {
+        "brier": {
+          "market_mean": 0.8992364681312877,
+          "model_mean": 0.8999479467634482,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.002953954263888384,
+              0.004248507327352605
+            ],
+            "descriptive_95pct_interval": [
+              -0.0016296191762984627,
+              0.0030616081821231984
+            ],
+            "weeks": 13
+          },
+          "paired_difference": 0.0007114786321606594
+        },
+        "forecast_games": 296,
+        "haircut_roi": -1.0,
+        "known_profit": -2.0,
+        "log_loss": {
+          "market_mean": 2.3893164608740274,
+          "model_mean": 2.391997677347655,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.015452662096210597,
+              0.019024184618197732
+            ],
+            "descriptive_95pct_interval": [
+              -0.008793847435878115,
+              0.013739663277154299
+            ],
+            "weeks": 13
+          },
+          "paired_difference": 0.002681216473627362
+        },
+        "loss": 2,
+        "nonvoid_settled_turnover": 2,
+        "original_stake_turnover": 2,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 2
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 2
+        },
+        "scored_games": 291,
+        "selected_bets": 2,
+        "unresolved": 0,
+        "unresolved_all_loss_roi": -1.0,
+        "unresolved_all_void_roi": -1.0,
+        "void": 0,
+        "win": 0
+      },
+      "tip_role": {
+        "brier": {
+          "market_mean": 0.8992364681312877,
+          "model_mean": 0.9010108466277733,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.005188027829011937,
+              0.008961880415675166
+            ],
+            "descriptive_95pct_interval": [
+              -0.0029477010693081756,
+              0.006659759759524082
+            ],
+            "weeks": 13
+          },
+          "paired_difference": 0.0017743784964856383
+        },
+        "forecast_games": 296,
+        "haircut_roi": null,
+        "known_profit": -32.71,
+        "log_loss": {
+          "market_mean": 2.3893164608740274,
+          "model_mean": 2.396031194163121,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.01904894461848868,
+              0.03572516439613027
+            ],
+            "descriptive_95pct_interval": [
+              -0.011458231675361946,
+              0.026122550254291204
+            ],
+            "weeks": 13
+          },
+          "paired_difference": 0.00671473328909346
+        },
+        "loss": 141,
+        "nonvoid_settled_turnover": 154,
+        "original_stake_turnover": 191,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.7111009084151055,
+            0.16774812182740656
+          ],
+          "descriptive_95pct_interval": [
+            -0.574654030566377,
+            0.03910962369558337
+          ],
+          "weeks": 13
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.5933218480138169,
+            0.25216247852233653
+          ],
+          "descriptive_95pct_interval": [
+            -0.46538502574370716,
+            0.13007986851456999
+          ],
+          "weeks": 13
+        },
+        "scored_games": 291,
+        "selected_bets": 191,
+        "unresolved": 19,
+        "unresolved_all_loss_roi": -0.2707329842931937,
+        "unresolved_all_void_roi": -0.17125654450261782,
+        "void": 18,
+        "win": 13
+      }
+    },
+    "replication": {
+      "tip": {
+        "brier": {
+          "market_mean": 0.9214440818057842,
+          "model_mean": 0.9196273317113212,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.004700368857999609,
+              0.0011625912079113033
+            ],
+            "descriptive_95pct_interval": [
+              -0.0038981979412376073,
+              0.00025889197022133066
+            ],
+            "weeks": 12
+          },
+          "paired_difference": -0.0018167500944629863
+        },
+        "forecast_games": 177,
+        "haircut_roi": 3.42,
+        "known_profit": 6.84,
+        "log_loss": {
+          "market_mean": 2.5261100428172254,
+          "model_mean": 2.5164784420352566,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.022118956923690206,
+              0.0035700673513507576
+            ],
+            "descriptive_95pct_interval": [
+              -0.01844411538016005,
+              -0.0006649006876698756
+            ],
+            "weeks": 12
+          },
+          "paired_difference": -0.009631600781968995
+        },
+        "loss": 1,
+        "nonvoid_settled_turnover": 2,
+        "original_stake_turnover": 2,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 2
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 2
+        },
+        "scored_games": 176,
+        "selected_bets": 2,
+        "unresolved": 0,
+        "unresolved_all_loss_roi": 3.42,
+        "unresolved_all_void_roi": 3.42,
+        "void": 0,
+        "win": 1
+      },
+      "tip_role": {
+        "brier": {
+          "market_mean": 0.9214440818057842,
+          "model_mean": 0.92158846682099,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.009607628589042544,
+              0.008754068222949054
+            ],
+            "descriptive_95pct_interval": [
+              -0.005818624351902817,
+              0.005633459092256742
+            ],
+            "weeks": 12
+          },
+          "paired_difference": 0.0001443850152058587
+        },
+        "forecast_games": 177,
+        "haircut_roi": null,
+        "known_profit": -3.370000000000002,
+        "log_loss": {
+          "market_mean": 2.5261100428172254,
+          "model_mean": 2.5270485421779147,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.04708779363414762,
+              0.038862483668538096
+            ],
+            "descriptive_95pct_interval": [
+              -0.028770195237028333,
+              0.02603998980802886
+            ],
+            "weeks": 12
+          },
+          "paired_difference": 0.0009384993606891154
+        },
+        "loss": 95,
+        "nonvoid_settled_turnover": 107,
+        "original_stake_turnover": 121,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.6412300217609642,
+            0.6091217237903048
+          ],
+          "descriptive_95pct_interval": [
+            -0.44181039452350934,
+            0.3561043855042017
+          ],
+          "weeks": 11
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.6182971242124212,
+            0.6290232212308199
+          ],
+          "descriptive_95pct_interval": [
+            -0.42264028633923245,
+            0.3711184210526316
+          ],
+          "weeks": 11
+        },
+        "scored_games": 176,
+        "selected_bets": 121,
+        "unresolved": 2,
+        "unresolved_all_loss_roi": -0.044380165289256215,
+        "unresolved_all_void_roi": -0.027851239669421504,
+        "void": 12,
+        "win": 12
+      }
+    }
+  },
+  "results": {
+    "discovery": {
+      "tip": {
+        "brier": {
+          "market_mean": 0.8992364681312877,
+          "model_mean": 0.8999479467634482,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.002953954263888384,
+              0.004248507327352605
+            ],
+            "descriptive_95pct_interval": [
+              -0.0016296191762984627,
+              0.0030616081821231984
+            ],
+            "weeks": 13
+          },
+          "paired_difference": 0.0007114786321606594
+        },
+        "forecast_games": 296,
+        "haircut_roi": -1.0,
+        "known_profit": -3.0,
+        "log_loss": {
+          "market_mean": 2.3893164608740274,
+          "model_mean": 2.391997677347655,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.015452662096210597,
+              0.019024184618197732
+            ],
+            "descriptive_95pct_interval": [
+              -0.008793847435878115,
+              0.013739663277154299
+            ],
+            "weeks": 13
+          },
+          "paired_difference": 0.002681216473627362
+        },
+        "loss": 3,
+        "nonvoid_settled_turnover": 3,
+        "original_stake_turnover": 3,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 2
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 2
+        },
+        "scored_games": 291,
+        "selected_bets": 3,
+        "unresolved": 0,
+        "unresolved_all_loss_roi": -1.0,
+        "unresolved_all_void_roi": -1.0,
+        "void": 0,
+        "win": 0
+      },
+      "tip_role": {
+        "brier": {
+          "market_mean": 0.8992364681312877,
+          "model_mean": 0.9010108466277733,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.005188027829011937,
+              0.008961880415675166
+            ],
+            "descriptive_95pct_interval": [
+              -0.0029477010693081756,
+              0.006659759759524082
+            ],
+            "weeks": 13
+          },
+          "paired_difference": 0.0017743784964856383
+        },
+        "forecast_games": 296,
+        "haircut_roi": null,
+        "known_profit": -41.71,
+        "log_loss": {
+          "market_mean": 2.3893164608740274,
+          "model_mean": 2.396031194163121,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.01904894461848868,
+              0.03572516439613027
+            ],
+            "descriptive_95pct_interval": [
+              -0.011458231675361946,
+              0.026122550254291204
+            ],
+            "weeks": 13
+          },
+          "paired_difference": 0.00671473328909346
+        },
+        "loss": 150,
+        "nonvoid_settled_turnover": 163,
+        "original_stake_turnover": 204,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.725174161174857,
+            0.10927689900989228
+          ],
+          "descriptive_95pct_interval": [
+            -0.5952447564877354,
+            -0.018290771259063986
+          ],
+          "weeks": 13
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.6171437548891786,
+            0.19855359245282858
+          ],
+          "descriptive_95pct_interval": [
+            -0.48852726574500777,
+            0.08213167429443165
+          ],
+          "weeks": 13
+        },
+        "scored_games": 291,
+        "selected_bets": 204,
+        "unresolved": 21,
+        "unresolved_all_loss_roi": -0.30740196078431375,
+        "unresolved_all_void_roi": -0.2044607843137255,
+        "void": 20,
+        "win": 13
+      }
+    },
+    "pooled": {
+      "tip": {
+        "brier": {
+          "market_mean": 0.9076059328137531,
+          "model_mean": 0.9073645886281713,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.002804071762925661,
+              0.0024388402301926816
+            ],
+            "descriptive_95pct_interval": [
+              -0.0019584912858517903,
+              0.0014932531411456262
+            ],
+            "weeks": 24
+          },
+          "paired_difference": -0.0002413441855818708
+        },
+        "forecast_games": 473,
+        "haircut_roi": 0.768,
+        "known_profit": 3.84,
+        "log_loss": {
+          "market_mean": 2.4408703589939478,
+          "model_mean": 2.438911198942982,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.014200998310593238,
+              0.009988833364980092
+            ],
+            "descriptive_95pct_interval": [
+              -0.010028659334985755,
+              0.006042491174332625
+            ],
+            "weeks": 24
+          },
+          "paired_difference": -0.0019591600509656984
+        },
+        "loss": 4,
+        "nonvoid_settled_turnover": 5,
+        "original_stake_turnover": 5,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 4
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 4
+        },
+        "scored_games": 467,
+        "selected_bets": 5,
+        "unresolved": 0,
+        "unresolved_all_loss_roi": 0.768,
+        "unresolved_all_void_roi": 0.768,
+        "void": 0,
+        "win": 1
+      },
+      "tip_role": {
+        "brier": {
+          "market_mean": 0.9076059328137531,
+          "model_mean": 0.9087660096984502,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.004086156988571221,
+              0.006818807850808965
+            ],
+            "descriptive_95pct_interval": [
+              -0.002449822186913817,
+              0.00482001551877185
+            ],
+            "weeks": 24
+          },
+          "paired_difference": 0.0011600768846971132
+        },
+        "forecast_games": 473,
+        "haircut_roi": null,
+        "known_profit": -38.476,
+        "log_loss": {
+          "market_mean": 2.4408703589939478,
+          "model_mean": 2.44540818185178,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.01827673460568889,
+              0.02920669592985078
+            ],
+            "descriptive_95pct_interval": [
+              -0.010927565515066486,
+              0.02022444491583102
+            ],
+            "weeks": 24
+          },
+          "paired_difference": 0.004537822857831865
+        },
+        "loss": 248,
+        "nonvoid_settled_turnover": 275,
+        "original_stake_turnover": 330,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.5536506754800127,
+            0.16477761967301952
+          ],
+          "descriptive_95pct_interval": [
+            -0.4256323076923077,
+            0.039765769208055246
+          ],
+          "weeks": 23
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.4748676568058873,
+            0.22117526023605863
+          ],
+          "descriptive_95pct_interval": [
+            -0.3564514999128801,
+            0.10654430376125677
+          ],
+          "weeks": 23
+        },
+        "scored_games": 467,
+        "selected_bets": 330,
+        "unresolved": 23,
+        "unresolved_all_loss_roi": -0.1862909090909091,
+        "unresolved_all_void_roi": -0.11659393939393939,
+        "void": 32,
+        "win": 27
+      }
+    },
+    "replication": {
+      "tip": {
+        "brier": {
+          "market_mean": 0.9214440818057842,
+          "model_mean": 0.9196273317113212,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.004700368857999609,
+              0.0011625912079113033
+            ],
+            "descriptive_95pct_interval": [
+              -0.0038981979412376073,
+              0.00025889197022133066
+            ],
+            "weeks": 12
+          },
+          "paired_difference": -0.0018167500944629863
+        },
+        "forecast_games": 177,
+        "haircut_roi": 3.42,
+        "known_profit": 6.84,
+        "log_loss": {
+          "market_mean": 2.5261100428172254,
+          "model_mean": 2.5164784420352566,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.022118956923690206,
+              0.0035700673513507576
+            ],
+            "descriptive_95pct_interval": [
+              -0.01844411538016005,
+              -0.0006649006876698756
+            ],
+            "weeks": 12
+          },
+          "paired_difference": -0.009631600781968995
+        },
+        "loss": 1,
+        "nonvoid_settled_turnover": 2,
+        "original_stake_turnover": 2,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 2
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": null,
+          "reason": "fewer_than_eight_weeks",
+          "weeks": 2
+        },
+        "scored_games": 176,
+        "selected_bets": 2,
+        "unresolved": 0,
+        "unresolved_all_loss_roi": 3.42,
+        "unresolved_all_void_roi": 3.42,
+        "void": 0,
+        "win": 1
+      },
+      "tip_role": {
+        "brier": {
+          "market_mean": 0.9214440818057842,
+          "model_mean": 0.92158846682099,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.009607628589042544,
+              0.008754068222949054
+            ],
+            "descriptive_95pct_interval": [
+              -0.005818624351902817,
+              0.005633459092256742
+            ],
+            "weeks": 12
+          },
+          "paired_difference": 0.0001443850152058587
+        },
+        "forecast_games": 177,
+        "haircut_roi": null,
+        "known_profit": 3.233999999999998,
+        "log_loss": {
+          "market_mean": 2.5261100428172254,
+          "model_mean": 2.5270485421779147,
+          "paired_bootstrap": {
+            "confidence": 0.9966666666666667,
+            "corrected_interval": [
+              -0.04708779363414762,
+              0.038862483668538096
+            ],
+            "descriptive_95pct_interval": [
+              -0.028770195237028333,
+              0.02603998980802886
+            ],
+            "weeks": 12
+          },
+          "paired_difference": 0.0009384993606891154
+        },
+        "loss": 98,
+        "nonvoid_settled_turnover": 112,
+        "original_stake_turnover": 126,
+        "roi_bootstrap_all_loss": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.5641971487603306,
+            0.6648249318364052
+          ],
+          "descriptive_95pct_interval": [
+            -0.3715775902132313,
+            0.4030866066881684
+          ],
+          "weeks": 11
+        },
+        "roi_bootstrap_all_void": {
+          "confidence": 0.9966666666666667,
+          "corrected_interval": [
+            -0.5477991601049869,
+            0.6713316781609138
+          ],
+          "descriptive_95pct_interval": [
+            -0.3546514054600607,
+            0.4187610619469026
+          ],
+          "weeks": 11
+        },
+        "scored_games": 176,
+        "selected_bets": 126,
+        "unresolved": 2,
+        "unresolved_all_loss_roi": 0.00979365079365078,
+        "unresolved_all_void_roi": 0.025666666666666654,
+        "void": 12,
+        "win": 14
+      }
+    }
+  },
+  "unlisted_scorers": 30
+}

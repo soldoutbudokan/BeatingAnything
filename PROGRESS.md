@@ -2,7 +2,23 @@
 
 Updated September 19, 2026 (Toronto). Current research objective: find an edge in FanDuel first-basket markets. The earlier market/data discovery objective is complete. [NEXT-STEPS.md](NEXT-STEPS.md) carries the resulting direction. Scheduled research and watches remain paused; no betting edge has been established.
 
-**Current execution status: the first-basket sport screen passes; the price backtest remains unfinished.** Golf G11 remains parked on its own qualified-price dependency.
+**Current execution status: both fixed first-basket price candidates fail advancement; no edge is established.** Golf G11 remains parked on its own qualified-price dependency.
+
+## September 19 continuation: settlement difference passes a separate screen
+
+[Card 42](docs/hypotheses/basketball-first-score-free-throw-wedge.md) was declared before reading the 2024 independent first-score/first-field-goal pairs. Its [screen](reports/nba-first-score-wedge-screen-2026-09-19.md) retains 1,319 games and finds **80 different winners (6.07%)**, passing all fixed materiality/sample gates. Of 94 free-throw first scores, 14 have the same subsequent first-field-goal scorer. This is a settlement-definition effect, not FanDuel mispricing.
+
+The [price coverage check](reports/nba-first-score-wedge-price-coverage-2026-09-19.json) finds 214 BetMGM /443 BetRivers /357 Bovada /428 DraftKings games matching a fresh FanDuel ten-player board. No cross-book probability or strategy was calculated. Historical displayed definitions and jurisdiction are still missing: the normalized market key alone cannot establish whether a particular reference quote excludes free throws. Verify that mapping before freezing one conversion model; do not silently label all DraftKings quotes first-field-goal merely because that product appears in a retail rulebook. Card 41 and its periods remain inspected/closed; the pricing comparison allowance remains 15.
+
+The [additional source search](reports/nba-first-basket-additional-source-2026-09-19.md) audits 17 FanDuel games in `vishaalram02/odds`, 16 already in the price inventory, without collection clocks. Its published endpoint returned 404 and was stopped. Three other repository trees contain unrelated files or sport statistics, without an identified odds archive. Optional existing paid historical-access/export information is pending; no credential was found, subscription purchased or message sent. Later-season public tracker statistics/examples were visible during source checking and were not used as forecasts. All **262 tests pass**. Next work is card 42's historical market-identity prerequisite or a concrete additional price source, not another rerun of these sport screens.
+
+## September 19 continuation: fixed first-basket price test completed
+
+The [backtest](reports/nba-first-basket-backtest-2026-09-19.md) freezes 473 forecasts before independent grading, with 296 discovery /177 replication games. The tip-only model produces just five bets, below the fixed sample gates. The tip-plus-role model selects 204 /126 bets: discovery ROI is **−30.74% /−20.45%** under unresolved-as-loss /unresolved-as-void sensitivities, and replication is **+0.98% /+2.57%** with corrected intervals spanning large losses and gains. Its pooled probability forecasts are worse than normalized FanDuel prices; applying the declared 1% reserve also makes replication returns negative. Neither candidate advances.
+
+Independent first scores resolve 467 games, including 30 unlisted scorers retained in scoring. Three source-check games, 98 failed player-ID joins and six prior-roster team assignments were excluded before outcomes. Unknown settlements remain explicit. The [forecast manifest](reports/nba-first-basket-forecast-freeze-2026-09-19.json), [complete results](reports/nba-first-basket-backtest-2026-09-19.json), chronology tests and unchanged protocol preserve the experiment. All **259 tests pass**.
+
+Both price periods are now inspected. Do not tune these two specifications, weaken gates or reinterpret the sparse tip-only winnings as an edge. Next inspect the concrete additional first-basket JSON source in `vishaalram02/odds`; establish genuine additional FanDuel coverage before declaring another experiment. The research objective remains incomplete and scheduled jobs remain paused.
 
 ## September 19 checkpoint: opening possession screen and initial price model
 

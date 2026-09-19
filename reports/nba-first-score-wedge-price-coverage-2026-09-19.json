@@ -1,0 +1,56 @@
+{
+  "purpose": "Source coverage only; no cross-book probabilities, predictions, selections or returns calculated",
+  "fanduel_source_boards": 580,
+  "source": {
+    "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/odds_first_basket.csv",
+    "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/odds_first_basket.csv",
+    "status": 200,
+    "request_started_at": "2026-09-19T22:28:35.150265+00:00",
+    "received_at": "2026-09-19T22:28:36.096362+00:00",
+    "bytes": 4502159,
+    "sha256": "672eee04599748d7ca03dfd70db7d53e983bba695e3305919f064a5b3b97fb46",
+    "expected_git_blob": "d7ea1c4fcf5d80137110303c2a5d650a491072a2"
+  },
+  "join_rule": "Same event ID and exact normalized ten-player name set; each complete board fresh within 300 seconds at joint receipt and at least 60 seconds pregame. Earliest accepted FD board fixed by prior audit.",
+  "book_counts": {
+    "betmgm": {
+      "boards_against_fixed_fd_cohort": 322,
+      "matched_same_candidate_fresh_boards": 214,
+      "candidate_sets_differ": 74,
+      "reference_not_ten_unique_runners": 33,
+      "reference_quote_older_than_five_minutes": 1
+    },
+    "betrivers": {
+      "boards_against_fixed_fd_cohort": 562,
+      "matched_same_candidate_fresh_boards": 443,
+      "candidate_sets_differ": 111,
+      "reference_receipt_within_minute_of_or_after_start": 2,
+      "reference_not_ten_unique_runners": 3,
+      "reference_quote_older_than_five_minutes": 3
+    },
+    "bovada": {
+      "boards_against_fixed_fd_cohort": 542,
+      "candidate_sets_differ": 99,
+      "matched_same_candidate_fresh_boards": 357,
+      "reference_receipt_within_minute_of_or_after_start": 2,
+      "reference_not_ten_unique_runners": 75,
+      "reference_quote_older_than_five_minutes": 9
+    },
+    "draftkings": {
+      "boards_against_fixed_fd_cohort": 570,
+      "matched_same_candidate_fresh_boards": 428,
+      "reference_receipt_within_minute_of_or_after_start": 2,
+      "candidate_sets_differ": 123,
+      "reference_not_ten_unique_runners": 16,
+      "reference_quote_older_than_five_minutes": 1
+    }
+  },
+  "distinct_matched_games": {
+    "betmgm": 214,
+    "betrivers": 443,
+    "bovada": 357,
+    "draftkings": 428
+  },
+  "market_identity_status": "Normalized player_first_basket requests verified, but historical displayed definition/jurisdiction not recovered for each reference quote. Counts do not imply same settlement or an established first-field-goal reference.",
+  "outcome_independent": true
+}

@@ -1,0 +1,45 @@
+{
+  "card": 42,
+  "purpose": "Descriptive settlement-difference screen; no prices, model or ROI",
+  "declaration": {
+    "declared_at": "2026-09-19T23:33:30.790811+00:00",
+    "path": "docs/hypotheses/basketball-first-score-free-throw-wedge.md",
+    "sha256": "b6e29430a178f5e985d053c01c637e7cbaa5dbdf5eef733198721add2e088723",
+    "phase": "before 2024 first-score/first-field-goal pairs read"
+  },
+  "source": {
+    "path": "data/raw/nba-first-score-wedge-2026-09-19/play_by_play_2024.parquet",
+    "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_pbp/play_by_play_2024.parquet",
+    "status": 200,
+    "request_started_at": "2026-09-19T23:33:59.935432+00:00",
+    "received_at": "2026-09-19T23:34:04.932676+00:00",
+    "bytes": 20618404,
+    "sha256": "62b609ea487d23aec11e6756d7477a8b1df3a1e57e97fc90c7230b62a5835af1",
+    "release_asset_id": 530384885,
+    "release_asset_digest": "sha256:62b609ea487d23aec11e6756d7477a8b1df3a1e57e97fc90c7230b62a5835af1"
+  },
+  "source_games": 1320,
+  "valid_games": 1319,
+  "exclusions": {
+    "invalid_or_duplicate_sequence": 1
+  },
+  "date_range": [
+    "2023-10-24",
+    "2024-06-17"
+  ],
+  "calendar_week_blocks": 35,
+  "free_throw_first_scores": 94,
+  "free_throw_first_score_rate": 0.0712661106899166,
+  "different_first_score_and_field_goal_winners": 80,
+  "different_winner_rate": 0.060652009097801364,
+  "free_throw_first_score_same_field_goal_winner": 14,
+  "fixed_gate": {
+    "minimum_games": 1000,
+    "minimum_different_winners": 50,
+    "minimum_different_winner_rate": 0.05,
+    "passed": true
+  },
+  "ledger_path": "data/raw/nba-first-score-wedge-2026-09-19/screen-ledger.json",
+  "ledger_sha256": "46c4b13a1bb6e90e1009e62c657c85a8832858e622fa1dad4b47fd6e8640dfdf",
+  "interpretation": "Market definitions differ materially only if the fixed gate passes; this does not establish that FanDuel prices ignore the difference."
+}

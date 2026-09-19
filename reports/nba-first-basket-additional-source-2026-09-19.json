@@ -1,0 +1,285 @@
+{
+  "repository": "https://github.com/vishaalram02/odds",
+  "commit": "756e4f02344422f192694a11a0122932343a48ef",
+  "sources": [
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/firstbasket_odds-tree.json",
+      "url": "https://api.github.com/repos/vishaalram02/odds/git/trees/756e4f02344422f192694a11a0122932343a48ef?recursive=1",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:28:10.328363+00:00",
+      "received_at": "2026-09-19T22:28:10.637193+00:00",
+      "bytes": 9310,
+      "sha256": "ea19d6b03d64d25b4c2d5ad925ce1119798bd61c161eacdd153b0be94ca8edbe"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/firstbasket_odds/data/first_basket.json",
+      "url": "https://raw.githubusercontent.com/vishaalram02/odds/756e4f02344422f192694a11a0122932343a48ef/data/first_basket.json",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:26:02.069795+00:00",
+      "received_at": "2026-09-19T23:26:02.454600+00:00",
+      "bytes": 404733,
+      "sha256": "01b8484466e2d22d2f05bdeee5f2c785541bdda3dd3b76177128fd7a1e6559d5",
+      "expected_git_blob": "d65ed91152dece9973c9b4a04f1560da445b2643"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/firstbasket_odds/data/first_basket_2.json",
+      "url": "https://raw.githubusercontent.com/vishaalram02/odds/756e4f02344422f192694a11a0122932343a48ef/data/first_basket_2.json",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:26:02.070158+00:00",
+      "received_at": "2026-09-19T23:26:02.248332+00:00",
+      "bytes": 19762,
+      "sha256": "158ce955885e21b20438015e18c9ad52e968a9ae92760c72c8b2c4ee8e833377",
+      "expected_git_blob": "40ac220bf547e69836c0943da220a242d95925eb"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/firstbasket_odds/api_utils.py",
+      "url": "https://raw.githubusercontent.com/vishaalram02/odds/756e4f02344422f192694a11a0122932343a48ef/api_utils.py",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:26:02.070217+00:00",
+      "received_at": "2026-09-19T23:26:02.351648+00:00",
+      "bytes": 1489,
+      "sha256": "f1efce517093bc7d565cbc23efbf12af747c59c9a5ddaff90dbc06e14a747d2b",
+      "expected_git_blob": "633f1476e3af6c9dba37157ee627dc6d6aaecfc6"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/firstbasket_odds/app.py",
+      "url": "https://raw.githubusercontent.com/vishaalram02/odds/756e4f02344422f192694a11a0122932343a48ef/app.py",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:26:02.070276+00:00",
+      "received_at": "2026-09-19T23:26:02.288603+00:00",
+      "bytes": 2381,
+      "sha256": "0718c24928875cbe161a035bffa463590f4c5c03b1b230bc25027a8b2c6eb806",
+      "expected_git_blob": "f141c5e6644fc33d9c282e66e5a1b2557412e41a"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/firstbasket_odds/frontend/src/routes/api/first-basket/+server.ts",
+      "url": "https://raw.githubusercontent.com/vishaalram02/odds/756e4f02344422f192694a11a0122932343a48ef/frontend/src/routes/api/first-basket/%2Bserver.ts",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:27:01.187904+00:00",
+      "received_at": "2026-09-19T23:27:01.346195+00:00",
+      "bytes": 397,
+      "sha256": "47e0e232d0ebd25cf58099662675d996d317f282a197d2bc3a256a295c5651ce",
+      "expected_git_blob": "ff7ada193e80921dd03d7e4ffe0cd44621b9b37c"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/firstbasket_odds/frontend/src/routes/+page.svelte",
+      "url": "https://raw.githubusercontent.com/vishaalram02/odds/756e4f02344422f192694a11a0122932343a48ef/frontend/src/routes/%2Bpage.svelte",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:27:01.346474+00:00",
+      "received_at": "2026-09-19T23:27:01.502997+00:00",
+      "bytes": 5673,
+      "sha256": "d6ee0f238ab09e6db71f49b056cf850dbeeea8e7c4602cb5790f7e1d021c1bf8",
+      "expected_git_blob": "6bc391cf8b771b0f1539817202401636664dcd78"
+    }
+  ],
+  "files": [
+    {
+      "path": "data/first_basket.json",
+      "event_rows": 8,
+      "fanduel_games": 7,
+      "fanduel_snapshots": 159,
+      "fanduel_price_rows": 1567,
+      "distinct_snapshot_fingerprints": 159,
+      "runner_counts": {
+        "10": 136,
+        "9": 23
+      },
+      "market_keys": {
+        "player_first_basket": 159
+      },
+      "outcome_labels": {
+        "Yes": 1567
+      },
+      "market_update_range": [
+        "2025-01-31T05:40:37Z",
+        "2025-01-31T16:49:26Z"
+      ],
+      "events_already_in_previous_fd_inventory": 6,
+      "events_in_inspected_forecast_cohort": 2,
+      "local_collection_timestamp_present": false
+    },
+    {
+      "path": "data/first_basket_2.json",
+      "event_rows": 10,
+      "fanduel_games": 10,
+      "fanduel_snapshots": 10,
+      "fanduel_price_rows": 100,
+      "distinct_snapshot_fingerprints": 10,
+      "runner_counts": {
+        "10": 10
+      },
+      "market_keys": {
+        "None": 10
+      },
+      "outcome_labels": {},
+      "market_update_range": [
+        1738604435,
+        1738604494
+      ],
+      "events_already_in_previous_fd_inventory": 10,
+      "events_in_inspected_forecast_cohort": 6,
+      "local_collection_timestamp_present": false
+    }
+  ],
+  "total_distinct_fanduel_games": 17,
+  "published_read_endpoint": {
+    "url": "https://vishaalram02--first-basket-first-basket-web.modal.run?date=2025-02-03",
+    "status": 404,
+    "request_started_at": "2026-09-19T23:27:16.585163+00:00",
+    "received_at": "2026-09-19T23:27:16.832572+00:00",
+    "bytes": 34,
+    "sha256": "140b2f05397afc9e90c6c7e1143a13a78ab60ca5a035022e2fade1edacccc8a0",
+    "content_type": null
+  },
+  "decision": "No additional independently timed price cohort established; retain source as small movement sample only. Endpoint 404 was not retried.",
+  "limitations": [
+    "First JSON retains market key, Yes label and zoned bookmaker update, but no independent collection clock.",
+    "Second JSON drops market key and uses integer clocks; collector parses Z times into naive datetimes before timestamp conversion, so host timezone is not verified.",
+    "Current collector output differs from both checked-in JSON schemas.",
+    "No source code executed, API credentials used, messages sent or schedules enabled.",
+    "The public frontend endpoint returns 404 invalid function call; no active historical service verified.",
+    "No new model or strategy test performed on this sample."
+  ],
+  "other_repository_checks": [
+    {
+      "path": "data/raw/first-basket-next-sources-2026-09-19/ijl7--First-Basket-Sim-tree.json",
+      "source": {
+        "url": "https://api.github.com/repos/ijl7/First-Basket-Sim/git/trees/main?recursive=1",
+        "status": 200,
+        "request_started_at": "2026-09-19T23:29:42.105196+00:00",
+        "received_at": "2026-09-19T23:29:43.234259+00:00",
+        "bytes": 1457569,
+        "sha256": "fac6ccc64605bd007a87b8fd143ec6648174f520217ab4f9e2b22b0025a45b37"
+      },
+      "tree_sha": "96ca0616e58b73cb5cb91aa036f111dec62197ad",
+      "truncated": false,
+      "blob_count": 6277,
+      "root_counts": {
+        ".gitattributes": 1,
+        "2021": 1228,
+        "2022 PLAY": 79,
+        "2022": 1228,
+        "2023 PRE": 73,
+        "2023": 1227,
+        "2024": 1229,
+        "2025": 1200,
+        "README.md": 1,
+        "__pycache__": 1,
+        "build_lineup_shot_chart.py": 1,
+        "diagnose_boxscore.py": 1,
+        "firstBasketChart.txt": 1,
+        "lineupChart.txt": 1,
+        "lineupShotChart.json": 1,
+        "readCSV.py": 1,
+        "scraper.py": 1,
+        "scraper2.py": 1,
+        "tipWinChart.json": 1,
+        "tipWinChart.txt": 1
+      }
+    },
+    {
+      "path": "data/raw/first-basket-next-sources-2026-09-19/quigs-barstool--GamblingModel-tree.json",
+      "source": {
+        "url": "https://api.github.com/repos/quigs-barstool/GamblingModel/git/trees/main?recursive=1",
+        "status": 200,
+        "request_started_at": "2026-09-19T23:29:42.105275+00:00",
+        "received_at": "2026-09-19T23:29:42.414169+00:00",
+        "bytes": 1423,
+        "sha256": "0304ff7086ae9e1b57660c8c1bb5a145f48aec0e9ed54227e937554b500ebf77"
+      },
+      "tree_sha": "945c7151243e38ad498628f1d0a77695667673c4",
+      "truncated": false,
+      "blob_count": 5,
+      "root_counts": {
+        "FirstBasketUpdatedV11x.py": 1,
+        "KOTCv3.py": 1,
+        "first_shot_cache_202526.csv": 1,
+        "first_shot_report_202526.xlsx": 1,
+        "player_avgs_plus_today_202526.xlsx": 1
+      }
+    },
+    {
+      "path": "data/raw/first-basket-next-sources-2026-09-19/vanessagyapong--first-basket-tree.json",
+      "source": {
+        "url": "https://api.github.com/repos/vanessagyapong/first-basket/git/trees/main?recursive=1",
+        "status": 200,
+        "request_started_at": "2026-09-19T23:29:42.104746+00:00",
+        "received_at": "2026-09-19T23:29:42.494302+00:00",
+        "bytes": 21317,
+        "sha256": "2b562988c7d99e42dbd31a3e4b931913b7d5cd2d8f3c19bbe4f6c6b6642c48c0"
+      },
+      "tree_sha": "dd0075fdbf6aff2fe66e2b237c02991966ae4192",
+      "truncated": false,
+      "blob_count": 88,
+      "root_counts": {
+        ".DS_Store": 1,
+        "baby.html": 1,
+        "baker.html": 1,
+        "baskets.html": 1,
+        "butcher.html": 1,
+        "categories.html": 1,
+        "creamy.html": 1,
+        "forgotpassword.html": 1,
+        "ghanacorner.html": 1,
+        "grain.html": 1,
+        "harvest.html": 1,
+        "images2": 64,
+        "index.html": 1,
+        "login.html": 1,
+        "navigation.css": 1,
+        "navigation.js": 1,
+        "orders.html": 1,
+        "pantry.html": 1,
+        "profile.html": 1,
+        "recipes.html": 1,
+        "shop.html": 1,
+        "signup.html": 1,
+        "sip.html": 1,
+        "snacks.html": 1,
+        "vegan.html": 1
+      }
+    }
+  ],
+  "inspected_followup_files": [
+    {
+      "path": "data/raw/first-basket-next-sources-2026-09-19/ijl7--First-Basket-Sim/README.md",
+      "url": "https://raw.githubusercontent.com/ijl7/First-Basket-Sim/96ca0616e58b73cb5cb91aa036f111dec62197ad/README.md",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:31:04.166261+00:00",
+      "received_at": "2026-09-19T23:31:04.361241+00:00",
+      "bytes": 53,
+      "sha256": "6cd61a6d03317c9770425968889071fca51741a348484d8360fd270fbf1891af",
+      "expected_git_blob": "a53f047eeb01c702e8cc9217f0b368f4ccc24a15"
+    },
+    {
+      "path": "data/raw/first-basket-next-sources-2026-09-19/ijl7--First-Basket-Sim/scraper2.py",
+      "url": "https://raw.githubusercontent.com/ijl7/First-Basket-Sim/96ca0616e58b73cb5cb91aa036f111dec62197ad/scraper2.py",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:31:04.163025+00:00",
+      "received_at": "2026-09-19T23:31:04.379914+00:00",
+      "bytes": 38070,
+      "sha256": "b090605970022cea734a31226f8cd70f450d74e1f84eb6f1ba1da209b0e4196c",
+      "expected_git_blob": "ea9b72cbde23f8c456cadec7df0cb99d0d31d34c"
+    },
+    {
+      "path": "data/raw/first-basket-next-sources-2026-09-19/quigs-barstool--GamblingModel/FirstBasketUpdatedV11x.py",
+      "url": "https://raw.githubusercontent.com/quigs-barstool/GamblingModel/945c7151243e38ad498628f1d0a77695667673c4/FirstBasketUpdatedV11x.py",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:31:04.159365+00:00",
+      "received_at": "2026-09-19T23:31:04.367441+00:00",
+      "bytes": 51068,
+      "sha256": "73cfbbd0a5bbe779f7bee8fc515a418ac54b06da799ad25bf7bca119e6ed6e79",
+      "expected_git_blob": "ff7ce28f109ee6d566518d1165749b013926ab9f"
+    },
+    {
+      "path": "data/raw/first-basket-next-sources-2026-09-19/quigs-barstool--GamblingModel/first_shot_cache_202526.csv",
+      "url": "https://raw.githubusercontent.com/quigs-barstool/GamblingModel/945c7151243e38ad498628f1d0a77695667673c4/first_shot_cache_202526.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T23:31:04.166876+00:00",
+      "received_at": "2026-09-19T23:31:04.355542+00:00",
+      "bytes": 51713,
+      "sha256": "1daa10dc57ba5567c520a87b664612d8a81c52993c94f78e6c73b5e85cd0e296",
+      "expected_git_blob": "eadddc1560df22ef00a1560060924403bbca11e0"
+    }
+  ]
+}
