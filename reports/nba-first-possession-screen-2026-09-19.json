@@ -1,0 +1,114 @@
+{
+  "card": 41,
+  "purpose": "Fixed sport-side triage; no prices or model fitted",
+  "sources": [
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2019.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2019.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.175277+00:00",
+      "received_at": "2026-09-19T22:31:56.606251+00:00",
+      "bytes": 139116,
+      "sha256": "106d0ace209319146324bf6f20ac6de2f1fcdba7874ed3e4fe14c17005d23761",
+      "expected_git_blob": "aa131389a24c9f7f7bcad3417731b402ef9e543d"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2020.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2020.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.175608+00:00",
+      "received_at": "2026-09-19T22:31:56.490832+00:00",
+      "bytes": 120493,
+      "sha256": "251d1a304a5eabfafde681afc4923dd1e29dd6ccae409d98eca637c7e1171c9a",
+      "expected_git_blob": "34ba134965bc9ab8ca09c330002e224273ef8497"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2021.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2021.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.175679+00:00",
+      "received_at": "2026-09-19T22:31:56.371376+00:00",
+      "bytes": 123688,
+      "sha256": "d493d35a36a90fc055a8b875bbfa17907135a5c41897b2ea02fbc62511419f91",
+      "expected_git_blob": "4b488cf0033c2a5e3cd7732cec63780cbc73f45c"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2022.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2022.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.377124+00:00",
+      "received_at": "2026-09-19T22:31:56.571375+00:00",
+      "bytes": 139945,
+      "sha256": "f4d8c20f23fa69095ddf9000c9b5651ab11cca95689ab4810c19202fdd003d80",
+      "expected_git_blob": "db56ca0c4a58b1d206362c39e55ca4945fc0f9bd"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2023.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2023.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.499527+00:00",
+      "received_at": "2026-09-19T22:31:56.688161+00:00",
+      "bytes": 139341,
+      "sha256": "46139ba6d698b835f23ae55dd4862c5daf8af278a7ab75ac7f069442aa7e3cc7",
+      "expected_git_blob": "b597013770a42a173724a4362b88f61d86baa689"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2024.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2024.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.578897+00:00",
+      "received_at": "2026-09-19T22:31:56.776516+00:00",
+      "bytes": 139801,
+      "sha256": "01a88de7e1d09de09895b0e1361292da4273fee47af57f0d61e88ad1659e9235",
+      "expected_git_blob": "16d2dbb43cf3a92957df4cb742badca8e03e8b0c"
+    }
+  ],
+  "input_rows": 7583,
+  "exclusions": {
+    "missing_jumper_possession_or_scorer": 63
+  },
+  "valid_games": 7520,
+  "calendar_week_blocks": 202,
+  "first_possession_team_first_scores": 4941,
+  "first_possession_team_first_score_rate": 0.6570478723404255,
+  "other_team_first_score_rate": 0.3429521276595745,
+  "probability_contrast": 0.314095744680851,
+  "descriptive_95pct_week_bootstrap_interval": [
+    0.2922296165132962,
+    0.33684619760492196
+  ],
+  "bootstrap_draws": 10000,
+  "seed": 1729,
+  "seasons": {
+    "2019": {
+      "games": 1308,
+      "first_possession_team_first_score_rate": 0.6605504587155964
+    },
+    "2020": {
+      "games": 1129,
+      "first_possession_team_first_score_rate": 0.6696191319751993
+    },
+    "2021": {
+      "games": 1159,
+      "first_possession_team_first_score_rate": 0.6643658326143227
+    },
+    "2022": {
+      "games": 1312,
+      "first_possession_team_first_score_rate": 0.6410060975609756
+    },
+    "2023": {
+      "games": 1300,
+      "first_possession_team_first_score_rate": 0.6469230769230769
+    },
+    "2024": {
+      "games": 1312,
+      "first_possession_team_first_score_rate": 0.6623475609756098
+    }
+  },
+  "fixed_gate": {
+    "minimum_games": 1000,
+    "minimum_probability_contrast": 0.1,
+    "passed": true
+  },
+  "interpretation": "Observed possession advantage; not evidence of FanDuel mispricing or a causal jumper effect."
+}

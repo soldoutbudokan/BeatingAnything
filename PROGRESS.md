@@ -1,8 +1,16 @@
 # Research progress and continuation handoff
 
-Updated September 19, 2026 (Toronto). Latest instruction: find a different creative market, excluding main lines, spreads and totals, that actually has historical price data. The NBA first-basket source below fulfills that discovery objective. [NEXT-STEPS.md](NEXT-STEPS.md) carries the resulting direction. Scheduled research and watches remain paused; no betting edge has been established.
+Updated September 19, 2026 (Toronto). Current research objective: find an edge in FanDuel first-basket markets. The earlier market/data discovery objective is complete. [NEXT-STEPS.md](NEXT-STEPS.md) carries the resulting direction. Scheduled research and watches remain paused; no betting edge has been established.
 
-**Current execution status: a different market with usable exploratory data has been found.** NBA first-basket scorer has actual FanDuel prices and supporting historical outcomes. Golf G11 remains parked on its own qualified-price dependency; that blocker does not prevent work on this new market.
+**Current execution status: the first-basket sport screen passes; the price backtest remains unfinished.** Golf G11 remains parked on its own qualified-price dependency.
+
+## September 19 checkpoint: opening possession screen and initial price model
+
+The [fixed screen](reports/nba-first-possession-screen-2026-09-19.json) retains 7,520 games from 2019–2024 after 63 missing-input exclusions. The opening-possession team scored first in 4,941 games (**65.70%**), a **31.41 percentage-point** contrast against its opponent; the descriptive week-bootstrap interval is 29.22–33.68 points. This clears the declared sport-side gate and does not establish FanDuel mispricing.
+
+The [price protocol](docs/nba-first-basket-price-protocol-2026-09-19.md) declares two fixed candidates, prior-game chronology, nonstarter void handling, chronological periods and corrected evidence gates. Its pre-forecast SHA-256 is `f4240fd25467d1481f0616ac11cbdf0059aa672a5995ed238c77278a0c8f27f7`. The initial [model kernel](beating/first_basket.py) implements the two probability adjustments and selection rule. The chronological data preparation, immutable forecast export, independent grading and price results are still pending; the kernel alone does not enforce quote-time eligibility. No price forecasts or strategy returns have been generated at this checkpoint.
+
+Resume by implementing and verifying that chronological runner against the frozen protocol, then freeze predictions before grading independent outcomes. Do not rerun or retune the sport screen. The protocol adds these two candidates to the previous thirteen-comparison family for new historical claims (15 total); older protocols and their original results remain preserved.
 
 ## September 19: NBA first-basket market and historical data recovered
 

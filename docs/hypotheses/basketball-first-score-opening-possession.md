@@ -16,6 +16,6 @@
 
 **Book-side test:** After the cheap screen, freeze an exact estimator and chronological split before inspecting conditional results. Estimate first-score probabilities as a mixture of the two possible opening-possession states, including free throws, misses, turnovers and second chances. Compare against FanDuel's prices and a declared simpler first-score-frequency baseline. Use one fixed selection rule per game, actual quoted decimal prices and nonstarter voids. Do not compare raw first-field-goal prices as though their outcomes were identical; do not promote a one-snapshot source into closing-line evidence.
 
-**Status:** data available; sport-side and book-side untested.
+**Status:** sport-side screen passed on September 19: opening-possession team scores first in 4,941/7,520 games (65.70%), a 31.41-point contrast. See the [screen result](../../reports/nba-first-possession-screen-2026-09-19.json). Book-side test remains unperformed.
 
-**Remaining work:** execute the declared cheap screen, then freeze and run the actual price comparison if it passes. The archive supports exploratory testing now; unknown quote jurisdiction and publisher outcome inspection remain explicit, and prospective promotion requirements are unchanged.
+**Remaining work:** complete the chronological runner and independent grading under the [frozen price protocol](../nba-first-basket-price-protocol-2026-09-19.md). The initial probability kernel is saved; forecasts and strategy returns have not been generated. The archive supports exploratory testing now; unknown quote jurisdiction and publisher outcome inspection remain explicit, and prospective promotion requirements are unchanged.
