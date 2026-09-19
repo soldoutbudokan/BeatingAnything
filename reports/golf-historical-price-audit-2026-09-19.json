@@ -1,0 +1,410 @@
+{
+  "scope": "source inventory only; no predictions, outcomes, ROI or eligibility inferred",
+  "repository": "https://github.com/jriordan55/alpha-caddie",
+  "commit": "5508f6f35830f09d0b1e0c06abed0b2b489dde04",
+  "sources": [
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha-tree.json",
+      "url": "https://api.github.com/repos/jriordan55/alpha-caddie/git/trees/5508f6f35830f09d0b1e0c06abed0b2b489dde04?recursive=1",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:33:56.921812+00:00",
+      "received_at": "2026-09-19T20:33:58.216536+00:00",
+      "bytes": 729024,
+      "sha256": "6f7dfcfc21ed47b3de5cb4199c61367db4af7737b9712f8f7f77563bf99c27f2",
+      "headers": {
+        "date": "Sat, 19 Sep 2026 20:33:57 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=86400, s-maxage=86400",
+        "etag": "W/\"e2ede89051842e74d1a29bc002263ced56047c950683186ee19bb0dc9b16061f\"",
+        "last-modified": "Sat, 19 Sep 2026 20:15:30 GMT"
+      }
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/alpha-caddie-web/data/matchup_backtest_detail.csv",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/alpha-caddie-web/data/matchup_backtest_detail.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:34:44.222926+00:00",
+      "received_at": "2026-09-19T20:34:45.061283+00:00",
+      "bytes": 14618544,
+      "sha256": "6d08fe057e566f386cca656c86893e6b082adaf8a107a08fdead51b257df7656",
+      "headers": {
+        "cache-control": "max-age=300",
+        "content-type": "text/plain; charset=utf-8",
+        "etag": "\"a3aeabef59de56a0440061ee863d9f62ec861583d6061c64e06288d54bcff7a4\"",
+        "date": "Sat, 19 Sep 2026 20:34:44 GMT"
+      },
+      "expected_git_blob": "c75d702d82dfbe948c3af3e8d19a1a94d83415f7",
+      "expected_bytes": 14618544
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/tracker-pages-test/data/matchup_backtest_detail.csv",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/tracker-pages-test/data/matchup_backtest_detail.csv",
+      "requested_at": "2026-09-19T20:39:30.471997+00:00",
+      "received_at": "2026-09-19T20:39:31.364395+00:00",
+      "status": 200,
+      "bytes": 17055874,
+      "sha256": "ba857e23af2305a8157631035ddb377533bcbd1d7e034933f701a38d51919684",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "ETag": "\"668c5f6c3aedcf59c0045c78f19d8c450ff065c33182fdc511bf7e8c0dca95f2\"",
+        "Date": "Sat, 19 Sep 2026 20:39:30 GMT"
+      },
+      "expected_git_blob": "5a18e13cf2ad73740376375cf64742663ec57fde",
+      "expected_size": 17055874
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023004-tee.json",
+      "captured_at": "2026-09-15T00:47:39.294307+00:00",
+      "id": "R2023004",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "a52d30715a51e7a0710c7a18d4218928ffc2cbdd90a4ee45a7c5344d704836f4",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024004-tee.json",
+      "captured_at": "2026-09-15T00:47:41.634076+00:00",
+      "id": "R2024004",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "6f04b2c0f8f3719ac7d33cbc4783e4e98ec4799d5221fe111f98f3821326de67",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025004-tee.json",
+      "captured_at": "2026-09-15T00:45:50.332470+00:00",
+      "id": "R2025004",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "17a0d00b6bc7b3cb8c87db4199d6b02240fc517f2b54e1742227311cc1a9e5f8",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023005-tee.json",
+      "captured_at": "2026-09-15T00:47:44.539831+00:00",
+      "id": "R2023005",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "4f308443c42d7616dd9e02991a2717c01bee832f46f70a8a6b71627b6620e17b",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024005-tee.json",
+      "captured_at": "2026-09-15T00:47:46.869509+00:00",
+      "id": "R2024005",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "934c483b355421f61e1dcda3d3247277e931329e5a1e6dd1fcc9dc5f682ada8f",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025005-tee.json",
+      "captured_at": "2026-09-15T00:47:49.643811+00:00",
+      "id": "R2025005",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "166a47786acdb68916e73427add36f273b3268880677d4c034fc9b9fb48d02d6",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024493-tee.json",
+      "captured_at": "2026-09-15T00:47:52.056442+00:00",
+      "id": "R2024493",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "d3bbf92b0027c76aabfb03e30705da2674255533e2df33ec82041c19cfa23b7a",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025493-tee.json",
+      "captured_at": "2026-09-15T00:47:54.415224+00:00",
+      "id": "R2025493",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "b1dd875387e27a2213df97f79b5e291486cc8938e3936e2d7152e0791029165e",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/historical_odds.R",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/historical_odds.R",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:34:40.669858+00:00",
+      "received_at": "2026-09-19T20:34:40.861654+00:00",
+      "bytes": 6784,
+      "sha256": "f2133b4516ca1200c3550a2e25d051b63c5416ee39162dcb5c3d57d603447339",
+      "headers": {
+        "cache-control": "max-age=300",
+        "content-type": "text/plain; charset=utf-8",
+        "etag": "\"1ac3aca6198a79a92262f9e97df1b5600ae5458da388d8edbed2adec249be346\"",
+        "date": "Sat, 19 Sep 2026 20:34:40 GMT"
+      },
+      "expected_git_blob": "395adca25ac7bad91729b6800a15aeabb551b6d8",
+      "expected_bytes": 6784
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/.gitignore",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/.gitignore",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:34:46.090489+00:00",
+      "received_at": "2026-09-19T20:34:46.249290+00:00",
+      "bytes": 2218,
+      "sha256": "72d8fb6b00f3f48498f90561248e1386556c1a2ecf20d8181d26fbdc401dde5a",
+      "headers": {
+        "cache-control": "max-age=300",
+        "content-type": "text/plain; charset=utf-8",
+        "etag": "\"267ccbd281a066be027b7bd0f8e2d9bd881e1823dcb650d37e6825cca1dc4ef0\"",
+        "date": "Sat, 19 Sep 2026 20:34:46 GMT"
+      },
+      "expected_git_blob": "d36422f2573964081321d4aefc79c91bf6b9da92",
+      "expected_bytes": 2218
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/data/odds.csv",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/data/odds.csv",
+      "requested_at": "2026-09-19T20:39:31.906756+00:00",
+      "received_at": "2026-09-19T20:39:32.303618+00:00",
+      "status": 200,
+      "bytes": 1854042,
+      "sha256": "d2a9b733b9d0f45d20cf8593056ef343cd6c6bb7e07b4aae29b4ac9ad2a52e97",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "ETag": "\"12077f29602e99a1bcd2f1ce08964a8dfb479802325b18c21e00dd11ea839ace\"",
+        "Date": "Sat, 19 Sep 2026 20:39:32 GMT"
+      },
+      "expected_git_blob": "104ab16b9657800309f45d8e102132b835e70459",
+      "expected_size": 1854042
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/alpha-caddie-web/scripts/export-matchup-backtest-csv.mjs",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/alpha-caddie-web/scripts/export-matchup-backtest-csv.mjs",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:34:41.868491+00:00",
+      "received_at": "2026-09-19T20:34:42.052762+00:00",
+      "bytes": 22466,
+      "sha256": "b12ae407a447c35fab793e60a37170f945f91b1f01603ac7768edb21c44b8703",
+      "headers": {
+        "cache-control": "max-age=300",
+        "content-type": "text/plain; charset=utf-8",
+        "etag": "\"f45464acb3018014de5bc144b5e3eec854fbd104cffdaae4245d8a269758396d\"",
+        "date": "Sat, 19 Sep 2026 20:34:42 GMT"
+      },
+      "expected_git_blob": "ac3b6fbed544328acef9abc3c6f622939059da6b",
+      "expected_bytes": 22466
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/alpha-caddie-web/scripts/odds-csv-props.mjs",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/alpha-caddie-web/scripts/odds-csv-props.mjs",
+      "requested_at": "2026-09-19T20:39:32.816140+00:00",
+      "received_at": "2026-09-19T20:39:32.986551+00:00",
+      "status": 200,
+      "bytes": 8044,
+      "sha256": "1001549895aac9e58e1433d7d70c804ce5b5ef27fe5fa4a65ddd8c76be708f94",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "ETag": "\"b676d4be5d918f2437bc27335d4e0d41959fd1af27650ca4166d76ffee9098e1\"",
+        "Date": "Sat, 19 Sep 2026 20:39:33 GMT"
+      },
+      "expected_git_blob": "25abf5255415a1b146af9581c956c379219aa4fb",
+      "expected_size": 8044
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha-repository.json",
+      "url": "https://api.github.com/repos/jriordan55/alpha-caddie",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:33:55.647455+00:00",
+      "received_at": "2026-09-19T20:33:55.915100+00:00",
+      "bytes": 5259,
+      "sha256": "fc17cfa168947e039fa72dbc719ac94f493de1ab36fc86b559a4d307e807bc7e",
+      "headers": {
+        "date": "Sat, 19 Sep 2026 20:33:55 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=60, s-maxage=60",
+        "etag": "W/\"5b81313676608c5126f143710b4891cb0055d87b5274e346122d99f75126079f\"",
+        "last-modified": "Sat, 19 Sep 2026 20:15:30 GMT"
+      }
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha-raw-matchups-history.json",
+      "url": "https://api.github.com/repos/jriordan55/alpha-caddie/commits?path=data%2Fhistorical_matchups_outcomes.csv&sha=5508f6f35830f09d0b1e0c06abed0b2b489dde04&per_page=5",
+      "requested_at": "2026-09-19T20:39:34.148977+00:00",
+      "received_at": "2026-09-19T20:39:34.389317+00:00",
+      "status": 200,
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ],
+  "exports": [
+    {
+      "path": "alpha-caddie-web/data/matchup_backtest_detail.csv",
+      "total_rows": 43381,
+      "book_counts": {
+        "betmgm": 11982,
+        "draftkings": 15409,
+        "fanduel": 15990
+      },
+      "fanduel_market_counts": {
+        "Round matchups": 8438,
+        "3-balls": 7552
+      },
+      "fanduel_year_counts": {
+        "2022": 2283,
+        "2023": 2882,
+        "2024": 4816,
+        "2025": 3808,
+        "2026": 2201
+      },
+      "fanduel_duplicate_price_rows": 0,
+      "open_clock_status": {
+        "timezone_missing": 15990
+      },
+      "close_clock_status": {
+        "timezone_missing": 15990
+      }
+    },
+    {
+      "path": "tracker-pages-test/data/matchup_backtest_detail.csv",
+      "total_rows": 50733,
+      "book_counts": {
+        "betmgm": 14052,
+        "draftkings": 18113,
+        "fanduel": 18568
+      },
+      "fanduel_market_counts": {
+        "Round matchups": 10040,
+        "3-balls": 8528
+      },
+      "fanduel_year_counts": {
+        "2022": 2537,
+        "2023": 3155,
+        "2024": 5360,
+        "2025": 4668,
+        "2026": 2848
+      },
+      "fanduel_duplicate_price_rows": 0,
+      "open_clock_status": {
+        "timezone_missing": 18568
+      },
+      "close_clock_status": {
+        "timezone_missing": 18568
+      }
+    }
+  ],
+  "fanduel_distinct_price_records": 18568,
+  "first_export_only": 0,
+  "second_export_only": 2578,
+  "target_rows": 318,
+  "editions": [
+    {
+      "pga_tournament_id": "R2023004",
+      "event_name": "Farmers Insurance Open",
+      "year": "2023",
+      "counts": {
+        "3-balls/same_course": 18,
+        "3-balls/unmatched_or_ambiguous": 1
+      }
+    },
+    {
+      "pga_tournament_id": "R2024004",
+      "event_name": "Farmers Insurance Open",
+      "year": "2024",
+      "counts": {
+        "3-balls/same_course": 21,
+        "3-balls/unmatched_or_ambiguous": 7,
+        "Round matchups/same_course": 9
+      }
+    },
+    {
+      "pga_tournament_id": "R2025004",
+      "event_name": "Farmers Insurance Open",
+      "year": "2025",
+      "counts": {
+        "3-balls/same_course": 24,
+        "3-balls/unmatched_or_ambiguous": 4,
+        "Round matchups/same_course": 10
+      }
+    },
+    {
+      "pga_tournament_id": "R2023005",
+      "event_name": "AT&T Pebble Beach Pro-Am",
+      "year": "2023",
+      "counts": {
+        "Round matchups/outside_declared_pair": 7,
+        "Round matchups/same_course": 20,
+        "Round matchups/unmatched_or_ambiguous": 1
+      }
+    },
+    {
+      "pga_tournament_id": "R2024005",
+      "event_name": "AT&T Pebble Beach Pro-Am",
+      "year": "2024",
+      "counts": {
+        "Round matchups/same_course": 47,
+        "Round matchups/unmatched_or_ambiguous": 4
+      }
+    },
+    {
+      "pga_tournament_id": "R2025005",
+      "event_name": "AT&T Pebble Beach Pro-Am",
+      "year": "2025",
+      "counts": {
+        "Round matchups/same_course": 49,
+        "Round matchups/unmatched_or_ambiguous": 5
+      }
+    },
+    {
+      "pga_tournament_id": "R2024493",
+      "event_name": "The RSM Classic",
+      "year": "2024",
+      "counts": {
+        "3-balls/same_course": 30,
+        "3-balls/unmatched_or_ambiguous": 5,
+        "Round matchups/same_course": 7
+      }
+    },
+    {
+      "pga_tournament_id": "R2025493",
+      "event_name": "The RSM Classic",
+      "year": "2025",
+      "counts": {
+        "3-balls/same_course": 39,
+        "Round matchups/same_course": 9,
+        "Round matchups/unmatched_or_ambiguous": 1
+      }
+    }
+  ],
+  "target_classifications": {
+    "same_course": 283,
+    "unmatched_or_ambiguous": 28,
+    "outside_declared_pair": 7
+  },
+  "unmatched_names": {
+    "Davis, Cameron": 2,
+    "Echavarria, Nicolas": 3,
+    "Fitzpatrick, Matthew": 1,
+    "Hojgaard, Nicolai": 3,
+    "Hojgaard, Rasmus": 2,
+    "Kim, Seonghyeon": 4,
+    "Lee, Kyounghoon": 3,
+    "NeSmith, Matthew": 2,
+    "Noh, Seung-Yul": 1,
+    "Olesen, Thorbjorn": 1,
+    "Schmid, Matthias": 1,
+    "Stevens, Samuel": 5
+  },
+  "eligible_g11_bets": 0,
+  "limitations": [
+    "Third-party export; original DataGolf response not retained in repository.",
+    "Publisher export filters graded outcomes and available model estimates; incomplete market universe.",
+    "Exporter can replace missing close_time with open_time; timestamps lack timezone.",
+    "No original quote receipt/update clocks, event IDs, tie_rule, WD terms, jurisdiction or score convention.",
+    "Historical official tee assignments were acquired retrospectively.",
+    "No verified cross-course offer in matched fixed-cohort rows; unmatched rows remain unresolved.",
+    "Repository license is unspecified; downloaded publisher data remain ignored."
+  ],
+  "separate_odds_csv": {
+    "rows": 9397,
+    "bookmaker_named_by_publisher_parser": "Hard Rock",
+    "bookmaker_column_present": false,
+    "quote_timestamp_columns_present": false,
+    "target_tournament_score_rows": 0
+  },
+  "repository_license": null,
+  "raw_matchups_file_visible_history_entries": 0,
+  "derived_inventory": {
+    "path": "data/raw/golf-historical-price-search-2026-09-19/g11-price-assignment-inventory.json",
+    "sha256": "14c9cccd46b31950b51971da788b529dbda6b53132b250747c5b98c0296be037",
+    "rows": 318
+  }
+}

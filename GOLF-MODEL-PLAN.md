@@ -8,6 +8,8 @@ Written September 13, 2026; execution began September 14. The [ranked golf cards
 
 ## Short answer
 
+**September 19 historical source:** [18,568 distinct FanDuel-labelled price records](reports/golf-historical-price-audit-2026-09-19.md) were recovered from pinned public exports. G11's fixed cohort contains 318 offers: 283 same-course, 28 unresolved name joins and seven outside the declared course pair. No verified cross-course offer, timezone or market-specific settlement terms was recovered. Historical price data now exist locally, but G11 remains untested and the failed sport screens remain closed.
+
 **September 19 price progress:** a [bounded Biltmore capture](reports/golf-price-capture-2026-09-19.md) recovered actual FanDuel-linked prices, including 12 complete two-player matchups. Ten are displayed as round-three markets, all same-course and captured after play began. Numeric period inconsistencies and missing bookmaker quote clocks remain explicit. The public PGA price route works; G11 still lacks the pre-round cross-course offers and verified scoring convention needed for its book-side test. No edge is established and the failed sport screens remain closed.
 
 Golf is worth doing. The reason given is not the reason to do it.
@@ -20,7 +22,7 @@ The premise has three parts. Two need correcting.
 
 The same historical study reported stronger 3-ball performance. That motivates checking derivative conversion and settlement, without assuming a current FanDuel error or a particular internal formula. The cards test tie/dead-heat/withdrawal handling and changes after prices post: tee times, forecasts, withdrawals and in-tournament state.
 
-**"Assuming the betting info is available."** No usable free historical FanDuel golf archive has been verified for this batch. The PGA Tour site exposes odds alongside sport data; its partner configuration alone does not establish that actual FanDuel derivatives are available. Data Golf advertises historical FanDuel matchup coverage through Scratch Plus annual, currently displayed at $270/year; individual market coverage and timestamp meaning still require inspection. The eight-event fall calendar creates an opportunity to collect new observations, not a guaranteed quote or bet count.
+**"Assuming the betting info is available."** The September 19 public exports supply historical FanDuel-labelled prices, with the coverage and limitations above; no archive qualified for G11 has been verified. The PGA Tour site exposes odds alongside sport data; its partner configuration alone does not establish that actual FanDuel derivatives are available. Data Golf advertises historical FanDuel matchup coverage through Scratch Plus annual, displayed at $270/year at the original September 14 source check; individual market coverage and timestamp meaning still require inspection. The eight-event fall calendar creates an opportunity to collect new observations, not a guaranteed quote or bet count.
 
 Continue with the golf derivative cards. Build a settlement-aware fair-price engine only after a sport-side effect survives its screen and actual FanDuel offers permit a price comparison. Market prices constrain a skill model; they do not uniquely identify player means without additional distribution and dependence assumptions.
 
