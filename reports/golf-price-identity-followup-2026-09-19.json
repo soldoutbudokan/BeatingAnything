@@ -1,0 +1,825 @@
+{
+  "scope": "Public profile identity follow-up only; no backtest or sport-screen changes",
+  "price_source_commit": "5508f6f35830f09d0b1e0c06abed0b2b489dde04",
+  "price_and_tee_sources": [
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha-tree.json",
+      "url": "https://api.github.com/repos/jriordan55/alpha-caddie/git/trees/5508f6f35830f09d0b1e0c06abed0b2b489dde04?recursive=1",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:33:56.921812+00:00",
+      "received_at": "2026-09-19T20:33:58.216536+00:00",
+      "bytes": 729024,
+      "sha256": "6f7dfcfc21ed47b3de5cb4199c61367db4af7737b9712f8f7f77563bf99c27f2",
+      "headers": {
+        "date": "Sat, 19 Sep 2026 20:33:57 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=86400, s-maxage=86400",
+        "etag": "W/\"e2ede89051842e74d1a29bc002263ced56047c950683186ee19bb0dc9b16061f\"",
+        "last-modified": "Sat, 19 Sep 2026 20:15:30 GMT"
+      }
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/alpha-caddie-web/data/matchup_backtest_detail.csv",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/alpha-caddie-web/data/matchup_backtest_detail.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:34:44.222926+00:00",
+      "received_at": "2026-09-19T20:34:45.061283+00:00",
+      "bytes": 14618544,
+      "sha256": "6d08fe057e566f386cca656c86893e6b082adaf8a107a08fdead51b257df7656",
+      "headers": {
+        "cache-control": "max-age=300",
+        "content-type": "text/plain; charset=utf-8",
+        "etag": "\"a3aeabef59de56a0440061ee863d9f62ec861583d6061c64e06288d54bcff7a4\"",
+        "date": "Sat, 19 Sep 2026 20:34:44 GMT"
+      },
+      "expected_git_blob": "c75d702d82dfbe948c3af3e8d19a1a94d83415f7",
+      "expected_bytes": 14618544
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/tracker-pages-test/data/matchup_backtest_detail.csv",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/tracker-pages-test/data/matchup_backtest_detail.csv",
+      "requested_at": "2026-09-19T20:39:30.471997+00:00",
+      "received_at": "2026-09-19T20:39:31.364395+00:00",
+      "status": 200,
+      "bytes": 17055874,
+      "sha256": "ba857e23af2305a8157631035ddb377533bcbd1d7e034933f701a38d51919684",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "ETag": "\"668c5f6c3aedcf59c0045c78f19d8c450ff065c33182fdc511bf7e8c0dca95f2\"",
+        "Date": "Sat, 19 Sep 2026 20:39:30 GMT"
+      },
+      "expected_git_blob": "5a18e13cf2ad73740376375cf64742663ec57fde",
+      "expected_size": 17055874
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023004-tee.json",
+      "captured_at": "2026-09-15T00:47:39.294307+00:00",
+      "id": "R2023004",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "a52d30715a51e7a0710c7a18d4218928ffc2cbdd90a4ee45a7c5344d704836f4",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024004-tee.json",
+      "captured_at": "2026-09-15T00:47:41.634076+00:00",
+      "id": "R2024004",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "6f04b2c0f8f3719ac7d33cbc4783e4e98ec4799d5221fe111f98f3821326de67",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025004-tee.json",
+      "captured_at": "2026-09-15T00:45:50.332470+00:00",
+      "id": "R2025004",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "17a0d00b6bc7b3cb8c87db4199d6b02240fc517f2b54e1742227311cc1a9e5f8",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2023005-tee.json",
+      "captured_at": "2026-09-15T00:47:44.539831+00:00",
+      "id": "R2023005",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "4f308443c42d7616dd9e02991a2717c01bee832f46f70a8a6b71627b6620e17b",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024005-tee.json",
+      "captured_at": "2026-09-15T00:47:46.869509+00:00",
+      "id": "R2024005",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "934c483b355421f61e1dcda3d3247277e931329e5a1e6dd1fcc9dc5f682ada8f",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025005-tee.json",
+      "captured_at": "2026-09-15T00:47:49.643811+00:00",
+      "id": "R2025005",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "166a47786acdb68916e73427add36f273b3268880677d4c034fc9b9fb48d02d6",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2024493-tee.json",
+      "captured_at": "2026-09-15T00:47:52.056442+00:00",
+      "id": "R2024493",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "d3bbf92b0027c76aabfb03e30705da2674255533e2df33ec82041c19cfa23b7a",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-rotation/R2025493-tee.json",
+      "captured_at": "2026-09-15T00:47:54.415224+00:00",
+      "id": "R2025493",
+      "operation": "TeeTimesCompressedV2",
+      "sha256": "b1dd875387e27a2213df97f79b5e291486cc8938e3936e2d7152e0791029165e",
+      "url": "https://orchestrator.pgatour.com/graphql"
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/historical_odds.R",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/historical_odds.R",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:34:40.669858+00:00",
+      "received_at": "2026-09-19T20:34:40.861654+00:00",
+      "bytes": 6784,
+      "sha256": "f2133b4516ca1200c3550a2e25d051b63c5416ee39162dcb5c3d57d603447339",
+      "headers": {
+        "cache-control": "max-age=300",
+        "content-type": "text/plain; charset=utf-8",
+        "etag": "\"1ac3aca6198a79a92262f9e97df1b5600ae5458da388d8edbed2adec249be346\"",
+        "date": "Sat, 19 Sep 2026 20:34:40 GMT"
+      },
+      "expected_git_blob": "395adca25ac7bad91729b6800a15aeabb551b6d8",
+      "expected_bytes": 6784
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/.gitignore",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/.gitignore",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:34:46.090489+00:00",
+      "received_at": "2026-09-19T20:34:46.249290+00:00",
+      "bytes": 2218,
+      "sha256": "72d8fb6b00f3f48498f90561248e1386556c1a2ecf20d8181d26fbdc401dde5a",
+      "headers": {
+        "cache-control": "max-age=300",
+        "content-type": "text/plain; charset=utf-8",
+        "etag": "\"267ccbd281a066be027b7bd0f8e2d9bd881e1823dcb650d37e6825cca1dc4ef0\"",
+        "date": "Sat, 19 Sep 2026 20:34:46 GMT"
+      },
+      "expected_git_blob": "d36422f2573964081321d4aefc79c91bf6b9da92",
+      "expected_bytes": 2218
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/data/odds.csv",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/data/odds.csv",
+      "requested_at": "2026-09-19T20:39:31.906756+00:00",
+      "received_at": "2026-09-19T20:39:32.303618+00:00",
+      "status": 200,
+      "bytes": 1854042,
+      "sha256": "d2a9b733b9d0f45d20cf8593056ef343cd6c6bb7e07b4aae29b4ac9ad2a52e97",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "ETag": "\"12077f29602e99a1bcd2f1ce08964a8dfb479802325b18c21e00dd11ea839ace\"",
+        "Date": "Sat, 19 Sep 2026 20:39:32 GMT"
+      },
+      "expected_git_blob": "104ab16b9657800309f45d8e102132b835e70459",
+      "expected_size": 1854042
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/alpha-caddie-web/scripts/export-matchup-backtest-csv.mjs",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/alpha-caddie-web/scripts/export-matchup-backtest-csv.mjs",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:34:41.868491+00:00",
+      "received_at": "2026-09-19T20:34:42.052762+00:00",
+      "bytes": 22466,
+      "sha256": "b12ae407a447c35fab793e60a37170f945f91b1f01603ac7768edb21c44b8703",
+      "headers": {
+        "cache-control": "max-age=300",
+        "content-type": "text/plain; charset=utf-8",
+        "etag": "\"f45464acb3018014de5bc144b5e3eec854fbd104cffdaae4245d8a269758396d\"",
+        "date": "Sat, 19 Sep 2026 20:34:42 GMT"
+      },
+      "expected_git_blob": "ac3b6fbed544328acef9abc3c6f622939059da6b",
+      "expected_bytes": 22466
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/alpha-caddie-web/scripts/odds-csv-props.mjs",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/alpha-caddie-web/scripts/odds-csv-props.mjs",
+      "requested_at": "2026-09-19T20:39:32.816140+00:00",
+      "received_at": "2026-09-19T20:39:32.986551+00:00",
+      "status": 200,
+      "bytes": 8044,
+      "sha256": "1001549895aac9e58e1433d7d70c804ce5b5ef27fe5fa4a65ddd8c76be708f94",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "ETag": "\"b676d4be5d918f2437bc27335d4e0d41959fd1af27650ca4166d76ffee9098e1\"",
+        "Date": "Sat, 19 Sep 2026 20:39:33 GMT"
+      },
+      "expected_git_blob": "25abf5255415a1b146af9581c956c379219aa4fb",
+      "expected_size": 8044
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha-repository.json",
+      "url": "https://api.github.com/repos/jriordan55/alpha-caddie",
+      "status": 200,
+      "request_started_at": "2026-09-19T20:33:55.647455+00:00",
+      "received_at": "2026-09-19T20:33:55.915100+00:00",
+      "bytes": 5259,
+      "sha256": "fc17cfa168947e039fa72dbc719ac94f493de1ab36fc86b559a4d307e807bc7e",
+      "headers": {
+        "date": "Sat, 19 Sep 2026 20:33:55 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=60, s-maxage=60",
+        "etag": "W/\"5b81313676608c5126f143710b4891cb0055d87b5274e346122d99f75126079f\"",
+        "last-modified": "Sat, 19 Sep 2026 20:15:30 GMT"
+      }
+    },
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha-raw-matchups-history.json",
+      "url": "https://api.github.com/repos/jriordan55/alpha-caddie/commits?path=data%2Fhistorical_matchups_outcomes.csv&sha=5508f6f35830f09d0b1e0c06abed0b2b489dde04&per_page=5",
+      "requested_at": "2026-09-19T20:39:34.148977+00:00",
+      "received_at": "2026-09-19T20:39:34.389317+00:00",
+      "status": 200,
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ],
+  "profile_sources": [
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/11117.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=11117",
+      "request_started_at": "2026-09-19T21:21:21.284266+00:00",
+      "received_at": "2026-09-19T21:21:21.940141+00:00",
+      "status": 200,
+      "bytes": 2524496,
+      "sha256": "dcf56a47cb5cb30e179f9cb9b98ed55524e5ae813a95672ffa2c648d8d0b0861"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/13412.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=13412",
+      "request_started_at": "2026-09-19T21:21:21.953837+00:00",
+      "received_at": "2026-09-19T21:21:22.628608+00:00",
+      "status": 200,
+      "bytes": 2829339,
+      "sha256": "b2574953dc487a0b7831d313b7420c64d39d3cabf6acc09c9e164c2f744bc581"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/13497.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=13497",
+      "request_started_at": "2026-09-19T21:21:22.641740+00:00",
+      "received_at": "2026-09-19T21:21:23.263563+00:00",
+      "status": 200,
+      "bytes": 2653565,
+      "sha256": "46d2deb9fa3023fa4343d56779ff753a3bc998f28cc54bce7965d4d034a84ac0"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/16433.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=16433",
+      "request_started_at": "2026-09-19T21:21:23.278962+00:00",
+      "received_at": "2026-09-19T21:21:23.854944+00:00",
+      "status": 200,
+      "bytes": 2167629,
+      "sha256": "b8f8fe2188549eb7c2b2ee4acf353c47caa6ac12f13e76901c69b121fa81cc40"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/17646.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=17646",
+      "request_started_at": "2026-09-19T21:20:51.856923+00:00",
+      "received_at": "2026-09-19T21:20:52.694740+00:00",
+      "status": 200,
+      "bytes": 2606387,
+      "sha256": "252a08af56f8755a918646846d2801f360787356156a40b588a096afb226571e"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/17786.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=17786",
+      "request_started_at": "2026-09-19T21:20:50.599467+00:00",
+      "received_at": "2026-09-19T21:20:51.342602+00:00",
+      "status": 200,
+      "bytes": 2182672,
+      "sha256": "a727be2ac4caeb99beebadc34f575d6e7010815684cb4f33913d395099532be9"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/20722.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=20722",
+      "request_started_at": "2026-09-19T21:21:23.885053+00:00",
+      "received_at": "2026-09-19T21:21:24.368312+00:00",
+      "status": 200,
+      "bytes": 1831557,
+      "sha256": "dc323be57dfeed9ac23aa306a8494953deecc17e237c3354c964707677446eb2"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/21688.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=21688",
+      "request_started_at": "2026-09-19T21:21:24.374936+00:00",
+      "received_at": "2026-09-19T21:21:24.963464+00:00",
+      "status": 200,
+      "bytes": 1626203,
+      "sha256": "78542e97012fa17edaa0fefc6aa5501481d02292806c7954c3d301809ce2c655"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/22833.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=22833",
+      "request_started_at": "2026-09-19T21:21:24.970104+00:00",
+      "received_at": "2026-09-19T21:21:25.489546+00:00",
+      "status": 200,
+      "bytes": 2077876,
+      "sha256": "36fe85c08d374c5a919a15a2b0dd157bfe5302e08ba3635a995a0d1bfd60079a"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/23602.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=23602",
+      "request_started_at": "2026-09-19T21:21:25.499278+00:00",
+      "received_at": "2026-09-19T21:21:26.013752+00:00",
+      "status": 200,
+      "bytes": 1769854,
+      "sha256": "f7085948c9af03829a7cf1ae7d0d328ab8aa7e9b83ff4240f0b6d74b2848cbfa"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/23838.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=23838",
+      "request_started_at": "2026-09-19T21:21:26.026636+00:00",
+      "received_at": "2026-09-19T21:21:26.635529+00:00",
+      "status": 200,
+      "bytes": 1789317,
+      "sha256": "735622c20766a9f776f9c45a441eeb8883b26ed8a0941dda1f1dc7eb4ca1f015"
+    },
+    {
+      "path": "data/raw/golf-historical-player-identities-2026-09-19/25569.html",
+      "url": "https://datagolf.com/player-profiles?dg_id=25569",
+      "request_started_at": "2026-09-19T21:21:26.647904+00:00",
+      "received_at": "2026-09-19T21:21:27.161775+00:00",
+      "status": 200,
+      "bytes": 1756818,
+      "sha256": "e7648aff6396418a591e4168afd8d44d3053a7a0ae038370868acee4edd3aeb2"
+    }
+  ],
+  "identity_names": {
+    "11117": "S.Y. Noh",
+    "13412": "Thorbjorn Olesen",
+    "13497": "K.H. Lee",
+    "16433": "Matt NeSmith",
+    "17646": "Matt Fitzpatrick",
+    "17786": "Cam Davis",
+    "20722": "Matti Schmid",
+    "21688": "S.H. Kim",
+    "22833": "Nico Echavarria",
+    "23602": "Nicolai Hojgaard",
+    "23838": "Rasmus Hojgaard",
+    "25569": "Sam Stevens"
+  },
+  "initial_classifications": {
+    "same_course": 283,
+    "unmatched_or_ambiguous": 28,
+    "outside_declared_pair": 7
+  },
+  "resolved_classifications": {
+    "same_course": 311,
+    "outside_declared_pair": 7
+  },
+  "editions": {
+    "R2023004": {
+      "same_course": 19
+    },
+    "R2024004": {
+      "same_course": 37
+    },
+    "R2025004": {
+      "same_course": 38
+    },
+    "R2023005": {
+      "same_course": 21,
+      "outside_declared_pair": 7
+    },
+    "R2024005": {
+      "same_course": 51
+    },
+    "R2025005": {
+      "same_course": 54
+    },
+    "R2024493": {
+      "same_course": 42
+    },
+    "R2025493": {
+      "same_course": 49
+    }
+  },
+  "resolved_identity_rows": [
+    {
+      "tournament": "R2023004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "25569",
+          "export_name": "Stevens, Samuel",
+          "profile_name": "Sam Stevens",
+          "pga_player_ids": [
+            "55893"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "13497",
+          "export_name": "Lee, Kyounghoon",
+          "profile_name": "K.H. Lee",
+          "pga_player_ids": [
+            "32791"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "16433",
+          "export_name": "NeSmith, Matthew",
+          "profile_name": "Matt NeSmith",
+          "pga_player_ids": [
+            "36871"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "21688",
+          "export_name": "Kim, Seonghyeon",
+          "profile_name": "S.H. Kim",
+          "pga_player_ids": [
+            "50188"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "23602",
+          "export_name": "Hojgaard, Nicolai",
+          "profile_name": "Nicolai Hojgaard",
+          "pga_player_ids": [
+            "52453"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "22833",
+          "export_name": "Echavarria, Nicolas",
+          "profile_name": "Nico Echavarria",
+          "pga_player_ids": [
+            "51349"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "25569",
+          "export_name": "Stevens, Samuel",
+          "profile_name": "Sam Stevens",
+          "pga_player_ids": [
+            "55893"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "20722",
+          "export_name": "Schmid, Matthias",
+          "profile_name": "Matti Schmid",
+          "pga_player_ids": [
+            "48867"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "13497",
+          "export_name": "Lee, Kyounghoon",
+          "profile_name": "K.H. Lee",
+          "pga_player_ids": [
+            "32791"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "16433",
+          "export_name": "NeSmith, Matthew",
+          "profile_name": "Matt NeSmith",
+          "pga_player_ids": [
+            "36871"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "25569",
+          "export_name": "Stevens, Samuel",
+          "profile_name": "Sam Stevens",
+          "pga_player_ids": [
+            "55893"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025004",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "21688",
+          "export_name": "Kim, Seonghyeon",
+          "profile_name": "S.H. Kim",
+          "pga_player_ids": [
+            "50188"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2023005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "17646",
+          "export_name": "Fitzpatrick, Matthew",
+          "profile_name": "Matt Fitzpatrick",
+          "pga_player_ids": [
+            "40098"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "23602",
+          "export_name": "Hojgaard, Nicolai",
+          "profile_name": "Nicolai Hojgaard",
+          "pga_player_ids": [
+            "52453"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "21688",
+          "export_name": "Kim, Seonghyeon",
+          "profile_name": "S.H. Kim",
+          "pga_player_ids": [
+            "50188"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "17786",
+          "export_name": "Davis, Cameron",
+          "profile_name": "Cam Davis",
+          "pga_player_ids": [
+            "45157"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "23602",
+          "export_name": "Hojgaard, Nicolai",
+          "profile_name": "Nicolai Hojgaard",
+          "pga_player_ids": [
+            "52453"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "17786",
+          "export_name": "Davis, Cameron",
+          "profile_name": "Cam Davis",
+          "pga_player_ids": [
+            "45157"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "23838",
+          "export_name": "Hojgaard, Rasmus",
+          "profile_name": "Rasmus Hojgaard",
+          "pga_player_ids": [
+            "52686"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "22833",
+          "export_name": "Echavarria, Nicolas",
+          "profile_name": "Nico Echavarria",
+          "pga_player_ids": [
+            "51349"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "23838",
+          "export_name": "Hojgaard, Rasmus",
+          "profile_name": "Rasmus Hojgaard",
+          "pga_player_ids": [
+            "52686"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025005",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "25569",
+          "export_name": "Stevens, Samuel",
+          "profile_name": "Sam Stevens",
+          "pga_player_ids": [
+            "55893"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024493",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "11117",
+          "export_name": "Noh, Seung-Yul",
+          "profile_name": "S.Y. Noh",
+          "pga_player_ids": [
+            "29289"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024493",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "13497",
+          "export_name": "Lee, Kyounghoon",
+          "profile_name": "K.H. Lee",
+          "pga_player_ids": [
+            "32791"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024493",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "21688",
+          "export_name": "Kim, Seonghyeon",
+          "profile_name": "S.H. Kim",
+          "pga_player_ids": [
+            "50188"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024493",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "25569",
+          "export_name": "Stevens, Samuel",
+          "profile_name": "Sam Stevens",
+          "pga_player_ids": [
+            "55893"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2024493",
+      "market": "3-balls",
+      "matches": [
+        {
+          "dg_id": "22833",
+          "export_name": "Echavarria, Nicolas",
+          "profile_name": "Nico Echavarria",
+          "pga_player_ids": [
+            "51349"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    },
+    {
+      "tournament": "R2025493",
+      "market": "Round matchups",
+      "matches": [
+        {
+          "dg_id": "13412",
+          "export_name": "Olesen, Thorbjorn",
+          "profile_name": "Thorbjorn Olesen",
+          "pga_player_ids": [
+            "33968"
+          ]
+        }
+      ],
+      "classification": "same_course"
+    }
+  ],
+  "derived_inventory": {
+    "path": "data/raw/golf-historical-player-identities-2026-09-19/g11-price-assignment-inventory.json",
+    "sha256": "c08119264e714abe10193205d74b5e10d15a72cee50e6e6aa515feefc8b1189f"
+  },
+  "eligible_g11_bets": 0,
+  "limitations": [
+    "Third-party export; original DataGolf response not retained in repository.",
+    "Publisher export filters graded outcomes and available model estimates; incomplete market universe.",
+    "Exporter can replace missing close_time with open_time; timestamps lack timezone.",
+    "No original quote receipt/update clocks, event IDs, tie_rule, WD terms, jurisdiction or score convention.",
+    "Historical official tee assignments were acquired retrospectively.",
+    "Profiles were retrieved retrospectively and establish current ID/name identity only.",
+    "Name joins remain unique within edition; Danish \u00f8 is explicitly transliterated to o.",
+    "Headshot filename numbers are not used as PGA player IDs.",
+    "Selected export cannot establish the full universe of offered markets."
+  ]
+}

@@ -1,5 +1,7 @@
 # Historical golf prices recovered — September 19, 2026
 
+**Later identity follow-up:** [public player profiles](golf-price-identity-followup-2026-09-19.md) resolve all 28 unmatched rows below as same-course. The final classification is 311 same-course, seven outside the declared pair and zero cross-course. The original name-only audit is preserved here.
+
 **Found: 18,568 distinct FanDuel-labelled historical price records for 2022–26. G11 still has zero verified cross-course offers.** This supersedes the earlier blanket absence of a free historical price file. It does not establish a usable G11 backtest or an edge.
 
 ## Source and coverage

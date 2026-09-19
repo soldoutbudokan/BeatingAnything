@@ -2,7 +2,13 @@
 
 Updated September 19, 2026 (Toronto). Latest manual instruction: the golf sport side is spent, so stop opening new golf sport-side screens and get actual FanDuel derivative prices during the fall events. [NEXT-STEPS.md](NEXT-STEPS.md) carries that direction; the golf batch below is the completed record behind it. Scheduled research and watches remain paused under the earlier instruction; this batch did not restart them. The research goal remains unfinished.
 
-**Current execution status: historical-price search resumed; G11 still lacks qualified offers.** The new public archive below supersedes the earlier absence of historical FanDuel price files. Its matched fixed-cohort offers are all same-course, and the selected export lacks timezone and settlement metadata. The required cross-course/round-score source has not yet been found. No edge is established; scheduled jobs remain paused. The September 19 19:10 UTC blocked checkpoint applied to the earlier forward-capture run, before this new source discovery.
+**Current execution status: blocked on a qualified historical archive.** The recovered public price export is now fully classified: 311 same-course offers, seven outside the declared course pair and zero cross-course. Twelve public player profiles resolved its remaining identity gap. The selected export also lacks timezone and settlement metadata. No configured provider access or new archive has arrived; the checked public routes supply no qualifying first-round score-prop series. Resume when an archive export or provider access permits verification of the actual required markets. No edge is established; scheduled jobs remain paused. This checkpoint supersedes the earlier forward-capture blocker and the subsequent resumed source search.
+
+## September 19 continuation: remaining historical identities resolved
+
+The [identity follow-up](reports/golf-price-identity-followup-2026-09-19.md) obtained twelve public Data Golf profiles keyed by the export's existing player IDs. Current profile names match unique official tee entries, resolving all 28 previously unmatched offers as same-course. Final classification: **311 same-course, seven outside the fixed pair, zero unresolved, zero cross-course**. The original audit's name-only result remains preserved. No prices, sport-screen selections, clocks or eligibility changed.
+
+Reproduce with `state/runtime/research-venv/bin/python tools/resolve_golf_price_identities.py`; every input body/hash is checked. All **242 tests pass**. This turn made concrete progress by closing the archive's remaining identity gap, but it did not recover a qualified G11 offer. No archive-access answer or configured entitlement has arrived; the SportsDataIO route below remains the concrete external dependency. No acquisition process is left running.
 
 ## September 19 continuation: round-score archive search
 

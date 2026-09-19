@@ -8,6 +8,8 @@ Written September 13, 2026; execution began September 14. The [ranked golf cards
 
 ## Short answer
 
+**September 19 identity follow-up:** [public profiles resolve all 28 unmatched offers](reports/golf-price-identity-followup-2026-09-19.md) in the historical source below. Its final classification is **311 same-course, seven outside the fixed pair and zero cross-course**. The required G11 price series is still missing; pursue the documented round-score archive route rather than repeating this completed inventory.
+
 **September 19 historical source:** [18,568 distinct FanDuel-labelled price records](reports/golf-historical-price-audit-2026-09-19.md) were recovered from pinned public exports. G11's fixed cohort contains 318 offers: 283 same-course, 28 unresolved name joins and seven outside the declared course pair. No verified cross-course offer, timezone or market-specific settlement terms was recovered. Historical price data now exist locally, but G11 remains untested and the failed sport screens remain closed.
 
 **September 19 price progress:** a [bounded Biltmore capture](reports/golf-price-capture-2026-09-19.md) recovered actual FanDuel-linked prices, including 12 complete two-player matchups. Ten are displayed as round-three markets, all same-course and captured after play began. Numeric period inconsistencies and missing bookmaker quote clocks remain explicit. The public PGA price route works; G11 still lacks the pre-round cross-course offers and verified scoring convention needed for its book-side test. No edge is established and the failed sport screens remain closed.

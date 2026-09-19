@@ -18,6 +18,8 @@
 
 **Status:** sport-side effect survives; book-side untested
 
+**Identity follow-up (September 19):** [twelve public Data Golf profiles](../../reports/golf-price-identity-followup-2026-09-19.md) resolve all 28 historical unmatched offers below. Final classification is 311 same-course, seven outside the declared pair, zero unresolved and zero cross-course. This closes the identity gap in the selected export without establishing the complete universe of FanDuel markets.
+
 **Historical price checkpoint (September 19):** [A pinned public archive](../../reports/golf-historical-price-audit-2026-09-19.md) now supplies 18,568 distinct FanDuel-labelled price records. The fixed first-round cohort has 318 offers: 283 same-course, 28 unresolved names, seven outside the declared course pair and zero verified cross-course offers. This selected export drops tie rules and has unzoned clocks; it cannot establish either a G11 edge or universal absence of offered cross-course markets.
 
 **Price checkpoint (September 19):** [Biltmore's first nonempty capture](../../reports/golf-price-capture-2026-09-19.md) supplied 12 complete FanDuel-linked two-player markets, including ten displayed round-three pairs. Every round pair is same-course and already started. This establishes a working source but supplies zero cross-course pre-round observations for G11; the declared book-side test remains unperformed.
