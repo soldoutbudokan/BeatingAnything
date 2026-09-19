@@ -1,10 +1,12 @@
 # BeatingAnything
 
-**No betting edge demonstrated. Active research continues; scheduled jobs remain paused.** The September 14 manual batch executes the golf direction; no betting alert or wager is enabled.
+**No betting edge demonstrated. Active research continues; scheduled jobs remain paused.** The latest direction is a different creative market with actual historical prices; no betting alert or wager is enabled.
 
 Use Python 3.12 and the pinned `requirements-lock.txt` dependencies for the research commands below.
 
 For the research direction going forward, start with [NEXT-STEPS.md](NEXT-STEPS.md). For the current state, exact continuation commands, completed results and file locations, see [PROGRESS.md](PROGRESS.md).
+
+**New market with data: [NBA first-basket scorer](reports/nba-first-basket-source-2026-09-19.md).** A pinned public archive supplies 7,673 FanDuel prices across 799 games. The audit retains 580 pregame ten-runner boards; 449 games also have complete player identities, first-score outcomes and starter records. Independent play-by-play covers all 580 games, and three fixed outcomes reconcile. The proposed mechanism is opening-possession and opening-offense allocation. This source supports an exploratory price test; no edge has been measured. **246 tests pass.**
 
 The [completed golf continuation](reports/golf-continuation-2026-09-14.md) advances course rotation to price investigation at a **+1.709-stroke** relative-to-par contrast across eight editions. The Sunday variance screen fails. Both weather screens also miss their fixed gates with adequate samples: **4.42% variance reduction versus 10%**, and **+0.259 strokes versus +0.3** for forecast wave direction. The full NOAA acquisition and official cut-rule audit are retained. September 19 captures and a public archive now supply actual FanDuel-linked prices. The [completed historical identity audit](reports/golf-price-identity-followup-2026-09-19.md) classifies all 318 target offers: 311 same-course, seven outside the declared pair and zero cross-course. G11 still lacks usable prices; the [round-score source record](reports/golf-round-price-source-search-2026-09-19.md) documents the remaining archive dependency. All **242 tests pass**.
 

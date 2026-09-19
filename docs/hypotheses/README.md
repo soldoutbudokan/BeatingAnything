@@ -1,4 +1,8 @@
-# Current priority: golf derivative exploration
+# Current priority: NBA first-basket scorer
+
+September 19: the user redirected work to a different creative market with actual historical prices. [Card 41: opening possession and first scorer](basketball-first-score-opening-possession.md) now has a [verified archive](../../reports/nba-first-basket-source-2026-09-19.md): 580 pregame FanDuel ten-runner boards and 449 games with complete price/identity/outcome/starter coverage. Source feasibility is complete; the sport-side screen and price comparison remain untested. Preserve prior failures and keep golf G11 parked on its separate source dependency.
+
+## Earlier priority: golf derivative exploration
 
 September 14: [12 declared golf cards and ranked assumptions](GOLF-QUEUE.md) now lead the active exploration under the user’s latest instruction. Prior results below remain historical evidence, including failed and underpowered screens. No golf pricing effect has been established by the declaration itself.
 

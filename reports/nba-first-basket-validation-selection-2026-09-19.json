@@ -1,0 +1,24 @@
+{
+  "selection_rule": "First, middle, last chronologically of pregame ten-runner boards with complete ID and outcome/roster availability, before inspecting outcome values",
+  "eligible_games": 449,
+  "sample": [
+    {
+      "game_id": "202412030DAL",
+      "nba_game_id": "0022400056",
+      "espn_game_id": "401703425",
+      "start": "2024-12-04T01:30Z"
+    },
+    {
+      "game_id": "202502100OKC",
+      "nba_game_id": "0022400761",
+      "espn_game_id": "401705327",
+      "start": "2025-02-11T01:00Z"
+    },
+    {
+      "game_id": "202505110IND",
+      "nba_game_id": "0042400204",
+      "espn_game_id": "401769742",
+      "start": "2025-05-12T00:00Z"
+    }
+  ]
+}

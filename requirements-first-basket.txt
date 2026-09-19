@@ -1,0 +1,2 @@
+# Optional reader for the independent, hash-pinned NBA play-by-play archive.
+pyarrow==21.0.0

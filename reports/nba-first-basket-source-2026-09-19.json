@@ -1,0 +1,577 @@
+{
+  "repository": "https://github.com/martinbog19/LeFirstBasket",
+  "commit": "b8130671558c6d5b33d6cfbc6a8410d986d6b3ff",
+  "market": "player_first_basket",
+  "purpose": "Source feasibility only; no strategy graded or fitted",
+  "sources": [
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket-tree.json",
+      "url": "https://api.github.com/repos/martinbog19/LeFirstBasket/git/trees/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff?recursive=1",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:28:10.327935+00:00",
+      "received_at": "2026-09-19T22:28:10.637699+00:00",
+      "bytes": 24353,
+      "sha256": "c5c117dec538572d2c70c2c528f39eb3a6927e1dfdd4fd910d11999fc314b3a7"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/odds_first_basket.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/odds_first_basket.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:28:35.150265+00:00",
+      "received_at": "2026-09-19T22:28:36.096362+00:00",
+      "bytes": 4502159,
+      "sha256": "672eee04599748d7ca03dfd70db7d53e983bba695e3305919f064a5b3b97fb46",
+      "expected_git_blob": "d7ea1c4fcf5d80137110303c2a5d650a491072a2"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/games.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/games.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:28:35.469603+00:00",
+      "received_at": "2026-09-19T22:28:35.651728+00:00",
+      "bytes": 114946,
+      "sha256": "eef61bb7ae89ea8d2d7e594a7fe787915f6f2a0a70aa60c90eae67446deb6502",
+      "expected_git_blob": "8604b8b65e96ccf93e41e129f9c0e3f8ddb4a4d2"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/player_metadata.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/player_metadata.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:28:35.471791+00:00",
+      "received_at": "2026-09-19T22:28:35.749261+00:00",
+      "bytes": 45499,
+      "sha256": "e87218378e35dfae7f7d1540b7077e345c1f3ae5d8b89e62426fc2b08318afc8",
+      "expected_git_blob": "1356536a9e4658fb90b85acfe55812783582111d"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/rosters.nosync/rosters_2025.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/rosters.nosync/rosters_2025.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.612684+00:00",
+      "received_at": "2026-09-19T22:31:57.059189+00:00",
+      "bytes": 4900068,
+      "sha256": "1bf3b29e991442709f90562590a188e40b39e3ff82d40edebe5484c7917bac32",
+      "expected_git_blob": "b84344353f91e82006a03f186816d8637232077e"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2019.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2019.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.175277+00:00",
+      "received_at": "2026-09-19T22:31:56.606251+00:00",
+      "bytes": 139116,
+      "sha256": "106d0ace209319146324bf6f20ac6de2f1fcdba7874ed3e4fe14c17005d23761",
+      "expected_git_blob": "aa131389a24c9f7f7bcad3417731b402ef9e543d"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2020.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2020.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.175608+00:00",
+      "received_at": "2026-09-19T22:31:56.490832+00:00",
+      "bytes": 120493,
+      "sha256": "251d1a304a5eabfafde681afc4923dd1e29dd6ccae409d98eca637c7e1171c9a",
+      "expected_git_blob": "34ba134965bc9ab8ca09c330002e224273ef8497"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2021.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2021.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.175679+00:00",
+      "received_at": "2026-09-19T22:31:56.371376+00:00",
+      "bytes": 123688,
+      "sha256": "d493d35a36a90fc055a8b875bbfa17907135a5c41897b2ea02fbc62511419f91",
+      "expected_git_blob": "4b488cf0033c2a5e3cd7732cec63780cbc73f45c"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2022.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2022.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.377124+00:00",
+      "received_at": "2026-09-19T22:31:56.571375+00:00",
+      "bytes": 139945,
+      "sha256": "f4d8c20f23fa69095ddf9000c9b5651ab11cca95689ab4810c19202fdd003d80",
+      "expected_git_blob": "db56ca0c4a58b1d206362c39e55ca4945fc0f9bd"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2023.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2023.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.499527+00:00",
+      "received_at": "2026-09-19T22:31:56.688161+00:00",
+      "bytes": 139341,
+      "sha256": "46139ba6d698b835f23ae55dd4862c5daf8af278a7ab75ac7f069442aa7e3cc7",
+      "expected_git_blob": "b597013770a42a173724a4362b88f61d86baa689"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2024.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2024.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:31:56.578897+00:00",
+      "received_at": "2026-09-19T22:31:56.776516+00:00",
+      "bytes": 139801,
+      "sha256": "01a88de7e1d09de09895b0e1361292da4273fee47af57f0d61e88ad1659e9235",
+      "expected_git_blob": "16d2dbb43cf3a92957df4cb742badca8e03e8b0c"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2025.csv",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2025.csv",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:28:35.660899+00:00",
+      "received_at": "2026-09-19T22:28:35.840116+00:00",
+      "bytes": 125211,
+      "sha256": "3eb14d8ca34cee20f616a4e01449a127f7138e411d23ebf4ed1061582fee6fd0",
+      "expected_git_blob": "fa66f70a61e6cb902d03cd93efd6ed8c80827844"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/run_before_game.py",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/run_before_game.py",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:29:12.309932+00:00",
+      "received_at": "2026-09-19T22:29:12.476766+00:00",
+      "bytes": 3000,
+      "sha256": "113bfad0dbd37271acd73f70ca6071f7edd6958c7b11bd1be08b65e2fc00a581",
+      "expected_git_blob": "779dd9872e8668977a2ac295677ee3f78f8e6ff3"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/schedule_today_games.py",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/schedule_today_games.py",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:29:12.146471+00:00",
+      "received_at": "2026-09-19T22:29:12.309124+00:00",
+      "bytes": 4907,
+      "sha256": "dbba809a59dba3f3198931a7d62725fe4b540d15aa062232f7d1c449000dd7ff",
+      "expected_git_blob": "4c0613f1debaea4dc9f74b4a9ed3a6210d91bb9d"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/helpers/scrape.py",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/helpers/scrape.py",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:29:11.649737+00:00",
+      "received_at": "2026-09-19T22:29:11.838830+00:00",
+      "bytes": 9784,
+      "sha256": "d10967fb4d735df6b6c2da364cc900f25614c3bed0b4bbb9f0d31e49c07a3d2e",
+      "expected_git_blob": "e3c916b28d6bbf63be91e967c240e563f3574a7e"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/README.md",
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/README.md",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:28:35.149788+00:00",
+      "received_at": "2026-09-19T22:28:35.471499+00:00",
+      "bytes": 407,
+      "sha256": "d52b31c72b1bd80de8f8a82452a92a1dce0d48cca43ba3c9aecab548d602e76b",
+      "expected_git_blob": "12e6458e4bbcd8c6dde292aa1bbe4cc33a466f88"
+    },
+    {
+      "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2024.csv",
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_schedules/nba_stats_schedule_2024.csv",
+      "request_started_utc": "2026-09-15T03:19:54.456391+00:00",
+      "response_complete_utc": "2026-09-15T03:19:55.422952+00:00",
+      "status": 200,
+      "headers": {
+        "Connection": "close",
+        "Content-Length": "426838",
+        "Last-Modified": "Fri, 24 Jul 2026 06:31:59 GMT",
+        "ETag": "\"0x8DEE94D43EB1F2D\"",
+        "Server": "Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0",
+        "x-ms-request-id": "f9916f5d-d01e-0029-11e8-43df21000000",
+        "x-ms-version": "2018-11-09",
+        "x-ms-creation-time": "Fri, 24 Jul 2026 06:31:59 GMT",
+        "x-ms-blob-content-md5": "YltoMpL7KYxwC70mkNbuOA==",
+        "x-ms-lease-status": "unlocked",
+        "x-ms-lease-state": "available",
+        "x-ms-blob-type": "BlockBlob",
+        "x-ms-server-encrypted": "true",
+        "x-ms-access-tier": "Hot",
+        "x-ms-access-tier-inferred": "true",
+        "Via": "1.1 varnish, 1.1 varnish",
+        "Accept-Ranges": "bytes",
+        "Age": "0",
+        "Date": "Tue, 15 Sep 2026 03:19:55 GMT",
+        "X-Served-By": "cache-iad-kcgs7200049-IAD, cache-yyz4552-YYZ",
+        "X-Cache": "HIT, MISS",
+        "X-Cache-Hits": "0, 0",
+        "X-Timer": "S1789442395.447016,VS0,VE27",
+        "Content-Disposition": "attachment; filename=nba_stats_schedule_2024.csv",
+        "Content-Type": "application/octet-stream"
+      },
+      "bytes": 426838,
+      "sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26"
+    },
+    {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2025.csv",
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_schedules/nba_schedule_2025.csv",
+      "request_started_utc": "2026-09-15T03:19:55.424513+00:00",
+      "response_complete_utc": "2026-09-15T03:19:56.266867+00:00",
+      "status": 200,
+      "headers": {
+        "Connection": "close",
+        "Content-Length": "2216279",
+        "Last-Modified": "Wed, 29 Jul 2026 06:36:31 GMT",
+        "ETag": "\"0x8DEED3BBA22DBB5\"",
+        "Server": "Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0",
+        "x-ms-request-id": "d67041fc-b01e-0010-801e-40243d000000",
+        "x-ms-version": "2018-11-09",
+        "x-ms-creation-time": "Wed, 29 Jul 2026 06:36:31 GMT",
+        "x-ms-blob-content-md5": "xVjXuaEMJ+gw7iDjj9LmUw==",
+        "x-ms-lease-status": "unlocked",
+        "x-ms-lease-state": "available",
+        "x-ms-blob-type": "BlockBlob",
+        "x-ms-server-encrypted": "true",
+        "x-ms-access-tier": "Hot",
+        "x-ms-access-tier-inferred": "true",
+        "Via": "1.1 varnish, 1.1 varnish",
+        "Accept-Ranges": "bytes",
+        "Age": "0",
+        "Date": "Tue, 15 Sep 2026 03:19:56 GMT",
+        "X-Served-By": "cache-iad-khef600046-IAD, cache-yyz4557-YYZ",
+        "X-Cache": "HIT, MISS",
+        "X-Cache-Hits": "29, 0",
+        "X-Timer": "S1789442396.327996,VS0,VE26",
+        "Content-Disposition": "attachment; filename=nba_schedule_2025.csv",
+        "Content-Type": "application/octet-stream"
+      },
+      "bytes": 2216279,
+      "sha256": "a7a5b6607a256c84a324f819e4461248bdff90a78b1ddb675a5a117a9a94e74f"
+    }
+  ],
+  "all_book_rows": 35303,
+  "book_counts": {
+    "fanduel": 7673,
+    "draftkings": 7983,
+    "betrivers": 7733,
+    "bovada": 7159,
+    "betmgm": 4755
+  },
+  "fanduel_rows": 7673,
+  "fanduel_games": 799,
+  "fanduel_players": 362,
+  "fanduel_snapshots": 801,
+  "quote_range": [
+    "2024-12-01T03:14:37Z",
+    "2025-05-12T22:25:25Z"
+  ],
+  "snapshot_classifications": {
+    "publisher_game_not_unique": 1,
+    "pregame_ten_runner_board": 580,
+    "receipt_within_minute_of_or_after_start": 25,
+    "not_ten_unique_runners": 187,
+    "nba_fixture_not_unique": 2,
+    "quote_older_than_five_minutes": 6
+  },
+  "pregame_ten_runner_snapshots": 580,
+  "pregame_distinct_games": 580,
+  "pregame_prices": 5800,
+  "pregame_games_with_all_ten_unique_player_ids": 482,
+  "pregame_games_with_one_nonempty_publisher_outcome": 540,
+  "pregame_games_with_ten_publisher_starters": 540,
+  "pregame_games_with_all_ids_outcome_and_starters": 449,
+  "receipt_lead_minutes_min_median_max": [
+    1.5639483833333334,
+    72.95283806666667,
+    193.04158280000001
+  ],
+  "quote_age_seconds_min_median_max": [
+    0.900242,
+    40.393485999999996,
+    288.612286
+  ],
+  "historical_opening_possession_rows": {
+    "2019": 1312,
+    "2020": 1138,
+    "2021": 1171,
+    "2022": 1323,
+    "2023": 1320,
+    "2024": 1319,
+    "2025": 1229
+  },
+  "price_board_examples": [
+    {
+      "game_id": "202412030DAL",
+      "event_id": "6060ee0918c66681cee75352d305f91c",
+      "received_at": "2024-12-04 01:15:41.431451+00:00",
+      "runners": 10,
+      "nba_game_id": "0022400056",
+      "home": "Dallas Mavericks",
+      "away": "Memphis Grizzlies",
+      "espn_game_id": "401703425",
+      "independent_start": "2024-12-04T01:30Z",
+      "publisher_start": "2024-12-03T20:30:00-05:00",
+      "status": "pregame_ten_runner_board",
+      "lead_minutes": 14.309475816666666,
+      "max_quote_age_seconds": 103.431451,
+      "players_with_unique_metadata_id": 10,
+      "prices": [
+        {
+          "name": "Jaren Jackson Jr",
+          "decimal": 5.7,
+          "quote_time": "2024-12-04T01:13:58Z"
+        },
+        {
+          "name": "Ja Morant",
+          "decimal": 6.5,
+          "quote_time": "2024-12-04T01:13:58Z"
+        },
+        {
+          "name": "Luka Doncic",
+          "decimal": 7.0,
+          "quote_time": "2024-12-04T01:13:58Z"
+        },
+        {
+          "name": "Desmond Bane",
+          "decimal": 7.5,
+          "quote_time": "2024-12-04T01:13:58Z"
+        },
+        {
+          "name": "Kyrie Irving",
+          "decimal": 8.0,
+          "quote_time": "2024-12-04T01:13:58Z"
+        },
+        {
+          "name": "Dereck Lively II",
+          "decimal": 10.5,
+          "quote_time": "2024-12-04T01:13:58Z"
+        },
+        {
+          "name": "Klay Thompson",
+          "decimal": 11.0,
+          "quote_time": "2024-12-04T01:13:58Z"
+        },
+        {
+          "name": "Brandon Clarke",
+          "decimal": 12.0,
+          "quote_time": "2024-12-04T01:13:58Z"
+        },
+        {
+          "name": "P.J. Washington",
+          "decimal": 12.0,
+          "quote_time": "2024-12-04T01:13:58Z"
+        },
+        {
+          "name": "Jaylen Wells",
+          "decimal": 12.0,
+          "quote_time": "2024-12-04T01:13:58Z"
+        }
+      ]
+    },
+    {
+      "game_id": "202502070OKC",
+      "event_id": "5c962a5ad947d385ee524f36970a8ce4",
+      "received_at": "2025-02-07 23:19:40.832678+00:00",
+      "runners": 10,
+      "nba_game_id": "0022400739",
+      "home": "Oklahoma City Thunder",
+      "away": "Toronto Raptors",
+      "espn_game_id": "401705305",
+      "independent_start": "2025-02-08T01:00Z",
+      "publisher_start": "2025-02-07T20:00:00-05:00",
+      "status": "pregame_ten_runner_board",
+      "lead_minutes": 100.31945536666667,
+      "max_quote_age_seconds": 12.832678,
+      "players_with_unique_metadata_id": 10,
+      "prices": [
+        {
+          "name": "Shai Gilgeous-Alexander",
+          "decimal": 4.6,
+          "quote_time": "2025-02-07T23:19:28Z"
+        },
+        {
+          "name": "Chet Holmgren",
+          "decimal": 4.7,
+          "quote_time": "2025-02-07T23:19:28Z"
+        },
+        {
+          "name": "Jalen Williams",
+          "decimal": 7.0,
+          "quote_time": "2025-02-07T23:19:28Z"
+        },
+        {
+          "name": "Scottie Barnes",
+          "decimal": 8.5,
+          "quote_time": "2025-02-07T23:19:28Z"
+        },
+        {
+          "name": "Gradey Dick",
+          "decimal": 8.5,
+          "quote_time": "2025-02-07T23:19:28Z"
+        },
+        {
+          "name": "Aaron Wiggins",
+          "decimal": 12.0,
+          "quote_time": "2025-02-07T23:19:28Z"
+        },
+        {
+          "name": "Immanuel Quickley",
+          "decimal": 12.0,
+          "quote_time": "2025-02-07T23:19:28Z"
+        },
+        {
+          "name": "Luguentz Dort",
+          "decimal": 14.0,
+          "quote_time": "2025-02-07T23:19:28Z"
+        },
+        {
+          "name": "Chris Boucher",
+          "decimal": 16.0,
+          "quote_time": "2025-02-07T23:19:28Z"
+        },
+        {
+          "name": "Ja'Kobe Walter",
+          "decimal": 23.0,
+          "quote_time": "2025-02-07T23:19:28Z"
+        }
+      ]
+    },
+    {
+      "game_id": "202505120NYK",
+      "event_id": "16cb0525e908d238a3407ade6a978c6b",
+      "received_at": "2025-05-12 22:28:02.226902+00:00",
+      "runners": 10,
+      "nba_game_id": "0042400214",
+      "home": "New York Knicks",
+      "away": "Boston Celtics",
+      "espn_game_id": "401769749",
+      "independent_start": "2025-05-12T23:30Z",
+      "publisher_start": "2025-05-12T19:30:00-04:00",
+      "status": "pregame_ten_runner_board",
+      "lead_minutes": 61.96288496666667,
+      "max_quote_age_seconds": 157.226902,
+      "players_with_unique_metadata_id": 10,
+      "prices": [
+        {
+          "name": "Jalen Brunson",
+          "decimal": 5.5,
+          "quote_time": "2025-05-12T22:25:25Z"
+        },
+        {
+          "name": "Jaylen Brown",
+          "decimal": 6.5,
+          "quote_time": "2025-05-12T22:25:25Z"
+        },
+        {
+          "name": "Karl-Anthony Towns",
+          "decimal": 6.5,
+          "quote_time": "2025-05-12T22:25:25Z"
+        },
+        {
+          "name": "Jayson Tatum",
+          "decimal": 8.0,
+          "quote_time": "2025-05-12T22:25:25Z"
+        },
+        {
+          "name": "Derrick White",
+          "decimal": 10.0,
+          "quote_time": "2025-05-12T22:25:25Z"
+        },
+        {
+          "name": "Mikal Bridges",
+          "decimal": 11.0,
+          "quote_time": "2025-05-12T22:25:25Z"
+        },
+        {
+          "name": "OG Anunoby",
+          "decimal": 11.0,
+          "quote_time": "2025-05-12T22:25:25Z"
+        },
+        {
+          "name": "Al Horford",
+          "decimal": 11.0,
+          "quote_time": "2025-05-12T22:25:25Z"
+        },
+        {
+          "name": "Josh Hart",
+          "decimal": 12.0,
+          "quote_time": "2025-05-12T22:25:25Z"
+        },
+        {
+          "name": "Jrue Holiday",
+          "decimal": 12.0,
+          "quote_time": "2025-05-12T22:25:25Z"
+        }
+      ]
+    }
+  ],
+  "derived_inventory": {
+    "path": "data/raw/creative-market-search-2026-09-19/first-basket-board-inventory.json",
+    "sha256": "68c9aa2c82df2cc6f75e3129d77515d85817deecaa9901c48917ddf3e56a15b3"
+  },
+  "limitations": [
+    "Third-party CSV export; original odds response bodies and market jurisdiction absent.",
+    "Market identity and UTC receipt semantics traced to pinned collector code.",
+    "Ten quoted runners do not by themselves prove ten actual starters or accepted bets.",
+    "Independent start is a reported scheduled start, not an observed actual-tip clock.",
+    "Lineup update_time is unzoned and excluded from chronology assertions.",
+    "Single snapshot for nearly every game; no general closing-price series.",
+    "Publisher has researched these data; no claim of an untouched confirmatory holdout.",
+    "No explicit repository license; original prices remain ignored."
+  ],
+  "independent_validation": {
+    "source": {
+      "path": "data/raw/creative-market-search-2026-09-19/play_by_play_2025.parquet",
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_pbp/play_by_play_2025.parquet",
+      "status": 200,
+      "request_started_at": "2026-09-19T22:37:05.587364+00:00",
+      "received_at": "2026-09-19T22:37:10.243995+00:00",
+      "bytes": 21552259,
+      "sha256": "e3a61b57e491b71379abd1ad4c0b2617500a3921deadd3319ee9362d49d2a9dc",
+      "release_asset_id": 530390014,
+      "release_asset_digest": "sha256:e3a61b57e491b71379abd1ad4c0b2617500a3921deadd3319ee9362d49d2a9dc"
+    },
+    "selection_path": "reports/nba-first-basket-validation-selection-2026-09-19.json",
+    "selection_sha256": "5512dbf57edb64e4c8136ce8a1fa15f972999774187009eda65afbe02b626112",
+    "selection_written_at": "2026-09-19T22:35:02.114523+00:00",
+    "sample_rule": "First, middle, last chronologically of pregame ten-runner boards with complete ID and outcome/roster availability, before inspecting outcome values",
+    "checks": [
+      {
+        "game_id": "202412030DAL",
+        "nba_game_id": "0022400056",
+        "espn_game_id": "401703425",
+        "start": "2024-12-04T01:30Z",
+        "published_scorer": "Jaren Jackson Jr.",
+        "independent_scorer": "Jaren Jackson Jr.",
+        "independent_athlete_id": 4277961,
+        "scorer_matches": true,
+        "points_match": true,
+        "game_clock_matches": true,
+        "first_points": 3,
+        "elapsed_seconds": 18.0,
+        "quote_receipt_precedes_first_pbp_wallclock": true
+      },
+      {
+        "game_id": "202502100OKC",
+        "nba_game_id": "0022400761",
+        "espn_game_id": "401705327",
+        "start": "2025-02-11T01:00Z",
+        "published_scorer": "Yves Missi",
+        "independent_scorer": "Yves Missi",
+        "independent_athlete_id": 5061589,
+        "scorer_matches": true,
+        "points_match": true,
+        "game_clock_matches": true,
+        "first_points": 2,
+        "elapsed_seconds": 37.0,
+        "quote_receipt_precedes_first_pbp_wallclock": true
+      },
+      {
+        "game_id": "202505110IND",
+        "nba_game_id": "0042400204",
+        "espn_game_id": "401769742",
+        "start": "2025-05-12T00:00Z",
+        "published_scorer": "Tyrese Haliburton",
+        "independent_scorer": "Tyrese Haliburton",
+        "independent_athlete_id": 4396993,
+        "scorer_matches": true,
+        "points_match": true,
+        "game_clock_matches": true,
+        "first_points": 2,
+        "elapsed_seconds": 17.0,
+        "quote_receipt_precedes_first_pbp_wallclock": true
+      }
+    ],
+    "all_three_pass": true,
+    "independent_pbp_games": 1324,
+    "pregame_price_games_with_independent_pbp": 580,
+    "scope_note": "Only the three fixed first-score outcomes were reconciled; other games were checked for ID coverage only."
+  }
+}
