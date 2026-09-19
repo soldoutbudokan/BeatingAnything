@@ -1,0 +1,453 @@
+{
+  "created_at": "2026-09-19T20:57:01.299246+00:00",
+  "objective": "Find historical FanDuel R1 cross-course matchups or round-score props for the eight declared G11 editions.",
+  "status": "incomplete; no new qualified offer",
+  "prior_turn_classification": "progress: recovered and audited 18,568 FanDuel-labelled historical records",
+  "this_turn_evidence": "Publicly quoted later-round score selections and documented provider restrictions; no qualified fixed-cohort series",
+  "new_qualified_offers": 0,
+  "sources": [
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/aidan-one-event.db",
+      "url": "https://raw.githubusercontent.com/0xAidan/golf-model/cb868501ec68333a280461cded7b3750c5f87345/tests/fixtures/golf_2026_one_event.db",
+      "request_started_at": "2026-09-19T20:52:56.801005+00:00",
+      "received_at": "2026-09-19T20:52:57.083319+00:00",
+      "status": 200,
+      "bytes": 602112,
+      "sha256": "53d51b4fc0d011d8444732e5d2a080edc1b9768b489efc73f00bc596d4f37b79"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/aidan-tree.json",
+      "url": "https://api.github.com/repos/0xAidan/golf-model/git/trees/main?recursive=1",
+      "request_started_at": "2026-09-19T20:51:58.479830+00:00",
+      "received_at": "2026-09-19T20:51:59.304358+00:00",
+      "status": 200,
+      "bytes": 355207,
+      "sha256": "07baaeb53b10781e20d241a403cdca1fe86425312a874dd9407a90724fb6ae55"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/alpha-build-player-map.R",
+      "url": "https://raw.githubusercontent.com/jriordan55/alpha-caddie/5508f6f35830f09d0b1e0c06abed0b2b489dde04/scripts/build_pga_datagolf_player_map.R",
+      "request_started_at": "2026-09-19T20:55:17.129311+00:00",
+      "received_at": "2026-09-19T20:55:17.294515+00:00",
+      "status": 200,
+      "bytes": 1415,
+      "sha256": "322dd94dc01c19cbce239b1aab65b9424cabdb2fcc9793022e586bfc984a353b"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/forum-2025-page3.html",
+      "url": "https://cappingthegame.com/threads/2025-golf-handicapping-thread.171495/page-3",
+      "request_started_at": "2026-09-19T20:54:55.031449+00:00",
+      "received_at": "2026-09-19T20:54:55.330869+00:00",
+      "status": 200,
+      "bytes": 2989,
+      "sha256": "770cfed8b4becf1426e64270ae9fc901a4a9cb0e5ac834fd9c277c0b27924479"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/forum-2025-page4.html",
+      "url": "https://cappingthegame.com/threads/2025-golf-handicapping-thread.171495/page-4",
+      "request_started_at": "2026-09-19T20:54:55.331656+00:00",
+      "received_at": "2026-09-19T20:54:55.558447+00:00",
+      "status": 200,
+      "bytes": 2989,
+      "sha256": "27dce29f123b4ff3c8951ef7cd903dc71fb30d07c8fadaf59a1ec62f0d91f391"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/oddsapi-golf.html",
+      "url": "https://the-odds-api.com/sports/golf-odds.html",
+      "request_started_at": "2026-09-19T20:56:07.229944+00:00",
+      "received_at": "2026-09-19T20:56:07.633157+00:00",
+      "status": 200,
+      "bytes": 24308,
+      "sha256": "2bfc08f798f89acf58fca0f8b5b537fdae3dd58a4041dd20adea72ec416e5b21"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/opticodds-golf.md",
+      "url": "https://developer.opticodds.com/docs/golf.md",
+      "request_started_at": "2026-09-19T20:52:56.109043+00:00",
+      "received_at": "2026-09-19T20:52:56.428488+00:00",
+      "status": 200,
+      "bytes": 1775,
+      "sha256": "c5221523167696fa204eda62a7f73009518847871051fb096649b066decd40be"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/opticodds-historical.md",
+      "url": "https://developer.opticodds.com/reference/get_fixtures-odds-historical.md",
+      "request_started_at": "2026-09-19T20:52:56.428633+00:00",
+      "received_at": "2026-09-19T20:52:56.800667+00:00",
+      "status": 200,
+      "bytes": 99598,
+      "sha256": "5a89aec5d7b18545ae127b7cb82ec701426e64d126de8ee3a6fa70807fb86c1f"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/opticodds-llms.txt",
+      "url": "https://developer.opticodds.com/llms.txt",
+      "request_started_at": "2026-09-19T20:51:58.037131+00:00",
+      "received_at": "2026-09-19T20:51:58.478344+00:00",
+      "status": 200,
+      "bytes": 14959,
+      "sha256": "bb9f6b85dc821703ed161013e49e3a764b098b5c74cdf45f22ae935e47abb659"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/parlay-docs.html",
+      "url": "https://parlay-api.com/docs",
+      "request_started_at": "2026-09-19T20:56:06.201850+00:00",
+      "received_at": "2026-09-19T20:56:06.688270+00:00",
+      "status": 200,
+      "bytes": 118559,
+      "sha256": "1404c662f7a8d5fca30a0e08bc7906464d26eaaef3ddbc03471868c44567952f"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/parlay-historical-stats.json",
+      "url": "https://parlay-api.com/v1/historical/stats",
+      "request_started_at": "2026-09-19T20:51:45.946118+00:00",
+      "received_at": "2026-09-19T20:51:57.526048+00:00",
+      "status": 200,
+      "bytes": 1695443,
+      "sha256": "a0dc87bd7eab25fd15a42ae19cc2bde322abdd6cb24d7ef1488ddd517fd72054"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/parlay-stats.json",
+      "url": "https://parlay-api.com/v1/stats",
+      "request_started_at": "2026-09-19T20:51:57.570564+00:00",
+      "received_at": "2026-09-19T20:51:58.032097+00:00",
+      "status": 200,
+      "bytes": 595,
+      "sha256": "e3804031a1251a4cff677bb7eb2533b01b495dd43245ef7c5737d502e4e5f583"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/propline-docs.html",
+      "url": "https://prop-line.com/docs",
+      "request_started_at": "2026-09-19T20:56:06.689300+00:00",
+      "received_at": "2026-09-19T20:56:07.228049+00:00",
+      "status": 200,
+      "bytes": 622993,
+      "sha256": "62519f69c3bbaa428ea7ed79eb21cdb90a6067438ae673df7fac9dc190a7cc61"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/sportsdata-golf-api.html",
+      "url": "https://sportsdata.io/developers/api-documentation/golf",
+      "request_started_at": "2026-09-19T20:54:52.671455+00:00",
+      "received_at": "2026-09-19T20:54:53.089154+00:00",
+      "status": 200,
+      "bytes": 674623,
+      "sha256": "f5a7fda2903fa07c7448f26958985d10b6fc5e4917e81275db5d3e5f68e773a0"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/sportsdata-golf-dictionary.html",
+      "url": "https://sportsdata.io/developers/data-dictionary/golf",
+      "request_started_at": "2026-09-19T20:54:54.126899+00:00",
+      "received_at": "2026-09-19T20:54:55.029916+00:00",
+      "status": 200,
+      "bytes": 1637140,
+      "sha256": "b49a4927d4bdfd261d2a2c00e32c49a7532ea72c6df063be75a050a09b5f25d9"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/sportsdata-golf-workflow.html",
+      "url": "https://sportsdata.io/developers/workflow-guide/golf",
+      "request_started_at": "2026-09-19T20:54:53.515998+00:00",
+      "received_at": "2026-09-19T20:54:53.750509+00:00",
+      "status": 200,
+      "bytes": 443723,
+      "sha256": "a9b509f25f1b0c903e756d3f62b57e3a72d50b0d822e94f89ae5524eababb5b2"
+    },
+    {
+      "path": "data/raw/golf-round-price-search-2026-09-19/sportsdata-history-guide.html",
+      "url": "https://sportsdata.io/help/historical-data-integration-guide",
+      "request_started_at": "2026-09-19T20:54:53.750861+00:00",
+      "received_at": "2026-09-19T20:54:54.126301+00:00",
+      "status": 200,
+      "bytes": 254751,
+      "sha256": "96e55f3c44d100ad53f6af6d65a6ba1cec5ab2f0b19f9f26bfb3d1623e4fb8c3"
+    }
+  ],
+  "public_price_leads": [
+    {
+      "url": "https://cappingthegame.com/threads/2025-golf-handicapping-thread.171495/page-3",
+      "post_number": 146,
+      "reported_date": "2025-01-23",
+      "event": "Farmers Insurance Open 2025",
+      "round": 2,
+      "book_attribution": "Poster explicitly says FD; not independently verified",
+      "selections": [
+        {
+          "name": "Tony Finau",
+          "side": "Under",
+          "line": 69.5,
+          "american_odds": -150
+        },
+        {
+          "name": "Shane Lowry",
+          "side": "Under",
+          "line": 69.5,
+          "american_odds": -140
+        }
+      ],
+      "eligibility": false,
+      "limitations": [
+        "Only selected side",
+        "Outside fixed R1 cohort",
+        "No original bookmaker quote clock or terms",
+        "Read through web index; direct HTTP 200 body is browser challenge"
+      ]
+    },
+    {
+      "url": "https://cappingthegame.com/threads/2025-golf-handicapping-thread.171495/page-4",
+      "post_number": 176,
+      "reported_date": "2025-01-31",
+      "event": "AT&T Pebble Beach Pro-Am 2025",
+      "round": 2,
+      "observation": "Reply says three of four quoted score selections were available at FD; exact three not specified",
+      "eligibility": false
+    }
+  ],
+  "providers": {
+    "sportsdataio": {
+      "status": "potential route; no key/access or exact market coverage verified",
+      "documentation_golf_odds_retained_in_production_api": true,
+      "relevant_operations": [
+        {
+          "Name": "Betting Metadata",
+          "Url": "https://api.sportsdata.io/v3/golf/odds/{format}/BettingMetadata"
+        },
+        {
+          "Name": "Betting Player Props - by Tournament [Sportsbook Group]",
+          "Url": "https://api.sportsdata.io/v3/golf/odds/{format}/BettingPlayerPropsByTournamentID/{tournamentid}/{sportsbookgroup}"
+        },
+        {
+          "Name": "Betting Events - by Season",
+          "Url": "https://api.sportsdata.io/v3/golf/odds/{format}/BettingEvents/{season}"
+        },
+        {
+          "Name": "Betting Markets - by Tournament",
+          "Url": "https://api.sportsdata.io/v3/golf/odds/{format}/BettingMarketsByTournamentID/{tournamentid}"
+        },
+        {
+          "Name": "Betting Market",
+          "Url": "https://api.sportsdata.io/v3/golf/odds/{format}/BettingMarket/{marketId}"
+        }
+      ],
+      "required_checks": [
+        "Correct tournament IDs for calendar-year cohort, including RSM season labels",
+        "Actual FanDuel Round 1 score or cross-course offers, both sides and line",
+        "Historical opening/closing price-change timestamps with documented timezone",
+        "Jurisdiction, gross/relative scoring convention, tie/push/WD terms",
+        "Actual archived records, not scrambled trial or synthetic examples"
+      ]
+    },
+    "opticodds": {
+      "standard_historical_endpoint_retention": "rolling 2 months",
+      "timeseries": "separate key permission required",
+      "target_2023_2025_coverage_proven": false
+    },
+    "parlayapi": {
+      "public_stats_generated_at": "2026-05-15T05:05:51.398637+00:00",
+      "golf_historical_stats_rows": [
+        {
+          "sport_key": "golf_pga___cadillac_championship___tournament",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 39
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 39
+            }
+          ],
+          "total_matches": 78,
+          "earliest": "2026-04-30",
+          "latest": "2026-04-30"
+        },
+        {
+          "sport_key": "golf_pga___truist_championship___tournament",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 38
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 38
+            }
+          ],
+          "total_matches": 76,
+          "earliest": "2026-05-07",
+          "latest": "2026-05-07"
+        },
+        {
+          "sport_key": "golf_dp_world___catalunya_championship___tournament",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 28
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 28
+            }
+          ],
+          "total_matches": 56,
+          "earliest": "2026-05-07",
+          "latest": "2026-05-07"
+        },
+        {
+          "sport_key": "golf_pga___myrtle_beach_classic___tournament",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 24
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 24
+            }
+          ],
+          "total_matches": 48,
+          "earliest": "2026-05-07",
+          "latest": "2026-05-07"
+        },
+        {
+          "sport_key": "golf_pga___truist_championship___1st_round",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 22
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 22
+            }
+          ],
+          "total_matches": 44,
+          "earliest": "2026-05-07",
+          "latest": "2026-05-07"
+        },
+        {
+          "sport_key": "golf_dp_world___turkish_airlines_open___tournament",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 21
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 21
+            }
+          ],
+          "total_matches": 42,
+          "earliest": "2026-04-30",
+          "latest": "2026-04-30"
+        },
+        {
+          "sport_key": "golf_dp_world___catalunya_championship___1st_round",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 20
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 20
+            }
+          ],
+          "total_matches": 40,
+          "earliest": "2026-05-07",
+          "latest": "2026-05-07"
+        },
+        {
+          "sport_key": "golf_liv___virginia_invitational___tournament",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 20
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 20
+            }
+          ],
+          "total_matches": 40,
+          "earliest": "2026-05-07",
+          "latest": "2026-05-07"
+        },
+        {
+          "sport_key": "golf_pga___myrtle_beach_classic___1st_round",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 17
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 17
+            }
+          ],
+          "total_matches": 34,
+          "earliest": "2026-05-07",
+          "latest": "2026-05-07"
+        },
+        {
+          "sport_key": "golf_liv___virginia_invitational___1st_round",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 14
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 14
+            }
+          ],
+          "total_matches": 28,
+          "earliest": "2026-05-07",
+          "latest": "2026-05-07"
+        },
+        {
+          "sport_key": "golf_dp_world___turkish_airlines_open___1st_round",
+          "bookmakers": [
+            {
+              "name": "pinnacle",
+              "matches": 5
+            },
+            {
+              "name": "pinnacle_open",
+              "matches": 5
+            }
+          ],
+          "total_matches": 10,
+          "earliest": "2026-04-30",
+          "latest": "2026-04-30"
+        }
+      ],
+      "caveat": "Stale summary is not authoritative evidence of all current prop coverage; global counts do not establish G11 coverage.",
+      "free_history_window_hours": 48,
+      "deep_target_history_requires_separate_entitlement": true
+    },
+    "propline": {
+      "documented_archive_begins": "2026-04",
+      "target_2023_2025_coverage_proven": false
+    },
+    "the_odds_api": {
+      "documented_golf_scope": "tournament-winner futures for the four majors",
+      "target_props_covered": false
+    }
+  },
+  "repository_lead": {
+    "repository": "0xAidan/golf-model",
+    "commit": "cb868501ec68333a280461cded7b3750c5f87345",
+    "tree_items": 1441,
+    "tree_truncated": false,
+    "saved_database": "tests/fixtures/golf_2026_one_event.db",
+    "tournament": "Fixture Invitational",
+    "course": "Fixture Country Club",
+    "date": "2026-03-01",
+    "disposition": "test fixture; not a historical price source"
+  },
+  "identity_map_lead": {
+    "repository": "jriordan55/alpha-caddie",
+    "path": "scripts/build_pga_datagolf_player_map.R",
+    "disposition": "Builder uses name-based match methods; did not replace original unmatched rows with unverified aliases"
+  },
+  "missing_input_question": "Does the user already have SportsDataIO historical PGA access or another archive? Asked asynchronously; no answer at report creation.",
+  "schedules": "remain paused"
+}

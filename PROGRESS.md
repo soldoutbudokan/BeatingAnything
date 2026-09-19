@@ -4,6 +4,12 @@ Updated September 19, 2026 (Toronto). Latest manual instruction: the golf sport 
 
 **Current execution status: historical-price search resumed; G11 still lacks qualified offers.** The new public archive below supersedes the earlier absence of historical FanDuel price files. Its matched fixed-cohort offers are all same-course, and the selected export lacks timezone and settlement metadata. The required cross-course/round-score source has not yet been found. No edge is established; scheduled jobs remain paused. The September 19 19:10 UTC blocked checkpoint applied to the earlier forward-capture run, before this new source discovery.
 
+## September 19 continuation: round-score archive search
+
+The [round-score source search](reports/golf-round-price-source-search-2026-09-19.md) found selected, self-reported FanDuel round-two prices for Farmers/Pebble, but no complete first-round offer. Direct forum captures returned browser challenges; indexed excerpts remain leads only. The Odds API's golf scope is major-winner futures; OpticOdds' standard historical endpoint retains two months; PropLine starts in April 2026; ParlayAPI's free history window is 48 hours, and its public historical summary is dated May 15. None establishes the required archive. A newly inspected golf-model database is explicitly a test fixture.
+
+SportsDataIO documents historical PGA props and full price movement in its production API. The exact retrieval route and eight-edition coverage requirements are recorded, but actual FanDuel round-score coverage, applicable terms and access are unverified. No relevant configured key was found. An asynchronous question asks whether the user already has access or another archive; no reply had arrived at this checkpoint. Seventeen source artifacts verified. No production code changed and no model/backtest ran. The objective remains incomplete; do not equate documented provider capability with acquired usable prices.
+
 ## September 19: public historical FanDuel price exports recovered
 
 The [source audit](reports/golf-historical-price-audit-2026-09-19.md) recovers two pinned `jriordan55/alpha-caddie` exports, containing 15,990 and 18,568 FanDuel-labelled opening/closing records. The smaller is an exact price-record subset of the larger. Both preserve prices and unzoned opening/closing strings; their publisher pipeline drops tie rules and excludes rows without graded outcomes or model estimates. The original raw DataGolf matchup file is absent and its pinned public history query returned zero entries.
