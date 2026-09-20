@@ -120,7 +120,7 @@ def first_score_markets(catalog):
                              " ".join(r.get("marketName", "").lower().split()))]
 
 
-def choose_fixtures(fixtures):
+def choose_fixtures(fixtures, plan=PLAN):
     if not isinstance(fixtures, list):
         raise ProbeStopped("Unexpected fixture list shape")
     nba = [r for r in fixtures if r.get("sportId") == 11 and r.get("tournamentSlug") == "nba"]
@@ -128,10 +128,10 @@ def choose_fixtures(fixtures):
         raise ProbeStopped("Duplicate NBA fixture identifiers")
     try:
         # The API includes fixtures exactly at `to`; our fixed cohort excludes them.
-        if any(not r.get("fixtureId") or not zoned(PLAN["from"]) <= zoned(r["startTime"]) <= zoned(PLAN["to"]) for r in nba):
+        if any(not r.get("fixtureId") or not zoned(plan["from"]) <= zoned(r["startTime"]) <= zoned(plan["to"]) for r in nba):
             raise ProbeStopped("NBA fixture outside requested interval")
-        nba = [r for r in nba if zoned(r["startTime"]) < zoned(PLAN["to"])]
-        return sorted(nba, key=lambda r: (zoned(r["startTime"]), r["fixtureId"]))[:PLAN["max_fixtures"]]
+        nba = [r for r in nba if zoned(r["startTime"]) < zoned(plan["to"])]
+        return sorted(nba, key=lambda r: (zoned(r["startTime"]), r["fixtureId"]))[:plan["max_fixtures"]]
     except (KeyError, TypeError, ValueError):
         raise ProbeStopped("Missing or invalid fixture identity/clock") from None
 

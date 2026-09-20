@@ -2,6 +2,12 @@
 
 **No FanDuel edge is established.** The profitable [2025 conditional test](../reports/nba-first-score-wedge-backtest-2026-09-19.md) needs additional price evidence. The [complete 2021 inventory](../reports/nba-first-basket-2021-inventory-2026-09-19.md) cannot supply the required clocks or BetMGM player boards. Eight additional public repositories were checked in a [bounded source search](../reports/nba-first-basket-expanded-source-search-2026-09-19.json), without another qualified first-basket cohort.
 
+## Latest: historical first-scorer coverage found
+
+User screenshots show pregame/player-prop access enabled for both books. The [later-date follow-up](../reports/nba-first-basket-oddspapi-followup-2026-09-19.md) retrieves first-scorer history at **both FanDuel and BetMGM in May and June 2026**, without an upgrade. May has ten matching player IDs active five minutes before scheduled tip-off; June has eight. April has BetMGM-only first-scorer history. The original March negative below is date-specific, not a provider-wide absence. No further account-endpoint request is needed to establish that these examples can be retrieved.
+
+Actual coverage now makes player identity, fixture clocks, complete-board history and bookmaker settlement semantics the next audit. The provider's `createdAt` is still not established as a bookmaker update clock. The prior strategy excludes playoffs and requires ten runners, so do not silently substitute these later examples into its frozen replication rules. A fixed eligible acquisition declaration must precede new outcome grading. The earlier checkpoint below records what was known before the screenshots and later-date queries.
+
 ## Live result, September 19, 2026 (Toronto)
 
 The user configured a private local key and the [three-game probe completed](../reports/nba-first-basket-oddspapi-coverage-2026-09-19.md). Both target books returned historical odds with HTTP 200, but **zero first-score markets and zero player-prop markets** appeared in all six book/game histories. Returned markets were moneylines, spreads and totals. This is a negative coverage result for the fixed sample under this key, not evidence that the provider has no first-basket data anywhere.

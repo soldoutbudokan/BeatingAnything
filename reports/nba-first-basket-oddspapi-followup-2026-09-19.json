@@ -1,0 +1,487 @@
+{
+  "account_screenshot_observations": [
+    {
+      "bookmaker": "fanduel",
+      "displayed_basketball_access": true,
+      "displayed_live_access": false,
+      "displayed_player_props_access": true,
+      "displayed_pregame_access": true,
+      "path": "data/raw/oddspapi-first-basket-access-screenshots-2026-09-19/fanduel.png",
+      "sha256": "a5a32933583ac82300362baa155989f33b9e975b38cc2994efc697f850a87bf6",
+      "source": "user conversation screenshot"
+    },
+    {
+      "bookmaker": "betmgm",
+      "displayed_basketball_access": true,
+      "displayed_live_access": false,
+      "displayed_player_props_access": true,
+      "displayed_pregame_access": true,
+      "path": "data/raw/oddspapi-first-basket-access-screenshots-2026-09-19/betmgm.png",
+      "sha256": "6e5b59c953397724674ade4f328ed860be6aa3a9fc09966427a56bb749295d77",
+      "source": "user conversation screenshot"
+    }
+  ],
+  "coverage": [
+    {
+      "all_market_coverage": [
+        {
+          "bookmaker": "betmgm",
+          "market_count": 142,
+          "market_types": {
+            "moneyline": 2,
+            "players-firstpoint": 1,
+            "spreads": 46,
+            "teamtotals-team1": 18,
+            "teamtotals-team2": 26,
+            "totals": 49
+          },
+          "nonzero_player_ids": 10,
+          "player_prop_market_count": 1,
+          "unknown_market_ids": []
+        },
+        {
+          "bookmaker": "fanduel",
+          "market_count": 214,
+          "market_types": {
+            "1x2": 2,
+            "moneyline": 4,
+            "players-3pointers": 1,
+            "players-assists": 1,
+            "players-doubledouble": 1,
+            "players-points": 1,
+            "players-rebounds": 1,
+            "players-tripletriple": 1,
+            "spreads": 77,
+            "teamtotals-team1": 23,
+            "teamtotals-team2": 36,
+            "totals": 66
+          },
+          "nonzero_player_ids": 8,
+          "player_prop_market_count": 6,
+          "unknown_market_ids": []
+        }
+      ],
+      "clock_semantics": "createdAt is provider history-entry creation, not established bookmaker update time",
+      "first_score_market_coverage": [
+        {
+          "bookmaker": "betmgm",
+          "counts": {
+            "active_pregame_entries": 58,
+            "entries": 80,
+            "invalid_price_or_clock": 2,
+            "pregame_entries": 58,
+            "valid_price_and_zoned_history_clock": 78
+          },
+          "market_id": "112604",
+          "market_name": "Player First Point",
+          "players_with_active_pregame_entry": 10
+        }
+      ],
+      "fixture_id": "id1100013262924421",
+      "qualified_replication": false,
+      "returned_bookmakers": [
+        "betmgm",
+        "fanduel"
+      ],
+      "start_time": "2026-04-12T22:00:00.000Z"
+    },
+    {
+      "all_market_coverage": [
+        {
+          "bookmaker": "betmgm",
+          "market_count": 183,
+          "market_types": {
+            "moneyline": 2,
+            "players-3pointers": 1,
+            "players-assists": 1,
+            "players-firstpoint": 1,
+            "players-points": 1,
+            "players-rebounds": 1,
+            "playertotals-assists": 1,
+            "playertotals-assreb": 10,
+            "playertotals-blocks": 2,
+            "playertotals-points": 1,
+            "playertotals-ptsass": 14,
+            "playertotals-ptsassreb": 17,
+            "playertotals-ptsreb": 14,
+            "playertotals-rebounds": 1,
+            "playertotals-steals": 1,
+            "playertotals-turnovers": 1,
+            "spreads": 36,
+            "teamtotals-team1": 22,
+            "teamtotals-team2": 22,
+            "totals": 34
+          },
+          "nonzero_player_ids": 17,
+          "player_prop_market_count": 67,
+          "unknown_market_ids": []
+        },
+        {
+          "bookmaker": "fanduel",
+          "market_count": 335,
+          "market_types": {
+            "1x2": 2,
+            "moneyline": 4,
+            "players-3pointers": 1,
+            "players-assists": 1,
+            "players-doubledouble": 1,
+            "players-first3pointer": 1,
+            "players-firstpoint": 1,
+            "players-points": 1,
+            "players-rebounds": 1,
+            "players-tripletriple": 1,
+            "playertotals-3pointers": 6,
+            "playertotals-assists": 13,
+            "playertotals-points": 36,
+            "playertotals-ptsassreb": 39,
+            "playertotals-rebounds": 13,
+            "spreads": 79,
+            "teamtotals-team1": 37,
+            "teamtotals-team2": 26,
+            "totals": 72
+          },
+          "nonzero_player_ids": 17,
+          "player_prop_market_count": 115,
+          "unknown_market_ids": []
+        }
+      ],
+      "clock_semantics": "createdAt is provider history-entry creation, not established bookmaker update time",
+      "first_score_market_coverage": [
+        {
+          "bookmaker": "betmgm",
+          "counts": {
+            "active_pregame_entries": 148,
+            "entries": 168,
+            "pregame_entries": 148,
+            "valid_price_and_zoned_history_clock": 168
+          },
+          "market_id": "112604",
+          "market_name": "Player First Point",
+          "players_with_active_pregame_entry": 10
+        },
+        {
+          "bookmaker": "fanduel",
+          "counts": {
+            "active_pregame_entries": 594,
+            "entries": 618,
+            "pregame_entries": 595,
+            "valid_price_and_zoned_history_clock": 618
+          },
+          "market_id": "112604",
+          "market_name": "Player First Point",
+          "players_with_active_pregame_entry": 10
+        }
+      ],
+      "fixture_id": "id1100013270504998",
+      "qualified_replication": false,
+      "returned_bookmakers": [
+        "betmgm",
+        "fanduel"
+      ],
+      "start_time": "2026-05-12T00:00:00.000Z"
+    },
+    {
+      "all_market_coverage": [
+        {
+          "bookmaker": "betmgm",
+          "market_count": 1,
+          "market_types": {
+            "players-firstpoint": 1
+          },
+          "nonzero_player_ids": 8,
+          "player_prop_market_count": 1,
+          "unknown_market_ids": []
+        },
+        {
+          "bookmaker": "fanduel",
+          "market_count": 1,
+          "market_types": {
+            "players-firstpoint": 1
+          },
+          "nonzero_player_ids": 8,
+          "player_prop_market_count": 1,
+          "unknown_market_ids": []
+        }
+      ],
+      "clock_semantics": "createdAt is provider history-entry creation, not established bookmaker update time",
+      "first_score_market_coverage": [
+        {
+          "bookmaker": "betmgm",
+          "counts": {
+            "active_pregame_entries": 8,
+            "entries": 16,
+            "pregame_entries": 8,
+            "valid_price_and_zoned_history_clock": 16
+          },
+          "market_id": "112604",
+          "market_name": "Player First Point",
+          "players_with_active_pregame_entry": 8
+        },
+        {
+          "bookmaker": "fanduel",
+          "counts": {
+            "active_pregame_entries": 744,
+            "entries": 777,
+            "pregame_entries": 759,
+            "valid_price_and_zoned_history_clock": 777
+          },
+          "market_id": "112604",
+          "market_name": "Player First Point",
+          "players_with_active_pregame_entry": 8
+        }
+      ],
+      "fixture_id": "id1100013270505022",
+      "qualified_replication": false,
+      "returned_bookmakers": [
+        "betmgm",
+        "fanduel"
+      ],
+      "start_time": "2026-06-04T00:30:00.000Z"
+    }
+  ],
+  "created_at": "2026-09-20T01:13:11.506443+00:00",
+  "declaration": "docs/first-basket-oddspapi-followup-plan-2026-09-19.md",
+  "documented_quota_consuming_requests_this_followup": 3,
+  "fixed_followup_run": "data/raw/oddspapi-first-basket-followup/20260920T010903144695Z",
+  "fixtures": [
+    {
+      "fixtureId": "id1100013262924421",
+      "participant1Name": "Cleveland Cavaliers",
+      "participant2Name": "Washington Wizards",
+      "startTime": "2026-04-12T22:00:00.000Z",
+      "tournamentSlug": "nba"
+    },
+    {
+      "fixtureId": "id1100013270504998",
+      "participant1Name": "Cleveland Cavaliers",
+      "participant2Name": "Detroit Pistons",
+      "startTime": "2026-05-12T00:00:00.000Z",
+      "tournamentSlug": "nba"
+    },
+    {
+      "fixtureId": "id1100013270505022",
+      "participant1Name": "San Antonio Spurs",
+      "participant2Name": "New York Knicks",
+      "startTime": "2026-06-04T00:30:00.000Z",
+      "tournamentSlug": "nba"
+    }
+  ],
+  "limitations": [
+    "Catalog Player First Point is a provider-normalized label, not verified original bookmaker settlement wording.",
+    "createdAt is provider history-entry creation; bookmaker update timing and snapshot completeness remain unverified.",
+    "Player IDs still require names, team/starter linkage and independent fixture identity.",
+    "May has ten matching active IDs five minutes before scheduled start; June has eight and cannot meet the previous ten-runner rule.",
+    "The established Card 42 protocol excludes playoffs; late-season source examples cannot silently replace its regular-season replication cohort.",
+    "No outcome grading, strategy return or edge claim was made."
+  ],
+  "next_action": "Audit source identity, clock and settlement semantics, then freeze a separately declared eligible acquisition cohort before outcomes. Preserve prior failed gates and date-specific gaps.",
+  "pregame_diagnostic": [
+    {
+      "bookmaker_update_clock_verified": false,
+      "bookmakers": {
+        "betmgm": {
+          "active_player_count_at_cutoff": 10,
+          "active_player_ids": [
+            "1124733",
+            "1141362",
+            "1512651",
+            "1795454",
+            "2068637",
+            "2080549",
+            "2218398",
+            "2631631",
+            "607778",
+            "608250"
+          ],
+          "inverse_price_sum": 1.2222723513046094,
+          "latest_history_entry_age_seconds_max": 47870.614,
+          "latest_history_entry_age_seconds_min": 1045.322,
+          "unavailable_player_ids_at_cutoff": []
+        },
+        "fanduel": {
+          "active_player_count_at_cutoff": 10,
+          "active_player_ids": [
+            "1124733",
+            "1141362",
+            "1512651",
+            "1795454",
+            "2068637",
+            "2080549",
+            "2218398",
+            "2631631",
+            "607778",
+            "608250"
+          ],
+          "inverse_price_sum": 1.1505515683147263,
+          "latest_history_entry_age_seconds_max": 2118.271,
+          "latest_history_entry_age_seconds_min": 22.821,
+          "unavailable_player_ids_at_cutoff": []
+        }
+      },
+      "cutoff": "2026-05-11T23:55:00+00:00",
+      "diagnostic_only": true,
+      "fixture_id": "id1100013270504998",
+      "matched_active_player_ids": 10
+    },
+    {
+      "bookmaker_update_clock_verified": false,
+      "bookmakers": {
+        "betmgm": {
+          "active_player_count_at_cutoff": 8,
+          "active_player_ids": [
+            "1123905",
+            "1142606",
+            "1159266",
+            "1176834",
+            "1620146",
+            "1795506",
+            "1941074",
+            "2690764"
+          ],
+          "inverse_price_sum": 0.9841984737865744,
+          "latest_history_entry_age_seconds_max": 85.971,
+          "latest_history_entry_age_seconds_min": 85.971,
+          "unavailable_player_ids_at_cutoff": []
+        },
+        "fanduel": {
+          "active_player_count_at_cutoff": 8,
+          "active_player_ids": [
+            "1123905",
+            "1142606",
+            "1159266",
+            "1176834",
+            "1620146",
+            "1795506",
+            "1941074",
+            "2690764"
+          ],
+          "inverse_price_sum": 0.9168325919468032,
+          "latest_history_entry_age_seconds_max": 1128.794,
+          "latest_history_entry_age_seconds_min": 21.678,
+          "unavailable_player_ids_at_cutoff": []
+        }
+      },
+      "cutoff": "2026-06-04T00:25:00+00:00",
+      "diagnostic_only": true,
+      "fixture_id": "id1100013270505022",
+      "matched_active_player_ids": 8
+    }
+  ],
+  "qualified_replication": false,
+  "receipts": [
+    {
+      "body_retained": true,
+      "bytes": 341415,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Sun, 20 Sep 2026 01:09:03 GMT"
+      },
+      "path": "data/raw/oddspapi-first-basket-followup/20260920T010903144695Z/01-fixtures.meta.json",
+      "received_at": "2026-09-20T01:09:03.678584+00:00",
+      "sha256": "61939a873b737d4cede66a667518e201532c61af5272ea967d9bcc4d45cf3077",
+      "sha256_scope": "full retained body",
+      "started_at": "2026-09-20T01:09:03.157974+00:00",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/fixtures?sportId=11&from=2026-04-12T00%3A00%3A00Z&to=2026-04-15T00%3A00%3A00Z"
+    },
+    {
+      "body_retained": true,
+      "bytes": 216851,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Sun, 20 Sep 2026 01:09:06 GMT"
+      },
+      "path": "data/raw/oddspapi-first-basket-followup/20260920T010903144695Z/02-fixtures.meta.json",
+      "received_at": "2026-09-20T01:09:06.098913+00:00",
+      "sha256": "b1df88c45b15f60f80fc6b3407f4b37182619858c7695449e64c2dd0d1c893ca",
+      "sha256_scope": "full retained body",
+      "started_at": "2026-09-20T01:09:05.790915+00:00",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/fixtures?sportId=11&from=2026-05-12T00%3A00%3A00Z&to=2026-05-15T00%3A00%3A00Z"
+    },
+    {
+      "body_retained": true,
+      "bytes": 195625,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Sun, 20 Sep 2026 01:09:08 GMT"
+      },
+      "path": "data/raw/oddspapi-first-basket-followup/20260920T010903144695Z/03-fixtures.meta.json",
+      "received_at": "2026-09-20T01:09:08.708959+00:00",
+      "sha256": "5ffad6e00a8fadee10e2ba80199ce0ca4523462f2cbe7ccb04e476e4e25dce12",
+      "sha256_scope": "full retained body",
+      "started_at": "2026-09-20T01:09:08.209633+00:00",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/fixtures?sportId=11&from=2026-06-04T00%3A00%3A00Z&to=2026-06-07T00%3A00%3A00Z"
+    },
+    {
+      "body_retained": true,
+      "bytes": 7056712,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Sun, 20 Sep 2026 01:09:09 GMT",
+        "ETag": "W/\"03a98c99417e3063\""
+      },
+      "path": "data/raw/oddspapi-first-basket-followup/20260920T010903144695Z/04-historical-odds.meta.json",
+      "received_at": "2026-09-20T01:09:10.141483+00:00",
+      "sha256": "3e680289ce4b628f06ac1d016c226de1f2284227a3f81b53139b41feca5057d2",
+      "sha256_scope": "full retained body",
+      "started_at": "2026-09-20T01:09:08.730466+00:00",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/historical-odds?fixtureId=id1100013262924421&bookmakers=fanduel%2Cbetmgm"
+    },
+    {
+      "body_retained": true,
+      "bytes": 26384982,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Sun, 20 Sep 2026 01:09:14 GMT",
+        "ETag": "W/\"873d866ea9a1f75a\""
+      },
+      "path": "data/raw/oddspapi-first-basket-followup/20260920T010903144695Z/05-historical-odds.meta.json",
+      "received_at": "2026-09-20T01:09:15.881638+00:00",
+      "sha256": "358e06726019eb8767a32d90113f8abe3df5381b689bac13d9161018a50e53be",
+      "sha256_scope": "full retained body",
+      "started_at": "2026-09-20T01:09:13.835679+00:00",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/historical-odds?fixtureId=id1100013270504998&bookmakers=fanduel%2Cbetmgm"
+    },
+    {
+      "body_omission_reason": "response_size_limit",
+      "body_retained": false,
+      "bytes": 33554433,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Sun, 20 Sep 2026 01:09:20 GMT",
+        "ETag": "W/\"0dc0a6d992df0493\""
+      },
+      "path": "data/raw/oddspapi-first-basket-followup/20260920T010903144695Z/06-historical-odds.meta.json",
+      "received_at": "2026-09-20T01:09:21.750559+00:00",
+      "sha256": "db11bad69d4ddffe69b127fbcac2608ff5de4365a7ca910f298eda028f6b96bd",
+      "sha256_scope": "discarded size-cap-plus-one prefix only",
+      "started_at": "2026-09-20T01:09:18.940684+00:00",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/historical-odds?fixtureId=id1100013270505022&bookmakers=fanduel%2Cbetmgm"
+    },
+    {
+      "body_retained": true,
+      "bytes": 80119,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Sun, 20 Sep 2026 01:10:45 GMT",
+        "ETag": "W/\"1746a8139f0b9563\""
+      },
+      "path": "data/raw/oddspapi-first-basket-followup/20260920T011044920719Z/01-historical-odds.meta.json",
+      "received_at": "2026-09-20T01:10:45.471302+00:00",
+      "sha256": "3620720d0c6a67ed7389b231e84b75519a8aea74ab8c6dbb0c81e6be5efdd6b6",
+      "sha256_scope": "full retained body",
+      "started_at": "2026-09-20T01:10:44.928756+00:00",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/historical-odds?fixtureId=id1100013270505022&bookmakers=fanduel%2Cbetmgm&outcomeId=112604"
+    }
+  ],
+  "recovery_declaration": "docs/first-basket-oddspapi-june-size-recovery-2026-09-19.md",
+  "requests_this_followup": 7,
+  "status": "first_score_history_found_at_both_books",
+  "targeted_june_recovery_run": "data/raw/oddspapi-first-basket-followup/20260920T011044920719Z"
+}
