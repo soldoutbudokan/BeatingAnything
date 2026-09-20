@@ -3,10 +3,11 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 import urllib.error
 
 from tools.probe_first_basket_history import (
-    Client, NoRedirect, PLAN, ProbeStopped, cached_catalogs, choose_fixtures, first_score_markets, history_inventory,
+    Client, NoRedirect, PLAN, ProbeStopped, HistoryNotFound, cached_catalogs, choose_fixtures, first_score_markets, history_inventory,
 )
 
 
@@ -101,6 +102,34 @@ class HistoryProbeTests(unittest.TestCase):
             with self.assertRaises(ProbeStopped):
                 client.get("settlements", {})
             self.assertIsNone(NoRedirect().redirect_request(None, None, 302, "redirect", {}, "https://elsewhere.invalid"))
+
+    def test_explicit_acquisition_budget_preserves_hard_stop(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            client = Client("private-probe-test-key", Path(tmp), opener=FakeOpener(FakeResponse(b'[]')), max_requests=2)
+            client.get("fixtures", {})
+            client.get("fixtures", {})
+            with self.assertRaises(ProbeStopped):
+                client.get("fixtures", {})
+            with self.assertRaises(ProbeStopped):
+                Client("private-probe-test-key", Path(tmp), max_requests=0)
+
+    def test_only_explicit_history_absence_has_distinct_exception(self):
+        body = json.dumps({"error": {"code": "NOT_FOUND", "message": "No historical odds found for the specified filters."}}).encode()
+        for status, endpoint, expected in [(404, "historical-odds", HistoryNotFound),
+                                           (403, "historical-odds", ProbeStopped), (404, "fixtures", ProbeStopped)]:
+            with tempfile.TemporaryDirectory() as tmp:
+                error = urllib.error.HTTPError("https://example.invalid", status, "error", {}, io.BytesIO(body))
+                client = Client("private-probe-test-key", Path(tmp), opener=FakeOpener(error))
+                with self.assertRaises(ProbeStopped) as caught:
+                    client.get(endpoint, {})
+                self.assertIs(type(caught.exception), expected)
+
+    def test_history_cooldown_starts_after_slow_response(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            client = Client("private-probe-test-key", Path(tmp), opener=FakeOpener(FakeResponse(b'{}')))
+            with patch("tools.probe_first_basket_history.time.monotonic", side_effect=[10.0, 25.0]):
+                client.get("historical-odds", {"fixtureId": "a"})
+            self.assertEqual(client.last_history, 25.0)
 
     def test_cached_catalogs_require_matching_receipts_and_no_prior_history(self):
         with tempfile.TemporaryDirectory() as tmp:

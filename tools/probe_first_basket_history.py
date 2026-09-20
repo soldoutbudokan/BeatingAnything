@@ -45,21 +45,28 @@ class ProbeStopped(Exception):
     """Messages are controlled constants; never include credential-bearing URLs."""
 
 
+class HistoryNotFound(ProbeStopped):
+    """The provider explicitly reports no history for these exact filters."""
+
+
 class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         return None
 
 
 class Client:
-    def __init__(self, key, output, opener=None, wait=time.sleep):
+    def __init__(self, key, output, opener=None, wait=time.sleep, max_requests=None):
         if not key.strip():
             raise ProbeStopped("Missing API key; no requests made")
         self.key, self.output = key.strip(), output
         self.opener = opener or urllib.request.build_opener(NoRedirect())
         self.wait, self.calls, self.last_history = wait, 0, None
+        self.max_requests = PLAN["max_requests"] if max_requests is None else max_requests
+        if type(self.max_requests) is not int or self.max_requests < 1:
+            raise ProbeStopped("Invalid request budget")
 
     def get(self, endpoint, params):
-        if endpoint not in ("bookmakers", "markets", "fixtures", "historical-odds") or self.calls >= PLAN["max_requests"]:
+        if endpoint not in ("bookmakers", "markets", "fixtures", "historical-odds") or self.calls >= self.max_requests:
             raise ProbeStopped("Endpoint or request budget exceeded")
         if any("key" in k.lower() for k in params):
             raise ProbeStopped("Credential must only come from private key input")
@@ -87,6 +94,9 @@ class Client:
                 "url_without_credential": public_url, "started_at": started, "received_at": stamp(),
                 "transport_failure_type": type(error).__name__})
             raise ProbeStopped("Transport failed; no retry performed") from None
+        # Server processing can outlast the cooldown; wait from response receipt.
+        if endpoint == "historical-odds":
+            self.last_history = time.monotonic()
         meta = {"url_without_credential": public_url, "started_at": started, "received_at": stamp(),
                 "status": status, "bytes": len(body), "sha256": hashlib.sha256(body).hexdigest(), "headers": received_headers}
         sensitive_forms = (self.key, urllib.parse.quote(self.key, safe=""), urllib.parse.quote_plus(self.key),
@@ -105,6 +115,14 @@ class Client:
         if secret_in_body or secret_in_headers or oversized:
             raise ProbeStopped("Response exceeded limit or echoed credential; stopped")
         if status != 200:
+            if status == 404 and endpoint == "historical-odds":
+                try:
+                    error = json.loads(body).get("error", {})
+                    if (error.get("code") == "NOT_FOUND"
+                            and error.get("message") == "No historical odds found for the specified filters."):
+                        raise HistoryNotFound("No historical odds found for the specified filters")
+                except (ValueError, AttributeError):
+                    pass
             raise ProbeStopped(f"HTTP {status}; no retry or alternate route performed")
         try:
             return json.loads(body)
