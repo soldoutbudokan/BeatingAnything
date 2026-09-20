@@ -1,0 +1,256 @@
+{
+  "comparisons": 16,
+  "created_at": "2026-09-20T01:46:32.203938+00:00",
+  "edge_established": false,
+  "exclusions": {
+    "betmgm:not_ten_active_players": 5,
+    "fanduel:not_ten_active_players": 90,
+    "fanduel:unresolved_player_identity": 3,
+    "friday_promotion_day": 40,
+    "provider_explicit_no_history": 67
+  },
+  "forecast_games": 16,
+  "forecast_sha256": "354eeaaa23e6cf1534b43e910ac0198466c88384830ea6309ff5e9863130c8bf",
+  "graded_path": "data/raw/nba-first-score-2026-validation-2026-09-19/graded.json",
+  "graded_sha256": "346a5450e2c5f872acbc32e4d62697d319b57eb37144ecf0ad9a4f4927caf7ed",
+  "input_games": 221,
+  "limitations": [
+    "Conditional original market identity; quote jurisdiction/display labels unavailable",
+    "Latest provider entry assumed to persist; historical execution and bookmaker freshness unverified",
+    "One fixed month cannot provide the required eight calendar weeks for inference",
+    "No prospective evidence; no wagers, alerts or scheduled collectors enabled"
+  ],
+  "outcomes": {
+    "resolved": 16
+  },
+  "protocol_sha256": "af090629d5199547ac1b1910f97480d8fb1e702e6ed78ca678e20633954b4062",
+  "reserve_sensitivity": {
+    "forecast_games": 16,
+    "known_profit": 5.800000000000001,
+    "loss": 4,
+    "nonvoid_settled_turnover": 5,
+    "original_stake_turnover": 5,
+    "probability_scores": {
+      "brier": {
+        "converted_mean": 0.9025810630088459,
+        "market": {
+          "baseline_mean": 0.9115640245673122,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 3
+          },
+          "paired_difference": -0.008982961558466389
+        },
+        "reference": {
+          "baseline_mean": 0.9024878056105612,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 3
+          },
+          "paired_difference": 9.325739828469626e-05
+        }
+      },
+      "log_loss": {
+        "converted_mean": 2.325585935743069,
+        "market": {
+          "baseline_mean": 2.38677492936774,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 3
+          },
+          "paired_difference": -0.061188993624671145
+        },
+        "reference": {
+          "baseline_mean": 2.3259571429037496,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 3
+          },
+          "paired_difference": -0.0003712071606804812
+        }
+      }
+    },
+    "roi_bootstrap_all_loss": {
+      "confidence": 0.996875,
+      "corrected_interval": null,
+      "reason": "fewer_than_eight_weeks",
+      "weeks": 2
+    },
+    "roi_bootstrap_all_void": {
+      "confidence": 0.996875,
+      "corrected_interval": null,
+      "reason": "fewer_than_eight_weeks",
+      "weeks": 2
+    },
+    "scored_games": 16,
+    "selected_bets": 5,
+    "selected_positive_unconverted_ev": 5,
+    "unresolved": 0,
+    "unresolved_all_loss_roi": 1.1600000000000001,
+    "unresolved_all_void_roi": 1.1600000000000001,
+    "unresolved_reasons": {},
+    "void": 0,
+    "win": 1
+  },
+  "results": {
+    "forecast_games": 16,
+    "known_profit": 3.8000000000000007,
+    "loss": 6,
+    "nonvoid_settled_turnover": 7,
+    "original_stake_turnover": 7,
+    "probability_scores": {
+      "brier": {
+        "converted_mean": 0.9025810630088459,
+        "market": {
+          "baseline_mean": 0.9115640245673122,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 3
+          },
+          "paired_difference": -0.008982961558466389
+        },
+        "reference": {
+          "baseline_mean": 0.9024878056105612,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 3
+          },
+          "paired_difference": 9.325739828469626e-05
+        }
+      },
+      "log_loss": {
+        "converted_mean": 2.325585935743069,
+        "market": {
+          "baseline_mean": 2.38677492936774,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 3
+          },
+          "paired_difference": -0.061188993624671145
+        },
+        "reference": {
+          "baseline_mean": 2.3259571429037496,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 3
+          },
+          "paired_difference": -0.0003712071606804812
+        }
+      }
+    },
+    "roi_bootstrap_all_loss": {
+      "confidence": 0.996875,
+      "corrected_interval": null,
+      "reason": "fewer_than_eight_weeks",
+      "weeks": 2
+    },
+    "roi_bootstrap_all_void": {
+      "confidence": 0.996875,
+      "corrected_interval": null,
+      "reason": "fewer_than_eight_weeks",
+      "weeks": 2
+    },
+    "scored_games": 16,
+    "selected_bets": 7,
+    "selected_positive_unconverted_ev": 7,
+    "unresolved": 0,
+    "unresolved_all_loss_roi": 0.5428571428571429,
+    "unresolved_all_void_roi": 0.5428571428571429,
+    "unresolved_reasons": {},
+    "void": 0,
+    "win": 1
+  },
+  "strict_entry_age_300s_diagnostic": {
+    "forecast_games": 0,
+    "known_profit": 0,
+    "loss": 0,
+    "nonvoid_settled_turnover": 0,
+    "original_stake_turnover": 0,
+    "probability_scores": {
+      "brier": {
+        "converted_mean": null,
+        "market": {
+          "baseline_mean": null,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 0
+          },
+          "paired_difference": null
+        },
+        "reference": {
+          "baseline_mean": null,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 0
+          },
+          "paired_difference": null
+        }
+      },
+      "log_loss": {
+        "converted_mean": null,
+        "market": {
+          "baseline_mean": null,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 0
+          },
+          "paired_difference": null
+        },
+        "reference": {
+          "baseline_mean": null,
+          "paired_bootstrap": {
+            "confidence": 0.996875,
+            "corrected_interval": null,
+            "reason": "fewer_than_eight_weeks",
+            "weeks": 0
+          },
+          "paired_difference": null
+        }
+      }
+    },
+    "roi_bootstrap_all_loss": {
+      "confidence": 0.996875,
+      "corrected_interval": null,
+      "reason": "fewer_than_eight_weeks",
+      "weeks": 0
+    },
+    "roi_bootstrap_all_void": {
+      "confidence": 0.996875,
+      "corrected_interval": null,
+      "reason": "fewer_than_eight_weeks",
+      "weeks": 0
+    },
+    "scored_games": 0,
+    "selected_bets": 0,
+    "selected_positive_unconverted_ev": 0,
+    "unresolved": 0,
+    "unresolved_all_loss_roi": null,
+    "unresolved_all_void_roi": null,
+    "unresolved_reasons": {},
+    "void": 0,
+    "win": 0
+  },
+  "unlisted_scorers": 0
+}

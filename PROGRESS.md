@@ -2,7 +2,17 @@
 
 Updated September 19, 2026 (Toronto). Current research objective: find an edge in FanDuel first-basket markets. The earlier market/data discovery objective is complete. [NEXT-STEPS.md](NEXT-STEPS.md) carries the resulting direction. Scheduled research and watches remain paused; no betting edge has been established.
 
-**Current execution status: the conditional first-score conversion test is profitable but fails advancement; no edge is established.** The two earlier first-basket price candidates remain closed. Golf G11 remains parked on its own qualified-price dependency.
+**Current execution status: the 2026 source validation is complete and positive over seven simulated bets, but remains underpowered with unverified quote timing; no edge is established.** The two earlier first-basket price candidates remain closed. Golf G11 remains parked on its own qualified-price dependency.
+
+## September 19 continuation: 2026 acquisition and independent validation complete
+
+The [fixed acquisition and source audit](reports/nba-first-score-2026-source-audit-2026-09-19.md) checks all 221 predetermined regular-season fixtures, retaining 226 HTTP responses (four fixture queries, 148 successful histories, 73 explicit absences and one rate-limit rejection). Corrected cooldowns wait after response completion; the single retry follows the server's stated wait. FanDuel has active pregame entries in 92 games, BetMGM in 129, both in 73. All fixtures match independent ESPN metadata; one 12-minute start difference uses the earlier cutoff. Dated regulator-hosted rules support the conditional free-throw distinction. Original quote jurisdiction/display labels and bookmaker/collector clocks remain absent.
+
+The [separately declared 2026 validation](reports/nba-first-score-2026-validation-2026-09-19.md) reuses the unchanged 2024 prior rates and Card 42 kernel. Forecasts were frozen and pushed in `4046681` before first-score/starter labels were read. Sixteen games qualify, with seven selections: **one win, six losses, no voids/unknowns; +3.80 units / +54.29% ROI** after the winning-profit haircut. The original reserve sensitivity makes five selections and returns +116%, with the same single winner. All 16 first scores resolve. None of the 16 boards has all twenty provider entries within 300 seconds. Latest-state persistence is explicit, not proof of executable quote freshness.
+
+Mean log loss improves by 0.000371 versus raw BetMGM and 0.061189 versus normalized FanDuel; Brier score slightly worsens versus BetMGM. All seven bets have positive unconverted reference EV. This does not establish the conversion mechanism or an edge: seven settled bets across two betting weeks cannot meet existing sample/inference gates. The family remains 16. The source-only completeness diagnostic finds just 24 ten-player FanDuel boards among 114 non-Friday successful histories; missing/partial boards are the main attrition, not an invitation to substitute realized starters.
+
+**Next:** recover genuinely new complete paired boards with original market labels and contemporaneous clocks, or declare prospective manual capture when eligible fixtures/markets are available. Preserve these results; do not retune the inspected month or expand its cohort after outcomes. All **287 tests pass**. The API key remains private/ignored; no upgrade/account change/wager occurred. The bounded acquisition finished and no process remains running. Scheduled research and watches remain paused. The overall edge-finding objective remains active and incomplete; this turn made concrete progress, not a no-progress blocker.
 
 ## September 19 continuation: later OddsPapi samples contain first-scorer histories
 
