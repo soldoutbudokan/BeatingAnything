@@ -1,0 +1,296 @@
+{
+  "book_summaries": {
+    "betmgm": {
+      "bookmaker": "betmgm",
+      "bookmaker_changed_at_present": 4,
+      "fixture_count": 14,
+      "fixtures": [
+        {
+          "fixtureId": "id1100013273682354",
+          "participant1Name": "Detroit Pistons",
+          "participant2Name": "Boston Celtics",
+          "startTime": "2026-10-20T19:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682356",
+          "participant1Name": "New York Knicks",
+          "participant2Name": "Philadelphia 76ers",
+          "startTime": "2026-10-20T23:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682414",
+          "participant1Name": "San Antonio Spurs",
+          "participant2Name": "Oklahoma City Thunder",
+          "startTime": "2026-10-21T01:30:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273719332",
+          "participant1Name": "Orlando Magic",
+          "participant2Name": "Atlanta Hawks",
+          "startTime": "2026-10-21T23:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273719334",
+          "participant1Name": "Washington Wizards",
+          "participant2Name": "Milwaukee Bucks",
+          "startTime": "2026-10-21T23:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682416",
+          "participant1Name": "Miami Heat",
+          "participant2Name": "Minnesota Timberwolves",
+          "startTime": "2026-10-21T23:30:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273719336",
+          "participant1Name": "Brooklyn Nets",
+          "participant2Name": "Charlotte Hornets",
+          "startTime": "2026-10-21T23:30:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273719340",
+          "participant1Name": "Memphis Grizzlies",
+          "participant2Name": "Utah Jazz",
+          "startTime": "2026-10-22T00:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273719342",
+          "participant1Name": "New Orleans Pelicans",
+          "participant2Name": "Indiana Pacers",
+          "startTime": "2026-10-22T00:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273719344",
+          "participant1Name": "Houston Rockets",
+          "participant2Name": "Dallas Mavericks",
+          "startTime": "2026-10-22T00:30:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682476",
+          "participant1Name": "Los Angeles Lakers",
+          "participant2Name": "Golden State Warriors",
+          "startTime": "2026-10-22T02:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273719346",
+          "participant1Name": "Portland Trail Blazers",
+          "participant2Name": "Phoenix Suns",
+          "startTime": "2026-10-22T02:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682480",
+          "participant1Name": "Philadelphia 76ers",
+          "participant2Name": "Cleveland Cavaliers",
+          "startTime": "2026-10-22T23:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682538",
+          "participant1Name": "Oklahoma City Thunder",
+          "participant2Name": "Denver Nuggets",
+          "startTime": "2026-10-23T01:30:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        }
+      ],
+      "nonzero_player_id_selections": 0,
+      "provider_changed_at_present": 88,
+      "receipt": {
+        "body_retained": true,
+        "bookmaker": "betmgm",
+        "bytes": 52264,
+        "http_date": "Sun, 20 Sep 2026 02:05:21 GMT",
+        "json_type": "list",
+        "received_at": "2026-09-20T02:05:21.741358+00:00",
+        "sha256": "85c7e474483ee6654b9a1e9675afba4b927152c2f7af6c52c4034c0c4182db85",
+        "started_at": "2026-09-20T02:05:21.505441+00:00",
+        "status": 200,
+        "top_count": 14,
+        "url_without_credential": "https://api.oddspapi.io/v4/odds-by-tournaments?tournamentIds=132&bookmaker=betmgm&verbosity=3&language=en"
+      },
+      "returned_market_names": [
+        "Handicap (incl. overtime)",
+        "Over Under (incl. overtime)",
+        "Winner (incl. overtime)"
+      ],
+      "selection_active_inside_inactive_market": 70,
+      "selection_count": 88,
+      "selection_counts_by_market": {
+        "111": 28,
+        "11250": 2,
+        "11258": 2,
+        "11260": 2,
+        "11266": 2,
+        "11268": 4,
+        "11270": 2,
+        "11272": 4,
+        "11276": 4,
+        "11282": 2,
+        "11288": 2,
+        "11292": 4,
+        "11422": 2,
+        "11426": 2,
+        "11430": 2,
+        "11434": 4,
+        "11438": 4,
+        "11446": 4,
+        "11450": 4,
+        "11466": 2,
+        "11470": 2,
+        "11474": 4
+      },
+      "source_verified": false,
+      "target_selection_count": 0
+    },
+    "fanduel": {
+      "bookmaker": "fanduel",
+      "bookmaker_changed_at_present": 0,
+      "fixture_count": 5,
+      "fixtures": [
+        {
+          "fixtureId": "id1100013273682354",
+          "participant1Name": "Detroit Pistons",
+          "participant2Name": "Boston Celtics",
+          "startTime": "2026-10-20T19:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682356",
+          "participant1Name": "New York Knicks",
+          "participant2Name": "Philadelphia 76ers",
+          "startTime": "2026-10-20T23:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682414",
+          "participant1Name": "San Antonio Spurs",
+          "participant2Name": "Oklahoma City Thunder",
+          "startTime": "2026-10-21T01:30:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682416",
+          "participant1Name": "Miami Heat",
+          "participant2Name": "Minnesota Timberwolves",
+          "startTime": "2026-10-21T23:30:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        },
+        {
+          "fixtureId": "id1100013273682476",
+          "participant1Name": "Los Angeles Lakers",
+          "participant2Name": "Golden State Warriors",
+          "startTime": "2026-10-22T02:00:00.000Z",
+          "statusId": 0,
+          "statusName": "Pre-Game"
+        }
+      ],
+      "nonzero_player_id_selections": 0,
+      "provider_changed_at_present": 30,
+      "receipt": {
+        "body_retained": true,
+        "bookmaker": "fanduel",
+        "bytes": 17281,
+        "http_date": "Sun, 20 Sep 2026 02:05:20 GMT",
+        "json_type": "list",
+        "received_at": "2026-09-20T02:05:20.396891+00:00",
+        "sha256": "04e513cfba5c4e20db58cc0cc252928c506d8228e291f6342724b5909f0dae11",
+        "started_at": "2026-09-20T02:05:20.096838+00:00",
+        "status": 200,
+        "top_count": 5,
+        "url_without_credential": "https://api.oddspapi.io/v4/odds-by-tournaments?tournamentIds=132&bookmaker=fanduel&verbosity=3&language=en"
+      },
+      "returned_market_names": [
+        "Handicap (incl. overtime)",
+        "Over Under (incl. overtime)",
+        "Winner (incl. overtime)"
+      ],
+      "selection_active_inside_inactive_market": 0,
+      "selection_count": 30,
+      "selection_counts_by_market": {
+        "111": 10,
+        "11248": 2,
+        "11268": 2,
+        "11272": 2,
+        "11276": 2,
+        "11292": 2,
+        "11434": 2,
+        "11438": 2,
+        "11450": 6
+      },
+      "source_verified": false,
+      "target_selection_count": 0
+    }
+  },
+  "corrected_plan": {
+    "bookmakers": [
+      "fanduel",
+      "betmgm"
+    ],
+    "correction": "Use exactly one bookmaker via singular bookmaker parameter, as HTTP400 error requests",
+    "max_bytes_per_response": 33554432,
+    "max_requests": 2,
+    "no_automatic_retry": true,
+    "prior_attempt": "data/raw/nba-first-score-current-check/20260920T020435869128Z",
+    "purpose": "Explicit correction of provider-documented invalid bookmaker parameter, before retry; source-only current NBA availability",
+    "stop_on_any_non200": true
+  },
+  "current_blocker": "No current first-score offers; qualified historical market identities and contemporaneous bookmaker clocks remain missing",
+  "first_score_markets_returned": 0,
+  "first_score_prices_returned": 0,
+  "initial_documented_parameter_failure": {
+    "body_retained": true,
+    "bytes": 178,
+    "received_at": "2026-09-20T02:04:36.241235+00:00",
+    "sha256": "d048f2a8a2afadc33bcdfdd0045f5ec8ad1bb3ba4f452bc6af33f47ed2242d55",
+    "started_at": "2026-09-20T02:04:35.869633+00:00",
+    "status": 400,
+    "url_without_credential": "https://api.oddspapi.io/v4/odds-by-tournaments?tournamentIds=132&bookmakers=fanduel%2Cbetmgm&verbosity=3&language=en"
+  },
+  "initial_error": {
+    "error": {
+      "code": "INVALID_PARAMETER",
+      "details": "Please provide exactly one bookmaker using the 'bookmaker' query parameter.",
+      "message": "Invalid number of bookmakers specified."
+    }
+  },
+  "market_catalog": {
+    "path": "data/raw/oddspapi-first-basket-probe/20260920T005127890957Z/02-markets.json",
+    "sha256": "708586be12d725cf8dabdb0f61c47b88237db8eabad7bfb59ceadab33b173c15"
+  },
+  "process_status": "finished",
+  "purpose": "Current NBA source availability and metadata check, no new model or edge claim",
+  "schedule_enabled": false,
+  "script": "tools/capture_nba_first_score_current.py",
+  "script_sha256": "dafebe330fd89b84a85b3104bfb0b3109f5b618d3f75ce94dacaf5e76c6ef6b7",
+  "source_directory": "data/raw/nba-first-score-current-check/20260920T020520096294Z",
+  "total_http_attempts": 3
+}

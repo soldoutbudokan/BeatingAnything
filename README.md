@@ -1,10 +1,12 @@
 # BeatingAnything
 
-**No betting edge demonstrated. Active research continues; scheduled jobs remain paused.** The latest direction is a different creative market with actual historical prices; no betting alert or wager is enabled.
+**No betting edge demonstrated. First-basket research is blocked on new qualified price evidence; scheduled jobs remain paused.** No betting alert or wager is enabled.
 
 Use Python 3.12 and the pinned `requirements-lock.txt` dependencies for the research commands below.
 
 For the research direction going forward, start with [NEXT-STEPS.md](NEXT-STEPS.md). For the current state, exact continuation commands, completed results and file locations, see [PROGRESS.md](PROGRESS.md).
+
+The [current NBA feed check](reports/nba-first-score-current-availability-2026-09-19.md) finds upcoming main lines but no first-score markets. A [manual two-request capture](docs/nba-first-score-current-capture.md) is ready for new offers and preserves separate book/market/selection flags and clocks. It is unscheduled; **291 tests pass**. Further progress needs new price data with independently verified product identity and timing.
 
 **Follow-up evidence weakens the lead:** the [later-price diagnostic](reports/nba-first-score-price-movement-2026-09-19.md) finds all seven original entry prices unfavorable to margin-normalized later FanDuel prices (mean hypothetical EV −13.19%). BetMGM continues to disagree, and the additional-book check yields no matching complete reference board for those selections. The positive simulated return below remains recorded; independent price corroboration and verified quote timing are still missing.
 

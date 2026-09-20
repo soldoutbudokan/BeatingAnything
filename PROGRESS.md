@@ -2,7 +2,15 @@
 
 Updated September 19, 2026 (Toronto). Current research objective: find an edge in FanDuel first-basket markets. The earlier market/data discovery objective is complete. [NEXT-STEPS.md](NEXT-STEPS.md) carries the resulting direction. Scheduled research and watches remain paused; no betting edge has been established.
 
-**Current execution status: later-price and additional-book diagnostics weaken the positive seven-bet lead; no edge is established.** The two earlier first-basket price candidates remain closed. Golf G11 remains parked on its own qualified-price dependency.
+**Current execution status: blocked on new qualified first-score prices; no edge is established.** Later-price/reference diagnostics weaken the positive seven-bet lead, and the actual current NBA feed contains no first-score offers. The two earlier first-basket price candidates remain closed. Golf G11 remains parked on its own qualified-price dependency.
+
+## September 19 continuation: current source checked; bounded capture ready
+
+The [current NBA check](reports/nba-first-score-current-availability-2026-09-19.md) uses observed tournament ID 132. One documented multi-book request returned HTTP 400 requiring singular `bookmaker`; a separately recorded two-request correction succeeded. FanDuel returns five fixtures/30 selections and BetMGM fourteen fixtures/88 selections, starting October 20–23 UTC. All are main lines; **zero first-score markets or player selections**. FanDuel supplies no bookmaker change clock; BetMGM supplies four of 88. Seventy BetMGM selections are active inside explicitly inactive markets, demonstrating why historical selection-active flags alone cannot certify open offers.
+
+The [manual current capture](docs/nba-first-score-current-capture.md) is ready, defaults to dry-run and has a two-request cap. It preserves native bookmaker IDs/links, distinct clocks, all market/selection flags and raw responses, with source verification always false. Its parser was replayed against the actual retained bodies without further calls; 291 tests pass. No schedule, prediction, alert or wager was enabled, and all processes are terminal.
+
+**Blocked audit:** the same missing qualified-price dependency persists across three consecutive goal turns (2026 validation `411eb52`, additional references/later prices `d1cb010`, and this live-source check). Those turns made progress, but the completed source checks and capture implementation now leave an external dependency: genuinely new qualified historical prices or newly posted first-score offers with independent product/timing verification. There is no live wait handle or missing internal task that would turn current main lines into first-score evidence. Preserve the full edge-finding objective as incomplete. Do not repeat these requests or manufacture a positive result; resume substantive testing when that data condition changes. Scheduled work remains paused.
 
 ## September 19 continuation: later prices do not corroborate the apparent edge
 
