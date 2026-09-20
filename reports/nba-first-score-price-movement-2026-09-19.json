@@ -1,0 +1,876 @@
+{
+  "book_board_status": {
+    "betmgm": {
+      "same_complete_candidate_set": 16
+    },
+    "fanduel": {
+      "same_complete_candidate_set": 16
+    }
+  },
+  "forecast_games": 16,
+  "forecast_sha256": "354eeaaa23e6cf1534b43e910ac0198466c88384830ea6309ff5e9863130c8bf",
+  "later_seconds_before_start": 60,
+  "limitations": [
+    "Outcomes already inspected before diagnostic declaration; no new outcome test",
+    "Provider state persistence assumed; original market identity and executable availability unverified",
+    "Fixed pregame comparison is not the last tradable bookmaker close; missing boards retained",
+    "Only seven original bets, no inference or advancement; no new wager/alert/schedule"
+  ],
+  "metrics": {
+    "fd_later_no_vig_entry_ev": {
+      "mean": -0.13192053560104972,
+      "median": -0.14551495798061498,
+      "missing": 0,
+      "negative": 7,
+      "observed": 7,
+      "positive": 0,
+      "zero": 0
+    },
+    "fd_normalized_probability_change": {
+      "mean": 0.0015451650567832023,
+      "median": 0.0,
+      "missing": 0,
+      "negative": 2,
+      "observed": 7,
+      "positive": 3,
+      "zero": 2
+    },
+    "mgm_later_converted_entry_ev": {
+      "mean": 0.10429431224104399,
+      "median": 0.0987894400617797,
+      "missing": 0,
+      "negative": 0,
+      "observed": 7,
+      "positive": 7,
+      "zero": 0
+    },
+    "price_movement": {
+      "mean": 0.027272727272727275,
+      "median": 0.0,
+      "missing": 0,
+      "negative": 1,
+      "observed": 7,
+      "positive": 3,
+      "zero": 3
+    }
+  },
+  "new_selected_entries": 5,
+  "original_selections": 7,
+  "plan_sha256": "cc7263ae731d5ca06b0db8d02830fe89b0d6109baaf2b736118114f83d10cb59",
+  "purpose": "Exploratory later provider-price diagnostic, not verified CLV or a new betting strategy",
+  "rows": [
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 17403.483,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "avdijde01": 0.10949047685302334,
+            "braunch01": 0.07820748346644524,
+            "camarto01": 0.0821178576397675,
+            "cissosi01": 0.06316758279982115,
+            "clingdo01": 0.10595852598679678,
+            "gordoaa01": 0.10949047685302334,
+            "holidjr01": 0.10595852598679678,
+            "johnsca02": 0.07140683273023261,
+            "jokicni01": 0.13138857222362801,
+            "murraja01": 0.14281366546046523
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 560.286,
+          "new_entries_since_decision": 6,
+          "probabilities": {
+            "avdijde01": 0.12403364764060314,
+            "braunch01": 0.06678734872955554,
+            "camarto01": 0.08268909842706876,
+            "cissosi01": 0.08268909842706876,
+            "clingdo01": 0.08268909842706876,
+            "gordoaa01": 0.09139321405097073,
+            "holidjr01": 0.10852944168552775,
+            "johnsca02": 0.06678734872955554,
+            "jokicni01": 0.14470592224737033,
+            "murraja01": 0.1496957816352107
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-03-22T20:55:00+00:00",
+      "fixture_id": "id1100013262926029",
+      "later_cutoff": "2026-03-22T20:59:00+00:00",
+      "selection": {
+        "entry_converted_ev": 0.0987894400617797,
+        "entry_decimal": 10.5,
+        "entry_unconverted_ev": 0.09243240292387478,
+        "fd_later_no_vig_entry_ev": -0.1474753952169211,
+        "fd_normalized_probability_change": -6.00141336991461e-05,
+        "later_decimal": 10.5,
+        "later_entry_age_seconds": 140.744,
+        "later_selected_active": true,
+        "mgm_later_converted_entry_ev": 0.0987894400617797,
+        "name": "Donovan Clingan",
+        "new_selected_entry": true,
+        "player_id": "clingdo01",
+        "price_movement": 0.0,
+        "selected_price_changed": false
+      }
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 28203.538,
+          "new_entries_since_decision": 3,
+          "probabilities": {
+            "brownja02": 0.12140590529574309,
+            "divindo01": 0.0819489860746266,
+            "dosunay01": 0.09933210433288071,
+            "goberru01": 0.09933210433288071,
+            "hausesa01": 0.07125998789097963,
+            "mcdanja02": 0.11303308424086425,
+            "quetane01": 0.0819489860746266,
+            "randlju01": 0.1260753631917332,
+            "tatumja01": 0.1170699801066094,
+            "whitede01": 0.08859349845905577
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 2959.512,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "brownja02": 0.14208603779373555,
+            "divindo01": 0.08973855018551719,
+            "dosunay01": 0.0947240251958237,
+            "goberru01": 0.08525162267624134,
+            "hausesa01": 0.06557817128941641,
+            "mcdanja02": 0.0947240251958237,
+            "quetane01": 0.11366883023498844,
+            "randlju01": 0.14208603779373555,
+            "tatumja01": 0.10656452834530167,
+            "whitede01": 0.06557817128941641
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-03-22T23:55:00+00:00",
+      "fixture_id": "id1100013262925475",
+      "later_cutoff": "2026-03-22T23:59:00+00:00",
+      "selection": null
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 1536.948,
+          "new_entries_since_decision": 8,
+          "probabilities": {
+            "barnesc01": 0.08625799468641959,
+            "barrerj01": 0.10573560638980467,
+            "bookede01": 0.14251320861234543,
+            "gilleco01": 0.08194509495209863,
+            "goodwjo01": 0.0744955408655442,
+            "greenja05": 0.10926012660279816,
+            "ighodos01": 0.0655560759616789,
+            "ingrabr01": 0.1260693768493825,
+            "poeltja01": 0.10573560638980467,
+            "quickim01": 0.10243136869012329
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 283.035,
+          "new_entries_since_decision": 9,
+          "probabilities": {
+            "barnesc01": 0.08551574476665622,
+            "barrerj01": 0.08551574476665622,
+            "bookede01": 0.12216534966665173,
+            "gilleco01": 0.08551574476665622,
+            "goodwjo01": 0.07774158615150566,
+            "greenja05": 0.11402099302220829,
+            "ighodos01": 0.07126312063888017,
+            "ingrabr01": 0.16135046182387966,
+            "poeltja01": 0.10689468095832028,
+            "quickim01": 0.09001657343858549
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-03-23T00:55:00+00:00",
+      "fixture_id": "id1100013262925927",
+      "later_cutoff": "2026-03-23T00:59:00+00:00",
+      "selection": {
+        "entry_converted_ev": 0.14810295498851334,
+        "entry_decimal": 11.0,
+        "entry_unconverted_ev": 0.1475001747608018,
+        "fd_later_no_vig_entry_ev": -0.07642995652011286,
+        "fd_normalized_probability_change": 0.006755247900007255,
+        "later_decimal": 10.0,
+        "later_entry_age_seconds": 25.378,
+        "later_selected_active": true,
+        "mgm_later_converted_entry_ev": 0.14256423750214609,
+        "name": "RJ Barrett",
+        "new_selected_entry": true,
+        "player_id": "barrerj01",
+        "price_movement": 0.10000000000000009,
+        "selected_price_changed": true
+      }
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 1846.153,
+          "new_entries_since_decision": 1,
+          "probabilities": {
+            "conlemi01": 0.07474939139853624,
+            "divindo01": 0.08222433053838987,
+            "dosunay01": 0.10963244071785315,
+            "durenja01": 0.12649897005906133,
+            "goberru01": 0.09966585519804833,
+            "harrito02": 0.10278041317298733,
+            "jenkida01": 0.09966585519804833,
+            "randlju01": 0.13155892886142379,
+            "robindu01": 0.08889116814961066,
+            "thompau01": 0.08433264670604089
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 102.311,
+          "new_entries_since_decision": 10,
+          "probabilities": {
+            "conlemi01": 0.07101496974585068,
+            "divindo01": 0.10025642787649508,
+            "dosunay01": 0.09468662632780091,
+            "durenja01": 0.14202993949170137,
+            "goberru01": 0.1136239515933611,
+            "harrito02": 0.10025642787649508,
+            "jenkida01": 0.08115996542382935,
+            "randlju01": 0.14202993949170137,
+            "robindu01": 0.07747087608638258,
+            "thompau01": 0.07747087608638258
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-02T22:55:00+00:00",
+      "fixture_id": "id1100013262925235",
+      "later_cutoff": "2026-04-02T22:59:00+00:00",
+      "selection": {
+        "entry_converted_ev": 0.0778542041032424,
+        "entry_decimal": 11.0,
+        "entry_unconverted_ev": 0.07400771211404655,
+        "fd_later_no_vig_entry_ev": -0.12347237342264294,
+        "fd_normalized_probability_change": 0.002965091532228903,
+        "later_decimal": 10.5,
+        "later_entry_age_seconds": 0.159,
+        "later_selected_active": true,
+        "mgm_later_converted_entry_ev": 0.08022308331078198,
+        "name": "Daniss Jenkins",
+        "new_selected_entry": true,
+        "player_id": "jenkida01",
+        "price_movement": 0.04761904761904767,
+        "selected_price_changed": true
+      }
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 20450.35,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "aytonde01": 0.10651427684308894,
+            "doncilu01": 0.12699779162060607,
+            "dortlu01": 0.07178136048121211,
+            "gilgesh01": 0.11792652079056275,
+            "harteis01": 0.08466519441373736,
+            "holmgch01": 0.11006475273785857,
+            "jamesbr02": 0.08254856455339393,
+            "laravja01": 0.07178136048121211,
+            "reaveau01": 0.11386008903916404,
+            "willija06": 0.11386008903916404
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 3400.239,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "aytonde01": 0.07910433642097621,
+            "doncilu01": 0.15538351796977468,
+            "dortlu01": 0.07910433642097621,
+            "gilgesh01": 0.12430681437581974,
+            "harteis01": 0.07910433642097621,
+            "holmgch01": 0.12430681437581974,
+            "jamesbr02": 0.10237031772126332,
+            "laravja01": 0.06693443851005679,
+            "reaveau01": 0.08701477006307383,
+            "willija06": 0.10237031772126332
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-03T01:25:00+00:00",
+      "fixture_id": "id1100013262926481",
+      "later_cutoff": "2026-04-03T01:29:00+00:00",
+      "selection": {
+        "entry_converted_ev": 0.11997086751578179,
+        "entry_decimal": 10.0,
+        "entry_unconverted_ev": 0.11810607436459097,
+        "fd_later_no_vig_entry_ev": -0.14551495798061498,
+        "fd_normalized_probability_change": 0.0,
+        "later_decimal": 10.0,
+        "later_entry_age_seconds": 341.805,
+        "later_selected_active": true,
+        "mgm_later_converted_entry_ev": 0.11997086751578179,
+        "name": "Austin Reaves",
+        "new_selected_entry": false,
+        "player_id": "reaveau01",
+        "price_movement": 0.0,
+        "selected_price_changed": false
+      }
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 22643.994,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "avdijde01": 0.12596761434500164,
+            "camarto01": 0.09097661036027894,
+            "clingdo01": 0.1213021471470386,
+            "espn:4397136": 0.09357594208485835,
+            "hendesc01": 0.11293648182655319,
+            "holidjr01": 0.11293648182655319,
+            "joneshe01": 0.06550315945940086,
+            "murphtr02": 0.09357594208485835,
+            "murrade01": 0.08397840956333442,
+            "willizi01": 0.0992472113021225
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 606.652,
+          "new_entries_since_decision": 9,
+          "probabilities": {
+            "avdijde01": 0.14397656568460923,
+            "camarto01": 0.08227232324834813,
+            "clingdo01": 0.12340848487252219,
+            "espn:4397136": 0.09598437712307281,
+            "hendesc01": 0.10163051695384182,
+            "holidjr01": 0.10163051695384182,
+            "joneshe01": 0.0664507226236658,
+            "murphtr02": 0.09093256780080583,
+            "murrade01": 0.07853267219160504,
+            "willizi01": 0.11518125254768738
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-03T01:55:00+00:00",
+      "fixture_id": "id1100013262925203",
+      "later_cutoff": "2026-04-03T01:59:00+00:00",
+      "selection": null
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 8800.329,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "braunch01": 0.07122779231408286,
+            "castlst01": 0.1023899514514941,
+            "champju02": 0.08855347152561653,
+            "foxde01": 0.10921594821492704,
+            "gordoaa01": 0.08401226785763619,
+            "johnsca02": 0.06552956892895623,
+            "jokicni01": 0.11298201539475211,
+            "murraja01": 0.10921594821492704,
+            "vassede01": 0.0862231170117845,
+            "wembavi01": 0.1706499190858235
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 3065.393,
+          "new_entries_since_decision": 6,
+          "probabilities": {
+            "braunch01": 0.050711275026343525,
+            "castlst01": 0.11494555672637866,
+            "champju02": 0.07837197049525818,
+            "foxde01": 0.1231559536354057,
+            "gordoaa01": 0.07837197049525818,
+            "johnsca02": 0.050711275026343525,
+            "jokicni01": 0.11494555672637866,
+            "murraja01": 0.10142255005268705,
+            "vassede01": 0.10776145943097999,
+            "wembavi01": 0.17960243238496665
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-04T18:55:00+00:00",
+      "fixture_id": "id1100013262925583",
+      "later_cutoff": "2026-04-04T18:59:00+00:00",
+      "selection": {
+        "entry_converted_ev": 0.05109479632985425,
+        "entry_decimal": 12.0,
+        "entry_unconverted_ev": 0.043159894571762614,
+        "fd_later_no_vig_entry_ev": -0.07677818756585864,
+        "fd_normalized_probability_change": 0.006109950286918325,
+        "later_decimal": 11.0,
+        "later_entry_age_seconds": 13.834,
+        "later_selected_active": true,
+        "mgm_later_converted_entry_ev": 0.05109479632985425,
+        "name": "Julian Champagnie",
+        "new_selected_entry": true,
+        "player_id": "champju02",
+        "price_movement": 0.09090909090909083,
+        "selected_price_changed": true
+      }
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 1572.119,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "drumman01": 0.08828523431861156,
+            "durenja01": 0.12098346925143065,
+            "espn:5124612": 0.10888512232628758,
+            "georgpa01": 0.1053726990254396,
+            "harrito02": 0.08828523431861156,
+            "jenkida01": 0.08375778640483661,
+            "maxeyty01": 0.13610640290785947,
+            "oubreke01": 0.10888512232628758,
+            "robindu01": 0.08166384174471569,
+            "thompau01": 0.0777750873759197
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 1110.444,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "drumman01": 0.07859539127757498,
+            "durenja01": 0.1601017229728379,
+            "espn:5124612": 0.07859539127757498,
+            "georgpa01": 0.10806866300666558,
+            "harrito02": 0.12350704343618923,
+            "jenkida01": 0.08233802895745948,
+            "maxeyty01": 0.13300758523897302,
+            "oubreke01": 0.07859539127757498,
+            "robindu01": 0.07859539127757498,
+            "thompau01": 0.07859539127757498
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-04T22:55:00+00:00",
+      "fixture_id": "id1100013262925719",
+      "later_cutoff": "2026-04-04T22:59:00+00:00",
+      "selection": {
+        "entry_converted_ev": 0.17804381825008186,
+        "entry_decimal": 11.0,
+        "entry_unconverted_ev": 0.1759593211239059,
+        "fd_later_no_vig_entry_ev": -0.15116977420219013,
+        "fd_normalized_probability_change": 0.0,
+        "later_decimal": 11.0,
+        "later_entry_age_seconds": 416.636,
+        "later_selected_active": true,
+        "mgm_later_converted_entry_ev": 0.17804381825008186,
+        "name": "Kelly Oubre Jr.",
+        "new_selected_entry": false,
+        "player_id": "oubreke01",
+        "price_movement": 0.0,
+        "selected_price_changed": false
+      }
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 12736.34,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "barnesc01": 0.0858412485940371,
+            "barrerj01": 0.11248163608873828,
+            "brownja02": 0.12081360913234852,
+            "hausesa01": 0.06795765513694604,
+            "ingrabr01": 0.15533178317016239,
+            "poeltja01": 0.10873224821911368,
+            "quetane01": 0.0858412485940371,
+            "tatumja01": 0.10522475634107775,
+            "walteja01": 0.07413562378575933,
+            "whitede01": 0.08364019093777975
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 202.42,
+          "new_entries_since_decision": 10,
+          "probabilities": {
+            "barnesc01": 0.07751034442566584,
+            "barrerj01": 0.08974881986129728,
+            "brownja02": 0.1421022981137207,
+            "hausesa01": 0.07105114905686034,
+            "ingrabr01": 0.1421022981137207,
+            "poeltja01": 0.1218019698117606,
+            "quetane01": 0.11368183849097656,
+            "tatumja01": 0.0812013132078404,
+            "walteja01": 0.08974881986129728,
+            "whitede01": 0.07105114905686034
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-05T19:25:00+00:00",
+      "fixture_id": "id1100013262925495",
+      "later_cutoff": "2026-04-05T19:29:00+00:00",
+      "selection": {
+        "entry_converted_ev": 0.05937394271688223,
+        "entry_decimal": 10.0,
+        "entry_unconverted_ev": 0.03330710726938357,
+        "fd_later_no_vig_entry_ev": -0.2026031042990073,
+        "fd_normalized_probability_change": -0.004954120187972921,
+        "later_decimal": 10.5,
+        "later_entry_age_seconds": 6.274,
+        "later_selected_active": true,
+        "mgm_later_converted_entry_ev": 0.05937394271688223,
+        "name": "Jayson Tatum",
+        "new_selected_entry": true,
+        "player_id": "tatumja01",
+        "price_movement": -0.04761904761904767,
+        "selected_price_changed": true
+      }
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 22355.686,
+          "new_entries_since_decision": 3,
+          "probabilities": {
+            "ballla01": 0.09701831971200982,
+            "bridgmi02": 0.09701831971200982,
+            "conlemi01": 0.07853863976686509,
+            "diabamo01": 0.06597245740416667,
+            "divindo01": 0.0891519694650901,
+            "dosunay01": 0.11780795965029763,
+            "espn:5061575": 0.0942463677202381,
+            "goberru01": 0.11374561621408047,
+            "millebr02": 0.10308196469401043,
+            "randlju01": 0.1434183856612319
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 7096.848,
+          "new_entries_since_decision": 7,
+          "probabilities": {
+            "ballla01": 0.08950957973730418,
+            "bridgmi02": 0.0708617506253658,
+            "conlemi01": 0.07730372795494453,
+            "diabamo01": 0.08098485785756092,
+            "divindo01": 0.1000401185299282,
+            "dosunay01": 0.10629262593804871,
+            "espn:5061575": 0.08098485785756092,
+            "goberru01": 0.1417235012507316,
+            "millebr02": 0.12147728678634138,
+            "randlju01": 0.1308216934622138
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-05T22:55:00+00:00",
+      "fixture_id": "id1100013262925407",
+      "later_cutoff": "2026-04-05T22:59:00+00:00",
+      "selection": null
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 12908.491,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "banchpa01": 0.10877059036675196,
+            "banede01": 0.13052470844010236,
+            "cartewe01": 0.10526186164524384,
+            "espn:4397136": 0.09888235487886543,
+            "espn:5144091": 0.08587151871059365,
+            "joneshe01": 0.06526235422005118,
+            "missiyv01": 0.07093734154353389,
+            "suggsja01": 0.09064215863895997,
+            "wagnefr01": 0.14187468308706777,
+            "willizi01": 0.10197242846882996
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 13320.461,
+          "new_entries_since_decision": 6,
+          "probabilities": {
+            "banchpa01": 0.12281814855809087,
+            "banede01": 0.14328783998443934,
+            "cartewe01": 0.10746587998832952,
+            "espn:4397136": 0.0818787657053939,
+            "espn:5144091": 0.0818787657053939,
+            "joneshe01": 0.06613284922358739,
+            "missiyv01": 0.06613284922358739,
+            "suggsja01": 0.08597270399066362,
+            "wagnefr01": 0.14328783998443934,
+            "willizi01": 0.10114435763607484
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-05T22:55:00+00:00",
+      "fixture_id": "id1100013262926101",
+      "later_cutoff": "2026-04-05T22:59:00+00:00",
+      "selection": null
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 45650.972,
+          "new_entries_since_decision": 3,
+          "probabilities": {
+            "avdijde01": 0.10576283173958338,
+            "braunch01": 0.08196619459817713,
+            "camarto01": 0.07806304247445439,
+            "clingdo01": 0.09643081717432603,
+            "gordoaa01": 0.0993529631493056,
+            "hendesc01": 0.09107354955353013,
+            "holidjr01": 0.09367565096934528,
+            "johnsca02": 0.0745147223619792,
+            "jokicni01": 0.13661032433029519,
+            "murraja01": 0.1425499036490037
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 9349.606,
+          "new_entries_since_decision": 6,
+          "probabilities": {
+            "avdijde01": 0.10628384801318459,
+            "braunch01": 0.06540544493119052,
+            "camarto01": 0.07729734400958879,
+            "clingdo01": 0.10628384801318459,
+            "gordoaa01": 0.09447453156727519,
+            "hendesc01": 0.1000318569535855,
+            "holidjr01": 0.08950218780057649,
+            "johnsca02": 0.07729734400958879,
+            "jokicni01": 0.1417117973509128,
+            "murraja01": 0.1417117973509128
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-07T00:55:00+00:00",
+      "fixture_id": "id1100013262924745",
+      "later_cutoff": "2026-04-07T00:59:00+00:00",
+      "selection": null
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 14591.321,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "ballla01": 0.10593082354868001,
+            "bridgmi02": 0.10262048531278377,
+            "brownja02": 0.13682731375037835,
+            "diabamo01": 0.07138816369584958,
+            "espn:5061575": 0.10593082354868001,
+            "hausesa01": 0.07463308022747911,
+            "millebr02": 0.10946185100030267,
+            "quetane01": 0.09121820916691889,
+            "tatumja01": 0.11323639758652002,
+            "whitede01": 0.08875285216240758
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 3724.014,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "ballla01": 0.09539292402584823,
+            "bridgmi02": 0.07804875602114855,
+            "brownja02": 0.13208251018963602,
+            "diabamo01": 0.09037224381396147,
+            "espn:5061575": 0.09539292402584823,
+            "hausesa01": 0.07804875602114855,
+            "millebr02": 0.12264804517609057,
+            "quetane01": 0.12264804517609057,
+            "tatumja01": 0.10731703952907926,
+            "whitede01": 0.07804875602114855
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-07T23:55:00+00:00",
+      "fixture_id": "id1100013262925701",
+      "later_cutoff": "2026-04-07T23:59:00+00:00",
+      "selection": null
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 1255.491,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "cunnica01": 0.12682474919811243,
+            "diengou01": 0.10304510872346634,
+            "durenja01": 0.14988379450686012,
+            "greenaj01": 0.07494189725343006,
+            "harrito02": 0.10304510872346634,
+            "princta02": 0.07851055902740292,
+            "robindu01": 0.09698363173973303,
+            "rolliry01": 0.10636914448873945,
+            "simsje01": 0.06341237459905621,
+            "thompau01": 0.09698363173973303
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 598.202,
+          "new_entries_since_decision": 6,
+          "probabilities": {
+            "cunnica01": 0.12316378774104024,
+            "diengou01": 0.10776831427341022,
+            "durenja01": 0.14369108569788028,
+            "greenaj01": 0.07184554284894014,
+            "harrito02": 0.10776831427341022,
+            "princta02": 0.06631896262979091,
+            "robindu01": 0.07837695583520743,
+            "rolliry01": 0.12316378774104024,
+            "simsje01": 0.08210919182736016,
+            "thompau01": 0.09579405713192019
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-08T22:55:00+00:00",
+      "fixture_id": "id1100013262925337",
+      "later_cutoff": "2026-04-08T22:59:00+00:00",
+      "selection": null
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 19675.532,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "avdijde01": 0.10285440226027179,
+            "camarto01": 0.08228352180821744,
+            "champju02": 0.08895515871158642,
+            "clingdo01": 0.09403831063796278,
+            "espn:5037871": 0.12190151378995175,
+            "foxde01": 0.13165363489314788,
+            "hendesc01": 0.09403831063796278,
+            "holidjr01": 0.09973760219177871,
+            "kornelu01": 0.07836525886496898,
+            "vassede01": 0.10617228620415152
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 5247.013,
+          "new_entries_since_decision": 4,
+          "probabilities": {
+            "avdijde01": 0.10747828241408518,
+            "camarto01": 0.07165218827605678,
+            "champju02": 0.07816602357388014,
+            "clingdo01": 0.10115603050737429,
+            "espn:5037871": 0.09553625103474238,
+            "foxde01": 0.12283232275895449,
+            "hendesc01": 0.10747828241408518,
+            "holidjr01": 0.09050802729607173,
+            "kornelu01": 0.08188821517263632,
+            "vassede01": 0.14330437655211356
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-09T01:25:00+00:00",
+      "fixture_id": "id1100013262926225",
+      "later_cutoff": "2026-04-09T01:29:00+00:00",
+      "selection": null
+    },
+    {
+      "books": {
+        "betmgm": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 11333.725,
+          "new_entries_since_decision": 0,
+          "probabilities": {
+            "anunoog01": 0.08605049795829821,
+            "bridgmi01": 0.09083108117820365,
+            "brunsja01": 0.14217038793110137,
+            "hartjo01": 0.07785521243846028,
+            "hausesa01": 0.0817479730603833,
+            "quetane01": 0.099088452194404,
+            "tatumja01": 0.12110810823760487,
+            "townska01": 0.12110810823760487,
+            "walshjo01": 0.07785521243846028,
+            "whitede01": 0.10218496632547912
+          },
+          "status": "same_complete_candidate_set"
+        },
+        "fanduel": {
+          "active_player_count": 10,
+          "max_entry_age_seconds": 1155.019,
+          "new_entries_since_decision": 8,
+          "probabilities": {
+            "anunoog01": 0.09530142288196233,
+            "bridgmi01": 0.08577128059376611,
+            "brunsja01": 0.14295213432294349,
+            "hartjo01": 0.07797389144887829,
+            "hausesa01": 0.08577128059376611,
+            "quetane01": 0.1143617074583548,
+            "tatumja01": 0.1143617074583548,
+            "townska01": 0.1319558162981017,
+            "walshjo01": 0.06126520042411864,
+            "whitede01": 0.09028555851975378
+          },
+          "status": "same_complete_candidate_set"
+        }
+      },
+      "decision": "2026-04-09T23:25:00+00:00",
+      "fixture_id": "id1100013262925333",
+      "later_cutoff": "2026-04-09T23:29:00+00:00",
+      "selection": null
+    }
+  ],
+  "script_sha256": "ef632670d845a62fd8c5c9bfdc4c8dbc13fe1206774cceeb7ff877d0a4dd6626",
+  "selected_active_later": 7,
+  "selected_prices_changed": 4,
+  "source_manifest_sha256": "a4c6df9cb6c2329af4bf6bb561b282a2522c614d5b8536881d281dd26de65d04"
+}

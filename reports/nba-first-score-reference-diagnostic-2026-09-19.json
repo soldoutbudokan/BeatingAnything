@@ -1,0 +1,537 @@
+{
+  "coverage": {
+    "draftkings": 4
+  },
+  "declaration_sha256": "dd1fa23d0fa64774168bfbf28fb532df4581f18a79d56577da054dcca56d14b6",
+  "plan_sha256": "a57e0d34312bca9e45c6cc0e97febbbd398f05f458e3ee85f8344aa3e763bb32",
+  "purpose": "Source-only reference diagnostic; no new outcomes, strategy, conversions or returns",
+  "receipts": [
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/01-historical-odds.json",
+      "bytes": 2762,
+      "sha256": "1ec6b0f39d6fca92153013b0ea58040e1f84846ba13f26f2a670d73f11269a94",
+      "status": 200
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/02-historical-odds.json",
+      "bytes": 3758,
+      "sha256": "6a70bbbb99c50a424e1268dad41af54379e385a28bb9ec180c8ec1ee1a771901",
+      "status": 200
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/03-historical-odds.json",
+      "bytes": 3965,
+      "sha256": "74ec82c9d25d2788fd44fc5e71b6efaefdd93b290001e17b6aba8e057ed1b9e1",
+      "status": 200
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/04-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/05-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/06-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/07-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/08-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/09-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/10-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/11-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/12-historical-odds.json",
+      "bytes": 2248,
+      "sha256": "d3b7fb689d386c031faca6c540e1ae5544ba4493ac46cff21d0c2f2b4b85d8e9",
+      "status": 200
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/13-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/14-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/15-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    },
+    {
+      "body": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z/16-historical-odds.json",
+      "bytes": 155,
+      "sha256": "320f4fe7263683ce37472c23c85d731a4346425ed74d6af901145935d94d706f",
+      "status": 404
+    }
+  ],
+  "requested_books": [
+    "bet365",
+    "draftkings",
+    "pinnacle"
+  ],
+  "response_statuses": {
+    "200": 4,
+    "404": 12
+  },
+  "result": {
+    "completed": 16,
+    "requests": 16,
+    "status": "complete"
+  },
+  "rows": [
+    {
+      "active_players": 10,
+      "board_status": "candidate_sets_differ",
+      "bookmaker": "draftkings",
+      "decision": "2026-03-22T20:55:00+00:00",
+      "definition": "unresolved: dated rules explicitly allow first-point and first-field-goal markets; no conversion or fair-EV assigned",
+      "fixture_id": "id1100013262926029",
+      "prices": [
+        {
+          "decimal": 9.1,
+          "entry_age_seconds": 4961.899,
+          "entry_time": "2026-03-22T19:32:18.101000+00:00",
+          "espn_athlete_id": "4683021",
+          "name": "Deni Avdija",
+          "player_id": "avdijde01",
+          "provider_player_id": "1613688"
+        },
+        {
+          "decimal": 9.6,
+          "entry_age_seconds": 4961.899,
+          "entry_time": "2026-03-22T19:32:18.101000+00:00",
+          "espn_athlete_id": "4431767",
+          "name": "Christian Braun",
+          "player_id": "braunch01",
+          "provider_player_id": "1793966"
+        },
+        {
+          "decimal": 10.5,
+          "entry_age_seconds": 4961.899,
+          "entry_time": "2026-03-22T19:32:18.101000+00:00",
+          "espn_athlete_id": "4431736",
+          "name": "Toumani Camara",
+          "player_id": "camarto01",
+          "provider_player_id": "1876124"
+        },
+        {
+          "decimal": 11.4,
+          "entry_age_seconds": 4961.898,
+          "entry_time": "2026-03-22T19:32:18.102000+00:00",
+          "espn_athlete_id": "5105565",
+          "name": "Donovan Clingan",
+          "player_id": "clingdo01",
+          "provider_player_id": "2439943"
+        },
+        {
+          "decimal": 8.2,
+          "entry_age_seconds": 17152.384,
+          "entry_time": "2026-03-22T16:09:07.616000+00:00",
+          "espn_athlete_id": "3064290",
+          "name": "Aaron Gordon",
+          "player_id": "gordoaa01",
+          "provider_player_id": "607864"
+        },
+        {
+          "decimal": 9.6,
+          "entry_age_seconds": 4961.899,
+          "entry_time": "2026-03-22T19:32:18.101000+00:00",
+          "espn_athlete_id": "2991070",
+          "name": "Jerami Grant",
+          "player_id": "grantje01",
+          "provider_player_id": "608212"
+        },
+        {
+          "decimal": 8.0,
+          "entry_age_seconds": 4961.899,
+          "entry_time": "2026-03-22T19:32:18.101000+00:00",
+          "espn_athlete_id": "3995",
+          "name": "Jrue Holiday",
+          "player_id": "holidjr01",
+          "provider_player_id": "607876"
+        },
+        {
+          "decimal": 11.8,
+          "entry_age_seconds": 17152.384,
+          "entry_time": "2026-03-22T16:09:07.616000+00:00",
+          "espn_athlete_id": "3138196",
+          "name": "Cameron Johnson",
+          "player_id": "johnsca02",
+          "provider_player_id": "1770162"
+        },
+        {
+          "decimal": 5.8,
+          "entry_age_seconds": 17152.384,
+          "entry_time": "2026-03-22T16:09:07.616000+00:00",
+          "espn_athlete_id": "3112335",
+          "name": "Nikola Jokic",
+          "player_id": "jokicni01",
+          "provider_player_id": "607468"
+        },
+        {
+          "decimal": 5.37,
+          "entry_age_seconds": 4961.899,
+          "entry_time": "2026-03-22T19:32:18.101000+00:00",
+          "espn_athlete_id": "3936299",
+          "name": "Jamal Murray",
+          "player_id": "murraja01",
+          "provider_player_id": "996299"
+        }
+      ],
+      "selected_quote": {
+        "fanduel_entry_decimal": 10.5,
+        "name": "Donovan Clingan",
+        "reference_decimal": 11.4,
+        "reference_entry_age_seconds": 4961.898
+      }
+    },
+    {
+      "active_players": 10,
+      "board_status": "matching_ten_candidates",
+      "bookmaker": "draftkings",
+      "decision": "2026-03-22T23:55:00+00:00",
+      "definition": "unresolved: dated rules explicitly allow first-point and first-field-goal markets; no conversion or fair-EV assigned",
+      "fixture_id": "id1100013262925475",
+      "prices": [
+        {
+          "decimal": 6.25,
+          "entry_age_seconds": 5425.748,
+          "entry_time": "2026-03-22T22:24:34.252000+00:00",
+          "espn_athlete_id": "3917376",
+          "name": "Jaylen Brown",
+          "player_id": "brownja02",
+          "provider_player_id": "996297"
+        },
+        {
+          "decimal": 8.4,
+          "entry_age_seconds": 5425.748,
+          "entry_time": "2026-03-22T22:24:34.252000+00:00",
+          "espn_athlete_id": "3934673",
+          "name": "Donte DiVincenzo",
+          "player_id": "divindo01",
+          "provider_player_id": "1497689"
+        },
+        {
+          "decimal": 8.4,
+          "entry_age_seconds": 15764.789,
+          "entry_time": "2026-03-22T19:32:15.211000+00:00",
+          "espn_athlete_id": "4397002",
+          "name": "Ayo Dosunmu",
+          "player_id": "dosunay01",
+          "provider_player_id": "1491934"
+        },
+        {
+          "decimal": 9.3,
+          "entry_age_seconds": 5425.748,
+          "entry_time": "2026-03-22T22:24:34.252000+00:00",
+          "espn_athlete_id": "3032976",
+          "name": "Rudy Gobert",
+          "player_id": "goberru01",
+          "provider_player_id": "607808"
+        },
+        {
+          "decimal": 11.2,
+          "entry_age_seconds": 5425.748,
+          "entry_time": "2026-03-22T22:24:34.252000+00:00",
+          "espn_athlete_id": "4065804",
+          "name": "Sam Hauser",
+          "player_id": "hausesa01",
+          "provider_player_id": "1169096"
+        },
+        {
+          "decimal": 10.0,
+          "entry_age_seconds": 15764.789,
+          "entry_time": "2026-03-22T19:32:15.211000+00:00",
+          "espn_athlete_id": "4431671",
+          "name": "Jaden McDaniels",
+          "player_id": "mcdanja02",
+          "provider_player_id": "1837406"
+        },
+        {
+          "decimal": 7.9,
+          "entry_age_seconds": 15764.789,
+          "entry_time": "2026-03-22T19:32:15.211000+00:00",
+          "espn_athlete_id": "4397424",
+          "name": "Neemias Queta",
+          "player_id": "quetane01",
+          "provider_player_id": "1596754"
+        },
+        {
+          "decimal": 6.18,
+          "entry_age_seconds": 5425.748,
+          "entry_time": "2026-03-22T22:24:34.252000+00:00",
+          "espn_athlete_id": "3064514",
+          "name": "Julius Randle",
+          "player_id": "randlju01",
+          "provider_player_id": "608108"
+        },
+        {
+          "decimal": 8.7,
+          "entry_age_seconds": 15764.789,
+          "entry_time": "2026-03-22T19:32:15.211000+00:00",
+          "espn_athlete_id": "4065648",
+          "name": "Jayson Tatum",
+          "player_id": "tatumja01",
+          "provider_player_id": "1141196"
+        },
+        {
+          "decimal": 11.8,
+          "entry_age_seconds": 5425.748,
+          "entry_time": "2026-03-22T22:24:34.252000+00:00",
+          "espn_athlete_id": "3078576",
+          "name": "Derrick White",
+          "player_id": "whitede01",
+          "provider_player_id": "1142550"
+        }
+      ],
+      "selected_quote": null
+    },
+    {
+      "active_players": 10,
+      "board_status": "candidate_sets_differ",
+      "bookmaker": "draftkings",
+      "decision": "2026-03-23T00:55:00+00:00",
+      "definition": "unresolved: dated rules explicitly allow first-point and first-field-goal markets; no conversion or fair-EV assigned",
+      "fixture_id": "id1100013262925927",
+      "prices": [
+        {
+          "decimal": 9.5,
+          "entry_age_seconds": 9024.842,
+          "entry_time": "2026-03-22T22:24:35.158000+00:00",
+          "espn_athlete_id": "4433134",
+          "name": "Scottie Barnes",
+          "player_id": "barnesc01",
+          "provider_player_id": "2078473"
+        },
+        {
+          "decimal": 8.5,
+          "entry_age_seconds": 19364.031,
+          "entry_time": "2026-03-22T19:32:15.969000+00:00",
+          "espn_athlete_id": "4395625",
+          "name": "RJ Barrett",
+          "player_id": "barrerj01",
+          "provider_player_id": "1770168"
+        },
+        {
+          "decimal": 7.2,
+          "entry_age_seconds": 9024.842,
+          "entry_time": "2026-03-22T22:24:35.158000+00:00",
+          "espn_athlete_id": "3136193",
+          "name": "Devin Booker",
+          "player_id": "bookede01",
+          "provider_player_id": "852170"
+        },
+        {
+          "decimal": 10.0,
+          "entry_age_seconds": 9024.842,
+          "entry_time": "2026-03-22T22:24:35.158000+00:00",
+          "espn_athlete_id": "4278585",
+          "name": "Collin Gillespie",
+          "player_id": "gilleco01",
+          "provider_player_id": "1317932"
+        },
+        {
+          "decimal": 8.0,
+          "entry_age_seconds": 19364.031,
+          "entry_time": "2026-03-22T19:32:15.969000+00:00",
+          "espn_athlete_id": "4437244",
+          "name": "Jalen Green",
+          "player_id": "greenja05",
+          "provider_player_id": "2195912"
+        },
+        {
+          "decimal": 12.4,
+          "entry_age_seconds": 9024.842,
+          "entry_time": "2026-03-22T22:24:35.158000+00:00",
+          "espn_athlete_id": "4601023",
+          "name": "Oso Ighodaro",
+          "player_id": "ighodos01",
+          "provider_player_id": "2075359"
+        },
+        {
+          "decimal": 5.51,
+          "entry_age_seconds": 9024.842,
+          "entry_time": "2026-03-22T22:24:35.158000+00:00",
+          "espn_athlete_id": "3913176",
+          "name": "Brandon Ingram",
+          "player_id": "ingrabr01",
+          "provider_player_id": "996321"
+        },
+        {
+          "decimal": 12.2,
+          "entry_age_seconds": 9024.842,
+          "entry_time": "2026-03-22T22:24:35.158000+00:00",
+          "espn_athlete_id": "2583632",
+          "name": "Royce O'Neale",
+          "player_id": "onealro01",
+          "provider_player_id": "852134"
+        },
+        {
+          "decimal": 7.4,
+          "entry_age_seconds": 9024.842,
+          "entry_time": "2026-03-22T22:24:35.158000+00:00",
+          "espn_athlete_id": "3134908",
+          "name": "Jakob Poeltl",
+          "player_id": "poeltja01",
+          "provider_player_id": "996287"
+        },
+        {
+          "decimal": 8.6,
+          "entry_age_seconds": 19364.031,
+          "entry_time": "2026-03-22T19:32:15.969000+00:00",
+          "espn_athlete_id": "4395724",
+          "name": "Immanuel Quickley",
+          "player_id": "quickim01",
+          "provider_player_id": "1491414"
+        }
+      ],
+      "selected_quote": {
+        "fanduel_entry_decimal": 11.0,
+        "name": "RJ Barrett",
+        "reference_decimal": 8.5,
+        "reference_entry_age_seconds": 19364.031
+      }
+    },
+    {
+      "active_players": 10,
+      "board_status": "matching_ten_candidates",
+      "bookmaker": "draftkings",
+      "decision": "2026-04-07T00:55:00+00:00",
+      "definition": "unresolved: dated rules explicitly allow first-point and first-field-goal markets; no conversion or fair-EV assigned",
+      "fixture_id": "id1100013262924745",
+      "prices": [
+        {
+          "decimal": 8.3,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "4683021",
+          "name": "Deni Avdija",
+          "player_id": "avdijde01",
+          "provider_player_id": "1613688"
+        },
+        {
+          "decimal": 12.0,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "4431767",
+          "name": "Christian Braun",
+          "player_id": "braunch01",
+          "provider_player_id": "1793966"
+        },
+        {
+          "decimal": 12.8,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "4431736",
+          "name": "Toumani Camara",
+          "player_id": "camarto01",
+          "provider_player_id": "1876124"
+        },
+        {
+          "decimal": 9.1,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "5105565",
+          "name": "Donovan Clingan",
+          "player_id": "clingdo01",
+          "provider_player_id": "2439943"
+        },
+        {
+          "decimal": 8.5,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "3064290",
+          "name": "Aaron Gordon",
+          "player_id": "gordoaa01",
+          "provider_player_id": "607864"
+        },
+        {
+          "decimal": 9.1,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "4683678",
+          "name": "Scoot Henderson",
+          "player_id": "hendesc01",
+          "provider_player_id": "2299169"
+        },
+        {
+          "decimal": 8.9,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "3995",
+          "name": "Jrue Holiday",
+          "player_id": "holidjr01",
+          "provider_player_id": "607876"
+        },
+        {
+          "decimal": 11.8,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "3138196",
+          "name": "Cameron Johnson",
+          "player_id": "johnsca02",
+          "provider_player_id": "1770162"
+        },
+        {
+          "decimal": 6.03,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "3112335",
+          "name": "Nikola Jokic",
+          "player_id": "jokicni01",
+          "provider_player_id": "607468"
+        },
+        {
+          "decimal": 4.99,
+          "entry_age_seconds": 26988.607,
+          "entry_time": "2026-04-06T17:25:11.393000+00:00",
+          "espn_athlete_id": "3936299",
+          "name": "Jamal Murray",
+          "player_id": "murraja01",
+          "provider_player_id": "996299"
+        }
+      ],
+      "selected_quote": null
+    }
+  ],
+  "source_directory": "data/raw/nba-first-score-reference-diagnostic/20260920T015509128148Z"
+}
