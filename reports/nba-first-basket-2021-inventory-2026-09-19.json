@@ -1,0 +1,2489 @@
+{
+  "source_commit": "b1fb92f10d61b94e44bb3d760e9ac269c706a7ab",
+  "files": 339,
+  "bytes": 15939784,
+  "book_counts": {
+    "draftkings": {
+      "top_level_records": 993,
+      "naive_collection_clock": 993,
+      "literal_player_boards": 984,
+      "ten_unique_literal_player_boards": 630,
+      "distinct_collection_date_team_pairs": 264,
+      "collection_dates": 52
+    },
+    "bovada": {
+      "top_level_records": 1453,
+      "naive_collection_clock": 1453,
+      "literal_player_boards": 690,
+      "ten_unique_literal_player_boards": 2,
+      "distinct_collection_date_team_pairs": 1,
+      "collection_dates": 31
+    },
+    "mgm": {
+      "top_level_records": 1148,
+      "naive_collection_clock": 1148,
+      "literal_player_boards": 10,
+      "distinct_collection_date_team_pairs": 0,
+      "collection_dates": 54
+    },
+    "pointsBet": {
+      "top_level_records": 389,
+      "naive_collection_clock": 389,
+      "literal_player_boards": 389,
+      "ten_unique_literal_player_boards": 389,
+      "distinct_collection_date_team_pairs": 170,
+      "collection_dates": 25
+    },
+    "unibet": {
+      "top_level_records": 334,
+      "naive_collection_clock": 334,
+      "literal_player_boards": 334,
+      "ten_unique_literal_player_boards": 332,
+      "distinct_collection_date_team_pairs": 147,
+      "collection_dates": 25
+    },
+    "barstool": {
+      "top_level_records": 363,
+      "naive_collection_clock": 363,
+      "literal_player_boards": 363,
+      "ten_unique_literal_player_boards": 362,
+      "distinct_collection_date_team_pairs": 148,
+      "collection_dates": 25
+    },
+    "fanduel": {
+      "top_level_records": 904,
+      "naive_collection_clock": 904,
+      "literal_player_boards": 904,
+      "ten_unique_literal_player_boards": 749,
+      "distinct_collection_date_team_pairs": 312,
+      "collection_dates": 45
+    },
+    "betfair": {
+      "top_level_records": 82,
+      "naive_collection_clock": 82,
+      "distinct_collection_date_team_pairs": 0,
+      "collection_dates": 4
+    }
+  },
+  "first_field_goal_flags": {
+    "draftkings": {
+      "None": 10,
+      "False": 983
+    },
+    "bovada": {
+      "None": 711,
+      "False": 742
+    },
+    "mgm": {
+      "None": 1138,
+      "False": 10
+    },
+    "pointsBet": {
+      "True": 389
+    },
+    "unibet": {
+      "True": 334
+    },
+    "barstool": {
+      "False": 363
+    },
+    "fanduel": {
+      "False": 904
+    },
+    "betfair": {
+      "None": 82
+    }
+  },
+  "nonnull_fixture_examples": {},
+  "top_level_field_names": {
+    "draftkings": [
+      "away",
+      "awayBestKellyBet",
+      "awayEVFactor",
+      "awayKellyBet",
+      "awayPlayerFloorOdds",
+      "awayPlayerOddsList",
+      "awayScoreProb",
+      "awayTeamFirstQuarterOdds",
+      "awayTeamKellyBet",
+      "awayTeamOdds",
+      "bestAwayOdds",
+      "bestEVFactor",
+      "bestHomeOdds",
+      "betOnAway",
+      "betOnHome",
+      "betOnVia",
+      "exchange",
+      "expectedAwayTipper",
+      "expectedHomeTipper",
+      "fetchedDatetime",
+      "gameCode",
+      "gameDatetime",
+      "home",
+      "homeBestKellyBet",
+      "homeEVFactor",
+      "homeKellyBet",
+      "homePlayerFloorOdds",
+      "homePlayerOddsList",
+      "homeScoreProb",
+      "homeTeamFirstQuarterOdds",
+      "homeTeamKellyBet",
+      "homeTeamOdds",
+      "isFirstFieldGoal",
+      "isFullGame",
+      "isPlayersOnly",
+      "isTeamOnly",
+      "kellyBet",
+      "marketUrl",
+      "minAwayWinPercentage",
+      "minHomeWinPercentage",
+      "py/object",
+      "quarter"
+    ],
+    "bovada": [
+      "away",
+      "awayBestKellyBet",
+      "awayEVFactor",
+      "awayKellyBet",
+      "awayPlayerFloorOdds",
+      "awayPlayerOddsList",
+      "awayScoreProb",
+      "awayTeamFirstQuarterOdds",
+      "awayTeamKellyBet",
+      "awayTeamOdds",
+      "bestAwayOdds",
+      "bestEVFactor",
+      "bestHomeOdds",
+      "betOnAway",
+      "betOnHome",
+      "betOnVia",
+      "exchange",
+      "expectedAwayTipper",
+      "expectedHomeTipper",
+      "fetchedDatetime",
+      "gameCode",
+      "gameDatetime",
+      "home",
+      "homeBestKellyBet",
+      "homeEVFactor",
+      "homeKellyBet",
+      "homePlayerFloorOdds",
+      "homePlayerOddsList",
+      "homeScoreProb",
+      "homeTeamFirstQuarterOdds",
+      "homeTeamKellyBet",
+      "homeTeamOdds",
+      "isFirstFieldGoal",
+      "isFullGame",
+      "isPlayersOnly",
+      "isTeamOnly",
+      "kellyBet",
+      "marketUrl",
+      "minAwayWinPercentage",
+      "minHomeWinPercentage",
+      "py/object",
+      "quarter"
+    ],
+    "mgm": [
+      "away",
+      "awayBestKellyBet",
+      "awayEVFactor",
+      "awayKellyBet",
+      "awayPlayerFloorOdds",
+      "awayPlayerOddsList",
+      "awayScoreProb",
+      "awayTeamFirsQuarterOdds",
+      "awayTeamFirstQuarterOdds",
+      "awayTeamKellyBet",
+      "awayTeamOdds",
+      "bestAwayOdds",
+      "bestEVFactor",
+      "bestHomeOdds",
+      "betOnAway",
+      "betOnHome",
+      "betOnVia",
+      "exchange",
+      "expectedAwayTipper",
+      "expectedHomeTipper",
+      "fetchedDatetime",
+      "gameCode",
+      "gameDatetime",
+      "home",
+      "homeBestKellyBet",
+      "homeEVFactor",
+      "homeKellyBet",
+      "homePlayerFloorOdds",
+      "homePlayerOddsList",
+      "homeScoreProb",
+      "homeTeamFirstQuarterOdds",
+      "homeTeamKellyBet",
+      "homeTeamOdds",
+      "isFirstFieldGoal",
+      "isFullGame",
+      "isPlayersOnly",
+      "isTeamOnly",
+      "kellyBet",
+      "marketUrl",
+      "minAwayWinPercentage",
+      "minHomeWinPercentage",
+      "py/object",
+      "quarter"
+    ],
+    "pointsBet": [
+      "away",
+      "awayBestKellyBet",
+      "awayEVFactor",
+      "awayKellyBet",
+      "awayPlayerFloorOdds",
+      "awayPlayerOddsList",
+      "awayPlayersKellyBet",
+      "awayScoreProb",
+      "awayTeamFirstQuarterOdds",
+      "bestAwayOdds",
+      "bestEVFactor",
+      "bestHomeOdds",
+      "betOnAway",
+      "betOnHome",
+      "betOnVia",
+      "exchange",
+      "expectedAwayTipper",
+      "expectedHomeTipper",
+      "fetchedDatetime",
+      "gameCode",
+      "gameDatetime",
+      "home",
+      "homeBestKellyBet",
+      "homeEVFactor",
+      "homeKellyBet",
+      "homePlayerFloorOdds",
+      "homePlayerOddsList",
+      "homePlayersKellyBet",
+      "homeScoreProb",
+      "homeTeamFirstQuarterOdds",
+      "isFirstFieldGoal",
+      "isFullGame",
+      "isPlayersOnly",
+      "isTeamOnly",
+      "kellyBet",
+      "marketUrl",
+      "minAwayWinPercentage",
+      "minHomeWinPercentage",
+      "py/object",
+      "quarter"
+    ],
+    "unibet": [
+      "away",
+      "awayBestKellyBet",
+      "awayEVFactor",
+      "awayKellyBet",
+      "awayPlayerFloorOdds",
+      "awayPlayerOddsList",
+      "awayPlayersKellyBet",
+      "awayScoreProb",
+      "awayTeamFirstQuarterOdds",
+      "bestAwayOdds",
+      "bestEVFactor",
+      "bestHomeOdds",
+      "betOnAway",
+      "betOnHome",
+      "betOnVia",
+      "exchange",
+      "expectedAwayTipper",
+      "expectedHomeTipper",
+      "fetchedDatetime",
+      "gameCode",
+      "gameDatetime",
+      "home",
+      "homeBestKellyBet",
+      "homeEVFactor",
+      "homeKellyBet",
+      "homePlayerFloorOdds",
+      "homePlayerOddsList",
+      "homePlayersKellyBet",
+      "homeScoreProb",
+      "homeTeamFirstQuarterOdds",
+      "isFirstFieldGoal",
+      "isFullGame",
+      "isPlayersOnly",
+      "isTeamOnly",
+      "kellyBet",
+      "marketUrl",
+      "minAwayWinPercentage",
+      "minHomeWinPercentage",
+      "py/object",
+      "quarter"
+    ],
+    "barstool": [
+      "away",
+      "awayBestKellyBet",
+      "awayEVFactor",
+      "awayPlayerFloorOdds",
+      "awayPlayerOddsList",
+      "awayPlayersKellyBet",
+      "awayScoreProb",
+      "awayTeamFirstQuarterOdds",
+      "bestAwayOdds",
+      "bestEVFactor",
+      "bestHomeOdds",
+      "betOnAway",
+      "betOnHome",
+      "betOnVia",
+      "exchange",
+      "expectedAwayTipper",
+      "expectedHomeTipper",
+      "fetchedDatetime",
+      "gameCode",
+      "gameDatetime",
+      "home",
+      "homeBestKellyBet",
+      "homeEVFactor",
+      "homePlayerFloorOdds",
+      "homePlayerOddsList",
+      "homePlayersKellyBet",
+      "homeScoreProb",
+      "homeTeamFirstQuarterOdds",
+      "isFirstFieldGoal",
+      "isFullGame",
+      "isPlayersOnly",
+      "isTeamOnly",
+      "kellyBet",
+      "marketUrl",
+      "minAwayWinPercentage",
+      "minHomeWinPercentage",
+      "py/object",
+      "quarter"
+    ],
+    "fanduel": [
+      "away",
+      "awayBestKellyBet",
+      "awayEVFactor",
+      "awayPlayerFloorOdds",
+      "awayPlayerOddsList",
+      "awayScoreProb",
+      "awayTeamFirstQuarterOdds",
+      "awayTeamFourthQuarterOdds",
+      "awayTeamSecondQuarterOdds",
+      "awayTeamThirdQuarterOdds",
+      "bestAwayOdds",
+      "bestEVFactor",
+      "bestHomeOdds",
+      "betOnAway",
+      "betOnHome",
+      "betOnVia",
+      "exchange",
+      "expectedAwayTipper",
+      "expectedHomeTipper",
+      "fetchedDatetime",
+      "fourthQuarterGameObj",
+      "gameCode",
+      "gameDatetime",
+      "home",
+      "homeBestKellyBet",
+      "homeEVFactor",
+      "homePlayerFloorOdds",
+      "homePlayerOddsList",
+      "homeScoreProb",
+      "homeTeamFirstQuarterOdds",
+      "homeTeamFourthQuarterOdds",
+      "homeTeamSecondQuarterOdds",
+      "homeTeamThirdQuarterOdds",
+      "isFirstFieldGoal",
+      "isFullGame",
+      "isPlayersOnly",
+      "isTeamOnly",
+      "kellyBet",
+      "marketUrl",
+      "minAwayWinPercentage",
+      "minHomeWinPercentage",
+      "py/object",
+      "quarter",
+      "secondQuarterGameObj",
+      "thirdQuarterGameObj"
+    ],
+    "betfair": [
+      "away",
+      "awayBestKellyBet",
+      "awayEVFactor",
+      "awayPlayerFloorOdds",
+      "awayScoreProb",
+      "awayTeamFirstQuarterOdds",
+      "awayTeamFourthQuarterOdds",
+      "awayTeamSecondQuarterOdds",
+      "awayTeamThirdQuarterOdds",
+      "bestAwayOdds",
+      "bestEVFactor",
+      "bestHomeOdds",
+      "betOnAway",
+      "betOnHome",
+      "betOnVia",
+      "exchange",
+      "expectedAwayTipper",
+      "expectedHomeTipper",
+      "fetchedDatetime",
+      "fourthQuarterGameObj",
+      "gameCode",
+      "gameDatetime",
+      "home",
+      "homeBestKellyBet",
+      "homeEVFactor",
+      "homePlayerFloorOdds",
+      "homeScoreProb",
+      "homeTeamFirstQuarterOdds",
+      "homeTeamFourthQuarterOdds",
+      "homeTeamSecondQuarterOdds",
+      "homeTeamThirdQuarterOdds",
+      "isFullGame",
+      "isPlayersOnly",
+      "isTeamOnly",
+      "kellyBet",
+      "marketUrl",
+      "minAwayWinPercentage",
+      "minHomeWinPercentage",
+      "py/object",
+      "quarter",
+      "secondQuarterGameObj",
+      "thirdQuarterGameObj"
+    ]
+  },
+  "sources": [
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-24_22-14-02PM.json",
+      "sha256": "e25efe89c48baca415d58fb5bbf49999607a34fb5f33ae85d09f65459684729c",
+      "bytes": 5561,
+      "expected_git_blob": "1da410ae96463385a70fae9a14b6186fb7ef04cd"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_10-28-44AM.json",
+      "sha256": "7df1f9ac9ddc9b33e85c2bd1e52047d94c7e681df1443f48fc71bb3c62651e58",
+      "bytes": 28217,
+      "expected_git_blob": "ea8b7783f43f62b4ecafce0d50572a5c6e0dea88"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_11-00-00AM.json",
+      "sha256": "0827f5766b3130242218fec67f8bc49bf7cf83c0d8694e9fb7aa56ccd61d29fd",
+      "bytes": 34998,
+      "expected_git_blob": "9ce6c6d1ca992d7207c9124be1fceaf322dc6aec"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_11-00-01AM.json",
+      "sha256": "9e1d03bdee30fc5bb8b6d2846962c29168253ccceccdfd6bbed2e88d65afe882",
+      "bytes": 14652,
+      "expected_git_blob": "9236c90a78f31f6bc325199900c23e249f2e3ed3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_13-14-26PM.json",
+      "sha256": "c1e5ff266447a205e9bf49f8b216e928865a1a4a268169fd5a2fa4ecc6e2d572",
+      "bytes": 20129,
+      "expected_git_blob": "9c690b0e01699543d5964c3c767d957fe04b725b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_13-14-28PM.json",
+      "sha256": "56b24a60da622d24e87b10a96ca9b2eea9c4955db5f721bb27b6017ee0a85b33",
+      "bytes": 14651,
+      "expected_git_blob": "7306e8c68c1aba38486044b26b01109880d5faa5"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_14-07-36PM.json",
+      "sha256": "a3286ffb955f0ebeab66154c18860e1cb647844593e87cace2ff1661a13e8f95",
+      "bytes": 23001,
+      "expected_git_blob": "62a25a5c408ee02ef6f0cd7cbf4a6e534bc841af"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_14-48-55PM.json",
+      "sha256": "5dbd28992100ad4163669814f77df5328ecdc8cb034a67819b0c19981d2bb7d9",
+      "bytes": 18258,
+      "expected_git_blob": "329b8e2261359d879775af54daea4be8cfcae019"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_18-28-19PM.json",
+      "sha256": "74e7b03549b8dedaa5b2185e7ed1120e2722054baf2f90f80810eaa6eb0d8511",
+      "bytes": 34110,
+      "expected_git_blob": "d00b176497d59777ca2c4c66b0a8327738af8042"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_18-36-00PM.json",
+      "sha256": "4fb41d7048ead2e793da056763e7d1d3e3590fede7ac4ddb4d7b1c1c9cd8e50e",
+      "bytes": 23515,
+      "expected_git_blob": "7a6bb8f3d484e2c4178f5367e6c6bd8873732eac"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_18-37-37PM.json",
+      "sha256": "8960cdf07d6079b69201f7cdc1a5db29a447ca000b7ad8ff1a0859a1932d8159",
+      "bytes": 16651,
+      "expected_git_blob": "ac0a0dfc143f090142ae4e4ef9929e6b5d017793"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_18-38-06PM.json",
+      "sha256": "7338b27c1f6c26210c5028506f94f3ebf79afea0ee405edfb62ea27feaf1562d",
+      "bytes": 20088,
+      "expected_git_blob": "21737a3a5c55e5e5006bb87637cdfedc36c573ae"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_18-40-49PM.json",
+      "sha256": "703b51bc2fa7ea8c8911021ce38e239fb36dc1e0cae7e768b69b74375d25aa01",
+      "bytes": 21333,
+      "expected_git_blob": "bd026257ef6ecd61b20f689e5f1590fb912f0598"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-26_18-51-11PM.json",
+      "sha256": "46c1b6737927af8991b350f018afa2c1a98796974b8c21843b870979162904f7",
+      "bytes": 18204,
+      "expected_git_blob": "f62e5d73c0a7551dbc26f3ddf96c7fe5186c3281"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_10-54-04AM.json",
+      "sha256": "a3b26d056df910ebdc929149ab0f75600ce84193c5f7f66dad5bdf4861106736",
+      "bytes": 18260,
+      "expected_git_blob": "2d7153ad39fb735fc824b5414261234a2bd30c6a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_11-52-50AM.json",
+      "sha256": "193dee52d9d97783b3d3843ad1381990b1155a153fcb2bee707aa25fc4b4c3bb",
+      "bytes": 26617,
+      "expected_git_blob": "fd95c8ee8f23d4df14d48acdaaa44fd127627f1b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_11-53-17AM.json",
+      "sha256": "2f60f4b5daae0ef80149d03f8ac048a27eacc640455dd68897605f7b1778fca7",
+      "bytes": 13123,
+      "expected_git_blob": "9afb49e447cd1a7b0e6efc9ab364f6006c981e8e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_11-56-55AM.json",
+      "sha256": "91a55bc7280d136060386fc90b1a5b9e6db7dc6a5376584c618667c10b75bba6",
+      "bytes": 20201,
+      "expected_git_blob": "fc657c536c62f9194efac6b51a47a05981dc81fb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_11-57-10AM.json",
+      "sha256": "4c13dd89b1a9173ba392c59cd3aea61ce2e0c203e268e52831bf6f798c3680ac",
+      "bytes": 35723,
+      "expected_git_blob": "d5196db0cea9b12a73e4fab170e3f35cf77b2ccd"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_11-57-23AM.json",
+      "sha256": "8ee72c3f1785652afbfc20f40d586774d0861e213777a1505eddfdc101804411",
+      "bytes": 33504,
+      "expected_git_blob": "9b71426b22bba20f27f53eb91e47724b0651afc3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_12-04-39PM.json",
+      "sha256": "fb9beb9f58b54e457124439e0482a608fdfe6071fc1f7e9b8fb4baf2a70d2daa",
+      "bytes": 18930,
+      "expected_git_blob": "a2b1e03ce5a0fec0e148ec0656c2a793d0836512"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_12-04-45PM.json",
+      "sha256": "bdad6b2dd7ff9548dab87aab34464306bf9dd316d025834ee872d50bab81b5dc",
+      "bytes": 26617,
+      "expected_git_blob": "1202dde45d4b749cdc49c5332943d7dbe6d05055"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_12-05-12PM.json",
+      "sha256": "85add79a6f8cc29e72f1e6ceb836f5b9f5fe7e2d2e244e3bcc74c805c914fb8e",
+      "bytes": 13123,
+      "expected_git_blob": "c632116076d518cc2503efad98460d5994219c15"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_12-05-19PM.json",
+      "sha256": "9603501ab3c51111ccdc380af7cd469fb0024162fe0bd1ef66c551d99f8fb050",
+      "bytes": 20201,
+      "expected_git_blob": "aaba8cab28618765ec77fc0127c0ee8abb31ecce"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_12-05-34PM.json",
+      "sha256": "d1f399778ea1171c4c511aead6242c12376f27bea283bfa57aa413545b16087f",
+      "bytes": 20383,
+      "expected_git_blob": "228f40415c41373509f5c93bcbc0385fbf83aab0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-27_12-05-47PM.json",
+      "sha256": "f4103b06baeb400426f2adebe759e05bacddee3a787bc364e0e41cbe8b1ea212",
+      "bytes": 18724,
+      "expected_git_blob": "484d2b537af3d3f274b489833a2a4200c006a97c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_11-31-10AM.json",
+      "sha256": "1fe953abbc036c285af0e432de826c14ba1167f18f687441462023556a8442e3",
+      "bytes": 19363,
+      "expected_git_blob": "a246dfd4604b6cb103618aae9295d643c21a294a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_11-31-17AM.json",
+      "sha256": "7a134e9c3d5d8d58cedb62d8eec1068549bf46f5b8e53654b04ff653ef5173a3",
+      "bytes": 30365,
+      "expected_git_blob": "f818da0b981ec80ef378b04acbae92e24eb6dc5e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_11-31-49AM.json",
+      "sha256": "86e08cbe511a1016b8298fc6123e4f46f0ecffe370338b451a20ddaac720a719",
+      "bytes": 14879,
+      "expected_git_blob": "88e7bbdb84bbd535567cd1cfb06f76631b8bdee7"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_11-32-00AM.json",
+      "sha256": "596398e9e073288f699d52cfb138d827fe92b9ae38736ad861ccfe86c4aa7b3c",
+      "bytes": 22979,
+      "expected_git_blob": "a59b2899cca014f824361431e44918b2c794a940"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_11-42-00AM.json",
+      "sha256": "f038c10a830dbe3b22879000a94287507ce0453cc9172873fe056b414bd44eba",
+      "bytes": 20037,
+      "expected_git_blob": "1eeca25940a4092216ccd6b7e6fec04388acaf82"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_11-42-07AM.json",
+      "sha256": "9d4a12cdac076277fff73ab60a4e06b150a0d40f4e6017ea118f21279b6f7cfb",
+      "bytes": 30365,
+      "expected_git_blob": "d9f529246d364ba8ff88afa10f2d48b0a520f86a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_11-42-39AM.json",
+      "sha256": "aeb43d0f61f0f864bf089888b29da524f3d161467cb0855d2ca9a9696a44621a",
+      "bytes": 14879,
+      "expected_git_blob": "91cf9d8b8439cee918885477c903e8f595132462"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_13-39-13PM.json",
+      "sha256": "e81c0111a163f5ccf5fa07a1a9d37235ab24e4c23ff2dc9e9819497ad246fefc",
+      "bytes": 17338,
+      "expected_git_blob": "545e1852c86517ce9678fd1f3451499fbf618830"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_13-45-05PM.json",
+      "sha256": "31a102000b5f277dfebf0a08c45788d14f028807f8acf42a8828e98c017f1dc9",
+      "bytes": 15940,
+      "expected_git_blob": "c4b04f69de505d25b13d73fb370b454302906c76"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_14-02-43PM.json",
+      "sha256": "3a7ec8e3e183b64544a818bdc69d62bfa7f0810a1ef919af88a57e6fd1ba300d",
+      "bytes": 17338,
+      "expected_git_blob": "9b05ce7145b9695e2698f51ffe27081a8e354e96"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-28_14-03-12PM.json",
+      "sha256": "3037796cfa2ca2517771525830f0b3412c863e536c16840ac3a5d3eae8f4b84a",
+      "bytes": 22974,
+      "expected_git_blob": "b4694df03655d3cedf3fc478ef6da21e6ca420fd"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-43-58AM.json",
+      "sha256": "7321b4a8396fb1e56d7b7a7fee2710d3e0cd84c6f5a2533d60ab65a17dcbd97d",
+      "bytes": 16907,
+      "expected_git_blob": "3c074298a599bf97b69916c054084f1171af22ba"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-44-51AM.json",
+      "sha256": "a51aef3a9a1e68283a9ffb3f3f46f9055f30f83648db5b14d63acdb376b074c3",
+      "bytes": 16907,
+      "expected_git_blob": "22c78000c13e0954a747f7b2cc638632e33a9e36"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-44-59AM.json",
+      "sha256": "6a24d36adc30941ab16f35c42f75e3527be003ca175da401f9f079d9d2b3cf6b",
+      "bytes": 22924,
+      "expected_git_blob": "865a5809426eb98381749089f01a850184bc47c2"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-45-33AM.json",
+      "sha256": "0ed9a1e6220f173a027cfe583d6f3ff5b266af78928cf71a1719e63b9f556abd",
+      "bytes": 5868,
+      "expected_git_blob": "b1ff57ef18726288d04c44b87da5013e35df0fba"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-45-42AM.json",
+      "sha256": "a0f3847d64fdbd453d1948c05b3fdaaf8de316fa81f2c5ace71690971d2894da",
+      "bytes": 17346,
+      "expected_git_blob": "5005cb595ec48282da1df184cb0c9d1f849d8417"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-45-57AM.json",
+      "sha256": "685219d786372f1903f02f88551b44221f19dc886be7b0e793f97576e64b29c5",
+      "bytes": 11824,
+      "expected_git_blob": "120f55b9d00a65e6fa83a7ab43d8bac8a6995b78"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-46-08AM.json",
+      "sha256": "e94dec03a705b1e4596a35793116a0f2871ca92051129086fd3bc54a06ab10a7",
+      "bytes": 10876,
+      "expected_git_blob": "ead256c0f95271324173254f268c65a9b57d3678"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-54-13AM.json",
+      "sha256": "6af844673df32b845dfed72be9d0d6beb45fb551d69a04dfefc89ca2b727ec7f",
+      "bytes": 16907,
+      "expected_git_blob": "cf8ded9f99c7ed62eac70f081b5f08aa6ea153fc"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-54-20AM.json",
+      "sha256": "c8774db4e2c6e80c4caa86f43c3c4f23196581f917fe072430f21bbf8e62abea",
+      "bytes": 22924,
+      "expected_git_blob": "f60a2cfeb4296a2b65556cb0aabb7e0b05f1ad66"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-54-49AM.json",
+      "sha256": "6853ae150d25cbce0e29552084398a4c1555081bee9de38cbd70f077ec556e12",
+      "bytes": 5868,
+      "expected_git_blob": "1ca47d3c41808333689a32b3e5dd118c28fcff87"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-54-57AM.json",
+      "sha256": "0b0b7c255b344e9a166cf27f3ef05ee769a5eff2e7ff19fad44fc241b8ad4f0c",
+      "bytes": 30658,
+      "expected_git_blob": "807d94e66664e330e319c8de54c68afdfd42adb3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-55-07AM.json",
+      "sha256": "1a9fed0d5ab9b74b369e6b20a1b2958a016f8fb0f1e0ffcaafc0379c66f33b09",
+      "bytes": 21080,
+      "expected_git_blob": "6ae812ece0fc70df8a18896ca038d5a1ee912c3d"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-01_11-55-17AM.json",
+      "sha256": "bf4531633a25697dbcf345688afcbf216754d24dc6ec941cf24e9cfa8e087b2c",
+      "bytes": 18354,
+      "expected_git_blob": "481dc15a0759eb9136f0c456ca758bacfe673674"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-02_10-25-51AM.json",
+      "sha256": "a55a80f0eb1b4847b745a06d34d7895a701a97e4d2d1ad1db4ab52c9183a79d4",
+      "bytes": 15444,
+      "expected_git_blob": "050407518b8494604377836a294426f83f574708"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-02_10-25-56AM.json",
+      "sha256": "dc422871918231671a6a81c6ac30c0d10681124d054c7eaf1a39ccec28dfe481",
+      "bytes": 22775,
+      "expected_git_blob": "eeb66dcb31fac3cc96cf2b190b0076a04ca1730e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-02_10-26-19AM.json",
+      "sha256": "6530224f2a0eed6334996ab345ed6bccfab4739d70d6ea5ccf8d4e50cd17f135",
+      "bytes": 11076,
+      "expected_git_blob": "83aef1d5b4b94eff3bbd9762b110b0234f12a56d"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-02_10-26-25AM.json",
+      "sha256": "5eca6be77762478a77f81584a5c27d7c8a784eef04fb85ce82ebacc65a857437",
+      "bytes": 11451,
+      "expected_git_blob": "cfcc3e1c1926dafc2194d31d1fb2c2c8b732fd61"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-02_10-26-37AM.json",
+      "sha256": "7937490cbb270cc5f66901eb6e7e6c0d6183a09a562b2d9add5b7d266238cb91",
+      "bytes": 14400,
+      "expected_git_blob": "21645e0b3d432d2df71b28d6dc6c2b70445eb673"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-02_10-26-48AM.json",
+      "sha256": "9817ef42e4e9d5a10b9b0445b06bc43e735dc75a27ec313bcd77b3647c6e73e1",
+      "bytes": 13215,
+      "expected_git_blob": "1463e22f2e0df7aeed5a50b2272757f54b92bee6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-02_11-04-51AM.json",
+      "sha256": "3db1174ff571d27705ff0882aac479fb9c20009ed29a8c90c4c522eb1a2ae192",
+      "bytes": 16098,
+      "expected_git_blob": "baf1d64e71b2e4814bdca5efb7c0bae6c57ffa21"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-02_11-04-58AM.json",
+      "sha256": "542bd647c46deb2cb95b13708271cb0324f6f93311a0d70f3706ef06c167cd6d",
+      "bytes": 22773,
+      "expected_git_blob": "d056565cdd140348ef8859904c05f541eb0a4ad8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_09-51-22AM.json",
+      "sha256": "6823fa42bfa1085f294cc041190192c7897e56b37aec41f89c3206fc3ef659e9",
+      "bytes": 23864,
+      "expected_git_blob": "a5b6c9b119808979dd0850c44d46753c2344fda0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_09-52-45AM.json",
+      "sha256": "1e31599d19a74e343b12fd92534b740169c6f9c4789773ee62b4ccd9c51c9df8",
+      "bytes": 23864,
+      "expected_git_blob": "ae2b2528c2d3001654ce40ca41858710a1c2b61c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_09-55-35AM.json",
+      "sha256": "2796899b3fd8f35cc30cf38ad16c6ec2c35cf587183a1f86169ccd2b8ebd2d45",
+      "bytes": 37814,
+      "expected_git_blob": "ca691a9f8e83eef89113c79fce109f688469216e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_09-56-11AM.json",
+      "sha256": "483d093cbf3d2e863c73876bb82cfa336813d8149ab4234e9a453f6e9edda450",
+      "bytes": 18463,
+      "expected_git_blob": "c71c5a65dd146e6d899917f6e5eca1fe803f4820"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_09-56-17AM.json",
+      "sha256": "5106682b6d1d70506be93fb8682502452ed79f76ec7f1fb5c585e3c076c23487",
+      "bytes": 11649,
+      "expected_git_blob": "654afa81ce8854e16ebfe86c2cdd9722794e398b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_09-56-34AM.json",
+      "sha256": "5b78ac548b5e66d5147d24b6f96fca9cc9d619455e0103275889c0244b80a50d",
+      "bytes": 17433,
+      "expected_git_blob": "4d1016a863d65e9e474290368e4284e9bd2cbd8f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_09-56-55AM.json",
+      "sha256": "4d65977806f812b86e39c61808d757a99b654f3d793bf512f02625a5c6960fdc",
+      "bytes": 16011,
+      "expected_git_blob": "44c89d45e64fda739ebefcabc63e2b623e10e173"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_10-33-33AM.json",
+      "sha256": "189c7b8340770526389699992ea560cc4ef4f9e051922204af191b10c9070ca0",
+      "bytes": 23833,
+      "expected_git_blob": "0b158046c42c25ddd2655151ff67b29f49eca1a3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_10-33-41AM.json",
+      "sha256": "21231852161f8668f8ca893c8120c941207a811b0cd083f6c9b00c961faabae9",
+      "bytes": 37775,
+      "expected_git_blob": "1fa6c0d7dfd3892ceda847a4d430c91e85be3c45"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_10-34-23AM.json",
+      "sha256": "e675f9931e2cadad84d268fd5531e395656931fe9d17ddcc6a900a36b2b9431a",
+      "bytes": 18497,
+      "expected_git_blob": "092687c4f13b7e53cd81415c54a439aae4ff6af0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_10-34-31AM.json",
+      "sha256": "6ed03180a66ebf0039b46187a0319c34507b7be7658f0b2e7b089b03ae44ff75",
+      "bytes": 17048,
+      "expected_git_blob": "c151a762e54fde079f99d2d52daeecefa2a46515"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_10-34-48AM.json",
+      "sha256": "4dc3159b5dfcedd404098a3b2d8d3694b64264f2e69eaf6ee3fcb8e22cea17a7",
+      "bytes": 17400,
+      "expected_git_blob": "ade48b337eda8335335c1b4d24e0eed87a9f07bc"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_10-35-03AM.json",
+      "sha256": "644ee7380b03312c2619f484f084b6d7d25eed3927893fe25fbcec952f398d2b",
+      "bytes": 15978,
+      "expected_git_blob": "c49a51b23a68f1515d89cc189b72c4ba0ce592ba"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_11-35-31AM.json",
+      "sha256": "f183c2a00e5beceee0ef86199b2e94ef3778cbdbed714b39af75907699a4cbf6",
+      "bytes": 18498,
+      "expected_git_blob": "3eae284b1527bc7a7baf83d95c16d7c469cba313"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_18-05-49PM.json",
+      "sha256": "e612c928b264bf2f12dedd0411e9452922483721f2608f75524ab6f7150aff4a",
+      "bytes": 25235,
+      "expected_git_blob": "507783cfe052e9cfee6dfbfc9a446416f84d5ca3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_18-05-57PM.json",
+      "sha256": "8afab33ea9d0c6a294f082779f43dcdc0fe9a95838393705572f48a61dd00596",
+      "bytes": 37768,
+      "expected_git_blob": "1b641997b33ad68899fbe9bfa097ed50ed45da7b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_18-06-35PM.json",
+      "sha256": "8bf1f26e0e2fe6879a5c60bbcc48dba8880cfaf9e3773c6e2599212fefb3db58",
+      "bytes": 18497,
+      "expected_git_blob": "31583cd57f3b5567b3b52e1e91d9b9dc39b57d87"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_18-18-11PM.json",
+      "sha256": "57f53889ba772911a288301a24a55bea2759832680b779fc72b30b43849eaef9",
+      "bytes": 17407,
+      "expected_git_blob": "689e435196aca3c4d845fdde4c26b226180fecf6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-03_18-32-15PM.json",
+      "sha256": "780b9e2d324ffeff532b5eab40584a42873bd73c7420ed2eab56f51e079977ef",
+      "bytes": 17407,
+      "expected_git_blob": "907a0f8a24980e8ab1c9ebb4c5fbe0f06de3b013"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_09-59-26AM.json",
+      "sha256": "49c9ccbb477ca55d427adbf3fc13450b14a893226d22893e0120b659d227e3e6",
+      "bytes": 35172,
+      "expected_git_blob": "112c4b819ecdda4323ab35a5e12f30fb1c9c752d"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_10-00-00AM.json",
+      "sha256": "0e3d0da3a10c47f1506b6d302c4cab5a36f2a342fdce3ad3cf5d5c491adc509c",
+      "bytes": 17202,
+      "expected_git_blob": "0fb1e5a184e1c95d0be4daa37ce7bc35a2d465aa"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_10-03-20AM.json",
+      "sha256": "d8af2c6bd52579e66955483b2ffcbcdbe846c6ec46a4b643cf36412da901fa1f",
+      "bytes": 6696,
+      "expected_git_blob": "fc5ad88356d0d543a624057abdbdd1f614b3220c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_10-04-40AM.json",
+      "sha256": "94e3a4c839f9fc7adcf1b12abb6ddfa0642c832e9b06d5bd5bdf4ac695621c51",
+      "bytes": 3321,
+      "expected_git_blob": "89b6cb2e03d50f5b883033b46d1af65466166a35"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_10-30-07AM.json",
+      "sha256": "388ce8bcca4a2be17377a901836c3d678d495ef3482307ec0e5ae250e91e4f77",
+      "bytes": 17202,
+      "expected_git_blob": "85b2fe38a34f6803f3b340b73e21a4cb9ea4e22e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_11-12-33AM.json",
+      "sha256": "6ea0835ea1e2c59a7a083dda30b4cd32bd75a8f9e2bc45688f4f097b547162e1",
+      "bytes": 20043,
+      "expected_git_blob": "3e0530037ec5f8dbc226d96ce88b408581e3802f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_11-12-40AM.json",
+      "sha256": "ecd390349fd980230f2f8b2003fee2ccfddc4f6f574102ed22e60e940b6659d3",
+      "bytes": 35086,
+      "expected_git_blob": "769ced71f37a50d3f93402dbb490150e1213a2eb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_11-13-16AM.json",
+      "sha256": "f123c0e26ef1bc1b25f8ba51192d6f65da9895b42067b5dab30b2ace6c032007",
+      "bytes": 17202,
+      "expected_git_blob": "8ce60a11cfb17b5f501b0abe93131f8fa6dc072c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_11-26-41AM.json",
+      "sha256": "27d5685aff4e2dfff9c4f3902e1e97ed857ba32ed8c9c07db2a9b79d486a7956",
+      "bytes": 20043,
+      "expected_git_blob": "30e6f809665e722f1ef52d04c297c8c7ca339ca0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_11-26-48AM.json",
+      "sha256": "a715a634d719b498c75242a044d1fa4e8ffc5fb4693ae03af7323d0c54c0357d",
+      "bytes": 35122,
+      "expected_git_blob": "66017853d37e0d282d491d5756368b2fe492c938"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_11-27-25AM.json",
+      "sha256": "c3a566c1ebf183682ea67c71ca6a29527e3e6ce60c0cb1559a77fd3213accc10",
+      "bytes": 17188,
+      "expected_git_blob": "cd062c25428c9e9657c3dc9b7fdc4360d560101f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_11-54-55AM.json",
+      "sha256": "9d4ab9a38c606fef73a072d6e9ca181b61226098fe902df855ade0c0066ab855",
+      "bytes": 20043,
+      "expected_git_blob": "9fd63bdb723c8128aaf20b592571e4fd92e91f5e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_11-55-02AM.json",
+      "sha256": "98ba9043f78627b298dab9d32dfd2c48d55ad2988245710dd3cc94c5cbfad439",
+      "bytes": 35154,
+      "expected_git_blob": "a42222c42f6c149e79d611129196a8830a7eb36c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_11-55-38AM.json",
+      "sha256": "c0d9186e5265c10642b764ab5ce95098079ddb9b788b32c4b0f68e3aeb5fb9fa",
+      "bytes": 17188,
+      "expected_git_blob": "8ce54867df18d8ab0ac23e24413af09c6822ace1"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_19-43-18PM.json",
+      "sha256": "bcc71a0b96219a1501232f60587ce4d01e3afa7d556eff5ebb150a59812cc363",
+      "bytes": 8925,
+      "expected_git_blob": "7331beb933a905b821ae2311b4c3ec05582a51c3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_19-43-23PM.json",
+      "sha256": "09f8bac56ccb62d220e81d916f88bdbec89c69e667c778b2238ef7f78764500b",
+      "bytes": 23616,
+      "expected_git_blob": "1de081e95f9cdaba3b3d813ccd9386127a309c50"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_19-43-35PM.json",
+      "sha256": "999d18f5ad02e5449461160a1e5141d6a3d536ff762a9a1f54e09165c41bd617",
+      "bytes": 6060,
+      "expected_git_blob": "ab33c95abfc5ea21d138b98504b3fcef9d56be6f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_19-44-20PM.json",
+      "sha256": "c7deb47ff53075be0802f82bec8d0be6d706b7e6dd54277b945e28b9883c74ff",
+      "bytes": 8925,
+      "expected_git_blob": "18b4dff1bea2a956a1d43e6b1ca6520251a05c2c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_19-44-25PM.json",
+      "sha256": "794d63bccd108bf839e9c5ed32d09ba91fbf49bbdc545ec29a94b7508521c095",
+      "bytes": 23616,
+      "expected_git_blob": "405922df0b87f94b1fe1fc42b88c7361af669a08"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-04_19-44-38PM.json",
+      "sha256": "378a1f9f10203958c41dfa5316cbe8b4d2c16b35da5cdd6af2112734bb42b124",
+      "bytes": 6060,
+      "expected_git_blob": "0f060e910c2d1468061ddef10d6fe32bfc915c73"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-10_22-19-27PM.json",
+      "sha256": "d876f63e97240e6bdf337296bca8e2a580d590b50e172e12f52cc05f46d2ef9a",
+      "bytes": 5957,
+      "expected_git_blob": "3dadbc5a87e3d958fc22b45ec11f4e4f1f629001"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-11_00-33-45AM.json",
+      "sha256": "dd3de140454dbafeb6b67d0511751b7a9b6b829899c0f61b113486712ff2c840",
+      "bytes": 28216,
+      "expected_git_blob": "1d58e074adf59a23962d8fa4eb22141401265f7a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-11_10-10-47AM.json",
+      "sha256": "196847b7584bd59a86c3a840fa451dbe57b47eb4ffe700e5d37da04ec0b25674",
+      "bytes": 45858,
+      "expected_git_blob": "f67e2bebc55600c6ac0575f2e0d978ee37ad56c7"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-11_11-34-28AM.json",
+      "sha256": "8306c88399137565122db050a4324f7c3e5f8c9780dbacf38882bbbc9fd6ef83",
+      "bytes": 69871,
+      "expected_git_blob": "4d8e5c994b7183eece989807ce1489f5496c4b2f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-11_11-36-16AM.json",
+      "sha256": "8cdf76cb0a4b3528c6b631e4c45bb1f258d28cbc2d538352493c8bf160802909",
+      "bytes": 36965,
+      "expected_git_blob": "314c015aa3844d448f5cccbc6f118123298e1f15"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-11_11-56-03AM.json",
+      "sha256": "f2d3f72e45a6c519262ec2eb21cf63c1f8a1a3039a29b89347bc02432f80d935",
+      "bytes": 36967,
+      "expected_git_blob": "037bf7c595a80ae93f3f41f17be0f3bbab23aba2"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-11_18-20-29PM.json",
+      "sha256": "e9086c51fe41019781940e2cecabb3ce0c340cd9caf7d03836c37aeff540943d",
+      "bytes": 36926,
+      "expected_git_blob": "a111bdf932e85680170ff1972486c9519b3980a6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-11_18-26-28PM.json",
+      "sha256": "132e88a34f4102c03fe6ed57ce5a39684fab1a2b7f086a0a25c0dca81918e170",
+      "bytes": 38532,
+      "expected_git_blob": "3c34aab842c5a7e43ab595b10fe6fb29343cb8ce"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_11-16-23AM.json",
+      "sha256": "b2e1e3a117aa4e0eb0f3188791b1f7b344b6c02bc9a0e678590f99a0de3064af",
+      "bytes": 11562,
+      "expected_git_blob": "f2a9c7fd854743c2577afac6dec15e8e00a9da50"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_11-16-27AM.json",
+      "sha256": "13b82930fb8f3120d05a6b1b80f609cdd1f26d7da610567df21887ad37ed5b55",
+      "bytes": 14967,
+      "expected_git_blob": "088351d6cef17ff2c052b5e939f9e0b9906e4c28"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_11-16-33AM.json",
+      "sha256": "8f16cb67d4d28e3e65c6753ab3c752f8e1ab61579712b1e08340afffb2241734",
+      "bytes": 23857,
+      "expected_git_blob": "400f118e61c3dfa0628ba8f81c4b26ffb440f9f8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_15-06-31PM.json",
+      "sha256": "98699af8f14bee01087f9cb988c8c06b29b26e351b46157b761b7289ea8ce4f3",
+      "bytes": 18119,
+      "expected_git_blob": "1083762d9774b68be0dca98a20c514ab2295f804"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_15-08-10PM.json",
+      "sha256": "9c999b27f2ec4f67661b61c7680a38225b3ab545fd95ca7492b53014bf0c772c",
+      "bytes": 18119,
+      "expected_git_blob": "9bd763d938296e66459a90b0afbf326385b4b889"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_15-16-35PM.json",
+      "sha256": "457800999e0098b091e9930de0979020f55571e4724e6dcee95deb8d4f26fa6e",
+      "bytes": 18119,
+      "expected_git_blob": "564eb9779986a7cedc70c3ea3630b5921557f861"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_15-18-35PM.json",
+      "sha256": "45beec5e501c6e3b2863b64de3b2891dc3a3d5796990291eb75d079b1c0fefbc",
+      "bytes": 18119,
+      "expected_git_blob": "95a40d0e610794598712d7b6c6360e8253f1e430"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_15-21-57PM.json",
+      "sha256": "56d8f836afd8785425062d867b625bc9cb44b17912666b84c100672165fbdb0b",
+      "bytes": 18119,
+      "expected_git_blob": "43aed198f4fd71006e9915eb81de445f3d1da973"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_18-14-29PM.json",
+      "sha256": "5136967a46e6baf2eea9566f50b388ee090db1838539714f1825bb21025f0254",
+      "bytes": 11562,
+      "expected_git_blob": "3ca5ec6f106bd538c007c0095651b18e604a9a7b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_18-14-33PM.json",
+      "sha256": "b3069080dee9ef2c208d6f11bef037fcdc8d3a84fcef0f5b1f2fad39faf0ad2e",
+      "bytes": 14798,
+      "expected_git_blob": "38cdabd8b2362d2175059ebafb0370e6a42260f5"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_18-14-38PM.json",
+      "sha256": "4abd0037a6284f446af69569e1508bf03c0c399088479c663dd11e2407ea694e",
+      "bytes": 23779,
+      "expected_git_blob": "b9cf260f19a0bebe2eca679f072c4fab7c3fd879"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_18-24-27PM.json",
+      "sha256": "de6e7637df6d0ac5a61796e19be7b7a26a7cb445cf658b3caac656b2c570f439",
+      "bytes": 21971,
+      "expected_git_blob": "42823a652f2c050403cfe52a27d1292e775e0db0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_18-30-20PM.json",
+      "sha256": "039d05c0fe52104f1535ba0b6b433a7d9457950e2c06aa88dcd07eb35d814e41",
+      "bytes": 21997,
+      "expected_git_blob": "c1658ad1807a1235178f6281e8a10848f60dad82"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_18-40-10PM.json",
+      "sha256": "b7b099a78db4c6b074bb1218d5b2794459117cc35d9b74f831f3ef30080c8289",
+      "bytes": 10697,
+      "expected_git_blob": "a381d8e74e86209992236534028d32f288780131"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_18-54-29PM.json",
+      "sha256": "f18771cf37c82818b03858c1bdf38518cc6b131128993e2d579724dd81397147",
+      "bytes": 13171,
+      "expected_git_blob": "daebe73646b2135e3c659e6f42be6da9d62c2f5c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_18-55-09PM.json",
+      "sha256": "f909c96f082fff084c0180a2c607e850fbf897933f07fcb4360cd4d0b9e68ee6",
+      "bytes": 9749,
+      "expected_git_blob": "18bd8908af518355182f379aa65099a5fa425b58"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-12_19-08-40PM.json",
+      "sha256": "c7ebd4ae70a3c16f762fd664db28716d3e33bf7c6bfb40a3db02e5b7cfac407e",
+      "bytes": 18047,
+      "expected_git_blob": "72e500f677ae90e82b801a42f52b7508450b6f24"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-36-30PM.json",
+      "sha256": "6af15f7e1ea6dfa00fe4c3a0b112d7c103fa85cd4f4c0f9020a4951570c54e22",
+      "bytes": 18157,
+      "expected_git_blob": "4c72a35fcc4ea43ef242d70e413648758da11fe6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-36-56PM.json",
+      "sha256": "840bbc4c27eab91f5d3fd48d37e8d54bf0865b38d6c2009c47b87795fd702bd8",
+      "bytes": 11599,
+      "expected_git_blob": "128d63aa6c0fc93652949c397eeb02cd83492a68"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-37-00PM.json",
+      "sha256": "2abbeff80d3e2fa55bfd559fa825fe7d8d654369a755a761ab849220b5bf81ef",
+      "bytes": 13812,
+      "expected_git_blob": "d6851652f177483ba9a97e51fb1cdf59a8c68564"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-37-07PM.json",
+      "sha256": "aaa19b8c233caf4567d4026c4a03570905a994cb177b4530f678797fa2af80a7",
+      "bytes": 23707,
+      "expected_git_blob": "4549878001be60316eebed4f5dbedc40d06b6a8d"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-37-19PM.json",
+      "sha256": "61ccfd47a7fc277c2169faa60196cb50c6d268a80527515b45889863b613919e",
+      "bytes": 13278,
+      "expected_git_blob": "0485287575cc461654da86c0feedbadd4d7c229a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-37-28PM.json",
+      "sha256": "b3b4ee26a02c8a76ca93480734ec956d5524c148dc080c060b269e32bc248280",
+      "bytes": 15718,
+      "expected_git_blob": "aef784ea385771ef0882587c026c7d05745299bb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-37-40PM.json",
+      "sha256": "eef3bbd0bc6a0d2c01f0821bd4197281796570d605f4c226ea3ed198b0bf59d6",
+      "bytes": 12093,
+      "expected_git_blob": "056b6b127a1ad3f0b2c7ce791381bd3555974bca"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-48-24PM.json",
+      "sha256": "a94d065d895db6e9e08d1975065d67f49fe7da986ad606b4b2ee9e22945bbb5e",
+      "bytes": 18144,
+      "expected_git_blob": "823a213a938a8644b10ec11729957f3e3aacfbc4"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-48-53PM.json",
+      "sha256": "bf08278dbbb9913bafb9860e3f7d93578145f3c74c7ee7e6af76f66013f4d3f5",
+      "bytes": 11633,
+      "expected_git_blob": "f03e023119b598f0f2858eb32a6f1dc8393241b0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-48-57PM.json",
+      "sha256": "1b6ca2ce130b06511379dc83430a647c47c5a6416eb0e3148dfe6f34b7e02f9f",
+      "bytes": 13812,
+      "expected_git_blob": "2ae8effc38eb06cd3da08b70eca73436f2e60cfd"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-49-04PM.json",
+      "sha256": "b9bcbb3983a1da4557a3412afd9cbf37faf082cb0493eccf900a1921c5a6f455",
+      "bytes": 23707,
+      "expected_git_blob": "7071eb7cd9c12a9085366caa2f3158dd09fc2afc"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-49-15PM.json",
+      "sha256": "d6d3cf489d5db5d29b19aeb374b49374c801d8ade02763e78c051fa12232488d",
+      "bytes": 13414,
+      "expected_git_blob": "c4ce3e9b49c23b0062baeaaea0e716457a803da3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-49-25PM.json",
+      "sha256": "0273dad1981c65d261ee502aefa4b830217d5459fab68fc24e836d77031e40cf",
+      "bytes": 15853,
+      "expected_git_blob": "19e98ea80c382ea9a86d95946f581e92985ab181"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_15-49-37PM.json",
+      "sha256": "758a6140975356758c8b131bc3546bdd6aa9895a6b0821898e992c984523cdfd",
+      "bytes": 12229,
+      "expected_git_blob": "4dabe1b84e97b583741080f6f32caf53396c21ac"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_22-17-05PM.json",
+      "sha256": "23c5b2d0246858ca8445770ed0810a8cabbe85b82112241e499a0eee2a6dc04e",
+      "bytes": 8265,
+      "expected_git_blob": "c1b66887dc2946a30f51a5015bc040e944d25ddd"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_22-17-36PM.json",
+      "sha256": "98745f821fa8efcc5f0cf5c53687a6d89f2f23ac3deca952641a76a204ccea8a",
+      "bytes": 6807,
+      "expected_git_blob": "eae71d298cf024cfb3e4ad99f967050921b5fc9f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_22-22-02PM.json",
+      "sha256": "7737e2f2d29834e4783e179918f8afba6f7e4315c274f9d5fd3397197c36b9f6",
+      "bytes": 10817,
+      "expected_git_blob": "bf638d24c19c0b4ec39754decd8b80577001bd70"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_22-22-35PM.json",
+      "sha256": "3e3b5887f772ece56fe41f3f16587d65131a1285d2db94d0726564aa4afb7f95",
+      "bytes": 6807,
+      "expected_git_blob": "c6a299a2581a2bac9d608fd4da81237cb3c9df49"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-13_22-26-20PM.json",
+      "sha256": "7108ef6558d798a25eff5b4489a184324f38373de423aebbc4331700d2f82cab",
+      "bytes": 17193,
+      "expected_git_blob": "04eb2f8d021575234bc8d68e1c1696221610fec8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_00-07-48AM.json",
+      "sha256": "0e001ec376bbdeb59328524826f1da2e73d8093b288ab947dc2b20b643a3c8de",
+      "bytes": 10498,
+      "expected_git_blob": "2d83568fda631dd46a47aa44b336d38d6ea9eb79"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_14-07-44PM.json",
+      "sha256": "2c8b494c531e1bbf27e6a353cdb5e2107329f703e20e04aee295313583deff69",
+      "bytes": 137311,
+      "expected_git_blob": "a8625e15f83a8f08166b978467d3d1e217806cc8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_14-59-49PM.json",
+      "sha256": "bf520d8aa26be660004356b097bfaa524ea56a9f4b1d93c8038e8af2190862ad",
+      "bytes": 137307,
+      "expected_git_blob": "c2c848f03274a4bd447e96cd34ddc03d9b4e1450"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_15-02-34PM.json",
+      "sha256": "bfa08a4543f59689495242805673e78f69237a12d6ef38dff655e4ed4df995f9",
+      "bytes": 37281,
+      "expected_git_blob": "d536cdeb84856d053bc3a72480df6e55fbcb48a9"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_15-03-37PM.json",
+      "sha256": "9b16576a834dc8baa0575cfae8da4fb33f8cea456b8d8f946feb2ce6c6577e6c",
+      "bytes": 37281,
+      "expected_git_blob": "3ade9ea3d399dc6040e61137608fdc963144a38c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_15-06-32PM.json",
+      "sha256": "1ac54e3fa0d2661e161996f9d07df609e278c2004158443f05693a3a6fbc303e",
+      "bytes": 37281,
+      "expected_git_blob": "33ee195247b7729b65f8c93faaa7c9cb55d84c25"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_15-08-46PM.json",
+      "sha256": "196ed3917adb908df21f282c054fe97ee74a1484beb567f5b3fcd01c2ac06e10",
+      "bytes": 37281,
+      "expected_git_blob": "bdda4bba54cb66027cb685c9be713c2857daf852"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_15-12-38PM.json",
+      "sha256": "8a6eeb8f23c8b1309c0ede3056d039bb10f4d60a5f07892bba282b4c3aca06df",
+      "bytes": 32357,
+      "expected_git_blob": "8b2f30e541e1aded0bc45d7b23ce2b3850aaa592"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_15-15-16PM.json",
+      "sha256": "f31644b0ca6473ee5327ed40e1c525a6d6c8e0bdbd8236a7f99dde3ce5f1c5dd",
+      "bytes": 32357,
+      "expected_git_blob": "92b047d76a78184f1db6e158c9fff9afadf2b489"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_15-16-06PM.json",
+      "sha256": "1705f5612a555470ed4d5be40e8c0b43cce1718ec50c99323bdc17e9edcb9070",
+      "bytes": 45374,
+      "expected_git_blob": "d724c5c3998ce7f14c5ca31768f30f2cbe4633bb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_15-18-29PM.json",
+      "sha256": "a505d9f8496dd37e5458edcfa08a214cfb33b4a26f0f626785db2866125dea38",
+      "bytes": 45374,
+      "expected_git_blob": "eb33ae92104ac533db90889e335c7280b4684374"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-14_15-18-51PM.json",
+      "sha256": "6d0ebd55cb24fcb4be66364ac091f39921aff3a8b35f6119975b6b58199f38f4",
+      "bytes": 45374,
+      "expected_git_blob": "a7c137d4c37818d6771b5889b73e90118d27b727"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-15_10-58-59AM.json",
+      "sha256": "6ffa6a0cc91c11f822697b8ec68a57c84455baf343a6f4476ee4d60ff1725078",
+      "bytes": 33633,
+      "expected_git_blob": "8d84c0ed9174323fb1e2fc5219e3e5c086b6afbb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-15_10-59-03AM.json",
+      "sha256": "b75a22d65a772c21b3b46d142a91acdf2947a574893f923796891ceab5b1ce3d",
+      "bytes": 17819,
+      "expected_git_blob": "da3b5ef5bf143b838e065b6db10ee0dc9b9bea66"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-15_11-02-46AM.json",
+      "sha256": "5ded72402c734286238dc0ef3556246c7e767fe4ce6d7d4ee653e91c76e70957",
+      "bytes": 33633,
+      "expected_git_blob": "1cfce7c7fe1cd164bc982bacd597ceef6556c362"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-15_11-02-49AM.json",
+      "sha256": "742b20c4f6ea72c8469097ca13625f1c5000ff2d35a3753fdf6d8b3aef0ae422",
+      "bytes": 17819,
+      "expected_git_blob": "d40a330905128a8176fa1f9153c0c8f0088cf84f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-15_12-01-20PM.json",
+      "sha256": "eb2f3b8d5102584abc29527053ca047bb3c4b35c98a0dc01d03295ed86b75b2e",
+      "bytes": 33619,
+      "expected_git_blob": "e1e05fe331b2aacc787e6aa1a77de251211015e8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-15_12-01-24PM.json",
+      "sha256": "aa392b846b6906143feab395b50a63cd30b6ec6384c96c62d16a986cdb27c831",
+      "bytes": 18476,
+      "expected_git_blob": "e1adca4187b05f1259f4eece82cd6b1f3462f65c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-16_10-47-40AM.json",
+      "sha256": "d99534cc7c76fce86e2c6193da8530a7b03aa619fa22c8c121366b260d2a700b",
+      "bytes": 44607,
+      "expected_git_blob": "2e82d481d2c56a5c41137e61cc8921826c97d4d1"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-16_18-13-14PM.json",
+      "sha256": "7354f5d5c2f0da9a9c4a040793e80d264d9377a1f60ba6321d7899e6624efce1",
+      "bytes": 54314,
+      "expected_git_blob": "3d8b46d742a3b73e560c68ce522f3076b7e61dcd"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-16_21-23-43PM.json",
+      "sha256": "980ddf9b44b29592e6f237846745b4ea25ab1659ace9041932307f85147168bb",
+      "bytes": 2807,
+      "expected_git_blob": "829714f99e2e21df46aa7d27c05bab22f04efa69"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-16_21-24-06PM.json",
+      "sha256": "c70ef23944bb9ab664eba97861980a06070f47ce4dc88cf7a25fd5fbbbfd6b6c",
+      "bytes": 7164,
+      "expected_git_blob": "41271c9166b6e558b4b8087155cfbc6c7250ba18"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_09-32-39AM.json",
+      "sha256": "dfb686b8e278fd6a0ffc96a097518063afa663fb3b38c66a930a597a00354b8f",
+      "bytes": 115451,
+      "expected_git_blob": "4f961e94f5799973b188c817889ff5b231cecb3d"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_09-48-15AM.json",
+      "sha256": "6389610c3e7645c2cf4f55c1b63b298fcb236ef2accfc434f717a8fd2cac82cd",
+      "bytes": 27155,
+      "expected_git_blob": "66c31d1a15f9c867264b30f706a409189f87e7d3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_10-41-43AM.json",
+      "sha256": "2e0fce6f03745dd9bf7ef520ee8da79de357bfc79820a3e225fd0791f0973968",
+      "bytes": 33832,
+      "expected_git_blob": "990aa7a547dcef2eb336ccc2a15cc4cc4a35b8ff"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_10-45-23AM.json",
+      "sha256": "50399f0b200ab7957f3fd4646f7cb0f8e7c3e08222d01078035309a6afd8e4f0",
+      "bytes": 154025,
+      "expected_git_blob": "75765678aada87c3203745e918b2dc30b92d51f9"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-07-32AM.json",
+      "sha256": "c68ded18833ee6f1f1691b78b9bcf366e6872039754a773fed5361651c393b9d",
+      "bytes": 33750,
+      "expected_git_blob": "3e8b20d6e0ca5abadd3c0d0173439e6e95ea7ffb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-10-26AM.json",
+      "sha256": "7c71d7cbb14572514dda4a4de40ad2aa527c5ef94e06b7099701585c75427c43",
+      "bytes": 123175,
+      "expected_git_blob": "02d2dfe7c3be3cf3dec731a397437e812ede50f9"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-23-58AM.json",
+      "sha256": "9a7cf4bdaba49e962c6c227f3ae336cb4e2c31a79d941d5c28faf976a1385d61",
+      "bytes": 33750,
+      "expected_git_blob": "1aca4000d2cbc4d6e38631b687fb6fa13c3e9658"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-27-11AM.json",
+      "sha256": "3faa24959e5e7932f208c3daeb8e3f2d1604b3f06b67741dafd278da930f7e8b",
+      "bytes": 124089,
+      "expected_git_blob": "2698f2f3c72b5eec0ccc336d74d0c15d545d8fd5"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-32-33AM.json",
+      "sha256": "602da24ac4e3aca7962efdbeda6e0ddec579ef5a2b3a3a7a5cbe9806a082e540",
+      "bytes": 33955,
+      "expected_git_blob": "5e13f8f460b9659f292af0204c5cc92888b06dc4"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-35-42AM.json",
+      "sha256": "133f6746074df75974257259d5cf00f5cd9e59788ab5c6cdb9b47cb6d872fb8f",
+      "bytes": 122420,
+      "expected_git_blob": "3f224b9824fa8c862a76fa25e881e1cb05d5506c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-42-43AM.json",
+      "sha256": "7ea60722a4b082b6759b77734d78a96df65665a3b69377f47342774119291f1f",
+      "bytes": 33969,
+      "expected_git_blob": "62532da4635f72d08dbb141ad5bc2830a452b107"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-45-50AM.json",
+      "sha256": "a7230d71f6dedcacf8bab75b5a31b82af41eafe7760287a9c8e7614624fea6fb",
+      "bytes": 122148,
+      "expected_git_blob": "aa32eef5de18e94d977470d232375c06ddb7c108"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_23-17-35PM.json",
+      "sha256": "dffd32c930a7b3ad95a7744ae652114a5bfca9ad67c6b9a6db8b9fab5db2449a",
+      "bytes": 10961,
+      "expected_git_blob": "4a041afaba7bcb15b4bd7cdb9af27f3fbe57dafc"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_09-58-02AM.json",
+      "sha256": "b341e0b594170a5c5f5a837bb67a69aff364902d8d2485e7b397fb8427269c7a",
+      "bytes": 20556,
+      "expected_git_blob": "b4237c44c6d3a09f4784d51800ba98965a969cae"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_09-59-56AM.json",
+      "sha256": "b883f56f4d79e8984d72a9e2e6497b5ac95405df2c52969f5cf56ff85a2c4bfd",
+      "bytes": 61534,
+      "expected_git_blob": "8512a537c8ef927d714bdb7293e1f43508d1527c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_11-24-48AM.json",
+      "sha256": "ffb13334cc00dcd8eccda5fd0483c75f96b0fd95dcfc1bad53b9348035a0f78f",
+      "bytes": 20512,
+      "expected_git_blob": "721cf693fbc0a1f45dd857c2b8db1553fb82e5ff"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_11-26-34AM.json",
+      "sha256": "8299746b7053efb14bf0c1b52d806038979f17d51fc71c07bece816b866be649",
+      "bytes": 66961,
+      "expected_git_blob": "6a6908f0d93b157f3dccf959068dcb0b15122662"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_15-38-57PM.json",
+      "sha256": "45eae2ea7e145d90e79969b0789aa2bdddd435a9754803e8857a0259496ab4b6",
+      "bytes": 20464,
+      "expected_git_blob": "7d79ec68ca0eeea4de55c627b64818b19a8f1320"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_15-40-49PM.json",
+      "sha256": "0e82f8ee4ad6aec86857c4c444f84b35367b6968d07d703ceb987628df9197f4",
+      "bytes": 42570,
+      "expected_git_blob": "531d7dac84f75b7bd5242428a7c96a471fc22e28"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_18-56-43PM.json",
+      "sha256": "513e96545c53ae7cfe4a527848a49b6594295e5863b0f054d75816957357127f",
+      "bytes": 5250,
+      "expected_git_blob": "a533ef1499724167c785aa95411096c772586dbc"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_18-57-46PM.json",
+      "sha256": "58e7ade6c2b4ad9e38194722554b79b7f5a5a972716d9ea06fa2f601137c4ece",
+      "bytes": 5250,
+      "expected_git_blob": "890b7346fe44e330898bafafc78c2d10141e05fb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_21-01-05PM.json",
+      "sha256": "6e4c13ce649fb0a024fed8ec85ef0b0cbb0df17533820d7de5831f383206e6e2",
+      "bytes": 12315,
+      "expected_git_blob": "e72c4ed12ab4b88c72894f035c05307bc04b2f13"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_21-01-17PM.json",
+      "sha256": "85c42b72e0556b95d675bc5e5a555ae10656744b5fd24a7cf840148984467ff4",
+      "bytes": 8233,
+      "expected_git_blob": "05149842754abda97e004541ecceda3542098dcd"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_21-02-46PM.json",
+      "sha256": "32d2088e51ee6064aeb41c51de8b4b87bb473a57c055f3771d7ee8d7a6313c84",
+      "bytes": 12315,
+      "expected_git_blob": "d314c81fc0443309adc4d9d73098958da12ed8c0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_21-05-50PM.json",
+      "sha256": "2834fcab525c9ee9f68cab99249863e63073b2d69df51c2796ffead9cdd46eb3",
+      "bytes": 32271,
+      "expected_git_blob": "cbcb0007b1db00ad0dc875127c7f122229e4919a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_21-18-37PM.json",
+      "sha256": "6831c4437aaac2fb9309d48d06d8a9bb8547944eca940b0975aa8f986372764a",
+      "bytes": 2930,
+      "expected_git_blob": "af20f8311aad4e4d29f35b1ba50db2a5dd0513ad"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_21-22-29PM.json",
+      "sha256": "c7bb24e62006422d5e4a4b0de8d328306e5d22e45895095056cfb07c0e0ea3a0",
+      "bytes": 18658,
+      "expected_git_blob": "4d8e6ac409b64b7f31fc64d7f5142bdbadb6943d"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-18_21-31-50PM.json",
+      "sha256": "43376969de62fa00dff2fc5832f0e5b2cd59812caf1cb1907349a11a71795b43",
+      "bytes": 2930,
+      "expected_git_blob": "80ff21f205da4a3e701006def1df84fd4892b07e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-20-29AM.json",
+      "sha256": "49c47037ce6d6a813953e56b1db815ae942a8067ba9dbe339fb800aed3ea3d3d",
+      "bytes": 38707,
+      "expected_git_blob": "d59f3fdcda485aa956d5c8cda686c740b680a690"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-24-41AM.json",
+      "sha256": "23b35ac26e953813df60f2771ce165d6d0a239743c7180d55e40c17985a4ffc6",
+      "bytes": 38707,
+      "expected_git_blob": "78500e681d759fcfc07c2a4ac199907f151f91d9"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-25-14AM.json",
+      "sha256": "dbeb48a2cfd1220bc64d3080f641c8c993f3169cc68c0049b0e9c93bbe0990d4",
+      "bytes": 38707,
+      "expected_git_blob": "abe4dd6f08c02e67d5edc9eba6b92e2f55452bf9"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-28-01AM.json",
+      "sha256": "2311ddf81a5b366ffbbc3f05d2de34a64c688d67ba2b0b555c893aa1da9e45d6",
+      "bytes": 84509,
+      "expected_git_blob": "5ba0893299c04e22069f0a91c878c5317581a18b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-32-58AM.json",
+      "sha256": "0a39c66d913ef7283707bc3531236d99298b2b1bcea5494ebb51339ea6e3548e",
+      "bytes": 38705,
+      "expected_git_blob": "4e710a01645a0a5a42d0c309d489942b366c6c22"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-37-52AM.json",
+      "sha256": "4460bfd0a91f3085eb7f69fa8f45d4647babb6cf3cb2bab27f50059ef24fa596",
+      "bytes": 38705,
+      "expected_git_blob": "f5e474ceceb39f938a50d19dab00e4e6a938444c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-40-34AM.json",
+      "sha256": "39655755d2470badacbac895533c63652e5b13f4348cf284f7ff8cf2e88f72c4",
+      "bytes": 80245,
+      "expected_git_blob": "477ed1f0b263efce355cb17fc8e60f1366460dc7"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-44-29AM.json",
+      "sha256": "bfc1b0e519f165258955eb328bcf3340aace663602cd63e34c222b2c5a1f9d64",
+      "bytes": 38705,
+      "expected_git_blob": "4c93c92d1e419fb8e795c9d21c70cda24b2e43c9"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-47-12AM.json",
+      "sha256": "8ae4d13f82570aa71245b674d469609bf90089baf374fec361a760e8ed598e6a",
+      "bytes": 80235,
+      "expected_git_blob": "7de3b917be909db799784a40d770259622e115e6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_10-47-47AM.json",
+      "sha256": "d4d924339480d0a9a942b884756040a9e7edfb37c323d12e5e710109e5e83f74",
+      "bytes": 38705,
+      "expected_git_blob": "3a4852228279872fbaf2a879d93bcac48d716b08"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_11-22-09AM.json",
+      "sha256": "bb257d1b260ae638f7f95c1839d91a0fa03fc999e160ec2f821e9763785223ad",
+      "bytes": 38705,
+      "expected_git_blob": "86497ac55e7ddafd1582d11c060e248ff6508de5"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_11-25-01AM.json",
+      "sha256": "b920d2aca32d3aa6a1720a2ae83133f8029bdd3a4d9429112def96235e9f66c8",
+      "bytes": 80222,
+      "expected_git_blob": "ef0f60ffe6426fc3ba0aa2826a9260521f1c343e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_11-39-22AM.json",
+      "sha256": "0570d21808d4dd9878e21951f803449585822bab3ad25d89d3b3b4fcf9e092eb",
+      "bytes": 17912,
+      "expected_git_blob": "7c23109980a756f462a6de6cacd9935b26aa74e0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_11-48-09AM.json",
+      "sha256": "2c0cf683f368d3aa262d60919661abc1f73c57f96387aa4484d34efc481d06cb",
+      "bytes": 38705,
+      "expected_git_blob": "2e86814e621482c9d680e498f7673eb775664679"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_11-49-15AM.json",
+      "sha256": "901d8b37d7f166296a0e48b68a4d45da290bf9e5c5c75d333dd0fde6d7641b0e",
+      "bytes": 38705,
+      "expected_git_blob": "125272dfeb114c66225d9b850b887af7344312fa"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_11-52-40AM.json",
+      "sha256": "2adb519f7769396d36c91bdba64363225cdd4ae1004c73cd94ea3df30112b95d",
+      "bytes": 170970,
+      "expected_git_blob": "bc0d050f2ee0733ba7446caa81f3d32ce2b259e6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_19-07-52PM.json",
+      "sha256": "87893e233a96f10f295af0d7539faf0350b06abc9cce220c011a455fcddbe30b",
+      "bytes": 13775,
+      "expected_git_blob": "49c96baa4a0dbd2e8c796d46d6a219c8fe88f542"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_21-46-15PM.json",
+      "sha256": "a658bc2935d6065c5248dcfa9c90063e710544bcae202af3ba6bb466efb13e74",
+      "bytes": 7664,
+      "expected_git_blob": "39459b88ccd5de9b73f0a62e328661f20e866e3c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-19_21-47-12PM.json",
+      "sha256": "90bd0c86dfee4f65cbc7f328d9467a70778ff847c366e0d94fd54bac9b367fe6",
+      "bytes": 9996,
+      "expected_git_blob": "e1c0e3d8adfe4ca85d4228c3bce23c9de2868eeb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_10-51-19AM.json",
+      "sha256": "d8e20512d38705c51ab9dec43ac1ad1bb3215d223ef0c90c01794c9e53f6a228",
+      "bytes": 19873,
+      "expected_git_blob": "52d5beb7209e23002ecb88a1c715637b06ffdc6d"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_10-51-37AM.json",
+      "sha256": "b72e00bdef6706be7416bd93fbfdb5506e2c382f8ac36c938628773d8cc9f7ef",
+      "bytes": 36197,
+      "expected_git_blob": "8010856b805c5fd0b19121a5e1406c262295ad09"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_10-53-08AM.json",
+      "sha256": "5cc49bf56ce0809b0d4be809077b42eacbd7ae56927b4456920da8e0c531693d",
+      "bytes": 93054,
+      "expected_git_blob": "5266cfed41dc0c209143e458537bfe24966dbd64"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_10-59-48AM.json",
+      "sha256": "079cbabac855fb273517e5bfea4f5f0eedc80ff88c3596628d8f3cc640b67d1e",
+      "bytes": 19873,
+      "expected_git_blob": "0a265d9e34a4125b2e3c37c329ac12c2eafe7937"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_11-00-07AM.json",
+      "sha256": "27b270aed91f9e9042b46eb1e78cb41968b0a08840b7176ffacb5528a13c6567",
+      "bytes": 36198,
+      "expected_git_blob": "74fb6406a9a3f324e8d24378dde174170e8e87a5"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_11-01-46AM.json",
+      "sha256": "3f6d05d434a81ac00035832006d473261c8bcc31c4a46a874c2ac5d3cbf30655",
+      "bytes": 92940,
+      "expected_git_blob": "2e47370942e7ba6fa2ee27e525f1d49b9d5bcb74"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_17-59-57PM.json",
+      "sha256": "629c0605cb9e174f49ebe45633d7f4bcd58e5ad8862a02723aa0baab4a2b29c2",
+      "bytes": 42842,
+      "expected_git_blob": "06c7c95f807b4833f94669b47810ff9a80d1097b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_18-00-03PM.json",
+      "sha256": "21d882a1adc25baff62e944497e8e94b6ed6f1c083ed1b3e02cb3b48d139820c",
+      "bytes": 15775,
+      "expected_git_blob": "73a4a070382399442b2467349bad83e06f7de271"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_18-00-37PM.json",
+      "sha256": "fa9f9d97662574a84d71339c014b60e65a53be4a0c299fbad9621ef31d5cc0c6",
+      "bytes": 72218,
+      "expected_git_blob": "139c439b5ff84793f60a4685a54637f8dba5c358"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-20_18-01-28PM.json",
+      "sha256": "05cd82f1c6208e7dc377d5233608c0d1f4887ec2a25439702094c67a7a40e1b5",
+      "bytes": 37735,
+      "expected_git_blob": "8edf848a90d551a4dc80dc2533084c09b78779d1"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-21_11-51-59AM.json",
+      "sha256": "a202ed76e4a5207ce6f5af26c839ed8ea6220ae35ff18cea9ca89f2750a81e78",
+      "bytes": 72231,
+      "expected_git_blob": "2bf04d54de67b6af33738d426fa8c3be5e8a3062"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-21_11-54-18AM.json",
+      "sha256": "5c29e53e8abfeeff22a980b00837c95eaf91e43cbb041db699d63a58a039f139",
+      "bytes": 45597,
+      "expected_git_blob": "535a82ada3fd79dc704ab7f50050ae276a15178c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-21_11-57-00AM.json",
+      "sha256": "fa8ebf1269b9fa41ffc3d2feae4b3690c2c590740c40e9d3ff0ce329e33b105c",
+      "bytes": 72360,
+      "expected_git_blob": "402cf4a4cb64f6e64cfedadfd8d328ee6890f5aa"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-21_12-00-01PM.json",
+      "sha256": "218ea755faae981ae214411d0489af074bceb8c6f52240b0285f8f838deb8deb",
+      "bytes": 91011,
+      "expected_git_blob": "62a724eedabd301e971e93086ebcd9cc120291c1"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-21_12-10-56PM.json",
+      "sha256": "0c684548c0406095def96e0ec9c9df343f20cc7095635698a0319e03850ed6ec",
+      "bytes": 72266,
+      "expected_git_blob": "0cec35607f5ab0dbf76cb07b7b0e6e54d7a3aa16"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-21_12-13-33PM.json",
+      "sha256": "8b953c09ea204e343ef0342bd936f14922509a9d19297ca2fd2f4f0a97d3b30a",
+      "bytes": 99186,
+      "expected_git_blob": "dc42984a9baa44149e83465d598d4329f613a38f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-21_12-43-26PM.json",
+      "sha256": "0bd8ddaccc1752c9298c00152dc5239fc11675454e16b9278995b7b28f78cbb4",
+      "bytes": 148179,
+      "expected_git_blob": "802f655137f7f844065a6b28771c270f6e904b3c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-21_12-50-11PM.json",
+      "sha256": "90fc68902a0206bae2ba52f3a5375e8a22350a55bc68371094f092891be664b4",
+      "bytes": 148178,
+      "expected_git_blob": "68da85d1da6dbf60276e879f30ec9ca4269d145a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-22_00-55-19AM.json",
+      "sha256": "2d60e2b26398b280919a0f19bc1429ec4e79fef418e1f22cf3655a5d678bf93b",
+      "bytes": 14622,
+      "expected_git_blob": "d9ff07de6e14604d2b91973301ac083b8fe19f62"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-22_00-57-18AM.json",
+      "sha256": "1d04d6332fbf552c9ab883d5e96376cadfd3e03ba969f82c28ed46a35526a8a2",
+      "bytes": 14608,
+      "expected_git_blob": "b08d1d43796ed87b955075f00898ed7010718e40"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-22_01-27-55AM.json",
+      "sha256": "9c8b0fe0128a1a0e0afe87b412a648d05ab666c51611cbe64d7c0e628677783f",
+      "bytes": 14621,
+      "expected_git_blob": "19ef5bbf674e2134c91bd59b966b5c482570773f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-22_01-30-06AM.json",
+      "sha256": "704a10e5b4b0ad4142e8f98e5089498bc2988a6e36d13c53fac7a936f945285e",
+      "bytes": 14608,
+      "expected_git_blob": "f0498d887df8882c3fc8ca350d1845ce38685a80"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-22_10-47-17AM.json",
+      "sha256": "c662ab67f7f91ed2ba16223f13d60010889388444a3a0f1438f3514af5f9e3a6",
+      "bytes": 57382,
+      "expected_git_blob": "3955670d4a8debb3e446da57022d515d24f04b6f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-22_10-49-50AM.json",
+      "sha256": "ff29edad4886edd205d040a1d6fc9ceee8da3f1ab542b4bcd997c550a8f1c1dd",
+      "bytes": 129122,
+      "expected_git_blob": "de347191f869043caf569a659fd028071795ca9e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-22_17-27-17PM.json",
+      "sha256": "ea985eb201b57250b1079bf4c9f5c77d1d45123f2dfb4d25692cc35a68d90876",
+      "bytes": 57516,
+      "expected_git_blob": "0162b11a74251497073cde7685de1b57cd7706aa"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-22_17-31-00PM.json",
+      "sha256": "f6f4eb94c5c01a70322ffa46096cca81e52e2b2e431baf53548d63d2f0a3330a",
+      "bytes": 141462,
+      "expected_git_blob": "874d4780011e1c4e1525f9219dd3384abc3a5741"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-23_11-31-32AM.json",
+      "sha256": "c18544834a7bef3c3235db088e3e6f25a8603a92eb22667155012008e057d622",
+      "bytes": 43609,
+      "expected_git_blob": "5a81e97aef09615d18d7f157ae6bb3ef42473952"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-23_11-32-47AM.json",
+      "sha256": "703a2866dfc8c91a509157ebc2293fa17e7a7e7291478e89995b2879cfa21bd0",
+      "bytes": 10428,
+      "expected_git_blob": "436d14d5c57c564366037407c70e8b766de8af86"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-23_12-29-47PM.json",
+      "sha256": "47c2e815013fd739c6423dc354e166e495289faf7e16acf2872bc6524abb0231",
+      "bytes": 43697,
+      "expected_git_blob": "cf7c351cb777ef7a17996107d610cb1825af65cc"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-23_12-33-56PM.json",
+      "sha256": "edd4c41e8f5bd8a97b670d2b87f8da75e5899dec0bf7758e7a5c74d2381fe5c1",
+      "bytes": 113299,
+      "expected_git_blob": "3c0218fb4f90155bc8d76ad3e5442b4ffbbae2aa"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-23_12-45-22PM.json",
+      "sha256": "5925c50a96ae29bff5c09d3ae2d1a940d231fc021e11b870e08124771f8e121e",
+      "bytes": 113194,
+      "expected_git_blob": "25fea92240e6b3b1e19045cdb9c096ec258fc4d6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-24_10-04-53AM.json",
+      "sha256": "71d258056ac3e64e340debfca0b7016f57e421231c6eb11e8f6d2dd58a54a7d9",
+      "bytes": 171458,
+      "expected_git_blob": "60d30289effd7a364e6839d6ade9882b037a7a0b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-24_11-05-02AM.json",
+      "sha256": "3fd6ab25fad5bede5e6ff091b15854a7e0572dba7abcd279a54ecf1a7a729221",
+      "bytes": 217034,
+      "expected_git_blob": "ecb3222a0ced3ae67fff7b62b366dd5b04b3f7fb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-24_11-35-48AM.json",
+      "sha256": "576661996107354ab66327ecd366506a37dfe8a2fab98edfe5c6263b11255b24",
+      "bytes": 214496,
+      "expected_git_blob": "d3eaf60ef88e8bbe6bf1567f023e009c2e8d6051"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-24_11-41-29AM.json",
+      "sha256": "d8f95689eb2a633a932be20fb11cd804bde8c7f616357aa1a3c5a5da808ce0cf",
+      "bytes": 217065,
+      "expected_git_blob": "8200472ce781936ffb3178c4e298fcce95fc19ad"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-25_13-10-29PM.json",
+      "sha256": "a0ac3fd9896ee7fac6f80f0745b2d16ec5aaa80517a07b444a3c595eddb89b35",
+      "bytes": 96433,
+      "expected_git_blob": "e6f270fff38125e8a9fb96ab84ce9c2cc0abc6f9"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-25_13-15-31PM.json",
+      "sha256": "527fed5088b116e1c17b8ba779ae54a4b4159f817f2c294fb25d2b1dc388b950",
+      "bytes": 96431,
+      "expected_git_blob": "7047bd3a1c6018e804106dc0ebb4bcc954ddb035"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-25_13-19-52PM.json",
+      "sha256": "d735415c89e1b6fa4ced71b2a1dc91e018b97ce76bbb57bd210555c2ef13e860",
+      "bytes": 96432,
+      "expected_git_blob": "aefafc5c6e57e92bd8cfed9890ec097bc2693726"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-25_13-54-55PM.json",
+      "sha256": "e4504e7aee95db47f8d003682ffdd02b1f1ee9ad09cf36f71152d988d4acf3d8",
+      "bytes": 93814,
+      "expected_git_blob": "e4f8d149ada00927e369c41b8511eb0c4d115a67"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-29_16-45-38PM.json",
+      "sha256": "f29453aa44da6f5f76cb74540562dac9d647d7503b071e5f4e3f6f0e2ce7eae5",
+      "bytes": 71769,
+      "expected_git_blob": "0288e7fd15ea6901b7ea3aaaca2370d08ce3ce61"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-29_17-15-34PM.json",
+      "sha256": "ef32fe41acf73e65a71e89b23a0f8ee92398cf668b700e287a4ab002cb8d0cdb",
+      "bytes": 71806,
+      "expected_git_blob": "a10ad8deab96904cbcef6645ecac0986bb3f3590"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-29_17-54-34PM.json",
+      "sha256": "f5d3de7f55d1146594678862834ae70ddbd90578542e7ad9f68b19c60cdd2aea",
+      "bytes": 79486,
+      "expected_git_blob": "39fe30bc643cfefc76d03fcf46f69f33bdbdf851"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-30_10-49-05AM.json",
+      "sha256": "b7988ddc404a080d4449921a1825e7cc2f77727fc36d59718dc41d4b96058e38",
+      "bytes": 19088,
+      "expected_git_blob": "d7a786c4c5e82c4537e0cc17aaf5e2ceb7f6b18b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-30_11-47-31AM.json",
+      "sha256": "e7d518c1e2f1c942d684230d34e734f44a46ccf342e338ca74de4b9f4208a3f9",
+      "bytes": 69971,
+      "expected_git_blob": "656fa2a0884a7944b4ed9bbe618ccd59c2284bf4"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-31_13-32-44PM.json",
+      "sha256": "19e2c227d1f66cea020757febd290edbd2ca35e10825bae67c53c6f6f2f64b7e",
+      "bytes": 16927,
+      "expected_git_blob": "0cbc92e8c427724a70624b74467cbac98c07bc19"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-31_13-58-57PM.json",
+      "sha256": "91351682a92a4cc8e95da9cbde083de38ec8caa9f4b3c3a5cf7ab3494b32a38c",
+      "bytes": 16927,
+      "expected_git_blob": "b39336f61744df31989fa92f2f1363ea53bb5481"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-31_14-03-04PM.json",
+      "sha256": "28aa47ea92c83b4b4c225423bb219469994146ee2ee5cc385d6ce5370d3cd758",
+      "bytes": 38019,
+      "expected_git_blob": "87c5d6a549834a356a41b4b3666733046a3aa2aa"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-31_14-07-51PM.json",
+      "sha256": "34f5d787622a628330fcfbcde272ae5eae044904e846b0522daf13de8e92887b",
+      "bytes": 189380,
+      "expected_git_blob": "779e9e8e57edda4567b7146ef71584236cc9132f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-01_10-09-02AM.json",
+      "sha256": "4199ad5b06ecdb9f9dc731dfc8b5ee997119263360c6e4e4131167bb8a19ec84",
+      "bytes": 121327,
+      "expected_git_blob": "9f2f013a2d281326c1619ded40d7f3fc85a45db7"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-02_12-32-24PM.json",
+      "sha256": "b1a1ae3c918ee8ff66a431efb068b8d178cf4b4512369dcd44f1cfccfed21258",
+      "bytes": 36524,
+      "expected_git_blob": "fab76398a124bda290be142b1f7076af25f2dacc"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-02_12-35-32PM.json",
+      "sha256": "c4ece2072f2b34cf9686018021fc939bf81e383a96e8fe1ed99de51e41bc8f6a",
+      "bytes": 172907,
+      "expected_git_blob": "60406e112be9b0e41fcc7de90f1176d2c7e561f1"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-03_11-30-25AM.json",
+      "sha256": "b1052e0eb6e4cfb4927ded019d2a2cebb33c26860d872e48833aab27d33af043",
+      "bytes": 29272,
+      "expected_git_blob": "7628a710564ab6730131ac68f6bb7b0ce70d03ac"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-03_11-32-03AM.json",
+      "sha256": "7d126536aebade49be905a6e1925195b4a153fb16f8f6b683edf685f47dbfddd",
+      "bytes": 13637,
+      "expected_git_blob": "f23ad5cd60593616f1187824b46918850c0d06bc"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-03_11-33-41AM.json",
+      "sha256": "759e674a04ce9aa9b0c98659e9a249d94bd7e76624e5848483e0de672a274470",
+      "bytes": 29272,
+      "expected_git_blob": "7035195f751609fecb77ce782f0fced6e5b315bd"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-03_11-36-21AM.json",
+      "sha256": "bbb4e4587204e8955e2c3e43e16a3bac176a68151c28c24812818e30def34291",
+      "bytes": 136981,
+      "expected_git_blob": "0674e6cb6503a133cbf5633955b266445a789df8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-04_13-16-39PM.json",
+      "sha256": "e3acc531a74396fa37d431a3f50c36f93bbf8ae8212a9e292b9012526548e0f6",
+      "bytes": 104798,
+      "expected_git_blob": "0649af20f846214fc4452a06c8b3af67a7db7b07"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-04_15-30-06PM.json",
+      "sha256": "e5d0d7840d771b2031b4dd5efbd74a2ef936df178758b307fad05bc5e200b7f6",
+      "bytes": 58899,
+      "expected_git_blob": "a5eb7bc63e6a9d1cfebdfa6286b41c792a168a1a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-05_10-30-15AM.json",
+      "sha256": "9a3b3ed80343f0e1212727155d1f3f8dcdeefe18e5caa7321222b3afac6dc9e9",
+      "bytes": 25583,
+      "expected_git_blob": "4fc9dba5e45adb5e41747fd466626c5a78e710c8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-05_10-31-29AM.json",
+      "sha256": "cd9917a3c82dec9406c888c91f00110af8fdefa25009db6b3ccf5203592ddc7d",
+      "bytes": 25399,
+      "expected_git_blob": "f49d4dfde8e6d0416373e28545e83c04d86af2d0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-05_10-33-22AM.json",
+      "sha256": "937f91bf98490c7a805e8fbc867a433cea095e1c172001564d334a8df66e9a4d",
+      "bytes": 25583,
+      "expected_git_blob": "ac00a8b9a99f0c33b6ef10ebb8355b03f90e67a0"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-05_10-34-24AM.json",
+      "sha256": "310295b338c720320f6423f587635f9cc2bb121c6573d92b2198b7e7c55ae532",
+      "bytes": 25399,
+      "expected_git_blob": "71a3f74f9e33ebd72e25a1caca5312746eadc559"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-05_10-36-57AM.json",
+      "sha256": "8c1269105d11a5d3ae14aa35289da5724751a5f156a4e189c71b3d24d6c1a136",
+      "bytes": 25583,
+      "expected_git_blob": "2a088e0cbac24504adbd64658c8af5ff13852ccb"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-05_10-38-47AM.json",
+      "sha256": "7e46424da5235b2275493ee2c0bf75cd258795341e35532267f20df1bdda72a1",
+      "bytes": 79463,
+      "expected_git_blob": "17943b66c57925beb777c189c4412cef420d06a8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_09-40-59AM.json",
+      "sha256": "6350c728e5a3a1e191d97c0c22386213108926ccb06b9098ddd9757342b07f7e",
+      "bytes": 91641,
+      "expected_git_blob": "701114f06396e69cce65bee28513dd8fb67eed94"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_09-51-45AM.json",
+      "sha256": "b5cd58772acb4f60e7884311b5b0933bef2fdd74043f458e8621f95cd72ca0ca",
+      "bytes": 17530,
+      "expected_git_blob": "3711cae25d4c438ad5cba0b86841bbb4c7e8c806"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_09-52-43AM.json",
+      "sha256": "937bbdc6286052cea58dfb3242daaa002cbaf03c90f92d8c7d913ce084274f2e",
+      "bytes": 17530,
+      "expected_git_blob": "828e39f02e94a7e57fce66caa31300ad62808bd6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_09-53-13AM.json",
+      "sha256": "a3d6faac3d1ff3f8772db0ceeaa11cae6eb42013e5efcaef46af8449816bee4e",
+      "bytes": 17530,
+      "expected_git_blob": "c9e38cca2c8ded2f2723eb032ee2b7cd21190f8b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_09-53-34AM.json",
+      "sha256": "2aee3525ab6c7750cc332524ae6318d0e0a8e8cbfd1c5bd690fc1bc2e0a86ff1",
+      "bytes": 17530,
+      "expected_git_blob": "4e03d464b25a4a9da4ce958d8618a4ffd1645769"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_09-54-05AM.json",
+      "sha256": "2b49d0117610ba6415c9a047088c451611552df3a18f9460bb12cbbb8e406cb4",
+      "bytes": 17530,
+      "expected_git_blob": "80c7097f44d9169c7ea85566bddf5adb6c9ce6ed"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_09-54-58AM.json",
+      "sha256": "35680390776a558359112acc168fa88590d7d11e2542db036c75c0348367f006",
+      "bytes": 17530,
+      "expected_git_blob": "284b37fc34ec46d76d4efa66a5e44f9144940a29"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_09-55-59AM.json",
+      "sha256": "a1f64df146119b907f440d8ee1879c6d4dd183cc69c06b95424099bdceedf5ed",
+      "bytes": 17530,
+      "expected_git_blob": "220f6dffe3d64d43e093af17da4f3ad43d1b4d9c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_09-58-41AM.json",
+      "sha256": "ce700279c969675eaf06972b7390e9dad0c8cb0d9e8d3ccbc50fd06ba41cd1fc",
+      "bytes": 91664,
+      "expected_git_blob": "56fd3f0c3400c2dbfd4282867b3dbe3453343156"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_10-09-27AM.json",
+      "sha256": "7c4ae8bd8310e078e83fce700aba193c420958c6d5757777f9ca1ddf0bec3d9b",
+      "bytes": 92014,
+      "expected_git_blob": "b092224a4fc788f7b89d930c4524980c3609f452"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-06_10-13-47AM.json",
+      "sha256": "2ecae0e34931b3d555cdff2c52bf010a50b4154d0bf22cbbadf550d41a20c676",
+      "bytes": 91354,
+      "expected_git_blob": "dd0fcc22cc1e09e0c9f0e34607d3c5e322d1a5e5"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-07_09-30-01AM.json",
+      "sha256": "fb2e2f0d77c12fa01225a7650ca3a65b0728281f03da5cb8d47062583710e388",
+      "bytes": 127470,
+      "expected_git_blob": "77bb42cf2f044c39ba1c7dd3b7210abd970d7284"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-08_09-32-57AM.json",
+      "sha256": "6808c0bf54e7e760ae79b21eda4e284be63e0bd69012f2914ef6dcb4740afca0",
+      "bytes": 104777,
+      "expected_git_blob": "0794717c1b0cf019731d5c88a1e566b0ee73128b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-08_12-16-01PM.json",
+      "sha256": "a41e67209f4304371448e064b5a85cf6edb513f91815c4e1cc4e490446a8fe6d",
+      "bytes": 106359,
+      "expected_git_blob": "ede52c3b5e87d1ad1e243ab492c4f9e68fcb76be"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-09_09-37-36AM.json",
+      "sha256": "2cdfca107a1ecfa43e3a775aaa67b18ae715028b4ea82c6c69c6e5672191b7a3",
+      "bytes": 135526,
+      "expected_git_blob": "92f1366990eb03f10345f4e78cda20aeeda4e450"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-10_13-37-22PM.json",
+      "sha256": "257be829a14a2f546faa6e28593e402f9feb5feaa7c52b2ede77b2bae7944c06",
+      "bytes": 104341,
+      "expected_git_blob": "03601dcadebd9f9b60c3e18833899ecb41a4df2b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-11_12-51-28PM.json",
+      "sha256": "f3c638a7c05f8dd763e1dd07477a94113e7c22726a6f53ad70a2265cb8adda87",
+      "bytes": 104471,
+      "expected_git_blob": "00a5bf7bb3912fb6190d9fc6e3557a865f67df31"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-11_13-04-46PM.json",
+      "sha256": "043495a7bfc9d5cb64c7a31f197eb215febacf3fef0fecf04a4d2baa2541df1a",
+      "bytes": 105168,
+      "expected_git_blob": "e7f66087badce7f75b80496cf5c27314921db427"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-11_16-56-16PM.json",
+      "sha256": "3d2ad2f0b38374e380a503835531c758b00f95e6a2bf2674924660a2d6a75037",
+      "bytes": 94204,
+      "expected_git_blob": "5dc3cce335b3f6d223de4df87a44909a5ac8ab8b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-12_10-28-01AM.json",
+      "sha256": "ab7faeb106a422ed300b449fe3087d0c89d74e3a0dcc0abfc9702829c52e7f9b",
+      "bytes": 134775,
+      "expected_git_blob": "c85eea46d49e70bfb20f5666365654e087911836"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-13_09-54-39AM.json",
+      "sha256": "758db96aea3d20147b66a56316ca535f9e425794489ed448c82a4b0c5284a8b6",
+      "bytes": 70098,
+      "expected_git_blob": "d0a929cbe8ddb7e8e673d8831509007997d453b5"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-14_10-20-13AM.json",
+      "sha256": "39c58bfeffaa8a06e5c4d5eaef0b129724ffca8b79b2df3f99486546c764a585",
+      "bytes": 155073,
+      "expected_git_blob": "ff1c0a0774c0781391079dab0dcf1b94f45f7510"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-14_10-35-28AM.json",
+      "sha256": "a534b84b18bf5ccf5409b910b23006d1da577aa4619e47605c14fb634546a959",
+      "bytes": 178528,
+      "expected_git_blob": "5eb4b667d158c25d00a497e8ced1c75eada8528e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-15_09-04-33AM.json",
+      "sha256": "399d50fd82d079e5aa2420523d7eb4df46fe79952d8e89ec454c8c2b7a2c7f32",
+      "bytes": 26845,
+      "expected_git_blob": "84d7b1f83a41827e3efa57fe2cec1738bcab4c6b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-15_09-14-54AM.json",
+      "sha256": "512301d889ec9dfd3d9f396fc694ff0a89d9e6b3bfe6b08eedb7c1b7273d0d3a",
+      "bytes": 60145,
+      "expected_git_blob": "28e7bb6a0d7601f11c52eaf48e84e31d69bca002"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-15_09-19-13AM.json",
+      "sha256": "23ed62b25206d2519fd3ba382a93bc2db18a32eb254c1b7df1c852b5f28ef4f8",
+      "bytes": 60191,
+      "expected_git_blob": "2fcc44999d42a87b2ee6bf83d6fb903ea9ea831d"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-15_09-22-56AM.json",
+      "sha256": "d18d37218a3b880d1f744b940d158f9819d2ce0348554ef2b8545ca25d955516",
+      "bytes": 60263,
+      "expected_git_blob": "39c6367ce6d30621f64ed1099aea2e15cb4420d3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-15_09-28-35AM.json",
+      "sha256": "09913958f3c86c80bff21f27d3c5c6c20006609633c4352bc11312283a1bd141",
+      "bytes": 60279,
+      "expected_git_blob": "cbdd3c7a944117bc5060f87010af7786b91a0082"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-15_09-34-57AM.json",
+      "sha256": "5e0a01f9055e34627981b8c19e2c5b1f2a4516b73cc3b409de3f0dbb9fa7d07c",
+      "bytes": 60114,
+      "expected_git_blob": "36d4e5a3036ccdfe039ab95c1ba94e1f1625d0c3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-15_09-39-28AM.json",
+      "sha256": "e71eb5f6abc2a1c78b3a89ca111a339591925c673bab04004b214786b5333d2b",
+      "bytes": 60176,
+      "expected_git_blob": "8becd20bcdf9e39656265fcc3d3d856dfeb8300f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-15_09-53-02AM.json",
+      "sha256": "2b9f11113872c25ef55c732b73468699506505abf725ec233009fd06b1f156ab",
+      "bytes": 60167,
+      "expected_git_blob": "c6a1e80c7097ce17606c4efe9081e4b6ff71bedf"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-16_09-00-27AM.json",
+      "sha256": "01b63098bdb4b4463dd54c07c9282dd2dc627703f3196f7a56b5ab31a83e53aa",
+      "bytes": 40191,
+      "expected_git_blob": "884f84fb3a226edd047ba81de205a56fcddf5aa3"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-16_09-08-38AM.json",
+      "sha256": "a348df08e863551a38ed85642319aaffdc690aa65432029d44fa58e26798da74",
+      "bytes": 143678,
+      "expected_git_blob": "3b3870106fccd9c854dfec4fa1d8ffc91fb70506"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-16_09-28-11AM.json",
+      "sha256": "63ee1040731458be12837fe95c8fa7cc8757f1d36885c60ac58eb0820a42f795",
+      "bytes": 143714,
+      "expected_git_blob": "644c4dfe2d99e16044f579e1694d48f5d573b2f6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-16_09-50-22AM.json",
+      "sha256": "c005dca767f41bc93efb269efca0c0e2d2dd714f4ceca90f6cc61776b23de296",
+      "bytes": 143689,
+      "expected_git_blob": "739391c9b8cce06736aa461a42154e8478000863"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-16_19-40-17PM.json",
+      "sha256": "9919c31681ff0f919bcb72b12b1b5ef505725a9aa3f062be6c9a9ff95f08c3d7",
+      "bytes": 110907,
+      "expected_git_blob": "0c8eff8703290b00d930473879bbb31b93f1fa14"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-17_12-15-14PM.json",
+      "sha256": "0910bda3e4b02c27342c96e6718ee1c92934dc7a516c8d8fa8358abb90e6119c",
+      "bytes": 87381,
+      "expected_git_blob": "90a7217f578e1732ca88b27114bdf24e5ab0151e"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-17_12-19-40PM.json",
+      "sha256": "98cc6d6ff290d7130d3d99bcd61bc00333428b4fd67113648dca4a516c61e0a0",
+      "bytes": 91069,
+      "expected_git_blob": "815110e496e855fe24ec439e883ac55866b4c987"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-18_09-29-42AM.json",
+      "sha256": "f7cd838ff4ce90a05954b9a47b384ea317d6b67f70a8981c263447b6cabe6076",
+      "bytes": 75647,
+      "expected_git_blob": "418df87e62d7205d9ce933564cf1438b4a3d4caa"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-19_11-13-18AM.json",
+      "sha256": "0f7656026e07a3c8dbef6c3f714097a7205354f305a885111e5c63583dac4df4",
+      "bytes": 103074,
+      "expected_git_blob": "b5b1dfd6f9260ca8ac518c4281736c6ca4d97814"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-20_10-09-23AM.json",
+      "sha256": "ff6d81f9e12a7b213974c2e1fb288514a1c6ce8592759c38d9624152f1a0d898",
+      "bytes": 58892,
+      "expected_git_blob": "91ace3d606ce490ea2eb37c4eb1246e0cfba5985"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-20_10-16-28AM.json",
+      "sha256": "e8f2b98354748331ed19fedd09e8b4f8a59fa63a8aa076822404cf6d79df468e",
+      "bytes": 58993,
+      "expected_git_blob": "739ecf41150cd5ad63bc3f3f064611511544fe34"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-20_10-25-07AM.json",
+      "sha256": "874493f58cb5db614ede41d4b32ea134b91508d51ca2f9fda8d26fe66517f27e",
+      "bytes": 59059,
+      "expected_git_blob": "e84d545f828f462bfc878afa148bfcacff8b311f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-21_09-29-17AM.json",
+      "sha256": "382ce87275c7b7f9c9f24d9f51e2de71a01790f82087e1b66a86fef35bf7c3d0",
+      "bytes": 48978,
+      "expected_git_blob": "b7ce139f6e7dd3e8d11c45646f3830123e64ebd9"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-21_09-43-56AM.json",
+      "sha256": "e523da1f1253e1a76e28940c4d9f1d5ed25d4c9a7e6bfe2b85afe744b6982d5f",
+      "bytes": 155195,
+      "expected_git_blob": "b8070786dca0a546c30b4bbd20041654b4fd1015"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-22_09-41-41AM.json",
+      "sha256": "c66de77d051129ddf3b220f326a9bdd54ed86278ad193889d87ccb1a33da0d01",
+      "bytes": 88546,
+      "expected_git_blob": "4412035ca9cfb2f5fd10d1b77823f8648364cb4c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-23_09-05-35AM.json",
+      "sha256": "568dfa9d883ee30b8460d0b9cd41b2c0af7297596e4a2f4d65db3dbc143b38d0",
+      "bytes": 79474,
+      "expected_git_blob": "5106e6a929752716b00701fd87f3afcabf2415ee"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-23_09-18-46AM.json",
+      "sha256": "33584ab3442eac875998493459cde567b96ded0a445fa7369a3e92eb3fca6817",
+      "bytes": 79483,
+      "expected_git_blob": "655c59a3d82638dd51f07b90e1871024ff91916c"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-23_17-04-29PM.json",
+      "sha256": "ab5791b1518dbdd1466cc84e0ad383af8466a8de77b4fc749a4a59ae068a4435",
+      "bytes": 65240,
+      "expected_git_blob": "300e476f829ba2acc9f96e814057865c42ae106f"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-23_17-09-06PM.json",
+      "sha256": "e6e94f9f4f45620baf193cd659f91d92cec04c1138dabffc001b620297c14675",
+      "bytes": 81822,
+      "expected_git_blob": "2de06e8c32914f88ab40ebcd90633c08222e1965"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-23_17-12-08PM.json",
+      "sha256": "6d54e6df31809d48dbfc8d9fc553f35487394947621006f56dfa90df99015dc6",
+      "bytes": 81914,
+      "expected_git_blob": "1f9cd7a5c2dff8604948cd3a517566aef269b327"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-24_14-18-39PM.json",
+      "sha256": "156d80c33bcb81747d86e8e7c7493c404b749126662d271152985d965d4f779b",
+      "bytes": 104638,
+      "expected_git_blob": "fa3dd714fd963314c672a33712e7f96cf997f89a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-24_14-29-29PM.json",
+      "sha256": "bdaf4c9f01907775c3dfc646d7d398dc07a69bb30d5bb6702f464359232cbb4a",
+      "bytes": 105290,
+      "expected_git_blob": "66481bd58a171407a7d3df9d5cfdee0d5a705b60"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-24_14-33-33PM.json",
+      "sha256": "8e465ae25470fe68055d35d0937f12065932bfc6a997dd02dd528dcaf09a340a",
+      "bytes": 105303,
+      "expected_git_blob": "3e13429f69e71ad00394912cd0e49501dd779bbe"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-24_17-46-45PM.json",
+      "sha256": "b1a1806854a2f9adca9b8ed6f8c9c86057a0a64c857253c90937082b93b7f4be",
+      "bytes": 96704,
+      "expected_git_blob": "188f1700283099bc58252387f070538d1458596a"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-25_10-59-17AM.json",
+      "sha256": "f42e97777b7efdbd1d116070055bdd4ca9986416b130b4c6d50491b8554ac109",
+      "bytes": 82570,
+      "expected_git_blob": "d6d568c3aeba31ccde2e8553e03e60245effbbf6"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-25_11-08-41AM.json",
+      "sha256": "fb10964c00f21c23826f4b1bce8ea3e41ad075b110aff1375d5c51ade87081e5",
+      "bytes": 82485,
+      "expected_git_blob": "46e48fe784a9bb5892901ae7c7c9b269fe4e553b"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-26_09-27-24AM.json",
+      "sha256": "23795fbc1beddbcc41cc7eec1fbddb6a0e88f82a9cc87c465bdff7c773f90d35",
+      "bytes": 125304,
+      "expected_git_blob": "cebc14b88d03fc9b386b6cde1ea4b9d75a5d27ce"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-27_09-11-54AM.json",
+      "sha256": "01355a1422679b683f1af4b2c0d8541c80ab0bf6629ca0eb439acdc63a18eb27",
+      "bytes": 33626,
+      "expected_git_blob": "1174c66281813a84580f6b0404ac8132a3286779"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-27_13-18-06PM.json",
+      "sha256": "b13fa55ec150dc8950fe4f34aa5ab1431fbec370f1858f541de987739007ff1f",
+      "bytes": 71139,
+      "expected_git_blob": "5084b5b98f6e1ff2d1838d904d8d732bfd216b82"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-27_13-21-03PM.json",
+      "sha256": "a6976b373a8cc3db63087149e9d3d0963e8bca3ed06d472be27662c5f2bf1e94",
+      "bytes": 60967,
+      "expected_git_blob": "ebc05486113ef752ee2b67e9a072b1929bfeb0b8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-27_13-23-24PM.json",
+      "sha256": "18e6c42da21a6433e92b8923369ab4e8450bf3a2c772bc8a56118b20e63f7a11",
+      "bytes": 71134,
+      "expected_git_blob": "9bf320b1a012c6f314a4bf837089d94224f7f5d8"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-28_16-09-44PM.json",
+      "sha256": "ab6d4939be85589dc94e6f48510e5470a1403105213358500991a0a8f341314e",
+      "bytes": 101374,
+      "expected_git_blob": "a6e64e6dadf01c0d794e2dc3204163034e12b459"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-28_16-12-01PM.json",
+      "sha256": "759bab2953d486838e971cf002a7ae9c941573f97ef79c3508e9f1bfac29b61e",
+      "bytes": 40236,
+      "expected_git_blob": "cf4b7e7c1f8a1062acc1b2bb1b4e7bf9bdad84a5"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-28_16-18-29PM.json",
+      "sha256": "011663aa39c3bf0ca2405eb4c333d6567eef950e2f91fff51fbd7efad427eb5d",
+      "bytes": 17048,
+      "expected_git_blob": "d17fabb159f81ec5c9a3edd142774d9a65271684"
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-28_16-43-14PM.json",
+      "sha256": "aa4201e4be1a79e096001c7bbca974b727bea7217b14ac8bd769174b7ece4df6",
+      "bytes": 110343,
+      "expected_git_blob": "8e05a01aa7b27c9c9e16de9db1790f0f1e302c19"
+    }
+  ],
+  "scope": "Literal source-only inventory; no targets, probabilities, selections or strategy returns. Collection-date/team pairs are not independently verified fixture identities.",
+  "ledger": {
+    "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff-literal-player-boards.json",
+    "sha256": "817ad3c6cff366348167eaceee0d8a8fa964780c55decb73659f382f4ba66a3e"
+  }
+}
