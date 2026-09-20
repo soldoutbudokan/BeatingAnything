@@ -6,7 +6,7 @@ import unittest
 import urllib.error
 
 from tools.probe_first_basket_history import (
-    Client, NoRedirect, PLAN, ProbeStopped, choose_fixtures, first_score_markets, history_inventory,
+    Client, NoRedirect, PLAN, ProbeStopped, cached_catalogs, choose_fixtures, first_score_markets, history_inventory,
 )
 
 
@@ -40,6 +40,9 @@ class HistoryProbeTests(unittest.TestCase):
         fixtures = [{"fixtureId": str(i), "sportId": 11, "tournamentSlug": "nba",
                      "startTime": f"2026-03-02T{20+i}:00:00Z", "hasOdds": i != 0} for i in range(4)]
         self.assertEqual([r["fixtureId"] for r in choose_fixtures(list(reversed(fixtures)))], ["0", "1", "2"])
+        boundary = {**fixtures[0], "fixtureId": "boundary", "startTime": PLAN["to"]}
+        self.assertEqual(choose_fixtures([boundary]), [])
+        self.assertEqual(choose_fixtures(fixtures + [boundary]), fixtures[:3])
         for rows in ([fixtures[0], fixtures[0]], [{**fixtures[0], "startTime": "2026-03-02T20:00:00"}],
                      [{**fixtures[0], "startTime": "2025-03-02T20:00:00Z"}]):
             with self.assertRaises(ProbeStopped):
@@ -48,9 +51,12 @@ class HistoryProbeTests(unittest.TestCase):
     def test_only_player_first_score_catalog_and_valid_active_pregame_entries_count(self):
         catalog = [{"marketId": 7, "sportId": 11, "playerProp": True, "marketName": "First Basket"},
                    {"marketId": 8, "sportId": 11, "playerProp": False, "marketName": "Team First Basket"},
-                   {"marketId": 9, "sportId": 11, "playerProp": True, "marketName": "Player Points"}]
+                   {"marketId": 9, "sportId": 11, "playerProp": True, "marketName": "Player Points"},
+                   {"marketId": 10, "sportId": 11, "playerProp": True, "marketName": "Over Under Player Points First Quarter"},
+                   {"marketId": 11, "sportId": 11, "playerProp": True, "marketName": "Player First 3 Point FG"}]
         chosen = first_score_markets(catalog)
         self.assertEqual([r["marketId"] for r in chosen], [7])
+        self.assertEqual(first_score_markets([{**catalog[0], "marketName": "Player First Point"}])[0]["marketId"], 7)
         valid = {"price": 10, "createdAt": "2026-03-02T19:00:00Z", "active": True}
         response = {"fixtureId": "a", "bookmakers": {"fanduel": {"markets": {"7": {"outcomes": {
             "yes": {"players": {"10": [valid, {**valid, "active": False}, {**valid, "createdAt": "2026-03-02T22:00:00Z"}],
@@ -95,6 +101,25 @@ class HistoryProbeTests(unittest.TestCase):
             with self.assertRaises(ProbeStopped):
                 client.get("settlements", {})
             self.assertIsNone(NoRedirect().redirect_request(None, None, 302, "redirect", {}, "https://elsewhere.invalid"))
+
+    def test_cached_catalogs_require_matching_receipts_and_no_prior_history(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source, output = Path(tmp) / "source", Path(tmp) / "output"
+            source.mkdir()
+            output.mkdir()
+            (source / "plan.json").write_text(json.dumps(PLAN))
+            client = Client("private-probe-test-key", source, opener=FakeOpener(FakeResponse(b'[]')))
+            client.get("bookmakers", {})
+            client.get("markets", {"language": "en"})
+            client.get("fixtures", {"sportId": 11, "from": PLAN["from"], "to": PLAN["to"]})
+            self.assertEqual(cached_catalogs(source, output), {"bookmakers": [], "markets": [], "fixtures": []})
+            (source / "04-historical-odds.meta.json").write_text("{}")
+            with self.assertRaises(ProbeStopped):
+                cached_catalogs(source, output)
+            (source / "04-historical-odds.meta.json").unlink()
+            (source / "03-fixtures.json").write_text('[{}]')
+            with self.assertRaises(ProbeStopped):
+                cached_catalogs(source, output)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,180 @@
+{
+  "account_diagnostic": {
+    "attempts": 2,
+    "entitlements_resolved": false,
+    "first_result": "generic failure, HTTP status not retained",
+    "raw_account_response_retained": false,
+    "second_http_status": 403
+  },
+  "candidate_first_score_market": {
+    "market_id": 112604,
+    "market_name": "Player First Point",
+    "settlement_equivalence_verified": false
+  },
+  "catalog_run": "data/raw/oddspapi-first-basket-probe/20260920T005127890957Z",
+  "completed_run": "data/raw/oddspapi-first-basket-probe/20260920T005334629221Z",
+  "coverage": [
+    {
+      "bookmaker": "betmgm",
+      "first_score_market_count": 0,
+      "fixture_id": "id1100013262925677",
+      "market_count": 58,
+      "market_types": {
+        "moneyline": 2,
+        "spreads": 20,
+        "totals": 36
+      },
+      "nonzero_player_ids": 0,
+      "player_prop_market_count": 0
+    },
+    {
+      "bookmaker": "fanduel",
+      "first_score_market_count": 0,
+      "fixture_id": "id1100013262925677",
+      "market_count": 113,
+      "market_types": {
+        "moneyline": 2,
+        "spreads": 34,
+        "totals": 77
+      },
+      "nonzero_player_ids": 0,
+      "player_prop_market_count": 0
+    },
+    {
+      "bookmaker": "betmgm",
+      "first_score_market_count": 0,
+      "fixture_id": "id1100013262926181",
+      "market_count": 56,
+      "market_types": {
+        "moneyline": 2,
+        "spreads": 21,
+        "totals": 33
+      },
+      "nonzero_player_ids": 0,
+      "player_prop_market_count": 0
+    },
+    {
+      "bookmaker": "fanduel",
+      "first_score_market_count": 0,
+      "fixture_id": "id1100013262926181",
+      "market_count": 98,
+      "market_types": {
+        "moneyline": 2,
+        "spreads": 42,
+        "totals": 54
+      },
+      "nonzero_player_ids": 0,
+      "player_prop_market_count": 0
+    },
+    {
+      "bookmaker": "betmgm",
+      "first_score_market_count": 0,
+      "fixture_id": "id1100013262926513",
+      "market_count": 61,
+      "market_types": {
+        "moneyline": 2,
+        "spreads": 24,
+        "totals": 35
+      },
+      "nonzero_player_ids": 0,
+      "player_prop_market_count": 0
+    },
+    {
+      "bookmaker": "fanduel",
+      "first_score_market_count": 0,
+      "fixture_id": "id1100013262926513",
+      "market_count": 107,
+      "market_types": {
+        "moneyline": 2,
+        "spreads": 43,
+        "totals": 62
+      },
+      "nonzero_player_ids": 0,
+      "player_prop_market_count": 0
+    }
+  ],
+  "created_at": "2026-09-20T00:57:35.003886+00:00",
+  "documented_quota_consuming_calls": 3,
+  "fixtures": [
+    {
+      "fixtureId": "id1100013262925677",
+      "participant1Name": "Dallas Mavericks",
+      "participant2Name": "Oklahoma City Thunder",
+      "startTime": "2026-03-02T01:00:00.000Z",
+      "tournamentSlug": "nba"
+    },
+    {
+      "fixtureId": "id1100013262926181",
+      "participant1Name": "Boston Celtics",
+      "participant2Name": "Philadelphia 76ers",
+      "startTime": "2026-03-02T01:00:00.000Z",
+      "tournamentSlug": "nba"
+    },
+    {
+      "fixtureId": "id1100013262926513",
+      "participant1Name": "LA Clippers",
+      "participant2Name": "New Orleans Pelicans",
+      "startTime": "2026-03-02T02:00:00.000Z",
+      "tournamentSlug": "nba"
+    }
+  ],
+  "initial_transport_failure_run": "data/raw/oddspapi-first-basket-probe/20260920T004542702232Z",
+  "interpretation": "This key returned no player props for the fixed sample. Missing archival coverage versus account filtering is unresolved; no provider-wide absence or paid-plan requirement is established.",
+  "local_date": "2026-09-19",
+  "next_action": "Obtain explicit historical FanDuel/BetMGM first-scorer entitlement/coverage evidence and a concrete example fixture before more acquisition.",
+  "qualified_replication": false,
+  "receipts": [
+    {
+      "bytes": 29787,
+      "path": "data/raw/oddspapi-first-basket-probe/20260920T005127890957Z/01-bookmakers.meta.json",
+      "received_at": "2026-09-20T00:51:28.366490+00:00",
+      "sha256": "820800b30926ab0e2bcfeb42cbc24d76d5d9a9189f93f24e101ba8f6f1f7ea7c",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/bookmakers?"
+    },
+    {
+      "bytes": 9122412,
+      "path": "data/raw/oddspapi-first-basket-probe/20260920T005127890957Z/02-markets.meta.json",
+      "received_at": "2026-09-20T00:51:29.278642+00:00",
+      "sha256": "708586be12d725cf8dabdb0f61c47b88237db8eabad7bfb59ceadab33b173c15",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/markets?language=en"
+    },
+    {
+      "bytes": 303961,
+      "path": "data/raw/oddspapi-first-basket-probe/20260920T005127890957Z/03-fixtures.meta.json",
+      "received_at": "2026-09-20T00:51:29.818963+00:00",
+      "sha256": "22670b6bfa872c700e4d55469832f30c3b7784318635f6da3d997198e6d1f7b2",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/fixtures?sportId=11&from=2026-03-02T00%3A00%3A00Z&to=2026-03-05T00%3A00%3A00Z"
+    },
+    {
+      "bytes": 1805264,
+      "path": "data/raw/oddspapi-first-basket-probe/20260920T005334629221Z/04-historical-odds.meta.json",
+      "received_at": "2026-09-20T00:53:35.543412+00:00",
+      "sha256": "d7a22cfba870457948d333a0a94922a7ac914d0142d8e051666f1f2f7289e2a3",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/historical-odds?fixtureId=id1100013262925677&bookmakers=fanduel%2Cbetmgm"
+    },
+    {
+      "bytes": 1342144,
+      "path": "data/raw/oddspapi-first-basket-probe/20260920T005334629221Z/05-historical-odds.meta.json",
+      "received_at": "2026-09-20T00:53:40.441071+00:00",
+      "sha256": "419d88705b7b8569fdb49fb9824c63bdb6ff83d3f030d762c6e4ec91829857c6",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/historical-odds?fixtureId=id1100013262926181&bookmakers=fanduel%2Cbetmgm"
+    },
+    {
+      "bytes": 1874496,
+      "path": "data/raw/oddspapi-first-basket-probe/20260920T005334629221Z/06-historical-odds.meta.json",
+      "received_at": "2026-09-20T00:53:45.681205+00:00",
+      "sha256": "b545b143f1e86272cf294b79d18b80bf06d4b5a1c412ccec4cb5cab3ef615061",
+      "status": 200,
+      "url_without_credential": "https://api.oddspapi.io/v4/historical-odds?fixtureId=id1100013262926513&bookmakers=fanduel%2Cbetmgm"
+    }
+  ],
+  "selected_fixtures_sha256": "61167cb1f973ccbb7e568c86e6767226a26ceaab14c9dd62b2e62659dbe57945",
+  "selection_rule": "First three NBA fixtures by zoned start and ID in [2026-03-02T00:00:00Z, 2026-03-05T00:00:00Z), without odds or outcome filtering",
+  "status": "fixed_sample_no_first_score_or_player_props",
+  "successful_data_api_calls": 6
+}

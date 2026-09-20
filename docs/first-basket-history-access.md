@@ -2,13 +2,21 @@
 
 **No FanDuel edge is established.** The profitable [2025 conditional test](../reports/nba-first-score-wedge-backtest-2026-09-19.md) needs additional price evidence. The [complete 2021 inventory](../reports/nba-first-basket-2021-inventory-2026-09-19.md) cannot supply the required clocks or BetMGM player boards. Eight additional public repositories were checked in a [bounded source search](../reports/nba-first-basket-expanded-source-search-2026-09-19.json), without another qualified first-basket cohort.
 
+## Live result, September 19, 2026 (Toronto)
+
+The user configured a private local key and the [three-game probe completed](../reports/nba-first-basket-oddspapi-coverage-2026-09-19.md). Both target books returned historical odds with HTTP 200, but **zero first-score markets and zero player-prop markets** appeared in all six book/game histories. Returned markets were moneylines, spreads and totals. This is a negative coverage result for the fixed sample under this key, not evidence that the provider has no first-basket data anywhere.
+
+The catalog includes `112604`, **Player First Point**. Its presence alone does not establish historical prices or equivalent settlement rules. A separate account-entitlement diagnostic returned HTTP 403, so missing archive coverage versus subscription filtering remains unresolved. Do not buy or upgrade based on the catalog or marketing claims; first obtain confirmation that this key can access historical FanDuel/BetMGM first-scorer props and an exact example fixture. No account settings or subscription were changed.
+
+The data check made six successful API requests, with three documented quota-consuming catalog/fixture calls. One earlier sandbox connection failed before a response. The separate account check was inconclusive; two diagnostic attempts were made, the second recording HTTP 403 (the first retained only a generic failure). Credentials and raw account responses were never printed or retained. The key remains in ignored `state/credentials/` with mode `0600`.
+
 ## Concrete provider lead
 
 OddsPapi's [historical endpoint documentation](https://oddspapi.io/en/docs/get-historical-odds) describes per-player price histories, active flags and timezone-qualified `createdAt` fields, with retained history from January 2026. `createdAt` denotes provider history-entry creation; it must not automatically be relabelled as a bookmaker update timestamp. This is documentation, not evidence that the desired FD/BetMGM first-basket quotes are present.
 
 The provider's [player-props article](https://oddspapi.io/blog/player-props-api-nfl-nba-mlb-odds-python/) says historical props are available on its free tier and lists FanDuel prop coverage. Its [scanner article](https://oddspapi.io/blog/player-props-value-scanner-python/) lists NBA first basket as a catalog market. Neither verifies historical first-basket coverage for both target books. A price premium over another book is not automatically positive expected value; the articles' marketing claims are not a substitute for a backtest.
 
-The [API overview](https://oddspapi.io/en/docs/api) requires a key. The [quota documentation](https://oddspapi.io/en/docs/requests-and-quota) says each catalog/fixture request consumes one request and historical-odds calls consume none; exhausted accounts can still be blocked. No key is configured, no account was created, and no authenticated request or purchase was made. These source pages and hashes are retained locally under `data/raw/nba-first-basket-archive-search-2026-09-19/oddspapi-docs/`.
+The [API overview](https://oddspapi.io/en/docs/api) requires a key. The [quota documentation](https://oddspapi.io/en/docs/requests-and-quota) says each catalog/fixture request consumes one request and historical-odds calls consume none; exhausted accounts can still be blocked. These source pages and hashes are retained locally under `data/raw/nba-first-basket-archive-search-2026-09-19/oddspapi-docs/`. Local key setup and the live result now supersede the earlier access blocker.
 
 ## Ready-to-run coverage probe
 
@@ -38,4 +46,10 @@ Alternatively, keep a private key file under ignored `state/credentials/`, restr
 state/runtime/research-venv/bin/python tools/probe_first_basket_history.py --fetch --api-key-file state/credentials/oddspapi-api-key.txt
 ```
 
-Do not paste a key into chat or put it in a command argument. The probe has been checked with synthetic responses and run in dry-run mode; **live provider coverage remains untested**. It does not resume any schedule, send an alert or place a wager.
+Do not paste a key into chat or put it in a command argument. The probe has synthetic regression checks and the completed live source check above. It does not resume any schedule, send an alert or place a wager.
+
+### Reusing catalogs after a local parsing stop
+
+The live fixture response included a game exactly at the requested upper bound. The probe now excludes that boundary game while preserving its original half-open interval and first-three selection. Its market filter also excludes first-quarter totals and first-three-pointer markets. Neither correction used prices or outcomes to select fixtures.
+
+`--resume-catalogs PATH` reuses the three original successful catalog/fixture responses after verifying their plan, URL, status, byte length and SHA-256 receipts. It refuses a source directory with any attempted historical request. It writes a new receipt and freezes selected fixtures before fetching history, preserving the six-request total without another three catalog calls. The completed run used this option; do not rerun the same sample without a concrete change in access or coverage evidence.

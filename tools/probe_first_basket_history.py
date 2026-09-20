@@ -10,6 +10,7 @@ import json
 import math
 import os
 from pathlib import Path
+import re
 import time
 import urllib.error
 import urllib.parse
@@ -115,8 +116,8 @@ def first_score_markets(catalog):
     if not isinstance(catalog, list):
         raise ProbeStopped("Unexpected market catalog shape")
     return [r for r in catalog if r.get("sportId") == 11 and r.get("playerProp") is True
-            and "first" in r.get("marketName", "").lower()
-            and any(x in r.get("marketName", "").lower() for x in ("basket", "point", "field goal"))]
+            and re.fullmatch(r"(?:player )?first (?:basket|points?|field goal|fg)(?: scorer)?",
+                             " ".join(r.get("marketName", "").lower().split()))]
 
 
 def choose_fixtures(fixtures):
@@ -126,8 +127,10 @@ def choose_fixtures(fixtures):
     if len({r.get("fixtureId") for r in nba}) != len(nba):
         raise ProbeStopped("Duplicate NBA fixture identifiers")
     try:
-        if any(not r.get("fixtureId") or not zoned(PLAN["from"]) <= zoned(r["startTime"]) < zoned(PLAN["to"]) for r in nba):
+        # The API includes fixtures exactly at `to`; our fixed cohort excludes them.
+        if any(not r.get("fixtureId") or not zoned(PLAN["from"]) <= zoned(r["startTime"]) <= zoned(PLAN["to"]) for r in nba):
             raise ProbeStopped("NBA fixture outside requested interval")
+        nba = [r for r in nba if zoned(r["startTime"]) < zoned(PLAN["to"])]
         return sorted(nba, key=lambda r: (zoned(r["startTime"]), r["fixtureId"]))[:PLAN["max_fixtures"]]
     except (KeyError, TypeError, ValueError):
         raise ProbeStopped("Missing or invalid fixture identity/clock") from None
@@ -173,19 +176,49 @@ def history_inventory(response, fixture, catalog):
             "qualified_replication": False}
 
 
-def run(client):
-    books = client.get("bookmakers", {})
+def cached_catalogs(source, output):
+    """Reuse verified pre-price responses after a local parsing stop."""
+    if json.loads((source / "plan.json").read_text()) != PLAN:
+        raise ProbeStopped("Cached catalog plan differs from the fixed probe")
+    if list(source.glob("*-historical-odds*")):
+        raise ProbeStopped("Cannot resume catalogs after a historical request")
+    catalogs, receipts = {}, []
+    requests = [("bookmakers", {}), ("markets", {"language": "en"}),
+                ("fixtures", {"sportId": 11, "from": PLAN["from"], "to": PLAN["to"]})]
+    for number, (endpoint, params) in enumerate(requests, 1):
+        path = source / f"{number:02d}-{endpoint}.json"
+        body = path.read_bytes()
+        meta = json.loads(path.with_suffix(".meta.json").read_text())
+        expected_url = BASE + endpoint + "?" + urllib.parse.urlencode(params)
+        digest = hashlib.sha256(body).hexdigest()
+        if (meta.get("status") != 200 or meta.get("body_retained") is not True
+                or meta.get("url_without_credential") != expected_url
+                or meta.get("bytes") != len(body) or meta.get("sha256") != digest):
+            raise ProbeStopped("Cached catalog receipt or body mismatch")
+        catalogs[endpoint] = json.loads(body)
+        receipts.append({"path": str(path.resolve()), "sha256": digest,
+                         "original_received_at": meta["received_at"]})
+    dump(output / "resumed-catalogs.json", {"source": str(source.resolve()),
+         "reused_requests": len(requests), "receipts": receipts})
+    return catalogs
+
+
+def run(client, catalogs=None):
+    def catalog(endpoint, params):
+        return catalogs[endpoint] if catalogs is not None else client.get(endpoint, params)
+
+    books = catalog("bookmakers", {})
     if not isinstance(books, list):
         raise ProbeStopped("Unexpected bookmaker catalog shape")
     available = {b.get("slug") for b in books}
     selected_books = [b for b in PLAN["bookmakers"] if b in available]
     if "fanduel" not in selected_books:
         raise ProbeStopped("FanDuel absent from provider bookmaker catalog")
-    markets = first_score_markets(client.get("markets", {"language": "en"}))
+    markets = first_score_markets(catalog("markets", {"language": "en"}))
     dump(client.output / "candidate-markets.json", markets)
     if not markets:
         raise ProbeStopped("No first-score player market in basketball catalog")
-    fixtures = choose_fixtures(client.get("fixtures", {"sportId": 11, "from": PLAN["from"], "to": PLAN["to"]}))
+    fixtures = choose_fixtures(catalog("fixtures", {"sportId": 11, "from": PLAN["from"], "to": PLAN["to"]}))
     # Fixture selection is fixed before any historical-price response is requested.
     dump(client.output / "selected-fixtures.json", [{k: r.get(k) for k in
          ("fixtureId", "startTime", "participant1Name", "participant2Name", "tournamentSlug")} for r in fixtures])
@@ -202,6 +235,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--fetch", action="store_true", help="Perform at most six authenticated read-only requests")
     parser.add_argument("--api-key-file", type=Path, help="Private local file; the key is never a CLI value")
+    parser.add_argument("--resume-catalogs", type=Path, help="Reuse three verified catalogs from a stopped pre-history run")
     args = parser.parse_args()
     if not args.fetch:
         print(json.dumps({"mode": "dry_run_no_network", **PLAN}, indent=2))
@@ -213,12 +247,17 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     dump(output / "plan.json", PLAN)
     client = Client(key, output)
+    reused_requests = 0
     try:
-        result = run(client)
+        catalogs = cached_catalogs(args.resume_catalogs, output) if args.resume_catalogs else None
+        if catalogs is not None:
+            client.calls = reused_requests = 3
+        result = run(client, catalogs)
     except ProbeStopped as error:
         result = {"status": "stopped", "reason": str(error), "requests": client.calls}
     except Exception:
         result = {"status": "stopped", "reason": "Unexpected schema or local failure; inspect retained response", "requests": client.calls}
+    result.update({"reused_requests": reused_requests, "new_requests": client.calls - reused_requests})
     dump(output / "result.json", result)
     print(json.dumps({"output": str(output.relative_to(ROOT)), "status": result["status"], "requests": client.calls}, indent=2))
 
