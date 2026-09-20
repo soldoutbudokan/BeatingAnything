@@ -2,7 +2,17 @@
 
 Updated September 19, 2026 (Toronto). Current research objective: find an edge in FanDuel first-basket markets. The earlier market/data discovery objective is complete. [NEXT-STEPS.md](NEXT-STEPS.md) carries the resulting direction. Scheduled research and watches remain paused; no betting edge has been established.
 
-**Current execution status: both fixed first-basket price candidates fail advancement; no edge is established.** Golf G11 remains parked on its own qualified-price dependency.
+**Current execution status: the conditional first-score conversion test is profitable but fails advancement; no edge is established.** The two earlier first-basket price candidates remain closed. Golf G11 remains parked on its own qualified-price dependency.
+
+## September 19 continuation: profitable cross-book selections, conversion unconfirmed
+
+The [fixed Card 42 conditional price test](reports/nba-first-score-wedge-backtest-2026-09-19.md) is complete. Contemporaneous BetMGM sources support a first-field-goal interpretation, with original quote labels/jurisdictions still missing; that limitation was explicit in the [separate price protocol](docs/nba-first-score-wedge-price-protocol-2026-09-19.md). Friday and playoff exclusions leave 130 matched games, 55 discovery/75 replication. Predictions were frozen and committed as `9c8001e` before grading. The new comparison allowance is **16**; historical reports keep their original allowances.
+
+There are 14/21 bets, returning **+187.57%/+176.00%** with unresolved bets treated as losses. Pooled: seven wins, 21 losses, four voids and three unresolved; **+180.63%** over all 35 original stakes. This is a promising historical price discrepancy, not an established edge: only 11/17 settled nonvoid bets exist, and the pooled corrected ROI interval is **−62.76% to +422.07%**. The conversion slightly worsens pooled log loss against unadjusted BetMGM (+0.000126), although it improves against FanDuel (−0.027385). All 35 selections already have positive unconverted reference EV. Both declared advancement gates fail; do not relabel the returns as proof of the free-throw mechanism or retune it.
+
+The [winning-price audit](reports/nba-first-score-wedge-winning-price-audit-2026-09-19.json) recovers all seven winners' complete FD/MGM boards from matching historical Git commits; all prices and clocks reconcile. Six first scores are field goals and one is a free throw. Git clocks remain publisher-controlled. The source file's 255 listed commits end May 12, 2025, so no later-season update was found there.
+
+**Next concrete source:** [ellache/nba-tipoff-scraper](reports/nba-first-basket-2021-source-check-2026-09-19.md), pinned `b1fb92f10d61b94e44bb3d760e9ac269c706a7ab`, has 418 historical JSON files (339 nonempty) across 55 dates in February–April 2021. Three schema samples were inspected, including nine actual FanDuel ten-player boards on April 28. Collection clocks are naive host-local times, sampled fixture times are null, no bookmaker update clock survives, and sampled MGM entries/parser are team markets only. No 2021 outcomes, strategies or returns were computed. Investigate usable fixture/clock evidence or another actual price source before independent replication. Read JSON literally; never execute publisher code or deserialize jsonpickle directives. All **269 tests pass**. Research/watch schedules remain paused.
 
 ## September 19 continuation: settlement difference passes a separate screen
 

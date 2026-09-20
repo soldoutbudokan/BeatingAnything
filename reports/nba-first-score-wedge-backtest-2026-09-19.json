@@ -1,0 +1,782 @@
+{
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 1729,
+  "comparisons": 16,
+  "forecast_freeze": "reports/nba-first-score-wedge-forecast-freeze-2026-09-19.json",
+  "forecast_games": 130,
+  "forecast_sha256": "8951bf7e2b062e89c747db465f4c96127f663f7693960f5e517b640dc027fec5",
+  "gates": {
+    "conditional_exploratory_lead": false,
+    "conditional_historical_advantage": false,
+    "edge_established": false
+  },
+  "graded_path": "data/raw/nba-first-score-wedge-2026-09-19/price-graded.json",
+  "graded_sha256": "cf56b864341fe1e44dc498229ba61f61045b7a3b761f281ea0ceeb0837c397fa",
+  "grading_sources": [
+    {
+      "bytes": 24353,
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket-tree.json",
+      "received_at": "2026-09-19T22:28:10.637699+00:00",
+      "request_started_at": "2026-09-19T22:28:10.327935+00:00",
+      "sha256": "c5c117dec538572d2c70c2c528f39eb3a6927e1dfdd4fd910d11999fc314b3a7",
+      "status": 200,
+      "url": "https://api.github.com/repos/martinbog19/LeFirstBasket/git/trees/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff?recursive=1"
+    },
+    {
+      "bytes": 45499,
+      "expected_git_blob": "1356536a9e4658fb90b85acfe55812783582111d",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/player_metadata.csv",
+      "received_at": "2026-09-19T22:28:35.749261+00:00",
+      "request_started_at": "2026-09-19T22:28:35.471791+00:00",
+      "sha256": "e87218378e35dfae7f7d1540b7077e345c1f3ae5d8b89e62426fc2b08318afc8",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/player_metadata.csv"
+    },
+    {
+      "bytes": 139116,
+      "expected_git_blob": "aa131389a24c9f7f7bcad3417731b402ef9e543d",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2019.csv",
+      "received_at": "2026-09-19T22:31:56.606251+00:00",
+      "request_started_at": "2026-09-19T22:31:56.175277+00:00",
+      "sha256": "106d0ace209319146324bf6f20ac6de2f1fcdba7874ed3e4fe14c17005d23761",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2019.csv"
+    },
+    {
+      "bytes": 120493,
+      "expected_git_blob": "34ba134965bc9ab8ca09c330002e224273ef8497",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2020.csv",
+      "received_at": "2026-09-19T22:31:56.490832+00:00",
+      "request_started_at": "2026-09-19T22:31:56.175608+00:00",
+      "sha256": "251d1a304a5eabfafde681afc4923dd1e29dd6ccae409d98eca637c7e1171c9a",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2020.csv"
+    },
+    {
+      "bytes": 123688,
+      "expected_git_blob": "4b488cf0033c2a5e3cd7732cec63780cbc73f45c",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2021.csv",
+      "received_at": "2026-09-19T22:31:56.371376+00:00",
+      "request_started_at": "2026-09-19T22:31:56.175679+00:00",
+      "sha256": "d493d35a36a90fc055a8b875bbfa17907135a5c41897b2ea02fbc62511419f91",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2021.csv"
+    },
+    {
+      "bytes": 139945,
+      "expected_git_blob": "db56ca0c4a58b1d206362c39e55ca4945fc0f9bd",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2022.csv",
+      "received_at": "2026-09-19T22:31:56.571375+00:00",
+      "request_started_at": "2026-09-19T22:31:56.377124+00:00",
+      "sha256": "f4d8c20f23fa69095ddf9000c9b5651ab11cca95689ab4810c19202fdd003d80",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2022.csv"
+    },
+    {
+      "bytes": 139341,
+      "expected_git_blob": "b597013770a42a173724a4362b88f61d86baa689",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2023.csv",
+      "received_at": "2026-09-19T22:31:56.688161+00:00",
+      "request_started_at": "2026-09-19T22:31:56.499527+00:00",
+      "sha256": "46139ba6d698b835f23ae55dd4862c5daf8af278a7ab75ac7f069442aa7e3cc7",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2023.csv"
+    },
+    {
+      "bytes": 139801,
+      "expected_git_blob": "16d2dbb43cf3a92957df4cb742badca8e03e8b0c",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2024.csv",
+      "received_at": "2026-09-19T22:31:56.776516+00:00",
+      "request_started_at": "2026-09-19T22:31:56.578897+00:00",
+      "sha256": "01a88de7e1d09de09895b0e1361292da4273fee47af57f0d61e88ad1659e9235",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2024.csv"
+    },
+    {
+      "bytes": 125211,
+      "expected_git_blob": "fa66f70a61e6cb902d03cd93efd6ed8c80827844",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/first_basket_2025.csv",
+      "received_at": "2026-09-19T22:28:35.840116+00:00",
+      "request_started_at": "2026-09-19T22:28:35.660899+00:00",
+      "sha256": "3eb14d8ca34cee20f616a4e01449a127f7138e411d23ebf4ed1061582fee6fd0",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/first_basket_2025.csv"
+    },
+    {
+      "bytes": 4952551,
+      "expected_git_blob": "81802702bae3d4f1339123d3a9a40dcbd8e788a6",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/rosters.nosync/rosters_2023.csv",
+      "received_at": "2026-09-19T22:51:54.341231+00:00",
+      "request_started_at": "2026-09-19T22:51:53.589059+00:00",
+      "sha256": "97b5abea7f61fb1a80f945eb3a2716a0ca1af449a920539fc2ff00cecc12356e",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/rosters.nosync/rosters_2023.csv"
+    },
+    {
+      "bytes": 5052801,
+      "expected_git_blob": "915cf53dcf5c885994ae2e1e594a4675f70cdc23",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/rosters.nosync/rosters_2024.csv",
+      "received_at": "2026-09-19T22:51:55.150253+00:00",
+      "request_started_at": "2026-09-19T22:51:54.345701+00:00",
+      "sha256": "4ab5777b8c541e43b71602d1a52decff10cb1b2a8e69ddf472f11c4b4f692ea8",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/rosters.nosync/rosters_2024.csv"
+    },
+    {
+      "bytes": 4900068,
+      "expected_git_blob": "b84344353f91e82006a03f186816d8637232077e",
+      "path": "data/raw/creative-market-search-2026-09-19/lefirstbasket/data/rosters.nosync/rosters_2025.csv",
+      "received_at": "2026-09-19T22:31:57.059189+00:00",
+      "request_started_at": "2026-09-19T22:31:56.612684+00:00",
+      "sha256": "1bf3b29e991442709f90562590a188e40b39e3ff82d40edebe5484c7917bac32",
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/b8130671558c6d5b33d6cfbc6a8410d986d6b3ff/data/rosters.nosync/rosters_2025.csv"
+    },
+    {
+      "bytes": 426838,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Age": "0",
+        "Connection": "close",
+        "Content-Disposition": "attachment; filename=nba_stats_schedule_2024.csv",
+        "Content-Length": "426838",
+        "Content-Type": "application/octet-stream",
+        "Date": "Tue, 15 Sep 2026 03:19:55 GMT",
+        "ETag": "\"0x8DEE94D43EB1F2D\"",
+        "Last-Modified": "Fri, 24 Jul 2026 06:31:59 GMT",
+        "Server": "Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0",
+        "Via": "1.1 varnish, 1.1 varnish",
+        "X-Cache": "HIT, MISS",
+        "X-Cache-Hits": "0, 0",
+        "X-Served-By": "cache-iad-kcgs7200049-IAD, cache-yyz4552-YYZ",
+        "X-Timer": "S1789442395.447016,VS0,VE27",
+        "x-ms-access-tier": "Hot",
+        "x-ms-access-tier-inferred": "true",
+        "x-ms-blob-content-md5": "YltoMpL7KYxwC70mkNbuOA==",
+        "x-ms-blob-type": "BlockBlob",
+        "x-ms-creation-time": "Fri, 24 Jul 2026 06:31:59 GMT",
+        "x-ms-lease-state": "available",
+        "x-ms-lease-status": "unlocked",
+        "x-ms-request-id": "f9916f5d-d01e-0029-11e8-43df21000000",
+        "x-ms-server-encrypted": "true",
+        "x-ms-version": "2018-11-09"
+      },
+      "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2024.csv",
+      "request_started_utc": "2026-09-15T03:19:54.456391+00:00",
+      "response_complete_utc": "2026-09-15T03:19:55.422952+00:00",
+      "sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26",
+      "status": 200,
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nba_stats_schedules/nba_stats_schedule_2024.csv"
+    },
+    {
+      "bytes": 2216279,
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Age": "0",
+        "Connection": "close",
+        "Content-Disposition": "attachment; filename=nba_schedule_2025.csv",
+        "Content-Length": "2216279",
+        "Content-Type": "application/octet-stream",
+        "Date": "Tue, 15 Sep 2026 03:19:56 GMT",
+        "ETag": "\"0x8DEED3BBA22DBB5\"",
+        "Last-Modified": "Wed, 29 Jul 2026 06:36:31 GMT",
+        "Server": "Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0",
+        "Via": "1.1 varnish, 1.1 varnish",
+        "X-Cache": "HIT, MISS",
+        "X-Cache-Hits": "29, 0",
+        "X-Served-By": "cache-iad-khef600046-IAD, cache-yyz4557-YYZ",
+        "X-Timer": "S1789442396.327996,VS0,VE26",
+        "x-ms-access-tier": "Hot",
+        "x-ms-access-tier-inferred": "true",
+        "x-ms-blob-content-md5": "xVjXuaEMJ+gw7iDjj9LmUw==",
+        "x-ms-blob-type": "BlockBlob",
+        "x-ms-creation-time": "Wed, 29 Jul 2026 06:36:31 GMT",
+        "x-ms-lease-state": "available",
+        "x-ms-lease-status": "unlocked",
+        "x-ms-request-id": "d67041fc-b01e-0010-801e-40243d000000",
+        "x-ms-server-encrypted": "true",
+        "x-ms-version": "2018-11-09"
+      },
+      "path": "data/raw/nba-consensus-price/nba_schedule_2025.csv",
+      "request_started_utc": "2026-09-15T03:19:55.424513+00:00",
+      "response_complete_utc": "2026-09-15T03:19:56.266867+00:00",
+      "sha256": "a7a5b6607a256c84a324f819e4461248bdff90a78b1ddb675a5a117a9a94e74f",
+      "status": 200,
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_schedules/nba_schedule_2025.csv"
+    },
+    {
+      "bytes": 21552259,
+      "path": "data/raw/creative-market-search-2026-09-19/play_by_play_2025.parquet",
+      "received_at": "2026-09-19T22:37:10.243995+00:00",
+      "release_asset_digest": "sha256:e3a61b57e491b71379abd1ad4c0b2617500a3921deadd3319ee9362d49d2a9dc",
+      "release_asset_id": 530390014,
+      "request_started_at": "2026-09-19T22:37:05.587364+00:00",
+      "sha256": "e3a61b57e491b71379abd1ad4c0b2617500a3921deadd3319ee9362d49d2a9dc",
+      "status": 200,
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_pbp/play_by_play_2025.parquet"
+    }
+  ],
+  "limitations": [
+    "Conditional interpretation of BetMGM quotes; original displayed labels and jurisdictions absent.",
+    "Both periods previously inspected; exploratory, not untouched confirmation.",
+    "BetMGM probabilities and the transfer allocation are approximations, not established fair prices.",
+    "Friday/playoff exclusions do not establish that all other prices were unaffected by promotions.",
+    "Retrospective stats are not proof of contemporaneous publication; unknown starters and labels remain unresolved.",
+    "Historical offered quotes, not accepted wagers; no prospective cohort, alerts, schedules or wagers."
+  ],
+  "outcome_counts": {
+    "resolved": 129,
+    "unresolved": 1
+  },
+  "outcome_unresolved_reasons": {
+    "independent_scorer_identity": 1
+  },
+  "protocol_sha256": "bf501a2f88269a2cb573e56d86fd51c536ed6e945b61924d19d093f3893d5085",
+  "reserve_probability_sensitivity": {
+    "discovery": {
+      "forecast_games": 55,
+      "known_profit": 28.259999999999998,
+      "loss": 8,
+      "nonvoid_settled_turnover": 11,
+      "original_stake_turnover": 14,
+      "probability_scores": {
+        "brier": {
+          "converted_mean": 0.8956571987055177,
+          "market": {
+            "baseline_mean": 0.9018788757373734,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 5
+            },
+            "paired_difference": -0.006221677031855592
+          },
+          "reference": {
+            "baseline_mean": 0.8957255465031896,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 5
+            },
+            "paired_difference": -6.834779767188604e-05
+          }
+        },
+        "log_loss": {
+          "converted_mean": 2.337448449474321,
+          "market": {
+            "baseline_mean": 2.3758713853870743,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 5
+            },
+            "paired_difference": -0.03842293591275295
+          },
+          "reference": {
+            "baseline_mean": 2.3380656688650676,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 5
+            },
+            "paired_difference": -0.0006172193907461689
+          }
+        }
+      },
+      "roi_bootstrap_all_loss": {
+        "confidence": 0.996875,
+        "corrected_interval": null,
+        "reason": "fewer_than_eight_weeks",
+        "weeks": 4
+      },
+      "roi_bootstrap_all_void": {
+        "confidence": 0.996875,
+        "corrected_interval": null,
+        "reason": "fewer_than_eight_weeks",
+        "weeks": 4
+      },
+      "scored_games": 55,
+      "selected_bets": 14,
+      "selected_positive_unconverted_ev": 14,
+      "unresolved": 2,
+      "unresolved_all_loss_roi": 1.8757142857142857,
+      "unresolved_all_void_roi": 2.0185714285714282,
+      "unresolved_reasons": {
+        "starter_status_unknown": 2
+      },
+      "void": 1,
+      "win": 3
+    },
+    "pooled": {
+      "forecast_games": 130,
+      "known_profit": 68.22,
+      "loss": 19,
+      "nonvoid_settled_turnover": 26,
+      "original_stake_turnover": 33,
+      "probability_scores": {
+        "brier": {
+          "converted_mean": 0.9114563296593233,
+          "market": {
+            "baseline_mean": 0.916788454263792,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": [
+                -0.011025501729944731,
+                0.0008928067233178423
+              ],
+              "descriptive_95pct_interval": [
+                -0.009151323710545884,
+                -0.0012577706978363235
+              ],
+              "weeks": 11
+            },
+            "paired_difference": -0.00533212460446863
+          },
+          "reference": {
+            "baseline_mean": 0.9114327804462755,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": [
+                -0.0006472359396949976,
+                0.0006133125605996226
+              ],
+              "descriptive_95pct_interval": [
+                -0.00040463897562424797,
+                0.0004070767716104282
+              ],
+              "weeks": 11
+            },
+            "paired_difference": 2.3549213047804605e-05
+          }
+        },
+        "log_loss": {
+          "converted_mean": 2.464807969872261,
+          "market": {
+            "baseline_mean": 2.4921930889989388,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": [
+                -0.062356335368998046,
+                0.007450298439728093
+              ],
+              "descriptive_95pct_interval": [
+                -0.051084949378035635,
+                -0.00434978462628329
+              ],
+              "weeks": 11
+            },
+            "paired_difference": -0.027385119126677324
+          },
+          "reference": {
+            "baseline_mean": 2.4646818460693645,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": [
+                -0.0032335651377614675,
+                0.003087426593452637
+              ],
+              "descriptive_95pct_interval": [
+                -0.0020397032393268764,
+                0.002128261556798991
+              ],
+              "weeks": 11
+            },
+            "paired_difference": 0.000126123802896811
+          }
+        }
+      },
+      "roi_bootstrap_all_loss": {
+        "confidence": 0.996875,
+        "corrected_interval": [
+          -0.5947058823529412,
+          4.501051562499998
+        ],
+        "descriptive_95pct_interval": [
+          0.26684210526315794,
+          3.6851433179723503
+        ],
+        "weeks": 10
+      },
+      "roi_bootstrap_all_void": {
+        "confidence": 0.996875,
+        "corrected_interval": [
+          -0.5358823529411765,
+          4.549984895833324
+        ],
+        "descriptive_95pct_interval": [
+          0.32302439024390245,
+          3.7664999999999997
+        ],
+        "weeks": 10
+      },
+      "scored_games": 129,
+      "selected_bets": 33,
+      "selected_positive_unconverted_ev": 33,
+      "unresolved": 3,
+      "unresolved_all_loss_roi": 1.9763636363636363,
+      "unresolved_all_void_roi": 2.0672727272727274,
+      "unresolved_reasons": {
+        "independent_scorer_identity": 1,
+        "starter_status_unknown": 2
+      },
+      "void": 4,
+      "win": 7
+    },
+    "replication": {
+      "forecast_games": 75,
+      "known_profit": 39.959999999999994,
+      "loss": 11,
+      "nonvoid_settled_turnover": 15,
+      "original_stake_turnover": 19,
+      "probability_scores": {
+        "brier": {
+          "converted_mean": 0.9231989269898545,
+          "market": {
+            "baseline_mean": 0.9278698977631571,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 7
+            },
+            "paired_difference": -0.004670970773302645
+          },
+          "reference": {
+            "baseline_mean": 0.923107075944515,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 7
+            },
+            "paired_difference": 9.185104533946657e-05
+          }
+        },
+        "log_loss": {
+          "converted_mean": 2.5594670728707305,
+          "market": {
+            "baseline_mean": 2.578648409251,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 7
+            },
+            "paired_difference": -0.019181336380269764
+          },
+          "reference": {
+            "baseline_mean": 2.5587884642617476,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 7
+            },
+            "paired_difference": 0.0006786086089828096
+          }
+        }
+      },
+      "roi_bootstrap_all_loss": {
+        "confidence": 0.996875,
+        "corrected_interval": null,
+        "reason": "fewer_than_eight_weeks",
+        "weeks": 7
+      },
+      "roi_bootstrap_all_void": {
+        "confidence": 0.996875,
+        "corrected_interval": null,
+        "reason": "fewer_than_eight_weeks",
+        "weeks": 7
+      },
+      "scored_games": 74,
+      "selected_bets": 19,
+      "selected_positive_unconverted_ev": 19,
+      "unresolved": 1,
+      "unresolved_all_loss_roi": 2.0505263157894733,
+      "unresolved_all_void_roi": 2.103157894736842,
+      "unresolved_reasons": {
+        "independent_scorer_identity": 1
+      },
+      "void": 3,
+      "win": 4
+    }
+  },
+  "results": {
+    "discovery": {
+      "forecast_games": 55,
+      "known_profit": 28.259999999999998,
+      "loss": 8,
+      "nonvoid_settled_turnover": 11,
+      "original_stake_turnover": 14,
+      "probability_scores": {
+        "brier": {
+          "converted_mean": 0.8956571987055177,
+          "market": {
+            "baseline_mean": 0.9018788757373734,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 5
+            },
+            "paired_difference": -0.006221677031855592
+          },
+          "reference": {
+            "baseline_mean": 0.8957255465031896,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 5
+            },
+            "paired_difference": -6.834779767188604e-05
+          }
+        },
+        "log_loss": {
+          "converted_mean": 2.337448449474321,
+          "market": {
+            "baseline_mean": 2.3758713853870743,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 5
+            },
+            "paired_difference": -0.03842293591275295
+          },
+          "reference": {
+            "baseline_mean": 2.3380656688650676,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 5
+            },
+            "paired_difference": -0.0006172193907461689
+          }
+        }
+      },
+      "roi_bootstrap_all_loss": {
+        "confidence": 0.996875,
+        "corrected_interval": null,
+        "reason": "fewer_than_eight_weeks",
+        "weeks": 4
+      },
+      "roi_bootstrap_all_void": {
+        "confidence": 0.996875,
+        "corrected_interval": null,
+        "reason": "fewer_than_eight_weeks",
+        "weeks": 4
+      },
+      "scored_games": 55,
+      "selected_bets": 14,
+      "selected_positive_unconverted_ev": 14,
+      "unresolved": 2,
+      "unresolved_all_loss_roi": 1.8757142857142857,
+      "unresolved_all_void_roi": 2.0185714285714282,
+      "unresolved_reasons": {
+        "starter_status_unknown": 2
+      },
+      "void": 1,
+      "win": 3
+    },
+    "pooled": {
+      "forecast_games": 130,
+      "known_profit": 66.22,
+      "loss": 21,
+      "nonvoid_settled_turnover": 28,
+      "original_stake_turnover": 35,
+      "probability_scores": {
+        "brier": {
+          "converted_mean": 0.9114563296593233,
+          "market": {
+            "baseline_mean": 0.916788454263792,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": [
+                -0.011025501729944731,
+                0.0008928067233178423
+              ],
+              "descriptive_95pct_interval": [
+                -0.009151323710545884,
+                -0.0012577706978363235
+              ],
+              "weeks": 11
+            },
+            "paired_difference": -0.00533212460446863
+          },
+          "reference": {
+            "baseline_mean": 0.9114327804462755,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": [
+                -0.0006472359396949976,
+                0.0006133125605996226
+              ],
+              "descriptive_95pct_interval": [
+                -0.00040463897562424797,
+                0.0004070767716104282
+              ],
+              "weeks": 11
+            },
+            "paired_difference": 2.3549213047804605e-05
+          }
+        },
+        "log_loss": {
+          "converted_mean": 2.464807969872261,
+          "market": {
+            "baseline_mean": 2.4921930889989388,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": [
+                -0.062356335368998046,
+                0.007450298439728093
+              ],
+              "descriptive_95pct_interval": [
+                -0.051084949378035635,
+                -0.00434978462628329
+              ],
+              "weeks": 11
+            },
+            "paired_difference": -0.027385119126677324
+          },
+          "reference": {
+            "baseline_mean": 2.4646818460693645,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": [
+                -0.0032335651377614675,
+                0.003087426593452637
+              ],
+              "descriptive_95pct_interval": [
+                -0.0020397032393268764,
+                0.002128261556798991
+              ],
+              "weeks": 11
+            },
+            "paired_difference": 0.000126123802896811
+          }
+        }
+      },
+      "roi_bootstrap_all_loss": {
+        "confidence": 0.996875,
+        "corrected_interval": [
+          -0.6275675675675675,
+          4.220712162162157
+        ],
+        "descriptive_95pct_interval": [
+          0.18129999999999996,
+          3.454313186813186
+        ],
+        "weeks": 10
+      },
+      "roi_bootstrap_all_void": {
+        "confidence": 0.996875,
+        "corrected_interval": [
+          -0.5735135135135134,
+          4.276691891891889
+        ],
+        "descriptive_95pct_interval": [
+          0.23142857142857137,
+          3.510697212837837
+        ],
+        "weeks": 10
+      },
+      "scored_games": 129,
+      "selected_bets": 35,
+      "selected_positive_unconverted_ev": 35,
+      "unresolved": 3,
+      "unresolved_all_loss_roi": 1.8062857142857143,
+      "unresolved_all_void_roi": 1.892,
+      "unresolved_reasons": {
+        "independent_scorer_identity": 1,
+        "starter_status_unknown": 2
+      },
+      "void": 4,
+      "win": 7
+    },
+    "replication": {
+      "forecast_games": 75,
+      "known_profit": 37.959999999999994,
+      "loss": 13,
+      "nonvoid_settled_turnover": 17,
+      "original_stake_turnover": 21,
+      "probability_scores": {
+        "brier": {
+          "converted_mean": 0.9231989269898545,
+          "market": {
+            "baseline_mean": 0.9278698977631571,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 7
+            },
+            "paired_difference": -0.004670970773302645
+          },
+          "reference": {
+            "baseline_mean": 0.923107075944515,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 7
+            },
+            "paired_difference": 9.185104533946657e-05
+          }
+        },
+        "log_loss": {
+          "converted_mean": 2.5594670728707305,
+          "market": {
+            "baseline_mean": 2.578648409251,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 7
+            },
+            "paired_difference": -0.019181336380269764
+          },
+          "reference": {
+            "baseline_mean": 2.5587884642617476,
+            "paired_bootstrap": {
+              "confidence": 0.996875,
+              "corrected_interval": null,
+              "reason": "fewer_than_eight_weeks",
+              "weeks": 7
+            },
+            "paired_difference": 0.0006786086089828096
+          }
+        }
+      },
+      "roi_bootstrap_all_loss": {
+        "confidence": 0.996875,
+        "corrected_interval": null,
+        "reason": "fewer_than_eight_weeks",
+        "weeks": 7
+      },
+      "roi_bootstrap_all_void": {
+        "confidence": 0.996875,
+        "corrected_interval": null,
+        "reason": "fewer_than_eight_weeks",
+        "weeks": 7
+      },
+      "scored_games": 74,
+      "selected_bets": 21,
+      "selected_positive_unconverted_ev": 21,
+      "unresolved": 1,
+      "unresolved_all_loss_roi": 1.7599999999999998,
+      "unresolved_all_void_roi": 1.8076190476190472,
+      "unresolved_reasons": {
+        "independent_scorer_identity": 1
+      },
+      "void": 3,
+      "win": 4
+    }
+  },
+  "unlisted_scorers": 9
+}

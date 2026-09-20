@@ -1,0 +1,144 @@
+{
+  "repository": "https://github.com/ellache/nba-tipoff-scraper",
+  "commit": "b1fb92f10d61b94e44bb3d760e9ac269c706a7ab",
+  "tree": {
+    "url": "https://api.github.com/repos/ellache/nba-tipoff-scraper/git/trees/HEAD?recursive=1",
+    "request_started_at": "2026-09-20T00:00:49.542289+00:00",
+    "received_at": "2026-09-20T00:00:50.047874+00:00",
+    "status": 200,
+    "sha256": "a9464732050c950762c4c55882e219a8f24f962586dd335c5c74b9d369b5cfdc",
+    "bytes": 180678
+  },
+  "tree_entries": 675,
+  "historical_json_files": 418,
+  "historical_nonempty_json_files": 339,
+  "historical_dates": 55,
+  "date_range": [
+    "2021-02-24",
+    "2021-04-28"
+  ],
+  "sampling": "First, middle and last nonempty filename in lexicographic date order; no target scores or publisher predictions used.",
+  "samples": [
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-24_22-14-02PM.json",
+      "records": 1,
+      "books": {
+        "draftkings": 1
+      },
+      "fanduel_boards": 0,
+      "fanduel_ten_player_boards": 0,
+      "mgm_player_boards": 0
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-23-58AM.json",
+      "records": 20,
+      "books": {
+        "bovada": 20
+      },
+      "fanduel_boards": 0,
+      "fanduel_ten_player_boards": 0,
+      "mgm_player_boards": 0
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-28_16-43-14PM.json",
+      "records": 29,
+      "books": {
+        "fanduel": 9,
+        "draftkings": 10,
+        "mgm": 10
+      },
+      "fanduel_boards": 9,
+      "fanduel_ten_player_boards": 9,
+      "mgm_player_boards": 0
+    }
+  ],
+  "sources": [
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-02-24_22-14-02PM.json",
+      "url": "https://raw.githubusercontent.com/ellache/nba-tipoff-scraper/b1fb92f10d61b94e44bb3d760e9ac269c706a7ab/Data/JSON/historical_odds/2021-02-24_22-14-02PM.json",
+      "status": 200,
+      "request_started_at": "2026-09-20T00:01:23.716874+00:00",
+      "received_at": "2026-09-20T00:01:23.871495+00:00",
+      "sha256": "e25efe89c48baca415d58fb5bbf49999607a34fb5f33ae85d09f65459684729c",
+      "bytes": 5561,
+      "expected_git_blob": "1da410ae96463385a70fae9a14b6186fb7ef04cd",
+      "git_blob_matches": true
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-03-17_11-23-58AM.json",
+      "url": "https://raw.githubusercontent.com/ellache/nba-tipoff-scraper/b1fb92f10d61b94e44bb3d760e9ac269c706a7ab/Data/JSON/historical_odds/2021-03-17_11-23-58AM.json",
+      "status": 200,
+      "request_started_at": "2026-09-20T00:01:23.717426+00:00",
+      "received_at": "2026-09-20T00:01:23.899391+00:00",
+      "sha256": "9a7cf4bdaba49e962c6c227f3ae336cb4e2c31a79d941d5c28faf976a1385d61",
+      "bytes": 33750,
+      "expected_git_blob": "1aca4000d2cbc4d6e38631b687fb6fa13c3e9658",
+      "git_blob_matches": true
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/Data/JSON/historical_odds/2021-04-28_16-43-14PM.json",
+      "url": "https://raw.githubusercontent.com/ellache/nba-tipoff-scraper/b1fb92f10d61b94e44bb3d760e9ac269c706a7ab/Data/JSON/historical_odds/2021-04-28_16-43-14PM.json",
+      "status": 200,
+      "request_started_at": "2026-09-20T00:01:23.728937+00:00",
+      "received_at": "2026-09-20T00:01:23.919585+00:00",
+      "sha256": "aa4201e4be1a79e096001c7bbca974b727bea7217b14ac8bd769174b7ece4df6",
+      "bytes": 110343,
+      "expected_git_blob": "8e05a01aa7b27c9c9e16de9db1790f0f1e302c19",
+      "git_blob_matches": true
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/README.md",
+      "url": "https://raw.githubusercontent.com/ellache/nba-tipoff-scraper/b1fb92f10d61b94e44bb3d760e9ac269c706a7ab/README.md",
+      "status": 200,
+      "request_started_at": "2026-09-20T00:01:23.534136+00:00",
+      "received_at": "2026-09-20T00:01:23.716186+00:00",
+      "sha256": "70a5dcc4075cfdae0c1eed57e72b849bb607bef0444c1cd8d92192a26aba37c7",
+      "bytes": 6142,
+      "expected_git_blob": "2ebaaeb060e7ea53ca4ab45cf1d4245487017776",
+      "git_blob_matches": true
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/src/classes/QuarterOdds.py",
+      "url": "https://raw.githubusercontent.com/ellache/nba-tipoff-scraper/b1fb92f10d61b94e44bb3d760e9ac269c706a7ab/src/classes/QuarterOdds.py",
+      "status": 200,
+      "request_started_at": "2026-09-20T00:01:23.534545+00:00",
+      "received_at": "2026-09-20T00:01:23.716490+00:00",
+      "sha256": "d9f5b5497abca960eeab69a09b41043a8975bfcba1661a79241dff13eb305044",
+      "bytes": 8150,
+      "expected_git_blob": "2e49c1d383cd5b5ef24b3b3e62cdc36df3939311",
+      "git_blob_matches": true
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/src/live_data/live_odds_data_handling.py",
+      "url": "https://raw.githubusercontent.com/ellache/nba-tipoff-scraper/b1fb92f10d61b94e44bb3d760e9ac269c706a7ab/src/live_data/live_odds_data_handling.py",
+      "status": 200,
+      "request_started_at": "2026-09-20T00:01:23.534459+00:00",
+      "received_at": "2026-09-20T00:01:23.728269+00:00",
+      "sha256": "e1bd8b580df9d5bca36888775e940e691b35d15da3e323f0ec15d3b871b216b4",
+      "bytes": 8978,
+      "expected_git_blob": "213848ea6c08d33d8c9c94a96031b9d94152767f",
+      "git_blob_matches": true
+    },
+    {
+      "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/tipoff/src/live_data/live_odds_retrieval.py",
+      "url": "https://raw.githubusercontent.com/ellache/nba-tipoff-scraper/b1fb92f10d61b94e44bb3d760e9ac269c706a7ab/src/live_data/live_odds_retrieval.py",
+      "request_started_at": "2026-09-20T00:02:42.524208+00:00",
+      "received_at": "2026-09-20T00:02:42.739800+00:00",
+      "status": 200,
+      "bytes": 45194,
+      "sha256": "fa7b82867ee0a540ebd545a89d6259f5b7da2e62dfacc59444019e1663e6a965",
+      "expected_git_blob": "93baa94c008f97418c64fcc6e5f96f78bc0c2f30",
+      "git_blob_matches": true
+    }
+  ],
+  "findings": [
+    "Actual FanDuel American player prices in the latest sampled file; parser selects displayed First Basket market.",
+    "Retained fetchedDatetime is host-local datetime.now() without timezone; gameDatetime is null in sampled FanDuel records.",
+    "Current retrieval code reads FanDuel tsstart but intermediate createSingleOddsDict drops it unless passed through optional kwargs, which default callers do not supply.",
+    "No bookmaker update timestamp retained in sampled objects; publisher collection clock is object-construction time.",
+    "The sampled mgm entries and inspected mgmOdds parser are first-points TEAM markets, with no individual player boards.",
+    "Archive is jsonpickle-shaped JSON. Read with json.loads only; never deserialize Python objects, decode embedded object directives, import or execute publisher code.",
+    "Publisher model probabilities, tips, Kelly values and fitted outputs were ignored; only source schema and literal prices inspected."
+  ],
+  "status": "Concrete additional first-basket price source, but no qualified independent replication cohort established. Full 339-file nonempty corpus not downloaded or graded."
+}

@@ -1,0 +1,212 @@
+{
+  "purpose": "Post-grading audit of all seven winning selections, not a new selection or statistical test",
+  "winning_board_audits": [
+    {
+      "game_id": "202502030DEN",
+      "player": "Trey Murphy III",
+      "fanduel_decimal": 13.0,
+      "betmgm_decimal": 9.75,
+      "outcome": {
+        "first_points": 1,
+        "game_clock": "11:44",
+        "independent_name": "Trey Murphy III",
+        "listed": true,
+        "publisher_compared": true,
+        "scorer": "murphtr02",
+        "status": "resolved"
+      },
+      "git_commit": "12c902cf1c2641feec85f4c9dbed34b467021e26",
+      "commit_clock": "2025-02-03T23:21:36Z",
+      "decision": "2025-02-03T23:21:35.894794+00:00",
+      "fanduel_full_board_matches": true,
+      "betmgm_full_board_matches": true,
+      "source": {
+        "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/12c902cf1c2641feec85f4c9dbed34b467021e26/data/odds_first_basket.csv",
+        "request_started_at": "2026-09-20T00:00:31.230934+00:00",
+        "received_at": "2026-09-20T00:00:31.725157+00:00",
+        "status": 200,
+        "bytes": 1684101,
+        "sha256": "34b971716524cae1b06d6bb5d60bd6c2203d2b6c0516a0fd60396d7d9e286ec7",
+        "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/odds-12c902cf1c2641feec85f4c9dbed34b467021e26.csv"
+      }
+    },
+    {
+      "game_id": "202502040POR",
+      "player": "Anfernee Simons",
+      "fanduel_decimal": 9.0,
+      "betmgm_decimal": 6.75,
+      "outcome": {
+        "first_points": 3,
+        "game_clock": "11:40",
+        "independent_name": "Anfernee Simons",
+        "listed": true,
+        "publisher_compared": true,
+        "scorer": "simonan01",
+        "status": "resolved"
+      },
+      "git_commit": "377d431ae64d33d6f56fcc47d7a587e93581f673",
+      "commit_clock": "2025-02-05T02:49:01Z",
+      "decision": "2025-02-05T02:49:01.066876+00:00",
+      "fanduel_full_board_matches": true,
+      "betmgm_full_board_matches": true,
+      "source": {
+        "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/377d431ae64d33d6f56fcc47d7a587e93581f673/data/odds_first_basket.csv",
+        "request_started_at": "2026-09-20T00:00:31.231473+00:00",
+        "received_at": "2026-09-20T00:00:31.635511+00:00",
+        "status": 200,
+        "bytes": 1740733,
+        "sha256": "b9c2d5643b5be9f328a00373e970ae7964241253417e91322c7ccef15695b5a7",
+        "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/odds-377d431ae64d33d6f56fcc47d7a587e93581f673.csv"
+      }
+    },
+    {
+      "game_id": "202502120DAL",
+      "player": "Olivier-Maxence Prosper",
+      "fanduel_decimal": 18.0,
+      "betmgm_decimal": 8.5,
+      "outcome": {
+        "first_points": 2,
+        "game_clock": "11:26",
+        "independent_name": "Olivier-Maxence Prosper",
+        "listed": true,
+        "publisher_compared": true,
+        "scorer": "prospol01",
+        "status": "resolved"
+      },
+      "git_commit": "99c0c1860e316ece5ec3fbabc3a7c93322e9acbe",
+      "commit_clock": "2025-02-12T23:21:15Z",
+      "decision": "2025-02-12T23:21:14.586128+00:00",
+      "fanduel_full_board_matches": true,
+      "betmgm_full_board_matches": true,
+      "source": {
+        "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/99c0c1860e316ece5ec3fbabc3a7c93322e9acbe/data/odds_first_basket.csv",
+        "request_started_at": "2026-09-20T00:00:31.231615+00:00",
+        "received_at": "2026-09-20T00:00:31.790363+00:00",
+        "status": 200,
+        "bytes": 2128061,
+        "sha256": "24ccba2dc9a55e8f0054a69df0b2d57b482288ddc70b0e50b9259844eb53e6a0",
+        "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/odds-99c0c1860e316ece5ec3fbabc3a7c93322e9acbe.csv"
+      }
+    },
+    {
+      "game_id": "202503020ORL",
+      "player": "Immanuel Quickley",
+      "fanduel_decimal": 12.0,
+      "betmgm_decimal": 9.25,
+      "outcome": {
+        "first_points": 2,
+        "game_clock": "11:44",
+        "independent_name": "Immanuel Quickley",
+        "listed": true,
+        "publisher_compared": true,
+        "scorer": "quickim01",
+        "status": "resolved"
+      },
+      "git_commit": "dbd2fef2304ed45edc996b78acd4e519a2a5eaa1",
+      "commit_clock": "2025-03-02T20:17:27Z",
+      "decision": "2025-03-02T20:17:26.687982+00:00",
+      "fanduel_full_board_matches": true,
+      "betmgm_full_board_matches": true,
+      "source": {
+        "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/dbd2fef2304ed45edc996b78acd4e519a2a5eaa1/data/odds_first_basket.csv",
+        "request_started_at": "2026-09-20T00:00:31.675881+00:00",
+        "received_at": "2026-09-20T00:00:32.055379+00:00",
+        "status": 200,
+        "bytes": 2609906,
+        "sha256": "01ac6809826a75d9861013f93d66529f3dcc6793ad4fe1d5e9c663b4079a48e4",
+        "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/odds-dbd2fef2304ed45edc996b78acd4e519a2a5eaa1.csv"
+      }
+    },
+    {
+      "game_id": "202503090OKC",
+      "player": "Aaron Gordon",
+      "fanduel_decimal": 15.0,
+      "betmgm_decimal": 9.75,
+      "outcome": {
+        "first_points": 3,
+        "game_clock": "11:14",
+        "independent_name": "Aaron Gordon",
+        "listed": true,
+        "publisher_compared": true,
+        "scorer": "gordoaa01",
+        "status": "resolved"
+      },
+      "git_commit": "c457e91d8358fad785e623d4227c2c7670e07d05",
+      "commit_clock": "2025-03-09T16:23:52Z",
+      "decision": "2025-03-09T16:23:51.439035+00:00",
+      "fanduel_full_board_matches": true,
+      "betmgm_full_board_matches": true,
+      "source": {
+        "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/c457e91d8358fad785e623d4227c2c7670e07d05/data/odds_first_basket.csv",
+        "request_started_at": "2026-09-20T00:00:31.753168+00:00",
+        "received_at": "2026-09-20T00:00:32.504292+00:00",
+        "status": 200,
+        "bytes": 2873719,
+        "sha256": "23b1eae3cbccd32d61d63621db7804a9f0bcb56dbc9629abe6c35e517eb14c2d",
+        "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/odds-c457e91d8358fad785e623d4227c2c7670e07d05.csv"
+      }
+    },
+    {
+      "game_id": "202503090POR",
+      "player": "Tim Hardaway Jr",
+      "fanduel_decimal": 13.0,
+      "betmgm_decimal": 9.75,
+      "outcome": {
+        "first_points": 2,
+        "game_clock": "11:42",
+        "independent_name": "Tim Hardaway Jr.",
+        "listed": true,
+        "publisher_compared": true,
+        "scorer": "hardati02",
+        "status": "resolved"
+      },
+      "git_commit": "710082afba7bb85d04b7d52f6487b087722d2084",
+      "commit_clock": "2025-03-09T22:21:52Z",
+      "decision": "2025-03-09T22:21:51.262179+00:00",
+      "fanduel_full_board_matches": true,
+      "betmgm_full_board_matches": true,
+      "source": {
+        "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/710082afba7bb85d04b7d52f6487b087722d2084/data/odds_first_basket.csv",
+        "request_started_at": "2026-09-20T00:00:31.820347+00:00",
+        "received_at": "2026-09-20T00:00:32.205542+00:00",
+        "status": 200,
+        "bytes": 2911385,
+        "sha256": "7d2dbdbf1b1e09eced14b4ddfb2258f88a8511d41356c265f87eacbd8e5a9d1e",
+        "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/odds-710082afba7bb85d04b7d52f6487b087722d2084.csv"
+      }
+    },
+    {
+      "game_id": "202503230MIA",
+      "player": "DaQuan Jeffries",
+      "fanduel_decimal": 16.0,
+      "betmgm_decimal": 11.0,
+      "outcome": {
+        "first_points": 2,
+        "game_clock": "11:36",
+        "independent_name": "DaQuan Jeffries",
+        "listed": true,
+        "publisher_compared": true,
+        "scorer": "jeffrda01",
+        "status": "resolved"
+      },
+      "git_commit": "65a388c4eaca90925afc70a9fd17c6208f8f40a7",
+      "commit_clock": "2025-03-23T19:17:16Z",
+      "decision": "2025-03-23T19:17:16.411985+00:00",
+      "fanduel_full_board_matches": true,
+      "betmgm_full_board_matches": true,
+      "source": {
+        "url": "https://raw.githubusercontent.com/martinbog19/LeFirstBasket/65a388c4eaca90925afc70a9fd17c6208f8f40a7/data/odds_first_basket.csv",
+        "request_started_at": "2026-09-20T00:00:32.121981+00:00",
+        "received_at": "2026-09-20T00:00:32.601505+00:00",
+        "status": 200,
+        "bytes": 3405860,
+        "sha256": "1a09ab4348329d7e1eda2ec3bae36a6a1e002cac6a54b788f55ad1f355be2189",
+        "path": "data/raw/nba-first-score-wedge-2026-09-19/history-search/odds-65a388c4eaca90925afc70a9fd17c6208f8f40a7.csv"
+      }
+    }
+  ],
+  "history_commit_count": 255,
+  "history_first_commit": "2024-12-02T01:48:23Z",
+  "history_last_commit": "2025-05-12T22:28:02Z",
+  "scope": "Matching historical Git commits reinforce retained quote provenance; commit clocks are publisher-controlled and are not accepted-wager or independent publication receipts."
+}
