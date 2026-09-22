@@ -36,10 +36,27 @@ Read it as: if Pinnacle's no-vig price says an NFL team is +295, a bet365 price 
 
 With the payout curve fitted on 2012–2015 only, bets on 2016–2019 where the model showed positive EV (2,005 bets, predicted +4.6%) returned -4.6% plain and **+1.3% with the payout** (standard error 4.4%). The realized lift again matches. Moneyline returns on 2,000 bets cannot confirm a 2–5% edge by themselves; the case rests on the two measured components, price shading and conversion rate.
 
+## Soccer: 2 goals ahead (bet365, and FanDuel's version)
+
+FanDuel runs the same rule on soccer moneylines: the bet pays once the team goes two goals up. Goal timelines come from Understat shot data for the top five European leagues, 2014/15 to 2024/25, rebuilt from every shot's minute and result; they reproduce the final score in 99.9% of 18,883 matches. Prices are Pinnacle and bet365 from football-data. Half-time scores alone catch only a third of the triggers (0.64% of team-games against 1.75% with full timelines), which is why the earlier half-time estimate looked too small.
+
+| Fair win prob | Fair odds | Break-even with payout | Max discount | bet365 vs fair (history) | bet365 EV with payout |
+| --- | --- | --- | ---: | ---: | ---: |
+| 10–20% | +551 | **+484** | 10.3% | -7.4% | +3.7% |
+| 20–30% | +298 | **+271** | 6.6% | -6.4% | +0.4% |
+| 30–40% | +187 | **+172** | 5.3% | -5.1% | +0.3% |
+| 40–50% | +124 | **+115** | 3.9% | -4.0% | -0.1% |
+| 50–60% | -121 | **-130** | 3.0% | -3.3% | -0.3% |
+| 60–70% | -183 | **-198** | 2.8% | -3.3% | -0.5% |
+
+Fair probability here is Pinnacle's closing no-vig price. bet365 shades its 1X2 prices by almost exactly what its own offer is worth, so across the board it is roughly break-even. Picking only the bet365 prices that beat break-even against Pinnacle's price at the same capture (curve fitted on 2014–2018, bets in 2019–2025) gave 7,724 bets with an expected +2.6% measured against Pinnacle's close and a realized +2.1% (SE 2.3%). Returns were positive in 2019–2022 and negative in 2023–2024. Marginal.
+
+**FanDuel.** No historical FanDuel soccer prices were available here, so its side of the check has to be done live. The payout is worth the same at any book. If FanDuel prices its soccer moneylines closer to fair than bet365 does, or does not shade for the offer, teams with a 10–40% chance are where it pays. A FanDuel price at or above the break-even column is +EV. Confirm which leagues qualify and that it applies to the pre-match 3-way moneyline.
+
 ## How to use it
 
-1. For each NFL, college football or NBA game, take Pinnacle's two moneylines and remove the vig to get the fair win probability.
-2. Find the row in the table and compare bet365's price with the break-even price. Bet when bet365 is at or above it, ideally by a point or two of EV.
+1. For each NFL, college football, NBA or soccer game, take Pinnacle's moneylines (three for soccer) and remove the vig to get the fair win probability.
+2. Find the row in the table and compare the book's price (bet365, or FanDuel for soccer) with the break-even price. Bet when the book is at or above it, ideally by a point or two of EV.
 3. Focus on underdogs from about +150 to +500. Favorites rarely clear it because the payout adds little to a price that is already short.
 4. Check the terms in the Ontario app: pre-game moneylines only, and confirm which sports and leagues qualify there. College football and MLB were not confirmed for Ontario in the sources found.
 5. Expect long losing runs. Underdog moneylines at a 2–4% edge need several hundred bets before results mean much.
@@ -48,13 +65,13 @@ With the payout curve fitted on 2012–2015 only, bets on 2016–2019 where the 
 
 - The college bet365 prices are from 2012–2019, before the offer existed. bet365 may now shade underdog prices further to pay for it. Compare live prices with Pinnacle before relying on the historical shading.
 - bet365 limits accounts that win. Expect the useful life to be finite.
-- MLB (5+ runs), NHL (3+ goals) and soccer (2+ goals) were not sized. For soccer, half-time scores give only a lower bound on the payout (about 0.6% of bets). That is too small against bet365's 5–6% 1X2 shading, so soccer was left out.
+- MLB (5+ runs) and NHL (3+ goals) were not sized.
 
 ## Other routes checked this round
 
 These were exploratory passes and are not in a committed script:
 
-- **bet365 vs Pinnacle, soccer 1X2** (football-data mirror, 84,500 matches, 2012–2025): bet365 prices above Pinnacle's fair value returned +1.2% over 14,500 bets (SE 1.65%). Adding the 2-goal payout at the half-time lower bound gave +2.6% out of sample (9,841 bets, SE 2.2%), negative since 2023. Not usable.
+- **bet365 vs Pinnacle, soccer 1X2, no payout** (football-data mirror, 84,500 matches, 2012–2025): bet365 prices above Pinnacle's fair value returned +1.2% over 14,500 bets (SE 1.65%). Not usable alone; the payout version is above.
 - **College football 6-point teasers** (14,666 games, 2006–2025): legs mostly win 60–72%; even the best underdog windows sit at or below 73.9% out of sample.
 - **College opener model** (ratings from prior closing lines vs DraftKings, Bovada and 5Dimes openers): the model misses the close by 5+ points against the opener's 1.8, and where it disagrees the line moves against it (48% ATS).
 - **NBA points middles across books**: one-point gaps lose 2.8%; two-point gaps break even (+0.4%, 285 cases).
@@ -66,7 +83,7 @@ These were exploratory passes and are not in a committed script:
 
 ```bash
 python tools/explore_nfl_teasers.py      # provides data/raw/nfl-teasers/games.csv
-python tools/explore_early_payout.py     # downloads ~700 MB of play-by-play; writes reports/early-payout-2026-09-22.json
+python tools/explore_early_payout.py     # downloads ~700 MB of play-by-play plus soccer shot data; needs `rdata`; writes reports/early-payout-2026-09-22.json
 ```
 
 Early Payout terms: [bet365 rules by sport](https://news.bet365.com/en-us/article/bet365-early-payouts-rules-for-mlb-nfl-wnba-ncaaf-nhl-nba-ncaab-soccer-cfl/2025111918544324796), [VegasInsider summary](https://www.vegasinsider.com/sportsbooks/bet365/early-payout/), [Pikkit explainer](https://pikkit.com/blog/bet365-early-payout). These were read as search summaries; the pages were blocked here.

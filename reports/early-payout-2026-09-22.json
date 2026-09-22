@@ -3,7 +3,8 @@
   "sources": {
     "nfl": "nflverse pbp releases + nfldata games.csv 62997a7 closing moneylines",
     "nba": "sportsdataverse espn_nba_pbp releases (pregame spread per game)",
-    "ncaaf": "sportsdataverse/cfbfastR-data 3fd6249bd5eee46cbadec294e21f72e0f6bcc3d8: pbp, schedules, cfb_line_odds"
+    "ncaaf": "sportsdataverse/cfbfastR-data 3fd6249bd5eee46cbadec294e21f72e0f6bcc3d8: pbp, schedules, cfb_line_odds",
+    "soccer": "JaseZiv/worldfootballR_data 2df143967509ff45584e261a2a033687346d654b Understat shots; huhao930422-debug/football-odds-mirror 1e0806f066496bf4687d795652b0039b091f29a5 football-data prices"
   },
   "decision_tables": {
     "NFL 17+ (2006-2025)": [
@@ -315,6 +316,68 @@
         "breakeven_bet365_odds": -195,
         "max_price_discount": 0.021
       }
+    ],
+    "Soccer 2 goals (2014-2025, Pinnacle closing fair)": [
+      {
+        "fair_prob": "0.1-0.2",
+        "team_games": 5698,
+        "extra": 0.0177,
+        "se": 0.0017,
+        "lift_vs_win_prob": 0.115,
+        "fair_odds": 551,
+        "breakeven_bet365_odds": 484,
+        "max_price_discount": 0.103
+      },
+      {
+        "fair_prob": "0.2-0.3",
+        "team_games": 7208,
+        "extra": 0.0179,
+        "se": 0.0016,
+        "lift_vs_win_prob": 0.071,
+        "fair_odds": 298,
+        "breakeven_bet365_odds": 271,
+        "max_price_discount": 0.066
+      },
+      {
+        "fair_prob": "0.3-0.4",
+        "team_games": 7243,
+        "extra": 0.0195,
+        "se": 0.0016,
+        "lift_vs_win_prob": 0.056,
+        "fair_odds": 187,
+        "breakeven_bet365_odds": 172,
+        "max_price_discount": 0.053
+      },
+      {
+        "fair_prob": "0.4-0.5",
+        "team_games": 5897,
+        "extra": 0.0183,
+        "se": 0.0017,
+        "lift_vs_win_prob": 0.041,
+        "fair_odds": 124,
+        "breakeven_bet365_odds": 115,
+        "max_price_discount": 0.039
+      },
+      {
+        "fair_prob": "0.5-0.6",
+        "team_games": 4231,
+        "extra": 0.017,
+        "se": 0.002,
+        "lift_vs_win_prob": 0.031,
+        "fair_odds": -121,
+        "breakeven_bet365_odds": -130,
+        "max_price_discount": 0.03
+      },
+      {
+        "fair_prob": "0.6-0.7",
+        "team_games": 2796,
+        "extra": 0.0186,
+        "se": 0.0026,
+        "lift_vs_win_prob": 0.029,
+        "fair_odds": -183,
+        "breakeven_bet365_odds": -198,
+        "max_price_discount": 0.028
+      }
     ]
   },
   "nfl_dogs_at_consensus_prices": {
@@ -400,6 +463,78 @@
       "roi_plain": 0.019,
       "roi_with_payout": 0.0874,
       "se": 0.0891
+    }
+  },
+  "soccer_summary": {
+    "matches": 18883,
+    "team_games": 37766,
+    "extra_all": 0.0175,
+    "extra_halftime_only": 0.0064
+  },
+  "soccer_bet365_vs_pinnacle": [
+    {
+      "fair_prob": "0.0-0.1",
+      "team_games": 2085,
+      "bet365_vs_fair": -0.1255,
+      "extra": 0.0149,
+      "expected_ev_with_payout": 0.08
+    },
+    {
+      "fair_prob": "0.1-0.2",
+      "team_games": 5698,
+      "bet365_vs_fair": -0.0743,
+      "extra": 0.0177,
+      "expected_ev_with_payout": 0.0365
+    },
+    {
+      "fair_prob": "0.2-0.3",
+      "team_games": 7208,
+      "bet365_vs_fair": -0.0639,
+      "extra": 0.0179,
+      "expected_ev_with_payout": 0.0035
+    },
+    {
+      "fair_prob": "0.3-0.4",
+      "team_games": 7243,
+      "bet365_vs_fair": -0.0508,
+      "extra": 0.0195,
+      "expected_ev_with_payout": 0.0026
+    },
+    {
+      "fair_prob": "0.4-0.5",
+      "team_games": 5897,
+      "bet365_vs_fair": -0.0402,
+      "extra": 0.0183,
+      "expected_ev_with_payout": -0.0008
+    },
+    {
+      "fair_prob": "0.5-0.6",
+      "team_games": 4231,
+      "bet365_vs_fair": -0.033,
+      "extra": 0.017,
+      "expected_ev_with_payout": -0.0029
+    },
+    {
+      "fair_prob": "0.6-0.7",
+      "team_games": 2796,
+      "bet365_vs_fair": -0.033,
+      "extra": 0.0186,
+      "expected_ev_with_payout": -0.0051
+    }
+  ],
+  "soccer_bet365_test_2019_2025": {
+    "bets": 7724,
+    "mean_ev_hat": 0.0372,
+    "ev_vs_pinnacle_close_with_payout": 0.0257,
+    "roi_with_payout": 0.021,
+    "se": 0.0226,
+    "roi_by_season": {
+      "2019": 0.0889,
+      "2020": 0.1205,
+      "2021": 0.0248,
+      "2022": 0.0409,
+      "2023": -0.1391,
+      "2024": -0.063
     }
   }
 }

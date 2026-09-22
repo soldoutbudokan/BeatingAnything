@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Value of bet365's standing moneyline Early Payout (NFL/NCAAF 17+, NBA 20+) from play-by-play.
+"""Value of moneyline early payouts: bet365 NFL/NCAAF 17+, NBA 20+; bet365/FanDuel soccer 2 goals ahead.
 
 python tools/explore_early_payout.py
 First run downloads nflverse NFL pbp 2006-2025, ESPN NBA pbp 2012-2025 (sportsdataverse) and
-cfbfastR college pbp 2012-2021 (streamed; only per-game max leads are kept), plus college lines.
+cfbfastR college pbp 2012-2021 (streamed; only per-game max leads are kept), plus college lines,
+Understat shot timelines (big-5 leagues 2014/15-2024/25) and football-data prices. Needs `rdata`.
 Writes reports/early-payout-2026-09-22.json. No wagers.
 
 A bet that loses or ties but whose team led by the threshold at any point pays as a win, so the
@@ -174,9 +175,97 @@ for thr in (0.0, 0.02, 0.04):
 print(pd.DataFrame(bet365_by_prob).to_string(index=False))
 print(json.dumps(bet365_test, indent=1))
 
+# %% soccer: goal timelines from Understat shots (worldfootballR_data), prices from a football-data mirror
+import rdata  # noqa: E402
+
+SOC = RAW / "soccer"
+WFR = "2df143967509ff45584e261a2a033687346d654b"
+FD_MIRROR, FD_COMMIT = "huhao930422-debug/football-odds-mirror", "1e0806f066496bf4687d795652b0039b091f29a5"
+LEAGUES = {"epl": "premier-league", "la_liga": "la-liga", "serie_a": "serie-a", "bundesliga": "bundesliga", "ligue_1": "ligue-1"}
+shots = []
+for key in LEAGUES:
+    f = get(f"https://raw.githubusercontent.com/JaseZiv/worldfootballR_data/{WFR}/data/understat_shots/{key}_shot_data.rds", SOC / f"{key}_shot_data.rds")
+    x = pd.DataFrame(rdata.conversion.convert(rdata.parser.parse_file(f), default_encoding="latin1"))
+    shots.append(x[["id", "minute", "result", "h_a", "home_away", "match_id", "home_team", "away_team", "home_goals", "away_goals", "date"]].assign(lg=LEAGUES[key]))
+sh = pd.concat(shots, ignore_index=True)
+for c in ["id", "minute", "match_id", "home_goals", "away_goals"]:
+    sh[c] = pd.to_numeric(sh[c])
+sh["side"] = sh.h_a.astype(str).where(sh.h_a.notna(), sh.home_away.astype(str)).str.lower().str[0]  # 2022+ rows use home_away
+goals = sh[sh.result.astype(str).isin(["Goal", "OwnGoal"])].copy()
+goals["home_goal"] = np.where(goals.result.astype(str) == "Goal", goals.side == "h", goals.side == "a")  # own goals count for the other side
+goals = goals.sort_values(["match_id", "minute", "id"])
+goals["gd"] = np.where(goals.home_goal, 1, -1)
+goals["gd"] = goals.groupby("match_id").gd.cumsum()
+U = sh.groupby("match_id").agg(lg=("lg", "first"), date=("date", "first"), home_team=("home_team", "first"), away_team=("away_team", "first"),
+                               hg=("home_goals", "first"), ag=("away_goals", "first"))
+U = U.join(goals.groupby("match_id").gd.agg(home_max="max", home_min="min")).join(goals.groupby("match_id").home_goal.agg(n_home="sum", n="size"))
+U = U.fillna({"home_max": 0, "home_min": 0, "n_home": 0, "n": 0}).reset_index()
+U = U[(U.n_home == U.hg) & (U.n - U.n_home == U.ag)]  # timeline reproduces the final score
+U["home_max"], U["home_min"] = U.home_max.clip(lower=0), U.home_min.clip(upper=0)
+U["day"] = pd.to_datetime(U.date.astype(str)).dt.normalize()
+fd = []
+for lg in LEAGUES.values():
+    for y in range(14, 25):
+        f = get(f"https://raw.githubusercontent.com/{FD_MIRROR}/{FD_COMMIT}/data/{lg}/season-{y:02d}{y + 1:02d}.csv", SOC / f"fd/{lg}-{y:02d}{y + 1:02d}.csv")
+        x = pd.read_csv(f, encoding="latin-1")
+        x.columns = [c.replace("\ufeff", "").replace("ï»¿", "") for c in x.columns]
+        fd.append(x.assign(lg=lg, season=2000 + y))
+F = pd.concat(fd, ignore_index=True)
+F["day"] = pd.to_datetime(F.Date, dayfirst=True, errors="coerce").dt.normalize()
+F = F.dropna(subset=["day", "FTHG", "FTAG"])
+key = ["lg", "day", "hg", "ag"]  # learn team-name map from matches unique on league, date and score
+Uk, Fk = U[~U.duplicated(key, keep=False)], F.rename(columns={"FTHG": "hg", "FTAG": "ag"})
+Fk = Fk[~Fk.duplicated(key, keep=False)]
+P = Uk.merge(Fk[key + ["HomeTeam", "AwayTeam"]], on=key)
+votes = pd.concat([P[["lg", "home_team", "HomeTeam"]].set_axis(["lg", "u", "f"], axis=1), P[["lg", "away_team", "AwayTeam"]].set_axis(["lg", "u", "f"], axis=1)])
+names = votes.value_counts().reset_index().drop_duplicates(["lg", "u"]).set_index(["lg", "u"]).f
+U["HomeTeam"] = [names.get(k) for k in zip(U.lg, U.home_team)]
+U["AwayTeam"] = [names.get(k) for k in zip(U.lg, U.away_team)]
+J = pd.concat([U.assign(day=U.day + pd.Timedelta(days=s)).merge(F, on=["lg", "day", "HomeTeam", "AwayTeam"]) for s in (0, -1, 1)]).drop_duplicates("match_id")
+J = J[(J.FTHG == J.hg) & (J.FTAG == J.ag)]
+cols = ["PSH", "PSD", "PSA", "B365H", "B365A"]
+J = J.dropna(subset=cols)
+J = J[(J[cols].astype(float) > 1).all(axis=1)]
+
+
+def devig(a):
+    ip = 1 / a
+    return ip / ip.sum(1, keepdims=True)
+
+
+early = devig(J[["PSH", "PSD", "PSA"]].astype(float).values)
+has_close = J[["PSCH", "PSCD", "PSCA"]].notna().all(axis=1).values
+close = np.where(has_close[:, None], devig(J[["PSCH", "PSCD", "PSCA"]].astype(float).fillna(2).values), early)
+soc = pd.concat([pd.DataFrame(dict(season=J.season.values, p=close[:, 0], p_early=early[:, 0], d=J.B365H.astype(float).values, maxlead=J.home_max.values,
+                                   won=(J.FTHG > J.FTAG).values, ht=(J.HTHG - J.HTAG).values)),
+                 pd.DataFrame(dict(season=J.season.values, p=close[:, 2], p_early=early[:, 2], d=J.B365A.astype(float).values, maxlead=-J.home_min.values,
+                                   won=(J.FTAG > J.FTHG).values, ht=(J.HTAG - J.HTHG).values))], ignore_index=True)
+soc["trig"] = soc.maxlead >= 2
+soc["ret_promo"] = np.where(soc.won | soc.trig, soc.d - 1, -1.0)
+soccer_summary = {"matches": int(len(J)), "team_games": int(len(soc)), "extra_all": round(((soc.trig) & ~soc.won).mean(), 4),
+                  "extra_halftime_only": round(((soc.ht >= 2) & ~soc.won).mean(), 4)}
+bet365_soccer = []
+for lo, hi in zip([0.0] + BINS[:-1], BINS):
+    x = soc[(soc.p > lo) & (soc.p <= hi)]
+    e = (x.trig & ~x.won).mean()
+    bet365_soccer.append({"fair_prob": f"{lo:.1f}-{hi:.1f}", "team_games": len(x), "bet365_vs_fair": round((x.d * x.p - 1).mean(), 4),
+                          "extra": round(e, 4), "expected_ev_with_payout": round(((x.p + e) * x.d - 1).mean(), 4)})
+tr, te = soc[soc.season <= 2018], soc[soc.season >= 2019].copy()
+rate = tr.assign(e=tr.trig & ~tr.won).groupby(pd.cut(tr.p, np.linspace(0, 1, 21)), observed=False).e.mean()
+rate = rate.fillna(rate.mean()).values
+mids = np.linspace(0.025, 0.975, 20)
+te["ev_hat"] = (te.p_early + np.interp(te.p_early, mids, rate)) * te.d - 1  # decision uses prices seen together
+te["ev_close"] = (te.p + np.interp(te.p, mids, rate)) * te.d - 1  # same bets judged against Pinnacle's close
+sel = te[te.ev_hat > 0]
+bet365_soccer_test = {"bets": len(sel), "mean_ev_hat": round(sel.ev_hat.mean(), 4), "ev_vs_pinnacle_close_with_payout": round(sel.ev_close.mean(), 4),
+                      "roi_with_payout": round(sel.ret_promo.mean(), 4), "se": round(sel.ret_promo.std() / np.sqrt(len(sel)), 4),
+                      "roi_by_season": sel.groupby("season").ret_promo.mean().round(4).to_dict()}
+print(soccer_summary, json.dumps(bet365_soccer, indent=1), bet365_soccer_test)
+
 # %% decision tables
 tables = {"NFL 17+ (2006-2025)": curve(nfl, 17), "NFL 17+ (2016-2025)": curve(nfl[nfl.season >= 2016], 17),
-          "NCAAF 17+ (2012-2021)": curve(cfb, 17), "NBA 20+ (2012-2025)": curve(nba, 20), "NBA 20+ (2019-2025)": curve(nba[nba.season >= 2019], 20)}
+          "NCAAF 17+ (2012-2021)": curve(cfb, 17), "NBA 20+ (2012-2025)": curve(nba, 20), "NBA 20+ (2019-2025)": curve(nba[nba.season >= 2019], 20),
+          "Soccer 2 goals (2014-2025, Pinnacle closing fair)": curve(soc, 2)}
 for k, v in tables.items():
     print(k)
     print(pd.DataFrame(v).to_string(index=False))
@@ -186,7 +275,9 @@ OUT.write_text(json.dumps({
     "rules": "bet365 standing Early Payout on pre-game moneylines: NFL/NCAAF 17+, NBA 20+ (verify current terms in-app)",
     "sources": {"nfl": "nflverse pbp releases + nfldata games.csv 62997a7 closing moneylines",
                 "nba": "sportsdataverse espn_nba_pbp releases (pregame spread per game)",
-                "ncaaf": f"sportsdataverse/cfbfastR-data {CFB_COMMIT}: pbp, schedules, cfb_line_odds"},
+                "ncaaf": f"sportsdataverse/cfbfastR-data {CFB_COMMIT}: pbp, schedules, cfb_line_odds",
+                "soccer": f"JaseZiv/worldfootballR_data {WFR} Understat shots; {FD_MIRROR} {FD_COMMIT} football-data prices"},
     "decision_tables": tables, "nfl_dogs_at_consensus_prices": nfl_consensus_prices,
-    "ncaaf_bet365_vs_pinnacle_2012_2019": bet365_by_prob, "ncaaf_bet365_test_2016_2019": bet365_test}, indent=2, default=float) + "\n")
+    "ncaaf_bet365_vs_pinnacle_2012_2019": bet365_by_prob, "ncaaf_bet365_test_2016_2019": bet365_test,
+    "soccer_summary": soccer_summary, "soccer_bet365_vs_pinnacle": bet365_soccer, "soccer_bet365_test_2019_2025": bet365_soccer_test}, indent=2, default=float) + "\n")
 print("wrote", OUT.relative_to(ROOT))
