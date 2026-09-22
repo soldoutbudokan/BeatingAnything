@@ -1,0 +1,22 @@
+{
+  "note": "Early-payout scanner settings. Promo rules are what each book advertises; check the app's terms and edit here. Sports without a curve in early_payout_curves.json are ignored.",
+  "promos": {
+    "fanduel": {"SOCCER": 2},
+    "bet365": {"NFL": 17, "NCAAF": 17, "NBA": 20, "SOCCER": 2}
+  },
+  "bettingpros": {
+    "books": {"pinnacle": 2, "fanduel": 10, "bet365": 24, "draftkings": 12, "betmgm": 19, "caesars": 13, "thescore": 33, "betrivers": 18, "fanatics": 14},
+    "exchanges": {"novig": 60, "prophetx": 38, "kalshi": 68, "polymarket": 73, "polymarket_us": 75},
+    "moneyline_market": {"NFL": 1, "NCAAF": 1, "NBA": 1, "SOCCER": 242},
+    "days_ahead": 3
+  },
+  "rules": {
+    "min_ev": 0.02,
+    "max_ev": 0.15,
+    "vig_band": [1.0, 1.15],
+    "max_quote_age_minutes": 180,
+    "kelly_fraction": 0.25,
+    "max_stake_fraction": 0.02,
+    "bankroll": 1000
+  }
+}

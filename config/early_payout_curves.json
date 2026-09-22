@@ -1,0 +1,199 @@
+{
+  "note": "extra = P(team reaches the payout lead and does not win), by fair win probability. Generated from the analysis in reports/early-payout-2026-09-22.md; interpolate linearly between points.",
+  "sports": {
+    "NFL": {
+      "threshold": 17,
+      "source": "nflverse pbp + closing moneylines, 2006-2025",
+      "points": [
+        {
+          "p": 0.1584,
+          "extra": 0.0107,
+          "n": 559
+        },
+        {
+          "p": 0.253,
+          "extra": 0.0164,
+          "n": 1343
+        },
+        {
+          "p": 0.3521,
+          "extra": 0.0108,
+          "n": 1756
+        },
+        {
+          "p": 0.4466,
+          "extra": 0.0105,
+          "n": 1615
+        },
+        {
+          "p": 0.5553,
+          "extra": 0.0141,
+          "n": 1561
+        },
+        {
+          "p": 0.6479,
+          "extra": 0.0074,
+          "n": 1756
+        },
+        {
+          "p": 0.7472,
+          "extra": 0.0059,
+          "n": 1348
+        },
+        {
+          "p": 0.848,
+          "extra": 0.005,
+          "n": 603
+        }
+      ]
+    },
+    "NCAAF": {
+      "threshold": 17,
+      "source": "cfbfastR pbp + consensus moneylines, 2012-2021",
+      "points": [
+        {
+          "p": 0.0443,
+          "extra": 0.002,
+          "n": 1525
+        },
+        {
+          "p": 0.1513,
+          "extra": 0.0118,
+          "n": 1441
+        },
+        {
+          "p": 0.2509,
+          "extra": 0.018,
+          "n": 1496
+        },
+        {
+          "p": 0.351,
+          "extra": 0.0162,
+          "n": 1232
+        },
+        {
+          "p": 0.4472,
+          "extra": 0.0186,
+          "n": 1075
+        },
+        {
+          "p": 0.5542,
+          "extra": 0.021,
+          "n": 1047
+        },
+        {
+          "p": 0.649,
+          "extra": 0.013,
+          "n": 1232
+        },
+        {
+          "p": 0.7491,
+          "extra": 0.0067,
+          "n": 1496
+        },
+        {
+          "p": 0.9037,
+          "extra": 0.0044,
+          "n": 2966
+        }
+      ]
+    },
+    "NBA": {
+      "threshold": 20,
+      "source": "ESPN pbp, win prob from pregame spread, 2019-2025",
+      "points": [
+        {
+          "p": 0.1579,
+          "extra": 0.009,
+          "n": 1227
+        },
+        {
+          "p": 0.2506,
+          "extra": 0.0132,
+          "n": 2500
+        },
+        {
+          "p": 0.3529,
+          "extra": 0.0145,
+          "n": 3182
+        },
+        {
+          "p": 0.4392,
+          "extra": 0.0075,
+          "n": 1868
+        },
+        {
+          "p": 0.5616,
+          "extra": 0.0146,
+          "n": 1844
+        },
+        {
+          "p": 0.6471,
+          "extra": 0.0138,
+          "n": 3182
+        },
+        {
+          "p": 0.7494,
+          "extra": 0.0088,
+          "n": 2500
+        },
+        {
+          "p": 0.8478,
+          "extra": 0.0083,
+          "n": 1333
+        }
+      ]
+    },
+    "SOCCER": {
+      "threshold": 2,
+      "source": "Understat goal timelines, big-5 leagues, Pinnacle closing fair, 2014/15-2024/25",
+      "points": [
+        {
+          "p": 0.0696,
+          "extra": 0.0149,
+          "n": 2085
+        },
+        {
+          "p": 0.1536,
+          "extra": 0.0177,
+          "n": 5698
+        },
+        {
+          "p": 0.2516,
+          "extra": 0.0179,
+          "n": 7208
+        },
+        {
+          "p": 0.3487,
+          "extra": 0.0195,
+          "n": 7243
+        },
+        {
+          "p": 0.4473,
+          "extra": 0.0183,
+          "n": 5897
+        },
+        {
+          "p": 0.5484,
+          "extra": 0.017,
+          "n": 4231
+        },
+        {
+          "p": 0.6462,
+          "extra": 0.0186,
+          "n": 2796
+        },
+        {
+          "p": 0.745,
+          "extra": 0.0085,
+          "n": 1759
+        },
+        {
+          "p": 0.8451,
+          "extra": 0.0141,
+          "n": 849
+        }
+      ]
+    }
+  }
+}
