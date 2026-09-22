@@ -26,7 +26,13 @@ BettingPros lists NFL, college football, NBA and MLS. It does not list Pinnacle 
 
 ## Routine
 
-Proposed schedule: hourly at :17, 10:00–00:00 Eastern (`17 14-23,0-4 * * *` UTC). Notifications off at the routine level; the session sends one push notification only when new playable prices appear.
+`trig_01UHusCXLyAry36A9XDudAoU`, created 2026-09-22 and enabled: hourly at :17, 10:00–00:00 Eastern (`17 14-23,0-4 * * *` UTC; an hour earlier in winter). Notifications are off at the routine level; the session sends one push notification only when new playable prices appear. Manage it at https://claude.ai/code/routines/.
+
+Setup still needed before it produces anything:
+
+1. Add `BETTINGPROS_API_KEY` to the routine's environment variables. Until then each firing replies with the missing-key line and commits nothing.
+2. Attach `soldoutbudokan/BeatingAnything` to the routine as a repository source, so fired sessions can push to main. It was created without one.
+3. Turn on GitHub Pages: repository Settings → Pages → Deploy from a branch → `main`, folder `/docs`. The site then lives at https://soldoutbudokan.github.io/BeatingAnything/.
 
 Prompt:
 
