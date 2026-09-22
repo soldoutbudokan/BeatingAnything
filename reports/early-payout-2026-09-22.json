@@ -1,0 +1,405 @@
+{
+  "rules": "bet365 standing Early Payout on pre-game moneylines: NFL/NCAAF 17+, NBA 20+ (verify current terms in-app)",
+  "sources": {
+    "nfl": "nflverse pbp releases + nfldata games.csv 62997a7 closing moneylines",
+    "nba": "sportsdataverse espn_nba_pbp releases (pregame spread per game)",
+    "ncaaf": "sportsdataverse/cfbfastR-data 3fd6249bd5eee46cbadec294e21f72e0f6bcc3d8: pbp, schedules, cfb_line_odds"
+  },
+  "decision_tables": {
+    "NFL 17+ (2006-2025)": [
+      {
+        "fair_prob": "0.1-0.2",
+        "team_games": 559,
+        "extra": 0.0107,
+        "se": 0.0044,
+        "lift_vs_win_prob": 0.068,
+        "fair_odds": 531,
+        "breakeven_bet365_odds": 491,
+        "max_price_discount": 0.063
+      },
+      {
+        "fair_prob": "0.2-0.3",
+        "team_games": 1343,
+        "extra": 0.0164,
+        "se": 0.0035,
+        "lift_vs_win_prob": 0.065,
+        "fair_odds": 295,
+        "breakeven_bet365_odds": 271,
+        "max_price_discount": 0.061
+      },
+      {
+        "fair_prob": "0.3-0.4",
+        "team_games": 1756,
+        "extra": 0.0108,
+        "se": 0.0025,
+        "lift_vs_win_prob": 0.031,
+        "fair_odds": 184,
+        "breakeven_bet365_odds": 176,
+        "max_price_discount": 0.03
+      },
+      {
+        "fair_prob": "0.4-0.5",
+        "team_games": 1615,
+        "extra": 0.0105,
+        "se": 0.0025,
+        "lift_vs_win_prob": 0.024,
+        "fair_odds": 124,
+        "breakeven_bet365_odds": 119,
+        "max_price_discount": 0.023
+      },
+      {
+        "fair_prob": "0.5-0.6",
+        "team_games": 1561,
+        "extra": 0.0141,
+        "se": 0.003,
+        "lift_vs_win_prob": 0.025,
+        "fair_odds": -125,
+        "breakeven_bet365_odds": -132,
+        "max_price_discount": 0.025
+      },
+      {
+        "fair_prob": "0.6-0.7",
+        "team_games": 1756,
+        "extra": 0.0074,
+        "se": 0.002,
+        "lift_vs_win_prob": 0.011,
+        "fair_odds": -184,
+        "breakeven_bet365_odds": -190,
+        "max_price_discount": 0.011
+      }
+    ],
+    "NFL 17+ (2016-2025)": [
+      {
+        "fair_prob": "0.1-0.2",
+        "team_games": 244,
+        "extra": 0.0041,
+        "se": 0.0041,
+        "lift_vs_win_prob": 0.026,
+        "fair_odds": 543,
+        "breakeven_bet365_odds": 527,
+        "max_price_discount": 0.026
+      },
+      {
+        "fair_prob": "0.2-0.3",
+        "team_games": 697,
+        "extra": 0.0201,
+        "se": 0.0053,
+        "lift_vs_win_prob": 0.08,
+        "fair_odds": 297,
+        "breakeven_bet365_odds": 268,
+        "max_price_discount": 0.074
+      },
+      {
+        "fair_prob": "0.3-0.4",
+        "team_games": 918,
+        "extra": 0.0098,
+        "se": 0.0033,
+        "lift_vs_win_prob": 0.028,
+        "fair_odds": 184,
+        "breakeven_bet365_odds": 176,
+        "max_price_discount": 0.027
+      },
+      {
+        "fair_prob": "0.4-0.5",
+        "team_games": 895,
+        "extra": 0.0056,
+        "se": 0.0025,
+        "lift_vs_win_prob": 0.013,
+        "fair_odds": 124,
+        "breakeven_bet365_odds": 122,
+        "max_price_discount": 0.012
+      },
+      {
+        "fair_prob": "0.5-0.6",
+        "team_games": 869,
+        "extra": 0.0127,
+        "se": 0.0038,
+        "lift_vs_win_prob": 0.023,
+        "fair_odds": -125,
+        "breakeven_bet365_odds": -132,
+        "max_price_discount": 0.022
+      },
+      {
+        "fair_prob": "0.6-0.7",
+        "team_games": 918,
+        "extra": 0.0109,
+        "se": 0.0034,
+        "lift_vs_win_prob": 0.017,
+        "fair_odds": -184,
+        "breakeven_bet365_odds": -193,
+        "max_price_discount": 0.017
+      }
+    ],
+    "NCAAF 17+ (2012-2021)": [
+      {
+        "fair_prob": "0.1-0.2",
+        "team_games": 1441,
+        "extra": 0.0118,
+        "se": 0.0028,
+        "lift_vs_win_prob": 0.078,
+        "fair_odds": 561,
+        "breakeven_bet365_odds": 513,
+        "max_price_discount": 0.072
+      },
+      {
+        "fair_prob": "0.2-0.3",
+        "team_games": 1496,
+        "extra": 0.018,
+        "se": 0.0034,
+        "lift_vs_win_prob": 0.072,
+        "fair_odds": 299,
+        "breakeven_bet365_odds": 272,
+        "max_price_discount": 0.067
+      },
+      {
+        "fair_prob": "0.3-0.4",
+        "team_games": 1232,
+        "extra": 0.0162,
+        "se": 0.0036,
+        "lift_vs_win_prob": 0.046,
+        "fair_odds": 185,
+        "breakeven_bet365_odds": 172,
+        "max_price_discount": 0.044
+      },
+      {
+        "fair_prob": "0.4-0.5",
+        "team_games": 1075,
+        "extra": 0.0186,
+        "se": 0.0041,
+        "lift_vs_win_prob": 0.042,
+        "fair_odds": 124,
+        "breakeven_bet365_odds": 115,
+        "max_price_discount": 0.04
+      },
+      {
+        "fair_prob": "0.5-0.6",
+        "team_games": 1047,
+        "extra": 0.021,
+        "se": 0.0044,
+        "lift_vs_win_prob": 0.038,
+        "fair_odds": -124,
+        "breakeven_bet365_odds": -135,
+        "max_price_discount": 0.037
+      },
+      {
+        "fair_prob": "0.6-0.7",
+        "team_games": 1232,
+        "extra": 0.013,
+        "se": 0.0032,
+        "lift_vs_win_prob": 0.02,
+        "fair_odds": -185,
+        "breakeven_bet365_odds": -196,
+        "max_price_discount": 0.02
+      }
+    ],
+    "NBA 20+ (2012-2025)": [
+      {
+        "fair_prob": "0.1-0.2",
+        "team_games": 2250,
+        "extra": 0.0071,
+        "se": 0.0018,
+        "lift_vs_win_prob": 0.045,
+        "fair_odds": 534,
+        "breakeven_bet365_odds": 507,
+        "max_price_discount": 0.043
+      },
+      {
+        "fair_prob": "0.2-0.3",
+        "team_games": 4747,
+        "extra": 0.0099,
+        "se": 0.0014,
+        "lift_vs_win_prob": 0.04,
+        "fair_odds": 299,
+        "breakeven_bet365_odds": 284,
+        "max_price_discount": 0.038
+      },
+      {
+        "fair_prob": "0.3-0.4",
+        "team_games": 6069,
+        "extra": 0.0124,
+        "se": 0.0014,
+        "lift_vs_win_prob": 0.035,
+        "fair_odds": 184,
+        "breakeven_bet365_odds": 175,
+        "max_price_discount": 0.034
+      },
+      {
+        "fair_prob": "0.4-0.5",
+        "team_games": 3531,
+        "extra": 0.0079,
+        "se": 0.0015,
+        "lift_vs_win_prob": 0.018,
+        "fair_odds": 127,
+        "breakeven_bet365_odds": 123,
+        "max_price_discount": 0.018
+      },
+      {
+        "fair_prob": "0.5-0.6",
+        "team_games": 3383,
+        "extra": 0.0127,
+        "se": 0.0019,
+        "lift_vs_win_prob": 0.023,
+        "fair_odds": -128,
+        "breakeven_bet365_odds": -135,
+        "max_price_discount": 0.022
+      },
+      {
+        "fair_prob": "0.6-0.7",
+        "team_games": 6069,
+        "extra": 0.0102,
+        "se": 0.0013,
+        "lift_vs_win_prob": 0.016,
+        "fair_odds": -184,
+        "breakeven_bet365_odds": -193,
+        "max_price_discount": 0.016
+      }
+    ],
+    "NBA 20+ (2019-2025)": [
+      {
+        "fair_prob": "0.1-0.2",
+        "team_games": 1227,
+        "extra": 0.009,
+        "se": 0.0027,
+        "lift_vs_win_prob": 0.057,
+        "fair_odds": 533,
+        "breakeven_bet365_odds": 499,
+        "max_price_discount": 0.054
+      },
+      {
+        "fair_prob": "0.2-0.3",
+        "team_games": 2500,
+        "extra": 0.0132,
+        "se": 0.0023,
+        "lift_vs_win_prob": 0.053,
+        "fair_odds": 299,
+        "breakeven_bet365_odds": 279,
+        "max_price_discount": 0.05
+      },
+      {
+        "fair_prob": "0.3-0.4",
+        "team_games": 3182,
+        "extra": 0.0145,
+        "se": 0.0021,
+        "lift_vs_win_prob": 0.041,
+        "fair_odds": 183,
+        "breakeven_bet365_odds": 172,
+        "max_price_discount": 0.039
+      },
+      {
+        "fair_prob": "0.4-0.5",
+        "team_games": 1868,
+        "extra": 0.0075,
+        "se": 0.002,
+        "lift_vs_win_prob": 0.017,
+        "fair_odds": 128,
+        "breakeven_bet365_odds": 124,
+        "max_price_discount": 0.017
+      },
+      {
+        "fair_prob": "0.5-0.6",
+        "team_games": 1844,
+        "extra": 0.0146,
+        "se": 0.0028,
+        "lift_vs_win_prob": 0.026,
+        "fair_odds": -128,
+        "breakeven_bet365_odds": -136,
+        "max_price_discount": 0.025
+      },
+      {
+        "fair_prob": "0.6-0.7",
+        "team_games": 3182,
+        "extra": 0.0138,
+        "se": 0.0021,
+        "lift_vs_win_prob": 0.021,
+        "fair_odds": -183,
+        "breakeven_bet365_odds": -195,
+        "max_price_discount": 0.021
+      }
+    ]
+  },
+  "nfl_dogs_at_consensus_prices": {
+    "bets": 4169,
+    "roi_plain": -0.0289,
+    "roi_with_payout": 0.0172,
+    "se": 0.025
+  },
+  "ncaaf_bet365_vs_pinnacle_2012_2019": [
+    {
+      "fair_prob": "0.1-0.2",
+      "team_games": 1169,
+      "bet365_vs_fair": -0.0453,
+      "extra": 0.0137,
+      "expected_ev_with_payout": 0.0435,
+      "realized_roi_plain": -0.2823,
+      "realized_roi_with_payout": -0.2047
+    },
+    {
+      "fair_prob": "0.2-0.3",
+      "team_games": 1234,
+      "bet365_vs_fair": -0.0435,
+      "extra": 0.0186,
+      "expected_ev_with_payout": 0.0286,
+      "realized_roi_plain": -0.0916,
+      "realized_roi_with_payout": -0.0177
+    },
+    {
+      "fair_prob": "0.3-0.4",
+      "team_games": 1067,
+      "bet365_vs_fair": -0.0299,
+      "extra": 0.0169,
+      "expected_ev_with_payout": 0.017,
+      "realized_roi_plain": -0.0101,
+      "realized_roi_with_payout": 0.0375
+    },
+    {
+      "fair_prob": "0.4-0.5",
+      "team_games": 895,
+      "bet365_vs_fair": -0.032,
+      "extra": 0.0201,
+      "expected_ev_with_payout": 0.0116,
+      "realized_roi_plain": 0.0359,
+      "realized_roi_with_payout": 0.0792
+    },
+    {
+      "fair_prob": "0.5-0.6",
+      "team_games": 867,
+      "bet365_vs_fair": -0.0415,
+      "extra": 0.0231,
+      "expected_ev_with_payout": -0.0014,
+      "realized_roi_plain": -0.1005,
+      "realized_roi_with_payout": -0.0599
+    },
+    {
+      "fair_prob": "0.6-0.7",
+      "team_games": 1067,
+      "bet365_vs_fair": -0.0357,
+      "extra": 0.0131,
+      "expected_ev_with_payout": -0.0161,
+      "realized_roi_plain": -0.0384,
+      "realized_roi_with_payout": -0.0192
+    }
+  ],
+  "ncaaf_bet365_test_2016_2019": {
+    "ev_hat>0.0": {
+      "bets": 2005,
+      "mean_ev_hat": 0.0462,
+      "roi_plain": -0.0455,
+      "roi_with_payout": 0.0128,
+      "se": 0.0435
+    },
+    "ev_hat>0.02": {
+      "bets": 1281,
+      "mean_ev_hat": 0.0672,
+      "roi_plain": 0.0102,
+      "roi_with_payout": 0.067,
+      "se": 0.0618
+    },
+    "ev_hat>0.04": {
+      "bets": 794,
+      "mean_ev_hat": 0.0908,
+      "roi_plain": 0.019,
+      "roi_with_payout": 0.0874,
+      "se": 0.0891
+    }
+  }
+}

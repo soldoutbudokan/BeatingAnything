@@ -4,6 +4,10 @@ Updated September 19, 2026 (Toronto). Current research objective: find an edge i
 
 **Current execution status: blocked on new qualified first-score prices; no edge is established.** Later-price/reference diagnostics weaken the positive seven-bet lead, and the actual current NBA feed contains no first-score offers. The two earlier first-basket price candidates remain closed. Golf G11 remains parked on its own qualified-price dependency.
 
+## September 22: bet365 Early Payout sized
+
+`tools/explore_early_payout.py` measures how often a team reaches the payout lead and fails to win (NFL 2006–2025, college 2012–2021, NBA 2012–2025) and backtests bet365's actual 2012–2019 college moneylines against Pinnacle. Results: `reports/early-payout-2026-09-22.json`; summary and break-even table: [early payout report](reports/early-payout-2026-09-22.md). Raw play-by-play is under the ignored `data/raw/early-payout/`.
+
 ## September 22: NFL teaser edge; NBA prop routes tested
 
 `tools/explore_nfl_teasers.py` scores 6-point teaser legs from nflverse closing lines (commit `62997a7`). The total ≤ 49 filter was chosen on 1999–2014; on 2015–2025 the Wong-window legs under that filter won 77.2% of 613 (bootstrap CI 73.5–80.7%). Results: `reports/nfl-teasers-2026-09-22.json`. `tools/explore_nba_props_edges.py` tests an 11-book consensus model, and teammate Overs when a 20+ ppg star sits, using official injury reports issued before each snapshot. Neither is established. Results: `reports/nba-props-edges-2026-09-22.json`. Summary: [edge search report](reports/edge-search-2026-09-22.md). Raw inputs are under the ignored `data/raw/nfl-teasers/` and `data/raw/nba-props-edges/`.
