@@ -1,0 +1,287 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/nflverse/nfldata/62997a79c23f4dbc7d70b0c7cbcff94e0a7e3138/data/games.csv",
+    "sha256": "6048e3576f195d6000fe5304625c5a1284f1ca42b778b19b3331f1a276e05f0b",
+    "fields": "closing spread_line, total_line, final result"
+  },
+  "tease_points": 6,
+  "breakeven_per_leg": {
+    "2-team -110": 0.7237,
+    "2-team -120 (DraftKings)": 0.7385,
+    "2-team -134 (FanDuel, reported high)": 0.7567,
+    "3-team +160 (DraftKings)": 0.7272
+  },
+  "training_1999_2014": {
+    "all": {
+      "legs": 644,
+      "win_rate": 0.7298,
+      "ci95": [
+        0.6955,
+        0.7641
+      ]
+    },
+    "total<=49": {
+      "legs": 589,
+      "win_rate": 0.7385,
+      "ci95": [
+        0.7031,
+        0.774
+      ]
+    },
+    "total>49": {
+      "legs": 55,
+      "win_rate": 0.6364,
+      "ci95": [
+        0.5092,
+        0.7635
+      ]
+    },
+    "underdog": {
+      "legs": 409,
+      "win_rate": 0.7311,
+      "ci95": [
+        0.6881,
+        0.774
+      ]
+    },
+    "favorite": {
+      "legs": 235,
+      "win_rate": 0.7277,
+      "ci95": [
+        0.6707,
+        0.7846
+      ]
+    }
+  },
+  "test_2015_2025": {
+    "wong": {
+      "legs": 747,
+      "win_rate": 0.7617,
+      "ci95": [
+        0.7312,
+        0.7923
+      ],
+      "ev_per_teaser": {
+        "2-team -110": 0.1076,
+        "2-team -120 (DraftKings)": 0.0637,
+        "2-team -134 (FanDuel, reported high)": 0.0132,
+        "3-team +160 (DraftKings)": 0.149
+      }
+    },
+    "wong_total<=49 (selected rule)": {
+      "legs": 613,
+      "win_rate": 0.7716,
+      "ci95": [
+        0.7384,
+        0.8048
+      ],
+      "ev_per_teaser": {
+        "2-team -110": 0.1366,
+        "2-team -120 (DraftKings)": 0.0915,
+        "2-team -134 (FanDuel, reported high)": 0.0397,
+        "3-team +160 (DraftKings)": 0.1944
+      }
+    },
+    "diag: wong_dogs": {
+      "legs": 491,
+      "win_rate": 0.776,
+      "ci95": [
+        0.7391,
+        0.8128
+      ],
+      "ev_per_teaser": {
+        "2-team -110": 0.1496,
+        "2-team -120 (DraftKings)": 0.104,
+        "2-team -134 (FanDuel, reported high)": 0.0516,
+        "3-team +160 (DraftKings)": 0.215
+      }
+    },
+    "diag: wong_favorites": {
+      "legs": 256,
+      "win_rate": 0.7344,
+      "ci95": [
+        0.6803,
+        0.7885
+      ],
+      "ev_per_teaser": {
+        "2-team -110": 0.0297,
+        "2-team -120 (DraftKings)": -0.0112,
+        "2-team -134 (FanDuel, reported high)": -0.0582,
+        "3-team +160 (DraftKings)": 0.0298
+      }
+    },
+    "diag: all_other_legs": {
+      "legs": 5230,
+      "win_rate": 0.6916,
+      "ci95": [
+        0.6791,
+        0.7041
+      ],
+      "ev_per_teaser": {
+        "2-team -110": -0.0869,
+        "2-team -120 (DraftKings)": -0.1231,
+        "2-team -134 (FanDuel, reported high)": -0.1647,
+        "3-team +160 (DraftKings)": -0.1399
+      }
+    }
+  },
+  "wong_since_publication_2001_2025": {
+    "legs": 1298,
+    "win_rate": 0.7496,
+    "ci95": [
+      0.726,
+      0.7732
+    ]
+  },
+  "selected_rule_by_season": {
+    "2015": {
+      "legs": 54,
+      "win_rate": 0.7778,
+      "ci95": [
+        0.6669,
+        0.8887
+      ]
+    },
+    "2016": {
+      "legs": 52,
+      "win_rate": 0.8654,
+      "ci95": [
+        0.7726,
+        0.9582
+      ]
+    },
+    "2017": {
+      "legs": 59,
+      "win_rate": 0.7458,
+      "ci95": [
+        0.6347,
+        0.8569
+      ]
+    },
+    "2018": {
+      "legs": 48,
+      "win_rate": 0.7292,
+      "ci95": [
+        0.6034,
+        0.8549
+      ]
+    },
+    "2019": {
+      "legs": 34,
+      "win_rate": 0.7647,
+      "ci95": [
+        0.6221,
+        0.9073
+      ]
+    },
+    "2020": {
+      "legs": 38,
+      "win_rate": 0.8158,
+      "ci95": [
+        0.6925,
+        0.939
+      ]
+    },
+    "2021": {
+      "legs": 46,
+      "win_rate": 0.8696,
+      "ci95": [
+        0.7722,
+        0.9669
+      ]
+    },
+    "2022": {
+      "legs": 58,
+      "win_rate": 0.7069,
+      "ci95": [
+        0.5897,
+        0.824
+      ]
+    },
+    "2023": {
+      "legs": 73,
+      "win_rate": 0.7671,
+      "ci95": [
+        0.6702,
+        0.8641
+      ]
+    },
+    "2024": {
+      "legs": 68,
+      "win_rate": 0.75,
+      "ci95": [
+        0.6471,
+        0.8529
+      ]
+    },
+    "2025": {
+      "legs": 83,
+      "win_rate": 0.747,
+      "ci95": [
+        0.6535,
+        0.8405
+      ]
+    },
+    "2026": {
+      "legs": 10,
+      "win_rate": 0.4,
+      "ci95": [
+        0.0964,
+        0.7036
+      ]
+    }
+  },
+  "realized_record_2015_2025": {
+    "2-team -110": {
+      "teasers": 254,
+      "won": 149,
+      "units": 30.45,
+      "roi": 0.1199,
+      "max_drawdown_units": 6.64,
+      "losing_seasons": 3
+    },
+    "2-team -120 (DraftKings)": {
+      "teasers": 254,
+      "won": 149,
+      "units": 19.17,
+      "roi": 0.0755,
+      "max_drawdown_units": 8.0,
+      "losing_seasons": 4
+    },
+    "2-team -134 (FanDuel, reported high)": {
+      "teasers": 254,
+      "won": 149,
+      "units": 6.19,
+      "roi": 0.0244,
+      "max_drawdown_units": 9.57,
+      "losing_seasons": 5
+    },
+    "3-team +160 (DraftKings)": {
+      "teasers": 132,
+      "won": 69,
+      "units": 47.4,
+      "roi": 0.3591,
+      "max_drawdown_units": 6.0,
+      "losing_seasons": 1
+    }
+  },
+  "bootstrap_2015_2025": {
+    "win_rate_ci95": [
+      0.7351,
+      0.8074
+    ],
+    "p_below_breakeven_-120": 0.0352,
+    "p_below_breakeven_+160_3team": 0.0096
+  },
+  "current": {
+    "season_2026_to_date": {
+      "legs": 10,
+      "win_rate": 0.4,
+      "ci95": [
+        0.0964,
+        0.7036
+      ]
+    },
+    "open_2026_candidates": 9
+  }
+}

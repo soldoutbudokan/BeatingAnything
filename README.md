@@ -1,6 +1,8 @@
 # BeatingAnything
 
-**No betting edge demonstrated. First-basket research is blocked on new qualified price evidence; scheduled jobs remain paused.** No betting alert or wager is enabled.
+**Latest, September 22: an out-of-sample edge in NFL 6-point teasers.** Wong-window legs (+1.5 to +2.5, -7.5 to -8.5) in games totaling 49 or less won **77.2% of 613 legs in 2015–2025**, a rule fixed on 1999–2014 data. Break-even is 73.9% at a 2-team -120 teaser and 72.7% at a 3-team +160 (DraftKings' reported prices). It does not survive FanDuel's reported -134. See the [edge search report](reports/edge-search-2026-09-22.md); NBA prop routes tested the same day did not produce an edge. No alert or wager is enabled.
+
+Earlier status: first-basket research is blocked on new qualified price evidence; scheduled jobs remain paused.
 
 Use Python 3.12 and the pinned `requirements-lock.txt` dependencies for the research commands below.
 

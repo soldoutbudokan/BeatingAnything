@@ -4,6 +4,10 @@ Updated September 19, 2026 (Toronto). Current research objective: find an edge i
 
 **Current execution status: blocked on new qualified first-score prices; no edge is established.** Later-price/reference diagnostics weaken the positive seven-bet lead, and the actual current NBA feed contains no first-score offers. The two earlier first-basket price candidates remain closed. Golf G11 remains parked on its own qualified-price dependency.
 
+## September 22: NFL teaser edge; NBA prop routes tested
+
+`tools/explore_nfl_teasers.py` scores 6-point teaser legs from nflverse closing lines (commit `62997a7`). The total ≤ 49 filter was chosen on 1999–2014; on 2015–2025 the Wong-window legs under that filter won 77.2% of 613 (bootstrap CI 73.5–80.7%). Results: `reports/nfl-teasers-2026-09-22.json`. `tools/explore_nba_props_edges.py` tests an 11-book consensus model, and teammate Overs when a 20+ ppg star sits, using official injury reports issued before each snapshot. Neither is established. Results: `reports/nba-props-edges-2026-09-22.json`. Summary: [edge search report](reports/edge-search-2026-09-22.md). Raw inputs are under the ignored `data/raw/nfl-teasers/` and `data/raw/nba-props-edges/`.
+
 ## September 19 continuation: current source checked; bounded capture ready
 
 The [current NBA check](reports/nba-first-score-current-availability-2026-09-19.md) uses observed tournament ID 132. One documented multi-book request returned HTTP 400 requiring singular `bookmaker`; a separately recorded two-request correction succeeded. FanDuel returns five fixtures/30 selections and BetMGM fourteen fixtures/88 selections, starting October 20–23 UTC. All are main lines; **zero first-score markets or player selections**. FanDuel supplies no bookmaker change clock; BetMGM supplies four of 88. Seventy BetMGM selections are active inside explicitly inactive markets, demonstrating why historical selection-active flags alone cannot certify open offers.
