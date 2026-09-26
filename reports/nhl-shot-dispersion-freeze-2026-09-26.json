@@ -1,0 +1,59 @@
+{
+  "phase": "forecast_frozen_before_target_grading",
+  "frozen_at_utc": "2026-09-26T20:25:30.737844+00:00",
+  "script": {
+    "path": "tools/explore_nhl_shot_dispersion.py",
+    "sha256": "6beee610af4f54a647ef3bfa156c78e8170f3daa6bd179e35e2307204e1ec55e"
+  },
+  "forecasts": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/dispersion-forecasts.csv",
+    "sha256": "e44bb37cdad1bae8b1ede7dd05a0419169c11b4e0677e89f320822b17169b9c2"
+  },
+  "forecast_rows": 3419,
+  "games": 270,
+  "selections": 12,
+  "attrition": {
+    "fewer_than_40_prior_games": 107,
+    "source_error_or_no_bookmakers": 12,
+    "source_debug_game_excluded": 1,
+    "player_identity_unresolved": 35,
+    "game_unresolved": 1,
+    "no_fanduel_main_shots_market": 1
+  },
+  "unrecognized_names": {
+    "Elias Pettersson": 15,
+    "Nicholas Paul": 6,
+    "Sebastian Aho": 13,
+    "Yegor Chinakhov": 1
+  },
+  "sport_sources": [
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/player_box_2024.csv",
+      "sha256": "889d439dae5b5a2e831496a3a0dcbea4d385883d68d55b70d55a554169ff6e74"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/player_box_2025.csv",
+      "sha256": "511f58b09996be6165c7ad2a0f475ac029f0206653ce4e11665e1ff8088516b0"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2024.csv",
+      "sha256": "0e70a12579b25af0532d00a0cf8bb5fda7d9eb33a23d76234ca26f2fff4ca4ba"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2025.csv",
+      "sha256": "cff04536329e7a7f3cdf9034786226e6644a7d222486eb70d4a799d12c1f80ba"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/schedule_2025_metadata.csv",
+      "sha256": "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855"
+    }
+  ],
+  "price_manifest": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/manifest.json",
+    "sha256": "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da"
+  },
+  "specification": {
+    "path": "docs/hypotheses/hockey-shots-count-dispersion.md",
+    "sha256": "d45b5988743ad65d121592f2f069b81f796a00ce84ab81ce5805046d382d035c"
+  }
+}
