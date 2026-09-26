@@ -1,0 +1,214 @@
+{
+  "status": "exploratory; previously inspected archive; no executable edge established",
+  "specification": "docs/hypotheses/hockey-shots-crossbook-consensus.md",
+  "freeze": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/consensus-forecast-freeze.json",
+    "sha256": "e57070f1f7fa984c79e1d95f0d2a03ced31ebd134a6fe76913a3ed220b52ef6e"
+  },
+  "frozen_at_utc": "2026-09-26T20:59:15.208004+00:00",
+  "graded_at_utc": "2026-09-26T21:01:32.670167+00:00",
+  "graded_artifact": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/consensus-graded.csv",
+    "sha256": "1f48cebeb361322f0a01785d8dd2f870660aeda99b65ef1120c4f879fefcac0d"
+  },
+  "forecast_inventory": {
+    "forecast_rows": 1299,
+    "games": 109,
+    "selections": 5,
+    "period_forecasts": {
+      "later_january": 707,
+      "early_nov_dec": 592
+    },
+    "attrition": {
+      "publisher_error_payload": 12,
+      "fewer_than_3_fixed_timely_references": 2252,
+      "original_debug_game_excluded": 1,
+      "player_identity_unresolved": 10,
+      "fixture_unresolved": 1,
+      "no_fanduel_main_market": 1
+    },
+    "unrecognized_names": {
+      "Sebastian Aho": 4,
+      "Elias Pettersson": 3,
+      "Nicholas Paul": 3
+    }
+  },
+  "pooled": {
+    "forecasts": 1299,
+    "games": 109,
+    "graded": 1290,
+    "statuses": {
+      "graded": 1290,
+      "unknown_no_box_row": 9
+    },
+    "market_log_loss": 0.6839005908291785,
+    "model_log_loss": 0.6857847812620119,
+    "market_brier": 0.2453920445584315,
+    "model_brier": 0.24633809569105816,
+    "log_loss_change": {
+      "n": 1290,
+      "games": 109,
+      "mean": 0.0018841904328333475,
+      "game_bootstrap_95": [
+        -0.00010937117303403202,
+        0.003941952937469398
+      ]
+    },
+    "brier_change": {
+      "n": 1290,
+      "games": 109,
+      "mean": 0.0009460511326266134,
+      "game_bootstrap_95": [
+        -3.302877210041847e-05,
+        0.0019567611808373126
+      ]
+    },
+    "selections": 5,
+    "selection_statuses": {
+      "graded": 5
+    },
+    "selected_under": 0,
+    "selected_over": 5,
+    "selected_wins": 2,
+    "selected_losses": 3,
+    "settled_units": -0.5888156862745098,
+    "settled_roi": {
+      "n": 5,
+      "games": 5,
+      "mean": -0.11776313725490195,
+      "game_bootstrap_95": [
+        -1.0,
+        0.862396862745098
+      ]
+    },
+    "full_cohort_roi_loss_bound": -0.11776313725490195,
+    "full_cohort_roi_void_bound": -0.11776313725490195,
+    "full_cohort_roi_win_bound": -0.11776313725490195,
+    "mean_selected_model_ev": 0.04655377116702623
+  },
+  "periods": {
+    "early_nov_dec": {
+      "forecasts": 592,
+      "games": 49,
+      "graded": 587,
+      "statuses": {
+        "graded": 587,
+        "unknown_no_box_row": 5
+      },
+      "market_log_loss": 0.686670785061612,
+      "model_log_loss": 0.690700954503299,
+      "market_brier": 0.24677551803533473,
+      "model_brier": 0.24877343438691865,
+      "log_loss_change": {
+        "n": 587,
+        "games": 49,
+        "mean": 0.004030169441686977,
+        "game_bootstrap_95": [
+          0.0008479389252410689,
+          0.007389111396863089
+        ]
+      },
+      "brier_change": {
+        "n": 587,
+        "games": 49,
+        "mean": 0.0019979163515839267,
+        "game_bootstrap_95": [
+          0.00043891112978964154,
+          0.003650925242543858
+        ]
+      },
+      "selections": 4,
+      "selection_statuses": {
+        "graded": 4
+      },
+      "selected_under": 0,
+      "selected_over": 4,
+      "selected_wins": 1,
+      "selected_losses": 3,
+      "settled_units": -2.0392156862745097,
+      "settled_roi": {
+        "n": 4,
+        "games": 4,
+        "mean": -0.5098039215686274,
+        "game_bootstrap_95": [
+          -1.0,
+          0.47058823529411764
+        ]
+      },
+      "full_cohort_roi_loss_bound": -0.5098039215686274,
+      "full_cohort_roi_void_bound": -0.5098039215686274,
+      "full_cohort_roi_win_bound": -0.5098039215686274,
+      "mean_selected_model_ev": 0.04969062160209488
+    },
+    "later_january": {
+      "forecasts": 707,
+      "games": 60,
+      "graded": 703,
+      "statuses": {
+        "graded": 703,
+        "unknown_no_box_row": 4
+      },
+      "market_log_loss": 0.6815874983477583,
+      "model_log_loss": 0.6816798115712074,
+      "market_brier": 0.24423685404500023,
+      "model_brier": 0.24430460520105796,
+      "log_loss_change": {
+        "n": 703,
+        "games": 60,
+        "mean": 9.231322344916539e-05,
+        "game_bootstrap_95": [
+          -0.0022300232339806684,
+          0.0023788363006279154
+        ]
+      },
+      "brier_change": {
+        "n": 703,
+        "games": 60,
+        "mean": 6.775115605770434e-05,
+        "game_bootstrap_95": [
+          -0.0010758303072567158,
+          0.001191689304657228
+        ]
+      },
+      "selections": 1,
+      "selection_statuses": {
+        "graded": 1
+      },
+      "selected_under": 0,
+      "selected_over": 1,
+      "selected_wins": 1,
+      "selected_losses": 0,
+      "settled_units": 1.4504,
+      "settled_roi": {
+        "n": 1,
+        "games": 1,
+        "mean": 1.4504,
+        "game_bootstrap_95": [
+          1.4504,
+          1.4504
+        ]
+      },
+      "full_cohort_roi_loss_bound": 1.4504,
+      "full_cohort_roi_void_bound": 1.4504,
+      "full_cohort_roi_win_bound": 1.4504,
+      "mean_selected_model_ev": 0.0340063694267516
+    }
+  },
+  "limitations": [
+    "Archive outcomes were previously inspected for the completed dispersion test; January is diagnostic, not untouched validation.",
+    "Distinct operators do not establish statistically independent forecast errors or absence of common pricing suppliers.",
+    "Market-update order lacks original receipt/capture and executable-price evidence.",
+    "Global roster names supply identity only, not contemporaneous participation; unresolved grades and selections remain retained.",
+    "Full-game shots including overtime and void for confirmed zero ice time are assumptions; exact historic jurisdiction and terms unverified.",
+    "Source covers33 irregular dates; intervals are whole-game resamples uncorrected for prior hypothesis searches.",
+    "No weights, reference pool, age cutoff, lines or EV threshold retuned after this result.",
+    "January has one selected bet; its singleton bootstrap interval is degenerate and carries no inferential evidence."
+  ],
+  "pregrade_checkpoint_commit": "9ebeee9",
+  "independent_review": {
+    "pregrade": "A separate stdlib parser reconstructed all 1,299 forecasts across 109 games from 285 raw price files, identities and fixtures; all 294 frozen hashes matched. Every median, EV and all five selections matched exactly. Target outcomes were unread.",
+    "postgrade": "An independent boxscore join reproduced all 1,299 statuses, pointwise losses, selected profits, period summaries, unresolved bounds and 10,000-draw game-bootstrap intervals.",
+    "maximum_postgrade_numeric_difference": 4.440892098500626e-16,
+    "frozen_hashes_unchanged": 294
+  }
+}

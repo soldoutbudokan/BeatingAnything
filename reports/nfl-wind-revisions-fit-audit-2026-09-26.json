@@ -1,0 +1,22 @@
+{
+  "audit_at_utc": "2026-09-26T20:52:03.483270+00:00",
+  "scope": "Independent stdlib early-label-only fit and ungraded later-prediction review; no later game results or price-change diagnostics accessed",
+  "training_games": 76,
+  "later_forecasts": 99,
+  "recomputed_gradient_at_zero": 1.462317996505941,
+  "reported_gradient_at_zero": 1.4623179965059414,
+  "recomputed_hessian_at_zero": 2.3718609764001934,
+  "global_hessian_lower_bound": 1.0,
+  "conclusion": "Positive derivative at zero and strictly positive Hessian imply unique constrained optimum beta=0",
+  "recomputed_training_log_loss": 0.6961163545083711,
+  "recomputed_training_brier": 0.2514841711567472,
+  "later_probabilities_exactly_equal_market": true,
+  "later_selections": 0,
+  "highest_later_after_cost_side_ev": -0.05384615384615399,
+  "largest_ev_recalculation_error": 0.0,
+  "source_hashes": {
+    "data/raw/nfl-wind-revisions-2026-09-26/wind-forecasts.csv": "3a194ebd6fbaab6716f9621162085f29ba075dbfb61f7c705cd1427f1469871a",
+    "data/raw/nfl-wind-revisions-2026-09-26/early-training-labels.csv": "3f8fe8add70d70ca5b2c2a1e645939f60b41e2b1c151975f199137316999887b",
+    "data/raw/nfl-wind-revisions-2026-09-26/wind-forecast-freeze.json": "4f4d3df8c3da5ddd8ef83626155b9126e55d23140492666ef31d74d6ce37004b"
+  }
+}

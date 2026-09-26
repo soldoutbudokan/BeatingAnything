@@ -1,0 +1,149 @@
+{
+  "status": "fixed model closed: constrained early fit selects zero correction; later outcomes not read",
+  "forecast_freeze": {
+    "path": "data/raw/nfl-wind-revisions-2026-09-26/wind-forecast-freeze.json",
+    "sha256": "4f4d3df8c3da5ddd8ef83626155b9126e55d23140492666ef31d74d6ce37004b"
+  },
+  "beta": 0.0,
+  "penalized_gradient_at_zero": 1.4623179965059414,
+  "training_games": 76,
+  "training_graded": 76,
+  "training_metrics": {
+    "status": "in-sample calibration only; excluded from later evidence",
+    "market_log_loss": 0.6961163545083711,
+    "model_log_loss": 0.6961163545083711,
+    "market_brier": 0.2514841711567472,
+    "model_brier": 0.2514841711567472
+  },
+  "later_forecasts": 99,
+  "later_results_inspected": 0,
+  "later_selected_bets": 0,
+  "later_probabilities_equal_market_exactly": true,
+  "paired_loss_change_for_any_outcomes": 0.0,
+  "paired_brier_change_for_any_outcomes": 0.0,
+  "later_market_log_loss": null,
+  "later_model_log_loss": null,
+  "later_roi": null,
+  "best_later_forecast_ev_after_haircut": -0.0538461538461539,
+  "eligible_venue_games": 175,
+  "weather_entry_games": 175,
+  "periods": {
+    "later_weeks_9_18": 99,
+    "train_weeks_1_8": 76
+  },
+  "weather_rejects": [],
+  "mos_inventory": [
+    {
+      "station": "KADW",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KAGC",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KBFI",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KBJC",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KBKL",
+      "rows": 11025,
+      "runs": 525
+    },
+    {
+      "station": "KBNA",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KBUF",
+      "rows": 11025,
+      "runs": 525
+    },
+    {
+      "station": "KBWI",
+      "rows": 11025,
+      "runs": 525
+    },
+    {
+      "station": "KCLT",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KCRG",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KGRB",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KLUK",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KMDW",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KMKC",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KOPF",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KOWD",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KPHL",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KSJC",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KTEB",
+      "rows": 11004,
+      "runs": 524
+    },
+    {
+      "station": "KTPA",
+      "rows": 11004,
+      "runs": 524
+    }
+  ],
+  "initialization_lead_hours": {
+    "min": 9.926944444444445,
+    "max": 13.9275
+  },
+  "interpretation": "The positive-direction revision feature does not improve the penalized early fit. With beta exactly zero the later forecast mathematically equals market for every possible result, so grading cannot demonstrate an improvement and is omitted. Zero bets imply undefined ROI, not zero return.",
+  "limitations": [
+    "Exploratory single-season mechanism; earlier archive analyses exist.",
+    "Only76calibration games; this does not prove no weather-related edge exists.",
+    "MOS eight-hour initialization buffer is an availability assumption, and station wind is an airport proxy.",
+    "Sparse bookwide clocks do not establish total-market freshness, accepted fills or verified closing odds.",
+    "No sign reversal, weaker penalty, changed stations or later outcome search follows the zero coefficient."
+  ]
+}

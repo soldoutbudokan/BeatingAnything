@@ -1,0 +1,104 @@
+{
+  "source": {
+    "path": "data/raw/nfl-teaser-review-2026-09-26/games.csv",
+    "sha256": "6048e3576f195d6000fe5304625c5a1284f1ca42b778b19b3331f1a276e05f0b"
+  },
+  "scope": "Original frozen rule/grouping reproduction only; no new strategy or ticket-price assumption",
+  "selected_legs": 615,
+  "outcomes": {
+    "1": 473,
+    "-1": 140,
+    "0": 2
+  },
+  "integer_original_lines": 97,
+  "push_rows": [
+    {
+      "game_id": "2016_07_BAL_NYJ",
+      "season": 2016,
+      "week": 7,
+      "gameday": "2016-10-23",
+      "gametime": "13:00",
+      "game_type": "REG",
+      "side": "away",
+      "line": 2.0,
+      "outcome": 0
+    },
+    {
+      "game_id": "2017_05_KC_HOU",
+      "season": 2017,
+      "week": 5,
+      "gameday": "2017-10-08",
+      "gametime": "20:30",
+      "game_type": "REG",
+      "side": "home",
+      "line": 2.0,
+      "outcome": 0
+    }
+  ],
+  "original_grouping": {
+    "2": {
+      "tickets": 255,
+      "won": 149,
+      "push_tickets": 1,
+      "different_kickoff_tickets": 151,
+      "same_kickoff_tickets": 104
+    },
+    "3": {
+      "tickets": 133,
+      "won": 69,
+      "push_tickets": 1,
+      "different_kickoff_tickets": 98,
+      "same_kickoff_tickets": 35
+    }
+  },
+  "original_push_tickets": {
+    "2": [
+      {
+        "season": 2016,
+        "week": 7,
+        "legs": [
+          {
+            "game_id": "2016_07_CHI_GB",
+            "side": "home",
+            "line": -7.5,
+            "outcome": 1
+          },
+          {
+            "game_id": "2016_07_BAL_NYJ",
+            "side": "away",
+            "line": 2.0,
+            "outcome": 0
+          }
+        ],
+        "has_loss": false
+      }
+    ],
+    "3": [
+      {
+        "season": 2016,
+        "week": 7,
+        "legs": [
+          {
+            "game_id": "2016_07_CHI_GB",
+            "side": "home",
+            "line": -7.5,
+            "outcome": 1
+          },
+          {
+            "game_id": "2016_07_BAL_NYJ",
+            "side": "away",
+            "line": 2.0,
+            "outcome": 0
+          },
+          {
+            "game_id": "2016_07_BUF_MIA",
+            "side": "home",
+            "line": 2.5,
+            "outcome": 1
+          }
+        ],
+        "has_loss": false
+      }
+    ]
+  }
+}

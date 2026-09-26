@@ -1,6 +1,8 @@
 # Edge search, September 22: NFL 6-point teasers clear break-even out of sample
 
-**Result.** One structural edge holds up on data it was not built from: 6-point NFL teaser legs that cross both 3 and 7, in games with a closing total of 49 or less. From 2015 to 2025 those legs won **77.2% of 613** (block-bootstrap 95% CI 73.5–80.7%). DraftKings' reported fixed prices need 73.9% per leg for a 2-team -120 teaser and 72.7% for a 3-team +160. The rule was fixed from 1999–2014 data before the 2015–2025 period was scored. The edge exists only at books that sell teasers at fixed prices. At FanDuel's reported 2-team price of up to -134 (break-even 75.7%) it is close to nothing.
+**September 26 correction:** the positive sporting result is a lead, not demonstrated executable mispricing. The [review](positive-claims-recheck-2026-09-26.md) identifies assumed combined prices and constituent closing lines that may not have existed before the earliest leg began. DraftKings' [current public table](teaser-price-check-2026-09-26.md) lists NFL six-point −135 /+140; the old −120 /+160 assumptions below are not current verified Ontario offers. FanDuel's assumed −134 remains unverified.
+
+**Original September 22 result.** Six-point NFL teaser legs crossing both 3 and 7, in games with a closing total of 49 or less, won **77.2% of 613** in 2015–2025 (block-bootstrap 95% CI 73.5–80.7%). The rule was fixed from 1999–2014 data before that period was scored. The old assumed prices implied 73.9% per-leg break-even for two picks at −120 and 72.7% for three at +160, under independent equal-probability legs. The historical figures below preserve that conditional calculation; they do not verify an actual offered teaser or pre-entry availability of every line.
 
 Four other routes were tested this session and did not produce a usable edge; they are summarized at the end.
 
@@ -13,7 +15,7 @@ Four other routes were tested this session and did not produce a usable edge; th
 
 ## Method
 
-Data: nflverse `games.csv` at commit `62997a7`, closing spread, closing total and final score for 7,300+ games, 1999–2026. Every game gives two legs, one per side. A leg wins if the team's margin plus its line plus 6 is positive. Whole-number teased lines can push; the 2015–2025 test had none.
+Data: nflverse `games.csv` at commit `62997a7`, closing spread, closing total and final score for 7,300+ games, 1999–2026. Every game gives two legs, one per side. A leg wins if the team's margin plus its line plus 6 is positive. **September 26 correction:** the selected 2015–2025 cohort has 615 legs, including two pushes; the reported 613-leg win rate excludes them. The [exact-source audit](teaser-original-cohort-audit-2026-09-26.json) also identifies one omitted push-containing ticket in each grouping. A three-leg ticket with two wins and a push requires reduced-payout settlement rather than deletion.
 
 1. **Wong window, published 2001:** team line from -8.5 to -7.5 or from +1.5 to +2.5.
 2. **Filter choice on 1999–2014 only:**
