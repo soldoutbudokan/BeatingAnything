@@ -17,6 +17,7 @@ RAW = ROOT / 'data/raw/nba-announced-absence-2026-09-26'
 PRICES = RAW / 'prices.json'
 PRICE_SHA = 'f44b4d42fc168e434776a7fd89a2cc9bd09bd470adb13189de7b4270ac048372'
 DECL = ROOT / 'docs/nba-announced-absence-declaration-2026-09-26.md'
+DECL_SHA = '058371edc85691bf315290cb99762f4b1f53ee7e8212a028a7347a63be5d9c74'
 REPORT = ROOT / 'reports/nba-announced-absence-source-inventory-2026-09-26.json'
 DENIED_EVENT = 'df4b9f35b66ef20724b6b3e81081ddfd'
 BOUNDARY = base.parse_iso('2026-01-01T00:00:00Z')
@@ -42,6 +43,7 @@ class Sources:
         self.permit_fetch = permit_fetch
         self.receipts = {}
         self.new_requests = 0
+        self.previous_local_requests = len(list((RAW/'official-report-receipts').glob('*.receipt.json')))
         self.clocks = {}
         self.lines = {}
         # Recovery receipts supersede transport-only originals, never a retained denial.
@@ -63,8 +65,10 @@ class Sources:
             for k in ['body','headers']:
                 assert base.sha(ROOT/r[k+'_path']) == r[k+'_sha256']
             return r,False
-        if self.new_requests >= 1200:
+        if self.new_requests + self.previous_local_requests >= 1200:
             raise RuntimeError('global_request_ceiling')
+        if not self.permit_fetch:
+            raise RuntimeError('missing_receipt_not_acquired')
         r,new = base.fetch(url,self.permit_fetch)
         self.new_requests += int(new)
         self.receipts[url] = r
@@ -105,9 +109,12 @@ class Sources:
 
 def extract(lines,sample,teams):
     target_day = base.parse_iso(sample['provider_start_utc']).astimezone(base.NY).strftime('%m/%d/%Y')
-    target_matchup = teams[sample['away_team']]+'@'+teams[sample['home_team']]
+    # The independently matched schedule uses LA Clippers; retain provider wording separately.
+    canonical = {'Los Angeles Clippers':'LA Clippers'}
+    clubs = [canonical.get(sample[k],sample[k]) for k in ['away_team','home_team']]
+    target_matchup = teams[clubs[0]]+'@'+teams[clubs[1]]
     day = time = matchup = club = None
-    states = {sample[k]:{'seen':False,'not_yet_submitted':False,'status_rows':[]} for k in ['away_team','home_team']}
+    states = {club:{'seen':False,'not_yet_submitted':False,'status_rows':[]} for club in clubs}
     raw, times, ambiguities = [],set(),[]
     for page,line in lines:
         if not line or line.startswith('Injury Report:') or re.fullmatch(r'Page \d+ of \d+',line) or line.startswith('Game Date Game Time'):
@@ -165,12 +172,22 @@ def extract(lines,sample,teams):
                 names[key] = value
                 dedup.append(row)
         state['status_rows'] = dedup
+    player_clubs = {}
+    for club,state in states.items():
+        for row in state['status_rows']:
+            key = base.norm(row['player_literal'])
+            if key in player_clubs and player_clubs[key] != club:
+                ambiguities.append('player_assigned_to_both_teams')
+            player_clubs[key] = club
+    if len(times) > 1:
+        ambiguities.append('conflicting_printed_fixture_times')
     both = all(s['seen'] and s['status_rows'] and not s['not_yet_submitted'] for s in states.values())
     starts = sorted({s for t in times for s in base.printed_start_candidates(target_day,t)})
     matched_starts = [s for s in starts if base.parse_iso(s) == base.parse_iso(sample['independent_start_utc'])]
     qualified = bool(raw) and both and len(matched_starts)==1 and not ambiguities
     out = [(club,r['player_literal']) for club,s in states.items() for r in s['status_rows'] if r['status']=='Out']
     return {'target_matchup':target_matchup,'target_game_date_et':target_day,'matching_fixture_raw_lines':raw,
+        'provider_to_report_team_names':{sample[k]:clubs[i] for i,k in enumerate(['away_team','home_team'])},
         'teams':states,'printed_game_time_et_values':sorted(times),'printed_start_utc_candidates':starts,
         'independent_matched_start_candidates':matched_starts,'ambiguities':sorted(set(ambiguities)),
         'both_teams_submitted':both,'fixture_qualified':qualified,'explicit_out_count':len(out),
@@ -184,6 +201,8 @@ def main():
     args = parser.parse_args()
     assert not REPORT.exists(), 'Preserve completed inventory'
     assert base.sha(PRICES) == PRICE_SHA
+    assert base.sha(DECL) == DECL_SHA
+    assert base.sha(base.__file__) == 'ff3b59b982f3925c3c0624017a652e5ee0f660e53aa0d7404bdced2a794f4164'
     base.RAW = RAW
     sources = Sources(args.fetch)
     teams = base.load_teams()
@@ -235,20 +254,37 @@ def main():
                 'new_requests':sources.new_requests}),flush=True)
         group = [e for e in events if e['period']==period]
         n = sum(e.get('fixture_evidence',{}).get('generous_exposure_ceiling_eligible',False) for e in group)
+        unknown = sum(e['stop_reason'] in {'missing_receipt_not_acquired','global_request_ceiling'} for e in group)
         period_summary[period] = {'price_events':len(group),'stop_counts':dict(Counter(e['stop_reason'] for e in group)),
             'clock_qualified_events':sum('qualified_clock' in e for e in group),
             'fixture_qualified_events':sum(e.get('fixture_evidence',{}).get('fixture_qualified',False) for e in group),
-            'generous_any_out_game_ceiling':n,'source_gate_pass':n>=100}
+            'qualified_any_out_games':n,'unacquired_unknown_games':unknown,
+            'generous_any_out_game_ceiling_including_unacquired':n+unknown,
+            'source_gate_pass':n>=100,'source_gate_cannot_pass_even_if_all_unacquired_qualify':n+unknown<100}
         if n<100:
             break
     result = {'declaration':{'path':base.relative(DECL),'sha256':base.sha(DECL),'commit':'4acb250'},
         'tool':{'path':base.relative(Path(__file__)),'sha256':base.sha(__file__)},
         'shared_clock_fetch_helper':{'path':base.relative(Path(base.__file__)),'sha256':base.sha(base.__file__)},
         'price_inventory':{'path':base.relative(PRICES),'sha256':PRICE_SHA},
-        'new_http_requests':sources.new_requests,'distinct_considered_urls':len({a['url'] for e in events for a in e['attempts']}),
+        'new_http_requests':sources.new_requests+sources.previous_local_requests,
+        'requests_this_invocation':sources.new_requests,'requests_in_retained_first_pass':sources.previous_local_requests,
+        'distinct_considered_urls':len({a['url'] for e in events for a in e['attempts']}),
         'period_summary':period_summary,'events':events,'player_performance_read':False,'forecasts_or_returns_computed':False,
         'scope':'Lagged official-source ceiling only. No star roles, membership, target participation or scoring joined.',
         'source_claim_limit':'Current retained PDFs and server timestamps are retrospective source assertions, not original receipts.'}
+    first_pass = RAW/'first-pass-evidence/source-inventory.partial.json'
+    if first_pass.exists():
+        prior = json.loads(first_pass.read_text())['events']
+        processed_early = [e for e in prior if e['period']=='calibration']
+        possible_known = sum('qualified_clock' in e for e in processed_early)
+        unprocessed = sum(base.parse_iso(s['source_snapshot_utc']) < BOUNDARY for s in prices)-len(processed_early)
+        result['pre_repair_parser_independent_ceiling'] = {
+            'preserved_partial_path':base.relative(first_pass),'sha256':base.sha(first_pass),
+            'processed_early_games':len(processed_early),'clock_qualified_games_counted_as_potential':possible_known,
+            'unprocessed_games_all_counted_as_potential':unprocessed,
+            'upper_bound':possible_known+unprocessed,
+            'explanation':'Counts every clock-qualified and every unprocessed/crashing game as potentially qualifying; relies on no fixture/status parser rejection.'}
     base.write_json(REPORT,result)
     print(json.dumps({k:v for k,v in result.items() if k!='events'},indent=2),flush=True)
 
