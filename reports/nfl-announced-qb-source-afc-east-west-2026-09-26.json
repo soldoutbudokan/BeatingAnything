@@ -1,0 +1,2589 @@
+{
+  "schema_version": 1,
+  "prepared_at_utc": "2026-09-26T22:22:48.064087Z",
+  "status": "bounded_official_source_inventory_complete_no_outcome_evaluation",
+  "assigned_teams": [
+    "BUF",
+    "DEN",
+    "KC",
+    "LAC",
+    "LV",
+    "MIA",
+    "NE",
+    "NYJ"
+  ],
+  "season": 2024,
+  "season_type": "REG",
+  "scope": "Primary official injury/illness replacement announcements, fixture clocks and score-free quote metadata only. No target sporting data or model.",
+  "declaration": {
+    "path": "docs/nfl-announced-qb-expanded-inventory-declaration-2026-09-26.md",
+    "sha256": "ddbeb3acfdaeed37867e8d92755587247e63fb4ba550cff7f9baad2042b971fa",
+    "commit_at_authorization": "79b4bcc"
+  },
+  "quote_dedup_addendum": {
+    "path": "docs/nfl-announced-qb-quote-dedup-addendum-2026-09-26.md",
+    "sha256": "5d14c62045722217803580a6c4fac872fa41e3c3d1cfeccbb981c99f7a2ebf6a"
+  },
+  "inputs": [
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-price-inventory-2026-09-26/eligible-price-rows.csv",
+      "sha256": "a6c788a97b861d14c36f1e26d3f894c79ca226ad8ff13916c2bf97fe01326beb"
+    },
+    {
+      "path": "data/raw/nfl-qb-kneel-props-2026-09-26/games.csv",
+      "sha256": "0c34a519753ada6b5b37f5e8be246021813484adb15ae7c067af9c3aca534d2d"
+    },
+    {
+      "path": "reports/nfl-announced-qb-price-feasibility-2026-09-26.json",
+      "sha256": "e60cedc2767095c81be410e0d68187bc1914f602336fbfe779c53f1cf0c06c58"
+    },
+    {
+      "path": "reports/nfl-announced-qb-expanded-price-inventory-2026-09-26.json",
+      "sha256": "e97dc6434ceba2abdfa7e38aa0ab61552e4271fcd38fadd44bbb2f39ddb195ae"
+    }
+  ],
+  "summary": {
+    "teams_searched": 8,
+    "standardized_queries": 8,
+    "targeted_queries": 11,
+    "qualified_team_games": 4,
+    "all_team_unique_receiver_games_ceiling": 40,
+    "retrospective_team_compatible_unique_receiver_games": 17,
+    "qualified_injury_groups": "Three Miami fixtures share Tua concussion absence; LV Week15 is one injury replacement, with earlier Minshew absence potentially overlapping. No independent-episode inference.",
+    "schedule_team_games_recorded": 136,
+    "retrospective_compatible_plus_unresolved_count": 18,
+    "retrospective_count_note": "17 compatible and18 compatible-plus-unresolved are retrospective attribution counts, not rigorous membership upper bounds.40 all-team is the unconditional ceiling."
+  },
+  "qualified_announcements": [
+    {
+      "game_id": "2024_03_MIA_SEA",
+      "team": "MIA",
+      "week": 3,
+      "incumbent": "Tua Tagovailoa",
+      "replacement": "Skylar Thompson",
+      "absence_episode_candidate": "MIA_Tua_concussion",
+      "required_source_ids": [
+        "tua_ir",
+        "mia-seattle-preview"
+      ],
+      "source_status": "explicit_fixture_confirmation_before_entry",
+      "announcement_clock_utc": "2024-09-20T20:30:41.981Z",
+      "entry_timestamps_utc": [
+        "2024-09-22T19:30:38Z"
+      ],
+      "minimum_announcement_lead_seconds": 169196.019,
+      "all_team_unique_priced_players_upper_bound": 9,
+      "team_compatible_unique_priced_players": 4,
+      "unresolved_retrospective_team_unique_priced_players": 0,
+      "provisional_compatible_players": [
+        {
+          "player": "Jonnu Smith",
+          "player_id": "00-0033858",
+          "roster_positions": "TE"
+        },
+        {
+          "player": "Tyreek Hill",
+          "player_id": "00-0033040",
+          "roster_positions": "WR"
+        },
+        {
+          "player": "Jaylen Waddle",
+          "player_id": "00-0036613",
+          "roster_positions": "WR"
+        },
+        {
+          "player": "De'Von Achane",
+          "player_id": "00-0039040",
+          "roster_positions": "RB"
+        }
+      ],
+      "retrospective_compatible_plus_unresolved_count": 4,
+      "retrospective_team_count_limitation": "Retrospective team-compatible and compatible-plus-unresolved counts are provisional attribution only, not rigorous membership upper bounds. Only all-team count is unconditional; prior-team proxy must be computed separately."
+    },
+    {
+      "game_id": "2024_04_TEN_MIA",
+      "team": "MIA",
+      "week": 4,
+      "incumbent": "Tua Tagovailoa",
+      "replacement": "Tyler Huntley",
+      "absence_episode_candidate": "MIA_Tua_concussion",
+      "required_source_ids": [
+        "tua_ir",
+        "huntley_ten"
+      ],
+      "source_status": "explicit_fixture_confirmation_before_entry",
+      "announcement_clock_utc": "2024-09-28T17:09:57.270Z",
+      "entry_timestamps_utc": [
+        "2024-09-30T22:55:38Z"
+      ],
+      "minimum_announcement_lead_seconds": 193540.73,
+      "all_team_unique_priced_players_upper_bound": 10,
+      "team_compatible_unique_priced_players": 4,
+      "unresolved_retrospective_team_unique_priced_players": 1,
+      "provisional_compatible_players": [
+        {
+          "player": "Jonnu Smith",
+          "player_id": "00-0033858",
+          "roster_positions": "TE"
+        },
+        {
+          "player": "Tyreek Hill",
+          "player_id": "00-0033040",
+          "roster_positions": "WR"
+        },
+        {
+          "player": "Jaylen Waddle",
+          "player_id": "00-0036613",
+          "roster_positions": "WR"
+        },
+        {
+          "player": "De'Von Achane",
+          "player_id": "00-0039040",
+          "roster_positions": "RB"
+        }
+      ],
+      "retrospective_compatible_plus_unresolved_count": 5,
+      "retrospective_team_count_limitation": "Retrospective team-compatible and compatible-plus-unresolved counts are provisional attribution only, not rigorous membership upper bounds. Only all-team count is unconditional; prior-team proxy must be computed separately."
+    },
+    {
+      "game_id": "2024_05_MIA_NE",
+      "team": "MIA",
+      "week": 5,
+      "incumbent": "Tua Tagovailoa",
+      "replacement": "Tyler Huntley",
+      "absence_episode_candidate": "MIA_Tua_concussion",
+      "required_source_ids": [
+        "tua_ir",
+        "huntley_ne"
+      ],
+      "source_status": "explicit_fixture_confirmation_before_entry",
+      "announcement_clock_utc": "2024-10-02T13:26:13.829Z",
+      "entry_timestamps_utc": [
+        "2024-10-06T16:25:37Z"
+      ],
+      "minimum_announcement_lead_seconds": 356363.171,
+      "all_team_unique_priced_players_upper_bound": 12,
+      "team_compatible_unique_priced_players": 5,
+      "unresolved_retrospective_team_unique_priced_players": 0,
+      "provisional_compatible_players": [
+        {
+          "player": "Odell Beckham Jr.",
+          "player_id": "00-0031235",
+          "roster_positions": "WR"
+        },
+        {
+          "player": "Jonnu Smith",
+          "player_id": "00-0033858",
+          "roster_positions": "TE"
+        },
+        {
+          "player": "De'Von Achane",
+          "player_id": "00-0039040",
+          "roster_positions": "RB"
+        },
+        {
+          "player": "Jaylen Waddle",
+          "player_id": "00-0036613",
+          "roster_positions": "WR"
+        },
+        {
+          "player": "Tyreek Hill",
+          "player_id": "00-0033040",
+          "roster_positions": "WR"
+        }
+      ],
+      "retrospective_compatible_plus_unresolved_count": 5,
+      "retrospective_team_count_limitation": "Retrospective team-compatible and compatible-plus-unresolved counts are provisional attribution only, not rigorous membership upper bounds. Only all-team count is unconditional; prior-team proxy must be computed separately."
+    },
+    {
+      "game_id": "2024_15_ATL_LV",
+      "team": "LV",
+      "week": 15,
+      "incumbent": "Aidan O’Connell",
+      "replacement": "Desmond Ridder",
+      "absence_episode_candidate": "LV_OConnell_knee_candidate",
+      "required_source_ids": [
+        "lv-falcons-ridder"
+      ],
+      "source_status": "explicit_fixture_confirmation_before_entry",
+      "announcement_clock_utc": "2024-12-17T00:10:50.239Z",
+      "entry_timestamps_utc": [
+        "2024-12-17T00:55:38Z"
+      ],
+      "minimum_announcement_lead_seconds": 2687.761,
+      "all_team_unique_priced_players_upper_bound": 9,
+      "team_compatible_unique_priced_players": 4,
+      "unresolved_retrospective_team_unique_priced_players": 0,
+      "provisional_compatible_players": [
+        {
+          "player": "Brock Bowers",
+          "player_id": "00-0039338",
+          "roster_positions": "TE"
+        },
+        {
+          "player": "Jakobi Meyers",
+          "player_id": "00-0034960",
+          "roster_positions": "WR"
+        },
+        {
+          "player": "Tre Tucker",
+          "player_id": "00-0038563",
+          "roster_positions": "WR"
+        },
+        {
+          "player": "Michael Mayer",
+          "player_id": "00-0039066",
+          "roster_positions": "TE"
+        }
+      ],
+      "retrospective_compatible_plus_unresolved_count": 4,
+      "retrospective_team_count_limitation": "Retrospective team-compatible and compatible-plus-unresolved counts are provisional attribution only, not rigorous membership upper bounds. Only all-team count is unconditional; prior-team proxy must be computed separately."
+    }
+  ],
+  "sources": [
+    {
+      "id": "mia-seattle-preview",
+      "requested_url": "https://www.miamidolphins.com/news/game-preview-miami-dolphins-at-seattle-seahawks",
+      "canonical_url": "https://www.miamidolphins.com/news/game-preview-miami-dolphins-at-seattle-seahawks",
+      "headline": "Game Preview: Miami Dolphins at Seattle Seahawks",
+      "published_utc": "2024-09-20T15:00:06.374Z",
+      "modified_utc": "2024-09-20T20:30:41.981Z",
+      "conservative_clock_utc": "2024-09-20T20:30:41.981Z",
+      "clock_source": "primary NewsArticle JSON-LD; embedded related-video clocks ignored",
+      "assertion": "Team preview explicitly names Thompson replacing Tagovailoa at Seattle; pair with retained Tua injured-reserve evidence.",
+      "quoted_assertion": "Skylar Thompson fills in for Tua Tagovailoa, making his first start since the 2022 AFC Wild Card game.",
+      "status": "qualified",
+      "receipt_path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/mia-seattle-preview.html",
+      "sha256": "f6755ce775f651f0e5768ce275c62f180fd1c99c22f71d24c2c2c04184799da5",
+      "bytes": 288605,
+      "retrieval_completed_by_utc": "2026-09-26T22:16:25.222335Z",
+      "clock_limitation": "Current source-asserted historical publication/revision times; no contemporaneous 2024 archive receipt."
+    },
+    {
+      "id": "lv-falcons-ridder",
+      "requested_url": "https://www.nfl.com/news/raiders-qb-aidan-o-connell-knee-inactive-monday-vs-falcons-desmond-ridder-to-start",
+      "canonical_url": "https://www.nfl.com/news/raiders-qb-aidan-o-connell-knee-inactive-monday-vs-falcons-desmond-ridder-to-start",
+      "headline": "Raiders QB Aidan O'Connell (knee) inactive Monday vs. Falcons; Desmond Ridder to start",
+      "published_utc": "2024-12-17T00:00:56.135Z",
+      "modified_utc": "2024-12-17T00:10:50.239Z",
+      "conservative_clock_utc": "2024-12-17T00:10:50.239Z",
+      "clock_source": "primary NewsArticle JSON-LD; embedded related-video clocks ignored",
+      "assertion": "Knee-injured O’Connell is inactive; headline names Ridder to start against Atlanta.",
+      "quoted_assertion": "putting Ridder in line to start against his former team.",
+      "status": "qualified",
+      "receipt_path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/lv-falcons-ridder.html",
+      "sha256": "7925745f6de685759d89cf0f2d60dc5978bc835007b91a5dbe77ac9247e6d574",
+      "bytes": 701031,
+      "retrieval_completed_by_utc": "2026-09-26T22:16:45.699117Z",
+      "clock_limitation": "Current source-asserted historical publication/revision times; no contemporaneous 2024 archive receipt."
+    },
+    {
+      "id": "lv-chiefs-mailbag",
+      "requested_url": "https://www.raiders.com/news/raiders-mailbag-quarterback-shuffle-and-another-holiday-matchup-with-the-chiefs",
+      "canonical_url": "https://www.raiders.com/news/mailbag/raiders-mailbag-quarterback-shuffle-and-another-holiday-matchup-with-the-chiefs",
+      "headline": "Raiders Mailbag: Quarterback shuffle and another holiday matchup with the Chiefs",
+      "published_utc": "2024-11-27T21:08:00Z",
+      "modified_utc": "2024-11-27T21:22:59.019Z",
+      "conservative_clock_utc": "2024-11-27T21:22:59.019Z",
+      "clock_source": "primary NewsArticle JSON-LD; embedded related-video clocks ignored",
+      "assertion": "Pierce confirms Minshew’s season-ending collarbone absence and says O’Connell will start against Kansas City barring setbacks.",
+      "quoted_assertion": "Pierce stated Wednesday morning that Aidan O'Connell will start against the Kansas City Chiefs barring any setbacks.",
+      "status": "conditional_return_no_eligible_prices",
+      "receipt_path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/lv-chiefs-mailbag.html",
+      "sha256": "79b629b9b6f046bd73855fd422f88e5f6e5257cbef0ecddeb051de6d8aa35ced",
+      "bytes": 773250,
+      "retrieval_completed_by_utc": "2026-09-26T22:16:25.609635Z",
+      "clock_limitation": "Current source-asserted historical publication/revision times; no contemporaneous 2024 archive receipt."
+    },
+    {
+      "id": "lac-herbert-active",
+      "requested_url": "https://www.chargers.com/news/justin-herbert-inactives-chiefs-week-4",
+      "canonical_url": "https://www.chargers.com/news/justin-herbert-inactives-chiefs-week-4",
+      "headline": "Chargers-Chiefs Inactives for Week 4: Herbert to Play Against Kansas City",
+      "published_utc": "2024-09-29T18:55:00Z",
+      "modified_utc": "2024-09-29T19:04:47.878Z",
+      "conservative_clock_utc": "2024-09-29T19:04:47.878Z",
+      "clock_source": "primary NewsArticle JSON-LD; embedded related-video clocks ignored",
+      "assertion": "Week 4 inactive announcement expressly says Herbert is active despite ankle injury.",
+      "quoted_assertion": "Quarterback Justin Herbert is active again even though he is dealing with an ankle injury.",
+      "status": "reject_no_confirmed_absence",
+      "receipt_path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/lac-herbert-active.html",
+      "sha256": "f75fe2034d930481a759c53741a749107388015b8b41885e01ea8e58bd7bb882",
+      "bytes": 317028,
+      "retrieval_completed_by_utc": "2026-09-26T22:16:25.167104Z",
+      "clock_limitation": "Current source-asserted historical publication/revision times; no contemporaneous 2024 archive receipt."
+    },
+    {
+      "id": "lv-minshew-absence",
+      "requested_url": "https://www.raiders.com/news/antonio-pierce-confirms-gardner-minshew-out-for-the-season-aidan-o-connell-ramping-up",
+      "canonical_url": "https://www.raiders.com/news/antonio-pierce-confirms-gardner-minshew-out-for-the-season-aidan-o-connell-ramping-up",
+      "headline": "Antonio Pierce confirms Gardner Minshew out for the season, Aidan O'Connell 'ramping up'",
+      "published_utc": "2024-11-25T19:33:57.701Z",
+      "modified_utc": "2024-11-25T20:12:45.903Z",
+      "conservative_clock_utc": "2024-11-25T20:12:45.903Z",
+      "clock_source": "primary NewsArticle JSON-LD; embedded related-video clocks ignored",
+      "assertion": "Team confirms season-ending collarbone injury; O’Connell return remains conditional and Ridder is only a contingency.",
+      "quoted_assertion": "We'll see if Aidan is good to go",
+      "status": "absence_only",
+      "receipt_path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/lv-minshew-absence.html",
+      "sha256": "a21e8331509f3ebc1471dae15a810bdbea7d7acfd3041511bd0cb59e2ca84e9a",
+      "bytes": 330811,
+      "retrieval_completed_by_utc": "2026-09-26T22:18:06.765866Z",
+      "clock_limitation": "Current source-asserted historical publication/revision times; no contemporaneous 2024 archive receipt."
+    },
+    {
+      "id": "lv-bucs-injury-report",
+      "requested_url": "https://www.raiders.com/news/las-vegas-raiders-tampa-bay-buccaneers-nfl-week-14-injury-report",
+      "canonical_url": "https://www.raiders.com/news/las-vegas-raiders-tampa-bay-buccaneers-nfl-week-14-injury-report",
+      "headline": "Raiders-Buccaneers Week 14 Injury Report: Hobbs and White ruled out, Meyers and Mattison questionable",
+      "published_utc": "2024-12-06T21:02:00Z",
+      "modified_utc": "2024-12-06T21:02:30.66Z",
+      "conservative_clock_utc": "2024-12-06T21:02:30.66Z",
+      "clock_source": "primary NewsArticle JSON-LD; embedded related-video clocks ignored",
+      "assertion": "O’Connell listed with illness, full Friday practice and no game designation; this does not explicitly confirm the fixture’s starting QB.",
+      "quoted_assertion": "",
+      "status": "injury_designation_not_start_confirmation",
+      "receipt_path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/lv-bucs-injury-report.html",
+      "sha256": "7f3ac384a2d36b7a5aeb59660b9d75bea7ef7c42e3e6edd050012d8dd6bfc8b3",
+      "bytes": 358909,
+      "retrieval_completed_by_utc": "2026-09-26T22:18:06.973667Z",
+      "clock_limitation": "Current source-asserted historical publication/revision times; no contemporaneous 2024 archive receipt."
+    },
+    {
+      "id": "lv-falcons-conditional",
+      "requested_url": "https://www.raiders.com/news/pick-six-raiders-defense-sets-sights-on-kirk-cousins-atlanta-falcons-explosive-rushing-attack",
+      "canonical_url": "https://www.raiders.com/news/pick-six-raiders-defense-sets-sights-on-kirk-cousins-atlanta-falcons-explosive-rushing-attack",
+      "headline": "Pick Six: Raiders defense sets sights on Kirk Cousins, Falcons' explosive rushing attack",
+      "published_utc": "2024-12-13T23:45:17.63Z",
+      "modified_utc": "2024-12-13T23:45:17.63Z",
+      "conservative_clock_utc": "2024-12-13T23:45:17.63Z",
+      "clock_source": "primary NewsArticle JSON-LD; embedded related-video clocks ignored",
+      "assertion": "Dec 13 article still leaves O’Connell’s knee availability unresolved and Ridder conditional; replaced by Dec 16 final inactive announcement.",
+      "quoted_assertion": "Questions still loom at who will be the starting quarterback for the Las Vegas Raiders this Monday.",
+      "status": "conditional_superseded",
+      "receipt_path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/lv-falcons-conditional.html",
+      "sha256": "c758b5676275609300a0bfa70df0527d2f6e7f162413c4b38ca727a83e934078",
+      "bytes": 585243,
+      "retrieval_completed_by_utc": "2026-09-26T22:18:07.183715Z",
+      "clock_limitation": "Current source-asserted historical publication/revision times; no contemporaneous 2024 archive receipt."
+    },
+    {
+      "id": "mia-hip-doubtful",
+      "requested_url": "https://www.nfl.com/news/dolphins-qb-tua-tagovailoa-hip-downgraded-to-doubtful-vs-browns-tyler-huntley-in-line-to-start",
+      "canonical_url": "https://www.nfl.com/news/dolphins-qb-tua-tagovailoa-hip-downgraded-to-doubtful-vs-browns-tyler-huntley-in-line-to-start",
+      "headline": "Dolphins QB Tua Tagovailoa (hip) downgraded to doubtful vs. Browns; Tyler Huntley in line to start",
+      "published_utc": "2024-12-28T18:52:14.873Z",
+      "modified_utc": "2024-12-29T15:47:22.687Z",
+      "conservative_clock_utc": "2024-12-29T15:47:22.687Z",
+      "clock_source": "primary NewsArticle JSON-LD; embedded related-video clocks ignored",
+      "assertion": "Doubtful designation and contingent Huntley replacement do not establish a confirmed Browns starter.",
+      "quoted_assertion": "",
+      "status": "conditional_no_eligible_prices",
+      "receipt_path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/mia-hip-doubtful.html",
+      "sha256": "47a5a4bff672ac3bd79a1043a7f1ed6ec4591d94cd13b6d5d82d11488582c840",
+      "bytes": 701186,
+      "retrieval_completed_by_utc": "2026-09-26T22:18:07.219223Z",
+      "clock_limitation": "Current source-asserted historical publication/revision times; no contemporaneous 2024 archive receipt."
+    },
+    {
+      "id": "tua_ir",
+      "url": "https://www.miamidolphins.com/news/miami-dolphins-make-roster-moves-x4585",
+      "published_utc": "2024-09-17T20:48:24.790Z",
+      "modified_utc": "2024-09-17T20:51:09.718Z",
+      "html_sha256_at_audit": "17eafc5c3cefd7cfb258ca475af5e63546cc391ff03823d9757a9534835536e9",
+      "supports": "Team placed Tua Tagovailoa on injured reserve and signed Tyler Huntley.",
+      "canonical_url": "https://www.miamidolphins.com/news/miami-dolphins-make-roster-moves-x4585",
+      "conservative_clock_utc": "2024-09-17T20:51:09.718Z",
+      "reuse_from_report": "reports/nfl-announced-qb-price-feasibility-2026-09-26.json",
+      "reuse_report_sha256": "e60cedc2767095c81be410e0d68187bc1914f602336fbfe779c53f1cf0c06c58",
+      "full_html_retained": false,
+      "retrieved_again": false,
+      "clock_limitation": "HTML hashes and selected metadata acquired during audit; full pages not retained. Publish/revision values are source-asserted, not independently archived publication receipts. Conservative maximum revision time used; all are well before matched quotes.",
+      "assertion": "Team placed Tua Tagovailoa on injured reserve and signed Tyler Huntley."
+    },
+    {
+      "id": "huntley_ten",
+      "url": "https://www.nfl.com/news/dolphins-to-start-qb-tyler-huntley-against-titans-on-monday",
+      "published_utc": "2024-09-28T16:29:54.075Z",
+      "modified_utc": "2024-09-28T17:09:57.270Z",
+      "html_sha256_at_audit": "dde4d33b4a9e1f2f75bbaa8377354ed3ab5137c3c9926470143507cfb440c21b",
+      "supports": "Official league report quotes McDaniel confirming Huntley starts against Tennessee with Boyle backing him up.",
+      "canonical_url": "https://www.nfl.com/news/dolphins-to-start-qb-tyler-huntley-against-titans-on-monday",
+      "conservative_clock_utc": "2024-09-28T17:09:57.270Z",
+      "reuse_from_report": "reports/nfl-announced-qb-price-feasibility-2026-09-26.json",
+      "reuse_report_sha256": "e60cedc2767095c81be410e0d68187bc1914f602336fbfe779c53f1cf0c06c58",
+      "full_html_retained": false,
+      "retrieved_again": false,
+      "clock_limitation": "HTML hashes and selected metadata acquired during audit; full pages not retained. Publish/revision values are source-asserted, not independently archived publication receipts. Conservative maximum revision time used; all are well before matched quotes.",
+      "assertion": "Official league report quotes McDaniel confirming Huntley starts against Tennessee with Boyle backing him up."
+    },
+    {
+      "id": "huntley_ne",
+      "url": "https://www.nfl.com/news/dolphins-to-start-qb-tyler-huntley-in-week-5-vs-patriots-odell-beckham-to-have-practice-window-opened",
+      "published_utc": "2024-10-01T21:24:49.634Z",
+      "modified_utc": "2024-10-02T13:26:13.829Z",
+      "html_sha256_at_audit": "2b16d67d487a6454f85304ff3f50a81b541735ed16a7bb24fc08d4b96966fbf6",
+      "supports": "Official league report attributes to McDaniel confirmation Huntley will start against New England; Tua remains on IR for at least two games.",
+      "canonical_url": "https://www.nfl.com/news/dolphins-to-start-qb-tyler-huntley-in-week-5-vs-patriots-odell-beckham-to-have-practice-window-opened",
+      "conservative_clock_utc": "2024-10-02T13:26:13.829Z",
+      "reuse_from_report": "reports/nfl-announced-qb-price-feasibility-2026-09-26.json",
+      "reuse_report_sha256": "e60cedc2767095c81be410e0d68187bc1914f602336fbfe779c53f1cf0c06c58",
+      "full_html_retained": false,
+      "retrieved_again": false,
+      "clock_limitation": "HTML hashes and selected metadata acquired during audit; full pages not retained. Publish/revision values are source-asserted, not independently archived publication receipts. Conservative maximum revision time used; all are well before matched quotes.",
+      "assertion": "Official league report attributes to McDaniel confirmation Huntley will start against New England; Tua remains on IR for at least two games."
+    }
+  ],
+  "query_log": [
+    {
+      "id": "Q01",
+      "team": "BUF",
+      "kind": "standardized",
+      "query": "Buffalo Bills 2024 quarterback injury replacement start",
+      "domains_filter": [
+        "nfl.com",
+        "buffalobills.com"
+      ],
+      "episode_for_search_budget": null,
+      "result_summary": "Preseason backup Buechele/DiNucci neck-injury coverage; no qualifying regular-season starter replacement found."
+    },
+    {
+      "id": "Q02",
+      "team": "DEN",
+      "kind": "standardized",
+      "query": "Denver Broncos 2024 quarterback injury replacement start",
+      "domains_filter": [
+        "nfl.com",
+        "denverbroncos.com"
+      ],
+      "episode_for_search_budget": null,
+      "result_summary": "Bo Nix preseason competition and 2023 Stidham switch; no qualifying 2024 injury replacement found."
+    },
+    {
+      "id": "Q03",
+      "team": "KC",
+      "kind": "standardized",
+      "query": "Kansas City Chiefs 2024 quarterback injury replacement start",
+      "domains_filter": [
+        "nfl.com",
+        "chiefs.com"
+      ],
+      "episode_for_search_budget": null,
+      "result_summary": "Jan 2024 Gabbert planned-rest report belongs to the 2023 season; no qualifying 2024 injury replacement found."
+    },
+    {
+      "id": "Q04",
+      "team": "LAC",
+      "kind": "standardized",
+      "query": "Los Angeles Chargers 2024 quarterback injury replacement start",
+      "domains_filter": [
+        "nfl.com",
+        "chargers.com"
+      ],
+      "episode_for_search_budget": null,
+      "result_summary": "Herbert preseason foot injury and September ankle episode discovered."
+    },
+    {
+      "id": "Q05",
+      "team": "LV",
+      "kind": "standardized",
+      "query": "Las Vegas Raiders 2024 quarterback injury replacement start",
+      "domains_filter": [
+        "nfl.com",
+        "raiders.com"
+      ],
+      "episode_for_search_budget": null,
+      "result_summary": "Retrospective review discovered O’Connell thumb/knee and Minshew collarbone leads; retrospectively described starts not accepted."
+    },
+    {
+      "id": "Q06",
+      "team": "MIA",
+      "kind": "standardized",
+      "query": "Miami Dolphins 2024 quarterback injury replacement start",
+      "domains_filter": [
+        "nfl.com",
+        "miamidolphins.com"
+      ],
+      "episode_for_search_budget": null,
+      "result_summary": "Reuse retained concussion announcements; hip absence lead from postgame transcript is not fixture qualification."
+    },
+    {
+      "id": "Q07",
+      "team": "NE",
+      "kind": "standardized",
+      "query": "New England Patriots 2024 quarterback injury replacement start",
+      "domains_filter": [
+        "nfl.com",
+        "patriots.com"
+      ],
+      "episode_for_search_budget": null,
+      "result_summary": "Only generic notes/irrelevant discovery result; no qualifying fixture-specific announcement found."
+    },
+    {
+      "id": "Q08",
+      "team": "NYJ",
+      "kind": "standardized",
+      "query": "New York Jets 2024 quarterback injury replacement start",
+      "domains_filter": [
+        "nfl.com",
+        "newyorkjets.com"
+      ],
+      "episode_for_search_budget": null,
+      "result_summary": "Jan 2024 Siemian concussion replacement is 2023 season; 2024 preseason Rodgers rest/return not eligible."
+    },
+    {
+      "id": "Q09",
+      "team": "MIA",
+      "kind": "targeted",
+      "query": "Miami Dolphins Skylar Thompson will start Seattle September 2024 Tua concussion",
+      "domains_filter": [
+        "nfl.com",
+        "miamidolphins.com"
+      ],
+      "episode_for_search_budget": "MIA_Tua_concussion",
+      "result_summary": "NFL Sep 18 and team Sep 20 explicit Seattle confirmation found; team page retained."
+    },
+    {
+      "id": "Q10",
+      "team": "MIA",
+      "kind": "targeted",
+      "query": "Miami Dolphins Tyler Huntley will start Colts October 20 2024 Tua concussion",
+      "domains_filter": [
+        "nfl.com",
+        "miamidolphins.com"
+      ],
+      "episode_for_search_budget": "MIA_Tua_concussion",
+      "result_summary": "No fixture-specific pregame confirmation found; recaps/PDF excluded."
+    },
+    {
+      "id": "Q11",
+      "team": "LV",
+      "kind": "targeted",
+      "query": "Raiders Gardner Minshew will start Bengals November 3 2024 OConnell thumb",
+      "domains_filter": [
+        "nfl.com",
+        "raiders.com"
+      ],
+      "episode_for_search_budget": "LV_OConnell_thumb",
+      "result_summary": "No eligible fixture-specific pregame confirmation found."
+    },
+    {
+      "id": "Q12",
+      "team": "LV",
+      "kind": "targeted",
+      "query": "Raiders Gardner Minshew will start Broncos November 24 2024 OConnell thumb",
+      "domains_filter": [
+        "nfl.com",
+        "raiders.com"
+      ],
+      "episode_for_search_budget": "LV_OConnell_thumb",
+      "result_summary": "No eligible pregame confirmation found; Nov 25 injury news concerns later fixtures."
+    },
+    {
+      "id": "Q13",
+      "team": "LV",
+      "kind": "targeted",
+      "query": "Aidan OConnell starter Buccaneers December 2024 Gardner Minshew injured reserve Raiders",
+      "domains_filter": [
+        "nfl.com",
+        "raiders.com"
+      ],
+      "episode_for_search_budget": "LV_Minshew_collarbone",
+      "result_summary": "Week14 injury report is not a starter confirmation; Week13 coach mailbag found but no eligible quotes."
+    },
+    {
+      "id": "Q14",
+      "team": "LV",
+      "kind": "targeted",
+      "query": "Desmond Ridder will start Falcons December 16 2024 OConnell knee",
+      "domains_filter": [
+        "nfl.com",
+        "raiders.com"
+      ],
+      "episode_for_search_budget": "LV_OConnell_knee_candidate",
+      "result_summary": "NFL final inactive/start report found; Dec13 team report remained conditional."
+    },
+    {
+      "id": "Q15",
+      "team": "LV",
+      "kind": "targeted",
+      "query": "Aidan OConnell will start Jaguars December 22 2024 knee",
+      "domains_filter": [
+        "nfl.com",
+        "raiders.com"
+      ],
+      "episode_for_search_budget": "LV_OConnell_knee_candidate",
+      "result_summary": "Only retrospective return/halftime result found; no eligible pregame confirmation."
+    },
+    {
+      "id": "Q16",
+      "team": "LAC",
+      "kind": "targeted",
+      "query": "Justin Herbert ankle active Chiefs September 29 2024 Taylor Heinicke starter",
+      "domains_filter": [
+        "nfl.com",
+        "chargers.com"
+      ],
+      "episode_for_search_budget": "LAC_Herbert_ankle",
+      "result_summary": "No usable pregame replacement confirmation found."
+    },
+    {
+      "id": "Q17",
+      "team": "LAC",
+      "kind": "targeted",
+      "query": "site.chargers.com 2024 \"Herbert\" \"Chiefs\" \"Active\" September 29",
+      "domains_filter": null,
+      "episode_for_search_budget": "LAC_Herbert_ankle",
+      "result_summary": "Official team final inactive report says Herbert active; other-domain search spillover excluded."
+    },
+    {
+      "id": "Q18",
+      "team": "LV",
+      "kind": "targeted",
+      "query": "site.raiders.com 2024 \"O’Connell\" \"Buccaneers\" \"start\" December 6",
+      "domains_filter": null,
+      "episode_for_search_budget": "LV_Minshew_collarbone",
+      "result_summary": "No fixture-specific qualifying confirmation found; other-domain search spillover excluded."
+    },
+    {
+      "id": "Q19",
+      "team": "MIA",
+      "kind": "targeted",
+      "query": "Dolphins Huntley start Browns December 2024 Tua hip",
+      "domains_filter": [
+        "nfl.com",
+        "miamidolphins.com"
+      ],
+      "episode_for_search_budget": "MIA_Tua_hip",
+      "result_summary": "Browns doubtful/in-line report and Jets preparing/uncertain report are conditional; no eligible quotes for either week."
+    }
+  ],
+  "query_log_note": "Initial eight tool search results are summarized here from the session; no separate full-response receipt was saved for them. All eleven follow-up query responses are retained in search-followup-{1,2,3}.json.",
+  "search_receipts": [
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/search-followup-1.json",
+      "sha256": "d4d72ecdf3636393dd1d8bf5b35554ded3d24e1ab2baf64051646ab82f5cd947",
+      "bytes": 31036
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/search-followup-2.json",
+      "sha256": "763b2e2f9e7390861adc195bfe9531726f6475fe62e9bf9c34a48c5ce6b87576",
+      "bytes": 30998
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/search-followup-3.json",
+      "sha256": "020e8111b7e0dae5b46a15b0501e979a69acd8fdb8524b2dabb5eb2a00c696b6",
+      "bytes": 29265
+    }
+  ],
+  "rejected_or_discovery_only_sources": [
+    {
+      "team": "BUF",
+      "url": "https://www.buffalobills.com/news/bills-practice-notes-aug-12-qb-shane-buechele-neck-sidelined-josh-allen-reveals-offseason-diet-change",
+      "displayed_publication": "2024-08-12 04:49 PM, source timezone not separately audited",
+      "reason": "Preseason injury to backup Buechele; not a regular-season incumbent absence."
+    },
+    {
+      "team": "BUF",
+      "url": "https://www.buffalobills.com/news/bills-practice-notes-ben-dinucci-s-journey-from-the-golf-course-to-buffalo",
+      "displayed_publication": "2024-08-13 04:10 PM, timezone unaudited",
+      "reason": "Preseason replacement of injured backup, not incumbent."
+    },
+    {
+      "team": "DEN",
+      "url": "https://www.denverbroncos.com/news/bo-nix-named-broncos-starting-quarterback",
+      "displayed_publication": "2024-08-21 01:15 PM, timezone unaudited",
+      "reason": "Preseason competition, not injury replacement."
+    },
+    {
+      "team": "DEN",
+      "url": "https://www.denverbroncos.com/news/broncos-notebook-denver-to-let-quarterback-competition-play-out-organically-focused-on-finding-right-player-to-start-week-1",
+      "displayed_publication": "2024-07-23 04:05 PM, timezone unaudited",
+      "reason": "Preseason competition."
+    },
+    {
+      "team": "DEN",
+      "url": "https://www.denverbroncos.com/news/we-re-rotating-all-of-them-hc-sean-payton-details-early-stages-of-broncos-quarterback-competition",
+      "displayed_publication": "2024-05-23 04:28 PM, timezone unaudited",
+      "reason": "Offseason competition."
+    },
+    {
+      "team": "DEN",
+      "url": "https://www.denverbroncos.com/news/broncos-make-quarterback-change-jarrett-stidham-to-start-vs-chargers",
+      "displayed_publication": "2023-12-27 04:12 PM, timezone unaudited",
+      "reason": "Wrong season and healthy benching."
+    },
+    {
+      "team": "KC",
+      "url": "https://www.chiefs.com/news/qb-blaine-gabbert-to-start-chiefs-regular-season-finale",
+      "displayed_publication": "2024-01-04 09:55 AM, timezone unaudited",
+      "reason": "2023 season, planned rest."
+    },
+    {
+      "team": "LAC",
+      "url": "https://www.nfl.com/news/chargers-qb-justin-herbert-foot-resumes-practicing-for-first-time-since-july",
+      "displayed_publication": "2024-08-19; exact clock not audited",
+      "reason": "Preseason foot injury/return; not a qualifying regular-season replacement."
+    },
+    {
+      "team": "LAC",
+      "url": "https://www.chargers.com/news/justin-herbert-ankle-taylor-heinicke-chiefs",
+      "displayed_publication": "2024-09-26 04:12 PM, timezone unaudited",
+      "reason": "Multiple QB contingency plans, not confirmed injury absence or replacement start."
+    },
+    {
+      "team": "LV",
+      "url": "https://www.raiders.com/news/gardner-minshew-named-starting-quarterback-for-2024-season-antonio-pierce",
+      "displayed_publication": "2024-08-18 11:22 AM, timezone unaudited",
+      "reason": "Preseason competition."
+    },
+    {
+      "team": "LV",
+      "url": "https://www.nfl.com/news/raiders-to-start-aidan-o-connell-at-qb-vs-steelers-over-veteran-gardner-minshew",
+      "displayed_publication": "Not audited",
+      "reason": "Healthy performance benching; establishes a lead about later incumbent identity but not eligible injury exposure."
+    },
+    {
+      "team": "LV",
+      "url": "https://www.raiders.com/news/2024-raiders-position-review-quarterbacks-aidan-oconnell-gardner-minshew-desmond-ridder",
+      "displayed_publication": "2025-01-14 11:00 AM, timezone unaudited",
+      "reason": "Retrospective episode-discovery lead only. Does not certify any prequote starter; calls Falcons Week14 despite fixture being Week15."
+    },
+    {
+      "team": "LV",
+      "url": "https://www.raiders.com/news/raiders-activate-qb-aidan-o-connell-place-cb-jakorian-bennett-qb-gardner-minshew-on-the-reserve-injured-list",
+      "displayed_publication": "2024-11-28 09:30 AM, timezone unaudited",
+      "reason": "Activation/IR transactions alone do not confirm a start; Week13 has no eligible prices."
+    },
+    {
+      "team": "LV",
+      "url": "https://www.nfl.com/_amp/raiders-preparing-to-start-qb-aidan-o-connell-on-friday-against-chiefs",
+      "displayed_publication": "2024-11-26 03:34 PM as returned; timezone unaudited",
+      "reason": "Expected/preparing and barring setbacks; conditional and unpriced."
+    },
+    {
+      "team": "LV",
+      "url": "https://www.nfl.com/_amp/raiders-qb-aidan-o-connell-diagnosed-with-bone-bruise-in-knee-after-leaving-loss-in-air-cast",
+      "displayed_publication": "2024-12-09 08:12 PM as returned; timezone unaudited",
+      "reason": "Future Falcons replacement explicitly conditional on OConnell unavailability; final announcement used instead."
+    },
+    {
+      "team": "MIA",
+      "url": "https://www.miamidolphins.com/news/transcript-mike-mcdaniel-s-media-availability-december-29",
+      "displayed_publication": "2024-12-30 04:10 PM, timezone unaudited",
+      "reason": "Postgame transcript cannot establish Week17 prequote decision."
+    },
+    {
+      "team": "MIA",
+      "url": "https://www.nfl.com/news/tua-tagovailoa-hip-unlikely-to-play-jets-dolphins-tyler-huntley-to-start-week-18",
+      "displayed_publication": "Exact clock not audited",
+      "reason": "Unlikely/preparing is conditional; Week18 has no eligible quotes."
+    },
+    {
+      "team": "NYJ",
+      "url": "https://www.newyorkjets.com/news/jets-starting-quarterback-trevor-siemian-vs-patriots",
+      "displayed_publication": "2024-01-03 12:42 PM, timezone unaudited",
+      "reason": "Concussion replacement belongs to 2023 season."
+    },
+    {
+      "team": "NYJ",
+      "url": "https://www.newyorkjets.com/news/jets-training-camp-preview-quarterbacks-aaron-rodgers",
+      "displayed_publication": "2024-07-16 08:30 AM, timezone unaudited",
+      "reason": "Offseason return from 2023 injury."
+    },
+    {
+      "team": "NYJ",
+      "url": "https://www.newyorkjets.com/news/jets-will-not-play-aaron-rodgers-starters-vs-giants-preseason",
+      "displayed_publication": "2024-08-22 11:16 AM, timezone unaudited",
+      "reason": "Planned preseason rest."
+    }
+  ],
+  "weekly_inventory": [
+    {
+      "game_id": "2024_01_ARI_BUF",
+      "week": 1,
+      "gameday": "2024-09-08",
+      "home_team": "BUF",
+      "away_team": "ARI",
+      "gametime": "13:00",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_02_BUF_MIA",
+      "week": 2,
+      "gameday": "2024-09-12",
+      "home_team": "MIA",
+      "away_team": "BUF",
+      "gametime": "20:15",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_03_JAX_BUF",
+      "week": 3,
+      "gameday": "2024-09-23",
+      "home_team": "BUF",
+      "away_team": "JAX",
+      "gametime": "19:30",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_04_BUF_BAL",
+      "week": 4,
+      "gameday": "2024-09-29",
+      "home_team": "BAL",
+      "away_team": "BUF",
+      "gametime": "20:20",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 14,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_05_BUF_HOU",
+      "week": 5,
+      "gameday": "2024-10-06",
+      "home_team": "HOU",
+      "away_team": "BUF",
+      "gametime": "13:00",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_06_BUF_NYJ",
+      "week": 6,
+      "gameday": "2024-10-14",
+      "home_team": "NYJ",
+      "away_team": "BUF",
+      "gametime": "20:15",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 14,
+      "team_compatible_unique_priced_players": 8
+    },
+    {
+      "game_id": "2024_07_TEN_BUF",
+      "week": 7,
+      "gameday": "2024-10-20",
+      "home_team": "BUF",
+      "away_team": "TEN",
+      "gametime": "13:00",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_08_BUF_SEA",
+      "week": 8,
+      "gameday": "2024-10-27",
+      "home_team": "SEA",
+      "away_team": "BUF",
+      "gametime": "16:05",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_09_MIA_BUF",
+      "week": 9,
+      "gameday": "2024-11-03",
+      "home_team": "BUF",
+      "away_team": "MIA",
+      "gametime": "13:00",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_10_BUF_IND",
+      "week": 10,
+      "gameday": "2024-11-10",
+      "home_team": "IND",
+      "away_team": "BUF",
+      "gametime": "13:00",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_11_KC_BUF",
+      "week": 11,
+      "gameday": "2024-11-17",
+      "home_team": "BUF",
+      "away_team": "KC",
+      "gametime": "16:25",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_13_SF_BUF",
+      "week": 13,
+      "gameday": "2024-12-01",
+      "home_team": "BUF",
+      "away_team": "SF",
+      "gametime": "20:20",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_14_BUF_LA",
+      "week": 14,
+      "gameday": "2024-12-08",
+      "home_team": "LA",
+      "away_team": "BUF",
+      "gametime": "16:25",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_15_BUF_DET",
+      "week": 15,
+      "gameday": "2024-12-15",
+      "home_team": "DET",
+      "away_team": "BUF",
+      "gametime": "16:25",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_16_NE_BUF",
+      "week": 16,
+      "gameday": "2024-12-22",
+      "home_team": "BUF",
+      "away_team": "NE",
+      "gametime": "16:25",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_17_NYJ_BUF",
+      "week": 17,
+      "gameday": "2024-12-29",
+      "home_team": "BUF",
+      "away_team": "NYJ",
+      "gametime": "13:00",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_18_BUF_NE",
+      "week": 18,
+      "gameday": "2025-01-05",
+      "home_team": "NE",
+      "away_team": "BUF",
+      "gametime": "13:00",
+      "team": "BUF",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_01_DEN_SEA",
+      "week": 1,
+      "gameday": "2024-09-08",
+      "home_team": "SEA",
+      "away_team": "DEN",
+      "gametime": "16:05",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_02_PIT_DEN",
+      "week": 2,
+      "gameday": "2024-09-15",
+      "home_team": "DEN",
+      "away_team": "PIT",
+      "gametime": "16:25",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 3
+    },
+    {
+      "game_id": "2024_03_DEN_TB",
+      "week": 3,
+      "gameday": "2024-09-22",
+      "home_team": "TB",
+      "away_team": "DEN",
+      "gametime": "13:00",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 3
+    },
+    {
+      "game_id": "2024_04_DEN_NYJ",
+      "week": 4,
+      "gameday": "2024-09-29",
+      "home_team": "NYJ",
+      "away_team": "DEN",
+      "gametime": "13:00",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_05_LV_DEN",
+      "week": 5,
+      "gameday": "2024-10-06",
+      "home_team": "DEN",
+      "away_team": "LV",
+      "gametime": "16:05",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_06_LAC_DEN",
+      "week": 6,
+      "gameday": "2024-10-13",
+      "home_team": "DEN",
+      "away_team": "LAC",
+      "gametime": "16:05",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 7,
+      "team_compatible_unique_priced_players": 3
+    },
+    {
+      "game_id": "2024_07_DEN_NO",
+      "week": 7,
+      "gameday": "2024-10-17",
+      "home_team": "NO",
+      "away_team": "DEN",
+      "gametime": "20:15",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_08_CAR_DEN",
+      "week": 8,
+      "gameday": "2024-10-27",
+      "home_team": "DEN",
+      "away_team": "CAR",
+      "gametime": "16:25",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_09_DEN_BAL",
+      "week": 9,
+      "gameday": "2024-11-03",
+      "home_team": "BAL",
+      "away_team": "DEN",
+      "gametime": "13:00",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_10_DEN_KC",
+      "week": 10,
+      "gameday": "2024-11-10",
+      "home_team": "KC",
+      "away_team": "DEN",
+      "gametime": "13:00",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_11_ATL_DEN",
+      "week": 11,
+      "gameday": "2024-11-17",
+      "home_team": "DEN",
+      "away_team": "ATL",
+      "gametime": "16:05",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_12_DEN_LV",
+      "week": 12,
+      "gameday": "2024-11-24",
+      "home_team": "LV",
+      "away_team": "DEN",
+      "gametime": "16:05",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_13_CLE_DEN",
+      "week": 13,
+      "gameday": "2024-12-02",
+      "home_team": "DEN",
+      "away_team": "CLE",
+      "gametime": "20:15",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 14,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_15_IND_DEN",
+      "week": 15,
+      "gameday": "2024-12-15",
+      "home_team": "DEN",
+      "away_team": "IND",
+      "gametime": "16:25",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_16_DEN_LAC",
+      "week": 16,
+      "gameday": "2024-12-19",
+      "home_team": "LAC",
+      "away_team": "DEN",
+      "gametime": "20:15",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_17_DEN_CIN",
+      "week": 17,
+      "gameday": "2024-12-28",
+      "home_team": "CIN",
+      "away_team": "DEN",
+      "gametime": "16:30",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_18_KC_DEN",
+      "week": 18,
+      "gameday": "2025-01-05",
+      "home_team": "DEN",
+      "away_team": "KC",
+      "gametime": "16:25",
+      "team": "DEN",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_01_BAL_KC",
+      "week": 1,
+      "gameday": "2024-09-05",
+      "home_team": "KC",
+      "away_team": "BAL",
+      "gametime": "20:20",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_02_CIN_KC",
+      "week": 2,
+      "gameday": "2024-09-15",
+      "home_team": "KC",
+      "away_team": "CIN",
+      "gametime": "16:25",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_03_KC_ATL",
+      "week": 3,
+      "gameday": "2024-09-22",
+      "home_team": "ATL",
+      "away_team": "KC",
+      "gametime": "20:20",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_04_KC_LAC",
+      "week": 4,
+      "gameday": "2024-09-29",
+      "home_team": "LAC",
+      "away_team": "KC",
+      "gametime": "16:25",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_05_NO_KC",
+      "week": 5,
+      "gameday": "2024-10-07",
+      "home_team": "KC",
+      "away_team": "NO",
+      "gametime": "20:15",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_07_KC_SF",
+      "week": 7,
+      "gameday": "2024-10-20",
+      "home_team": "SF",
+      "away_team": "KC",
+      "gametime": "16:25",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_08_KC_LV",
+      "week": 8,
+      "gameday": "2024-10-27",
+      "home_team": "LV",
+      "away_team": "KC",
+      "gametime": "16:25",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_09_TB_KC",
+      "week": 9,
+      "gameday": "2024-11-04",
+      "home_team": "KC",
+      "away_team": "TB",
+      "gametime": "20:15",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_10_DEN_KC",
+      "week": 10,
+      "gameday": "2024-11-10",
+      "home_team": "KC",
+      "away_team": "DEN",
+      "gametime": "13:00",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_11_KC_BUF",
+      "week": 11,
+      "gameday": "2024-11-17",
+      "home_team": "BUF",
+      "away_team": "KC",
+      "gametime": "16:25",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_12_KC_CAR",
+      "week": 12,
+      "gameday": "2024-11-24",
+      "home_team": "CAR",
+      "away_team": "KC",
+      "gametime": "13:00",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_13_LV_KC",
+      "week": 13,
+      "gameday": "2024-11-29",
+      "home_team": "KC",
+      "away_team": "LV",
+      "gametime": "15:00",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_14_LAC_KC",
+      "week": 14,
+      "gameday": "2024-12-08",
+      "home_team": "KC",
+      "away_team": "LAC",
+      "gametime": "20:20",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 8
+    },
+    {
+      "game_id": "2024_15_KC_CLE",
+      "week": 15,
+      "gameday": "2024-12-15",
+      "home_team": "CLE",
+      "away_team": "KC",
+      "gametime": "13:00",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_16_HOU_KC",
+      "week": 16,
+      "gameday": "2024-12-21",
+      "home_team": "KC",
+      "away_team": "HOU",
+      "gametime": "13:00",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_17_KC_PIT",
+      "week": 17,
+      "gameday": "2024-12-25",
+      "home_team": "PIT",
+      "away_team": "KC",
+      "gametime": "13:00",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 14,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_18_KC_DEN",
+      "week": 18,
+      "gameday": "2025-01-05",
+      "home_team": "DEN",
+      "away_team": "KC",
+      "gametime": "16:25",
+      "team": "KC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_01_LV_LAC",
+      "week": 1,
+      "gameday": "2024-09-08",
+      "home_team": "LAC",
+      "away_team": "LV",
+      "gametime": "16:05",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_02_LAC_CAR",
+      "week": 2,
+      "gameday": "2024-09-15",
+      "home_team": "CAR",
+      "away_team": "LAC",
+      "gametime": "13:00",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_03_LAC_PIT",
+      "week": 3,
+      "gameday": "2024-09-22",
+      "home_team": "PIT",
+      "away_team": "LAC",
+      "gametime": "13:00",
+      "team": "LAC",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "Ankle episode; no confirmed replacement found under bounded search.",
+      "all_team_unique_priced_players": 8,
+      "team_compatible_unique_priced_players": 3
+    },
+    {
+      "game_id": "2024_04_KC_LAC",
+      "week": 4,
+      "gameday": "2024-09-29",
+      "home_team": "LAC",
+      "away_team": "KC",
+      "gametime": "16:25",
+      "team": "LAC",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "Rejected: official final report says Herbert active despite ankle injury.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_06_LAC_DEN",
+      "week": 6,
+      "gameday": "2024-10-13",
+      "home_team": "DEN",
+      "away_team": "LAC",
+      "gametime": "16:05",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 7,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_07_LAC_ARI",
+      "week": 7,
+      "gameday": "2024-10-21",
+      "home_team": "ARI",
+      "away_team": "LAC",
+      "gametime": "21:00",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_08_NO_LAC",
+      "week": 8,
+      "gameday": "2024-10-27",
+      "home_team": "LAC",
+      "away_team": "NO",
+      "gametime": "16:05",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 3
+    },
+    {
+      "game_id": "2024_09_LAC_CLE",
+      "week": 9,
+      "gameday": "2024-11-03",
+      "home_team": "CLE",
+      "away_team": "LAC",
+      "gametime": "13:00",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_10_TEN_LAC",
+      "week": 10,
+      "gameday": "2024-11-10",
+      "home_team": "LAC",
+      "away_team": "TEN",
+      "gametime": "16:05",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_11_CIN_LAC",
+      "week": 11,
+      "gameday": "2024-11-17",
+      "home_team": "LAC",
+      "away_team": "CIN",
+      "gametime": "20:20",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 5,
+      "team_compatible_unique_priced_players": 3
+    },
+    {
+      "game_id": "2024_12_BAL_LAC",
+      "week": 12,
+      "gameday": "2024-11-25",
+      "home_team": "LAC",
+      "away_team": "BAL",
+      "gametime": "20:15",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_13_LAC_ATL",
+      "week": 13,
+      "gameday": "2024-12-01",
+      "home_team": "ATL",
+      "away_team": "LAC",
+      "gametime": "13:00",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_14_LAC_KC",
+      "week": 14,
+      "gameday": "2024-12-08",
+      "home_team": "KC",
+      "away_team": "LAC",
+      "gametime": "20:20",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_15_TB_LAC",
+      "week": 15,
+      "gameday": "2024-12-15",
+      "home_team": "LAC",
+      "away_team": "TB",
+      "gametime": "16:25",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_16_DEN_LAC",
+      "week": 16,
+      "gameday": "2024-12-19",
+      "home_team": "LAC",
+      "away_team": "DEN",
+      "gametime": "20:15",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_17_LAC_NE",
+      "week": 17,
+      "gameday": "2024-12-28",
+      "home_team": "NE",
+      "away_team": "LAC",
+      "gametime": "13:00",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_18_LAC_LV",
+      "week": 18,
+      "gameday": "2025-01-05",
+      "home_team": "LV",
+      "away_team": "LAC",
+      "gametime": "16:25",
+      "team": "LAC",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_01_LV_LAC",
+      "week": 1,
+      "gameday": "2024-09-08",
+      "home_team": "LAC",
+      "away_team": "LV",
+      "gametime": "16:05",
+      "team": "LV",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_02_LV_BAL",
+      "week": 2,
+      "gameday": "2024-09-15",
+      "home_team": "BAL",
+      "away_team": "LV",
+      "gametime": "13:00",
+      "team": "LV",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_03_CAR_LV",
+      "week": 3,
+      "gameday": "2024-09-22",
+      "home_team": "LV",
+      "away_team": "CAR",
+      "gametime": "16:05",
+      "team": "LV",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 13,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_04_CLE_LV",
+      "week": 4,
+      "gameday": "2024-09-29",
+      "home_team": "LV",
+      "away_team": "CLE",
+      "gametime": "16:25",
+      "team": "LV",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 8,
+      "team_compatible_unique_priced_players": 3
+    },
+    {
+      "game_id": "2024_05_LV_DEN",
+      "week": 5,
+      "gameday": "2024-10-06",
+      "home_team": "DEN",
+      "away_team": "LV",
+      "gametime": "16:05",
+      "team": "LV",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_06_PIT_LV",
+      "week": 6,
+      "gameday": "2024-10-13",
+      "home_team": "LV",
+      "away_team": "PIT",
+      "gametime": "16:05",
+      "team": "LV",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_07_LV_LA",
+      "week": 7,
+      "gameday": "2024-10-20",
+      "home_team": "LA",
+      "away_team": "LV",
+      "gametime": "16:05",
+      "team": "LV",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 8,
+      "team_compatible_unique_priced_players": 3
+    },
+    {
+      "game_id": "2024_08_KC_LV",
+      "week": 8,
+      "gameday": "2024-10-27",
+      "home_team": "LV",
+      "away_team": "KC",
+      "gametime": "16:25",
+      "team": "LV",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "OConnell thumb episode lead; no eligible price rows and no qualifying pregame confirmation retained.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_09_LV_CIN",
+      "week": 9,
+      "gameday": "2024-11-03",
+      "home_team": "CIN",
+      "away_team": "LV",
+      "gametime": "13:00",
+      "team": "LV",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "OConnell thumb episode lead; no explicit Bengals start confirmation found.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_11_LV_MIA",
+      "week": 11,
+      "gameday": "2024-11-17",
+      "home_team": "MIA",
+      "away_team": "LV",
+      "gametime": "13:00",
+      "team": "LV",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "OConnell thumb episode lead; no eligible price rows and no qualifying pregame confirmation retained.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_12_DEN_LV",
+      "week": 12,
+      "gameday": "2024-11-24",
+      "home_team": "LV",
+      "away_team": "DEN",
+      "gametime": "16:05",
+      "team": "LV",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "OConnell thumb episode lead; no explicit Broncos start confirmation found.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_13_LV_KC",
+      "week": 13,
+      "gameday": "2024-11-29",
+      "home_team": "KC",
+      "away_team": "LV",
+      "gametime": "15:00",
+      "team": "LV",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "Coach names OConnell for Chiefs barring setbacks; return qualification remains conditional and there are no eligible price rows.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_14_LV_TB",
+      "week": 14,
+      "gameday": "2024-12-08",
+      "home_team": "TB",
+      "away_team": "LV",
+      "gametime": "13:00",
+      "team": "LV",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "Only illness/practice designation located; no explicit Buccaneers start confirmation found.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_15_ATL_LV",
+      "week": 15,
+      "gameday": "2024-12-16",
+      "home_team": "LV",
+      "away_team": "ATL",
+      "gametime": "20:30",
+      "team": "LV",
+      "status": "qualified_before_quote",
+      "note": "See qualified_announcements.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_16_JAX_LV",
+      "week": 16,
+      "gameday": "2024-12-22",
+      "home_team": "LV",
+      "away_team": "JAX",
+      "gametime": "16:25",
+      "team": "LV",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "Only retrospective return material located; no pregame Jaguars confirmation retained. Do not infer from prior week.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_17_LV_NO",
+      "week": 17,
+      "gameday": "2024-12-29",
+      "home_team": "NO",
+      "away_team": "LV",
+      "gametime": "13:00",
+      "team": "LV",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "No fixture-specific Saints confirmation discovered; no inherited Minshew-absence qualification.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_18_LAC_LV",
+      "week": 18,
+      "gameday": "2025-01-05",
+      "home_team": "LV",
+      "away_team": "LAC",
+      "gametime": "16:25",
+      "team": "LV",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "No fixture-specific confirmation discovered; no inherited episode qualification.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_01_JAX_MIA",
+      "week": 1,
+      "gameday": "2024-09-08",
+      "home_team": "MIA",
+      "away_team": "JAX",
+      "gametime": "13:00",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_02_BUF_MIA",
+      "week": 2,
+      "gameday": "2024-09-12",
+      "home_team": "MIA",
+      "away_team": "BUF",
+      "gametime": "20:15",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_03_MIA_SEA",
+      "week": 3,
+      "gameday": "2024-09-22",
+      "home_team": "SEA",
+      "away_team": "MIA",
+      "gametime": "16:05",
+      "team": "MIA",
+      "status": "qualified_before_quote",
+      "note": "See qualified_announcements.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_04_TEN_MIA",
+      "week": 4,
+      "gameday": "2024-09-30",
+      "home_team": "MIA",
+      "away_team": "TEN",
+      "gametime": "19:30",
+      "team": "MIA",
+      "status": "qualified_before_quote",
+      "note": "See qualified_announcements.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_05_MIA_NE",
+      "week": 5,
+      "gameday": "2024-10-06",
+      "home_team": "NE",
+      "away_team": "MIA",
+      "gametime": "13:00",
+      "team": "MIA",
+      "status": "qualified_before_quote",
+      "note": "See qualified_announcements.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_07_MIA_IND",
+      "week": 7,
+      "gameday": "2024-10-20",
+      "home_team": "IND",
+      "away_team": "MIA",
+      "gametime": "13:00",
+      "team": "MIA",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "Tua concussion episode lead; no explicit Colts start confirmation found. Do not inherit Weeks4/5.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_08_ARI_MIA",
+      "week": 8,
+      "gameday": "2024-10-27",
+      "home_team": "MIA",
+      "away_team": "ARI",
+      "gametime": "13:00",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_09_MIA_BUF",
+      "week": 9,
+      "gameday": "2024-11-03",
+      "home_team": "BUF",
+      "away_team": "MIA",
+      "gametime": "13:00",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_10_MIA_LA",
+      "week": 10,
+      "gameday": "2024-11-11",
+      "home_team": "LA",
+      "away_team": "MIA",
+      "gametime": "20:15",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_11_LV_MIA",
+      "week": 11,
+      "gameday": "2024-11-17",
+      "home_team": "MIA",
+      "away_team": "LV",
+      "gametime": "13:00",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_12_NE_MIA",
+      "week": 12,
+      "gameday": "2024-11-24",
+      "home_team": "MIA",
+      "away_team": "NE",
+      "gametime": "13:00",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_13_MIA_GB",
+      "week": 13,
+      "gameday": "2024-11-28",
+      "home_team": "GB",
+      "away_team": "MIA",
+      "gametime": "20:20",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_14_NYJ_MIA",
+      "week": 14,
+      "gameday": "2024-12-08",
+      "home_team": "MIA",
+      "away_team": "NYJ",
+      "gametime": "13:00",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_15_MIA_HOU",
+      "week": 15,
+      "gameday": "2024-12-15",
+      "home_team": "HOU",
+      "away_team": "MIA",
+      "gametime": "13:00",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_16_SF_MIA",
+      "week": 16,
+      "gameday": "2024-12-22",
+      "home_team": "MIA",
+      "away_team": "SF",
+      "gametime": "16:25",
+      "team": "MIA",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_17_MIA_CLE",
+      "week": 17,
+      "gameday": "2024-12-29",
+      "home_team": "CLE",
+      "away_team": "MIA",
+      "gametime": "16:05",
+      "team": "MIA",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "Hip injury report conditional; no eligible price rows.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_18_MIA_NYJ",
+      "week": 18,
+      "gameday": "2025-01-05",
+      "home_team": "NYJ",
+      "away_team": "MIA",
+      "gametime": "16:25",
+      "team": "MIA",
+      "status": "candidate_unconfirmed_or_rejected",
+      "note": "Preparing/uncertain report conditional; no eligible price rows.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_01_NE_CIN",
+      "week": 1,
+      "gameday": "2024-09-08",
+      "home_team": "CIN",
+      "away_team": "NE",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 14,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_02_SEA_NE",
+      "week": 2,
+      "gameday": "2024-09-15",
+      "home_team": "NE",
+      "away_team": "SEA",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 13,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_03_NE_NYJ",
+      "week": 3,
+      "gameday": "2024-09-19",
+      "home_team": "NYJ",
+      "away_team": "NE",
+      "gametime": "20:15",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 14,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_04_NE_SF",
+      "week": 4,
+      "gameday": "2024-09-29",
+      "home_team": "SF",
+      "away_team": "NE",
+      "gametime": "16:05",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_05_MIA_NE",
+      "week": 5,
+      "gameday": "2024-10-06",
+      "home_team": "NE",
+      "away_team": "MIA",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_06_HOU_NE",
+      "week": 6,
+      "gameday": "2024-10-13",
+      "home_team": "NE",
+      "away_team": "HOU",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_07_NE_JAX",
+      "week": 7,
+      "gameday": "2024-10-20",
+      "home_team": "JAX",
+      "away_team": "NE",
+      "gametime": "09:30",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_08_NYJ_NE",
+      "week": 8,
+      "gameday": "2024-10-27",
+      "home_team": "NE",
+      "away_team": "NYJ",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 7
+    },
+    {
+      "game_id": "2024_09_NE_TEN",
+      "week": 9,
+      "gameday": "2024-11-03",
+      "home_team": "TEN",
+      "away_team": "NE",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_10_NE_CHI",
+      "week": 10,
+      "gameday": "2024-11-10",
+      "home_team": "CHI",
+      "away_team": "NE",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_11_LA_NE",
+      "week": 11,
+      "gameday": "2024-11-17",
+      "home_team": "NE",
+      "away_team": "LA",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_12_NE_MIA",
+      "week": 12,
+      "gameday": "2024-11-24",
+      "home_team": "MIA",
+      "away_team": "NE",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_13_IND_NE",
+      "week": 13,
+      "gameday": "2024-12-01",
+      "home_team": "NE",
+      "away_team": "IND",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_15_NE_ARI",
+      "week": 15,
+      "gameday": "2024-12-15",
+      "home_team": "ARI",
+      "away_team": "NE",
+      "gametime": "16:25",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_16_NE_BUF",
+      "week": 16,
+      "gameday": "2024-12-22",
+      "home_team": "BUF",
+      "away_team": "NE",
+      "gametime": "16:25",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_17_LAC_NE",
+      "week": 17,
+      "gameday": "2024-12-28",
+      "home_team": "NE",
+      "away_team": "LAC",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_18_BUF_NE",
+      "week": 18,
+      "gameday": "2025-01-05",
+      "home_team": "NE",
+      "away_team": "BUF",
+      "gametime": "13:00",
+      "team": "NE",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_01_NYJ_SF",
+      "week": 1,
+      "gameday": "2024-09-09",
+      "home_team": "SF",
+      "away_team": "NYJ",
+      "gametime": "20:15",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_02_NYJ_TEN",
+      "week": 2,
+      "gameday": "2024-09-15",
+      "home_team": "TEN",
+      "away_team": "NYJ",
+      "gametime": "13:00",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_03_NE_NYJ",
+      "week": 3,
+      "gameday": "2024-09-19",
+      "home_team": "NYJ",
+      "away_team": "NE",
+      "gametime": "20:15",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 14,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_04_DEN_NYJ",
+      "week": 4,
+      "gameday": "2024-09-29",
+      "home_team": "NYJ",
+      "away_team": "DEN",
+      "gametime": "13:00",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_05_NYJ_MIN",
+      "week": 5,
+      "gameday": "2024-10-06",
+      "home_team": "MIN",
+      "away_team": "NYJ",
+      "gametime": "09:30",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 12,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_06_BUF_NYJ",
+      "week": 6,
+      "gameday": "2024-10-14",
+      "home_team": "NYJ",
+      "away_team": "BUF",
+      "gametime": "20:15",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 14,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_07_NYJ_PIT",
+      "week": 7,
+      "gameday": "2024-10-20",
+      "home_team": "PIT",
+      "away_team": "NYJ",
+      "gametime": "20:20",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_08_NYJ_NE",
+      "week": 8,
+      "gameday": "2024-10-27",
+      "home_team": "NE",
+      "away_team": "NYJ",
+      "gametime": "13:00",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_09_HOU_NYJ",
+      "week": 9,
+      "gameday": "2024-10-31",
+      "home_team": "NYJ",
+      "away_team": "HOU",
+      "gametime": "20:15",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_10_NYJ_ARI",
+      "week": 10,
+      "gameday": "2024-11-10",
+      "home_team": "ARI",
+      "away_team": "NYJ",
+      "gametime": "16:25",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 9,
+      "team_compatible_unique_priced_players": 4
+    },
+    {
+      "game_id": "2024_11_IND_NYJ",
+      "week": 11,
+      "gameday": "2024-11-17",
+      "home_team": "NYJ",
+      "away_team": "IND",
+      "gametime": "13:00",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 11,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_13_SEA_NYJ",
+      "week": 13,
+      "gameday": "2024-12-01",
+      "home_team": "NYJ",
+      "away_team": "SEA",
+      "gametime": "13:00",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_14_NYJ_MIA",
+      "week": 14,
+      "gameday": "2024-12-08",
+      "home_team": "MIA",
+      "away_team": "NYJ",
+      "gametime": "13:00",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_15_NYJ_JAX",
+      "week": 15,
+      "gameday": "2024-12-15",
+      "home_team": "JAX",
+      "away_team": "NYJ",
+      "gametime": "13:00",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 6
+    },
+    {
+      "game_id": "2024_16_LA_NYJ",
+      "week": 16,
+      "gameday": "2024-12-22",
+      "home_team": "NYJ",
+      "away_team": "LA",
+      "gametime": "13:00",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    },
+    {
+      "game_id": "2024_17_NYJ_BUF",
+      "week": 17,
+      "gameday": "2024-12-29",
+      "home_team": "BUF",
+      "away_team": "NYJ",
+      "gametime": "13:00",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 10,
+      "team_compatible_unique_priced_players": 5
+    },
+    {
+      "game_id": "2024_18_MIA_NYJ",
+      "week": 18,
+      "gameday": "2025-01-05",
+      "home_team": "NYJ",
+      "away_team": "MIA",
+      "gametime": "16:25",
+      "team": "NYJ",
+      "status": "no_qualifying_announcement_discovered",
+      "note": "Bounded discovery did not establish a qualifying injury replacement; this is not proof no announcement existed.",
+      "all_team_unique_priced_players": 0,
+      "team_compatible_unique_priced_players": 0
+    }
+  ],
+  "limitations": [
+    "Bounded source discovery is not an exhaustive reconstruction. A missing confirmation is not proof none existed. No weekly starts are inherited.",
+    "No receiver-role features, target receiving outcomes, actual starter columns, forecasts, losses or returns were extracted. Search engines automatically surfaced historical/target scores and player totals in snippets; these are incidental exposure, excluded from qualification. This is not an outcome-unread research context.",
+    "Two site-qualified queries omitted the explicit domains array; results included off-domain spillover. Only official NFL/team results were used or downloaded; off-domain results were excluded. The exact queries and unfiltered returned receipts are preserved.",
+    "Search budget was applied to six discovered incumbent-injury candidates: Tua concussion2, Tua hip1, OConnell thumb2, Minshew collarbone2, OConnell knee2, Herbert ankle2. OConnell knee could nest within the continuing Minshew absence for clustering. Do not count these as independent episodes. Treat the four LV collarbone/knee follow-ups as a protocol ambiguity if the declaration merges them already at discovery; this is explicitly disclosed rather than silently relabelled.",
+    "All newly used pages retain historical prefixture JSON-LD clocks and prospective wording. Current asserted clocks do not prove the wording existed at those times or an original receipt. Retained prior Miami HTML hashes have no saved full bytes; those sources were reused without another fetch.",
+    "MIA hip page’s JSON-LD revision is Dec29 15:47:22.687Z, later than the visible Dec28 update in search. Conservative metadata clock is retained; it remains conditional and unpriced.",
+    "Price counts are provisional identity/retrospective-roster ceilings only. Prior membership, air-yard role and receiver availability remain untested. The source export lacks raw API responses; grouping omits clocks and may overwrite same-side prices while preserving first metadata. Prices are not execution proof.",
+    "The four qualified fixtures each have exactly one eligible snapshot and no same-time line ambiguity; the earliest-post-announcement quote addendum does not change these counts."
+  ],
+  "target_performance_extraction": false,
+  "incidental_search_snippet_outcome_exposure": true,
+  "download_failures": [
+    {
+      "url": "https://www.nfl.com/_amp/raiders-qb-aidan-o-connell-knee-inactive-monday-vs-falcons-desmond-ridder-to-start",
+      "result": "HTTP500; normal canonical /news/ page then downloaded successfully, no challenge bypass."
+    }
+  ]
+}

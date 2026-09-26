@@ -1,0 +1,47 @@
+{
+  "status": "no_actual_teaser_quote_captured",
+  "recorded_at_utc": "2026-09-26T22:24:41.155036+00:00",
+  "browser_entry": {
+    "url": "https://sportsbook.draftkings.com/",
+    "result": "CUA_REPL_ENABLED_SURFACES is required",
+    "browser_tab_or_account_inspected": false
+  },
+  "web_search_queries": [
+    "site.draftkings.com Ontario sportsbook teaser NFL",
+    "DraftKings Ontario NFL teaser sportsbook prices"
+  ],
+  "opened_urls": [
+    "https://sportsbook.draftkings.com/?intendedSiteExp=CA-ON-SB",
+    "https://sportsbook.draftkings.com/leagues/football/nfl"
+  ],
+  "web_find_patterns": [
+    "teaser",
+    "Spread",
+    "Betslip"
+  ],
+  "conclusions": [
+    "No actual fixture-specific teaser ticket or simultaneous constituent offers returned.",
+    "NFL page footer was Virginia; Ontario-intended URL not proof of product/account jurisdiction.",
+    "Generic FAQ example prices were not treated as live offers."
+  ],
+  "source_result_artifacts": [
+    {
+      "path": "data/raw/teaser-current-capture-attempt-2026-09-26/dk_nfl_public_find.json",
+      "bytes": 15678,
+      "sha256": "96685904c10d45f50e7bc1297fac7bc0ac98614a033451bb848fda652ef6b6f2"
+    },
+    {
+      "path": "data/raw/teaser-current-capture-attempt-2026-09-26/dk_nfl_public_web.json",
+      "bytes": 12885,
+      "sha256": "3df7d2ce07c15c42cf90e1bc96503eda495dd4f5ce871c53c3475f7a890a059e"
+    },
+    {
+      "path": "data/raw/teaser-current-capture-attempt-2026-09-26/dk_ontario_public_web.json",
+      "bytes": 12994,
+      "sha256": "6391a5d5cb5f730918ea41706fbf28377272cb1d26aed8a874b577c184d6ed8a"
+    }
+  ],
+  "historical_performance_recomputed": false,
+  "betslip_changed": false,
+  "wager_or_schedule_enabled": false
+}

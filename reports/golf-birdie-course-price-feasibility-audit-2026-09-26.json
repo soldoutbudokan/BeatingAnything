@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "method": "Independent pandas metadata projection; file hashes, named-tournament coverage, unique exact course join, all eight edition counts and rational implied probability checked without agent extraction code. No outcome, forecast or closing-price columns projected.",
+  "report": {
+    "path": "reports/golf-birdie-course-price-feasibility-2026-09-26.json",
+    "sha256": "2ad1d2e4659e04bfd17b5631fbfd4591e24fd805331578b85385a00d101af68b"
+  },
+  "input_hashes_verified": 2,
+  "verified_counts": {
+    "under_rows_all_rounds": 32,
+    "valid_opening_pairs_all_rounds": 18,
+    "unique_course_joins_all_rounds": 26,
+    "missing_id_course_joins_all_rounds": 6,
+    "first_round_rows": 1,
+    "first_round_valid_pairs": 1
+  },
+  "first_round_finau_south_offer_verified": true,
+  "original_editions_verified": 8,
+  "target_outcome_columns_read": false
+}

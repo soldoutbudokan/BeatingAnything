@@ -1,0 +1,19 @@
+# NFC announced-QB source inventory — September 26, 2026
+
+**Five fixture-specific injury announcements match price-qualified games**, spanning four absence episodes. They contain 25 provisionally roster-compatible receiver-games; counting every priced player on both sides gives an unconditional ceiling of 49. These are source counts before prior membership, receiving roles or receiver availability, not a sporting or betting result.
+
+The [declaration](../docs/nfl-announced-qb-expanded-inventory-declaration-2026-09-26.md) was committed as `79b4bcc` before the search. Sixteen standardized team queries plus 16 targeted follow-ups cover all NFC teams, with at most two follow-ups per discovered injury episode. [JSON evidence](nfl-announced-qb-source-nfc-2026-09-26.json) records every query, case, source receipt, clock, provisional count and rejection. The first four search responses were not separately saved; their exact queries remain recorded. Seven later four-query response batches are retained. Search results incidentally exposed past sporting results; none was used to select cases or calculate performance.
+
+| Affected team / game | Confirmed replacement | Latest relevant article clock UTC | Provisional affected-team rows | Both-team ceiling |
+| --- | --- | --- | ---: | ---: |
+| GB vs. IND, September 15 | Willis for Love | September 15 15:32:41.906 | 6 | 9 |
+| GB at TEN, September 22 | Willis for Love | September 22 15:33:28.403 | 6 | 11 |
+| NO vs. TB, October 13 | Rattler for Carr | October 10 16:20:15.707 | 4 | 8 |
+| CAR at DEN, October 27 | Young for Dalton | October 23 19:08:20.922 | 4 | 10 |
+| SF at GB, November 24 | Allen for Purdy | November 22 22:43:03.733 | 5 | 11 |
+
+The confirmations come from official reports for [Green Bay–Indianapolis](https://www.nfl.com/news/packers-qb-jordan-love-knee-out-malik-willis-to-make-start-vs-colts), [Green Bay–Tennessee](https://www.packers.com/news/packers-titans-inactives-week-3-2024), [New Orleans–Tampa Bay](https://www.nfl.com/news/rookie-spencer-rattler-to-start-for-saints-vs-buccaneers-on-sunday), [Carolina–Denver](https://www.panthers.com/news/dave-canales-bryce-young-to-start-this-week-at-denver-andy-dalton-thumb), and [San Francisco–Green Bay](https://www.49ers.com/news/brock-purdy-nick-bosa-ruled-out-for-week-12-vs-packers-injury-report-sfvsgb). Their relevant `NewsArticle` publication/revision fields precede the respective quotes. Embedded video dates are excluded. The failed Saints AMP request and subsequent successful canonical request are both retained.
+
+Dallas–Philadelphia on November 10, New Orleans–Washington on December 15 and Philadelphia–Dallas on December 29 have confirmations but no qualifying price rows. January 5 confirmations cannot supply absent Week 18 prices. The November 28 Giants announcement's revision is after entry; its fixture also has no eligible quote. Other cases are explicitly conditional, reflect a healthy benching, or lack a fixture-specific confirmation within the search limit. Carolina's November 3 and the Giants' December 8 situations combine improving health with a possible job decision; neither is treated as a definite injured-incumbent absence. No later Saints or Cowboys start inherits an earlier confirmation merely because the same backup subsequently played.
+
+The 49-player ceiling deliberately includes opponents. Retrospective roster counts are not proof of prequote membership, and original publication receipts remain absent. The bounded search does not prove additional qualifying announcements never existed. No target receiver outcomes, role values, forecast, bet return, wager or schedule were produced. The original hypothesis remains unresolved; the combined inventory applies the separately committed quote-deduplication and prior-team rules before deciding whether the sample can advance.

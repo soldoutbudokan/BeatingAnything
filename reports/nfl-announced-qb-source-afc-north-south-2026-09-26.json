@@ -1,0 +1,1270 @@
+{
+  "status": "bounded source audit complete: one price-qualified team-game, five retrospective roster-compatible provisional receiver-games; both-team attribution ceiling eleven",
+  "prepared_at_utc": "2026-09-26T22:15:45.135827+00:00",
+  "declaration": {
+    "path": "docs/nfl-announced-qb-expanded-inventory-declaration-2026-09-26.md",
+    "commit": "79b4bcc",
+    "sha256": "ddbeb3acfdaeed37867e8d92755587247e63fb4ba550cff7f9baad2042b971fa"
+  },
+  "teams": [
+    "BAL",
+    "CIN",
+    "CLE",
+    "PIT",
+    "HOU",
+    "IND",
+    "JAX",
+    "TEN"
+  ],
+  "search_counts": {
+    "standardized_team_queries": 8,
+    "targeted_followups": 13,
+    "total": 21,
+    "followups_by_episode": {
+      "CLE_Watson_Achilles": 2,
+      "PIT_Wilson_calf": 2,
+      "IND_Richardson_oblique": 2,
+      "IND_Richardson_back_foot": 1,
+      "JAX_Lawrence_shoulder": 2,
+      "JAX_Lawrence_concussion": 2,
+      "TEN_Levis_shoulder": 2
+    }
+  },
+  "search_logs": [
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-north-south-search-log.json",
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-north-south-search-followup4.json"
+  ],
+  "discovery_followthrough": "Followed link from searched official Jaguars Week11 game page to its specific Mac Jones announcement; no extra search query. No recap/gamebook used as trigger proof.",
+  "primary_receipts": [
+    {
+      "id": "ind_w6",
+      "url": "https://www.nfl.com/news/colts-qb-joe-flacco-to-start-vs-titans-with-anthony-richardson-oblique-inactive",
+      "retrieved_at_utc": "2026-09-26T22:12:23.055608+00:00",
+      "status": 200,
+      "final_url": "https://www.nfl.com/news/colts-qb-joe-flacco-to-start-vs-titans-with-anthony-richardson-oblique-inactive",
+      "bytes": 705414,
+      "sha256": "c835ccbc4b0175d6092cc2e9f19b8d3f9ad1a176c6ed91d1afb6fb455c8efa78",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/ind_w6.html",
+      "published_values": [
+        "2024-10-13T15:36:49.175Z"
+      ],
+      "modified_values": [
+        "2024-10-13T17:08:38.518Z"
+      ]
+    },
+    {
+      "id": "ind_w18",
+      "url": "https://www.colts.com/news/colts-jaguars-preview-anthony-richardson-out-what-colts-still-have-left-to-play-for-despite-playoff-elimination",
+      "retrieved_at_utc": "2026-09-26T22:12:23.107851+00:00",
+      "status": 200,
+      "final_url": "https://www.colts.com/news/colts-jaguars-preview-anthony-richardson-out-what-colts-still-have-left-to-play-for-despite-playoff-elimination",
+      "bytes": 519651,
+      "sha256": "9cd17b2d7504ea2c38aaf0f0a22fc85bce0637df93d2d705dfc57a4900945c34",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/ind_w18.html",
+      "published_values": [
+        "2025-01-03T21:26:38.286Z",
+        "2025-01-02T23:57:00Z"
+      ],
+      "modified_values": [
+        "2025-01-03T21:48:00.087Z",
+        "2025-01-03T13:57:44.571Z"
+      ]
+    },
+    {
+      "id": "ind_bench",
+      "url": "https://www.colts.com/news/joe-flacco-starting-quarterback-anthony-richardson-shane-steichen-announcement-vikings-game-week-9",
+      "retrieved_at_utc": "2026-09-26T22:12:23.238874+00:00",
+      "status": 200,
+      "final_url": "https://www.colts.com/news/joe-flacco-starting-quarterback-anthony-richardson-shane-steichen-announcement-vikings-game-week-9",
+      "bytes": 327457,
+      "sha256": "8ecc63806ff64937df4c979eec023b85e5bf6f5d07cd15b7bfbbccdc18370ed5",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/ind_bench.html",
+      "published_values": [
+        "2024-10-30T15:31:31.049Z"
+      ],
+      "modified_values": [
+        "2024-10-30T20:26:28.706Z"
+      ]
+    },
+    {
+      "id": "ten_bench",
+      "url": "https://www.tennesseetitans.com/news/titans-make-a-change-at-qb-mason-rudolph-will-levis-and-hc-brian-callahan-discuss-the-decision",
+      "retrieved_at_utc": "2026-09-26T22:12:24.874015+00:00",
+      "status": 200,
+      "final_url": "https://www.tennesseetitans.com/news/titans-make-a-change-at-qb-mason-rudolph-will-levis-and-hc-brian-callahan-discuss-the-decision",
+      "bytes": 343332,
+      "sha256": "bd04d6e53f6380306e7154973ee95f0463252b9a920c2aa087e6e9ca86b5be9c",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/ten_bench.html",
+      "published_values": [
+        "2024-12-18T21:45:00Z"
+      ],
+      "modified_values": [
+        "2024-12-19T22:02:08.564Z"
+      ]
+    },
+    {
+      "id": "pit_w1",
+      "url": "https://www.nfl.com/news/steelers-qb-russell-wilson-calf-won-t-play-justin-fields-to-start-vs-falcons",
+      "retrieved_at_utc": "2026-09-26T22:12:22.346067+00:00",
+      "status": 200,
+      "final_url": "https://www.nfl.com/news/steelers-qb-russell-wilson-calf-won-t-play-justin-fields-to-start-vs-falcons",
+      "bytes": 703092,
+      "sha256": "3f3b3b293c4c265dcbe8da3f2aafcb1697940b0bd32a54e9f5eaec54ab044e40",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/pit_w1.html",
+      "published_values": [
+        "2024-09-08T15:29:54.92Z"
+      ],
+      "modified_values": [
+        "2024-09-25T16:10:48.566Z"
+      ]
+    },
+    {
+      "id": "jax_w10_conditional",
+      "url": "https://www.jaguars.com/news/k000005-jaguars-qb-trevor-lawrence-listed-as-questionable-on-game-status-in-week-10",
+      "retrieved_at_utc": "2026-09-26T22:12:23.717310+00:00",
+      "status": 200,
+      "final_url": "https://www.jaguars.com/news/k000005-jaguars-qb-trevor-lawrence-listed-as-questionable-on-game-status-in-week-10",
+      "bytes": 344797,
+      "sha256": "1acd26db6705b04ff4c92a431a8d0c78b44b8220742cf1ea1be992b650d1797a",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/jax_w10_conditional.html",
+      "published_values": [
+        "2024-11-08T22:19:44.189Z"
+      ],
+      "modified_values": [
+        "2024-11-08T22:19:44.189Z"
+      ]
+    },
+    {
+      "id": "jax_w11_discovery",
+      "url": "https://www.jaguars.com/game-day/2024/reg-week11/jaguars-at-lions/",
+      "retrieved_at_utc": "2026-09-26T22:12:24.008410+00:00",
+      "status": 200,
+      "final_url": "https://www.jaguars.com/game-day/2024/reg-week11/jaguars-at-lions/",
+      "bytes": 465521,
+      "sha256": "b034dc72f7256086c70d6599b1be6eaa21ad32b396fa1377fe22c89d1f9f3930",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/jax_w11_discovery.html",
+      "published_values": [],
+      "modified_values": []
+    },
+    {
+      "id": "ind_w6_inactives",
+      "url": "https://www.colts.com/news/colts-announce-5-inactive-players-for-week-6-game-vs-tennessee-titans-anthony-richardson-inactive-as-emergency-third-quarterback",
+      "retrieved_at_utc": "2026-09-26T22:14:17.142699+00:00",
+      "bytes": 324989,
+      "sha256": "11ea739eab5b2a63e84044251d1b6400541e7b3273d0134a377df134c8dcf46d",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/ind_w6_inactives.html",
+      "published_values": [
+        "2024-10-13T15:32:16.461Z"
+      ],
+      "modified_values": [
+        "2024-10-13T15:33:17.084Z"
+      ],
+      "assertion": "Quarterback Anthony Richardson (oblique) is among the five inactive players the Colts announced Sunday",
+      "limitation": "The announcement does not explicitly name Flacco rather than Ehlinger as starter; absence alone insufficient."
+    },
+    {
+      "id": "jax_w11",
+      "url": "https://www.jaguars.com/news/k000015-jaguars-qb-mac-jones-will-make-the-start-for-the-jaguars-in-week-11",
+      "retrieved_at_utc": "2026-09-26T22:12:23.874724+00:00",
+      "status": 200,
+      "final_url": "https://www.jaguars.com/news/k000015-jaguars-qb-mac-jones-will-make-the-start-for-the-jaguars-in-week-11",
+      "bytes": 524910,
+      "sha256": "eca8e6d924ed391e17ca65c3a4bd613dfdc39e614b37659c0584d5be381fb999",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/jax_w11.html",
+      "published_values": [
+        "2024-11-13T22:39:47.048Z",
+        "2024-11-13T22:36:15.542Z"
+      ],
+      "modified_values": [
+        "2024-11-13T22:53:41.266Z",
+        "2024-11-13T22:53:24.3Z"
+      ]
+    },
+    {
+      "id": "ten_w7",
+      "url": "https://www.nfl.com/news/titans-qb-mason-rudolph-will-start-sunday-vs-bills-as-will-levis-deals-with-shoulder-injury",
+      "retrieved_at_utc": "2026-09-26T22:12:24.584430+00:00",
+      "status": 200,
+      "final_url": "https://www.nfl.com/news/titans-qb-mason-rudolph-will-start-sunday-vs-bills-as-will-levis-deals-with-shoulder-injury",
+      "bytes": 706835,
+      "sha256": "e0a6755ff767031453f4176614fcdb6bec542480c77389c1ef91229267659da1",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/ten_w7.html",
+      "published_values": [
+        "2024-10-19T21:19:25.903Z"
+      ],
+      "modified_values": [
+        "2024-11-01T22:07:03.046Z"
+      ]
+    },
+    {
+      "id": "pit_w3_conditional",
+      "url": "https://www.steelers.com/news/steelers-mike-tomlin-preparing-justin-ields-start-russell-wilson-chargers",
+      "retrieved_at_utc": "2026-09-26T22:12:22.346407+00:00",
+      "status": 200,
+      "final_url": "https://www.steelers.com/news/steelers-mike-tomlin-preparing-justin-ields-start-russell-wilson-chargers",
+      "bytes": 348494,
+      "sha256": "e46e48adbc9f8c99a06f4a236eb441b68feccfaac45f86d4a5b8c595f3f4a4be",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/pit_w3_conditional.html",
+      "published_values": [
+        "2024-09-17T17:57:11.846Z"
+      ],
+      "modified_values": [
+        "2024-09-17T18:16:33.396Z"
+      ]
+    },
+    {
+      "id": "jax_ir",
+      "url": "https://www.jaguars.com/news/k000030-jaguars-qb-trevor-lawrence-placed-on-injured-reserve",
+      "retrieved_at_utc": "2026-09-26T22:12:24.218581+00:00",
+      "status": 200,
+      "final_url": "https://www.jaguars.com/news/k000030-jaguars-qb-trevor-lawrence-placed-on-injured-reserve",
+      "bytes": 327216,
+      "sha256": "77f42f90aecefd8b5373623718a8db61ce6d03a83e33d54c75cb509f2b2739ae",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/jax_ir.html",
+      "published_values": [
+        "2024-12-04T21:01:00.103Z"
+      ],
+      "modified_values": [
+        "2024-12-04T22:16:46.905Z"
+      ]
+    },
+    {
+      "id": "pit_w4_plan",
+      "url": "https://www.steelers.com/news/steelers-mike-tomlin-sticking-with-justin-fields-russell-wilson-still-limited",
+      "retrieved_at_utc": "2026-09-26T22:12:22.346449+00:00",
+      "status": 200,
+      "final_url": "https://www.steelers.com/news/steelers-mike-tomlin-sticking-with-justin-fields-russell-wilson-still-limited",
+      "bytes": 342226,
+      "sha256": "612b4b5cecbbf03f6cab8a9c1d9a1e5bff4d77c30a4a760d2860a2b9720542e5",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/pit_w4_plan.html",
+      "published_values": [
+        "2024-09-24T23:30:00Z"
+      ],
+      "modified_values": [
+        "2024-09-24T23:57:36.9Z"
+      ]
+    },
+    {
+      "id": "cle_w16_bench",
+      "url": "https://www.clevelandbrowns.com/news/dorian-thompson-robinson-named-starting-quarterback-for-week-16",
+      "retrieved_at_utc": "2026-09-26T22:12:22.871108+00:00",
+      "status": 200,
+      "final_url": "https://www.clevelandbrowns.com/news/dorian-thompson-robinson-named-starting-quarterback-for-week-16",
+      "bytes": 316443,
+      "sha256": "715530080e1617eac221b4654a7566d4d24642797efb04b8c964f79e7e9c8dbd",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/cle_w16_bench.html",
+      "published_values": [
+        "2024-12-18T17:00:14.126Z"
+      ],
+      "modified_values": [
+        "2024-12-18T17:16:28.254Z"
+      ]
+    },
+    {
+      "id": "ten_w9_conditional",
+      "url": "https://www.tennesseetitans.com/news/six-things-to-watch-for-the-titans-in-sunday-s-game-vs-the-patriots",
+      "retrieved_at_utc": "2026-09-26T22:12:24.758989+00:00",
+      "status": 200,
+      "final_url": "https://www.tennesseetitans.com/news/six-things-to-watch-for-the-titans-in-sunday-s-game-vs-the-patriots",
+      "bytes": 343297,
+      "sha256": "26d767f025104149db55ffd424c2820d2708eb2d2998e89bedccc0e37ed86b3d",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/ten_w9_conditional.html",
+      "published_values": [
+        "2024-11-03T15:09:00Z"
+      ],
+      "modified_values": [
+        "2024-11-03T15:09:17.434Z"
+      ]
+    },
+    {
+      "id": "ind_w17",
+      "url": "https://www.nfl.com/news/colts-qb-anthony-richardson-back-foot-downgraded-to-out-vs-giants",
+      "retrieved_at_utc": "2026-09-26T22:12:23.082414+00:00",
+      "status": 200,
+      "final_url": "https://www.nfl.com/news/colts-qb-anthony-richardson-back-foot-downgraded-to-out-vs-giants",
+      "bytes": 701468,
+      "sha256": "e55096be855705a3a09f8fd9fd4e7b61e2f7baadd2b5991334ce5b6390c30b76",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/ind_w17.html",
+      "published_values": [
+        "2024-12-28T18:48:56.846Z"
+      ],
+      "modified_values": [
+        "2024-12-28T22:36:50.442Z"
+      ]
+    },
+    {
+      "id": "ind_w5",
+      "url": "https://www.nfl.com/news/colts-downgrade-qb-anthony-richardson-oblique-to-doubtful-vs-jaguars",
+      "retrieved_at_utc": "2026-09-26T22:12:22.941408+00:00",
+      "status": 200,
+      "final_url": "https://www.nfl.com/news/colts-downgrade-qb-anthony-richardson-oblique-to-doubtful-vs-jaguars",
+      "bytes": 701724,
+      "sha256": "e817733d32f0ef20d3bf194dc2878bb8332d64d2bf329550e106eaf3bda591a0",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/ind_w5.html",
+      "published_values": [
+        "2024-10-05T17:59:56.451Z"
+      ],
+      "modified_values": [
+        "2024-10-12T04:11:02.201Z"
+      ]
+    },
+    {
+      "id": "cle_ir",
+      "url": "https://www.clevelandbrowns.com/news/browns-sign-qb-bailey-zappe-to-the-active-roster",
+      "retrieved_at_utc": "2026-09-26T22:12:22.346794+00:00",
+      "status": 200,
+      "final_url": "https://www.clevelandbrowns.com/news/browns-sign-qb-bailey-zappe-to-the-active-roster",
+      "bytes": 316463,
+      "sha256": "32760d3b0d3f16f60ba92926ae59796a45d5a50023e6454ff299ce11a28cf99e",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/cle_ir.html",
+      "published_values": [
+        "2024-10-22T18:33:57.606Z"
+      ],
+      "modified_values": [
+        "2024-10-22T18:33:57.606Z"
+      ]
+    },
+    {
+      "id": "cle_w8",
+      "url": "https://www.clevelandbrowns.com/news/jameis-winston-to-start-at-quarterback-in-week-8",
+      "retrieved_at_utc": "2026-09-26T22:12:22.346489+00:00",
+      "status": 200,
+      "final_url": "https://www.clevelandbrowns.com/news/jameis-winston-to-start-at-quarterback-in-week-8",
+      "bytes": 318692,
+      "sha256": "c7c1c2728ba78414b5325519795ec3ba386265203bab6d53775f33813a8a5189",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/cle_w8.html",
+      "published_values": [
+        "2024-10-23T16:11:36.413Z"
+      ],
+      "modified_values": [
+        "2024-10-23T19:08:21.872Z"
+      ]
+    },
+    {
+      "id": "pit_w2_conditional",
+      "url": "https://www.steelers.com/news/mike-tomlin-steelers-preparing-as-if-justin-fields-start-broncos",
+      "retrieved_at_utc": "2026-09-26T22:12:22.346335+00:00",
+      "status": 200,
+      "final_url": "https://www.steelers.com/news/mike-tomlin-steelers-preparing-as-if-justin-fields-start-broncos",
+      "bytes": 341405,
+      "sha256": "490877c75c21f6031a506fc4199c01a25b54b1a96ab72f30664a4b557786a2d4",
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/pit_w2_conditional.html",
+      "published_values": [
+        "2024-09-10T19:15:00Z"
+      ],
+      "modified_values": [
+        "2024-09-10T19:45:04.672Z"
+      ]
+    }
+  ],
+  "quoted_assertion_qualified": "Mac Jones will start a second consecutive game in place of Lawrence",
+  "price_inventory": {
+    "path": "reports/nfl-announced-qb-expanded-price-inventory-2026-09-26.json",
+    "sha256": "e97dc6434ceba2abdfa7e38aa0ab61552e4271fcd38fadd44bbb2f39ddb195ae",
+    "eligible_projection": "data/raw/nfl-announced-qb-expanded-price-inventory-2026-09-26/eligible-price-rows.csv",
+    "eligible_projection_sha256": "a6c788a97b861d14c36f1e26d3f894c79ca226ad8ff13916c2bf97fe01326beb",
+    "primary_frozen_input": "eligible_projection and eligible_projection_sha256; report hash is a secondary documentation receipt"
+  },
+  "negative_teams": [
+    {
+      "team": "BAL",
+      "status": "no_2024_regular_season_injury_replacement_found",
+      "detail": "Initial query found preseason-backup discussion and January2024 rest announcement from prior season; neither qualifies."
+    },
+    {
+      "team": "CIN",
+      "status": "no_2024_regular_season_injury_replacement_found",
+      "detail": "Initial query returned historical/media-guide context, not a qualifying 2024 fixture announcement."
+    },
+    {
+      "team": "HOU",
+      "status": "no_2024_regular_season_injury_replacement_found",
+      "detail": "Initial query returned media-guide context, not a qualifying 2024 fixture announcement."
+    }
+  ],
+  "fixture_cases": [
+    {
+      "team": "PIT",
+      "week": 1,
+      "game_id": "2024_01_PIT_ATL",
+      "date": "2024-09-08",
+      "episode": "PIT_Wilson_calf",
+      "status": "unresolved_revision_after_quote",
+      "reason": "Explicit replacement, but current article revision is September25; original prequote wording unavailable.",
+      "source_id": "pit_w1",
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-09-08T16:25:38Z"
+      ],
+      "positions": {
+        "RB": 2,
+        "TE": 1,
+        "WR": 2
+      },
+      "source_url": "https://www.nfl.com/news/steelers-qb-russell-wilson-calf-won-t-play-justin-fields-to-start-vs-falcons",
+      "source_published_utc": [
+        "2024-09-08T15:29:54.92Z"
+      ],
+      "source_modified_utc": [
+        "2024-09-25T16:10:48.566Z"
+      ],
+      "latest_source_clock_utc": "2024-09-25T16:10:48.566Z",
+      "latest_source_before_all_quotes": false
+    },
+    {
+      "team": "PIT",
+      "week": 2,
+      "game_id": "2024_02_PIT_DEN",
+      "date": "2024-09-15",
+      "episode": "PIT_Wilson_calf",
+      "status": "unresolved_conditional",
+      "reason": "Preparing as if Fields starts; Wilson participation still being evaluated.",
+      "source_id": "pit_w2_conditional",
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-09-15T19:50:37Z"
+      ],
+      "positions": {
+        "WR": 2,
+        "RB": 2,
+        "TE": 1
+      },
+      "source_url": "https://www.steelers.com/news/mike-tomlin-steelers-preparing-as-if-justin-fields-start-broncos",
+      "source_published_utc": [
+        "2024-09-10T19:15:00Z"
+      ],
+      "source_modified_utc": [
+        "2024-09-10T19:45:04.672Z"
+      ],
+      "latest_source_clock_utc": "2024-09-10T19:45:04.672Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "PIT",
+      "week": 3,
+      "game_id": "2024_03_LAC_PIT",
+      "date": "2024-09-22",
+      "episode": "PIT_Wilson_calf",
+      "status": "unresolved_conditional",
+      "reason": "Readying a Fields plan while following Wilson through the week, not definitive fixture starter.",
+      "source_id": "pit_w3_conditional",
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-09-22T16:25:38Z"
+      ],
+      "positions": {
+        "RB": 2,
+        "WR": 2,
+        "TE": 1
+      },
+      "source_url": "https://www.steelers.com/news/steelers-mike-tomlin-preparing-justin-ields-start-russell-wilson-chargers",
+      "source_published_utc": [
+        "2024-09-17T17:57:11.846Z"
+      ],
+      "source_modified_utc": [
+        "2024-09-17T18:16:33.396Z"
+      ],
+      "latest_source_clock_utc": "2024-09-17T18:16:33.396Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "PIT",
+      "week": 4,
+      "game_id": "2024_04_PIT_IND",
+      "date": "2024-09-29",
+      "episode": "PIT_Wilson_calf",
+      "status": "no_usable_quotes",
+      "reason": "Official team report says plan for Fields to start; no valid quote rows survive. No need to resolve wording further.",
+      "source_id": "pit_w4_plan",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.steelers.com/news/steelers-mike-tomlin-sticking-with-justin-fields-russell-wilson-still-limited",
+      "source_published_utc": [
+        "2024-09-24T23:30:00Z"
+      ],
+      "source_modified_utc": [
+        "2024-09-24T23:57:36.9Z"
+      ],
+      "latest_source_clock_utc": "2024-09-24T23:57:36.9Z"
+    },
+    {
+      "team": "PIT",
+      "week": 5,
+      "game_id": "2024_05_DAL_PIT",
+      "date": "2024-10-06",
+      "episode": "PIT_Wilson_calf",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "No fixture-specific confirmation in capped searches; no usable quotes either.",
+      "source_id": null,
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {}
+    },
+    {
+      "team": "PIT",
+      "week": 6,
+      "game_id": "2024_06_PIT_LV",
+      "date": "2024-10-13",
+      "episode": "PIT_Wilson_calf",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "No fixture-specific confirmation in capped searches; no usable quotes either.",
+      "source_id": null,
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {}
+    },
+    {
+      "team": "CLE",
+      "week": 8,
+      "game_id": "2024_08_BAL_CLE",
+      "date": "2024-10-27",
+      "episode": "CLE_Watson_Achilles",
+      "status": "confirmed_but_no_quotes",
+      "reason": "Official coach announcement names Winston; Watson IR stated; no retained fixture price row.",
+      "source_id": "cle_w8",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.clevelandbrowns.com/news/jameis-winston-to-start-at-quarterback-in-week-8",
+      "source_published_utc": [
+        "2024-10-23T16:11:36.413Z"
+      ],
+      "source_modified_utc": [
+        "2024-10-23T19:08:21.872Z"
+      ],
+      "latest_source_clock_utc": "2024-10-23T19:08:21.872Z"
+    },
+    {
+      "team": "CLE",
+      "week": 9,
+      "game_id": "2024_09_LAC_CLE",
+      "date": "2024-11-03",
+      "episode": "CLE_Watson_Achilles",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "Original Watson injury absence known; Week8 announcement cannot carry forward to this fixture.",
+      "source_id": null,
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {}
+    },
+    {
+      "team": "CLE",
+      "week": 11,
+      "game_id": "2024_11_CLE_NO",
+      "date": "2024-11-17",
+      "episode": "CLE_Watson_Achilles",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "Original Watson injury absence known; Week8 announcement cannot carry forward to this fixture.",
+      "source_id": null,
+      "provisional_retrospective_roster_quote_rows": 6,
+      "provisional_retrospective_roster_receiver_games": 6,
+      "snapshot_times_utc": [
+        "2024-11-17T17:25:38Z"
+      ],
+      "positions": {
+        "RB": 2,
+        "WR": 3,
+        "TE": 1
+      }
+    },
+    {
+      "team": "CLE",
+      "week": 12,
+      "game_id": "2024_12_PIT_CLE",
+      "date": "2024-11-21",
+      "episode": "CLE_Watson_Achilles",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "Original Watson injury absence known; Week8 announcement cannot carry forward to this fixture.",
+      "source_id": null,
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-11-22T00:40:39Z"
+      ],
+      "positions": {
+        "WR": 3,
+        "RB": 1,
+        "TE": 1
+      }
+    },
+    {
+      "team": "CLE",
+      "week": 13,
+      "game_id": "2024_13_CLE_DEN",
+      "date": "2024-12-02",
+      "episode": "CLE_Watson_Achilles",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "Original Watson injury absence known; Week8 announcement cannot carry forward to this fixture.",
+      "source_id": null,
+      "provisional_retrospective_roster_quote_rows": 9,
+      "provisional_retrospective_roster_receiver_games": 7,
+      "snapshot_times_utc": [
+        "2024-12-02T23:40:38Z",
+        "2024-12-03T00:40:38Z"
+      ],
+      "positions": {
+        "WR": 4,
+        "RB": 3,
+        "TE": 2
+      }
+    },
+    {
+      "team": "CLE",
+      "week": 14,
+      "game_id": "2024_14_CLE_PIT",
+      "date": "2024-12-08",
+      "episode": "CLE_Watson_Achilles",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "Original Watson injury absence known; Week8 announcement cannot carry forward to this fixture.",
+      "source_id": null,
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {}
+    },
+    {
+      "team": "CLE",
+      "week": 15,
+      "game_id": "2024_15_KC_CLE",
+      "date": "2024-12-15",
+      "episode": "CLE_Watson_Achilles",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "Original Watson injury absence known; Week8 announcement cannot carry forward to this fixture.",
+      "source_id": null,
+      "provisional_retrospective_roster_quote_rows": 4,
+      "provisional_retrospective_roster_receiver_games": 4,
+      "snapshot_times_utc": [
+        "2024-12-15T17:25:37Z"
+      ],
+      "positions": {
+        "TE": 1,
+        "RB": 1,
+        "WR": 2
+      }
+    },
+    {
+      "team": "CLE",
+      "week": 16,
+      "game_id": "2024_16_CLE_CIN",
+      "date": "2024-12-22",
+      "episode": "CLE_healthy_benching",
+      "status": "rejected_healthy_benching",
+      "reason": "DTR change announced as opportunity to start, not injury-triggered replacement of Winston; no injury exposure inferred.",
+      "source_id": "cle_w16_bench",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.clevelandbrowns.com/news/dorian-thompson-robinson-named-starting-quarterback-for-week-16",
+      "source_published_utc": [
+        "2024-12-18T17:00:14.126Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-18T17:16:28.254Z"
+      ],
+      "latest_source_clock_utc": "2024-12-18T17:16:28.254Z"
+    },
+    {
+      "team": "CLE",
+      "week": 17,
+      "game_id": "2024_17_MIA_CLE",
+      "date": "2024-12-29",
+      "episode": "CLE_healthy_benching",
+      "status": "rejected_healthy_benching",
+      "reason": "DTR change announced as opportunity to start, not injury-triggered replacement of Winston; no injury exposure inferred.",
+      "source_id": "cle_w16_bench",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.clevelandbrowns.com/news/dorian-thompson-robinson-named-starting-quarterback-for-week-16",
+      "source_published_utc": [
+        "2024-12-18T17:00:14.126Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-18T17:16:28.254Z"
+      ],
+      "latest_source_clock_utc": "2024-12-18T17:16:28.254Z"
+    },
+    {
+      "team": "CLE",
+      "week": 18,
+      "game_id": "2024_18_CLE_BAL",
+      "date": "2025-01-04",
+      "episode": "CLE_healthy_benching",
+      "status": "rejected_healthy_benching",
+      "reason": "DTR change announced as opportunity to start, not injury-triggered replacement of Winston; no injury exposure inferred.",
+      "source_id": "cle_w16_bench",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.clevelandbrowns.com/news/dorian-thompson-robinson-named-starting-quarterback-for-week-16",
+      "source_published_utc": [
+        "2024-12-18T17:00:14.126Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-18T17:16:28.254Z"
+      ],
+      "latest_source_clock_utc": "2024-12-18T17:16:28.254Z"
+    },
+    {
+      "team": "IND",
+      "week": 5,
+      "game_id": "2024_05_IND_JAX",
+      "date": "2024-10-06",
+      "episode": "IND_Richardson_oblique",
+      "status": "unresolved_revision_after_quote",
+      "reason": "Current NFL page revised October12 after game; also no usable quote rows.",
+      "source_id": "ind_w5",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.nfl.com/news/colts-downgrade-qb-anthony-richardson-oblique-to-doubtful-vs-jaguars",
+      "source_published_utc": [
+        "2024-10-05T17:59:56.451Z"
+      ],
+      "source_modified_utc": [
+        "2024-10-12T04:11:02.201Z"
+      ],
+      "latest_source_clock_utc": "2024-10-12T04:11:02.201Z"
+    },
+    {
+      "team": "IND",
+      "week": 6,
+      "game_id": "2024_06_IND_TEN",
+      "date": "2024-10-13",
+      "episode": "IND_Richardson_oblique",
+      "status": "unresolved_revision_after_quote",
+      "reason": "NFL replacement article revised17:08 after16:25quote. Team15:33inactives confirms Richardson out but not Flacco rather than Ehlinger starting.",
+      "source_id": "ind_w6",
+      "provisional_retrospective_roster_quote_rows": 3,
+      "provisional_retrospective_roster_receiver_games": 3,
+      "snapshot_times_utc": [
+        "2024-10-13T16:25:38Z"
+      ],
+      "positions": {
+        "WR": 2,
+        "RB": 1
+      },
+      "source_url": "https://www.nfl.com/news/colts-qb-joe-flacco-to-start-vs-titans-with-anthony-richardson-oblique-inactive",
+      "source_published_utc": [
+        "2024-10-13T15:36:49.175Z"
+      ],
+      "source_modified_utc": [
+        "2024-10-13T17:08:38.518Z"
+      ],
+      "latest_source_clock_utc": "2024-10-13T17:08:38.518Z",
+      "latest_source_before_all_quotes": false
+    },
+    {
+      "team": "IND",
+      "week": 9,
+      "game_id": "2024_09_IND_MIN",
+      "date": "2024-11-03",
+      "episode": "IND_healthy_benching",
+      "status": "rejected_healthy_benching",
+      "reason": "Coach explicitly benches Richardson in favor of Flacco; not an injury exposure.",
+      "source_id": "ind_bench",
+      "provisional_retrospective_roster_quote_rows": 3,
+      "provisional_retrospective_roster_receiver_games": 3,
+      "snapshot_times_utc": [
+        "2024-11-03T17:25:37Z"
+      ],
+      "positions": {
+        "WR": 2,
+        "RB": 1
+      },
+      "source_url": "https://www.colts.com/news/joe-flacco-starting-quarterback-anthony-richardson-shane-steichen-announcement-vikings-game-week-9",
+      "source_published_utc": [
+        "2024-10-30T15:31:31.049Z"
+      ],
+      "source_modified_utc": [
+        "2024-10-30T20:26:28.706Z"
+      ],
+      "latest_source_clock_utc": "2024-10-30T20:26:28.706Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "IND",
+      "week": 10,
+      "game_id": "2024_10_BUF_IND",
+      "date": "2024-11-10",
+      "episode": "IND_healthy_benching",
+      "status": "rejected_healthy_benching",
+      "reason": "Coach explicitly benches Richardson in favor of Flacco; not an injury exposure.",
+      "source_id": "ind_bench",
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-11-10T17:25:37Z"
+      ],
+      "positions": {
+        "WR": 3,
+        "TE": 1,
+        "RB": 1
+      },
+      "source_url": "https://www.colts.com/news/joe-flacco-starting-quarterback-anthony-richardson-shane-steichen-announcement-vikings-game-week-9",
+      "source_published_utc": [
+        "2024-10-30T15:31:31.049Z"
+      ],
+      "source_modified_utc": [
+        "2024-10-30T20:26:28.706Z"
+      ],
+      "latest_source_clock_utc": "2024-10-30T20:26:28.706Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "IND",
+      "week": 17,
+      "game_id": "2024_17_IND_NYG",
+      "date": "2024-12-29",
+      "episode": "IND_Richardson_back_foot",
+      "status": "confirmed_but_no_quotes",
+      "reason": "NFL confirms Richardson out and Flacco starts against Giants; quote clock gate removes all fixture rows.",
+      "source_id": "ind_w17",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.nfl.com/news/colts-qb-anthony-richardson-back-foot-downgraded-to-out-vs-giants",
+      "source_published_utc": [
+        "2024-12-28T18:48:56.846Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-28T22:36:50.442Z"
+      ],
+      "latest_source_clock_utc": "2024-12-28T22:36:50.442Z"
+    },
+    {
+      "team": "IND",
+      "week": 18,
+      "game_id": "2024_18_JAX_IND",
+      "date": "2025-01-05",
+      "episode": "IND_Richardson_back_foot",
+      "status": "unresolved_replacement_and_no_quotes",
+      "reason": "Team preview confirms Richardson back-spasm absence but no explicit Flacco confirmation in retrieved assertion; no Week18 prices.",
+      "source_id": "ind_w18",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.colts.com/news/colts-jaguars-preview-anthony-richardson-out-what-colts-still-have-left-to-play-for-despite-playoff-elimination",
+      "source_published_utc": [
+        "2025-01-03T21:26:38.286Z",
+        "2025-01-02T23:57:00Z"
+      ],
+      "source_modified_utc": [
+        "2025-01-03T21:48:00.087Z",
+        "2025-01-03T13:57:44.571Z"
+      ],
+      "latest_source_clock_utc": "2025-01-03T21:48:00.087Z"
+    },
+    {
+      "team": "JAX",
+      "week": 10,
+      "game_id": "2024_10_MIN_JAX",
+      "date": "2024-11-10",
+      "episode": "JAX_Lawrence_shoulder",
+      "status": "unresolved_conditional",
+      "reason": "Lawrence only likely out, Jones starts if Lawrence cannot play.",
+      "source_id": "jax_w10_conditional",
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-11-10T17:25:37Z"
+      ],
+      "positions": {
+        "WR": 3,
+        "TE": 1,
+        "RB": 1
+      },
+      "source_url": "https://www.jaguars.com/news/k000005-jaguars-qb-trevor-lawrence-listed-as-questionable-on-game-status-in-week-10",
+      "source_published_utc": [
+        "2024-11-08T22:19:44.189Z"
+      ],
+      "source_modified_utc": [
+        "2024-11-08T22:19:44.189Z"
+      ],
+      "latest_source_clock_utc": "2024-11-08T22:19:44.189Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "JAX",
+      "week": 11,
+      "game_id": "2024_11_JAX_DET",
+      "date": "2024-11-17",
+      "episode": "JAX_Lawrence_shoulder",
+      "status": "qualified_provisional_price_match",
+      "reason": "Coach announces Lawrence absence and Jones start against Detroit, before all retained quote clocks.",
+      "source_id": "jax_w11",
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-11-17T17:25:38Z"
+      ],
+      "positions": {
+        "TE": 1,
+        "WR": 2,
+        "RB": 2
+      },
+      "source_url": "https://www.jaguars.com/news/k000015-jaguars-qb-mac-jones-will-make-the-start-for-the-jaguars-in-week-11",
+      "source_published_utc": [
+        "2024-11-13T22:39:47.048Z",
+        "2024-11-13T22:36:15.542Z"
+      ],
+      "source_modified_utc": [
+        "2024-11-13T22:53:41.266Z",
+        "2024-11-13T22:53:24.3Z"
+      ],
+      "latest_source_clock_utc": "2024-11-13T22:53:41.266Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "JAX",
+      "week": 14,
+      "game_id": "2024_14_JAX_TEN",
+      "date": "2024-12-08",
+      "episode": "JAX_Lawrence_concussion",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "December4 IR statement establishes incumbent absence only; no fixture-specific Jones start confirmation found within cap.",
+      "source_id": "jax_ir",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.jaguars.com/news/k000030-jaguars-qb-trevor-lawrence-placed-on-injured-reserve",
+      "source_published_utc": [
+        "2024-12-04T21:01:00.103Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-04T22:16:46.905Z"
+      ],
+      "latest_source_clock_utc": "2024-12-04T22:16:46.905Z"
+    },
+    {
+      "team": "JAX",
+      "week": 15,
+      "game_id": "2024_15_NYJ_JAX",
+      "date": "2024-12-15",
+      "episode": "JAX_Lawrence_concussion",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "December4 IR statement establishes incumbent absence only; no fixture-specific Jones start confirmation found within cap.",
+      "source_id": "jax_ir",
+      "provisional_retrospective_roster_quote_rows": 4,
+      "provisional_retrospective_roster_receiver_games": 4,
+      "snapshot_times_utc": [
+        "2024-12-15T17:25:37Z"
+      ],
+      "positions": {
+        "WR": 2,
+        "RB": 1,
+        "TE": 1
+      },
+      "source_url": "https://www.jaguars.com/news/k000030-jaguars-qb-trevor-lawrence-placed-on-injured-reserve",
+      "source_published_utc": [
+        "2024-12-04T21:01:00.103Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-04T22:16:46.905Z"
+      ],
+      "latest_source_clock_utc": "2024-12-04T22:16:46.905Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "JAX",
+      "week": 16,
+      "game_id": "2024_16_JAX_LV",
+      "date": "2024-12-22",
+      "episode": "JAX_Lawrence_concussion",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "December4 IR statement establishes incumbent absence only; no fixture-specific Jones start confirmation found within cap.",
+      "source_id": "jax_ir",
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-12-22T20:50:37Z"
+      ],
+      "positions": {
+        "WR": 3,
+        "TE": 1,
+        "RB": 1
+      },
+      "source_url": "https://www.jaguars.com/news/k000030-jaguars-qb-trevor-lawrence-placed-on-injured-reserve",
+      "source_published_utc": [
+        "2024-12-04T21:01:00.103Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-04T22:16:46.905Z"
+      ],
+      "latest_source_clock_utc": "2024-12-04T22:16:46.905Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "JAX",
+      "week": 17,
+      "game_id": "2024_17_TEN_JAX",
+      "date": "2024-12-29",
+      "episode": "JAX_Lawrence_concussion",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "December4 IR statement establishes incumbent absence only; no fixture-specific Jones start confirmation found within cap.",
+      "source_id": "jax_ir",
+      "provisional_retrospective_roster_quote_rows": 4,
+      "provisional_retrospective_roster_receiver_games": 4,
+      "snapshot_times_utc": [
+        "2024-12-29T17:25:38Z"
+      ],
+      "positions": {
+        "RB": 1,
+        "TE": 1,
+        "WR": 2
+      },
+      "source_url": "https://www.jaguars.com/news/k000030-jaguars-qb-trevor-lawrence-placed-on-injured-reserve",
+      "source_published_utc": [
+        "2024-12-04T21:01:00.103Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-04T22:16:46.905Z"
+      ],
+      "latest_source_clock_utc": "2024-12-04T22:16:46.905Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "JAX",
+      "week": 18,
+      "game_id": "2024_18_JAX_IND",
+      "date": "2025-01-05",
+      "episode": "JAX_Lawrence_concussion",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "December4 IR statement establishes incumbent absence only; no fixture-specific Jones start confirmation found within cap.",
+      "source_id": "jax_ir",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.jaguars.com/news/k000030-jaguars-qb-trevor-lawrence-placed-on-injured-reserve",
+      "source_published_utc": [
+        "2024-12-04T21:01:00.103Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-04T22:16:46.905Z"
+      ],
+      "latest_source_clock_utc": "2024-12-04T22:16:46.905Z"
+    },
+    {
+      "team": "TEN",
+      "week": 7,
+      "game_id": "2024_07_TEN_BUF",
+      "date": "2024-10-20",
+      "episode": "TEN_Levis_shoulder",
+      "status": "unresolved_revision_after_quote",
+      "reason": "Explicit Rudolph start report currently revised November1 after October20 quote.",
+      "source_id": "ten_w7",
+      "provisional_retrospective_roster_quote_rows": 3,
+      "provisional_retrospective_roster_receiver_games": 3,
+      "snapshot_times_utc": [
+        "2024-10-20T16:25:38Z"
+      ],
+      "positions": {
+        "RB": 1,
+        "WR": 2
+      },
+      "source_url": "https://www.nfl.com/news/titans-qb-mason-rudolph-will-start-sunday-vs-bills-as-will-levis-deals-with-shoulder-injury",
+      "source_published_utc": [
+        "2024-10-19T21:19:25.903Z"
+      ],
+      "source_modified_utc": [
+        "2024-11-01T22:07:03.046Z"
+      ],
+      "latest_source_clock_utc": "2024-11-01T22:07:03.046Z",
+      "latest_source_before_all_quotes": false
+    },
+    {
+      "team": "TEN",
+      "week": 8,
+      "game_id": "2024_08_TEN_DET",
+      "date": "2024-10-27",
+      "episode": "TEN_Levis_shoulder",
+      "status": "unresolved_no_weekly_confirmation",
+      "reason": "Retrieved later descriptions are retrospective; no prequote confirmation found.",
+      "source_id": null,
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-10-27T16:25:38Z"
+      ],
+      "positions": {
+        "WR": 3,
+        "RB": 1,
+        "TE": 1
+      }
+    },
+    {
+      "team": "TEN",
+      "week": 9,
+      "game_id": "2024_09_NE_TEN",
+      "date": "2024-11-03",
+      "episode": "TEN_Levis_shoulder",
+      "status": "unresolved_conditional",
+      "reason": "Pregame preview explicitly says coach had not named starter and offers prediction; no valid quote rows.",
+      "source_id": "ten_w9_conditional",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.tennesseetitans.com/news/six-things-to-watch-for-the-titans-in-sunday-s-game-vs-the-patriots",
+      "source_published_utc": [
+        "2024-11-03T15:09:00Z"
+      ],
+      "source_modified_utc": [
+        "2024-11-03T15:09:17.434Z"
+      ],
+      "latest_source_clock_utc": "2024-11-03T15:09:17.434Z"
+    },
+    {
+      "team": "TEN",
+      "week": 16,
+      "game_id": "2024_16_TEN_IND",
+      "date": "2024-12-22",
+      "episode": "TEN_healthy_benching",
+      "status": "rejected_healthy_benching",
+      "reason": "December18 replacement is a performance benching of Levis, not an injury exposure.",
+      "source_id": "ten_bench",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.tennesseetitans.com/news/titans-make-a-change-at-qb-mason-rudolph-will-levis-and-hc-brian-callahan-discuss-the-decision",
+      "source_published_utc": [
+        "2024-12-18T21:45:00Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-19T22:02:08.564Z"
+      ],
+      "latest_source_clock_utc": "2024-12-19T22:02:08.564Z"
+    },
+    {
+      "team": "TEN",
+      "week": 17,
+      "game_id": "2024_17_TEN_JAX",
+      "date": "2024-12-29",
+      "episode": "TEN_healthy_benching",
+      "status": "rejected_healthy_benching",
+      "reason": "December18 replacement is a performance benching of Levis, not an injury exposure.",
+      "source_id": "ten_bench",
+      "provisional_retrospective_roster_quote_rows": 4,
+      "provisional_retrospective_roster_receiver_games": 4,
+      "snapshot_times_utc": [
+        "2024-12-29T17:25:38Z"
+      ],
+      "positions": {
+        "WR": 3,
+        "RB": 1
+      },
+      "source_url": "https://www.tennesseetitans.com/news/titans-make-a-change-at-qb-mason-rudolph-will-levis-and-hc-brian-callahan-discuss-the-decision",
+      "source_published_utc": [
+        "2024-12-18T21:45:00Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-19T22:02:08.564Z"
+      ],
+      "latest_source_clock_utc": "2024-12-19T22:02:08.564Z",
+      "latest_source_before_all_quotes": true
+    },
+    {
+      "team": "TEN",
+      "week": 18,
+      "game_id": "2024_18_HOU_TEN",
+      "date": "2025-01-05",
+      "episode": "TEN_healthy_benching",
+      "status": "rejected_healthy_benching",
+      "reason": "December18 replacement is a performance benching of Levis, not an injury exposure.",
+      "source_id": "ten_bench",
+      "provisional_retrospective_roster_quote_rows": 0,
+      "provisional_retrospective_roster_receiver_games": 0,
+      "snapshot_times_utc": [],
+      "positions": {},
+      "source_url": "https://www.tennesseetitans.com/news/titans-make-a-change-at-qb-mason-rudolph-will-levis-and-hc-brian-callahan-discuss-the-decision",
+      "source_published_utc": [
+        "2024-12-18T21:45:00Z"
+      ],
+      "source_modified_utc": [
+        "2024-12-19T22:02:08.564Z"
+      ],
+      "latest_source_clock_utc": "2024-12-19T22:02:08.564Z"
+    }
+  ],
+  "qualified": [
+    {
+      "team": "JAX",
+      "week": 11,
+      "game_id": "2024_11_JAX_DET",
+      "date": "2024-11-17",
+      "episode": "JAX_Lawrence_shoulder",
+      "status": "qualified_provisional_price_match",
+      "reason": "Coach announces Lawrence absence and Jones start against Detroit, before all retained quote clocks.",
+      "source_id": "jax_w11",
+      "provisional_retrospective_roster_quote_rows": 5,
+      "provisional_retrospective_roster_receiver_games": 5,
+      "snapshot_times_utc": [
+        "2024-11-17T17:25:38Z"
+      ],
+      "positions": {
+        "TE": 1,
+        "WR": 2,
+        "RB": 2
+      },
+      "source_url": "https://www.jaguars.com/news/k000015-jaguars-qb-mac-jones-will-make-the-start-for-the-jaguars-in-week-11",
+      "source_published_utc": [
+        "2024-11-13T22:39:47.048Z",
+        "2024-11-13T22:36:15.542Z"
+      ],
+      "source_modified_utc": [
+        "2024-11-13T22:53:41.266Z",
+        "2024-11-13T22:53:24.3Z"
+      ],
+      "latest_source_clock_utc": "2024-11-13T22:53:41.266Z",
+      "latest_source_before_all_quotes": true
+    }
+  ],
+  "summary": {
+    "qualified_team_games": 1,
+    "qualified_absence_episodes": 1,
+    "provisional_retrospective_roster_quote_rows": 5,
+    "provisional_retrospective_roster_receiver_games": 5,
+    "provisional_retrospective_roster_WR_TE": 3,
+    "provisional_retrospective_roster_RB": 2,
+    "all_cases": 35,
+    "status_counts": {
+      "unresolved_revision_after_quote": 4,
+      "unresolved_conditional": 4,
+      "no_usable_quotes": 1,
+      "unresolved_no_weekly_confirmation": 14,
+      "confirmed_but_no_quotes": 2,
+      "rejected_healthy_benching": 8,
+      "unresolved_replacement_and_no_quotes": 1,
+      "qualified_provisional_price_match": 1
+    },
+    "both_team_fixture_player_game_ceiling": 11
+  },
+  "limits": [
+    "Retrospective roster-compatible counts are provisional, not proof of prequote membership or rigorous eligibility upper bounds.",
+    "Publish/revision clocks are source-asserted historical metadata. Current original-wording preservation is not certified; later revisions disqualify a page rather than retaining its earlier displayed date.",
+    "Conditional reports, recaps, injury designation alone and inherited weekly starts are not confirmations. Capped absence discovery is not proof that unlocated announcements do not exist.",
+    "Many searches incidentally returned historical game/receiver performance snippets; no target outcome columns, realized-starter columns, yard-share/ROI calculation, or forecast fit was used.",
+    "Six raw events have multiple snapshots; CLE week13 nine rows are only seven distinct player-games. This ledger does not count multiple-line snapshots as independent receivers.",
+    "Raw price authenticity remains unverified as declared. No original API response or accepted stake evidence was acquired."
+  ],
+  "recommendation": "Combine the eleven-player both-team ceiling with other declared divisions, separately reporting five retrospective roster-compatible receivers. Apply separately declared prior-team membership before any roles/outcomes. If the resulting eligible national upper bound is below100, stop the exact route without search extension or claim that the sporting effect failed.",
+  "count_interpretation": "The five affected-team receivers are a retrospective roster-compatible provisional count, not a rigorous upper bound. All priced players in the sole qualified JAX-DET fixture supply an unconditional team-attribution ceiling of eleven; opponents are not eligible affected-team receivers. Apply separately declared prior-team membership before any roles or outcomes."
+}

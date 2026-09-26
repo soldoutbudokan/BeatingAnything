@@ -1,0 +1,1920 @@
+{
+  "status": "completed_source_inventory_not_forecast_test",
+  "prepared_at_utc": "2026-09-26T22:17:47.131819+00:00",
+  "declaration_commit": "79b4bcc",
+  "dedup_addendum_commit": "800ae48",
+  "queries": {
+    "queries": [
+      {
+        "sequence": 1,
+        "phase": "standardized_team_discovery",
+        "team": "ARI",
+        "query": "Arizona Cardinals 2024 quarterback injury replacement start",
+        "domains": [
+          "azcardinals.com",
+          "nfl.com"
+        ],
+        "full_response_retained": false
+      },
+      {
+        "sequence": 2,
+        "phase": "standardized_team_discovery",
+        "team": "ATL",
+        "query": "Atlanta Falcons 2024 quarterback injury replacement start",
+        "domains": [
+          "atlantafalcons.com",
+          "nfl.com"
+        ],
+        "full_response_retained": false
+      },
+      {
+        "sequence": 3,
+        "phase": "standardized_team_discovery",
+        "team": "CAR",
+        "query": "Carolina Panthers 2024 quarterback injury replacement start",
+        "domains": [
+          "panthers.com",
+          "nfl.com"
+        ],
+        "full_response_retained": false
+      },
+      {
+        "sequence": 4,
+        "phase": "standardized_team_discovery",
+        "team": "CHI",
+        "query": "Chicago Bears 2024 quarterback injury replacement start",
+        "domains": [
+          "chicagobears.com",
+          "nfl.com"
+        ],
+        "full_response_retained": false
+      },
+      {
+        "sequence": 5,
+        "phase": "standardized_team_discovery",
+        "team": "DAL",
+        "query": "Dallas Cowboys 2024 quarterback injury replacement start",
+        "domains": [
+          "dallascowboys.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 6,
+        "phase": "standardized_team_discovery",
+        "team": "DET",
+        "query": "Detroit Lions 2024 quarterback injury replacement start",
+        "domains": [
+          "detroitlions.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 7,
+        "phase": "standardized_team_discovery",
+        "team": "GB",
+        "query": "Green Bay Packers 2024 quarterback injury replacement start",
+        "domains": [
+          "packers.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 8,
+        "phase": "standardized_team_discovery",
+        "team": "LA",
+        "query": "Los Angeles Rams 2024 quarterback injury replacement start",
+        "domains": [
+          "therams.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 9,
+        "phase": "standardized_team_discovery",
+        "team": "MIN",
+        "query": "Minnesota Vikings 2024 quarterback injury replacement start",
+        "domains": [
+          "vikings.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 10,
+        "phase": "standardized_team_discovery",
+        "team": "NO",
+        "query": "New Orleans Saints 2024 quarterback injury replacement start",
+        "domains": [
+          "neworleanssaints.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 11,
+        "phase": "standardized_team_discovery",
+        "team": "NYG",
+        "query": "New York Giants 2024 quarterback injury replacement start",
+        "domains": [
+          "giants.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 12,
+        "phase": "standardized_team_discovery",
+        "team": "PHI",
+        "query": "Philadelphia Eagles 2024 quarterback injury replacement start",
+        "domains": [
+          "philadelphiaeagles.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 13,
+        "phase": "standardized_team_discovery",
+        "team": "SF",
+        "query": "San Francisco 49ers 2024 quarterback injury replacement start",
+        "domains": [
+          "49ers.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 14,
+        "phase": "standardized_team_discovery",
+        "team": "SEA",
+        "query": "Seattle Seahawks 2024 quarterback injury replacement start",
+        "domains": [
+          "seahawks.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 15,
+        "phase": "standardized_team_discovery",
+        "team": "TB",
+        "query": "Tampa Bay Buccaneers 2024 quarterback injury replacement start",
+        "domains": [
+          "buccaneers.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 16,
+        "phase": "standardized_team_discovery",
+        "team": "WAS",
+        "query": "Washington Commanders 2024 quarterback injury replacement start",
+        "domains": [
+          "commanders.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 17,
+        "phase": "targeted_episode_followup",
+        "team": "CAR",
+        "episode": "dalton_thumb",
+        "query": "site:panthers.com/news 2024 Bryce Young Andy Dalton thumb injury start Broncos Saints",
+        "domains": [
+          "panthers.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 18,
+        "phase": "targeted_episode_followup",
+        "team": "GB",
+        "episode": "love_knee",
+        "query": "site:packers.com/news 2024 Jordan Love inactive Malik Willis Colts Titans September",
+        "domains": [
+          "packers.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 19,
+        "phase": "targeted_episode_followup",
+        "team": "DAL",
+        "episode": "prescott_hamstring",
+        "query": "site:dallascowboys.com/news 2024 Cooper Rush \"start\" Texans Commanders Giants Bengals Panthers Buccaneers Eagles",
+        "domains": [
+          "dallascowboys.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 20,
+        "phase": "targeted_episode_followup",
+        "team": "NO",
+        "episode": "carr_oblique",
+        "query": "site:neworleanssaints.com/news 2024 Spencer Rattler \"start\" Derek Carr oblique Buccaneers Broncos Chargers",
+        "domains": [
+          "neworleanssaints.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 21,
+        "phase": "targeted_episode_followup",
+        "team": "DAL",
+        "episode": "prescott_hamstring",
+        "query": "Cooper Rush will start 2024 Texans Commanders",
+        "domains": [
+          "dallascowboys.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 22,
+        "phase": "targeted_episode_followup",
+        "team": "NO",
+        "episode": "carr_oblique",
+        "query": "Spencer Rattler start 2024 Derek Carr oblique",
+        "domains": [
+          "neworleanssaints.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 23,
+        "phase": "targeted_episode_followup",
+        "team": "NO",
+        "episode": "carr_hand",
+        "query": "Derek Carr Spencer Rattler start Packers Raiders Buccaneers December 2024",
+        "domains": [
+          "neworleanssaints.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 24,
+        "phase": "targeted_episode_followup",
+        "team": "NYG",
+        "episode": "devito_forearm",
+        "query": "Giants Drew Lock Tommy DeVito forearm start Cowboys 2024 November",
+        "domains": [
+          "giants.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 25,
+        "phase": "targeted_episode_followup",
+        "team": "SF",
+        "episode": "purdy_shoulder",
+        "query": "\"Brock Purdy\" \"Brandon Allen\" \"2024\" \"ruled out\"",
+        "domains": [
+          "49ers.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 26,
+        "phase": "targeted_episode_followup",
+        "team": "SF",
+        "episode": "purdy_elbow",
+        "query": "\"Joshua Dobbs\" \"start\" \"January\" \"2025\" Cardinals",
+        "domains": [
+          "49ers.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 27,
+        "phase": "targeted_episode_followup",
+        "team": "PHI",
+        "episode": "hurts_concussion",
+        "query": "\"Jalen Hurts\" \"Kenny Pickett\" \"December\" \"2024\" \"start\"",
+        "domains": [
+          "philadelphiaeagles.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 28,
+        "phase": "targeted_episode_followup",
+        "team": "WAS",
+        "episode": "daniels_ribs",
+        "query": "\"Jayden Daniels\" \"ribs\" \"October\" \"2024\" \"start\"",
+        "domains": [
+          "commanders.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 29,
+        "phase": "targeted_episode_followup",
+        "team": "NO",
+        "episode": "carr_hand",
+        "query": "\"Spencer Rattler\" \"start\" \"Packers\" \"2024\" Rizzi",
+        "domains": [
+          "neworleanssaints.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 30,
+        "phase": "targeted_episode_followup",
+        "team": "NYG",
+        "episode": "lock_heel",
+        "query": "\"Tommy DeVito\" \"Drew Lock\" \"heel\" \"out\" \"December\" \"2024\"",
+        "domains": [
+          "giants.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 31,
+        "phase": "targeted_episode_followup",
+        "team": "PHI",
+        "episode": "hurts_concussion",
+        "query": "\"Tanner McKee\" \"start\" \"Giants\" \"Hurts\" \"2025\"",
+        "domains": [
+          "philadelphiaeagles.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      },
+      {
+        "sequence": 32,
+        "phase": "targeted_episode_followup",
+        "team": "WAS",
+        "episode": "daniels_ribs",
+        "query": "\"Jayden Daniels\" \"active\" \"Bears\" \"October 27\" \"2024\"",
+        "domains": [
+          "commanders.com",
+          "nfl.com"
+        ],
+        "full_response_retained": true
+      }
+    ],
+    "note": "Search snippets incidentally showed past game/receiver results; no target outcome dataset or statistic used. First four full search responses not separately retained; exact queries are recorded. Other seven four-query response batches are retained. Prior-known SF and PHI injury cases also supplied discovery leads; no eventual-starter table used."
+  },
+  "teams": {
+    "ATL": "candidate_ledger",
+    "CAR": "candidate_ledger",
+    "DAL": "candidate_ledger",
+    "GB": "candidate_ledger",
+    "NO": "candidate_ledger",
+    "NYG": "candidate_ledger",
+    "PHI": "candidate_ledger",
+    "SEA": "candidate_ledger",
+    "SF": "candidate_ledger",
+    "ARI": "no_qualified_injury_start_found_in_standardized_query",
+    "CHI": "no_qualified_injury_start_found_in_standardized_query",
+    "DET": "no_qualified_injury_start_found_in_standardized_query",
+    "LA": "no_qualified_injury_start_found_in_standardized_query",
+    "MIN": "no_qualified_injury_start_found_in_standardized_query",
+    "TB": "no_qualified_injury_start_found_in_standardized_query",
+    "WAS": "rib_injury_lead_no_confirmed_backup_start_found_within_search_limit"
+  },
+  "cases": [
+    {
+      "id": "car_den",
+      "team": "CAR",
+      "game_date": "2024-10-27",
+      "incumbent": "Andy Dalton",
+      "replacement": "Bryce Young",
+      "url": "https://www.panthers.com/news/dave-canales-bryce-young-to-start-this-week-at-denver-andy-dalton-thumb",
+      "content_status": "confirmed",
+      "episode_id": "CAR_dalton_thumb",
+      "assertion_summary": "Dalton injured his thumb; Canales confirmed Young would start at Denver.",
+      "source_receipt": {
+        "id": "car_den",
+        "team": "CAR",
+        "game_date": "2024-10-27",
+        "incumbent": "Andy Dalton",
+        "replacement": "Bryce Young",
+        "url": "https://www.panthers.com/news/dave-canales-bryce-young-to-start-this-week-at-denver-andy-dalton-thumb",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:12:25.450734+00:00",
+        "status": 200,
+        "final_url": "https://www.panthers.com/news/dave-canales-bryce-young-to-start-this-week-at-denver-andy-dalton-thumb",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/car_den.html",
+        "bytes": 530242,
+        "sha256": "e3a9b5d7679a31a7504aee6a3fb6482293b58884adac7573edabf686e0a9b3cf",
+        "dates": {
+          "datePublished": [
+            "2024-10-20T22:37:00Z",
+            "2024-10-23T19:08:20.922Z"
+          ],
+          "dateModified": [
+            "2024-10-20T22:37:07.992Z",
+            "2024-10-23T19:08:20.922Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-10-20T22:37:00Z",
+          "2024-10-20T22:37:07.992Z",
+          "2024-10-23T19:08:20.922Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Dave Canales: Bryce Young to start this week at Denver",
+        "datePublished": "2024-10-23T19:08:20.922Z",
+        "dateModified": "2024-10-23T19:08:20.922Z",
+        "url": "https://www.panthers.com/news/dave-canales-bryce-young-to-start-this-week-at-denver-andy-dalton-thumb"
+      },
+      "evidence_time_utc": "2024-10-23T19:08:20.922000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 10,
+      "roster_compatible_player_games": 4,
+      "unresolved_roster_player_games": 1,
+      "all_quote_times_utc": [
+        "2024-10-27T19:50:37Z"
+      ],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": true,
+      "qualified_game_ids": [
+        "2024_08_CAR_DEN"
+      ],
+      "status": "announcement_and_price_available_membership_roles_pending"
+    },
+    {
+      "id": "car_no",
+      "team": "CAR",
+      "game_date": "2024-11-03",
+      "incumbent": "Andy Dalton",
+      "replacement": "Bryce Young",
+      "url": "https://www.panthers.com/news/notebook-andy-dalton-to-back-up-no-long-term-decisions-bryce-young",
+      "content_status": "ambiguous_healthy_backup",
+      "episode_id": "CAR_dalton_thumb",
+      "assertion_summary": "Dalton practiced fully and would back up Young; injury absence versus job choice is ambiguous.",
+      "source_receipt": {
+        "id": "car_no",
+        "team": "CAR",
+        "game_date": "2024-11-03",
+        "incumbent": "Andy Dalton",
+        "replacement": "Bryce Young",
+        "url": "https://www.panthers.com/news/notebook-andy-dalton-to-back-up-no-long-term-decisions-bryce-young",
+        "content_status": "ambiguous_healthy_backup",
+        "retrieved_at_utc": "2026-09-26T22:12:25.451049+00:00",
+        "status": 200,
+        "final_url": "https://www.panthers.com/news/notebook-andy-dalton-to-back-up-no-long-term-decisions-bryce-young",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/car_no.html",
+        "bytes": 529676,
+        "sha256": "2101eed16f5ee60a53f7ee6d957487706364256cff070f73dd11d2494c8aea57",
+        "dates": {
+          "datePublished": [
+            "2024-10-30T20:04:59.381Z",
+            "2024-10-30T21:28:10.702Z"
+          ],
+          "dateModified": [
+            "2024-10-30T20:04:59.381Z",
+            "2024-10-30T21:28:36.29Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-10-30T20:04:59.381Z",
+          "2024-10-30T21:28:10.702Z",
+          "2024-10-30T21:28:36.29Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Notebook: Andy Dalton to back up this week, no long-term decisions",
+        "datePublished": "2024-10-30T21:28:10.702Z",
+        "dateModified": "2024-10-30T21:28:36.29Z",
+        "url": "https://www.panthers.com/news/notebook-andy-dalton-to-back-up-no-long-term-decisions-bryce-young"
+      },
+      "evidence_time_utc": "2024-10-30T21:28:36.290000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 10,
+      "roster_compatible_player_games": 4,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [
+        "2024-11-03T17:25:37Z"
+      ],
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "ambiguous_healthy_backup"
+    },
+    {
+      "id": "dal_phi",
+      "team": "DAL",
+      "game_date": "2024-11-10",
+      "incumbent": "Dak Prescott",
+      "replacement": "Cooper Rush",
+      "url": "https://www.dallascowboys.com/news/mccarthy-reveals-cowboys-qb-rotation-for-rush-lance-in-absence-of-dak",
+      "content_status": "confirmed",
+      "episode_id": "DAL_prescott_hamstring",
+      "assertion_summary": "Prescott would miss Philadelphia; McCarthy confirmed Rush as starter for that fixture.",
+      "source_receipt": {
+        "id": "dal_phi",
+        "team": "DAL",
+        "game_date": "2024-11-10",
+        "incumbent": "Dak Prescott",
+        "replacement": "Cooper Rush",
+        "url": "https://www.dallascowboys.com/news/mccarthy-reveals-cowboys-qb-rotation-for-rush-lance-in-absence-of-dak",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:12:25.451149+00:00",
+        "status": 200,
+        "final_url": "https://www.dallascowboys.com/news/mccarthy-reveals-cowboys-qb-rotation-for-rush-lance-in-absence-of-dak",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/dal_phi.html",
+        "bytes": 336857,
+        "sha256": "4584487442951c8d4b49e23c75319316d7c6e5524b247d4d517ace758644da15",
+        "dates": {
+          "datePublished": [
+            "2024-11-04T22:29:35.11Z"
+          ],
+          "dateModified": [
+            "2024-11-04T22:29:35.11Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-11-04T22:29:35.11Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "McCarthy reveals Cowboys' QB rotation for Rush, Lance in absence of Dak\u00a0",
+        "datePublished": "2024-11-04T22:29:35.11Z",
+        "dateModified": "2024-11-04T22:29:35.11Z",
+        "url": "https://www.dallascowboys.com/news/mccarthy-reveals-cowboys-qb-rotation-for-rush-lance-in-absence-of-dak"
+      },
+      "evidence_time_utc": "2024-11-04T22:29:35.110000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "no_price_qualified_fixture"
+    },
+    {
+      "id": "dal_ir",
+      "team": "DAL",
+      "game_date": null,
+      "incumbent": "Dak Prescott",
+      "replacement": "Cooper Rush",
+      "url": "https://www.dallascowboys.com/news/dak-opts-to-undergo-season-ending-surgery-headed-to-injured-reserve",
+      "content_status": "absence_only",
+      "episode_id": "DAL_prescott_hamstring",
+      "assertion_summary": "Prescott required season-ending surgery; this version was revised after all target quotes.",
+      "source_receipt": {
+        "id": "dal_ir",
+        "team": "DAL",
+        "game_date": null,
+        "incumbent": "Dak Prescott",
+        "replacement": "Cooper Rush",
+        "url": "https://www.dallascowboys.com/news/dak-opts-to-undergo-season-ending-surgery-headed-to-injured-reserve",
+        "content_status": "absence_only",
+        "retrieved_at_utc": "2026-09-26T22:12:25.451230+00:00",
+        "status": 200,
+        "final_url": "https://www.dallascowboys.com/news/dak-opts-to-undergo-season-ending-surgery-headed-to-injured-reserve",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/dal_ir.html",
+        "bytes": 332472,
+        "sha256": "54670540eb198699a9452be61a1e6c47a016e9230ef3291bbc6fa896899ae4ee",
+        "dates": {
+          "datePublished": [
+            "2024-11-12T15:02:13.019Z"
+          ],
+          "dateModified": [
+            "2025-01-14T22:01:46.37Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-11-12T15:02:13.019Z",
+          "2025-01-14T22:01:46.37Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Dak opts to undergo season-ending surgery, headed to injured reserve",
+        "datePublished": "2024-11-12T15:02:13.019Z",
+        "dateModified": "2025-01-14T22:01:46.37Z",
+        "url": "https://www.dallascowboys.com/news/dak-opts-to-undergo-season-ending-surgery-headed-to-injured-reserve"
+      },
+      "evidence_time_utc": "2025-01-14T22:01:46.370000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "absence_only"
+    },
+    {
+      "id": "gb_ind",
+      "team": "GB",
+      "game_date": "2024-09-15",
+      "incumbent": "Jordan Love",
+      "replacement": "Malik Willis",
+      "url": "https://www.nfl.com/news/packers-qb-jordan-love-knee-out-malik-willis-to-make-start-vs-colts",
+      "content_status": "confirmed",
+      "episode_id": "GB_love_knee",
+      "assertion_summary": "Love was officially out; Willis would start against Indianapolis.",
+      "source_receipt": {
+        "id": "gb_ind",
+        "team": "GB",
+        "game_date": "2024-09-15",
+        "incumbent": "Jordan Love",
+        "replacement": "Malik Willis",
+        "url": "https://www.nfl.com/news/packers-qb-jordan-love-knee-out-malik-willis-to-make-start-vs-colts",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:12:25.784199+00:00",
+        "status": 200,
+        "final_url": "https://www.nfl.com/news/packers-qb-jordan-love-knee-out-malik-willis-to-make-start-vs-colts",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/gb_ind.html",
+        "bytes": 703111,
+        "sha256": "a1b7c788d21a6913e1c1aa6c3721368f126f50ee4652e611cad7900a277770c1",
+        "dates": {
+          "datePublished": [
+            "2024-09-15T15:32:41.906Z"
+          ],
+          "dateModified": [
+            "2024-09-15T15:32:41.906Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-09-11T18:49:25.937Z",
+          "2024-09-12T13:16:29.599Z",
+          "2024-09-12T16:16:56.818Z",
+          "2024-09-12T19:49:00Z",
+          "2024-09-15T15:32:41.906Z",
+          "2025-09-30T20:35:31.248Z",
+          "2026-09-25T00:15:00Z",
+          "2026-09-25T00:15:29Z",
+          "2026-09-25T18:09:19.4Z",
+          "2026-09-25T20:27:23.842Z",
+          "2026-09-25T20:36:00Z",
+          "2026-09-26T01:42:35.734Z",
+          "2026-09-26T01:42:49.74Z",
+          "2026-09-26T16:37:17.115Z",
+          "2026-09-26T17:00:41.748Z",
+          "2026-09-26T19:02:00Z",
+          "2026-09-26T19:02:51.119Z",
+          "2026-09-26T21:03:00Z",
+          "2026-09-26T21:16:04.559Z",
+          "2026-09-27T17:00:00Z",
+          "2026-09-27T20:05:00Z",
+          "2026-09-27T20:25:00Z",
+          "2026-09-28T00:20:00Z",
+          "2026-09-29T00:15:00Z",
+          "2034-09-09T17:35:36Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Packers QB Jordan Love (knee) out, Malik Willis to make start vs. Colts",
+        "datePublished": "2024-09-15T15:32:41.906Z",
+        "dateModified": "2024-09-15T15:32:41.906Z",
+        "url": "https://www.nfl.com/news/packers-qb-jordan-love-knee-out-malik-willis-to-make-start-vs-colts"
+      },
+      "evidence_time_utc": "2024-09-15T15:32:41.906000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 9,
+      "roster_compatible_player_games": 6,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [
+        "2024-09-15T16:25:38Z"
+      ],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": true,
+      "qualified_game_ids": [
+        "2024_02_IND_GB"
+      ],
+      "status": "announcement_and_price_available_membership_roles_pending"
+    },
+    {
+      "id": "gb_ten",
+      "team": "GB",
+      "game_date": "2024-09-22",
+      "incumbent": "Jordan Love",
+      "replacement": "Malik Willis",
+      "url": "https://www.packers.com/news/packers-titans-inactives-week-3-2024",
+      "content_status": "confirmed",
+      "episode_id": "GB_love_knee",
+      "assertion_summary": "Love was ruled out; Willis would start at Tennessee.",
+      "source_receipt": {
+        "id": "gb_ten",
+        "team": "GB",
+        "game_date": "2024-09-22",
+        "incumbent": "Jordan Love",
+        "replacement": "Malik Willis",
+        "url": "https://www.packers.com/news/packers-titans-inactives-week-3-2024",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:12:26.000594+00:00",
+        "status": 200,
+        "final_url": "https://www.packers.com/news/packers-titans-inactives-week-3-2024",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/gb_ten.html",
+        "bytes": 318540,
+        "sha256": "aa346dd62fb9c03047dbcbad70eec37c2320cf393212156c843ef0bc7a3d71ac",
+        "dates": {
+          "datePublished": [
+            "2024-09-22T15:30:00Z"
+          ],
+          "dateModified": [
+            "2024-09-22T15:33:28.403Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-09-22T15:30:00Z",
+          "2024-09-22T15:33:28.403Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "QB Jordan Love out Sunday at Tennessee | Packers-Titans inactives",
+        "datePublished": "2024-09-22T15:30:00Z",
+        "dateModified": "2024-09-22T15:33:28.403Z",
+        "url": "https://www.packers.com/news/packers-titans-inactives-week-3-2024"
+      },
+      "evidence_time_utc": "2024-09-22T15:33:28.403000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 11,
+      "roster_compatible_player_games": 6,
+      "unresolved_roster_player_games": 1,
+      "all_quote_times_utc": [
+        "2024-09-22T16:25:38Z"
+      ],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": true,
+      "qualified_game_ids": [
+        "2024_03_GB_TEN"
+      ],
+      "status": "announcement_and_price_available_membership_roles_pending"
+    },
+    {
+      "id": "no_tb",
+      "team": "NO",
+      "game_date": "2024-10-13",
+      "incumbent": "Derek Carr",
+      "replacement": "Spencer Rattler",
+      "url": "https://www.nfl.com/_amp/rookie-spencer-rattler-to-start-for-saints-vs-buccaneers-on-sunday",
+      "content_status": "confirmed",
+      "episode_id": "NO_carr_oblique",
+      "assertion_summary": "Allen confirmed Rattler against Tampa Bay while Carr was injured.",
+      "source_receipt": {
+        "id": "no_tb",
+        "team": "NO",
+        "game_date": "2024-10-13",
+        "incumbent": "Derek Carr",
+        "replacement": "Spencer Rattler",
+        "url": "https://www.nfl.com/_amp/rookie-spencer-rattler-to-start-for-saints-vs-buccaneers-on-sunday",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:14:35.621701+00:00",
+        "error": "HTTP Error 500: Internal Server Error",
+        "reason": "normal canonical URL after amp HTTP500 and web timeout",
+        "status": 200,
+        "final_url": "https://www.nfl.com/news/rookie-spencer-rattler-to-start-for-saints-vs-buccaneers-on-sunday",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/no_tb_canonical.html",
+        "bytes": 702859,
+        "sha256": "a0cc5bd6606ab0815ecdf2613cae7ea948bb9a40f2155cd8e7e235404e32e20e"
+      },
+      "article_metadata": {
+        "headline": "Rookie QB Spencer Rattler to start for Saints vs. Buccaneers on Sunday in place of injured Derek Carr",
+        "datePublished": "2024-10-09T21:33:23.567Z",
+        "dateModified": "2024-10-10T16:20:15.707Z",
+        "url": "https://www.nfl.com/news/rookie-spencer-rattler-to-start-for-saints-vs-buccaneers-on-sunday"
+      },
+      "evidence_time_utc": "2024-10-10T16:20:15.707000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 8,
+      "roster_compatible_player_games": 4,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [
+        "2024-10-13T16:25:38Z"
+      ],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": true,
+      "qualified_game_ids": [
+        "2024_06_TB_NO"
+      ],
+      "status": "announcement_and_price_available_membership_roles_pending"
+    },
+    {
+      "id": "no_was",
+      "team": "NO",
+      "game_date": "2024-12-15",
+      "incumbent": "Derek Carr",
+      "replacement": "Jake Haener",
+      "url": "https://www.neworleanssaints.com/news/jake-haener-new-orleans-saints-quarterback-first-nfl-start-washington-commanders-2024-nfl-week-15",
+      "content_status": "confirmed",
+      "episode_id": "NO_carr_hand",
+      "assertion_summary": "Rizzi confirmed Haener against Washington; Carr would miss the game injured.",
+      "source_receipt": {
+        "id": "no_was",
+        "team": "NO",
+        "game_date": "2024-12-15",
+        "incumbent": "Derek Carr",
+        "replacement": "Jake Haener",
+        "url": "https://www.neworleanssaints.com/news/jake-haener-new-orleans-saints-quarterback-first-nfl-start-washington-commanders-2024-nfl-week-15",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:12:26.203043+00:00",
+        "status": 200,
+        "final_url": "https://www.neworleanssaints.com/news/jake-haener-new-orleans-saints-quarterback-first-nfl-start-washington-commanders-2024-nfl-week-15",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/no_was.html",
+        "bytes": 323306,
+        "sha256": "2c9cd09ea95cda6ac5cc2c87fa82f4e63a9f1ce90038228333505e3d6deece65",
+        "dates": {
+          "datePublished": [
+            "2024-12-13T20:04:35.649Z"
+          ],
+          "dateModified": [
+            "2024-12-13T20:04:35.649Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-12-13T20:04:35.649Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Jake Haener to make first start at quarterback for New Orleans Saints",
+        "datePublished": "2024-12-13T20:04:35.649Z",
+        "dateModified": "2024-12-13T20:04:35.649Z",
+        "url": "https://www.neworleanssaints.com/news/jake-haener-new-orleans-saints-quarterback-first-nfl-start-washington-commanders-2024-nfl-week-15"
+      },
+      "evidence_time_utc": "2024-12-13T20:04:35.649000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "no_price_qualified_fixture"
+    },
+    {
+      "id": "no_gb",
+      "team": "NO",
+      "game_date": "2024-12-23",
+      "incumbent": "Derek Carr",
+      "replacement": "Spencer Rattler",
+      "url": "https://www.neworleanssaints.com/news/rookie-quarterback-spencer-rattler-poised-to-make-fourth-start-for-new-orleans-saints-on-monday-night",
+      "content_status": "conditional_on_carr",
+      "episode_id": "NO_carr_hand",
+      "assertion_summary": "Rattler would start if Carr could not return; Carr was not definitively out in this source.",
+      "source_receipt": {
+        "id": "no_gb",
+        "team": "NO",
+        "game_date": "2024-12-23",
+        "incumbent": "Derek Carr",
+        "replacement": "Spencer Rattler",
+        "url": "https://www.neworleanssaints.com/news/rookie-quarterback-spencer-rattler-poised-to-make-fourth-start-for-new-orleans-saints-on-monday-night",
+        "content_status": "conditional_on_carr",
+        "retrieved_at_utc": "2026-09-26T22:12:26.349830+00:00",
+        "status": 200,
+        "final_url": "https://www.neworleanssaints.com/news/rookie-quarterback-spencer-rattler-poised-to-make-fourth-start-for-new-orleans-saints-on-monday-night",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/no_gb.html",
+        "bytes": 343593,
+        "sha256": "cdae92f7ee542659a6cc101d723948def82d77ccbfefd46af4e7bcf40248c4a1",
+        "dates": {
+          "datePublished": [
+            "2024-12-19T23:50:47.939Z"
+          ],
+          "dateModified": [
+            "2024-12-19T23:50:47.939Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-12-19T23:50:47.939Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Rookie quarterback Spencer Rattler poised to make fourth start for New Orleans Saints on Monday night",
+        "datePublished": "2024-12-19T23:50:47.939Z",
+        "dateModified": "2024-12-19T23:50:47.939Z",
+        "url": "https://www.neworleanssaints.com/news/rookie-quarterback-spencer-rattler-poised-to-make-fourth-start-for-new-orleans-saints-on-monday-night"
+      },
+      "evidence_time_utc": "2024-12-19T23:50:47.939000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "conditional_on_carr"
+    },
+    {
+      "id": "nyg_dal",
+      "team": "NYG",
+      "game_date": "2024-11-28",
+      "incumbent": "Tommy DeVito",
+      "replacement": "Drew Lock",
+      "url": "https://amp.nfl.com/news/drew-lock-to-start-for-giants-on-thanksgiving-day-vs-cowboys",
+      "content_status": "confirmed",
+      "episode_id": "NYG_devito_forearm",
+      "assertion_summary": "Lock would start against Dallas; DeVito was inactive injured. Revision occurred after entry.",
+      "source_receipt": {
+        "id": "nyg_dal",
+        "team": "NYG",
+        "game_date": "2024-11-28",
+        "incumbent": "Tommy DeVito",
+        "replacement": "Drew Lock",
+        "url": "https://amp.nfl.com/news/drew-lock-to-start-for-giants-on-thanksgiving-day-vs-cowboys",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:12:26.498409+00:00",
+        "status": 200,
+        "final_url": "https://amp.nfl.com/news/drew-lock-to-start-for-giants-on-thanksgiving-day-vs-cowboys",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nyg_dal.html",
+        "bytes": 253936,
+        "sha256": "0d8f7a45fd50be46c695f6e4ead1f0c7c3aeab7779299beeda222fc4a642370c",
+        "dates": {
+          "datePublished": [
+            "2024-11-28T20:09:13.184Z"
+          ],
+          "dateModified": [
+            "2024-11-28T22:16:50.516Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-11-28T20:09:13.184Z",
+          "2024-11-28T22:16:50.516Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Drew Lock to start for Giants on Thanksgiving Day vs. Cowboys",
+        "datePublished": "2024-11-28T20:09:13.184Z",
+        "dateModified": "2024-11-28T22:16:50.516Z",
+        "url": "https://www.nfl.com/news/drew-lock-to-start-for-giants-on-thanksgiving-day-vs-cowboys"
+      },
+      "evidence_time_utc": "2024-11-28T22:16:50.516000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "no_price_qualified_fixture"
+    },
+    {
+      "id": "nyg_dal_inactive",
+      "team": "NYG",
+      "game_date": "2024-11-28",
+      "incumbent": "Tommy DeVito",
+      "replacement": "Drew Lock",
+      "url": "https://www.giants.com/news/nfl-week-13-inactives-dallas-cowboys-tommy-devito-status-injury-report",
+      "content_status": "absence_only",
+      "episode_id": "NYG_devito_forearm",
+      "assertion_summary": "DeVito was an inactive emergency quarterback; this version was revised after entry.",
+      "source_receipt": {
+        "id": "nyg_dal_inactive",
+        "team": "NYG",
+        "game_date": "2024-11-28",
+        "incumbent": "Tommy DeVito",
+        "replacement": "Drew Lock",
+        "url": "https://www.giants.com/news/nfl-week-13-inactives-dallas-cowboys-tommy-devito-status-injury-report",
+        "content_status": "absence_only",
+        "retrieved_at_utc": "2026-09-26T22:12:26.642017+00:00",
+        "status": 200,
+        "final_url": "https://www.giants.com/news/nfl-week-13-inactives-dallas-cowboys-tommy-devito-status-injury-report",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nyg_dal_inactive.html",
+        "bytes": 440673,
+        "sha256": "3c83de5c4ef0aacee871a157cdfbf7d4f92ddc29e10cc287ad7baa15607644ae",
+        "dates": {
+          "datePublished": [
+            "2024-11-28T18:00:00Z",
+            "2024-11-28T20:00:00Z"
+          ],
+          "dateModified": [
+            "2024-11-29T00:39:28.86Z",
+            "2025-01-03T16:51:46.159Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-11-28T18:00:00Z",
+          "2024-11-28T20:00:00Z",
+          "2024-11-29T00:39:28.86Z",
+          "2025-01-03T16:51:46.159Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "NFL Week 13 Inactives: Who's in, who's out for Giants at Cowboys",
+        "datePublished": "2024-11-28T20:00:00Z",
+        "dateModified": "2024-11-29T00:39:28.86Z",
+        "url": "https://www.giants.com/news/nfl-week-13-inactives-dallas-cowboys-tommy-devito-status-injury-report"
+      },
+      "evidence_time_utc": "2024-11-29T00:39:28.860000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "absence_only"
+    },
+    {
+      "id": "nyg_no",
+      "team": "NYG",
+      "game_date": "2024-12-08",
+      "incumbent": "Tommy DeVito",
+      "replacement": "Drew Lock",
+      "url": "https://www.giants.com/news/injury-report-bobby-okereke-tommy-devito-drew-lock-evan-neal-new-orleans-saints-week-14",
+      "content_status": "ambiguous_healthy_backup",
+      "episode_id": "NYG_devito_forearm",
+      "assertion_summary": "Lock was named starter while DeVito improved and might serve as backup; injury absence is ambiguous.",
+      "source_receipt": {
+        "id": "nyg_no",
+        "team": "NYG",
+        "game_date": "2024-12-08",
+        "incumbent": "Tommy DeVito",
+        "replacement": "Drew Lock",
+        "url": "https://www.giants.com/news/injury-report-bobby-okereke-tommy-devito-drew-lock-evan-neal-new-orleans-saints-week-14",
+        "content_status": "ambiguous_healthy_backup",
+        "retrieved_at_utc": "2026-09-26T22:12:26.902393+00:00",
+        "status": 200,
+        "final_url": "https://www.giants.com/news/injury-report-bobby-okereke-tommy-devito-drew-lock-evan-neal-new-orleans-saints-week-14",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nyg_no.html",
+        "bytes": 443202,
+        "sha256": "a8c6bf93ede681e9e7b4fce985c84af261a61e17fa4b0eee5d065a9d4dc8ae9a",
+        "dates": {
+          "datePublished": [
+            "2024-12-04T23:04:40.892Z",
+            "2024-12-05T12:01:00Z"
+          ],
+          "dateModified": [
+            "2024-12-04T23:04:40.892Z",
+            "2024-12-05T12:01:18.516Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-12-04T23:04:40.892Z",
+          "2024-12-05T12:01:00Z",
+          "2024-12-05T12:01:18.516Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Notebook: Injuries mount for Giants in final stretch",
+        "datePublished": "2024-12-04T23:04:40.892Z",
+        "dateModified": "2024-12-04T23:04:40.892Z",
+        "url": "https://www.giants.com/news/injury-report-bobby-okereke-tommy-devito-drew-lock-evan-neal-new-orleans-saints-week-14"
+      },
+      "evidence_time_utc": "2024-12-04T23:04:40.892000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 10,
+      "roster_compatible_player_games": 4,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [
+        "2024-12-08T17:25:37Z"
+      ],
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "ambiguous_healthy_backup"
+    },
+    {
+      "id": "nyg_bal",
+      "team": "NYG",
+      "game_date": "2024-12-15",
+      "incumbent": "Drew Lock",
+      "replacement": "Tommy DeVito",
+      "url": "https://www.giants.com/news/notebook-tommy-devito-returns-as-starting-quarterback-baltimore-ravens-nfl-week-15",
+      "content_status": "incumbent_absence_uncertain",
+      "episode_id": "NYG_lock_heel",
+      "assertion_summary": "DeVito was named starter; Lock injured but the coach did not definitively rule out his availability.",
+      "source_receipt": {
+        "id": "nyg_bal",
+        "team": "NYG",
+        "game_date": "2024-12-15",
+        "incumbent": "Drew Lock",
+        "replacement": "Tommy DeVito",
+        "url": "https://www.giants.com/news/notebook-tommy-devito-returns-as-starting-quarterback-baltimore-ravens-nfl-week-15",
+        "content_status": "incumbent_absence_uncertain",
+        "retrieved_at_utc": "2026-09-26T22:12:27.073352+00:00",
+        "status": 200,
+        "final_url": "https://www.giants.com/news/notebook-tommy-devito-returns-as-starting-quarterback-baltimore-ravens-nfl-week-15",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nyg_bal.html",
+        "bytes": 313087,
+        "sha256": "e5aa988d2fdfa0c6bd0b00fb20785367d4fa0b0ac17d72bea9d94ba8021266c0",
+        "dates": {
+          "datePublished": [
+            "2024-12-12T15:32:00Z"
+          ],
+          "dateModified": [
+            "2024-12-12T20:33:23.451Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-12-12T15:32:00Z",
+          "2024-12-12T20:33:23.451Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Notebook: Tommy DeVito returns as starting QB",
+        "datePublished": "2024-12-12T15:32:00Z",
+        "dateModified": "2024-12-12T20:33:23.451Z",
+        "url": "https://www.giants.com/news/notebook-tommy-devito-returns-as-starting-quarterback-baltimore-ravens-nfl-week-15"
+      },
+      "evidence_time_utc": "2024-12-12T20:33:23.451000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "incumbent_absence_uncertain"
+    },
+    {
+      "id": "phi_dal",
+      "team": "PHI",
+      "game_date": "2024-12-29",
+      "incumbent": "Jalen Hurts",
+      "replacement": "Kenny Pickett",
+      "url": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-inactives-week-17-2024",
+      "content_status": "confirmed",
+      "episode_id": "PHI_hurts_concussion",
+      "assertion_summary": "Hurts was absent with concussion; Pickett would start against Dallas.",
+      "source_receipt": {
+        "id": "phi_dal",
+        "team": "PHI",
+        "game_date": "2024-12-29",
+        "incumbent": "Jalen Hurts",
+        "replacement": "Kenny Pickett",
+        "url": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-inactives-week-17-2024",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:12:27.286478+00:00",
+        "status": 200,
+        "final_url": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-inactives-week-17-2024",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/phi_dal.html",
+        "bytes": 350879,
+        "sha256": "accfef710ee591c2cbdde29b6c689129e82a3170c7fd216d396daf5aec2d5f0d",
+        "dates": {
+          "datePublished": [
+            "2024-12-29T16:30:00Z"
+          ],
+          "dateModified": [
+            "2024-12-29T16:42:29.14Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-12-29T16:30:00Z",
+          "2024-12-29T16:42:29.14Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Cowboys vs. Eagles Inactives",
+        "datePublished": "2024-12-29T16:30:00Z",
+        "dateModified": "2024-12-29T16:42:29.14Z",
+        "url": "https://www.philadelphiaeagles.com/news/cowboys-vs-eagles-inactives-week-17-2024"
+      },
+      "evidence_time_utc": "2024-12-29T16:42:29.140000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "no_price_qualified_fixture"
+    },
+    {
+      "id": "phi_nyg",
+      "team": "PHI",
+      "game_date": "2025-01-05",
+      "incumbent": "Jalen Hurts",
+      "replacement": "Tanner McKee",
+      "url": "https://www.philadelphiaeagles.com/news/giants-vs-eagles-injury-report-week-18-2024",
+      "content_status": "conditional_pickett_and_rest_cochanges",
+      "episode_id": "PHI_hurts_concussion",
+      "assertion_summary": "Hurts ruled out; Pickett questionable and McKee preparing, with widespread planned teammate rest.",
+      "source_receipt": {
+        "id": "phi_nyg",
+        "team": "PHI",
+        "game_date": "2025-01-05",
+        "incumbent": "Jalen Hurts",
+        "replacement": "Tanner McKee",
+        "url": "https://www.philadelphiaeagles.com/news/giants-vs-eagles-injury-report-week-18-2024",
+        "content_status": "conditional_pickett_and_rest_cochanges",
+        "retrieved_at_utc": "2026-09-26T22:12:27.772915+00:00",
+        "status": 200,
+        "final_url": "https://www.philadelphiaeagles.com/news/giants-vs-eagles-injury-report-week-18-2024",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/phi_nyg.html",
+        "bytes": 370996,
+        "sha256": "17cd0f3f1d9f79034fc40f9e285070e8df7a2ddaf00f11f9eff943b96aa428cd",
+        "dates": {
+          "datePublished": [
+            "2025-01-03T21:36:00Z"
+          ],
+          "dateModified": [
+            "2025-01-03T21:40:28.475Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2025-01-03T21:36:00Z",
+          "2025-01-03T21:40:28.475Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Giants vs. Eagles Injury Report",
+        "datePublished": "2025-01-03T21:36:00Z",
+        "dateModified": "2025-01-03T21:40:28.475Z",
+        "url": "https://www.philadelphiaeagles.com/news/giants-vs-eagles-injury-report-week-18-2024"
+      },
+      "evidence_time_utc": "2025-01-03T21:40:28.475000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "conditional_pickett_and_rest_cochanges"
+    },
+    {
+      "id": "sf_gb",
+      "team": "SF",
+      "game_date": "2024-11-24",
+      "incumbent": "Brock Purdy",
+      "replacement": "Brandon Allen",
+      "url": "https://www.49ers.com/news/brock-purdy-nick-bosa-ruled-out-for-week-12-vs-packers-injury-report-sfvsgb",
+      "content_status": "confirmed",
+      "episode_id": "SF_purdy_shoulder",
+      "assertion_summary": "Purdy ruled out injured; Allen would start against Green Bay.",
+      "source_receipt": {
+        "id": "sf_gb",
+        "team": "SF",
+        "game_date": "2024-11-24",
+        "incumbent": "Brock Purdy",
+        "replacement": "Brandon Allen",
+        "url": "https://www.49ers.com/news/brock-purdy-nick-bosa-ruled-out-for-week-12-vs-packers-injury-report-sfvsgb",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:12:27.914532+00:00",
+        "status": 200,
+        "final_url": "https://www.49ers.com/news/brock-purdy-nick-bosa-ruled-out-for-week-12-vs-packers-injury-report-sfvsgb",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/sf_gb.html",
+        "bytes": 460498,
+        "sha256": "cffc1c6dfe745c7c958f47ef0b764233babe195c0cbbd93ba222f4eed75e188f",
+        "dates": {
+          "datePublished": [
+            "2024-11-22T22:30:00Z"
+          ],
+          "dateModified": [
+            "2024-11-22T22:43:03.733Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-11-22T22:30:00Z",
+          "2024-11-22T22:43:03.733Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Brock Purdy, Nick Bosa Ruled Out for Week 12 vs. Packers; Injury Report #SFvsGB",
+        "datePublished": "2024-11-22T22:30:00Z",
+        "dateModified": "2024-11-22T22:43:03.733Z",
+        "url": "https://www.49ers.com/news/brock-purdy-nick-bosa-ruled-out-for-week-12-vs-packers-injury-report-sfvsgb"
+      },
+      "evidence_time_utc": "2024-11-22T22:43:03.733000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 11,
+      "roster_compatible_player_games": 5,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [
+        "2024-11-24T20:50:38Z"
+      ],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": true,
+      "qualified_game_ids": [
+        "2024_12_SF_GB"
+      ],
+      "status": "announcement_and_price_available_membership_roles_pending"
+    },
+    {
+      "id": "sf_ari",
+      "team": "SF",
+      "game_date": "2025-01-05",
+      "incumbent": "Brock Purdy",
+      "replacement": "Joshua Dobbs",
+      "url": "https://www.49ers.com/news/kyle-shanahan-names-qb-joshua-dobbs-as-week-18-starter",
+      "content_status": "confirmed",
+      "episode_id": "SF_purdy_elbow",
+      "assertion_summary": "Purdy shut down for elbow injury; Shanahan named Dobbs against Arizona.",
+      "source_receipt": {
+        "id": "sf_ari",
+        "team": "SF",
+        "game_date": "2025-01-05",
+        "incumbent": "Brock Purdy",
+        "replacement": "Joshua Dobbs",
+        "url": "https://www.49ers.com/news/kyle-shanahan-names-qb-joshua-dobbs-as-week-18-starter",
+        "content_status": "confirmed",
+        "retrieved_at_utc": "2026-09-26T22:12:27.937184+00:00",
+        "status": 200,
+        "final_url": "https://www.49ers.com/news/kyle-shanahan-names-qb-joshua-dobbs-as-week-18-starter",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/sf_ari.html",
+        "bytes": 432656,
+        "sha256": "18097532623b8910564c069060cb713d697ff492192e3557b8b12428cccb31a1",
+        "dates": {
+          "datePublished": [
+            "2025-01-01T22:15:00Z"
+          ],
+          "dateModified": [
+            "2025-01-02T16:03:33.776Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2025-01-01T22:15:00Z",
+          "2025-01-02T16:03:33.776Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Kyle Shanahan Names QB Joshua Dobbs as Week 18 Starter",
+        "datePublished": "2025-01-01T22:15:00Z",
+        "dateModified": "2025-01-02T16:03:33.776Z",
+        "url": "https://www.49ers.com/news/kyle-shanahan-names-qb-joshua-dobbs-as-week-18-starter"
+      },
+      "evidence_time_utc": "2025-01-02T16:03:33.776000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 0,
+      "roster_compatible_player_games": 0,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [],
+      "content_confirmed": true,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "no_price_qualified_fixture"
+    },
+    {
+      "id": "sea_min",
+      "team": "SEA",
+      "game_date": "2024-12-22",
+      "incumbent": "Geno Smith",
+      "replacement": null,
+      "url": "https://www.seahawks.com/news/seahawks-sign-jaren-hall-elevate-artie-burns-from-practice-squad",
+      "content_status": "starter_practiced_no_replacement",
+      "episode_id": "SEA_smith_knee",
+      "assertion_summary": "Smith practiced fully; no backup starter was confirmed.",
+      "source_receipt": {
+        "id": "sea_min",
+        "team": "SEA",
+        "game_date": "2024-12-22",
+        "incumbent": "Geno Smith",
+        "replacement": null,
+        "url": "https://www.seahawks.com/news/seahawks-sign-jaren-hall-elevate-artie-burns-from-practice-squad",
+        "content_status": "starter_practiced_no_replacement",
+        "retrieved_at_utc": "2026-09-26T22:12:27.937405+00:00",
+        "status": 200,
+        "final_url": "https://www.seahawks.com/news/seahawks-sign-jaren-hall-elevate-artie-burns-from-practice-squad",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/sea_min.html",
+        "bytes": 353352,
+        "sha256": "f43310db3253bfa0109c0264f5c6602695cf1912fb08626a48b98bb0e810ce0b",
+        "dates": {
+          "datePublished": [
+            "2024-12-20T21:01:48.43Z",
+            "2024-12-21T21:18:19.933Z"
+          ],
+          "dateModified": [
+            "2024-12-20T21:01:48.43Z",
+            "2024-12-21T21:18:19.933Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-12-20T21:01:48.43Z",
+          "2024-12-21T21:18:19.933Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Seahawks Sign Jaren Hall, Elevate Artie Burns From Practice Squad",
+        "datePublished": "2024-12-21T21:18:19.933Z",
+        "dateModified": "2024-12-21T21:18:19.933Z",
+        "url": "https://www.seahawks.com/news/seahawks-sign-jaren-hall-elevate-artie-burns-from-practice-squad"
+      },
+      "evidence_time_utc": "2024-12-21T21:18:19.933000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 10,
+      "roster_compatible_player_games": 5,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [
+        "2024-12-22T20:30:38Z"
+      ],
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "starter_practiced_no_replacement"
+    },
+    {
+      "id": "atl_bench",
+      "team": "ATL",
+      "game_date": "2024-12-22",
+      "incumbent": "Kirk Cousins",
+      "replacement": "Michael Penix Jr.",
+      "url": "https://www.atlantafalcons.com/news/atlanta-falcons-name-michael-penix-jr-the-starting-quarterback-kirk-cousins",
+      "content_status": "healthy_benching",
+      "episode_id": "ATL_cousins_benching",
+      "assertion_summary": "Penix replaced Cousins for football performance reasons, not an injury absence.",
+      "source_receipt": {
+        "id": "atl_bench",
+        "team": "ATL",
+        "game_date": "2024-12-22",
+        "incumbent": "Kirk Cousins",
+        "replacement": "Michael Penix Jr.",
+        "url": "https://www.atlantafalcons.com/news/atlanta-falcons-name-michael-penix-jr-the-starting-quarterback-kirk-cousins",
+        "content_status": "healthy_benching",
+        "retrieved_at_utc": "2026-09-26T22:12:28.485106+00:00",
+        "status": 200,
+        "final_url": "https://www.atlantafalcons.com/news/atlanta-falcons-name-michael-penix-jr-the-starting-quarterback-kirk-cousins",
+        "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/atl_bench.html",
+        "bytes": 480930,
+        "sha256": "aea7db96ecf4bdd20e9fdf5e9419754d69160827fc0b70451c687cdb068a4302",
+        "dates": {
+          "datePublished": [
+            "2024-12-18T01:36:06.775Z"
+          ],
+          "dateModified": [
+            "2024-12-19T15:09:55.682Z"
+          ]
+        },
+        "iso_datetimes": [
+          "2024-12-18T01:36:06.775Z",
+          "2024-12-19T15:09:55.682Z",
+          "2026-09-25T00:15:00.000Z",
+          "2026-09-25T03:21:00.000Z",
+          "2026-09-27T17:00:00.000Z",
+          "2026-09-27T20:05:00.000Z",
+          "2026-09-27T20:25:00.000Z",
+          "2026-09-27T21:00:00.000Z",
+          "2026-09-28T00:05:00.000Z",
+          "2026-09-28T00:20:00.000Z",
+          "2026-09-28T00:25:00.000Z",
+          "2026-09-28T04:20:00.000Z",
+          "2026-09-29T00:15:00.000Z",
+          "2026-09-29T04:15:00.000Z"
+        ]
+      },
+      "article_metadata": {
+        "headline": "Atlanta Falcons name Michael Penix Jr. the starting quarterback\u00a0",
+        "datePublished": "2024-12-18T01:36:06.775Z",
+        "dateModified": "2024-12-19T15:09:55.682Z",
+        "url": "https://www.atlantafalcons.com/news/atlanta-falcons-name-michael-penix-jr-the-starting-quarterback-kirk-cousins"
+      },
+      "evidence_time_utc": "2024-12-19T15:09:55.682000+00:00",
+      "price_qualified_fixture_player_games_ceiling": 10,
+      "roster_compatible_player_games": 5,
+      "unresolved_roster_player_games": 0,
+      "all_quote_times_utc": [
+        "2024-12-22T17:25:38Z"
+      ],
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "status": "healthy_benching"
+    },
+    {
+      "id": "DAL_2024-12-09",
+      "team": "DAL",
+      "game_date": "2024-12-09",
+      "episode_id": "DAL_prescott_hamstring",
+      "status": "no_fixture_specific_confirmation_found_in_bounded_search",
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "price_qualified_fixture_player_games_ceiling": 12,
+      "roster_compatible_player_games": 6,
+      "all_quote_times_utc": [
+        "2024-12-10T00:40:38Z"
+      ]
+    },
+    {
+      "id": "DAL_2024-12-15",
+      "team": "DAL",
+      "game_date": "2024-12-15",
+      "episode_id": "DAL_prescott_hamstring",
+      "status": "no_fixture_specific_confirmation_found_in_bounded_search",
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "price_qualified_fixture_player_games_ceiling": 7,
+      "roster_compatible_player_games": 4,
+      "all_quote_times_utc": [
+        "2024-12-15T17:25:37Z"
+      ]
+    },
+    {
+      "id": "DAL_2024-12-22",
+      "team": "DAL",
+      "game_date": "2024-12-22",
+      "episode_id": "DAL_prescott_hamstring",
+      "status": "no_fixture_specific_confirmation_found_in_bounded_search",
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "price_qualified_fixture_player_games_ceiling": 12,
+      "roster_compatible_player_games": 6,
+      "all_quote_times_utc": [
+        "2024-12-23T00:45:37Z"
+      ]
+    },
+    {
+      "id": "NO_2024-10-17",
+      "team": "NO",
+      "game_date": "2024-10-17",
+      "episode_id": "NO_carr_oblique",
+      "status": "no_fixture_specific_confirmation_found_in_bounded_search",
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "price_qualified_fixture_player_games_ceiling": 11,
+      "roster_compatible_player_games": 6,
+      "all_quote_times_utc": [
+        "2024-10-17T23:40:39Z"
+      ]
+    },
+    {
+      "id": "NO_2024-10-27",
+      "team": "NO",
+      "game_date": "2024-10-27",
+      "episode_id": "NO_carr_oblique",
+      "status": "no_fixture_specific_confirmation_found_in_bounded_search",
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "price_qualified_fixture_player_games_ceiling": 9,
+      "roster_compatible_player_games": 6,
+      "all_quote_times_utc": [
+        "2024-10-27T19:30:38Z"
+      ]
+    },
+    {
+      "id": "NO_2024-12-29",
+      "team": "NO",
+      "game_date": "2024-12-29",
+      "episode_id": "NO_carr_hand",
+      "status": "no_fixture_specific_confirmation_found_in_bounded_search",
+      "content_confirmed": false,
+      "qualifies_announcement_and_any_price": false,
+      "qualified_game_ids": [],
+      "price_qualified_fixture_player_games_ceiling": 12,
+      "roster_compatible_player_games": 6,
+      "all_quote_times_utc": [
+        "2024-12-29T17:25:38Z"
+      ]
+    }
+  ],
+  "summary": {
+    "announcement_price_team_games": 5,
+    "absence_episodes": 4,
+    "roster_compatible_player_games": 25,
+    "all_teams_player_game_ceiling": 49
+  },
+  "source_files": [
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/atl_bench.html",
+      "bytes": 480930,
+      "sha256": "aea7db96ecf4bdd20e9fdf5e9419754d69160827fc0b70451c687cdb068a4302"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/car_den.html",
+      "bytes": 530242,
+      "sha256": "e3a9b5d7679a31a7504aee6a3fb6482293b58884adac7573edabf686e0a9b3cf"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/car_no.html",
+      "bytes": 529676,
+      "sha256": "2101eed16f5ee60a53f7ee6d957487706364256cff070f73dd11d2494c8aea57"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/dal_ir.html",
+      "bytes": 332472,
+      "sha256": "54670540eb198699a9452be61a1e6c47a016e9230ef3291bbc6fa896899ae4ee"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/dal_phi.html",
+      "bytes": 336857,
+      "sha256": "4584487442951c8d4b49e23c75319316d7c6e5524b247d4d517ace758644da15"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/gb_ind.html",
+      "bytes": 703111,
+      "sha256": "a1b7c788d21a6913e1c1aa6c3721368f126f50ee4652e611cad7900a277770c1"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/gb_ten.html",
+      "bytes": 318540,
+      "sha256": "aa346dd62fb9c03047dbcbad70eec37c2320cf393212156c843ef0bc7a3d71ac"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nfc_follow_1.json",
+      "bytes": 34930,
+      "sha256": "5137d8e9cacebb18a31a71cc28a0f0270647de95b8e5964367ccdea60f6d7cc5"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nfc_follow_2.json",
+      "bytes": 32224,
+      "sha256": "c108e7dd6c7b707423635b405fbea8902cfbd340328cafdf4bcde29194cc9738"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nfc_follow_3.json",
+      "bytes": 32710,
+      "sha256": "0c4c842d071002097818a4fd774b2dd942b0b9b3dda18477c5be6c250b96e362"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nfc_follow_4.json",
+      "bytes": 28958,
+      "sha256": "665372a6d7560e62592c24aabd92e934a0f5c9e065e2e272129c2f32647cb10f"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nfc_search_2.json",
+      "bytes": 34776,
+      "sha256": "caf54cc8e87565f0bec839125a4027811fc540b11f621a8571f7d1c83997388b"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nfc_search_3.json",
+      "bytes": 32497,
+      "sha256": "c31e5da57f28974b17e47913a69766411450d0da8b324b0008fd75d512c8e397"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nfc_search_4.json",
+      "bytes": 34164,
+      "sha256": "15e9851fba72d256186ff2191f507ed4a1c33a01f3779aa3bd4d5f3ad582e7c9"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/no_gb.html",
+      "bytes": 343593,
+      "sha256": "cdae92f7ee542659a6cc101d723948def82d77ccbfefd46af4e7bcf40248c4a1"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/no_tb_canonical-receipt.json",
+      "bytes": 545,
+      "sha256": "d67bcb54f94fdcfb2dcded306269b0d2627ddcf8b72b2f4d13515228f9a4ac56"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/no_tb_canonical.html",
+      "bytes": 702859,
+      "sha256": "a0cc5bd6606ab0815ecdf2613cae7ea948bb9a40f2155cd8e7e235404e32e20e"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/no_was.html",
+      "bytes": 323306,
+      "sha256": "2c9cd09ea95cda6ac5cc2c87fa82f4e63a9f1ce90038228333505e3d6deece65"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nyg_bal.html",
+      "bytes": 313087,
+      "sha256": "e5aa988d2fdfa0c6bd0b00fb20785367d4fa0b0ac17d72bea9d94ba8021266c0"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nyg_dal.html",
+      "bytes": 253936,
+      "sha256": "0d8f7a45fd50be46c695f6e4ead1f0c7c3aeab7779299beeda222fc4a642370c"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nyg_dal_inactive.html",
+      "bytes": 440673,
+      "sha256": "3c83de5c4ef0aacee871a157cdfbf7d4f92ddc29e10cc287ad7baa15607644ae"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/nyg_no.html",
+      "bytes": 443202,
+      "sha256": "a8c6bf93ede681e9e7b4fce985c84af261a61e17fa4b0eee5d065a9d4dc8ae9a"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/phi_dal.html",
+      "bytes": 350879,
+      "sha256": "accfef710ee591c2cbdde29b6c689129e82a3170c7fd216d396daf5aec2d5f0d"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/phi_nyg.html",
+      "bytes": 370996,
+      "sha256": "17cd0f3f1d9f79034fc40f9e285070e8df7a2ddaf00f11f9eff943b96aa428cd"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/query-log.json",
+      "bytes": 10221,
+      "sha256": "d04cb538ba7ba465f9743fa03ad139daeade97ddba033351e1f173b5226b9cfc"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/sea_min.html",
+      "bytes": 353352,
+      "sha256": "f43310db3253bfa0109c0264f5c6602695cf1912fb08626a48b98bb0e810ce0b"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/sf_ari.html",
+      "bytes": 432656,
+      "sha256": "18097532623b8910564c069060cb713d697ff492192e3557b8b12428cccb31a1"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/sf_gb.html",
+      "bytes": 460498,
+      "sha256": "cffc1c6dfe745c7c958f47ef0b764233babe195c0cbbd93ba222f4eed75e188f"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/source-receipts.json",
+      "bytes": 25262,
+      "sha256": "fe5c013d72f897c466ec9a8f555c3b26086381ad7ca4b6d5214d74129bc30391"
+    },
+    {
+      "path": "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/source-seeds.json",
+      "bytes": 5706,
+      "sha256": "60371144016a444e825efa7274888e8f21931849017619118062a93b7df2bc2a"
+    }
+  ],
+  "price_input": {
+    "path": "data/raw/nfl-announced-qb-expanded-price-inventory-2026-09-26/eligible-price-rows.csv",
+    "sha256": "a6c788a97b861d14c36f1e26d3f894c79ca226ad8ff13916c2bf97fe01326beb"
+  },
+  "target_dataset_values_used": false,
+  "incidental_search_outcomes_exposed": true,
+  "limitations": [
+    "Only bounded query coverage, not an exhaustive proof that other prequote announcements did not exist.",
+    "Source-asserted historic NewsArticle publication/revision clocks are not original receipts. Related VideoObject dates are excluded.",
+    "Roster-compatible counts are provisional; both-team count is a larger unconditional price ceiling.",
+    "Unconfirmed weekly starts cannot inherit earlier confirmations.",
+    "Original prices remain conditional publisher exports with absent raw responses and possible duplicate-key clock mismatch."
+  ]
+}

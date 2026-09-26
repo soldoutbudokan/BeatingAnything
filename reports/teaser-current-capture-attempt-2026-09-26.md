@@ -1,0 +1,9 @@
+# Current teaser quote capture attempt — September 26, 2026
+
+**No actual Ontario teaser ticket price was captured.** This bounded attempt tried the browser surface, then the public sportsbook page, to address the execution-price gap in the [earlier teaser review](positive-claims-recheck-2026-09-26.md). It did not repeat the historical performance calculation or reinterpret the public support table as an accepted ticket.
+
+The browser entry call failed immediately with `CUA_REPL_ENABLED_SURFACES is required`. No enabled browser was available, no tab or sportsbook account was inspected, and no betslip was changed. This is a missing runtime capability, not evidence that the bookmaker rejected a quote.
+
+A two-query web search located the [Ontario-intended sportsbook landing URL](https://sportsbook.draftkings.com/?intendedSiteExp=CA-ON-SB). Opening it and following its NFL link returned navigation, articles and explanatory examples, without a current fixture/line/teaser ticket. The resulting [NFL page](https://sportsbook.draftkings.com/leagues/football/nfl) carried a Virginia footer, so the Ontario query parameter did not establish an Ontario account or product context. Its generic example spread and moneyline numbers are not offers. Text searches found no teaser or betslip element. Web-rendered results are preserved under `data/raw/teaser-current-capture-attempt-2026-09-26/`.
+
+No authenticated endpoint, account, transaction, schedule or alert was used. Current support-table prices from the earlier audit remain descriptive references; actual contract availability, simultaneous constituent quotes, ticket price and applicable settlement still require qualified evidence. Do not repeat this exact browser/public-page attempt without a capability or source change. This route's price dependency does not by itself block the broader forecasting objective.

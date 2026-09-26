@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "audited_at_utc": "2026-09-26T22:29:25.173950+00:00",
+  "method": "Independent reconstruction from explicit metadata projections without importing production code; all100 game/player rows, literal original price rows, Fraction odds/margin and quote clocks checked. Independent schedule and latest strictly available prior club reconstructed; all unresolved retained.",
+  "report": {
+    "path": "reports/nfl-announced-qb-expanded-2026-09-26.json",
+    "sha256": "6b714104a7f1269aab3ddd164736e2280199c029bcead2c06529c866d49570b0"
+  },
+  "verified_hash_count": 19,
+  "verified_hashes": {
+    "tools/inventory_nfl_announced_qb_expanded.py": "e505155ddc8877ed251d05657323a949e4312126339420f07a1e5483ee63a7b8",
+    "docs/nfl-announced-qb-expanded-inventory-declaration-2026-09-26.md": "ddbeb3acfdaeed37867e8d92755587247e63fb4ba550cff7f9baad2042b971fa",
+    "docs/nfl-announced-qb-quote-dedup-addendum-2026-09-26.md": "5d14c62045722217803580a6c4fac872fa41e3c3d1cfeccbb981c99f7a2ebf6a",
+    "docs/nfl-announced-qb-prior-team-addendum-2026-09-26.md": "20cbc1f68ae1f08554b6fffe0e6e51ef0ab19fe7719e395c874572e61bc4d72d",
+    "reports/nfl-announced-qb-source-nfc-2026-09-26.json": "6b228462d2450548436851e57c9b5210a16d1d9474515964bb3e9c1b5cce5e90",
+    "reports/nfl-announced-qb-source-afc-north-south-2026-09-26.json": "74744b3b171c33be7e852462108a742d9cd46c1822647ed69440907516102d2f",
+    "reports/nfl-announced-qb-source-afc-east-west-2026-09-26.json": "099aaca90b2810ec6abaac3b9cc27eb4c2ef08a2d13f77223710ec1e86beb09b",
+    "data/raw/nfl-announced-qb-expanded-price-inventory-2026-09-26/eligible-price-rows.csv": "a6c788a97b861d14c36f1e26d3f894c79ca226ad8ff13916c2bf97fe01326beb",
+    "data/raw/nfl-qb-kneel-props-2026-09-26/games.csv": "0c34a519753ada6b5b37f5e8be246021813484adb15ae7c067af9c3aca534d2d",
+    "data/raw/nfl-qb-kneel-props-2026-09-26/player_stats_2024.csv": "4f1598c9a6ba396a52e256762a0d9148abd22cdf856f26fc8825fa1d1dc49631",
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/car_den.html": "e3a9b5d7679a31a7504aee6a3fb6482293b58884adac7573edabf686e0a9b3cf",
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/gb_ind.html": "a1b7c788d21a6913e1c1aa6c3721368f126f50ee4652e611cad7900a277770c1",
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/gb_ten.html": "aa346dd62fb9c03047dbcbad70eec37c2320cf393212156c843ef0bc7a3d71ac",
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/no_tb_canonical.html": "a0cc5bd6606ab0815ecdf2613cae7ea948bb9a40f2155cd8e7e235404e32e20e",
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/nfc/sf_gb.html": "cffc1c6dfe745c7c958f47ef0b764233babe195c0cbbd93ba222f4eed75e188f",
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/jax_w11.html": "eca8e6d924ed391e17ca65c3a4bd613dfdc39e614b37659c0584d5be381fb999",
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/mia-seattle-preview.html": "f6755ce775f651f0e5768ce275c62f180fd1c99c22f71d24c2c2c04184799da5",
+    "data/raw/nfl-announced-qb-expanded-2026-09-26/afc-east-west/lv-falcons-ridder.html": "7925745f6de685759d89cf0f2d60dc5978bc835007b91a5dbe77ac9247e6d574",
+    "reports/nfl-announced-qb-price-feasibility-2026-09-26.json": "e60cedc2767095c81be410e0d68187bc1914f602336fbfe779c53f1cf0c06c58"
+  },
+  "rows_matched": 100,
+  "matching": 47,
+  "opposite": 51,
+  "other": 0,
+  "unresolved": 2,
+  "generous_bound": 49,
+  "without_lv": {
+    "all_team": 91,
+    "matching": 43,
+    "opposite": 46,
+    "unresolved": 2,
+    "bound": 45
+  },
+  "prior_game_ids_clubs_starts_and_available_after_all_match": true,
+  "minimum_prior_start_lead_hours": 136.1772222222222,
+  "omitted_unknowns": false,
+  "target_outcome_columns_read": false,
+  "receiver_role_values_read": false,
+  "limitations": [
+    "Latestpriorclub is a fixedproxy, not proof of no interveningtransfer.",
+    "LVinclusive case is a generouscoveragecheck withpotentialsearch-budgetdeviation; strictexclusionalsobelow100.",
+    "Searchsnippets andearlierexperiments exposedoutcomes; this doesnotestablish a newholdout."
+  ],
+  "literal_original_price_rows_matched": 100,
+  "independent_fraction_price_and_clock_gates_passed": true
+}

@@ -1,0 +1,437 @@
+{
+  "status": "first-round price/course feasibility absent for a comparative test: one paired South-course offer, zero editions with both courses priced",
+  "prepared_at_utc": "2026-09-26T22:31:32.093325+00:00",
+  "scope": "Metadata-only audit of retained under-diagnostic and historical_rounds_all. No scores, birdies, finish, strokes gained, ROI, closing prices, target values, historical join-status labels or old forecast columns projected/evaluated. No network, models or changes to old artifacts.",
+  "inputs": [
+    {
+      "path": "data/raw/golf-birdie-recheck-2026-09-26/under-diagnostic.csv",
+      "bytes": 288415,
+      "sha256": "d5e54b16e86b5f0459be9fca164fda7cbd6ff3b89e900dddc4a992a2ca207796"
+    },
+    {
+      "path": "data/raw/golf-birdie-recheck-2026-09-26/historical_rounds_all.csv",
+      "bytes": 20386179,
+      "sha256": "253be8dca8645319382ece263deb08a5d58a181e8850a67db5f94c544da1abc9"
+    }
+  ],
+  "projected_columns": {
+    "offers": [
+      "year",
+      "event_key",
+      "round_num",
+      "player",
+      "line",
+      "side",
+      "SPORT_EVENT",
+      "COMPETITION",
+      "EVENT_START_TIME_UTC",
+      "MARKET_NAME",
+      "MARKET_TYPE",
+      "SELECTION",
+      "INSTRUMENT_ID",
+      "PRICE_CHAN_ID",
+      "OPENING_AMERICAN_ODDS",
+      "over_OPENING_AMERICAN_ODDS",
+      "event_id",
+      "dg_id",
+      "matched_player",
+      "matched_event"
+    ],
+    "historical_rounds": [
+      "tour",
+      "year",
+      "season",
+      "event_completed",
+      "event_name",
+      "event_id",
+      "player_name",
+      "dg_id",
+      "round_num",
+      "course_name",
+      "course_num",
+      "course_par",
+      "start_hole",
+      "teetime"
+    ]
+  },
+  "join_key": [
+    "year",
+    "event_id",
+    "dg_id",
+    "round_num"
+  ],
+  "history_tour_filter": "pga",
+  "history_unique_metadata_keys": 87415,
+  "history_nonunique_keys": 0,
+  "original_G11_declared_editions": [
+    {
+      "family": "Farmers",
+      "year": 2023,
+      "event_id": "4",
+      "first_round_under_offers": 0,
+      "valid_paired_opening_offers": 0,
+      "course_metadata_in_history": [
+        {
+          "course_num": "104",
+          "course_name": "Torrey Pines Golf Course (North Course)",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        },
+        {
+          "course_num": "4",
+          "course_name": "Torrey Pines Golf Course (South Course)",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        }
+      ]
+    },
+    {
+      "family": "Farmers",
+      "year": 2024,
+      "event_id": "4",
+      "first_round_under_offers": 1,
+      "valid_paired_opening_offers": 1,
+      "course_metadata_in_history": [
+        {
+          "course_num": "104",
+          "course_name": "Torrey Pines Golf Course (North Course)",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        },
+        {
+          "course_num": "4",
+          "course_name": "Torrey Pines Golf Course (South Course)",
+          "par": "72",
+          "under_offers": 1,
+          "paired_opening_offers": 1
+        }
+      ]
+    },
+    {
+      "family": "Farmers",
+      "year": 2025,
+      "event_id": "4",
+      "first_round_under_offers": 0,
+      "valid_paired_opening_offers": 0,
+      "course_metadata_in_history": [
+        {
+          "course_num": "104",
+          "course_name": "Torrey Pines Golf Course (North Course)",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        },
+        {
+          "course_num": "4",
+          "course_name": "Torrey Pines Golf Course (South Course)",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        }
+      ]
+    },
+    {
+      "family": "Pebble",
+      "year": 2023,
+      "event_id": "5",
+      "first_round_under_offers": 0,
+      "valid_paired_opening_offers": 0,
+      "course_metadata_in_history": [
+        {
+          "course_num": "205",
+          "course_name": "Spyglass Hill Golf Course",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        },
+        {
+          "course_num": "5",
+          "course_name": "Pebble Beach Golf Links",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        },
+        {
+          "course_num": "769",
+          "course_name": "Monterey Peninsula CC",
+          "par": "71",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        }
+      ]
+    },
+    {
+      "family": "Pebble",
+      "year": 2024,
+      "event_id": "5",
+      "first_round_under_offers": 0,
+      "valid_paired_opening_offers": 0,
+      "course_metadata_in_history": [
+        {
+          "course_num": "205",
+          "course_name": "Spyglass Hill Golf Course",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        },
+        {
+          "course_num": "5",
+          "course_name": "Pebble Beach Golf Links",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        }
+      ]
+    },
+    {
+      "family": "Pebble",
+      "year": 2025,
+      "event_id": "5",
+      "first_round_under_offers": 0,
+      "valid_paired_opening_offers": 0,
+      "course_metadata_in_history": [
+        {
+          "course_num": "205",
+          "course_name": "Spyglass Hill Golf Course",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        },
+        {
+          "course_num": "5",
+          "course_name": "Pebble Beach Golf Links",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        }
+      ]
+    },
+    {
+      "family": "RSM",
+      "year": 2024,
+      "event_id": "493",
+      "first_round_under_offers": 0,
+      "valid_paired_opening_offers": 0,
+      "course_metadata_in_history": [
+        {
+          "course_num": "776",
+          "course_name": "Sea Island Golf Club (Seaside Course)",
+          "par": "70",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        },
+        {
+          "course_num": "889",
+          "course_name": "Sea Island Golf Club (Plantation Course)",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        }
+      ]
+    },
+    {
+      "family": "RSM",
+      "year": 2025,
+      "event_id": "493",
+      "first_round_under_offers": 0,
+      "valid_paired_opening_offers": 0,
+      "course_metadata_in_history": [
+        {
+          "course_num": "776",
+          "course_name": "Sea Island Golf Club (Seaside Course)",
+          "par": "70",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        },
+        {
+          "course_num": "889",
+          "course_name": "Sea Island Golf Club (Plantation Course)",
+          "par": "72",
+          "under_offers": 0,
+          "paired_opening_offers": 0
+        }
+      ]
+    }
+  ],
+  "named_event_subset_summary": {
+    "under_rows_all_rounds": 32,
+    "valid_opening_pairs_all_rounds": 18,
+    "unique_course_joins_all_rounds": 26,
+    "missing_id_course_joins_all_rounds": 6,
+    "ambiguous_course_joins_all_rounds": 0,
+    "first_round_rows": 1,
+    "first_round_valid_pairs": 1,
+    "first_round_unique_course_joins": 1,
+    "first_round_missing_ids": 0,
+    "first_round_editions_with_both_declared_courses_priced": 0,
+    "opening_quote_timestamp_present": false,
+    "first_round_missing_actual_quote_clocks": 1
+  },
+  "all_round_metadata_inventory": [
+    {
+      "family": "Farmers",
+      "year": "2024",
+      "round": "1",
+      "course_or_join_status": "Torrey Pines Golf Course (South Course)",
+      "paired_valid": true,
+      "offers": 1
+    },
+    {
+      "family": "Farmers",
+      "year": "2024",
+      "round": "2",
+      "course_or_join_status": "Torrey Pines Golf Course (North Course)",
+      "paired_valid": false,
+      "offers": 4
+    },
+    {
+      "family": "Farmers",
+      "year": "2024",
+      "round": "2",
+      "course_or_join_status": "Torrey Pines Golf Course (North Course)",
+      "paired_valid": true,
+      "offers": 1
+    },
+    {
+      "family": "Farmers",
+      "year": "2024",
+      "round": "2",
+      "course_or_join_status": "Torrey Pines Golf Course (South Course)",
+      "paired_valid": false,
+      "offers": 2
+    },
+    {
+      "family": "Farmers",
+      "year": "2024",
+      "round": "2",
+      "course_or_join_status": "Torrey Pines Golf Course (South Course)",
+      "paired_valid": true,
+      "offers": 3
+    },
+    {
+      "family": "Farmers",
+      "year": "2024",
+      "round": "3",
+      "course_or_join_status": "Torrey Pines Golf Course (South Course)",
+      "paired_valid": false,
+      "offers": 1
+    },
+    {
+      "family": "Farmers",
+      "year": "2024",
+      "round": "3",
+      "course_or_join_status": "Torrey Pines Golf Course (South Course)",
+      "paired_valid": true,
+      "offers": 5
+    },
+    {
+      "family": "Farmers",
+      "year": "2025",
+      "round": "2",
+      "course_or_join_status": "Torrey Pines Golf Course (South Course)",
+      "paired_valid": false,
+      "offers": 3
+    },
+    {
+      "family": "Farmers",
+      "year": "2025",
+      "round": "2",
+      "course_or_join_status": "Torrey Pines Golf Course (South Course)",
+      "paired_valid": true,
+      "offers": 3
+    },
+    {
+      "family": "Pebble",
+      "year": "2024",
+      "round": "3",
+      "course_or_join_status": "Pebble Beach Golf Links",
+      "paired_valid": false,
+      "offers": 2
+    },
+    {
+      "family": "Pebble",
+      "year": "2024",
+      "round": "3",
+      "course_or_join_status": "Pebble Beach Golf Links",
+      "paired_valid": true,
+      "offers": 1
+    },
+    {
+      "family": "RSM",
+      "year": "2024",
+      "round": "4",
+      "course_or_join_status": "missing",
+      "paired_valid": false,
+      "offers": 2
+    },
+    {
+      "family": "RSM",
+      "year": "2024",
+      "round": "4",
+      "course_or_join_status": "missing",
+      "paired_valid": true,
+      "offers": 4
+    }
+  ],
+  "first_round_price_metadata": [
+    {
+      "family": "Farmers",
+      "year": "2024",
+      "event_key": "farmersinsuranceopen",
+      "round_num": "1",
+      "player": "T. Finau",
+      "line": "3.5",
+      "side": "Under",
+      "SPORT_EVENT": "T. Finau/M. Homa/X. Schauffele - Round 1",
+      "COMPETITION": "Farmers Insurance Open 2024",
+      "EVENT_START_TIME_UTC": "2024-01-24T18:40:00Z",
+      "MARKET_NAME": "T. Finau Total Birdies",
+      "MARKET_TYPE": "GOLF:FT:CTBIR",
+      "SELECTION": "Under 3.5",
+      "INSTRUMENT_ID": "1287992934132351029",
+      "PRICE_CHAN_ID": "2",
+      "OPENING_AMERICAN_ODDS": "-120",
+      "over_OPENING_AMERICAN_ODDS": "-110.0",
+      "event_id": "4.0",
+      "dg_id": "11676.0",
+      "matched_player": "Finau, Tony",
+      "matched_event": "Farmers Insurance Open",
+      "metadata_join_count": 1,
+      "join_status_metadata_only": "unique",
+      "opening_pair_valid_American": true,
+      "course_metadata": {
+        "tour": "pga",
+        "year": "2024",
+        "season": "2024",
+        "event_completed": "1/27/2024",
+        "event_name": "Farmers Insurance Open",
+        "event_id": "4",
+        "player_name": "Finau, Tony",
+        "dg_id": "11676",
+        "round_num": "1",
+        "course_name": "Torrey Pines Golf Course (South Course)",
+        "course_num": "4",
+        "course_par": "72",
+        "start_hole": "1",
+        "teetime": "10:40:00"
+      },
+      "opening_under_decimal": 1.8333333333333335,
+      "opening_over_decimal": 1.9090909090909092,
+      "opening_implied_sum": 1.0692640692640691
+    }
+  ],
+  "limitations": [
+    "Only an Under-led derived diagnostic export was inspected; its opposite-side opening field records a matched published row, not proof of simultaneous book availability or full collection universe.",
+    "Hard Rock attribution comes from previously audited publisher parser, not an explicit bookmaker label in these rows. Numeric PRICE_CHAN_ID2 is not independently treated as bookmaker identity.",
+    "EVENT_START_TIME_UTC is a fixture/tee time, not an opening-price publication/receipt/update timestamp. Course metadata is retrospective; assignment visibility before historical price is unverified.",
+    "Historical plain-birdies versus birdies-or-better settlement terms remain unresolved.",
+    "Six RSM-labelled rows are round4 and lack event/player IDs; they remain unmatched, not reassigned to a different event.",
+    "Farmers2024 round2 has four paired rows (one North,three South), but later rounds do not enter or rescue the requested first-round scope. Pebble2024 rows are round3 only.",
+    "One first-round offer cannot estimate a cross-course birdie contrast, probability correction, or validation error. No performance claim follows from paired price presence."
+  ],
+  "mechanism_distinction": "A course-conditioned birdie-count forecast would be conceptually distinct from the closed trailing birdie mean forecast and the original G11 net-score/cross-course2ball test. G11 stroke difficulty does not imply the same direction/magnitude of birdie probability; bogeys and eagles can drive score differences. This archive provides no usable first-round two-course comparison, so it is not an executable new price-backed mechanism test.",
+  "recommendation": "Stop this retained-source first-round birdie route at metadata feasibility. Preserve G11 original result/status; do not substitute later rounds, a trailing-mean model, assumed missing prices, or an edge claim."
+}
