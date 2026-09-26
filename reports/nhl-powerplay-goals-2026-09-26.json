@@ -1,0 +1,92 @@
+{
+  "status": "closed fixed power-play goal specification: all modeled side EVs negative, zero selections; no target grading",
+  "declaration_commit": "ad13ec4",
+  "forecast_commit": "f9f4783",
+  "freeze": {
+    "path": "data/raw/nhl-powerplay-goals-2026-09-26/forecast-freeze.json",
+    "sha256": "4416a7c1c357af5b4294e11d477a97bf4f2a59a877295fa5f08f521ac994aaa7"
+  },
+  "forecast": {
+    "path": "data/raw/nhl-powerplay-goals-2026-09-26/forecasts.csv",
+    "sha256": "16d2e0c52e8c8383e74b61a1dd1cc64ae33f4b6e3d232d190dfb282cc8562d38"
+  },
+  "price_rows": 2768,
+  "league_baseline": {
+    "season": "2023-24_REG",
+    "skater_goals": 8085,
+    "skater_pp_goals": 1660,
+    "rho": 0.20531849103277675,
+    "team_games": 2613,
+    "mean_pp_shots": 4.55683122847302
+  },
+  "attrition": {
+    "fewer_than_20_prior_opponent_games": 4,
+    "fewer_than_40_prior_player_appearances": 92
+  },
+  "history_game_ids_without_regular_schedule": [],
+  "prior_team_game_rejections": 21,
+  "pooled": {
+    "forecasts": 2672,
+    "games": 270,
+    "selections": 0,
+    "best_after_cost_ev": -0.0270777383716284,
+    "best_eligible_after_cost_ev": -0.0270777383716284,
+    "min_under_probability_change": -0.017661199311356568,
+    "max_under_probability_change": 0.02044149124730854
+  },
+  "periods": {
+    "early_nov_dec": {
+      "forecasts": 1445,
+      "games": 146,
+      "selections": 0,
+      "best_after_cost_ev": -0.0270777383716284,
+      "best_eligible_after_cost_ev": -0.0270777383716284,
+      "min_under_probability_change": -0.017661199311356568,
+      "max_under_probability_change": 0.02044149124730854
+    },
+    "later_january": {
+      "forecasts": 1227,
+      "games": 124,
+      "selections": 0,
+      "best_after_cost_ev": -0.036923615740851,
+      "best_eligible_after_cost_ev": -0.036923615740851,
+      "min_under_probability_change": -0.01079537008896303,
+      "max_under_probability_change": 0.020309432960361806
+    }
+  },
+  "feature_ranges": {
+    "pp_fraction": {
+      "min": 0.0622177245553868,
+      "median": 0.2421273964131106,
+      "max": 0.5128647653564598
+    },
+    "opponent_ratio": {
+      "min": 0.7907722348198538,
+      "median": 0.9498740236835476,
+      "max": 1.1720679012345678
+    },
+    "goal_intensity_scale": {
+      "min": 0.9164049338181328,
+      "median": 0.9888565345364422,
+      "max": 1.0562349310042185
+    }
+  },
+  "target_grading_performed": false,
+  "forecast_log_loss": null,
+  "roi": null,
+  "limitations": [
+    "Same previously inspected NHL archive; repeated exploratory mechanisms, not a new holdout.",
+    "Market-implied zero-goal probability may already reflect opponent exposure; double-counting is possible.",
+    "Historic PP goal share is a smoothed role proxy, not known current deployment.",
+    "Goalie-observed shots omit empty-net exposure and mix penalty frequency and shooting suppression.",
+    "Independent UTC start+72h enforces chronology but retrospective statistics do not certify publication vintage.",
+    "Source market-update clocks, jurisdiction and exact historical settlement terms lack execution verification.",
+    "Earlier candidate-game results can enter later forecasts only as strictly prior history; no current target label selects its prediction."
+  ],
+  "disposition": "Predeclared no-selection closure. Preserve parameters and do not run target grading to choose alternative windows, shrinkages, signs or subgroups.",
+  "independent_audit": {
+    "path": "reports/nhl-powerplay-goals-forecast-audit-2026-09-26.json",
+    "sha256": "eb635b5ac9abe2c66b75ae54846e30a2d8c940413d16e3f741ce39578d18642e"
+  },
+  "repository_tests_passed": 312
+}

@@ -1,0 +1,40 @@
+{
+  "audited_at_utc": "2026-09-26T21:39:22.456735+00:00",
+  "scope": "Independent stdlib source-hash, declared-prior reconstruction, chronology, probability and EV audit. Player outcome fields were inspected only for frozen listed prior player-games plus the 2023\u201324 league baseline; goalie fields were inspected only for frozen listed opponent/rejected prior team-games plus that league baseline. No forecast-target settlement or scoring calculation.",
+  "frozen_hash_records_verified": 300,
+  "unique_frozen_paths_verified": 299,
+  "forecasts": 2672,
+  "games": 270,
+  "period_forecasts": {
+    "early_nov_dec": 1445,
+    "later_january": 1227
+  },
+  "listed_prior_player_pairs_recomputed": 22946,
+  "listed_prior_opponent_team_games": 2049,
+  "individual_history_reference_checks": 317582,
+  "minimum_prior_start_to_entry_hours": 82.28944444444444,
+  "all_prior_ids_regular_completed_unique_and_current_game_excluded": true,
+  "all_history_lists_chronologically_sorted": true,
+  "all_latest_prior_team_opponent_matches_verified": true,
+  "recomputed_baseline": {
+    "goals": 8085,
+    "pp_goals": 1660,
+    "rho": 0.20531849103277675,
+    "valid_team_games": 2613,
+    "pp_shots": 11907,
+    "m": 4.55683122847302
+  },
+  "whole_team_game_rejections_reproduced": 21,
+  "side_ev_checks": 5344,
+  "selections": 0,
+  "maximum_after_cost_ev": -0.027077738371628413,
+  "maximum_numeric_recalculation_difference": 1.1102230246251565e-16,
+  "graded_artifact_absent": true,
+  "target_settlement_values_computed": false,
+  "limits": "Validates all exported prior IDs and their aggregates; does not independently reconstruct excluded price-cohort attrition or prove that no eligible history was omitted from each last-80 / last-40 window. Earlier candidate results are permitted only as frozen prior-history inputs for later forecasts.",
+  "evidence_hashes": {
+    "data/raw/nhl-powerplay-goals-2026-09-26/forecast-freeze.json": "4416a7c1c357af5b4294e11d477a97bf4f2a59a877295fa5f08f521ac994aaa7",
+    "data/raw/nhl-powerplay-goals-2026-09-26/forecasts.csv": "16d2e0c52e8c8383e74b61a1dd1cc64ae33f4b6e3d232d190dfb282cc8562d38",
+    "data/raw/nhl-powerplay-goals-2026-09-26/prior-team-game-rejections.json": "6412311823d5396ebdc49f8372e9928792d03f14dacb11523c0e0a175f44ec60"
+  }
+}
