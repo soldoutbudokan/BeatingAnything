@@ -1,0 +1,9 @@
+# Transport recovery for the frozen injury-report inventory
+
+The original three-event pass stopped correctly after three curl exit-6 DNS failures: no HTTP responses, PDF bytes, report clocks or fixture statuses were received. Preserve its JSON, Markdown, executed tool hash and all zero-byte receipts unchanged as the original attempt. HTTP code `000` is curl's no-response placeholder, not a bookmaker or NBA response.
+
+A separate ordinary DNS-only check at `2026-09-26T23:00:45.812876+00:00` now resolves `ak-static.cms.nba.com`. Its receipt is `data/raw/nba-injury-price-clocks-2026-09-26/root-dns-diagnostic.json`. No alternate resolver, host, forced IP, credentials or HTTP request was used for that diagnostic. This is a transport-capability change, not favorable report content.
+
+Authorize one recovery pass under the unchanged [sample/clock declaration](nba-injury-price-clock-inventory-declaration-2026-09-26.md). Restart each frozen event at its original first URL, at most once; if it returns a genuine missing-file 404, continue through that event's original ordered candidate list. Use at most nine distinct URLs per event, 27 across both passes, and at most 30 request attempts including the original three DNS failures. Stop an event again on a transport failure, access denial, other server failure or non-PDF response. No further retry, alternative host, forced-IP request, proxy change or enlarged lookback.
+
+Write recovery receipts and outputs separately; never replace the failed first-pass evidence. Preserve the same prices, games, report clock maximum, first-clock-qualified stopping decision and fixture checks. This changes transport retry handling only. No scoring outcomes, thresholds, star classifications, forecast or return results are available to motivate a statistical specification change.
