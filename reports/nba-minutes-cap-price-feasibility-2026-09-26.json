@@ -1,0 +1,242 @@
+{
+  "status": "source prerequisite unresolved; zero verified cap-before-quote cases in bounded two-return check",
+  "checked_at_utc": "2026-09-26T21:48:46.007714+00:00",
+  "scope": "Two named returns only; no target box/outcome files, model, fit, selections or return grading. Search/profile pages surfaced incidental later sporting snippets; none used.",
+  "card": "docs/hypotheses/basketball-announced-minutes-cap.md",
+  "source_repository": "https://github.com/devlincorrigan/nba-props-threshold-app/tree/233dbbc86b9c6e13df04d4e8b063581b3aa15abb",
+  "local_original_archive_state": "Prior full NBA originals/manifests absent in this workspace; only two exact pinned quote JSONs and pinned mapping recovered. No full archive recovery.",
+  "prior_reported_archive_inventory": {
+    "files": 3394,
+    "distinct_events": 3394,
+    "bytes": 397273601,
+    "document": "reports/nba-points-consensus-2026-09-13.md",
+    "not_reinventoried_now": true,
+    "mapped_quote_games_2024_25": 1222,
+    "mapped_quote_games_2025_26": 1224
+  },
+  "score_free_support": [
+    {
+      "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2024.csv",
+      "sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26",
+      "bytes": 426838
+    },
+    {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2025.csv",
+      "sha256": "a7a5b6607a256c84a324f819e4461248bdff90a78b1ddb675a5a117a9a94e74f",
+      "bytes": 2216279
+    },
+    {
+      "path": "data/raw/nba-minutes-cap-feasibility-2026-09-26/game_event_bijection.csv",
+      "sha256": "23f27cc66b8b333fffd7b25d756f530d79dff0cafd69ff397cf16638000ed64c",
+      "bytes": 144240
+    }
+  ],
+  "price_requests": [
+    {
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/game_event_bijection.csv",
+      "method": "GET via curl -L --fail --silent --show-error --max-time 60",
+      "completed_successfully": true,
+      "file_mtime_utc": "2026-09-26T21:44:46.711761+00:00",
+      "request_start_clock_recorded": false,
+      "response_header_or_original_receipt_clock_available": false,
+      "path": "data/raw/nba-minutes-cap-feasibility-2026-09-26/game_event_bijection.csv",
+      "sha256": "23f27cc66b8b333fffd7b25d756f530d79dff0cafd69ff397cf16638000ed64c",
+      "bytes": 144240
+    },
+    {
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/0d48e3b3532422c2eefee90bc29d7eab.json",
+      "method": "GET via curl -L --fail --silent --show-error --max-time 60",
+      "completed_successfully": true,
+      "file_mtime_utc": "2026-09-26T21:45:12.970895+00:00",
+      "request_start_clock_recorded": false,
+      "response_header_or_original_receipt_clock_available": false,
+      "path": "data/raw/nba-minutes-cap-feasibility-2026-09-26/0d48e3b3532422c2eefee90bc29d7eab.json",
+      "sha256": "10fb19b4d53c4a33b047df0ac26e7e50b74e79242738bbc1afb284c56aa083f0",
+      "bytes": 84208
+    },
+    {
+      "url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/777d86c37951e9c17d4b0c10571de4c0.json",
+      "method": "GET via curl -L --fail --silent --show-error --max-time 60",
+      "completed_successfully": true,
+      "file_mtime_utc": "2026-09-26T21:45:13.022225+00:00",
+      "request_start_clock_recorded": false,
+      "response_header_or_original_receipt_clock_available": false,
+      "path": "data/raw/nba-minutes-cap-feasibility-2026-09-26/777d86c37951e9c17d4b0c10571de4c0.json",
+      "sha256": "cd07570d88e74e1e4ec483b642cb792f7fd0052c2fcfcfc7f2afb73e6c30de2f",
+      "bytes": 75999
+    }
+  ],
+  "cases": [
+    {
+      "player": "Kawhi Leonard",
+      "person_id": 202695,
+      "identity_source": "https://www.nba.com/player/202695/kawhi-leonard/bio",
+      "return_date_local": "2025-01-04",
+      "game_id": "0022400486",
+      "event_id": "0d48e3b3532422c2eefee90bc29d7eab",
+      "espn_game_id": "401705052",
+      "fixture_home": "Los Angeles Clippers",
+      "fixture_away": "Atlanta Hawks",
+      "source": {
+        "path": "data/raw/nba-minutes-cap-feasibility-2026-09-26/0d48e3b3532422c2eefee90bc29d7eab.json",
+        "sha256": "10fb19b4d53c4a33b047df0ac26e7e50b74e79242738bbc1afb284c56aa083f0",
+        "bytes": 84208
+      },
+      "source_url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/0d48e3b3532422c2eefee90bc29d7eab.json",
+      "snapshot": "2025-01-04T15:25:38Z",
+      "previous_timestamp_pointer": "2025-01-04T15:20:38Z",
+      "next_timestamp_pointer": "2025-01-04T15:30:38Z",
+      "recovered_snapshots": 1,
+      "provider_start": "2025-01-05T03:30:00Z",
+      "independent_start": "2025-01-05T03:30Z",
+      "conservative_boundary": "2025-01-05T03:30:00+00:00",
+      "snapshot_lead_seconds": 43462.0,
+      "fanduel_book_update": "2025-01-04T15:21:17Z",
+      "fanduel_main_market_update": "2025-01-04T15:26:15Z",
+      "book_age_seconds": 261.0,
+      "market_age_seconds": -37.0,
+      "paired_main_price": null,
+      "literal_alternate_outcomes": [],
+      "named_main_outcome_count": 0,
+      "qualified_official_cap_24_or_less_before_quote": false
+    },
+    {
+      "player": "Khris Middleton",
+      "person_id": 203114,
+      "identity_source": "https://www.nba.com/player/203114/khris-middleton/bio",
+      "return_date_local": "2024-12-06",
+      "game_id": "0022400335",
+      "event_id": "777d86c37951e9c17d4b0c10571de4c0",
+      "espn_game_id": "401704901",
+      "fixture_home": "Boston Celtics",
+      "fixture_away": "Milwaukee Bucks",
+      "source": {
+        "path": "data/raw/nba-minutes-cap-feasibility-2026-09-26/777d86c37951e9c17d4b0c10571de4c0.json",
+        "sha256": "cd07570d88e74e1e4ec483b642cb792f7fd0052c2fcfcfc7f2afb73e6c30de2f",
+        "bytes": 75999
+      },
+      "source_url": "https://raw.githubusercontent.com/devlincorrigan/nba-props-threshold-app/233dbbc86b9c6e13df04d4e8b063581b3aa15abb/data/historical_points/777d86c37951e9c17d4b0c10571de4c0.json",
+      "snapshot": "2024-12-06T12:35:38Z",
+      "previous_timestamp_pointer": "2024-12-06T12:30:38Z",
+      "next_timestamp_pointer": "2024-12-06T12:40:38Z",
+      "recovered_snapshots": 1,
+      "provider_start": "2024-12-07T00:40:00Z",
+      "independent_start": "2024-12-07T00:30Z",
+      "conservative_boundary": "2024-12-07T00:30:00+00:00",
+      "snapshot_lead_seconds": 42862.0,
+      "fanduel_book_update": "2024-12-06T12:35:19Z",
+      "fanduel_main_market_update": "2024-12-06T12:35:23Z",
+      "book_age_seconds": 19.0,
+      "market_age_seconds": 15.0,
+      "paired_main_price": {
+        "line": 9.5,
+        "over_decimal": 2.0,
+        "under_decimal": 1.78,
+        "q_under": 0.5291005291005291,
+        "overround": 0.061797752808988804,
+        "literal_main_outcomes": [
+          {
+            "name": "Over",
+            "description": "Khris Middleton",
+            "price": 2.0,
+            "point": 9.5
+          },
+          {
+            "name": "Under",
+            "description": "Khris Middleton",
+            "price": 1.78,
+            "point": 9.5
+          }
+        ],
+        "passes_existing_price_clock_fixture_gates": true
+      },
+      "literal_alternate_outcomes": [
+        {
+          "market": "player_points_alternate",
+          "market_update": "2024-12-06T12:35:23Z",
+          "name": "Over",
+          "description": "Khris Middleton",
+          "price": 4.4,
+          "point": 14.5
+        },
+        {
+          "market": "player_points_alternate",
+          "market_update": "2024-12-06T12:35:23Z",
+          "name": "Over",
+          "description": "Khris Middleton",
+          "price": 2.05,
+          "point": 9.5
+        },
+        {
+          "market": "player_points_alternate",
+          "market_update": "2024-12-06T12:35:23Z",
+          "name": "Over",
+          "description": "Khris Middleton",
+          "price": 12.0,
+          "point": 19.5
+        }
+      ],
+      "named_main_outcome_count": 2,
+      "qualified_official_cap_24_or_less_before_quote": false
+    }
+  ],
+  "announcement_sources": [
+    {
+      "player": "Kawhi Leonard",
+      "url": "https://www.nba.com/news/starting-5-jan-4-wemby-jokics-epic-duel-okcs-historic-streak-lebrons-milestone-night",
+      "displayed_publication": "January 4, 2025, 2:43 PM",
+      "timezone_shown": false,
+      "concrete_minutes_upper_limit": null,
+      "finding": "Potential return/questionable status; no concrete cap. Original publication content vintage not verified."
+    },
+    {
+      "player": "Khris Middleton",
+      "url": "https://www.nba.com/news/bucks-khris-middleton-recovering-offseason-surgery",
+      "displayed_publication": "December 5, 2024, 2:37 AM",
+      "timezone_shown": false,
+      "concrete_minutes_upper_limit": null,
+      "finding": "NBA-hosted AP report; no concrete cap. Syndication is not a direct team cap announcement; original publication content vintage not verified."
+    }
+  ],
+  "excluded_later_articles": [
+    {
+      "url": "https://www.nba.com/news/bucks-khris-middleton-2024-25-season-debut",
+      "displayed_clock": "Updated on December 7, 2024, 3:21 AM",
+      "reason": "Current postgame text/later update cannot prove prequote announcement; not opened."
+    },
+    {
+      "url": "https://www.nba.com/news/kawhi-leonard-season-debut",
+      "displayed_clock": "January 5, 2025, 3:36 AM",
+      "reason": "Current postgame text cannot prove prequote announcement; not opened."
+    }
+  ],
+  "cap_search_queries": [
+    "site.nba.com Clippers Kawhi Leonard January 4 2025 minutes restriction 24 20 return",
+    "site.nba.com Bucks Khris Middleton December 6 2024 minutes restriction return",
+    "\"Kawhi Leonard\" \"January 4, 2025\" \"minutes\" \"restriction\" -site:nba.com/game -site:nba.com/stats -debuted -scored [domains:nba.com]",
+    "\"Khris Middleton\" \"December 6, 2024\" \"minutes\" -site:nba.com/game -site:nba.com/stats -scores -finished [domains:nba.com]",
+    "\"Kawhi\" \"20\" \"January 4\" \"2025\" pregame [domains:nba.com]",
+    "\"Middleton\" \"20\" \"December 6\" \"2024\" pregame [domains:nba.com]",
+    "site:nba.com/clippers \"01.04.25\" \"Lue\"",
+    "site:nba.com/clippers \"1.4.25\" \"pregame\"",
+    "site:nba.com/bucks \"12.6.24\" \"Pregame\"",
+    "site:nba.com/bucks \"Middleton\" \"December 6, 2024\" \"restriction\"",
+    "site:nba.com \"Kawhi\" \"Jan. 4\" \"minutes limit\"",
+    "site:nba.com \"Middleton\" \"Dec. 6\" \"minutes restriction\"",
+    "site:nba.com/clippers \"Kawhi Leonard\" \"January 4, 2025\"",
+    "site:nba.com/bucks \"Khris Middleton\" \"December 6, 2024\""
+  ],
+  "identity_search_queries": [
+    "site:nba.com/player \"Khris Middleton\" \"203114\"",
+    "site:nba.com/player \"Kawhi Leonard\" \"202695\""
+  ],
+  "identity_notes": "Official NBA name/person-ID pages confirm identities. The full previous identity-only season-box universe is absent locally and was not redownloaded or reconstructed, so full unique-name universe gate has not been independently rerun in this audit. No alias was invented.",
+  "limitations": [
+    "One recovered snapshot per named event. previous_timestamp/next_timestamp are API pointers, not retained price observations.",
+    "Archive timestamp is provider snapshot time, not independently verified collector receipt or execution time.",
+    "Independent fixture times are scheduled starts, not actual tips. Middleton provider start is 10 minutes later; conservative boundary preserves the earlier independent start.",
+    "No official concrete cap <=24 published before a qualifying quote was established. Absence is bounded-search absence, not proof no announcement existed.",
+    "Prior unrestricted median >=30 minutes and eventual participation were not tested because the cap trigger is missing.",
+    "No before/after quote sequence, suspension status, accepted fill or exact historical Ontario settlement terms is supplied."
+  ]
+}

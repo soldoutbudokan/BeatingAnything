@@ -1,0 +1,450 @@
+{
+  "scope": "Literal FanDuel market availability only, no sport outcomes, no model, no betting returns, no jurisdiction/execution claim",
+  "manifest": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/manifest.json",
+    "sha256": "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da"
+  },
+  "raw_files_verified": 285,
+  "markets": {
+    "player_goal_scorer_anytime": {
+      "outcome_rows": 9378,
+      "event_payloads": 273
+    },
+    "player_goal_scorer_first": {
+      "outcome_rows": 1188,
+      "event_payloads": 36
+    },
+    "player_goal_scorer_last": {
+      "outcome_rows": 1314,
+      "event_payloads": 36
+    },
+    "player_goals": {
+      "outcome_rows": 5652,
+      "event_payloads": 272
+    },
+    "player_shots_on_goal": {
+      "outcome_rows": 7168,
+      "event_payloads": 272
+    },
+    "player_shots_on_goal_alternate": {
+      "outcome_rows": 9881,
+      "event_payloads": 190
+    }
+  },
+  "first_last_overlap": {
+    "event_payloads": 36,
+    "common_runners": 1188,
+    "equal_prices": 157,
+    "first_source_start": "2024-11-27T00:00:00Z",
+    "last_source_start": "2024-12-10T00:30:00Z",
+    "events": [
+      {
+        "source_file": "icehockey_nhl_player_props_Anaheim Ducks_Minnesota Wild_20241206.json",
+        "event_id": "6ca3e9c372885283f3223b45f80afcb9",
+        "source_start": "2024-12-07T03:00:00Z",
+        "first_update": "2024-12-06T13:49:58Z",
+        "last_update": "2024-12-06T13:49:58Z",
+        "first_runners": 36,
+        "last_runners": 37,
+        "common_runners": 36,
+        "equal_prices": 6
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Anaheim Ducks_Vegas Golden Knights_20241204.json",
+        "event_id": "e74fab7ff8afc49dc96fa80117f9ef5c",
+        "source_start": "2024-12-05T03:00:00Z",
+        "first_update": "2024-12-04T14:03:44Z",
+        "last_update": "2024-12-04T14:03:44Z",
+        "first_runners": 35,
+        "last_runners": 36,
+        "common_runners": 35,
+        "equal_prices": 5
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Boston Bruins_Detroit Red Wings_20241203.json",
+        "event_id": "b43cac0943e7bd2eb7bac55a0aace6b1",
+        "source_start": "2024-12-04T00:00:00Z",
+        "first_update": "2024-12-03T14:41:59Z",
+        "last_update": "2024-12-03T14:41:59Z",
+        "first_runners": 32,
+        "last_runners": 36,
+        "common_runners": 32,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Boston Bruins_Vancouver Canucks_20241126.json",
+        "event_id": "77f4fd53c9507651a3740dd6d95c9a14",
+        "source_start": "2024-11-27T00:00:00Z",
+        "first_update": "2024-11-26T18:54:13Z",
+        "last_update": "2024-11-26T18:54:13Z",
+        "first_runners": 34,
+        "last_runners": 35,
+        "common_runners": 34,
+        "equal_prices": 8
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Buffalo Sabres_Colorado Avalanche_20241203.json",
+        "event_id": "68e29ac8a640318a9fd43cf6b6d50cdd",
+        "source_start": "2024-12-04T00:00:00Z",
+        "first_update": "2024-12-03T14:41:26Z",
+        "last_update": "2024-12-03T14:41:26Z",
+        "first_runners": 30,
+        "last_runners": 37,
+        "common_runners": 30,
+        "equal_prices": 6
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Buffalo Sabres_Detroit Red Wings_20241209.json",
+        "event_id": "794d0d208dfb1933357ad4f8076b51df",
+        "source_start": "2024-12-10T00:00:00Z",
+        "first_update": "2024-12-09T14:05:44Z",
+        "last_update": "2024-12-09T14:05:44Z",
+        "first_runners": 33,
+        "last_runners": 37,
+        "common_runners": 33,
+        "equal_prices": 4
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Buffalo Sabres_Vancouver Canucks_20241129.json",
+        "event_id": "83725a377f291c8e612b5456c3e7ab31",
+        "source_start": "2024-11-29T20:00:00Z",
+        "first_update": "2024-11-29T14:20:08Z",
+        "last_update": "2024-11-29T14:20:08Z",
+        "first_runners": 32,
+        "last_runners": 37,
+        "common_runners": 32,
+        "equal_prices": 2
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Calgary Flames_Columbus Blue Jackets_20241203.json",
+        "event_id": "40369056b6f77a593382aeb3418b8a2f",
+        "source_start": "2024-12-04T02:00:00Z",
+        "first_update": "2024-12-03T14:41:35Z",
+        "last_update": "2024-12-03T14:41:35Z",
+        "first_runners": 36,
+        "last_runners": 37,
+        "common_runners": 36,
+        "equal_prices": 4
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Carolina Hurricanes_Seattle Kraken_20241203.json",
+        "event_id": "7afd5d1c0f6d28829917f94a0941fd48",
+        "source_start": "2024-12-04T00:00:00Z",
+        "first_update": "2024-12-03T14:41:20Z",
+        "last_update": "2024-12-03T14:41:20Z",
+        "first_runners": 35,
+        "last_runners": 37,
+        "common_runners": 35,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Chicago Blackhawks_Boston Bruins_20241204.json",
+        "event_id": "3d69b8c0b23d1a988328e7996516039f",
+        "source_start": "2024-12-05T00:30:00Z",
+        "first_update": "2024-12-04T14:03:48Z",
+        "last_update": "2024-12-04T14:03:48Z",
+        "first_runners": 33,
+        "last_runners": 36,
+        "common_runners": 33,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Chicago Blackhawks_Dallas Stars_20241127.json",
+        "event_id": "55ba03e523430cffc34405c557354244",
+        "source_start": "2024-11-28T01:30:00Z",
+        "first_update": "2024-11-27T14:44:45Z",
+        "last_update": "2024-11-27T14:44:45Z",
+        "first_runners": 32,
+        "last_runners": 37,
+        "common_runners": 32,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Columbus Blue Jackets_Montr\u00e9al Canadiens_20241127.json",
+        "event_id": "740afc1ee3f264f057d06af65bb2802c",
+        "source_start": "2024-11-28T00:30:00Z",
+        "first_update": "2024-11-27T14:44:51Z",
+        "last_update": "2024-11-27T14:44:51Z",
+        "first_runners": 32,
+        "last_runners": 36,
+        "common_runners": 32,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Detroit Red Wings_Calgary Flames_20241127.json",
+        "event_id": "1344a1b84cf359045577de22f7178b28",
+        "source_start": "2024-11-28T00:30:00Z",
+        "first_update": "2024-11-27T14:44:04Z",
+        "last_update": "2024-11-27T14:44:04Z",
+        "first_runners": 34,
+        "last_runners": 37,
+        "common_runners": 34,
+        "equal_prices": 2
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Florida Panthers_Toronto Maple Leafs_20241127.json",
+        "event_id": "d461de759f13217951b6a8bb7145d36a",
+        "source_start": "2024-11-28T00:30:00Z",
+        "first_update": "2024-11-27T14:45:17Z",
+        "last_update": "2024-11-27T14:45:17Z",
+        "first_runners": 33,
+        "last_runners": 36,
+        "common_runners": 33,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Los Angeles Kings_Dallas Stars_20241204.json",
+        "event_id": "655774fc10244290ba034254920b52c4",
+        "source_start": "2024-12-05T03:00:00Z",
+        "first_update": "2024-12-04T14:03:46Z",
+        "last_update": "2024-12-04T14:03:46Z",
+        "first_runners": 33,
+        "last_runners": 37,
+        "common_runners": 33,
+        "equal_prices": 6
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Minnesota Wild_Chicago Blackhawks_20241129.json",
+        "event_id": "052b21a4a8933922bfa6b005df958687",
+        "source_start": "2024-11-29T19:00:00Z",
+        "first_update": "2024-11-29T14:20:05Z",
+        "last_update": "2024-11-29T14:20:05Z",
+        "first_runners": 32,
+        "last_runners": 37,
+        "common_runners": 32,
+        "equal_prices": 5
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Minnesota Wild_Vancouver Canucks_20241203.json",
+        "event_id": "e12128c95b909dabee3a20f69d2f935c",
+        "source_start": "2024-12-04T01:00:00Z",
+        "first_update": "2024-12-03T14:41:37Z",
+        "last_update": "2024-12-03T14:41:37Z",
+        "first_runners": 32,
+        "last_runners": 37,
+        "common_runners": 32,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Montr\u00e9al Canadiens_Anaheim Ducks_20241209.json",
+        "event_id": "a065d13f9c5f8d1df6eb693996c40b16",
+        "source_start": "2024-12-10T00:30:00Z",
+        "first_update": "2024-12-09T14:06:17Z",
+        "last_update": "2024-12-09T14:06:17Z",
+        "first_runners": 36,
+        "last_runners": 37,
+        "common_runners": 36,
+        "equal_prices": 4
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Montr\u00e9al Canadiens_New York Islanders_20241203.json",
+        "event_id": "4288d66c47ed612c79ea93a93563c468",
+        "source_start": "2024-12-04T00:00:00Z",
+        "first_update": "2024-12-03T14:41:53Z",
+        "last_update": "2024-12-03T14:41:53Z",
+        "first_runners": 33,
+        "last_runners": 36,
+        "common_runners": 33,
+        "equal_prices": 5
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Montr\u00e9al Canadiens_Utah Hockey Club_20241126.json",
+        "event_id": "758cdc515f59d625ff17ab64aa0bfe67",
+        "source_start": "2024-11-27T00:00:00Z",
+        "first_update": "2024-11-26T18:59:42Z",
+        "last_update": "2024-11-26T18:59:42Z",
+        "first_runners": 32,
+        "last_runners": 37,
+        "common_runners": 32,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Nashville Predators_Philadelphia Flyers_20241127.json",
+        "event_id": "482ef5661945b0a985a6e1f3f1eba0fc",
+        "source_start": "2024-11-28T01:00:00Z",
+        "first_update": "2024-11-27T14:44:07Z",
+        "last_update": "2024-11-27T14:44:07Z",
+        "first_runners": 34,
+        "last_runners": 36,
+        "common_runners": 34,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_New Jersey Devils_Seattle Kraken_20241206.json",
+        "event_id": "81e076f82bf2c187e4a6875d1dcfb9e9",
+        "source_start": "2024-12-07T00:00:00Z",
+        "first_update": "2024-12-06T13:49:17Z",
+        "last_update": "2024-12-06T13:49:17Z",
+        "first_runners": 33,
+        "last_runners": 37,
+        "common_runners": 33,
+        "equal_prices": 6
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_New York Islanders_Boston Bruins_20241127.json",
+        "event_id": "46ba799ca902ad4c63234a9a80fa1f5d",
+        "source_start": "2024-11-28T00:30:00Z",
+        "first_update": "2024-11-27T14:45:42Z",
+        "last_update": "2024-11-27T14:45:42Z",
+        "first_runners": 33,
+        "last_runners": 37,
+        "common_runners": 33,
+        "equal_prices": 5
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_New York Rangers_Chicago Blackhawks_20241209.json",
+        "event_id": "39fa9e9dc1d44310e3178812cfbd62cb",
+        "source_start": "2024-12-10T00:00:00Z",
+        "first_update": "2024-12-09T14:06:06Z",
+        "last_update": "2024-12-09T14:06:06Z",
+        "first_runners": 35,
+        "last_runners": 37,
+        "common_runners": 35,
+        "equal_prices": 4
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_New York Rangers_Pittsburgh Penguins_20241206.json",
+        "event_id": "efe5f64f2d3e50fcc9e17d60e89b0b03",
+        "source_start": "2024-12-07T00:30:00Z",
+        "first_update": "2024-12-06T13:49:09Z",
+        "last_update": "2024-12-06T13:49:09Z",
+        "first_runners": 30,
+        "last_runners": 36,
+        "common_runners": 30,
+        "equal_prices": 4
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Philadelphia Flyers_New York Rangers_20241129.json",
+        "event_id": "1403605c0466719bba35b56d45cc2c6d",
+        "source_start": "2024-11-29T18:00:00Z",
+        "first_update": "2024-11-29T14:18:41Z",
+        "last_update": "2024-11-29T14:18:41Z",
+        "first_runners": 33,
+        "last_runners": 36,
+        "common_runners": 33,
+        "equal_prices": 4
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Pittsburgh Penguins_Florida Panthers_20241203.json",
+        "event_id": "c94762e0677328a4550df6494bce2e4f",
+        "source_start": "2024-12-04T00:00:00Z",
+        "first_update": "2024-12-03T14:41:35Z",
+        "last_update": "2024-12-03T14:41:35Z",
+        "first_runners": 31,
+        "last_runners": 36,
+        "common_runners": 31,
+        "equal_prices": 2
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Pittsburgh Penguins_Vancouver Canucks_20241127.json",
+        "event_id": "0739fdb73426ffe08de9cc530fd5e4cd",
+        "source_start": "2024-11-28T00:30:00Z",
+        "first_update": "2024-11-27T14:45:52Z",
+        "last_update": "2024-11-27T14:45:52Z",
+        "first_runners": 33,
+        "last_runners": 35,
+        "common_runners": 33,
+        "equal_prices": 5
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Seattle Kraken_Anaheim Ducks_20241127.json",
+        "event_id": "f7a725994d42e38c7fdcac24c6eedc9e",
+        "source_start": "2024-11-28T03:00:00Z",
+        "first_update": "2024-11-27T14:44:46Z",
+        "last_update": "2024-11-27T14:44:46Z",
+        "first_runners": 34,
+        "last_runners": 36,
+        "common_runners": 34,
+        "equal_prices": 6
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Tampa Bay Lightning_Washington Capitals_20241127.json",
+        "event_id": "b31a524df85cb62bd843187691873e09",
+        "source_start": "2024-11-28T00:30:00Z",
+        "first_update": "2024-11-27T14:45:16Z",
+        "last_update": "2024-11-27T14:45:16Z",
+        "first_runners": 33,
+        "last_runners": 36,
+        "common_runners": 33,
+        "equal_prices": 7
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Toronto Maple Leafs_Nashville Predators_20241204.json",
+        "event_id": "d6afcda7ac508371ccc82fb162580ae3",
+        "source_start": "2024-12-05T00:30:00Z",
+        "first_update": "2024-12-04T14:04:17Z",
+        "last_update": "2024-12-04T14:04:17Z",
+        "first_runners": 32,
+        "last_runners": 37,
+        "common_runners": 32,
+        "equal_prices": 5
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Toronto Maple Leafs_Washington Capitals_20241206.json",
+        "event_id": "841ae88fe2318d66b7b5f177009d7f25",
+        "source_start": "2024-12-07T00:00:00Z",
+        "first_update": "2024-12-06T13:49:02Z",
+        "last_update": "2024-12-06T13:49:02Z",
+        "first_runners": 34,
+        "last_runners": 37,
+        "common_runners": 34,
+        "equal_prices": 4
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Vancouver Canucks_Columbus Blue Jackets_20241206.json",
+        "event_id": "f70e8da5ddcc6692634252c44b727608",
+        "source_start": "2024-12-07T03:00:00Z",
+        "first_update": "2024-12-06T13:49:14Z",
+        "last_update": "2024-12-06T13:49:14Z",
+        "first_runners": 31,
+        "last_runners": 37,
+        "common_runners": 31,
+        "equal_prices": 3
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Vegas Golden Knights_Edmonton Oilers_20241203.json",
+        "event_id": "38f985a35358eac4e7c4558c1af8791d",
+        "source_start": "2024-12-04T03:00:00Z",
+        "first_update": "2024-12-03T14:42:05Z",
+        "last_update": "2024-12-03T14:42:05Z",
+        "first_runners": 32,
+        "last_runners": 35,
+        "common_runners": 32,
+        "equal_prices": 4
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Washington Capitals_San Jose Sharks_20241203.json",
+        "event_id": "074cb7a5901135d45b987db93d17b5e8",
+        "source_start": "2024-12-04T00:00:00Z",
+        "first_update": "2024-12-03T14:41:20Z",
+        "last_update": "2024-12-03T14:41:20Z",
+        "first_runners": 32,
+        "last_runners": 37,
+        "common_runners": 32,
+        "equal_prices": 9
+      },
+      {
+        "source_file": "icehockey_nhl_player_props_Winnipeg Jets_St Louis Blues_20241203.json",
+        "event_id": "3f4081dd50c1f32b38bc1b4866819ab1",
+        "source_start": "2024-12-04T01:00:00Z",
+        "first_update": "2024-12-03T14:41:13Z",
+        "last_update": "2024-12-03T14:41:13Z",
+        "first_runners": 33,
+        "last_runners": 37,
+        "common_runners": 33,
+        "equal_prices": 5
+      }
+    ]
+  },
+  "absent_at_fanduel": [
+    "player_goalie_saves",
+    "player_power_play_points",
+    "team_totals"
+  ],
+  "limitations": [
+    "Payload counts precede independent fixture/player/debug exclusions.",
+    "First/last runner universes differ; common-runner prices are not a complete probability board.",
+    "Different prices show only a source price distinction, not correct forecasting or settlement equivalence.",
+    "No goalie-saves, power-play-points or team-total price model can be tested here without a new source."
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "status": "pass",
+  "audited_at_utc": "2026-09-26T21:59:18.003468+00:00",
+  "scope": "Independent price/metadata-only reconstruction from raw JSON plus retained pinned base price cohort; no production parser imported or executed, no sporting outcomes/feature files read.",
+  "method": "Raw literal FanDuel goals Over/Under 0.5 and exact-name Anytime Yes matched independently; Fraction arithmetic converts American prices and computes p=under_decimal/(over_decimal+under_decimal), effective payout=0.98*anytime_decimal+0.02, EV=p*payout-1. Full roster-ID and schedule-boundary checks rerun for all 2,768 base rows.",
+  "report": {
+    "path": "reports/nhl-goal-contract-screen-2026-09-26.json",
+    "sha256": "819e3b111c893e6150d95df65e70496e65c9362e02aba38d0dc553cbdc61908e"
+  },
+  "rows_artifact": {
+    "path": "data/raw/nhl-goal-contract-screen-2026-09-26/price-reference-rows.csv",
+    "sha256": "7c9a310218af4f05b0e6798430f2b8e6cb6979be133e01b44bdbfadfa8d26795"
+  },
+  "base_cohort": {
+    "columns": [
+      "player",
+      "game_id",
+      "player_id",
+      "entry",
+      "boundary",
+      "home_team_abbr",
+      "away_team_abbr",
+      "over_decimal",
+      "under_decimal",
+      "q_under",
+      "period",
+      "line",
+      "over_american",
+      "under_american",
+      "overround",
+      "source_file",
+      "event_id",
+      "provider_start",
+      "independent_start",
+      "lead_seconds"
+    ],
+    "path": "data/raw/nhl-powerplay-goals-2026-09-26/price-entries.csv",
+    "probability_note": "q_under is only proportional normalization of the literal paired FanDuel prices; no modeled power-play feature or outcome.",
+    "rows": 2768,
+    "sha256": "207142b0331aac35b6ec6e9dd4db725e49ff683c1cf7fbd8e04197ca5c6fad41"
+  },
+  "verified_source_hashes": 293,
+  "verified_raw_files": 285,
+  "declaration_and_code_commit_checks": {
+    "9f65d05": {
+      "file": "docs/hypotheses/hockey-goal-contract-price-consistency.md",
+      "sha256": "cfa810954e501a8b7ae1377e45a57babdfcdbeb305c961df7cf618d18f7e280a",
+      "matches_frozen_source": true
+    },
+    "33ab1a7": {
+      "file": "tools/screen_nhl_goal_contracts.py",
+      "sha256": "a74a8fab26daa0e3ab8a071cfefef00bd6bf2d88ec987226ec5b4095f9bec805",
+      "matches_frozen_source": true
+    }
+  },
+  "reconstructed": {
+    "base_paired_goal_rows": 2768,
+    "same_clock_rows": 2600,
+    "games": 253,
+    "price_direction": {
+      "equal": 2582,
+      "higher": 15,
+      "lower": 3
+    },
+    "rejections_from_base": {
+      "unequal_contract_update_times": 168
+    },
+    "rows_in_decimal_range": 2594,
+    "positive_conditional_ev_rows_any_odds": 0,
+    "candidate_rows_before_one_per_game": 0,
+    "selections": 0,
+    "best_conditional_ev_any_odds": -0.009940119760479042,
+    "best_conditional_ev_in_decimal_range": -0.009940119760479042
+  },
+  "periods": {
+    "early_through_2024_12_31_utc": {
+      "rows": 1444,
+      "games": 140,
+      "selections": 0,
+      "best_conditional_ev": -0.009940119760479042
+    },
+    "later_from_2025_01_01_utc": {
+      "rows": 1156,
+      "games": 113,
+      "selections": 0,
+      "best_conditional_ev": -0.0357325746799431
+    }
+  },
+  "maximum_absolute_numeric_difference": {
+    "anytime_decimal": 2.220446049250313e-16,
+    "p_goal_reference": 1.1102230246251565e-16,
+    "conditional_ev_after_cost": 2.914335439641036e-16
+  },
+  "matching": {
+    "all_exported_rows_accounted_for": true,
+    "literal_prices_and_clock_matches": 2600,
+    "base_fixture_identity_and_window_rows_rechecked": 2768,
+    "unexported_base_rows_exact_clock_failures": 168,
+    "unique_event_player_rows": true,
+    "all_selection_flags_false": true
+  },
+  "target_outcomes_read": false,
+  "network_requests": 0,
+  "frozen_files_modified": false,
+  "limitations": [
+    "Exact settlement equivalence and historical jurisdiction remain unverified; this audit validates conditional price arithmetic only.",
+    "Source update labels do not prove atomic availability, original receipt, suspension state or accepted fills.",
+    "The paired-market probability is a same-book price reference, not an independent sporting forecast."
+  ],
+  "independent_broad_coverage_reconciliation": {
+    "broader_same_clock_rows": 2657,
+    "fixed_screen_rows": 2600,
+    "excluded_rows": 57,
+    "exclusions": {
+      "original_debug_fixture": 10,
+      "unresolved_fixture": 12,
+      "ambiguous_full_name": 27,
+      "unmatched_full_name": 8
+    },
+    "ambiguous_names": {
+      "Elias Pettersson": 14,
+      "Sebastian Aho": 13
+    },
+    "unmatched_names": {
+      "Nicholas Paul": 4,
+      "Alex Wennberg": 3,
+      "Yegor Chinakhov": 1
+    },
+    "removed_price_directions": {
+      "equal": 56,
+      "lower": 1,
+      "higher": 0
+    },
+    "sole_removed_lower_price": {
+      "player": "Sebastian Aho",
+      "event_id": "6cf61b8e7cb390265de4e19c7115c0a0",
+      "reason": "global full-name identity ambiguous"
+    },
+    "surviving_keys_exactly_match_frozen_csv": true,
+    "reviewer": "independent nhl_outcome_source metadata/price-only reconstruction"
+  }
+}
