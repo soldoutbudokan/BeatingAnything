@@ -1,0 +1,79 @@
+{
+  "scope": "Price and independent fixture metadata only; no statuses or player performance.",
+  "counts": {
+    "source_events": 1224,
+    "eligible_price_events": 666,
+    "paired_player_lines": 8286,
+    "invalid_quote_age": 531,
+    "missing_or_duplicate_market": 26,
+    "missing_or_duplicate_book": 1
+  },
+  "by_month": {
+    "2025-10": {
+      "source_events": 80,
+      "eligible_price_events": 58,
+      "paired_player_lines": 703,
+      "invalid_quote_age": 22
+    },
+    "2025-11": {
+      "source_events": 218,
+      "invalid_quote_age": 97,
+      "eligible_price_events": 121,
+      "paired_player_lines": 1550
+    },
+    "2025-12": {
+      "source_events": 195,
+      "eligible_price_events": 114,
+      "paired_player_lines": 1450,
+      "invalid_quote_age": 81
+    },
+    "2026-01": {
+      "source_events": 231,
+      "eligible_price_events": 139,
+      "paired_player_lines": 1765,
+      "invalid_quote_age": 92
+    },
+    "2026-02": {
+      "source_events": 166,
+      "eligible_price_events": 86,
+      "paired_player_lines": 1066,
+      "invalid_quote_age": 80
+    },
+    "2026-03": {
+      "source_events": 239,
+      "invalid_quote_age": 118,
+      "eligible_price_events": 120,
+      "paired_player_lines": 1437,
+      "missing_or_duplicate_book": 1
+    },
+    "2026-04": {
+      "source_events": 95,
+      "invalid_quote_age": 41,
+      "missing_or_duplicate_market": 26,
+      "eligible_price_events": 28,
+      "paired_player_lines": 315
+    }
+  },
+  "periods": {
+    "calibration": {
+      "price_events": 293,
+      "paired_player_lines": 3703,
+      "unique_quote_dates_et": 67
+    },
+    "evaluation": {
+      "price_events": 373,
+      "paired_player_lines": 4583,
+      "unique_quote_dates_et": 89
+    }
+  },
+  "inputs": {
+    "data/raw/nba-consensus-price/acquisition_manifest.json": "acae07fee83e0bf4661ce0e48ce746346357c0a62d3b7513cf0bbcce1fb57b7f",
+    "data/raw/nba-consensus-price/game_event_bijection.csv": "23f27cc66b8b333fffd7b25d756f530d79dff0cafd69ff397cf16638000ed64c",
+    "data/raw/nba-consensus-price/nba_schedule_2026.csv": "5a4a7473fce1c49d56382211c5955ad405f421d59869143b1d501e997e79223e"
+  },
+  "tool_sha256": "a31f3abd61ec1280fef26aa91897d003fe1f33f32bb3abc6c4dacfde4185284a",
+  "frozen_inventory": {
+    "path": "data/raw/nba-announced-absence-2026-09-26/prices.json",
+    "sha256": "f44b4d42fc168e434776a7fd89a2cc9bd09bd470adb13189de7b4270ac048372"
+  }
+}
