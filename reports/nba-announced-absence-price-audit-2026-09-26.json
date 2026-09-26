@@ -1,0 +1,93 @@
+{
+  "audit_date": "2026-09-26",
+  "result": "pass",
+  "frozen_price_inventory": {
+    "path": "data/raw/nba-announced-absence-2026-09-26/prices.json",
+    "sha256": "f44b4d42fc168e434776a7fd89a2cc9bd09bd470adb13189de7b4270ac048372"
+  },
+  "declaration": {
+    "path": "docs/nba-announced-absence-declaration-2026-09-26.md",
+    "sha256": "058371edc85691bf315290cb99762f4b1f53ee7e8212a028a7347a63be5d9c74",
+    "commit": "4acb250"
+  },
+  "tool": {
+    "path": "tools/inventory_nba_announced_absence_prices.py",
+    "sha256": "a31f3abd61ec1280fef26aa91897d003fe1f33f32bb3abc6c4dacfde4185284a"
+  },
+  "inputs": [
+    {
+      "path": "data/raw/nba-consensus-price/acquisition_manifest.json",
+      "sha256": "acae07fee83e0bf4661ce0e48ce746346357c0a62d3b7513cf0bbcce1fb57b7f",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-consensus-price/game_event_bijection.csv",
+      "sha256": "23f27cc66b8b333fffd7b25d756f530d79dff0cafd69ff397cf16638000ed64c",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2026.csv",
+      "sha256": "5a4a7473fce1c49d56382211c5955ad405f421d59869143b1d501e997e79223e",
+      "matches": true
+    }
+  ],
+  "checks": {
+    "frozen_inventory_matches_declaration_sha": true,
+    "all_three_input_hashes_match": true,
+    "tool_hash_matches": true,
+    "3394_point_files_in_manifest": true,
+    "1224_in_scope_source_hashes_match": true,
+    "source_event_ids_unique": true,
+    "all_666_event_metadata_and_8286_pairs_exact": true,
+    "all_558_exclusions_exact": true,
+    "overall_counts_exact": true,
+    "monthly_counts_exact": true,
+    "period_counts_exact": true,
+    "eligible_independent_fixtures_unique": true,
+    "eligible_publisher_nba_ids_unique": true,
+    "no_multiple_qualified_lines_per_literal_player": true,
+    "retained_and_excluded_partition_all_in_scope_events": true
+  },
+  "counts": {
+    "source_events": 1224,
+    "eligible_price_events": 666,
+    "paired_player_lines": 8286,
+    "invalid_quote_age": 531,
+    "missing_or_duplicate_market": 26,
+    "missing_or_duplicate_book": 1
+  },
+  "periods": {
+    "calibration": {
+      "price_events": 293,
+      "paired_player_lines": 3703,
+      "unique_quote_dates_et": 67
+    },
+    "evaluation": {
+      "price_events": 373,
+      "paired_player_lines": 4583,
+      "unique_quote_dates_et": 89
+    }
+  },
+  "source_hash_checks": {
+    "files_checked": 1224,
+    "mismatches": [],
+    "ordered_path_sha256_list_digest": "0984d1095d5c8e104e47b965326728f04cee6d62c99f52134ed32fc0bae82918",
+    "list_digest_encoding": "UTF-8 local_path + NUL + SHA256 + newline, manifest order, in-scope 00225 publisher IDs"
+  },
+  "additional_offer_exclusions_after_event_gates": {},
+  "multiple_qualified_lines_per_literal_player": [],
+  "method": "Independent reconstruction from the pinned manifest and all 1,224 original in-scope raw JSON files; no execution or import of the census implementation. Rebuilt ordered-team/New York date schedule matches using only the six documented metadata columns, checked every original quote, side, line, decimal price, paired margin, clock, fixture start and SHA, and compared complete retained event dictionaries, exclusion dictionaries, monthly counts and fixed period counts exactly.",
+  "projected_schedule_columns": [
+    "game_id",
+    "game_date",
+    "start_date",
+    "home_display_name",
+    "away_display_name",
+    "season_type"
+  ],
+  "limitations": [
+    "Publisher NBA-ID versus NBA Stats schedule verification is deliberately deferred by the declaration; this audit verifies the publisher mapping plus unique independent ESPN fixture, not the deferred crosswalk.",
+    "The previously denied October sample remains in the price-only census; its exclusion must occur before report lookup, as declared.",
+    "No injury statuses, player IDs, team membership, prior performance, target outcomes, forecasts, settlements or network requests entered this audit."
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "audit_date": "2026-09-26",
+  "result": "pass",
+  "report": {
+    "path": "reports/nba-announced-absence-source-inventory-2026-09-26.json",
+    "sha256": "3b86ac132cad2885fe1dffcc04b9745ab4a45d1360047d6824cd5ae81ea3a441"
+  },
+  "price_inventory": {
+    "path": "data/raw/nba-announced-absence-2026-09-26/prices.json",
+    "sha256": "f44b4d42fc168e434776a7fd89a2cc9bd09bd470adb13189de7b4270ac048372"
+  },
+  "declaration": {
+    "path": "docs/nba-announced-absence-declaration-2026-09-26.md",
+    "sha256": "058371edc85691bf315290cb99762f4b1f53ee7e8212a028a7347a63be5d9c74",
+    "commit": "4acb250"
+  },
+  "executed_offline_tool": {
+    "path": "tools/inventory_nba_announced_absence_reports.py",
+    "sha256": "c869ae3fdac5758d1249d8d30fcb4c1867f80d9553806173db923c9b8a735200"
+  },
+  "shared_helper": {
+    "path": "tools/inventory_nba_injury_price_clocks.py",
+    "sha256": "ff3b59b982f3925c3c0624017a652e5ee0f660e53aa0d7404bdced2a794f4164"
+  },
+  "preserved_first_pass_manifest": {
+    "path": "data/raw/nba-announced-absence-2026-09-26/first-pass-evidence/manifest.json",
+    "sha256": "c13848c482435b0fd75c62a07170c865b2df494649fad9a2c8ca609851cc67c4"
+  },
+  "preserved_partial": {
+    "path": "data/raw/nba-announced-absence-2026-09-26/first-pass-evidence/source-inventory.partial.json",
+    "sha256": "8aeba6fcda857ee0d2b62b8798a16cd8735d1d990e4ab16eba7c712f6dfe5224"
+  },
+  "checks": {
+    "report_reference_and_preserved_manifest_hashes_match": true,
+    "all_197_receipts_status_bytes_headers_match": true,
+    "source_candidate_and_stop_rules_match": true,
+    "all_11_clock_checks_exact": true,
+    "all_11_fixture_and_status_reconstructions_exact": true,
+    "first_and_last_qualifying_fixtures_visually_checked": true,
+    "no_ambiguous_fixture_requires_additional_render": true,
+    "cross_team_duplicate_regression_rejected": true,
+    "conflicting_time_regression_rejected": true,
+    "global_budget_counts_prior_receipts": true,
+    "all_293_early_events_and_no_later_events": true,
+    "request_counts_reconciled": true,
+    "requests_unique_and_within_cap": true,
+    "original_partial_preserved": true,
+    "parser_independent_ceiling_46": true,
+    "inclusive_parsed_ceiling_40": true
+  },
+  "counts": {
+    "report_reference_hashes_checked": 692,
+    "unique_receipts": 197,
+    "receipt_body_and_header_hashes_checked": 394,
+    "http_status_counts": {
+      "403": 190,
+      "200": 7
+    },
+    "pdf_files": 7,
+    "page_headers_checked": 39,
+    "early_events": 293,
+    "stop_counts": {
+      "previously_denied_event_excluded": 1,
+      "access_denial_or_server_response_stop": 246,
+      "first_clock_qualified_pdf": 11,
+      "missing_receipt_not_acquired": 35
+    },
+    "clock_qualified_events": 11,
+    "fixture_qualified_any_out_events": 5,
+    "unacquired_unknown_events": 35,
+    "inclusive_parsed_ceiling": 40,
+    "parser_independent_ceiling": 46,
+    "new_requests_during_audit": 0
+  },
+  "clock_fixture_cases": [
+    {
+      "event_id": "3681cef1ff8c7de872f8f52134b3d101",
+      "matchup": "ORL@GSW",
+      "fixture_qualified": true,
+      "explicit_out_count": 5,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": []
+    },
+    {
+      "event_id": "27f523bb13b709279a0c31dbfa2e2006",
+      "matchup": "WAS@CHA",
+      "fixture_qualified": false,
+      "explicit_out_count": 1,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": [
+        "Charlotte Hornets"
+      ]
+    },
+    {
+      "event_id": "6d9aa23880ce3e5bdf540bda52e89fdc",
+      "matchup": "TOR@MIA",
+      "fixture_qualified": true,
+      "explicit_out_count": 6,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": []
+    },
+    {
+      "event_id": "7168d093c56bdbab627c94322573edb0",
+      "matchup": "CHI@ATL",
+      "fixture_qualified": true,
+      "explicit_out_count": 8,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": []
+    },
+    {
+      "event_id": "c6fd86b688bb64f5b7bdd108ac071a48",
+      "matchup": "NOP@CLE",
+      "fixture_qualified": false,
+      "explicit_out_count": 0,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": [
+        "New Orleans Pelicans",
+        "Cleveland Cavaliers"
+      ]
+    },
+    {
+      "event_id": "fb3afec527051a7bd35ebc862bca8467",
+      "matchup": "MIL@IND",
+      "fixture_qualified": false,
+      "explicit_out_count": 3,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": [
+        "Indiana Pacers"
+      ]
+    },
+    {
+      "event_id": "0ef5c86038bdf564d65c6c1acd964641",
+      "matchup": "OKC@SAS",
+      "fixture_qualified": false,
+      "explicit_out_count": 3,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": [
+        "Oklahoma City Thunder"
+      ]
+    },
+    {
+      "event_id": "433a5462c6dbbed3ccc5d623dd68b61d",
+      "matchup": "MEM@UTA",
+      "fixture_qualified": false,
+      "explicit_out_count": 0,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": [
+        "Memphis Grizzlies",
+        "Utah Jazz"
+      ]
+    },
+    {
+      "event_id": "dbc7af91324284c433f0152b91bd9abb",
+      "matchup": "LAL@PHX",
+      "fixture_qualified": true,
+      "explicit_out_count": 4,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": []
+    },
+    {
+      "event_id": "e6de2100b01d094ccb20332bec9bd42a",
+      "matchup": "ORL@POR",
+      "fixture_qualified": false,
+      "explicit_out_count": 0,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": [
+        "Orlando Magic",
+        "Portland Trail Blazers"
+      ]
+    },
+    {
+      "event_id": "aedd66eec65402eb926bb64dbbdb4634",
+      "matchup": "HOU@LAC",
+      "fixture_qualified": true,
+      "explicit_out_count": 6,
+      "seconds_before_quote": 3877.000001,
+      "not_submitted_teams": []
+    }
+  ],
+  "visual_review": {
+    "rendered_files": [
+      {
+        "path": "data/raw/nba-announced-absence-2026-09-26/source-audit-rendered/first-qualifying-fixture-page-1.png",
+        "sha256": "3d7e3d291bbbb1d45bdd161f8779295fb92ad37aed1a2ecbe04c9e912cf37e93"
+      },
+      {
+        "path": "data/raw/nba-announced-absence-2026-09-26/source-audit-rendered/first-qualifying-fixture-page-5.png",
+        "sha256": "e7f65c5887c0457e4e5228e86ff0a285bd3091a30bff0ed42c56761aaed04377"
+      },
+      {
+        "path": "data/raw/nba-announced-absence-2026-09-26/source-audit-rendered/first-qualifying-fixture-page-6.png",
+        "sha256": "a63957f2e08ba1567be5665f2d1e8d5ead6c249c43af4ff87a05685da5caace1"
+      },
+      {
+        "path": "data/raw/nba-announced-absence-2026-09-26/source-audit-rendered/last-qualifying-fixture-page-1.png",
+        "sha256": "991f53c9f1f27d4b86cca8cd933e866a41f7bd83b2b37983fdb1e7c9b631307b"
+      },
+      {
+        "path": "data/raw/nba-announced-absence-2026-09-26/source-audit-rendered/last-qualifying-fixture-page-5.png",
+        "sha256": "a6a5fdfbced1b965d6ec2ec27d33bf977833e34a74a62c2051281ebfa7174620"
+      },
+      {
+        "path": "data/raw/nba-announced-absence-2026-09-26/source-audit-rendered/last-qualifying-fixture-page-6.png",
+        "sha256": "2f7407d788e6aebd9128ca8713ca00ce98240e9a3fb00bb031c8980c8e2f38e6"
+      }
+    ],
+    "first_event": "3681cef1ff8c7de872f8f52134b3d101",
+    "last_event": "aedd66eec65402eb926bb64dbbdb4634",
+    "verified": "First ORL@GSW inherits December22 and 10:00 ET from its report date/time context; both teams have status rows and five explicit Outs. Last HOU@LAC on December23 at10:30 ET has two Houston and four Clippers Outs, including Zubac continuing onto page6. Separate context pages verify inherited date/time. No ambiguous cases remain in the corrected ledger."
+  },
+  "mismatches": {
+    "reference_hashes": [],
+    "receipts": [],
+    "candidate_stopping": [],
+    "clocks": [],
+    "fixtures": []
+  },
+  "method": "Read-only network-free audit apart from the authorized new audit JSON and retained PDF renderings. Independently recomputed URL schedules, receipt status/header/body hashes and all PDF source clock maxima; parsed source fixture/status rows using literal-prefix team and row extraction separate from production substring matching. All status rows and qualification decisions compared across 11 clock-qualified events. The frozen report and source artifacts were not changed.",
+  "limitations": [
+    "The failed early source gate is a coverage result, not a negative absence effect. Even the parser-independent generous bound is46 against100.",
+    "403 responses show unavailable evidence under this fixed source route, not that reports never existed.",
+    "All35 unacquired events remain unknown and are included in the parsed ceiling. No later-period acquisition, star role, membership, target outcome, forecast or ROI analysis was performed."
+  ]
+}

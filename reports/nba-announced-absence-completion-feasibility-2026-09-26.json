@@ -1,0 +1,661 @@
+{
+  "status": "completion_metadata_inventory_complete",
+  "created_at_utc": "2026-09-26T23:19:57.632280+00:00",
+  "inputs": [
+    {
+      "path": "data/raw/oddspapi-first-basket-audit-2026-09-19/play_by_play_2026.parquet",
+      "sha256": "f2d1ccc1a80febd90791d02390504d4a5331f2041169e3a85a4f052df27a0ffd",
+      "bytes": 22436946
+    },
+    {
+      "path": "data/raw/oddspapi-first-basket-audit-2026-09-19/play_by_play_2026.meta.json",
+      "sha256": "cd9071c7993b56eb3f19e0d59391ea59a7d0927350061f5bb26db5c53601e3a5",
+      "bytes": 331
+    },
+    {
+      "path": "data/raw/oddspapi-first-basket-audit-2026-09-19/espn-nba-pbp-release.json",
+      "sha256": "8065bd28c0ab77bfa626c6aabc6880f707dee37bc1ebefbdf055c693b763454b",
+      "bytes": 157134
+    },
+    {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2026.csv",
+      "sha256": "5a4a7473fce1c49d56382211c5955ad405f421d59869143b1d501e997e79223e",
+      "bytes": 9153001
+    },
+    {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2026.csv.acquisition.json",
+      "sha256": "ed7365b1999d287d7d25c3ec8a48f608c31eddae436fe5de1e22c4589163f654",
+      "bytes": 524
+    }
+  ],
+  "source_pin": {
+    "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_pbp/play_by_play_2026.parquet",
+    "release_asset_id": 552051414,
+    "release_asset_created_at": "2026-09-09T05:16:33Z",
+    "release_asset_updated_at": "2026-09-09T05:16:34Z",
+    "digest": "sha256:f2d1ccc1a80febd90791d02390504d4a5331f2041169e3a85a4f052df27a0ffd",
+    "note": "Release creation/update is archive metadata, not game completion or contemporaneous data availability."
+  },
+  "parquet_schema_columns": [
+    "game_play_number",
+    "id",
+    "sequence_number",
+    "type_id",
+    "type_text",
+    "text",
+    "away_score",
+    "home_score",
+    "period_number",
+    "period_display_value",
+    "clock_display_value",
+    "scoring_play",
+    "score_value",
+    "team_id",
+    "athlete_id_1",
+    "athlete_id_2",
+    "athlete_id_3",
+    "wallclock",
+    "shooting_play",
+    "coordinate_x_raw",
+    "coordinate_y_raw",
+    "points_attempted",
+    "short_description",
+    "game_id",
+    "season",
+    "season_type",
+    "home_team_id",
+    "home_team_name",
+    "home_team_mascot",
+    "home_team_abbrev",
+    "home_team_name_alt",
+    "away_team_id",
+    "away_team_name",
+    "away_team_mascot",
+    "away_team_abbrev",
+    "away_team_name_alt",
+    "game_spread",
+    "home_favorite",
+    "game_spread_available",
+    "home_team_spread",
+    "qtr",
+    "time",
+    "clock_minutes",
+    "clock_seconds",
+    "home_timeout_called",
+    "away_timeout_called",
+    "half",
+    "game_half",
+    "lag_qtr",
+    "lead_qtr",
+    "lag_half",
+    "lead_half",
+    "start_quarter_seconds_remaining",
+    "start_half_seconds_remaining",
+    "start_game_seconds_remaining",
+    "end_quarter_seconds_remaining",
+    "end_half_seconds_remaining",
+    "end_game_seconds_remaining",
+    "period",
+    "coordinate_x",
+    "coordinate_y",
+    "game_date",
+    "game_date_time",
+    "athlete_name_1",
+    "athlete_name_2",
+    "athlete_name_3",
+    "type_abbreviation"
+  ],
+  "explicit_projection_columns": {
+    "play_by_play": [
+      "game_id",
+      "period_number",
+      "type_id",
+      "type_text",
+      "wallclock",
+      "clock_display_value"
+    ],
+    "schedule": [
+      "game_id",
+      "start_date",
+      "game_date",
+      "home_display_name",
+      "away_display_name",
+      "season_type"
+    ]
+  },
+  "summary": {
+    "pbp_games": 1325,
+    "explicit_end_marker_rows": 1322,
+    "unique_timezone_bearing_end_markers": 1320,
+    "usable_completion_schedule_rows": 1294,
+    "schedule_rows": 1330,
+    "schedule_unique_projected_rows": 1330,
+    "schedule_unique_game_ids": 1330,
+    "pbp_rows": 642472,
+    "schedule_games_without_pbp": 5,
+    "all_end_markers_literal_Z": 1320,
+    "structural_completion_schedule_rows": 1310,
+    "unsupported_duration_over_12h": 16
+  },
+  "by_schedule_season_type": {
+    "2": {
+      "games": 1234,
+      "structural_checks_pass": 1220,
+      "usable": 1204
+    },
+    "3": {
+      "games": 85,
+      "structural_checks_pass": 84,
+      "usable": 84
+    },
+    "5": {
+      "games": 6,
+      "structural_checks_pass": 6,
+      "usable": 6
+    }
+  },
+  "exclusion_counts": {
+    "missing_or_nonunique_end_marker": 5,
+    "unsupported_end_start_duration_over_12h": 16,
+    "play_wallclock_after_end_marker": 10
+  },
+  "usable_end_utc_range": [
+    "2025-10-22T02:59:51Z",
+    "2026-06-14T03:29:26Z"
+  ],
+  "usable_elapsed_hours_range": [
+    2.068611111111111,
+    3.7580555555555555
+  ],
+  "projection": {
+    "path": "data/raw/nba-announced-absence-2026-09-26/completion-clocks.csv",
+    "sha256": "7bf49b9186b6b97c02b299fbf0ffd527ea8a26739370915731ef34de0d620cbd",
+    "bytes": 265794
+  },
+  "excluded_rows": [
+    {
+      "game_id": "401809959",
+      "end_marker_count": "2",
+      "schedule_identity_rows": "1",
+      "completion_utc": "",
+      "start_date": "2025-10-26T01:00Z",
+      "exclusion_reasons": "missing_or_nonunique_end_marker"
+    },
+    {
+      "game_id": "401809978",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-30T01:49:14Z",
+      "start_date": "2025-10-28T23:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809979",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-30T01:57:15Z",
+      "start_date": "2025-10-28T23:30Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809980",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-30T02:33:52Z",
+      "start_date": "2025-10-29T00:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809981",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-30T02:18:08Z",
+      "start_date": "2025-10-29T00:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809982",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-29T05:24:56Z",
+      "start_date": "2025-10-29T03:00Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    },
+    {
+      "game_id": "401809983",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-31T01:35:24Z",
+      "start_date": "2025-10-29T23:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809984",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-31T01:43:48Z",
+      "start_date": "2025-10-29T23:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809985",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-31T01:58:55Z",
+      "start_date": "2025-10-29T23:30Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809986",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-31T00:59:26Z",
+      "start_date": "2025-10-29T22:30Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809987",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-31T02:18:27Z",
+      "start_date": "2025-10-30T00:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809988",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-31T03:14:26Z",
+      "start_date": "2025-10-30T00:30Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809989",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-31T03:15:41Z",
+      "start_date": "2025-10-30T01:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809990",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-31T03:48:02Z",
+      "start_date": "2025-10-30T01:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809991",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-30T04:06:37Z",
+      "start_date": "2025-10-30T01:30Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    },
+    {
+      "game_id": "401809992",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-10-30T04:25:40Z",
+      "start_date": "2025-10-30T02:00Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    },
+    {
+      "game_id": "401809993",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-11-01T01:22:05Z",
+      "start_date": "2025-10-30T23:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809994",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-11-01T02:32:00Z",
+      "start_date": "2025-10-31T00:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809995",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-11-01T02:18:43Z",
+      "start_date": "2025-10-31T00:00Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401809996",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-11-01T02:56:09Z",
+      "start_date": "2025-10-31T00:30Z",
+      "exclusion_reasons": "unsupported_end_start_duration_over_12h"
+    },
+    {
+      "game_id": "401810087",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2025-11-16T03:37:45Z",
+      "start_date": "2025-11-16T01:00Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    },
+    {
+      "game_id": "401810429",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2026-01-15T03:24:56Z",
+      "start_date": "2026-01-15T01:00Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    },
+    {
+      "game_id": "401810430",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2026-01-15T05:03:13Z",
+      "start_date": "2026-01-15T02:30Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    },
+    {
+      "game_id": "401810431",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2026-01-15T05:33:49Z",
+      "start_date": "2026-01-15T03:00Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    },
+    {
+      "game_id": "401810778",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2026-03-09T00:36:27Z",
+      "start_date": "2026-03-08T22:00Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    },
+    {
+      "game_id": "401810779",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2026-03-09T00:21:16Z",
+      "start_date": "2026-03-08T22:00Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    },
+    {
+      "game_id": "401838140",
+      "end_marker_count": "0",
+      "schedule_identity_rows": "1",
+      "completion_utc": "",
+      "start_date": "2026-02-15T22:00Z",
+      "exclusion_reasons": "missing_or_nonunique_end_marker"
+    },
+    {
+      "game_id": "401838141",
+      "end_marker_count": "0",
+      "schedule_identity_rows": "1",
+      "completion_utc": "",
+      "start_date": "2026-02-15T22:55Z",
+      "exclusion_reasons": "missing_or_nonunique_end_marker"
+    },
+    {
+      "game_id": "401838142",
+      "end_marker_count": "0",
+      "schedule_identity_rows": "1",
+      "completion_utc": "",
+      "start_date": "2026-02-15T23:25Z",
+      "exclusion_reasons": "missing_or_nonunique_end_marker"
+    },
+    {
+      "game_id": "401838143",
+      "end_marker_count": "0",
+      "schedule_identity_rows": "1",
+      "completion_utc": "",
+      "start_date": "2026-02-16T00:10Z",
+      "exclusion_reasons": "missing_or_nonunique_end_marker"
+    },
+    {
+      "game_id": "401873202",
+      "end_marker_count": "1",
+      "schedule_identity_rows": "1",
+      "completion_utc": "2026-05-29T02:58:16Z",
+      "start_date": "2026-05-29T00:30Z",
+      "exclusion_reasons": "play_wallclock_after_end_marker"
+    }
+  ],
+  "schedule_game_ids_without_pbp": [
+    "401810384",
+    "401810469",
+    "401810499",
+    "401810506",
+    "401810507"
+  ],
+  "semantic_grounding": "Explicit ESPN type402/End Game UTC wallclock, not maximum wallclock alone; same event semantics were reconciled with a retained primary2024-25 ESPN response in reports/nba-overtime-clock-feasibility-2026-09-26.json. No new2025-26 primary game response acquired.",
+  "availability_use": "For intended prior-only history require completion_metadata_usable and declared_available_after_utc (EndGame+24h) strictly before quote-minus60minute information cutoff. This remains an operational-delay assumption, not proof of original publication.",
+  "target_outcome_values_read": false,
+  "free_play_text_read": false,
+  "player_team_performance_values_read": false,
+  "boxscores_restored_or_read": false,
+  "network_requests": 0,
+  "limitations": [
+    "Processed ESPN PBP is a retrospective release; explicit event clocks do not prove first public availability or revisions.",
+    "Schedule join is ESPN game-ID metadata only, not an independent official NBA-ID/player crosswalk.",
+    "All missing/nonunique final markers, malformed clocks and schedule identities are preserved as exclusions; no final clock was inferred from a nonfinal play.",
+    "All-season metadata inventory does not select an absence or a sporting outcome.",
+    "16 otherwise structurally qualifying final clocks are more than12hours after scheduled start; they are flagged unusable for the intended cohort. Structural checks alone do not certify actual finish."
+  ],
+  "clock_anomalies": {
+    "final_at_least_24h_after_start_count": 16,
+    "rows": [
+      {
+        "game_id": "401809978",
+        "start_date": "2025-10-28T23:00Z",
+        "completion_utc": "2025-10-30T01:49:14Z",
+        "elapsed_hours": "26.820555555555554",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-28T23:10:51+00:00",
+        "first_wallclock_after_start_hours": 0.18083333333333335,
+        "recorded_wallclock_span_hours": 26.639722222222222,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809979",
+        "start_date": "2025-10-28T23:30Z",
+        "completion_utc": "2025-10-30T01:57:15Z",
+        "elapsed_hours": "26.454166666666666",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-28T23:41:45+00:00",
+        "first_wallclock_after_start_hours": 0.19583333333333333,
+        "recorded_wallclock_span_hours": 26.258333333333333,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809980",
+        "start_date": "2025-10-29T00:00Z",
+        "completion_utc": "2025-10-30T02:33:52Z",
+        "elapsed_hours": "26.564444444444444",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-30T00:13:13+00:00",
+        "first_wallclock_after_start_hours": 24.220277777777778,
+        "recorded_wallclock_span_hours": 2.3441666666666667,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809981",
+        "start_date": "2025-10-29T00:00Z",
+        "completion_utc": "2025-10-30T02:18:08Z",
+        "elapsed_hours": "26.302222222222223",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-30T00:10:27+00:00",
+        "first_wallclock_after_start_hours": 24.174166666666668,
+        "recorded_wallclock_span_hours": 2.1280555555555556,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809983",
+        "start_date": "2025-10-29T23:00Z",
+        "completion_utc": "2025-10-31T01:35:24Z",
+        "elapsed_hours": "26.59",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-29T23:12:35+00:00",
+        "first_wallclock_after_start_hours": 0.20972222222222223,
+        "recorded_wallclock_span_hours": 26.380277777777778,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809984",
+        "start_date": "2025-10-29T23:00Z",
+        "completion_utc": "2025-10-31T01:43:48Z",
+        "elapsed_hours": "26.73",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-29T23:10:46+00:00",
+        "first_wallclock_after_start_hours": 0.17944444444444443,
+        "recorded_wallclock_span_hours": 26.550555555555555,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809985",
+        "start_date": "2025-10-29T23:30Z",
+        "completion_utc": "2025-10-31T01:58:55Z",
+        "elapsed_hours": "26.481944444444444",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-29T23:41:16+00:00",
+        "first_wallclock_after_start_hours": 0.18777777777777777,
+        "recorded_wallclock_span_hours": 26.294166666666666,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809986",
+        "start_date": "2025-10-29T22:30Z",
+        "completion_utc": "2025-10-31T00:59:26Z",
+        "elapsed_hours": "26.490555555555556",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-29T22:44:05+00:00",
+        "first_wallclock_after_start_hours": 0.23472222222222222,
+        "recorded_wallclock_span_hours": 26.25583333333333,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809987",
+        "start_date": "2025-10-30T00:00Z",
+        "completion_utc": "2025-10-31T02:18:27Z",
+        "elapsed_hours": "26.3075",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-31T00:11:24+00:00",
+        "first_wallclock_after_start_hours": 24.19,
+        "recorded_wallclock_span_hours": 2.1175,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809988",
+        "start_date": "2025-10-30T00:30Z",
+        "completion_utc": "2025-10-31T03:14:26Z",
+        "elapsed_hours": "26.740555555555556",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-31T00:41:03+00:00",
+        "first_wallclock_after_start_hours": 24.184166666666666,
+        "recorded_wallclock_span_hours": 2.556388888888889,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809989",
+        "start_date": "2025-10-30T01:00Z",
+        "completion_utc": "2025-10-31T03:15:41Z",
+        "elapsed_hours": "26.261388888888888",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-31T01:10:38+00:00",
+        "first_wallclock_after_start_hours": 24.177222222222223,
+        "recorded_wallclock_span_hours": 2.0841666666666665,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809990",
+        "start_date": "2025-10-30T01:00Z",
+        "completion_utc": "2025-10-31T03:48:02Z",
+        "elapsed_hours": "26.800555555555555",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-31T01:11:51+00:00",
+        "first_wallclock_after_start_hours": 24.1975,
+        "recorded_wallclock_span_hours": 2.6030555555555557,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809993",
+        "start_date": "2025-10-30T23:00Z",
+        "completion_utc": "2025-11-01T01:22:05Z",
+        "elapsed_hours": "26.368055555555557",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-10-30T23:10:41+00:00",
+        "first_wallclock_after_start_hours": 0.17805555555555555,
+        "recorded_wallclock_span_hours": 26.19,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809994",
+        "start_date": "2025-10-31T00:00Z",
+        "completion_utc": "2025-11-01T02:32:00Z",
+        "elapsed_hours": "26.533333333333335",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-11-01T00:10:52+00:00",
+        "first_wallclock_after_start_hours": 24.18111111111111,
+        "recorded_wallclock_span_hours": 2.352222222222222,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809995",
+        "start_date": "2025-10-31T00:00Z",
+        "completion_utc": "2025-11-01T02:18:43Z",
+        "elapsed_hours": "26.311944444444446",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-11-01T00:10:27+00:00",
+        "first_wallclock_after_start_hours": 24.174166666666668,
+        "recorded_wallclock_span_hours": 2.137777777777778,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      },
+      {
+        "game_id": "401809996",
+        "start_date": "2025-10-31T00:30Z",
+        "completion_utc": "2025-11-01T02:56:09Z",
+        "elapsed_hours": "26.435833333333335",
+        "completion_metadata_usable": false,
+        "first_recorded_wallclock": "2025-11-01T00:40:39+00:00",
+        "first_wallclock_after_start_hours": 24.1775,
+        "recorded_wallclock_span_hours": 2.2583333333333333,
+        "completion_structural_checks_pass": true,
+        "exclusion_reason": "unsupported_end_start_duration_over_12h"
+      }
+    ],
+    "interpretation": "The16 unsupported multi-day clocks are preserved verbatim but now unusable for the intended cohort. No day subtraction or other timestamp repair. The projection supplies a separate structural-pass flag and duration-anomaly flag."
+  },
+  "structural_elapsed_hours_range": [
+    2.068611111111111,
+    26.820555555555554
+  ],
+  "applicable_prior_declaration": {
+    "path": "docs/nba-announced-absence-declaration-2026-09-26.md",
+    "sha256": "058371edc85691bf315290cb99762f4b1f53ee7e8212a028a7347a63be5d9c74",
+    "commit": "4acb250",
+    "availability_rule": "completion_utc +24 hours strictly before quote-minus60minute information cutoff"
+  },
+  "chronology_quality_update": {
+    "time_utc": "2026-09-26T23:23:50.995597+00:00",
+    "reason": "Root requested conservative exclusion of unsupported multi-day final clocks for intended cohort after metadata-only inspection. No source values changed and no sporting outcomes were used.",
+    "threshold": "end timestamp more than12hours after scheduled start",
+    "rows_excluded": 16,
+    "not_a_sport_performance_or_result_filter": true
+  }
+}
