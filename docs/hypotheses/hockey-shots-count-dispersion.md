@@ -14,4 +14,8 @@ Written September 26, 2026 before this model's forecasts or returns. Exploratory
 
 **Outcomes:** SportsDataverse publishes player boxscores derived from the NHL API, with stable NHL IDs, roster names and `shots_on_goal`. Source crosschecks must use ESPN `shotsTotal` (display label `S`), never ESPN `shootoutGoals` (display label `SOG`). A future-published retrospective file cannot certify its original data vintage. Source identity, timing and settlement limitations remain visible even if returns are positive. No scheduled collector, betting alert or wager.
 
-**Status:** declared, not yet evaluated.
+**Status:** evaluated; no demonstrated betting edge. The declaration above was frozen in commit `dfaf458` before grading.
+
+**Result, September 26:** [3,380 graded forecasts](../../reports/nhl-shot-dispersion-2026-09-26.md) improve pooled log loss by 0.001153; the later period's interval includes zero. Twelve frozen selections include 11 graded bets, 3 wins /8 losses and −4.3544 units after haircut, plus one unresolved. Full-cohort loss/win bounds are −44.62% to −25.34%, so even the missing bet winning cannot produce a positive return. Seven selections concern one player. No model or threshold retuning follows this result.
+
+**Implementation clarification:** identity uses a globally unique full-name-to-NHL-ID crosswalk plus an independently matched fixture. It does not verify pregame player-team membership or filter on postgame participation. All 39 missing box rows, including one selection, remain unresolved. The originally frozen specification hash is retained in the freeze report and commit.

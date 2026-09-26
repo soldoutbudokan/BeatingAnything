@@ -1,0 +1,193 @@
+{
+  "status": "exploratory, not proof of executable edge",
+  "specification": "docs/hypotheses/hockey-shots-count-dispersion.md",
+  "forecast_freeze": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/dispersion-forecast-freeze.json",
+    "sha256": "075c0556621c745f9d0fe9ea08e2d8cb46b60ed40344cd4821b2f018a6321de2"
+  },
+  "frozen_at_utc": "2026-09-26T20:25:30.737844+00:00",
+  "graded_at_utc": "2026-09-26T20:33:14.179511+00:00",
+  "graded_artifact": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/dispersion-graded.csv",
+    "sha256": "b8e5e0c3d1117940a44ab576b980467f01e13395cbd76b9247ac14ada1f832d8"
+  },
+  "forecast_inventory": {
+    "forecast_rows": 3419,
+    "games": 270,
+    "selections": 12,
+    "attrition": {
+      "fewer_than_40_prior_games": 107,
+      "source_error_or_no_bookmakers": 12,
+      "source_debug_game_excluded": 1,
+      "player_identity_unresolved": 35,
+      "game_unresolved": 1,
+      "no_fanduel_main_shots_market": 1
+    },
+    "unrecognized_names": {
+      "Elias Pettersson": 15,
+      "Nicholas Paul": 6,
+      "Sebastian Aho": 13,
+      "Yegor Chinakhov": 1
+    }
+  },
+  "pooled": {
+    "forecasts": 3419,
+    "graded": 3380,
+    "games": 270,
+    "settlement_status": {
+      "graded": 3380,
+      "unknown_no_box_row": 39
+    },
+    "market_loss": 0.6808935315264266,
+    "model_loss": 0.6797408746476453,
+    "loss_change": {
+      "n": 3380,
+      "games": 270,
+      "mean": -0.0011526568787814156,
+      "game_bootstrap_95pct": [
+        -0.001993441816446793,
+        -0.0002957308415649441
+      ]
+    },
+    "brier_change": {
+      "n": 3380,
+      "games": 270,
+      "mean": -0.0005703783681350749,
+      "game_bootstrap_95pct": [
+        -0.0009836812802118333,
+        -0.00014757856492071827
+      ]
+    },
+    "mean_alpha": 0.03848476641853632,
+    "zero_alpha": 1023,
+    "selections": 12,
+    "selection_status": {
+      "graded": 11,
+      "unknown_no_box_row": 1
+    },
+    "selected_under": 12,
+    "selected_over": 0,
+    "units": -4.3544,
+    "selected_roi": {
+      "n": 11,
+      "games": 11,
+      "mean": -0.39585454545454546,
+      "game_bootstrap_95pct": [
+        -1.0,
+        0.21363636363636349
+      ]
+    },
+    "roi_missing_as_losses": -0.4462,
+    "selected_mean_forecast_ev": 0.06504035846660776
+  },
+  "periods": {
+    "early_nov_dec": {
+      "forecasts": 1852,
+      "graded": 1827,
+      "games": 146,
+      "settlement_status": {
+        "graded": 1827,
+        "unknown_no_box_row": 25
+      },
+      "market_loss": 0.6774879591668078,
+      "model_loss": 0.6762730737500001,
+      "loss_change": {
+        "n": 1827,
+        "games": 146,
+        "mean": -0.00121488541680776,
+        "game_bootstrap_95pct": [
+          -0.0023046078417024176,
+          -0.0001719643078922161
+        ]
+      },
+      "brier_change": {
+        "n": 1827,
+        "games": 146,
+        "mean": -0.0006019994437369643,
+        "game_bootstrap_95pct": [
+          -0.001136753149142523,
+          -8.846851162593034e-05
+        ]
+      },
+      "mean_alpha": 0.03770648693302735,
+      "zero_alpha": 562,
+      "selections": 5,
+      "selection_status": {
+        "graded": 5
+      },
+      "selected_under": 5,
+      "selected_over": 0,
+      "units": -5.0,
+      "selected_roi": {
+        "n": 5,
+        "games": 5,
+        "mean": -1.0,
+        "game_bootstrap_95pct": [
+          -1.0,
+          -1.0
+        ]
+      },
+      "roi_missing_as_losses": -1.0,
+      "selected_mean_forecast_ev": 0.09926991857632336
+    },
+    "later_january": {
+      "forecasts": 1567,
+      "graded": 1553,
+      "games": 124,
+      "settlement_status": {
+        "graded": 1553,
+        "unknown_no_box_row": 14
+      },
+      "market_loss": 0.6848999582495584,
+      "model_loss": 0.6838205090584615,
+      "loss_change": {
+        "n": 1553,
+        "games": 124,
+        "mean": -0.0010794491910968494,
+        "game_bootstrap_95pct": [
+          -0.002410291726596481,
+          0.00025586264297390446
+        ]
+      },
+      "brier_change": {
+        "n": 1553,
+        "games": 124,
+        "mean": -0.0005331783004437343,
+        "game_bootstrap_95pct": [
+          -0.0011906295708683393,
+          0.0001263711375201484
+        ]
+      },
+      "mean_alpha": 0.03940459641672561,
+      "zero_alpha": 461,
+      "selections": 7,
+      "selection_status": {
+        "graded": 6,
+        "unknown_no_box_row": 1
+      },
+      "selected_under": 7,
+      "selected_over": 0,
+      "units": 0.6455999999999995,
+      "selected_roi": {
+        "n": 6,
+        "games": 6,
+        "mean": 0.10759999999999992,
+        "game_bootstrap_95pct": [
+          -0.6373333333333333,
+          0.8623333333333331
+        ]
+      },
+      "roi_missing_as_losses": -0.0506285714285715,
+      "selected_mean_forecast_ev": 0.04059067267395374
+    }
+  },
+  "limitations": [
+    "No original receipt clock or executable fill; source market-update timestamps are a historical entry proxy.",
+    "Retrospective NHL data published in2026; past publication vintage and revisions not verified.",
+    "Distribution hypothesis assumes Poisson-like bookmaker mapping and may double-count already priced dispersion.",
+    "Sampling consists of33 irregular archive dates with missing-provider/credit errors; not a complete league universe.",
+    "One source-debug game was excluded; no January outcomes were used to choose model parameters.",
+    "Exact historical jurisdiction/settlement terms unverified; unknown participation remains unresolved.",
+    "Intervals are exploratory whole-game resamples, uncorrected for prior searches; no prospective promotion claimed."
+  ]
+}

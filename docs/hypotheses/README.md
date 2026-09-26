@@ -1,6 +1,10 @@
-# Current priority: NBA first-basket scorer
+# Current priority: demonstrate mispricing through better forecasting
 
-Current dependency: [new qualified price evidence](../../reports/nba-first-score-current-availability-2026-09-19.md). The actual current NBA feed has no first-score offers; the bounded manual capture is ready, tested and unscheduled. The repeated historical and current-source checks are complete. The edge-finding objective remains incomplete and is blocked on an external data change; do not repeat the exhausted requests or alter the frozen candidate.
+September 26: the broader search remains active. [NHL count dispersion](hockey-shots-count-dispersion.md) has a [completed price test](../../reports/nhl-shot-dispersion-2026-09-26.md): pooled forecasts improve, but 11 graded selections lose 4.35 units and one unresolved cannot rescue the cohort. The [NFL kneel-prop test](../../reports/nfl-qb-kneel-props-2026-09-26.md) worsens forecasts and loses money. Both exact models are finished. New [NHL raw prices](../../reports/new-derivative-source-search-2026-09-26.md) and [archived operational NFL forecasts](../../reports/nfl-mos-availability-2026-09-26.md) expand the research inputs. Follow [NEXT-STEPS.md](../../NEXT-STEPS.md) for the next distinct weather-revision/total-price mechanism. No edge is established; schedules remain paused. The earlier first-score dependency below applies to that route alone.
+
+## Earlier priority: NBA first-basket scorer
+
+First-score dependency: [new qualified price evidence](../../reports/nba-first-score-current-availability-2026-09-19.md). The actual current NBA feed has no first-score offers; the bounded manual capture is ready, tested and unscheduled. The repeated historical and current-source checks are complete. This route is blocked on an external data change; do not repeat the exhausted requests or alter the frozen candidate.
 
 Latest follow-up: [later provider prices](../../reports/nba-first-score-price-movement-2026-09-19.md) weaken the seven-bet result below. All seven entries have negative EV against margin-normalized later FanDuel prices (mean −13.19%), while BetMGM still implies positive EV. The completed bet365/DraftKings/Pinnacle check supplies no matching complete third-book board for an original selection. No edge or mechanism is established; new prices with original product identity and contemporaneous clocks remain necessary. Do not retune the inspected candidate or repeat the completed source requests.
 
