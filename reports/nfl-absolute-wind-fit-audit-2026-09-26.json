@@ -1,0 +1,29 @@
+{
+  "audited_at_utc": "2026-09-26T21:20:30.045607+00:00",
+  "scope": "Independent stdlib bisection of the one-parameter fit using retained early labels only; all frozen probabilities and later EVs verified; no later result values or grading accessed",
+  "training_games": 76,
+  "training_high_wind": 20,
+  "training_high_wind_under_wins": 10,
+  "recomputed_beta": 0.0015420597113512367,
+  "frozen_beta": 0.0015420597113512383,
+  "derivative_at_frozen_beta": 4.421376459395887e-16,
+  "hessian_at_frozen_beta": 5.998556955622463,
+  "global_hessian_lower_bound": 1.0,
+  "later_forecasts": 99,
+  "later_high_wind": 42,
+  "later_side_ev_checks": 198,
+  "later_selections": 0,
+  "highest_later_after_cost_ev": -0.053132460477164245,
+  "maximum_later_probability_increase": 0.00038551485144322495,
+  "maximum_probability_recalculation_error": 1.1102230246251565e-16,
+  "maximum_ev_recalculation_error": 2.220446049250313e-16,
+  "unexposed_probabilities_exactly_unchanged": true,
+  "verified_frozen_source_hashes": 52,
+  "later_graded_artifact_absent": true,
+  "later_outcome_values_read": false,
+  "evidence_hashes": {
+    "data/raw/nfl-absolute-wind-2026-09-26/forecast-freeze.json": "f201a57c0b0f47d7d8c5202b4a88489e7f58635d6e373e1bed680b7f46f73d0a",
+    "data/raw/nfl-absolute-wind-2026-09-26/forecasts.csv": "496a427688576513e02467405e1490bd008fc96c4728e2d33cf98e78f2d4b841",
+    "data/raw/nfl-wind-revisions-2026-09-26/early-training-labels.csv": "3f8fe8add70d70ca5b2c2a1e645939f60b41e2b1c151975f199137316999887b"
+  }
+}

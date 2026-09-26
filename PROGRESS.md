@@ -2,7 +2,17 @@
 
 Updated September 26, 2026 (Toronto). Current research objective: demonstrate mispriced bets through better forecasting. [NEXT-STEPS.md](NEXT-STEPS.md) carries the research direction. Scheduled research and watches remain paused; no betting edge has been established.
 
-**Current execution status: broader research is active; no edge is established.** NFL operational wind revisions and NHL cross-book consensus are now completed negative tests. Earlier teaser/early-payout claims have concrete qualifications and corrected prices/settlement details. The September 19 first-score and golf G11 price dependencies remain specific to those routes, rather than blockers on the entire objective.
+**Current execution status: broader research is active; no edge is established.** NFL absolute forecast wind, operational wind revisions and NHL cross-book consensus are completed tests that produce no demonstrated edge. Earlier teaser/early-payout claims have concrete qualifications and corrected prices/settlement details. The September 19 first-score and golf G11 price dependencies remain specific to those routes, rather than blockers on the entire objective.
+
+## September 26 continuation: absolute high-wind correction negligible; no qualifying bets
+
+The [separate fixed >10-mph operational-forecast test](reports/nfl-absolute-wind-2026-09-26.md) reuses the verified outdoor venue/paired-price/MOS preparation. Its [declaration and implementation](docs/hypotheses/football-absolute-forecast-wind.md) were committed in `041cb21` before fitting. Predictor-only counts were 20 high-wind games among 76 early entries and 42 among 99 later entries. Only the 20 exposed early games identify the sole coefficient; 10 went Under. With the inherited nonnegative offset-logistic coefficient and fixed `0.5*beta²` penalty, beta is **0.00154206**, producing an average later high-wind probability increase of **0.03854 percentage points**. Best after-cost EV is **−5.313%**, and **zero bets** meet the unchanged +3% rule.
+
+All later forecasts were [frozen](reports/nfl-absolute-wind-freeze-2026-09-26.json) at `2026-09-26T21:19:28.328659+00:00` and committed in `a0fd736`. The declared zero-selection rule closes the specification without additional later labels. The 42 modified probabilities are not identical to the market, so their later scoring differences are unknown, not asserted to be zero. No later outcome or price-change diagnostic was opened. The [independent audit](reports/nfl-absolute-wind-fit-audit-2026-09-26.json) reproduces beta by bisection, confirms a positive Hessian, verifies all 52 frozen hashes and recalculates all 198 later EVs within 2.3e−16. All 312 repository tests pass; no frozen earlier card or artifact changed.
+
+A bounded check of the known original public NFL price source finds no separate 2024/2026 season. Three releases and one branch contain the same September 2025–February 2026 extraction window, and the latest asset hash matches the retained database. Five successful public metadata/code GETs totaled 33,352 bytes, with no repeated database download or outcome read. January–February rows belong to the 2025 season. Request evidence is preserved and hashed in the [result](reports/nfl-absolute-wind-2026-09-26.json).
+
+This closes another exploratory weather-family member; it is not independent confirmation or proof that all weather signals are priced. Preserve the fixed cutoff and tiny fit. The goal remains active and incomplete, all schedules/alerts stay paused, and no wager was made. The previous absolute-wind next action below is superseded.
 
 ## September 26 continuation: wind correction zero; NHL consensus negative; earlier positive claims qualified
 

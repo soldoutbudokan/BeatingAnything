@@ -1,0 +1,99 @@
+{
+  "status": "closed fixed specification: negligible fitted correction and no qualifying bets; later outcomes not read",
+  "declaration_commit": "041cb21",
+  "forecast_commit": "a0fd736",
+  "freeze": {
+    "path": "data/raw/nfl-absolute-wind-2026-09-26/forecast-freeze.json",
+    "sha256": "f201a57c0b0f47d7d8c5202b4a88489e7f58635d6e373e1bed680b7f46f73d0a"
+  },
+  "forecast": {
+    "path": "data/raw/nfl-absolute-wind-2026-09-26/forecasts.csv",
+    "sha256": "496a427688576513e02467405e1490bd008fc96c4728e2d33cf98e78f2d4b841"
+  },
+  "beta": 0.0015420597113512383,
+  "training_games": 76,
+  "training_high_wind": 20,
+  "training_high_wind_under_wins": 10,
+  "training_metrics_in_sample_only": {
+    "forecasts": 76,
+    "graded": 76,
+    "unknown": 0,
+    "under_wins": 32,
+    "market_log_loss": 0.6961163545083711,
+    "model_log_loss": 0.6961162450201904,
+    "paired_loss_change": {
+      "games": 76,
+      "weeks": 8,
+      "weeks_with_observations": 8,
+      "mean": -1.0948818064755216e-07,
+      "week_bootstrap_95pct": [
+        -6.584792421496241e-05,
+        8.673087895875854e-05
+      ],
+      "zero_stake_or_label_resamples": 0
+    },
+    "paired_brier_change": {
+      "games": 76,
+      "weeks": 8,
+      "weeks_with_observations": 8,
+      "mean": -5.595938190897829e-08,
+      "week_bootstrap_95pct": [
+        -3.2914112084279734e-05,
+        4.333644090984674e-05
+      ],
+      "zero_stake_or_label_resamples": 0
+    }
+  },
+  "training_high_wind_metrics_in_sample_only": {
+    "forecasts": 20,
+    "graded": 20,
+    "unknown": 0,
+    "under_wins": 10,
+    "market_log_loss": 0.6984719400911732,
+    "model_log_loss": 0.6984715240360869,
+    "paired_loss_change": {
+      "games": 20,
+      "weeks": 8,
+      "weeks_with_observations": 6,
+      "mean": -4.160550864606982e-07,
+      "week_bootstrap_95pct": [
+        -0.0003624717943790194,
+        0.00033093380898161336
+      ],
+      "zero_stake_or_label_resamples": 0
+    },
+    "paired_brier_change": {
+      "games": 20,
+      "weeks": 8,
+      "weeks_with_observations": 6,
+      "mean": -2.126456512541175e-07,
+      "week_bootstrap_95pct": [
+        -0.00018111222952279886,
+        0.00016542878153196137
+      ],
+      "zero_stake_or_label_resamples": 0
+    }
+  },
+  "later_forecasts": 99,
+  "later_high_wind": 42,
+  "later_unchanged_forecasts": 57,
+  "later_selections": 0,
+  "later_best_ev_after_cost": -0.0531324604771642,
+  "later_high_wind_mean_probability_increase": 0.000385365960408048,
+  "later_max_probability_increase": 0.00038551485144322495,
+  "later_labels_read_by_this_experiment": false,
+  "later_log_loss": null,
+  "later_roi": null,
+  "no_bet_disposition": "Predeclared zero-selection closure; tiny positive coefficient does not supply a priced opportunity. Do not grade later outcomes to select another threshold or model.",
+  "validation_source_check": {
+    "path": "data/raw/nfl-price-validation-source-check-2026-09-26/check-summary.json",
+    "sha256": "583637d4890c32c34366f97c22b0a6d636e2978470c1590fd39f4a87c783dcc3"
+  },
+  "limitations": [
+    "Only 20 exposed calibration games across six weeks identify the coefficient.",
+    "Repeated exploratory weather-family comparison, not an independent holdout.",
+    "Airport wind proxy and eight-hour initialization availability assumption.",
+    "Provider historical captures and book-wide update clocks do not establish accepted fills.",
+    "No separate season in the original public price source; January-February 2026 belongs to the 2025 season."
+  ]
+}
