@@ -1,0 +1,29 @@
+# Announced backup-QB receiving-yard coverage declaration
+
+Declared September 26, 2026 before the expanded official-source search, receiver-role extraction or target-performance calculation. This operationalizes the unresolved [original card](hypotheses/football-backup-qb-receivers.md) for a source/coverage inventory. The previous two Miami announcement matches and all earlier project inspections remain known; this is exploratory work, not a fresh independent holdout. Neither the original 100-receiver-game /15% relative yard-share screen nor its receiving-yard endpoint changes.
+
+## Fixed universe and discovery
+
+Use the retained pinned 2024 FanDuel-labelled receiving-yard export, independent regular-season fixture metadata, and all 32 NFL teams in standard abbreviation order. Weeks 1–18 only; no postseason, new season, new price acquisition or selection using receiver results. Source discovery asks for 2024 regular-season **injury/illness-related announced quarterback replacements**. Search official NFL/team reporting for each team using a standardized team + 2024 quarterback injury replacement start query, including absent/negative cases. At most two targeted follow-up search queries per candidate absence episode can resolve names or missing weekly confirmations. Retain the query log and every found candidate, rejection and unresolved case. Search result snippets may incidentally expose past results; do not treat this as an outcome-unread research context.
+
+Exclude healthy performance benchings, offseason/preseason starter competitions, suspensions and planned rest. An injury to a quarterback who had already lost the starting job does not create a starter-absence exposure. A later genuine injury to a newly established incumbent may qualify if official prequote reporting identifies him as the current starter. This is determined from announcement content, not eventual game starter fields or subsequent performance.
+
+An absence episode is one team/incumbent injury absence. Successive backups within that absence belong to the same episode, including Thompson/Huntley during Tua's absence. An explicit incumbent return closes the episode; a later new injury begins a new one. Episode identity is for clustering and chronology, not permission to assume a backup remains the starter indefinitely.
+
+## Per-fixture evidence gate
+
+For each proposed team-game, require official NFL/team reporting that establishes both the incumbent's injury/illness absence and the replacement's confirmed start for that fixture before entry. Reports quoting the coach/team are acceptable; an unqualified prediction, depth chart, eventual starter ID, injury designation alone, or recap is not. No automatic week-to-week carry-forward: a statement about one game cannot qualify later games. Broad multiweek statements are leads for a fixture-specific confirmation, not substitutes. Preserve unconfirmed price-covered games separately.
+
+Retain source URL, bytes when accessible, retrieval time, publication and revision timestamps and quoted assertion. Use the later publication/revision clock conservatively; it must precede the quote. If timestamps or the original relevant wording cannot be established, mark that limitation explicitly. Date-only text needs a conservative latest possible UTC boundary, not an invented intraday time. Current source-asserted historical timestamps do not prove original publication receipts. Postgame/current rewritten pages cannot establish prequote content solely from an old displayed publication date.
+
+## Quote and identity gates
+
+Use literal paired `player_reception_yds` prices only. Require legal American odds; decimal prices 1.20–6.00; paired implied-probability sum 1.00–1.12; nonmissing book and market updates both between zero and 300 seconds before the actual source snapshot; and the snapshot before the earlier of independent scheduled start and provider start. Do not substitute receptions, modeled team totals, alternate quotes or later snapshots. Existing export is one snapshot per fixture, so this is not a before/after announcement repricing test.
+
+Map fixtures on independent date/teams and players through the existing unique full-name-to-GSIS rule. Keep ambiguous/unmatched identities explicit. Season-end roster membership is only an upper-bound attribution aid; a final cohort needs prior-observable team membership, prior air-yard roles and receiver injury/availability controls. All positions may enter coverage counts, reported separately for RB and WR/TE; no position or role subset is promoted based on results.
+
+The pinned export has mostly −110/−110 yard prices and no retained original API responses. Available collector code passes through offered prices without demonstrated imputation, but its grouping omits update clocks and may overwrite duplicate-side prices while keeping first metadata. This inventory cannot certify quote authenticity, original receipt, suspension state or execution. These limits remain material even if coverage exceeds 100.
+
+## Stop and advance rules
+
+First report announcement-qualified team-games, absence episodes, literal quote rows, identity attrition and provisional team/position counts. No target receiving yards, yard shares, win/loss labels or realized starting-QB columns are used. If even the provisional quote upper bound is below 100, stop this exact source/cohort route as insufficient, without claiming the underlying effect failed or extending the search to rescue it. If coverage can meet the original gate, separately freeze the role/availability and sport-side estimator before extracting target outcomes. A sporting association alone does not demonstrate mispriced bets: advancement still requires a declared prior-only probabilistic forecast, comparison with the paired market and price-qualified selections under honest validation. No fitted model, wager, alert or schedule is authorized by this inventory itself.
