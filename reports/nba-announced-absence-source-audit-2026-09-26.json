@@ -46,7 +46,8 @@
     "requests_unique_and_within_cap": true,
     "original_partial_preserved": true,
     "parser_independent_ceiling_46": true,
-    "inclusive_parsed_ceiling_40": true
+    "inclusive_parsed_ceiling_40": true,
+    "original_executed_tool_and_log_preserved": true
   },
   "counts": {
     "report_reference_hashes_checked": 692,
@@ -70,7 +71,8 @@
     "unacquired_unknown_events": 35,
     "inclusive_parsed_ceiling": 40,
     "parser_independent_ceiling": 46,
-    "new_requests_during_audit": 0
+    "new_requests_during_audit": 0,
+    "preserved_first_pass_files_hash_checked": 3
   },
   "clock_fixture_cases": [
     {
@@ -220,5 +222,32 @@
     "The failed early source gate is a coverage result, not a negative absence effect. Even the parser-independent generous bound is46 against100.",
     "403 responses show unavailable evidence under this fixed source route, not that reports never existed.",
     "All35 unacquired events remain unknown and are included in the parsed ceiling. No later-period acquisition, star role, membership, target outcome, forecast or ROI analysis was performed."
-  ]
+  ],
+  "preserved_first_pass_checks": {
+    "files": [
+      {
+        "original_path": "tools/inventory_nba_announced_absence_reports.py",
+        "preserved_path": "data/raw/nba-announced-absence-2026-09-26/first-pass-evidence/inventory_nba_announced_absence_reports.py",
+        "sha256": "b3a391dab8e6ecee28750bd675536fd4187c10ec7e0d1040df1bfdf7a0717575",
+        "matches_manifest": true
+      },
+      {
+        "original_path": "state/nba-announced-absence-source-run-2026-09-26.log",
+        "preserved_path": "data/raw/nba-announced-absence-2026-09-26/first-pass-evidence/nba-announced-absence-source-run-2026-09-26.log",
+        "sha256": "88b83c465a73fa666e1f24f9777203c09d5b248e08b2579ccadbf49a0067cd58",
+        "matches_manifest": true
+      },
+      {
+        "original_path": "data/raw/nba-announced-absence-2026-09-26/source-inventory.partial.json",
+        "preserved_path": "data/raw/nba-announced-absence-2026-09-26/first-pass-evidence/source-inventory.partial.json",
+        "sha256": "8aeba6fcda857ee0d2b62b8798a16cd8735d1d990e4ab16eba7c712f6dfe5224",
+        "matches_manifest": true
+      }
+    ],
+    "original_tool_matches_commit_17c6263": true,
+    "original_tool_sha256": "b3a391dab8e6ecee28750bd675536fd4187c10ec7e0d1040df1bfdf7a0717575",
+    "log_event_records": 257,
+    "log_last_completed_request_count": 196,
+    "clippers_keyerror_retained": true
+  }
 }
