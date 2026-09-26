@@ -1,0 +1,151 @@
+{
+  "status": "pass",
+  "audited_at_utc": "2026-09-26T23:56:08.540087+00:00",
+  "scope": "Independent reconstruction using price payloads, roster full_name/player_id and seven regular-season fixture metadata columns only. Production tool was read but not imported or executed. No box scores, histories, model probabilities, sporting performance or network.",
+  "report": {
+    "path": "reports/nhl-shot-goal-overlap-feasibility-2026-09-26.json",
+    "sha256": "5a8eef61146038b89ba51704550ed280bb28fc9a59db43bb089d0291c7141e7c",
+    "bytes": 4197
+  },
+  "report_markdown": {
+    "path": "reports/nhl-shot-goal-overlap-feasibility-2026-09-26.md",
+    "sha256": "35054921be30a3cc4f9a5b82d9bcdf4646c04e465d270bc8f4a72052168f421a",
+    "bytes": 1986
+  },
+  "declaration": {
+    "path": "docs/nhl-shot-to-goal-declaration-2026-09-26.md",
+    "sha256": "ad937404c14860f1b7c24015cdaaa8f600fb8dafc54df2e427ae2dd54a0c907f",
+    "bytes": 9870
+  },
+  "report_reference_pins_verified": [
+    {
+      "path": "tools/inventory_nhl_shot_goal_overlap.py",
+      "sha256": "6b6b59cd9d885950ecb3983588ec152aad131f890ad640a16d77497fb4ee4ce5",
+      "bytes": 15732
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/manifest.json",
+      "sha256": "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da",
+      "bytes": 295384
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2024.csv",
+      "sha256": "0e70a12579b25af0532d00a0cf8bb5fda7d9eb33a23d76234ca26f2fff4ca4ba",
+      "bytes": 3598620
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2025.csv",
+      "sha256": "cff04536329e7a7f3cdf9034786226e6644a7d222486eb70d4a799d12c1f80ba",
+      "bytes": 3593991
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/schedule_2025_metadata.csv",
+      "sha256": "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855",
+      "bytes": 173339
+    },
+    {
+      "path": "data/raw/nhl-shot-goal-overlap-2026-09-26/paired-prices.csv",
+      "sha256": "682018f651fd789ee35a3671b39340eda055917d03124d8ce12be9a864a379d3",
+      "bytes": 1263820
+    },
+    {
+      "path": "data/raw/nhl-shot-goal-overlap-2026-09-26/inventory-details.json",
+      "sha256": "94816d72e2b33e3e44bae3d60fbffb29bd706e9a3ca5abc9506416971b0c3421",
+      "bytes": 142539
+    }
+  ],
+  "checks": {
+    "all_285_raw_sha256_size_and_git_blob_pins_match": true,
+    "273_unique_event_payloads_and_12_preserved_error_payloads": true,
+    "literal_fd_and_market_uniqueness_recomputed": true,
+    "shot_anchor_selected_from_valid_shot_pairs_before_goal_overlap": true,
+    "exact_rational_american_conversion_overround_and_probabilities_match": true,
+    "exact_goal_shot_market_update_strings_and_instants_match_for_retained_rows": true,
+    "strict_pregame_72_hour_window_and_conservative_start_split_match": true,
+    "unique_normalized_full_name_identity_without_participation_filter": true,
+    "unique_ordered_team_regular_fixture_matching_and_debug_exclusion_match": true,
+    "all_2184_by_30_csv_cells_match": true,
+    "all_273_event_statuses_and_285_source_pins_match": true,
+    "every_event_and_pair_exclusion_matches": true,
+    "no_duplicate_raw_events_fixtures_or_retained_game_player_rows": true,
+    "both_preperformance_100_game_gates_pass": true
+  },
+  "counts": {
+    "raw_files": 285,
+    "git_blob_hashes_checked": 285,
+    "event_payloads": 273,
+    "publisher_error_payloads": 12,
+    "csv_rows": 2184,
+    "csv_columns": 30,
+    "csv_cell_mismatches": 0,
+    "event_status_mismatches": 0,
+    "source_pin_mismatches": 0,
+    "preclock_shot_anchors": 3543,
+    "multiple_qualifying_shot_line_names": 0,
+    "raw_event_duplicate_groups": 0,
+    "retained_game_player_duplicate_groups": 0,
+    "metadata_and_artifact_reference_pins": 7
+  },
+  "pair_group_denominators": {
+    "shot_name_line_groups": 3543,
+    "shot_valid_pairs": 3543,
+    "goal_name_line_groups": 2492,
+    "goal_valid_pairs": 2492
+  },
+  "event_exclusions": {
+    "publisher_error_payload": 12,
+    "missing_or_duplicate_main_shot_or_goal_market": 2,
+    "original_debug_game_excluded": 1,
+    "goal_shot_market_clock_mismatch": 30,
+    "fixture_unresolved": 1
+  },
+  "pair_exclusions": {
+    "no_exact_literal_name_shot_anchor": 280,
+    "unresolved_player_identity": 28
+  },
+  "unresolved_names": {
+    "Nicholas Paul": 3,
+    "Sebastian Aho": 13,
+    "Yegor Chinakhov": 1,
+    "Elias Pettersson": 11
+  },
+  "eligible": {
+    "paired_player_games": 2184,
+    "games": 239,
+    "events": 239,
+    "players": 214
+  },
+  "periods": {
+    "early_nov_dec": {
+      "paired_player_games": 1208,
+      "games": 132,
+      "events": 132,
+      "players": 193
+    },
+    "later_january": {
+      "paired_player_games": 976,
+      "games": 107,
+      "events": 107,
+      "players": 190
+    }
+  },
+  "retained_lead_seconds": {
+    "min": 5272.0,
+    "max": 48347.0
+  },
+  "retained_entry_range_utc": {
+    "min": "2024-11-26T18:59:42+00:00",
+    "max": "2025-01-25T16:17:45+00:00"
+  },
+  "raw_source_pin_list_sha256": "e2f1a62f7190b77c04aaeb26987618ec7354aec4ef9808f443cd510c71820822",
+  "static_notes": [
+    "The tool asserts that duplicate game/player records do not exist instead of implementing the declaration's general earliest-entry/conflicting-same-time procedure. Independent reconstruction confirms no repeated raw event IDs, repeated resolved fixture IDs or retained game/player records in this pinned archive, so this does not change the present cohort.",
+    "No offered player had multiple qualifying shot lines in this archive after source gates; the code nevertheless selects by shot-only balance and then lower line before goal pairing."
+  ],
+  "conclusion": "Price coverage passes exactly: 2,184 player-games / 239 games, comprising 1,208 / 132 early and 976 / 107 later. This authorizes the separately declared prior-history gate only; it establishes no probability improvement, target settlement or edge.",
+  "limitations": [
+    "Retrospective roster names establish identity only, not prequote membership or participation.",
+    "Market-update timestamps remain retrospective entry proxies, not original receipt or executable-fill evidence.",
+    "This audit does not establish shooting-history eligibility, feature numerical validity or forecast performance."
+  ]
+}

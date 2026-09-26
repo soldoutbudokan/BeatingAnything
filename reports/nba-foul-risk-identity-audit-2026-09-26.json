@@ -1,0 +1,146 @@
+{
+  "audit_date": "2026-09-26",
+  "result": "pass",
+  "audited_report": {
+    "path": "reports/nba-foul-risk-identity-feasibility-2026-09-26.json",
+    "sha256": "e795cfe6582aebbf562bac78a88c20fbcbb4e5f71a1e99684276e06f4ce2d210"
+  },
+  "source_pins": [
+    {
+      "path": "tools/audit_nba_foul_identity_feasibility.py",
+      "sha256": "b091be5bcff8a27a4ee8633c7d70ab24733e3a55a96fe7215ce6a964dffd4d00",
+      "bytes": 11626,
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-announced-absence-2026-09-26/prices.json",
+      "sha256": "f44b4d42fc168e434776a7fd89a2cc9bd09bd470adb13189de7b4270ac048372",
+      "bytes": 2186160,
+      "matches": true
+    },
+    {
+      "path": "data/raw/oddspapi-first-basket-audit-2026-09-19/player_box_2026.parquet",
+      "sha256": "29a29dc9efd055a93e069a0382ac830d98a13274bee655beba69d95cff099713",
+      "bytes": 606444,
+      "matches": true
+    },
+    {
+      "path": "data/raw/oddspapi-first-basket-audit-2026-09-19/player_box_2026.parquet.meta.json",
+      "sha256": "ff478e9fc14380548e8ca598a2809261260185fbfbe512036c35962802b648af",
+      "bytes": 338,
+      "matches": true
+    },
+    {
+      "path": "data/raw/oddspapi-first-basket-audit-2026-09-19/espn-nba-player-box-release.json",
+      "sha256": "4539af8619e72e515bc29de43df918f787abec5453c77425e73698de5a06a9c5",
+      "bytes": 157874,
+      "matches": true
+    }
+  ],
+  "materialized_parquet_columns": [
+    "athlete_id",
+    "athlete_display_name"
+  ],
+  "checks": {
+    "all_five_input_and_tool_pins_match": true,
+    "exact_parquet_digest_matches_metadata_and_release_asset": true,
+    "source_asset_metadata_exact": true,
+    "only_two_identity_columns_materialized": true,
+    "schema_names_and_footer_rows_match": true,
+    "identity_universe_exact": true,
+    "all_370_offered_name_records_exact": true,
+    "all_359_unique_id_mappings_exact": true,
+    "all_11_unknown_names_exact": true,
+    "all_666_event_counts_exact": true,
+    "all_summary_counts_exact": true,
+    "all_period_counts_exact": true,
+    "no_suffix_aliases_or_removal": true,
+    "no_target_appearance_requirement": true,
+    "no_performance_or_role_values_in_audit": true
+  },
+  "recomputed_identity_universe": {
+    "parquet_footer_rows": 34883,
+    "distinct_athlete_ids": 591,
+    "distinct_normalized_names": 591,
+    "invalid_identity_rows": 33,
+    "ambiguous_normalized_names": {}
+  },
+  "recomputed_summary": {
+    "unique_pairs": 8038,
+    "unknown_pairs": 248,
+    "events_with_any_unique_pair": 666,
+    "events_with_all_pairs_unique": 446,
+    "events": 666,
+    "paired_offers": 8286,
+    "distinct_offered_names": 370,
+    "distinct_uniquely_mapped_athlete_ids": 359,
+    "unique_offered_names": 359,
+    "unknown_offered_names": 11,
+    "ambiguous_offered_names": 0,
+    "ambiguous_pairs": 0
+  },
+  "recomputed_period_counts": {
+    "calibration": {
+      "unique_pairs": 3589,
+      "unknown_pairs": 114,
+      "events": 293,
+      "events_with_all_pairs_unique": 190,
+      "ambiguous_pairs": 0
+    },
+    "evaluation": {
+      "unique_pairs": 4449,
+      "unknown_pairs": 134,
+      "events": 373,
+      "events_with_all_pairs_unique": 256,
+      "ambiguous_pairs": 0
+    }
+  },
+  "unknown_offered_names": [
+    {
+      "name": "Carlton Carrington",
+      "paired_offers": 37
+    },
+    {
+      "name": "Derrick Jones",
+      "paired_offers": 26
+    },
+    {
+      "name": "Herb Jones",
+      "paired_offers": 32
+    },
+    {
+      "name": "Isaiah Stewart II",
+      "paired_offers": 23
+    },
+    {
+      "name": "Jimmy Butler",
+      "paired_offers": 27
+    },
+    {
+      "name": "Moe Wagner",
+      "paired_offers": 4
+    },
+    {
+      "name": "Nicolas Claxton",
+      "paired_offers": 38
+    },
+    {
+      "name": "Paul Reed Jr",
+      "paired_offers": 7
+    },
+    {
+      "name": "Robert Williams",
+      "paired_offers": 19
+    },
+    {
+      "name": "Ron Holland",
+      "paired_offers": 19
+    },
+    {
+      "name": "Vincent Williams Jr",
+      "paired_offers": 16
+    }
+  ],
+  "method": "Independent exact Unicode casefold/NFKD accent/punctuation normalization preserving every suffix word; reconstructed every literal offered-name-to-ESPN-athlete-ID set, all 666 event summaries and period totals from frozen prices and only two Parquet identity columns. No production tool import, game appearance filter, fuzzy alias or suffix substitution. Whole files byte-hashed solely for provenance.",
+  "limitations": "Retrospective identity coverage does not establish prequote membership, historical availability, adequate prior history, participation, foul risk, scoring mix or mispricing. No performance or participation columns, sporting outcomes, model or network request was used."
+}

@@ -1,0 +1,116 @@
+{
+  "status": "price_coverage_pass",
+  "prepared_at_utc": "2026-09-26T23:49:19.395613+00:00",
+  "tool": {
+    "path": "tools/inventory_nhl_shot_goal_overlap.py",
+    "sha256": "6b6b59cd9d885950ecb3983588ec152aad131f890ad640a16d77497fb4ee4ce5",
+    "bytes": 15732
+  },
+  "metadata_inputs": [
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/manifest.json",
+      "sha256": "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da",
+      "bytes": 295384
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2024.csv",
+      "sha256": "0e70a12579b25af0532d00a0cf8bb5fda7d9eb33a23d76234ca26f2fff4ca4ba",
+      "bytes": 3598620
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2025.csv",
+      "sha256": "cff04536329e7a7f3cdf9034786226e6644a7d222486eb70d4a799d12c1f80ba",
+      "bytes": 3593991
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/schedule_2025_metadata.csv",
+      "sha256": "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855",
+      "bytes": 173339
+    }
+  ],
+  "source_commit": "42cf1f81bc302642ddcc9e88ce2e98c1057bc74d",
+  "raw_files_verified": 285,
+  "event_payloads": 273,
+  "explicit_metadata_columns": {
+    "roster": [
+      "full_name",
+      "player_id"
+    ],
+    "fixture": [
+      "game_id",
+      "game_type",
+      "home_team_name",
+      "away_team_name",
+      "game_time",
+      "home_team_abbr",
+      "away_team_abbr"
+    ]
+  },
+  "eligible": {
+    "paired_player_games": 2184,
+    "games": 239,
+    "events": 239,
+    "players": 214
+  },
+  "periods": {
+    "early_nov_dec": {
+      "paired_player_games": 1208,
+      "games": 132,
+      "events": 132,
+      "players": 193
+    },
+    "later_january": {
+      "paired_player_games": 976,
+      "games": 107,
+      "events": 107,
+      "players": 190
+    }
+  },
+  "minimum_games_per_period": 100,
+  "both_periods_pass": true,
+  "event_exclusions": {
+    "publisher_error_payload": 12,
+    "missing_or_duplicate_main_shot_or_goal_market": 2,
+    "original_debug_game_excluded": 1,
+    "goal_shot_market_clock_mismatch": 30,
+    "fixture_unresolved": 1
+  },
+  "pair_exclusions": {
+    "no_exact_literal_name_shot_anchor": 280,
+    "unresolved_player_identity": 28
+  },
+  "unresolved_names": {
+    "Nicholas Paul": 3,
+    "Sebastian Aho": 13,
+    "Yegor Chinakhov": 1,
+    "Elias Pettersson": 11
+  },
+  "paired_prices": {
+    "path": "data/raw/nhl-shot-goal-overlap-2026-09-26/paired-prices.csv",
+    "sha256": "682018f651fd789ee35a3671b39340eda055917d03124d8ce12be9a864a379d3",
+    "bytes": 1263820
+  },
+  "details": {
+    "path": "data/raw/nhl-shot-goal-overlap-2026-09-26/inventory-details.json",
+    "sha256": "94816d72e2b33e3e44bae3d60fbffb29bd706e9a3ca5abc9506416971b0c3421",
+    "bytes": 142539
+  },
+  "rules": [
+    "One FD node and one main goal/shot node; exact same literal player; goal line0.5, shot half-line0.5\u20138.5.",
+    "Exactly one Over and Under; finite legal American odds; both pair overrounds0\u201315% by rational arithmetic.",
+    "Shot anchor chosen first by distance of normalized Under probability to0.5, then lower line; no goal-informed line choice.",
+    "Goal/shot market timestamps must be equal; within72hours and strictly before earliest provider/independent start.",
+    "Unique ordered-team REG fixture within1day; original debug2024020345 excluded; unchanged unique normalized roster full-name mapping.",
+    "Fixed2025-01-01UTC conservative-start split; require100 distinct games in both periods before history/model work."
+  ],
+  "sport_histories_or_target_performance_read": false,
+  "previous_model_predictions_read": false,
+  "model_or_return_computed": false,
+  "network_requests": 0,
+  "limitations": [
+    "Raw market update is an entry proxy, not a collector receipt, suspension record or accepted fill.",
+    "Retrospective rosters supply identity only; target participation and prequote team membership are not inferred.",
+    "No shooting conversion, shot distribution, power-play exposure, prior role or forecast was estimated.",
+    "Archive outcomes were previously inspected by other studies; this is not an untouched validation sample."
+  ]
+}

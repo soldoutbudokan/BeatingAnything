@@ -1,0 +1,292 @@
+{
+  "status": "pass",
+  "audited_at_utc": "2026-09-26T23:51:06.720439+00:00",
+  "scope": "Independent price-metadata-only reconstruction from all 666 pinned raw responses; production inventory code was read but not imported or executed. No sporting performance, target outcomes, prior scoring histories, model or network.",
+  "report": {
+    "path": "reports/nba-paired-alternate-price-feasibility-2026-09-26.json",
+    "sha256": "5ace512894455aeeb429a53c4c6ac4ca9bb59e23eccc7f9c120ef4e4705b715d",
+    "bytes": 6431
+  },
+  "report_references_verified": {
+    "tool": {
+      "path": "tools/inventory_nba_paired_alternate_prices.py",
+      "sha256": "5efb87b720dc483c19567d64af08fbfe0fa74224ec76d44721429b77bac2322d",
+      "bytes": 18836
+    },
+    "declaration": {
+      "path": "docs/nba-paired-alternate-feasibility-declaration-2026-09-26.md",
+      "sha256": "c265c7cedbc5e24ec0d1839bd1b6158b49c563cb89074a227e9d8df0d75e1f4c",
+      "bytes": 3822
+    },
+    "identity_census": {
+      "path": "reports/nba-foul-risk-identity-feasibility-2026-09-26.json",
+      "sha256": "e795cfe6582aebbf562bac78a88c20fbcbb4e5f71a1e99684276e06f4ce2d210",
+      "bytes": 338727
+    },
+    "frozen_main_prices": {
+      "path": "data/raw/nba-announced-absence-2026-09-26/prices.json",
+      "sha256": "f44b4d42fc168e434776a7fd89a2cc9bd09bd470adb13189de7b4270ac048372",
+      "bytes": 2186160
+    },
+    "detailed_pairs": {
+      "path": "data/raw/nba-paired-alternate-2026-09-26/paired-alternate-prices.csv",
+      "sha256": "1b1ebeaa45d05d062e19e5a105a4e6bc843fc44ea75a737aa2297a928578a3e1",
+      "bytes": 551028
+    },
+    "detailed_source_and_event_inventory": {
+      "path": "data/raw/nba-paired-alternate-2026-09-26/inventory-details.json",
+      "sha256": "8dd497574bc6ee045bda7aceca1b5422df0fa26c4032737e9641e6739bf6a5e6",
+      "bytes": 290612
+    }
+  },
+  "checks": {
+    "all_666_raw_source_hashes_sizes_and_event_metadata_match": true,
+    "all_8286_frozen_main_pairs_exactly_reconstructed": true,
+    "one_literal_fanduel_book_main_and_alt_market_per_event": true,
+    "all_source_book_main_alt_clocks_age_0_to_300_seconds": true,
+    "every_snapshot_strictly_before_provider_and_independent_start": true,
+    "exact_literal_name_halfpoint_one_over_one_under_rules_recomputed": true,
+    "odds_and_overround_bounds_checked_by_exact_rational_arithmetic": true,
+    "all_1061_csv_rows_and_32_columns_match_exact_string_values": true,
+    "all_666_detailed_event_status_and_raw_source_records_match": true,
+    "every_denominator_exclusion_and_summary_count_match": true,
+    "absolute_distance_at_least_two_flags_match": true,
+    "unique_identity_mapping_and_period_counts_match": true,
+    "no_duplicate_event_player_alt_line_keys": true,
+    "coverage_gate_fails_both_periods": true
+  },
+  "counts": {
+    "frozen_events": 666,
+    "frozen_main_pairs": 8286,
+    "raw_sources_hashed": 666,
+    "report_reference_pins_checked": 6,
+    "csv_rows": 1061,
+    "csv_columns": 32,
+    "event_status_rows": 666,
+    "csv_cell_mismatches": 0,
+    "event_status_mismatches": 0,
+    "source_pin_mismatches": 0,
+    "frozen_source_periods": {
+      "calibration": 293,
+      "evaluation": 373
+    },
+    "event_status_reasons": {
+      "no_distinct_qualified_paired_alt": 655,
+      "has_distinct_paired_alt": 11
+    }
+  },
+  "raw_source_inventory_sha256": "046ecfe718852bea5ffb3a37e5ec62acd1f96e33d5e229f5ed0463c823a098aa",
+  "clock_age_seconds": {
+    "book": {
+      "min": 1.0,
+      "max": 256.0
+    },
+    "main": {
+      "min": 0.0,
+      "max": 189.0
+    },
+    "alt": {
+      "min": 0.0,
+      "max": 189.0
+    }
+  },
+  "raw_main_overround_to_frozen_float_max_abs_error": 2.0816681711721685e-16,
+  "alternate_group_denominator": {
+    "name_line_groups": 40583,
+    "missing_duplicate_or_invalid_sides_groups": 39179,
+    "outside_decimal_range_groups": 233,
+    "qualifying_paired_groups": 1171,
+    "alt_equals_main_line_groups": 110
+  },
+  "all_distinct_from_main": {
+    "paired_alt_lines": 1061,
+    "events": 11,
+    "literal_player_names": 107,
+    "unique_athlete_ids": 104,
+    "event_players": 135,
+    "below_main_pairs": 516,
+    "above_main_pairs": 545
+  },
+  "distance_at_least_two": {
+    "paired_alt_lines": 840,
+    "events": 11,
+    "literal_player_names": 107,
+    "unique_athlete_ids": 104,
+    "event_players": 135,
+    "below_main_pairs": 401,
+    "above_main_pairs": 439
+  },
+  "distance_at_least_two_unique_identities": {
+    "paired_alt_lines": 825,
+    "events": 11,
+    "literal_player_names": 104,
+    "unique_athlete_ids": 104,
+    "event_players": 132,
+    "below_main_pairs": 394,
+    "above_main_pairs": 431
+  },
+  "by_period": {
+    "calibration": {
+      "all_distinct": {
+        "paired_alt_lines": 811,
+        "events": 8,
+        "literal_player_names": 88,
+        "unique_athlete_ids": 86,
+        "event_players": 105,
+        "below_main_pairs": 399,
+        "above_main_pairs": 412
+      },
+      "distance_at_least_two": {
+        "paired_alt_lines": 638,
+        "events": 8,
+        "literal_player_names": 88,
+        "unique_athlete_ids": 86,
+        "event_players": 105,
+        "below_main_pairs": 309,
+        "above_main_pairs": 329
+      },
+      "all_distinct_unique_identities": {
+        "paired_alt_lines": 798,
+        "events": 8,
+        "literal_player_names": 86,
+        "unique_athlete_ids": 86,
+        "event_players": 103,
+        "below_main_pairs": 392,
+        "above_main_pairs": 406
+      },
+      "distance_at_least_two_unique_identities": {
+        "paired_alt_lines": 628,
+        "events": 8,
+        "literal_player_names": 86,
+        "unique_athlete_ids": 86,
+        "event_players": 103,
+        "below_main_pairs": 304,
+        "above_main_pairs": 324
+      }
+    },
+    "evaluation": {
+      "all_distinct": {
+        "paired_alt_lines": 250,
+        "events": 3,
+        "literal_player_names": 25,
+        "unique_athlete_ids": 24,
+        "event_players": 30,
+        "below_main_pairs": 117,
+        "above_main_pairs": 133
+      },
+      "distance_at_least_two": {
+        "paired_alt_lines": 202,
+        "events": 3,
+        "literal_player_names": 25,
+        "unique_athlete_ids": 24,
+        "event_players": 30,
+        "below_main_pairs": 92,
+        "above_main_pairs": 110
+      },
+      "all_distinct_unique_identities": {
+        "paired_alt_lines": 243,
+        "events": 3,
+        "literal_player_names": 24,
+        "unique_athlete_ids": 24,
+        "event_players": 29,
+        "below_main_pairs": 114,
+        "above_main_pairs": 129
+      },
+      "distance_at_least_two_unique_identities": {
+        "paired_alt_lines": 197,
+        "events": 3,
+        "literal_player_names": 24,
+        "unique_athlete_ids": 24,
+        "event_players": 29,
+        "below_main_pairs": 90,
+        "above_main_pairs": 107
+      }
+    }
+  },
+  "distance_below_two_excluded_paired_lines": 221,
+  "qualified_events": [
+    {
+      "event_id": "aa92da00abef11a7ee1f773cb708d710",
+      "period": "calibration",
+      "pairs_distinct_from_main": 93,
+      "pairs_distance_at_least_two": 73,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "e9b75400f975f37c5d4c03414110530d",
+      "period": "calibration",
+      "pairs_distinct_from_main": 111,
+      "pairs_distance_at_least_two": 87,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "6509e75f3d3674a5cdd2cf12d4031b7c",
+      "period": "calibration",
+      "pairs_distinct_from_main": 99,
+      "pairs_distance_at_least_two": 78,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "05b9527e25f5994ecbf5a9323a489a33",
+      "period": "calibration",
+      "pairs_distinct_from_main": 116,
+      "pairs_distance_at_least_two": 89,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "a06a55ea3f9818bd67a44c118b03bb31",
+      "period": "calibration",
+      "pairs_distinct_from_main": 91,
+      "pairs_distance_at_least_two": 70,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "4ca0a40cec306fd9a3c9b36b1e76500e",
+      "period": "calibration",
+      "pairs_distinct_from_main": 107,
+      "pairs_distance_at_least_two": 84,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "6b9d46fb1b22af30b771b5f6b8a4c6f8",
+      "period": "calibration",
+      "pairs_distinct_from_main": 102,
+      "pairs_distance_at_least_two": 83,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "12a69f98068c9e1b277528c3f7dfed72",
+      "period": "calibration",
+      "pairs_distinct_from_main": 92,
+      "pairs_distance_at_least_two": 74,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "5fbfee96c689932bc0a407ba529153bc",
+      "period": "evaluation",
+      "pairs_distinct_from_main": 69,
+      "pairs_distance_at_least_two": 56,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "25729251b2eb774717c748181096b0be",
+      "period": "evaluation",
+      "pairs_distinct_from_main": 89,
+      "pairs_distance_at_least_two": 71,
+      "reason": "has_distinct_paired_alt"
+    },
+    {
+      "event_id": "4ae1016a615b3bc0fcef523ab3c8933b",
+      "period": "evaluation",
+      "pairs_distinct_from_main": 92,
+      "pairs_distance_at_least_two": 75,
+      "reason": "has_distinct_paired_alt"
+    }
+  ],
+  "conclusion": "The fixed tail cohort has 840 correlated alternate pairs in 11 distinct games: 8 calibration and 3 evaluation. Unique identities retain 825 lines but still 8/3 games. The declared minimum of 100 games in each period fails; no forecasting or performance conclusion is supported.",
+  "limitations": [
+    "Identity mapping was checked against the separately audited pinned retrospective identity census; this does not verify prequote membership, participation or history eligibility.",
+    "The 666-event frozen parent price universe was previously independently audited; this audit recomputes the complete alternate-market denominator within it and does not extend the universe.",
+    "Source update clocks do not prove simultaneous execution, suspension status or jurisdiction-specific contract equivalence."
+  ]
+}

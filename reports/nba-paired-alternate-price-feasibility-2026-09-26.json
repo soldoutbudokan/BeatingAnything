@@ -1,0 +1,182 @@
+{
+  "status": "price_only_inventory_complete",
+  "prepared_at_utc": "2026-09-26T23:43:16.114383+00:00",
+  "tool": {
+    "path": "tools/inventory_nba_paired_alternate_prices.py",
+    "sha256": "5efb87b720dc483c19567d64af08fbfe0fa74224ec76d44721429b77bac2322d",
+    "bytes": 18836
+  },
+  "declaration": {
+    "path": "docs/nba-paired-alternate-feasibility-declaration-2026-09-26.md",
+    "sha256": "c265c7cedbc5e24ec0d1839bd1b6158b49c563cb89074a227e9d8df0d75e1f4c",
+    "bytes": 3822
+  },
+  "identity_census": {
+    "path": "reports/nba-foul-risk-identity-feasibility-2026-09-26.json",
+    "sha256": "e795cfe6582aebbf562bac78a88c20fbcbb4e5f71a1e99684276e06f4ce2d210",
+    "bytes": 338727
+  },
+  "frozen_main_prices": {
+    "path": "data/raw/nba-announced-absence-2026-09-26/prices.json",
+    "sha256": "f44b4d42fc168e434776a7fd89a2cc9bd09bd470adb13189de7b4270ac048372",
+    "bytes": 2186160
+  },
+  "source_counts": {
+    "source_events": 666,
+    "unique_alt_market_events": 666,
+    "fresh_alt_market_events": 666
+  },
+  "alt_group_counts_after_clock_gates": {
+    "name_line_groups": 40583,
+    "missing_duplicate_or_invalid_sides_groups": 39179,
+    "outside_decimal_range_groups": 233,
+    "qualifying_paired_groups": 1171,
+    "alt_equals_main_line_groups": 110
+  },
+  "all_distinct_from_main": {
+    "paired_alt_lines": 1061,
+    "events": 11,
+    "literal_player_names": 107,
+    "unique_athlete_ids": 104,
+    "event_players": 135,
+    "below_main_pairs": 516,
+    "above_main_pairs": 545
+  },
+  "distance_at_least_two": {
+    "paired_alt_lines": 840,
+    "events": 11,
+    "literal_player_names": 107,
+    "unique_athlete_ids": 104,
+    "event_players": 135,
+    "below_main_pairs": 401,
+    "above_main_pairs": 439
+  },
+  "all_distinct_unique_identities": {
+    "paired_alt_lines": 1041,
+    "events": 11,
+    "literal_player_names": 104,
+    "unique_athlete_ids": 104,
+    "event_players": 132,
+    "below_main_pairs": 506,
+    "above_main_pairs": 535
+  },
+  "distance_at_least_two_unique_identities": {
+    "paired_alt_lines": 825,
+    "events": 11,
+    "literal_player_names": 104,
+    "unique_athlete_ids": 104,
+    "event_players": 132,
+    "below_main_pairs": 394,
+    "above_main_pairs": 431
+  },
+  "by_period": {
+    "calibration": {
+      "all_distinct": {
+        "paired_alt_lines": 811,
+        "events": 8,
+        "literal_player_names": 88,
+        "unique_athlete_ids": 86,
+        "event_players": 105,
+        "below_main_pairs": 399,
+        "above_main_pairs": 412
+      },
+      "distance_at_least_two": {
+        "paired_alt_lines": 638,
+        "events": 8,
+        "literal_player_names": 88,
+        "unique_athlete_ids": 86,
+        "event_players": 105,
+        "below_main_pairs": 309,
+        "above_main_pairs": 329
+      },
+      "all_distinct_unique_identities": {
+        "paired_alt_lines": 798,
+        "events": 8,
+        "literal_player_names": 86,
+        "unique_athlete_ids": 86,
+        "event_players": 103,
+        "below_main_pairs": 392,
+        "above_main_pairs": 406
+      },
+      "distance_at_least_two_unique_identities": {
+        "paired_alt_lines": 628,
+        "events": 8,
+        "literal_player_names": 86,
+        "unique_athlete_ids": 86,
+        "event_players": 103,
+        "below_main_pairs": 304,
+        "above_main_pairs": 324
+      }
+    },
+    "evaluation": {
+      "all_distinct": {
+        "paired_alt_lines": 250,
+        "events": 3,
+        "literal_player_names": 25,
+        "unique_athlete_ids": 24,
+        "event_players": 30,
+        "below_main_pairs": 117,
+        "above_main_pairs": 133
+      },
+      "distance_at_least_two": {
+        "paired_alt_lines": 202,
+        "events": 3,
+        "literal_player_names": 25,
+        "unique_athlete_ids": 24,
+        "event_players": 30,
+        "below_main_pairs": 92,
+        "above_main_pairs": 110
+      },
+      "all_distinct_unique_identities": {
+        "paired_alt_lines": 243,
+        "events": 3,
+        "literal_player_names": 24,
+        "unique_athlete_ids": 24,
+        "event_players": 29,
+        "below_main_pairs": 114,
+        "above_main_pairs": 129
+      },
+      "distance_at_least_two_unique_identities": {
+        "paired_alt_lines": 197,
+        "events": 3,
+        "literal_player_names": 24,
+        "unique_athlete_ids": 24,
+        "event_players": 29,
+        "below_main_pairs": 90,
+        "above_main_pairs": 107
+      }
+    }
+  },
+  "detailed_pairs": {
+    "path": "data/raw/nba-paired-alternate-2026-09-26/paired-alternate-prices.csv",
+    "sha256": "1b1ebeaa45d05d062e19e5a105a4e6bc843fc44ea75a737aa2297a928578a3e1",
+    "bytes": 551028
+  },
+  "detailed_source_and_event_inventory": {
+    "path": "data/raw/nba-paired-alternate-2026-09-26/inventory-details.json",
+    "sha256": "8dd497574bc6ee045bda7aceca1b5422df0fa26c4032737e9641e6739bf6a5e6",
+    "bytes": 290612
+  },
+  "coverage_gate": {
+    "minimum_distinct_events_per_period": 100,
+    "both_periods_pass_all_literal_names": false,
+    "both_periods_pass_unique_identities": false
+  },
+  "rules": [
+    "Use only the frozen666 main-quote events, raw FanDuel book and player_points_alternate node.",
+    "One unique main anchor per exact full player name; all anchors reproduce the frozen literal main pair.",
+    "One alt market; exactly one literal Over and Under per exact name/half-point line, with no duplicate sides.",
+    "Both decimal odds1.20\u20136.00, overround0\u20130.12 by exact rational arithmetic; book and alt update ages0\u2013300seconds at original snapshot.",
+    "All retained alt lines differ from main; the separate absolute distance>=2point cohort was fixed before counts.",
+    "Jan1UTC split uses original source snapshot, not fixture start or source publication."
+  ],
+  "target_outcomes_or_performance_read": false,
+  "forecast_model_or_mispricing_test": false,
+  "network_requests": 0,
+  "limitations": [
+    "These are same-event actual quoted pairs, not a payoff-coverage screen or evidence of fair probabilities.",
+    "Exact literal names are retained; the separately pinned identity census supplies unique ESPN IDs without target appearance filters. Role/history eligibility is not evaluated.",
+    "No alternate was selected by return or fitted gap. All qualifying distances and both directions are preserved.",
+    "Source update clocks do not establish simultaneous fills, suspension status, original receipt or jurisdiction-specific contract equivalence."
+  ]
+}
