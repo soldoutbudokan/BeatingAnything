@@ -1,0 +1,443 @@
+{
+  "status": "Feasible prior-only features after denominator parsing and uniform goalie quality exclusions; no model fitted or target goals read",
+  "audited_at_utc": "2026-09-26T21:32:48.384153+00:00",
+  "scope": "Prior-only completed regular games with independent UTC scheduled start before2024-11-23; no target-game labels or later outcome-valued rows inspected",
+  "source_semantics": {
+    "power_play_goals": "Integer skater goals scored on a power play; zero is observed zero, missing is not zero.",
+    "power_play_shots_against": "Goalie string saves/shots faced against opponent power plays. Sum denominators across all appearing goalies in a team-game. Numerators are saves, not shot counts.",
+    "goalie_identification": "Blank position in combined player box, independently matched to roster position_code G;0mismatches.",
+    "aggregation_limit": "Goalie-observed power-play shots exclude empty-net events and do not measure penalty minutes/opportunities or PP-shot rate per minute."
+  },
+  "coverage": {
+    "scope": "Prior-only completed regular games with independent UTC scheduled start before2024-11-23; no target-game labels or later outcome-valued rows inspected",
+    "created_at_utc": "2026-09-26T21:28:04.642658+00:00",
+    "independent_schedule_files": [
+      "data/raw/nhl-shot-archive-2026-09-26/powerplay-feature-audit/schedule_2024_metadata.csv",
+      "data/raw/nhl-shot-archive-2026-09-26/outcomes/schedule_2025_metadata.csv"
+    ],
+    "metadata_prefilter_exclusions": {
+      "nonregular": 3520,
+      "UTC_start_at_or_after_cutoff": 80
+    },
+    "prior_rows": 65027,
+    "prior_games": 1626,
+    "duplicate_game_player_rows": 0,
+    "positions": {
+      "C": 18465,
+      "L": 11088,
+      "R": 9246,
+      "D": 19725,
+      "": 6503
+    },
+    "per_season": {
+      "2024": {
+        "regular_games": 1312,
+        "skater_rows": 47221,
+        "unique_skaters": 924,
+        "goalie_rows": 5247,
+        "team_games": 2624,
+        "goals": 8085,
+        "pp_goals": 1660,
+        "pp_goal_share": 0.20531849103277675,
+        "goalie_observed_pp_shots": 11983,
+        "goalie_observed_pp_shots_per_team_game": 4.5666920731707314,
+        "minimum_start": "2023-10-10T21:30:00Z",
+        "maximum_start": "2024-04-19T02:30:00Z",
+        "games_by_team": {
+          "NSH": 82,
+          "TBL": 82,
+          "CHI": 82,
+          "PIT": 82,
+          "SEA": 82,
+          "VGK": 82,
+          "OTT": 82,
+          "CAR": 82,
+          "MTL": 82,
+          "TOR": 82,
+          "BOS": 82,
+          "WPG": 82,
+          "CGY": 82,
+          "COL": 82,
+          "LAK": 82,
+          "EDM": 82,
+          "VAN": 82,
+          "NYR": 82,
+          "BUF": 82,
+          "PHI": 82,
+          "CBJ": 82,
+          "DET": 82,
+          "NJD": 82,
+          "STL": 82,
+          "DAL": 82,
+          "FLA": 82,
+          "MIN": 82,
+          "SJS": 82,
+          "ARI": 82,
+          "WSH": 82,
+          "NYI": 82,
+          "ANA": 82
+        }
+      },
+      "2025": {
+        "regular_games": 314,
+        "skater_rows": 11303,
+        "unique_skaters": 738,
+        "goalie_rows": 1256,
+        "team_games": 628,
+        "goals": 1908,
+        "pp_goals": 383,
+        "pp_goal_share": 0.20073375262054508,
+        "goalie_observed_pp_shots": 2667,
+        "goalie_observed_pp_shots_per_team_game": 4.246815286624204,
+        "minimum_start": "2024-10-04T17:00:00Z",
+        "maximum_start": "2024-11-22T02:00:00Z",
+        "games_by_team": {
+          "NJD": 22,
+          "BUF": 19,
+          "STL": 21,
+          "SEA": 20,
+          "BOS": 21,
+          "FLA": 20,
+          "CHI": 20,
+          "UTA": 19,
+          "TOR": 20,
+          "MTL": 19,
+          "NYR": 18,
+          "PIT": 21,
+          "WPG": 19,
+          "EDM": 21,
+          "CGY": 20,
+          "VAN": 18,
+          "COL": 20,
+          "VGK": 20,
+          "LAK": 20,
+          "OTT": 19,
+          "DET": 19,
+          "NYI": 20,
+          "DAL": 18,
+          "NSH": 20,
+          "CBJ": 19,
+          "MIN": 19,
+          "SJS": 22,
+          "TBL": 18,
+          "CAR": 19,
+          "PHI": 20,
+          "WSH": 19,
+          "ANA": 18
+        }
+      }
+    },
+    "skater_missing_goals": 0,
+    "skater_missing_pp_goals": 0,
+    "skater_zero_goal_rows": 49699,
+    "skater_zero_pp_goal_rows": 56561,
+    "goalie_pp_missing_rows": 0,
+    "zero_toi_goalie_rows": 3047,
+    "goalie_rows_per_team_game": {
+      "2": 3251,
+      "1": 1
+    },
+    "appearing_goalies_per_team_game": {
+      "1": 3048,
+      "2": 204
+    },
+    "multiple_appearing_goalie_team_games": 204,
+    "three_appearing_goalie_team_games": 0,
+    "validation_failures": {
+      "even_strength_split_difference_vs_goals_against": 9,
+      "power_play_split_difference_vs_goals_against": 4
+    },
+    "opponent_skater_pp_goals_minus_goalie_pp_goals_against": {
+      "0": 3239,
+      "1": 13
+    },
+    "pp_goal_difference_examples": [
+      {
+        "game_id": "2023020020",
+        "defending_team": "FLA",
+        "opponent": "WPG",
+        "opponent_skater_pp_goals": 2,
+        "goalie_pp_goals_against": 1,
+        "difference": 1
+      },
+      {
+        "game_id": "2023020050",
+        "defending_team": "PIT",
+        "opponent": "DET",
+        "opponent_skater_pp_goals": 2,
+        "goalie_pp_goals_against": 1,
+        "difference": 1
+      },
+      {
+        "game_id": "2023020259",
+        "defending_team": "PIT",
+        "opponent": "CAR",
+        "opponent_skater_pp_goals": 1,
+        "goalie_pp_goals_against": 0,
+        "difference": 1
+      }
+    ],
+    "goalie_replacement_examples": [
+      {
+        "game_id": "2023020009",
+        "team": "EDM",
+        "goalies": [
+          {
+            "player_id": "8475789",
+            "toi": "27:30",
+            "pp_saves_shots": "5/6",
+            "starter": "TRUE"
+          },
+          {
+            "player_id": "8479973",
+            "toi": "32:30",
+            "pp_saves_shots": "5/7",
+            "starter": "FALSE"
+          }
+        ],
+        "team_goalie_observed_pp_shots": 13
+      },
+      {
+        "game_id": "2023020009",
+        "team": "VAN",
+        "goalies": [
+          {
+            "player_id": "8479193",
+            "toi": "11:46",
+            "pp_saves_shots": "1/1",
+            "starter": "FALSE"
+          },
+          {
+            "player_id": "8477967",
+            "toi": "48:05",
+            "pp_saves_shots": "5/6",
+            "starter": "TRUE"
+          }
+        ],
+        "team_goalie_observed_pp_shots": 7
+      },
+      {
+        "game_id": "2023020022",
+        "team": "CBJ",
+        "goalies": [
+          {
+            "player_id": "8477484",
+            "toi": "20:00",
+            "pp_saves_shots": "3/4",
+            "starter": "FALSE"
+          },
+          {
+            "player_id": "8478007",
+            "toi": "39:54",
+            "pp_saves_shots": "1/1",
+            "starter": "TRUE"
+          }
+        ],
+        "team_goalie_observed_pp_shots": 5
+      }
+    ],
+    "games_by_team": {
+      "NSH": 102,
+      "TBL": 100,
+      "CHI": 102,
+      "PIT": 103,
+      "SEA": 102,
+      "VGK": 102,
+      "OTT": 101,
+      "CAR": 101,
+      "MTL": 101,
+      "TOR": 102,
+      "BOS": 103,
+      "WPG": 101,
+      "CGY": 102,
+      "COL": 102,
+      "LAK": 102,
+      "EDM": 103,
+      "VAN": 100,
+      "NYR": 100,
+      "BUF": 101,
+      "PHI": 102,
+      "CBJ": 101,
+      "DET": 101,
+      "NJD": 104,
+      "STL": 103,
+      "DAL": 100,
+      "FLA": 102,
+      "MIN": 101,
+      "SJS": 104,
+      "ARI": 82,
+      "WSH": 101,
+      "NYI": 102,
+      "ANA": 100,
+      "UTA": 19
+    },
+    "source_hashes": {
+      "data/raw/nhl-shot-archive-2026-09-26/outcomes/player_box_2024.csv": "889d439dae5b5a2e831496a3a0dcbea4d385883d68d55b70d55a554169ff6e74",
+      "data/raw/nhl-shot-archive-2026-09-26/outcomes/player_box_2025.csv": "511f58b09996be6165c7ad2a0f475ac029f0206653ce4e11665e1ff8088516b0",
+      "data/raw/nhl-shot-archive-2026-09-26/powerplay-feature-audit/schedule_2024_metadata.csv": "59afa78de1b51e0ceb7bda66207896801fc080505a0ace27cc6ed41e6397b588",
+      "data/raw/nhl-shot-archive-2026-09-26/outcomes/schedule_2025_metadata.csv": "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855"
+    }
+  },
+  "quality_filtered_coverage": {
+    "quality_rule": "Reject entire team-game if any listed goalie has malformed/noninteger saves/shots or TOI; split totals not sum to total; goalsAgainst != shotsAgainst-saves; any strength split difference != corresponding goalsAgainst; or zeroTOI with nonzero counters. Sum denominator for all retained appearing goalies (zeroTOI allzero adds0). Require at least1positiveTOI goalie. Never convert missing tozero.",
+    "rejected_team_games": [
+      {
+        "game_id": "2023020068",
+        "team": "VAN"
+      },
+      {
+        "game_id": "2023020350",
+        "team": "COL"
+      },
+      {
+        "game_id": "2023020518",
+        "team": "BOS"
+      },
+      {
+        "game_id": "2023020581",
+        "team": "ARI"
+      },
+      {
+        "game_id": "2023020619",
+        "team": "ARI"
+      },
+      {
+        "game_id": "2023020743",
+        "team": "CHI"
+      },
+      {
+        "game_id": "2023020804",
+        "team": "STL"
+      },
+      {
+        "game_id": "2023020863",
+        "team": "NYI"
+      },
+      {
+        "game_id": "2023021121",
+        "team": "LAK"
+      },
+      {
+        "game_id": "2023021159",
+        "team": "NYR"
+      },
+      {
+        "game_id": "2023021285",
+        "team": "CHI"
+      },
+      {
+        "game_id": "2024020218",
+        "team": "LAK"
+      },
+      {
+        "game_id": "2024020293",
+        "team": "SJS"
+      }
+    ],
+    "per_season": {
+      "2024": {
+        "valid_team_games": 2613,
+        "rejected_team_games": 11,
+        "PP_shots": 11907,
+        "PP_shots_per_valid_team_game": 4.55683122847302,
+        "minimum_valid_team_games": 80
+      },
+      "2025": {
+        "valid_team_games": 626,
+        "rejected_team_games": 2,
+        "PP_shots": 2657,
+        "PP_shots_per_valid_team_game": 4.244408945686901,
+        "minimum_valid_team_games": 18
+      }
+    },
+    "prior_skater_history": {
+      "unique_skaters": 968,
+      "at_least40_appearances": 659,
+      "at_least80_appearances": 429,
+      "skaters_with_2024_25_prior_appearances": 738,
+      "of_those_at_least40_history": 600,
+      "of_those_at_least80_history": 424
+    },
+    "sole_listed_goalie_team_games": [
+      {
+        "game_id": "2023021182",
+        "team": "PIT",
+        "toi": "60:00",
+        "player": "A. Nedeljkovic"
+      }
+    ]
+  },
+  "additional_checks": {
+    "team_goalie_toi_seconds_minimum": 3238,
+    "maximum": 3900,
+    "below_60_minutes": 1545,
+    "above_65_minutes": 0,
+    "goalie_role_roster_mismatches": 0,
+    "valid_team_games_opponent_pp_goals_minus_goalie_ppgoals": {
+      "0": 3230,
+      "1": 9
+    }
+  },
+  "recommended_baseline": {
+    "season": "2023\u201324 regular season only",
+    "player_pp_goal_share_rho": 0.20531849103277675,
+    "rho_numerator_pp_goals": 1660,
+    "rho_denominator_goals": 8085,
+    "opponent_pp_shots_per_valid_team_game_m": 4.55683122847302,
+    "m_numerator_pp_shots": 11907,
+    "m_denominator_valid_team_games": 2613
+  },
+  "chronology": "Join independent schedule by game_id; require prior UTC game_time+72h<=entry, completed state, and regular-season classification. Local box game_date+72h is not equivalent and can admit histories only about45h after start.",
+  "sources": {
+    "parser": {
+      "url": "https://raw.githubusercontent.com/sportsdataverse/fastRhockey/0b68f439d8645b119d54e49fc30be78c94ba9610/R/nhl_game_boxscore.R",
+      "commit": "0b68f439d8645b119d54e49fc30be78c94ba9610",
+      "sha256": "db45f850645b53aef2bbfc88b167aa47ac1ec75fd78f2c49841a2a5d1dff902d",
+      "retrieved_at_utc": "2026-09-26T21:30:00.861701+00:00"
+    },
+    "additional_schedule": {
+      "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/nhl_schedules/nhl_schedule_2024.csv",
+      "retrieved_at_utc": "2026-09-26T21:26:33.697077+00:00",
+      "raw_sha256": "9292b99f8d5daf362a9e7316f3146fd677e5bafe99063f6fb759baa9383f8d07",
+      "raw_bytes": 463053,
+      "metadata_sha256": "59afa78de1b51e0ceb7bda66207896801fc080505a0ace27cc6ed41e6397b588",
+      "metadata_rows": 1400,
+      "metadata_columns": [
+        "game_id",
+        "season_full",
+        "game_type",
+        "game_date",
+        "game_time",
+        "home_team_abbr",
+        "away_team_abbr",
+        "home_team_name",
+        "away_team_name",
+        "game_state",
+        "venue",
+        "season"
+      ],
+      "outcome_fields_never_used": true
+    },
+    "publisher_pipeline": "https://github.com/sportsdataverse/fastRhockey-nhl-data",
+    "primary_ullmark_crosscheck": "https://www.nhl.com/scores/htmlreports/20232024/GS020518.HTM",
+    "primary_kuemper_crosscheck": "https://www.nhl.com/scores/htmlreports/20242025/GS020218.HTM"
+  },
+  "proposed_formula_review": {
+    "formula": "For goal line0.5 only, pUnder=qUnder**((1-r)+r*R).",
+    "algebra": "If qUnder=exp(-lambda), assume independent PP/nonPP Poisson components and scale only PP intensity by R.",
+    "conditions": "r must be prior-only and in[0,1]; R nonnegative; R=1 preserves qUnder.",
+    "risks": [
+      "Paired market probability may already incorporate opponent matchup; adjustment can double-count information.",
+      "Historical PP goal share is a noisy proxy for current role, not timely PP-unit assignment.",
+      "Opponent goalie-observed PPshots/game mixes penalty frequency, killing ability, opponent offense and goalie-pull behavior.",
+      "Keep UTA and ARI separate unless franchise continuity is expressly fixed before features; UTA has19prior games in this inspected cutoff.",
+      "Latest prior team is causal metadata, but trades and long absences can make it stale; do not resolve team using target boxscore."
+    ]
+  },
+  "limitations": [
+    "All source publications are retrospective;72h is an availability assumption, not timestamped release proof.",
+    "9valid team-games have opponent skater PPgoals exceeding goalie-observed PPgoals by1; compatible with omitted empty-net events but not event-classified here.",
+    "Exact player_goals market settlement and quote availability remain a separate requirement.",
+    "No outcomes from games at or after2024-11-23UTC were inspected; no predictions, price gaps, bets or returns were evaluated."
+  ]
+}

@@ -1,0 +1,2429 @@
+{
+  "candidate_quotes_before_earliest_selection": 2768,
+  "canonical_eligible_cohort_sha256": "798416fa24c8f9540262063fbc673f8fc40af146f0fb31138d36985b432698eb",
+  "coverage_by_game": [
+    {
+      "boundary": "2025-01-08T00:00:00+00:00",
+      "event_id": "7a9fbdadf8d02247e1066f3a73ad95af",
+      "game_id": 2024020029,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2024-11-27T00:00:00+00:00",
+      "event_id": "758cdc515f59d625ff17ab64aa0bfe67",
+      "game_id": 2024020346,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-28T00:30:00+00:00",
+      "event_id": "1344a1b84cf359045577de22f7178b28",
+      "game_id": 2024020350,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-28T00:30:00+00:00",
+      "event_id": "b31a524df85cb62bd843187691873e09",
+      "game_id": 2024020351,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-28T00:30:00+00:00",
+      "event_id": "d461de759f13217951b6a8bb7145d36a",
+      "game_id": 2024020352,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-28T00:30:00+00:00",
+      "event_id": "46ba799ca902ad4c63234a9a80fa1f5d",
+      "game_id": 2024020353,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-28T00:30:00+00:00",
+      "event_id": "0739fdb73426ffe08de9cc530fd5e4cd",
+      "game_id": 2024020354,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-28T00:30:00+00:00",
+      "event_id": "740afc1ee3f264f057d06af65bb2802c",
+      "game_id": 2024020355,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-28T01:00:00+00:00",
+      "event_id": "482ef5661945b0a985a6e1f3f1eba0fc",
+      "game_id": 2024020356,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-28T01:30:00+00:00",
+      "event_id": "55ba03e523430cffc34405c557354244",
+      "game_id": 2024020357,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-28T03:00:00+00:00",
+      "event_id": "f7a725994d42e38c7fdcac24c6eedc9e",
+      "game_id": 2024020360,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-29T18:00:00+00:00",
+      "event_id": "1403605c0466719bba35b56d45cc2c6d",
+      "game_id": 2024020362,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-29T19:00:00+00:00",
+      "event_id": "052b21a4a8933922bfa6b005df958687",
+      "game_id": 2024020363,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-11-29T20:00:00+00:00",
+      "event_id": "83725a377f291c8e612b5456c3e7ab31",
+      "game_id": 2024020364,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T00:00:00+00:00",
+      "event_id": "b43cac0943e7bd2eb7bac55a0aace6b1",
+      "game_id": 2024020396,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T00:00:00+00:00",
+      "event_id": "68e29ac8a640318a9fd43cf6b6d50cdd",
+      "game_id": 2024020397,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T00:00:00+00:00",
+      "event_id": "4288d66c47ed612c79ea93a93563c468",
+      "game_id": 2024020398,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T00:00:00+00:00",
+      "event_id": "c94762e0677328a4550df6494bce2e4f",
+      "game_id": 2024020399,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T00:00:00+00:00",
+      "event_id": "074cb7a5901135d45b987db93d17b5e8",
+      "game_id": 2024020400,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T00:00:00+00:00",
+      "event_id": "7afd5d1c0f6d28829917f94a0941fd48",
+      "game_id": 2024020401,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T01:00:00+00:00",
+      "event_id": "e12128c95b909dabee3a20f69d2f935c",
+      "game_id": 2024020402,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T01:00:00+00:00",
+      "event_id": "3f4081dd50c1f32b38bc1b4866819ab1",
+      "game_id": 2024020403,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T02:00:00+00:00",
+      "event_id": "40369056b6f77a593382aeb3418b8a2f",
+      "game_id": 2024020404,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-04T03:00:00+00:00",
+      "event_id": "38f985a35358eac4e7c4558c1af8791d",
+      "game_id": 2024020405,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-05T00:30:00+00:00",
+      "event_id": "d6afcda7ac508371ccc82fb162580ae3",
+      "game_id": 2024020406,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-05T00:30:00+00:00",
+      "event_id": "3d69b8c0b23d1a988328e7996516039f",
+      "game_id": 2024020407,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-05T03:00:00+00:00",
+      "event_id": "655774fc10244290ba034254920b52c4",
+      "game_id": 2024020409,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-07T00:00:00+00:00",
+      "event_id": "841ae88fe2318d66b7b5f177009d7f25",
+      "game_id": 2024020419,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-07T00:00:00+00:00",
+      "event_id": "81e076f82bf2c187e4a6875d1dcfb9e9",
+      "game_id": 2024020420,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-07T00:30:00+00:00",
+      "event_id": "efe5f64f2d3e50fcc9e17d60e89b0b03",
+      "game_id": 2024020421,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-07T03:00:00+00:00",
+      "event_id": "f70e8da5ddcc6692634252c44b727608",
+      "game_id": 2024020422,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-07T03:00:00+00:00",
+      "event_id": "6ca3e9c372885283f3223b45f80afcb9",
+      "game_id": 2024020424,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-10T00:00:00+00:00",
+      "event_id": "794d0d208dfb1933357ad4f8076b51df",
+      "game_id": 2024020443,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-10T00:00:00+00:00",
+      "event_id": "39fa9e9dc1d44310e3178812cfbd62cb",
+      "game_id": 2024020444,
+      "pairs": 15,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-10T00:30:00+00:00",
+      "event_id": "a065d13f9c5f8d1df6eb693996c40b16",
+      "game_id": 2024020445,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-11T00:00:00+00:00",
+      "event_id": "cb9e2241813638b192f6dbfbbd765bde",
+      "game_id": 2024020446,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-11T00:00:00+00:00",
+      "event_id": "4b2c8d274f18a26ec56fa2905889cb0e",
+      "game_id": 2024020447,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-11T00:00:00+00:00",
+      "event_id": "01c2c63c4c026b4dd8adc48c2b28343a",
+      "game_id": 2024020448,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-11T00:00:00+00:00",
+      "event_id": "d4a9d82f5a74007b2def6b90c936a1c7",
+      "game_id": 2024020449,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-11T00:30:00+00:00",
+      "event_id": "da012f5d2662c47e7df0f1327cb68f1d",
+      "game_id": 2024020450,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-11T01:00:00+00:00",
+      "event_id": "78ba92fc327a15b32841b61b781d96b6",
+      "game_id": 2024020451,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-11T01:00:00+00:00",
+      "event_id": "9ba3e330acde025e587ffeddea362577",
+      "game_id": 2024020452,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-12T00:00:00+00:00",
+      "event_id": "25b6a33ece97a21cc219a2053a6f8b66",
+      "game_id": 2024020457,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-12T00:30:00+00:00",
+      "event_id": "3d4265622c5d973b25d502db02b2a04d",
+      "game_id": 2024020458,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T00:00:00+00:00",
+      "event_id": "cd2ab76f2b9c133631c0c8933555c9ce",
+      "game_id": 2024020459,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T00:00:00+00:00",
+      "event_id": "4c238b3fa587a11991b5674577eff36b",
+      "game_id": 2024020460,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T00:00:00+00:00",
+      "event_id": "2b5765b6b218180e46367b20e3423f44",
+      "game_id": 2024020461,
+      "pairs": 13,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T00:00:00+00:00",
+      "event_id": "3b1e9ca02936c7452eb6d6b4cfc285c5",
+      "game_id": 2024020462,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T00:00:00+00:00",
+      "event_id": "0047210f3e3ed28cc0eb8c8a79aa6ae2",
+      "game_id": 2024020463,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T00:30:00+00:00",
+      "event_id": "83d6f5b2a7386fd6c5fa63537771bde2",
+      "game_id": 2024020464,
+      "pairs": 14,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T01:00:00+00:00",
+      "event_id": "6f69ae3c1c23e77889d1e143a25d7c8a",
+      "game_id": 2024020465,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T01:00:00+00:00",
+      "event_id": "cdd01cc3a2eed7f63c8b8a78ca9791cf",
+      "game_id": 2024020466,
+      "pairs": 13,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T01:30:00+00:00",
+      "event_id": "c0b6a495b589ebb5fec6dc1840711e89",
+      "game_id": 2024020467,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T01:00:00+00:00",
+      "event_id": "90a35b99b2c61bfdcfc4cdb73de0d59a",
+      "game_id": 2024020468,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T02:00:00+00:00",
+      "event_id": "9e53eb6c7ee9b61be628459b15c7698c",
+      "game_id": 2024020469,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T02:00:00+00:00",
+      "event_id": "caa7be3b25d9a0d00392ca553518d37f",
+      "game_id": 2024020470,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T03:00:00+00:00",
+      "event_id": "dc5181e581148e1fa8da2b082f168aae",
+      "game_id": 2024020471,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-13T03:00:00+00:00",
+      "event_id": "dac9ad05ca2e1d7302fbf7be2857e1cf",
+      "game_id": 2024020472,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-14T00:00:00+00:00",
+      "event_id": "6a22833b43c90c35808996aabe34ce55",
+      "game_id": 2024020473,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-14T18:00:00+00:00",
+      "event_id": "fdab130a41c821ff1ec7d1d62c089303",
+      "game_id": 2024020474,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-14T18:00:00+00:00",
+      "event_id": "ace7a97511daeef3d2fefd212d417803",
+      "game_id": 2024020475,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-14T19:00:00+00:00",
+      "event_id": "24818caf5383a99c6521208411590927",
+      "game_id": 2024020476,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-14T21:00:00+00:00",
+      "event_id": "987d3b4ab5c35c35181db995447f13d6",
+      "game_id": 2024020477,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T00:00:00+00:00",
+      "event_id": "71e456078ca553b4fd4f0f6ebf8d508e",
+      "game_id": 2024020478,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T00:00:00+00:00",
+      "event_id": "a5fc119db581523d45ad7a4ebea42a57",
+      "game_id": 2024020479,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T00:00:00+00:00",
+      "event_id": "8597257483fbea83a17cbfd1806d7ac8",
+      "game_id": 2024020480,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T00:00:00+00:00",
+      "event_id": "0bcfe7fc7704840e4b6e7fbcbe494a9b",
+      "game_id": 2024020481,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T00:00:00+00:00",
+      "event_id": "42abb47b673ead61a9b3e4171325c7d5",
+      "game_id": 2024020482,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T01:00:00+00:00",
+      "event_id": "64ee3de1a03be9d0a0352664a0bc3782",
+      "game_id": 2024020483,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T02:00:00+00:00",
+      "event_id": "68376b66dd4277ac056aafff966c4a45",
+      "game_id": 2024020484,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T03:00:00+00:00",
+      "event_id": "3e348b00afe6135bc6713c9df4203e69",
+      "game_id": 2024020485,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T03:00:00+00:00",
+      "event_id": "35195f5ab9f1f274458ec5f6c703b71e",
+      "game_id": 2024020486,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T03:00:00+00:00",
+      "event_id": "e0705d2dbaccfee831399983caa4e97f",
+      "game_id": 2024020487,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T03:00:00+00:00",
+      "event_id": "b2f5c18c85ebf4391b9d83d1ee2bcf02",
+      "game_id": 2024020488,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T20:00:00+00:00",
+      "event_id": "d51e51d10f2cde86857f1d48fa1f6cdc",
+      "game_id": 2024020489,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T22:00:00+00:00",
+      "event_id": "2a8b39ad2b9d31c09b937f944e4b5ab0",
+      "game_id": 2024020490,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T22:00:00+00:00",
+      "event_id": "483fd39383aa4ce22459ad7e3ba8dc49",
+      "game_id": 2024020491,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T23:00:00+00:00",
+      "event_id": "2362033b13c1620e776dc365058e6540",
+      "game_id": 2024020492,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-15T23:00:00+00:00",
+      "event_id": "8025d0396ecac402e60066105af07a7f",
+      "game_id": 2024020493,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-17T01:00:00+00:00",
+      "event_id": "f54bea2b4d17e9c599edab55d475f550",
+      "game_id": 2024020494,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-17T01:30:00+00:00",
+      "event_id": "d3ab3a6ea4f5fe3755c84470cf627635",
+      "game_id": 2024020495,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-17T03:30:00+00:00",
+      "event_id": "4fa50322fb28e00e8ac0be293e5abe29",
+      "game_id": 2024020496,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T00:00:00+00:00",
+      "event_id": "b45823e10fdfe80abeb4d84eb1069693",
+      "game_id": 2024020497,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T00:00:00+00:00",
+      "event_id": "4edde452555399f50065b9ab704af86e",
+      "game_id": 2024020498,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T00:00:00+00:00",
+      "event_id": "805d7cc02aabb1b8f7853d01cff4ee01",
+      "game_id": 2024020499,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T00:30:00+00:00",
+      "event_id": "802539eb32a9ffada5b017ccae3d78ef",
+      "game_id": 2024020500,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T01:00:00+00:00",
+      "event_id": "5c52663c5d30a76eb5f357e4d5018f7f",
+      "game_id": 2024020501,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T01:00:00+00:00",
+      "event_id": "1eb6f777a9e92752911b140372920bf6",
+      "game_id": 2024020502,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T01:30:00+00:00",
+      "event_id": "0b1e44545c0efc88e8876bbcae958029",
+      "game_id": 2024020503,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T02:00:00+00:00",
+      "event_id": "669bd57ec9cb151caa16b8b298191409",
+      "game_id": 2024020504,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T03:00:00+00:00",
+      "event_id": "a0e1c044c7470b53649504bb2b4c386f",
+      "game_id": 2024020505,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-18T03:30:00+00:00",
+      "event_id": "f24d36cd662c3ac95d90bd2a6cfb7205",
+      "game_id": 2024020506,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-19T00:00:00+00:00",
+      "event_id": "d4f7472cc0ac97e8b37c961e5bdce2e5",
+      "game_id": 2024020507,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-19T00:30:00+00:00",
+      "event_id": "157ebfc7686264a1ffbff6b9448028ab",
+      "game_id": 2024020508,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-19T02:30:00+00:00",
+      "event_id": "f69742064e8bca89bdea8b97f849f6b9",
+      "game_id": 2024020509,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-19T03:00:00+00:00",
+      "event_id": "af03e241b32bac1d4a2b153a62d0a6ac",
+      "game_id": 2024020510,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-19T03:00:00+00:00",
+      "event_id": "ecc152a9b8730229d56e3f92daf5ff40",
+      "game_id": 2024020511,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-20T00:00:00+00:00",
+      "event_id": "dadbc3117509cdfba7422beb60db0f1b",
+      "game_id": 2024020512,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-20T00:30:00+00:00",
+      "event_id": "5f0728cf2f61fdf7403336ebadc6493e",
+      "game_id": 2024020513,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-20T00:00:00+00:00",
+      "event_id": "5e76a99640b2c44af64a2036d5c20aab",
+      "game_id": 2024020514,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-20T01:00:00+00:00",
+      "event_id": "91d507bc23ab34862564cb4e69d75a95",
+      "game_id": 2024020515,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-20T01:30:00+00:00",
+      "event_id": "d900e10ef342c7f6d4fc89d80dd160eb",
+      "game_id": 2024020516,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-20T02:00:00+00:00",
+      "event_id": "2caaa8d7f9aee2d25d227d2c7bba562c",
+      "game_id": 2024020517,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-20T02:00:00+00:00",
+      "event_id": "86cf1e7357d989761b64adec1c98a521",
+      "game_id": 2024020518,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-20T03:00:00+00:00",
+      "event_id": "cc9d3fa63805bf3582bee01993ede180",
+      "game_id": 2024020519,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-20T03:30:00+00:00",
+      "event_id": "07ea9d4884d5a4791afaa511b8332189",
+      "game_id": 2024020520,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T00:00:00+00:00",
+      "event_id": "5367c99632f0815179bc5ff1d0924bd5",
+      "game_id": 2024020521,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T00:00:00+00:00",
+      "event_id": "8492409a4960de3adef5ea028abcff90",
+      "game_id": 2024020522,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T00:00:00+00:00",
+      "event_id": "916cb753022c302d81c9df2a9f8c09fb",
+      "game_id": 2024020523,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T00:00:00+00:00",
+      "event_id": "8aa4c7d9f19a350c29755104c406561a",
+      "game_id": 2024020524,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T01:00:00+00:00",
+      "event_id": "fccd645a529bd94e0204ebbc3c6dcebf",
+      "game_id": 2024020525,
+      "pairs": 13,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T01:00:00+00:00",
+      "event_id": "761bba91bd49e2150ffd86b8a3b9eaa7",
+      "game_id": 2024020526,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T03:00:00+00:00",
+      "event_id": "8d1925290110e88d555bd69ba1da3b47",
+      "game_id": 2024020527,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T18:30:00+00:00",
+      "event_id": "5ab0c960460775673784e9b6b252099b",
+      "game_id": 2024020528,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T21:00:00+00:00",
+      "event_id": "73f36437c3c9d38fb5c6c643cee543cd",
+      "game_id": 2024020529,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-21T21:00:00+00:00",
+      "event_id": "c2d6afa0d8a5567dc12f76cdb85105af",
+      "game_id": 2024020530,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T00:00:00+00:00",
+      "event_id": "89a3b1758e52e45161ab4f1ccea6b159",
+      "game_id": 2024020531,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T00:00:00+00:00",
+      "event_id": "c5428ee89f935869b82e0ad7edf279fc",
+      "game_id": 2024020532,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T00:00:00+00:00",
+      "event_id": "5fec87e072d8dd7a3b6baae46ae044cc",
+      "game_id": 2024020533,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T00:00:00+00:00",
+      "event_id": "4c65910a5a8f219e8be7ccc5076a7954",
+      "game_id": 2024020534,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T00:00:00+00:00",
+      "event_id": "fcb9f2d01ad08103e1ca151a324009c1",
+      "game_id": 2024020535,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T00:00:00+00:00",
+      "event_id": "502a45293369c41b515d9f9290ee84c8",
+      "game_id": 2024020536,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T03:00:00+00:00",
+      "event_id": "d14bbb038f69bc48459bf2313dc22a18",
+      "game_id": 2024020537,
+      "pairs": 8,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T03:00:00+00:00",
+      "event_id": "4a07d3566ec62e762e0305eb9227ff6e",
+      "game_id": 2024020538,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T17:30:00+00:00",
+      "event_id": "97edd5f090f4b98ef4a13305f3d7e2c6",
+      "game_id": 2024020539,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T22:00:00+00:00",
+      "event_id": "cb34304fa375db9df1297a6d1949f17c",
+      "game_id": 2024020540,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T22:00:00+00:00",
+      "event_id": "dee29291ff7eae7d5fbeb94d7fb53610",
+      "game_id": 2024020541,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-22T22:00:00+00:00",
+      "event_id": "e127dde6224d3b8145477849f1fdc410",
+      "game_id": 2024020542,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-23T01:00:00+00:00",
+      "event_id": "812768da32fbc63cccd0b5b630c8bcfd",
+      "game_id": 2024020543,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-23T01:00:00+00:00",
+      "event_id": "8c86056de96780c267074196d13e5e14",
+      "game_id": 2024020544,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-23T18:00:00+00:00",
+      "event_id": "af5a319668863aeac54444bd3556a325",
+      "game_id": 2024020545,
+      "pairs": 13,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-23T19:00:00+00:00",
+      "event_id": "059284266971fcfe18a91aa4b199efbe",
+      "game_id": 2024020546,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T00:00:00+00:00",
+      "event_id": "9d6255a58b107ffb19c361f6b33d7854",
+      "game_id": 2024020547,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T00:00:00+00:00",
+      "event_id": "7e51f121fd8826fe702b70142fafc0ee",
+      "game_id": 2024020548,
+      "pairs": 12,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T00:00:00+00:00",
+      "event_id": "a8a56dbcf09ead7b246f1a0513f29a90",
+      "game_id": 2024020549,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T00:00:00+00:00",
+      "event_id": "60e22037530137a0c310f8b9bec7f01f",
+      "game_id": 2024020550,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T00:00:00+00:00",
+      "event_id": "3d764ccbe8b5a774a108daed2135bb19",
+      "game_id": 2024020551,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T00:30:00+00:00",
+      "event_id": "8bdfaf8944d8e9ef38cab38cb4b71868",
+      "game_id": 2024020552,
+      "pairs": 13,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T01:00:00+00:00",
+      "event_id": "e9a18c781ccaa509e41656b7e3a54c06",
+      "game_id": 2024020553,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T01:00:00+00:00",
+      "event_id": "fa4954d3693fc962ae0454b0f473acac",
+      "game_id": 2024020554,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T02:00:00+00:00",
+      "event_id": "f9cce0070126baed76b3809a3005e2e5",
+      "game_id": 2024020555,
+      "pairs": 9,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T02:00:00+00:00",
+      "event_id": "ff34983a759297a4b4cbcdd7f95576c7",
+      "game_id": 2024020556,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-24T03:00:00+00:00",
+      "event_id": "38fd081501a02ff6b1064fb85082e6f3",
+      "game_id": 2024020557,
+      "pairs": 11,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-31T17:30:00+00:00",
+      "event_id": "83c00f54e27e7e92fcccd05c3c63b1ee",
+      "game_id": 2024020589,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-31T18:00:00+00:00",
+      "event_id": "4bc20ca48417b7fb9cfc968826411196",
+      "game_id": 2024020590,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-31T20:00:00+00:00",
+      "event_id": "c7390553d92ccf06062de0603a037ca9",
+      "game_id": 2024020591,
+      "pairs": 10,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2024-12-31T22:00:00+00:00",
+      "event_id": "5d98242aa5b528a77fe3e216d82bfdcc",
+      "game_id": 2024020592,
+      "pairs": 13,
+      "period": "early_through_2024_12_31_utc"
+    },
+    {
+      "boundary": "2025-01-01T01:00:00+00:00",
+      "event_id": "c8fa1c80d495a223a143ce9cbea4376d",
+      "game_id": 2024020593,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-01T01:00:00+00:00",
+      "event_id": "5a473f12e5a8bebcf564be649f563147",
+      "game_id": 2024020594,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-01T01:00:00+00:00",
+      "event_id": "0ab96444b1b7b38bedf52751aa2b7c9d",
+      "game_id": 2024020595,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-01T01:00:00+00:00",
+      "event_id": "96c1a7022b21da2b63ee692f99d72064",
+      "game_id": 2024020596,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-01T01:00:00+00:00",
+      "event_id": "e98f1ea454e0456600691846bddd9e2c",
+      "game_id": 2024020597,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-01T01:00:00+00:00",
+      "event_id": "faa8329058f9750c74760477d39deeb4",
+      "game_id": 2024020598,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-01T01:00:00+00:00",
+      "event_id": "34c199f612a68c55bcd17bb4f7ab2feb",
+      "game_id": 2024020599,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-01T02:00:00+00:00",
+      "event_id": "e6adc065cc5ae54b71e546daee28914a",
+      "game_id": 2024020600,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-01T02:00:00+00:00",
+      "event_id": "02cf4d6431fcdb2fcd7297ffd555713e",
+      "game_id": 2024020601,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T00:00:00+00:00",
+      "event_id": "33b68af4b8cd4b68a1e8fe1dc0b6ab85",
+      "game_id": 2024020603,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T00:00:00+00:00",
+      "event_id": "d5208605e1ad1687e826840c9beb8044",
+      "game_id": 2024020604,
+      "pairs": 13,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T00:00:00+00:00",
+      "event_id": "84443c4cb6d629b2b03491f30de8111c",
+      "game_id": 2024020605,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T00:00:00+00:00",
+      "event_id": "6e2cfec76a758cca9b48aca968625bba",
+      "game_id": 2024020606,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T00:30:00+00:00",
+      "event_id": "2de3d70f2645fa0e3f963bc74921b846",
+      "game_id": 2024020607,
+      "pairs": 13,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T01:00:00+00:00",
+      "event_id": "4eacb29cd7d69cea068fd4fa97e0bb3d",
+      "game_id": 2024020608,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T01:00:00+00:00",
+      "event_id": "b76d81f287af564a1d6864bb7486b2a3",
+      "game_id": 2024020609,
+      "pairs": 13,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T02:00:00+00:00",
+      "event_id": "2c4e914856516497f2412c2c14cb1c19",
+      "game_id": 2024020610,
+      "pairs": 6,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T02:00:00+00:00",
+      "event_id": "3c06fb40b72af0745fe1c30e14c5ccae",
+      "game_id": 2024020611,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T03:00:00+00:00",
+      "event_id": "75254383e926508a4c8ffb09e8c28004",
+      "game_id": 2024020612,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T03:00:00+00:00",
+      "event_id": "807748bc8ba76ce6c04905acb475731f",
+      "game_id": 2024020613,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-03T03:30:00+00:00",
+      "event_id": "36101b290ea0f31c0f20bc1f26acf1c8",
+      "game_id": 2024020614,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-04T00:00:00+00:00",
+      "event_id": "9c5d91c96cbdc30cc48c8ab751780b59",
+      "game_id": 2024020615,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-04T01:00:00+00:00",
+      "event_id": "9ea0d44b79f7aaf238ad3f2eca9789fb",
+      "game_id": 2024020616,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-04T01:00:00+00:00",
+      "event_id": "60ec45b22c9888f77499dc348709cc2e",
+      "game_id": 2024020617,
+      "pairs": 13,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-04T02:00:00+00:00",
+      "event_id": "7da828411b70a5fc50f0cf271d3a88fe",
+      "game_id": 2024020618,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-04T03:00:00+00:00",
+      "event_id": "ea3a48472d9cd4655ec1a1917ab6c086",
+      "game_id": 2024020619,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-04T17:00:00+00:00",
+      "event_id": "552863ba015b5f420886172ca7f1287f",
+      "game_id": 2024020620,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T00:00:00+00:00",
+      "event_id": "734a9d23e2e548e2d898e1b69c8169f7",
+      "game_id": 2024020621,
+      "pairs": 13,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-04T21:00:00+00:00",
+      "event_id": "b34fcae533b5c1a67d7483b63da4ae5b",
+      "game_id": 2024020622,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T00:00:00+00:00",
+      "event_id": "bafb36812aafc06a4d5a8edee71c5673",
+      "game_id": 2024020623,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T00:00:00+00:00",
+      "event_id": "baf9e15a19ff2802ffe9db9744c001a3",
+      "game_id": 2024020624,
+      "pairs": 7,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T00:00:00+00:00",
+      "event_id": "b1359d1fd53b5316e032a801ad3503bc",
+      "game_id": 2024020625,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T00:00:00+00:00",
+      "event_id": "d676544d766a410e13222c2f6237f0b0",
+      "game_id": 2024020626,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T03:00:00+00:00",
+      "event_id": "95c579a30489d43285dbafc6dd551a51",
+      "game_id": 2024020627,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T01:00:00+00:00",
+      "event_id": "d7eaf962011fc863889ba84f5a4d0581",
+      "game_id": 2024020628,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T02:00:00+00:00",
+      "event_id": "9c97b35d0cc715d72729e1b5a4528ca0",
+      "game_id": 2024020629,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T03:00:00+00:00",
+      "event_id": "938e8eec67ede8e909bf9a554a6dfdb4",
+      "game_id": 2024020630,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-05T03:00:00+00:00",
+      "event_id": "bdb2f3079bad25c28ded05435f19464d",
+      "game_id": 2024020631,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-07T00:00:00+00:00",
+      "event_id": "10109b1dc97ec39fed17f4d235c37167",
+      "game_id": 2024020637,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-07T00:30:00+00:00",
+      "event_id": "418bd0c130735dbd98a61797ffb8aef8",
+      "game_id": 2024020638,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-07T02:00:00+00:00",
+      "event_id": "1ee2f3b34e79320da45ac35ddfede8d3",
+      "game_id": 2024020639,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-07T03:00:00+00:00",
+      "event_id": "04f5bf9fb8f2c0e9b08d0102d60f90fb",
+      "game_id": 2024020640,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-08T00:00:00+00:00",
+      "event_id": "82c085ba3c2b8f5af4ee186a426ea032",
+      "game_id": 2024020641,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-08T00:00:00+00:00",
+      "event_id": "fd084c7b4cde9d46512660d1c00374e0",
+      "game_id": 2024020642,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-08T00:00:00+00:00",
+      "event_id": "6b6d0ce62dcbe63a231d4da4201c87b6",
+      "game_id": 2024020643,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-08T00:30:00+00:00",
+      "event_id": "d5a66537bd82f00e72e6f7dbaf288e6e",
+      "game_id": 2024020644,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-08T00:00:00+00:00",
+      "event_id": "89d425ef4fb091f7b103aba36fa2ef7e",
+      "game_id": 2024020645,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-08T01:00:00+00:00",
+      "event_id": "d9c27e02b7cead35baa17fd417b67a97",
+      "game_id": 2024020646,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-08T01:00:00+00:00",
+      "event_id": "1d7d33ba47c01ccba812e5ff278ca0bc",
+      "game_id": 2024020647,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-08T03:00:00+00:00",
+      "event_id": "c3a1b87a1fe9bac036ac2d28cb331efe",
+      "game_id": 2024020648,
+      "pairs": 14,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-08T03:30:00+00:00",
+      "event_id": "548f9697e9dbeaea05b77c4792600314",
+      "game_id": 2024020649,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-09T00:30:00+00:00",
+      "event_id": "d1631b0d75b0637d453a05d5dc9be98a",
+      "game_id": 2024020650,
+      "pairs": 14,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-09T00:30:00+00:00",
+      "event_id": "bf74012278f2195feb2ecbc8980ae9b3",
+      "game_id": 2024020651,
+      "pairs": 17,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-09T03:00:00+00:00",
+      "event_id": "88c7bcb4c8453c33f23482a49fc6dbfe",
+      "game_id": 2024020652,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-11T18:00:00+00:00",
+      "event_id": "b76e53c43cd95586a0cbd665e5b11894",
+      "game_id": 2024020669,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-11T21:00:00+00:00",
+      "event_id": "cd9e550320504c7ba6ea3a5482fcc42f",
+      "game_id": 2024020670,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-11T21:00:00+00:00",
+      "event_id": "f85701fd08b0619d4f3065cfed222f4f",
+      "game_id": 2024020671,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T00:00:00+00:00",
+      "event_id": "c210b0d7e5923a981992d6eb5f90d593",
+      "game_id": 2024020672,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T00:00:00+00:00",
+      "event_id": "6689678e8effcf29e5554877fed1198b",
+      "game_id": 2024020673,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T00:00:00+00:00",
+      "event_id": "9611054da9c73d6dcb06e96f1769b936",
+      "game_id": 2024020674,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T00:00:00+00:00",
+      "event_id": "da9ecb29b1bd4fd5fb735f10aa53ecfe",
+      "game_id": 2024020675,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T00:00:00+00:00",
+      "event_id": "4bd593bd375a4962b2ee5d2ca1b37abb",
+      "game_id": 2024020676,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T00:00:00+00:00",
+      "event_id": "989f282e97385b2a48abc95769e5bb9f",
+      "game_id": 2024020677,
+      "pairs": 13,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T00:00:00+00:00",
+      "event_id": "019e4d9e1bc34b481b20e4830eae3ec1",
+      "game_id": 2024020678,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T01:00:00+00:00",
+      "event_id": "195cadaa87bddcfa899af2e2818deee7",
+      "game_id": 2024020679,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T02:00:00+00:00",
+      "event_id": "d72a2d2a7efe02b1b7ce9d3db5237c00",
+      "game_id": 2024020680,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T03:00:00+00:00",
+      "event_id": "058640642eb64200352419e321963d69",
+      "game_id": 2024020681,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T03:00:00+00:00",
+      "event_id": "93214473dc5cf7d707acae73a925a747",
+      "game_id": 2024020682,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-12T03:00:00+00:00",
+      "event_id": "70dfea015b7047890f488677384867c1",
+      "game_id": 2024020683,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T00:00:00+00:00",
+      "event_id": "c8b4d72d4f0d72ad0598434e53050f5a",
+      "game_id": 2024020692,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T00:00:00+00:00",
+      "event_id": "ea7f764dcdbab8eef9c0864b1fd9f9cf",
+      "game_id": 2024020693,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T00:00:00+00:00",
+      "event_id": "4844ed13245dd00c6e69a58ba830db0d",
+      "game_id": 2024020694,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T00:30:00+00:00",
+      "event_id": "69bd722e3848ff24ec0b7cffc166e975",
+      "game_id": 2024020695,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T00:00:00+00:00",
+      "event_id": "517ef93b76b15e48705b4645a981f856",
+      "game_id": 2024020696,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T00:00:00+00:00",
+      "event_id": "534946a43ead305dc7d5f9fa6916984b",
+      "game_id": 2024020697,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T00:00:00+00:00",
+      "event_id": "b169469d481fb7ed175c91d3cc640261",
+      "game_id": 2024020698,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T00:30:00+00:00",
+      "event_id": "1a7d978c0269991484878a2fe079b7b3",
+      "game_id": 2024020699,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T01:00:00+00:00",
+      "event_id": "5c9f06d80ae8f9653815d50ff6b75e74",
+      "game_id": 2024020700,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T01:00:00+00:00",
+      "event_id": "88cfb6de98f6a634d87a8d204e94b60c",
+      "game_id": 2024020701,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T01:00:00+00:00",
+      "event_id": "6a58f1594528c7358b6821068270dd42",
+      "game_id": 2024020702,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T02:00:00+00:00",
+      "event_id": "03788eabd9788768a698bbad186f3e3a",
+      "game_id": 2024020703,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-15T02:00:00+00:00",
+      "event_id": "2a0c4518e32a2a473ae361f7dbfad41d",
+      "game_id": 2024020704,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T00:00:00+00:00",
+      "event_id": "8abca4300fad0a05a8e632cea3438038",
+      "game_id": 2024020707,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T00:00:00+00:00",
+      "event_id": "591896580785b51ce6bc47ead3adf3df",
+      "game_id": 2024020708,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T00:00:00+00:00",
+      "event_id": "874b121edc96c29d7f3351abbd8b89d8",
+      "game_id": 2024020709,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T00:00:00+00:00",
+      "event_id": "fedfa2b85db342576050e02a1ae0e116",
+      "game_id": 2024020710,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T00:00:00+00:00",
+      "event_id": "5432cf9b42b41bbee107a5245e24f159",
+      "game_id": 2024020711,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T00:30:00+00:00",
+      "event_id": "0ab1e4913d761cc5b7cd6fd28307ac12",
+      "game_id": 2024020712,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T01:00:00+00:00",
+      "event_id": "b08e8ec69fee51401f02535b558fb175",
+      "game_id": 2024020713,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T01:00:00+00:00",
+      "event_id": "89a6126048760923084e95fca71eabeb",
+      "game_id": 2024020714,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T01:00:00+00:00",
+      "event_id": "1b8e3e3a67da5245cdd7985f94ed772f",
+      "game_id": 2024020715,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T01:00:00+00:00",
+      "event_id": "66a8b45350f44ab4cd568dd3b56eeab4",
+      "game_id": 2024020716,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T02:00:00+00:00",
+      "event_id": "381a6dabf618ffcc5417f7ccefba2958",
+      "game_id": 2024020717,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T02:30:00+00:00",
+      "event_id": "5e1121f3376c47c6afc0b4afb8fbb71e",
+      "game_id": 2024020718,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-17T03:00:00+00:00",
+      "event_id": "5545a1e17e7325beea46099d1a13705a",
+      "game_id": 2024020719,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-18T17:30:00+00:00",
+      "event_id": "440f3d7abdaeeacf08b08aa93a524c26",
+      "game_id": 2024020722,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-18T20:00:00+00:00",
+      "event_id": "50a49e29f948ef6b627a989b863a270a",
+      "game_id": 2024020723,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-18T21:00:00+00:00",
+      "event_id": "8be05e2f6e33b47d042a45aac5c3fb90",
+      "game_id": 2024020724,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-18T23:00:00+00:00",
+      "event_id": "430d8352df9a5e8c331ee2a298946cb4",
+      "game_id": 2024020725,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T00:00:00+00:00",
+      "event_id": "800d42e4006f9569b9696270110b6534",
+      "game_id": 2024020726,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T00:00:00+00:00",
+      "event_id": "9ba1bcdf8f6232ce5cb85b6857643c77",
+      "game_id": 2024020727,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T00:00:00+00:00",
+      "event_id": "9c8d6b43505644bb761eb3368d1e7356",
+      "game_id": 2024020728,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T00:00:00+00:00",
+      "event_id": "862935125406bf742e74922b0790a6ec",
+      "game_id": 2024020729,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T00:00:00+00:00",
+      "event_id": "05eff30b2a57feafb44ec018d378de48",
+      "game_id": 2024020730,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T00:30:00+00:00",
+      "event_id": "854cfe74027cfa79976288f151fda4a0",
+      "game_id": 2024020731,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T01:00:00+00:00",
+      "event_id": "49ea7ddadf31f2dcba2ecda367e6abeb",
+      "game_id": 2024020732,
+      "pairs": 8,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T01:00:00+00:00",
+      "event_id": "1462cce1cac3e086586329d8bd2fea2b",
+      "game_id": 2024020733,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T02:00:00+00:00",
+      "event_id": "c8be79daf44535c58b12495ab8310a5c",
+      "game_id": 2024020734,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T03:00:00+00:00",
+      "event_id": "e25156b6ea2ec943c6cd1fc9df878ada",
+      "game_id": 2024020735,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-19T03:00:00+00:00",
+      "event_id": "dec13b2e7c2b05607efea4c366bd7e0a",
+      "game_id": 2024020736,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-25T18:00:00+00:00",
+      "event_id": "e46de5e0481c35effe3b6f1825a83be0",
+      "game_id": 2024020776,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-25T21:00:00+00:00",
+      "event_id": "b13cdf3e397b8cfdb0f165bd137e82cd",
+      "game_id": 2024020777,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-25T21:00:00+00:00",
+      "event_id": "7ce1a66b26690f11f660c71af5041dad",
+      "game_id": 2024020778,
+      "pairs": 7,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T00:00:00+00:00",
+      "event_id": "e2c7c617ceabae3dd9b3ba27713b3fc3",
+      "game_id": 2024020779,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T00:00:00+00:00",
+      "event_id": "ae5aab3844c472a7fbc03fc5b36ccd57",
+      "game_id": 2024020780,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T00:00:00+00:00",
+      "event_id": "c364ceffb852d45e5971d437bbaad834",
+      "game_id": 2024020781,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T00:00:00+00:00",
+      "event_id": "f7034251e10b8bf2cd7865994205a155",
+      "game_id": 2024020782,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T00:00:00+00:00",
+      "event_id": "434d9dee038ae109ec100d84dd569ef8",
+      "game_id": 2024020783,
+      "pairs": 12,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T00:00:00+00:00",
+      "event_id": "3a990e26778b572bebefb32e1d79e309",
+      "game_id": 2024020784,
+      "pairs": 10,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T00:30:00+00:00",
+      "event_id": "6cf61b8e7cb390265de4e19c7115c0a0",
+      "game_id": 2024020785,
+      "pairs": 6,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T03:00:00+00:00",
+      "event_id": "54a2c4c5b4151e03c3597206e5841398",
+      "game_id": 2024020786,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T03:00:00+00:00",
+      "event_id": "3084c5bd3c16d4d63f334f78904e1488",
+      "game_id": 2024020787,
+      "pairs": 9,
+      "period": "later_from_2025_01_01_utc"
+    },
+    {
+      "boundary": "2025-01-26T03:00:00+00:00",
+      "event_id": "29beb4d5779b5f6e05f65deafbfeb453",
+      "game_id": 2024020788,
+      "pairs": 11,
+      "period": "later_from_2025_01_01_utc"
+    }
+  ],
+  "eligible": {
+    "first_boundary_utc": "2024-11-27T00:00:00+00:00",
+    "first_market_update_utc": "2024-11-26T18:59:42+00:00",
+    "games": 270,
+    "last_boundary_utc": "2025-01-26T03:00:00+00:00",
+    "last_market_update_utc": "2025-01-25T16:17:45+00:00",
+    "lead_seconds": {
+      "maximum": 48347.0,
+      "median": 36232.0,
+      "minimum": 2531.0
+    },
+    "pairs": 2768,
+    "players": 255,
+    "source_events": 270
+  },
+  "event_payloads": 273,
+  "exclusion_details": [
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Anaheim Ducks_Los Angeles Kings_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Boston Bruins_Pittsburgh Penguins_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Carolina Hurricanes_Florida Panthers_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Columbus Blue Jackets_Calgary Flames_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Dallas Stars_Colorado Avalanche_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Detroit Red Wings_New Jersey Devils_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Nashville Predators_Tampa Bay Lightning_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_San Jose Sharks_Seattle Kraken_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Utah Hockey Club_Edmonton Oilers_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Vegas Golden Knights_Dallas Stars_20241206.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Vegas Golden Knights_Winnipeg Jets_20241129.json"
+    },
+    {
+      "reason": "publisher_error_payload",
+      "source_file": "icehockey_nhl_player_props_Washington Capitals_New York Islanders_20241129.json"
+    },
+    {
+      "event_id": "e74fab7ff8afc49dc96fa80117f9ef5c",
+      "pairs_affected": null,
+      "reason": "no_main_goals_market",
+      "source_file": "icehockey_nhl_player_props_Anaheim Ducks_Vegas Golden Knights_20241204.json"
+    },
+    {
+      "event_id": "c8b4d72d4f0d72ad0598434e53050f5a",
+      "game_id": 2024020692,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Nicholas Paul",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Boston Bruins_Tampa Bay Lightning_20250114.json"
+    },
+    {
+      "event_id": "77f4fd53c9507651a3740dd6d95c9a14",
+      "pairs_affected": 10,
+      "reason": "original_debug_game_excluded",
+      "source_file": "icehockey_nhl_player_props_Boston Bruins_Vancouver Canucks_20241126.json"
+    },
+    {
+      "event_id": "83725a377f291c8e612b5456c3e7ab31",
+      "game_id": 2024020364,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Buffalo Sabres_Vancouver Canucks_20241129.json"
+    },
+    {
+      "event_id": "caa7be3b25d9a0d00392ca553518d37f",
+      "game_id": 2024020470,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Nicholas Paul",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Calgary Flames_Tampa Bay Lightning_20241212.json"
+    },
+    {
+      "event_id": "483fd39383aa4ce22459ad7e3ba8dc49",
+      "game_id": 2024020491,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Carolina Hurricanes_Columbus Blue Jackets_20241215.json"
+    },
+    {
+      "event_id": "baf9e15a19ff2802ffe9db9744c001a3",
+      "game_id": 2024020624,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Carolina Hurricanes_Minnesota Wild_20250104.json"
+    },
+    {
+      "event_id": "802539eb32a9ffada5b017ccae3d78ef",
+      "game_id": 2024020500,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Carolina Hurricanes_New York Islanders_20241217.json"
+    },
+    {
+      "event_id": "6a22833b43c90c35808996aabe34ce55",
+      "game_id": 2024020473,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Carolina Hurricanes_Ottawa Senators_20241213.json"
+    },
+    {
+      "event_id": "01c2c63c4c026b4dd8adc48c2b28343a",
+      "game_id": 2024020448,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Alex Wennberg",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Carolina Hurricanes_San Jose Sharks_20241210.json"
+    },
+    {
+      "event_id": "01c2c63c4c026b4dd8adc48c2b28343a",
+      "game_id": 2024020448,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Carolina Hurricanes_San Jose Sharks_20241210.json"
+    },
+    {
+      "event_id": "7afd5d1c0f6d28829917f94a0941fd48",
+      "game_id": 2024020401,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Carolina Hurricanes_Seattle Kraken_20241203.json"
+    },
+    {
+      "event_id": "5a473f12e5a8bebcf564be649f563147",
+      "game_id": 2024020594,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Columbus Blue Jackets_Carolina Hurricanes_20241231.json"
+    },
+    {
+      "event_id": "740afc1ee3f264f057d06af65bb2802c",
+      "game_id": 2024020355,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Yegor Chinakhov",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Columbus Blue Jackets_Montr\u00e9al Canadiens_20241127.json"
+    },
+    {
+      "event_id": "33b68af4b8cd4b68a1e8fe1dc0b6ab85",
+      "game_id": 2024020603,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Florida Panthers_Carolina Hurricanes_20250102.json"
+    },
+    {
+      "event_id": "7c0a03ea0b11ff0edfaa40ba9b84b18f",
+      "pairs_affected": 12,
+      "reason": "fixture_unresolved",
+      "source_file": "icehockey_nhl_player_props_Los Angeles Kings_Calgary Flames_20250108.json"
+    },
+    {
+      "event_id": "e12128c95b909dabee3a20f69d2f935c",
+      "game_id": 2024020402,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Minnesota Wild_Vancouver Canucks_20241203.json"
+    },
+    {
+      "event_id": "e9a18c781ccaa509e41656b7e3a54c06",
+      "game_id": 2024020553,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Nashville Predators_Carolina Hurricanes_20241223.json"
+    },
+    {
+      "event_id": "6cf61b8e7cb390265de4e19c7115c0a0",
+      "game_id": 2024020785,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_New York Islanders_Carolina Hurricanes_20250125.json"
+    },
+    {
+      "event_id": "97edd5f090f4b98ef4a13305f3d7e2c6",
+      "game_id": 2024020539,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_New York Rangers_Carolina Hurricanes_20241222.json"
+    },
+    {
+      "event_id": "0739fdb73426ffe08de9cc530fd5e4cd",
+      "game_id": 2024020354,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Pittsburgh Penguins_Vancouver Canucks_20241127.json"
+    },
+    {
+      "event_id": "36101b290ea0f31c0f20bc1f26acf1c8",
+      "game_id": 2024020614,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Alex Wennberg",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_San Jose Sharks_Tampa Bay Lightning_20250102.json"
+    },
+    {
+      "event_id": "7a9fbdadf8d02247e1066f3a73ad95af",
+      "game_id": 2024020029,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Tampa Bay Lightning_Carolina Hurricanes_20250107.json"
+    },
+    {
+      "event_id": "4edde452555399f50065b9ab704af86e",
+      "game_id": 2024020498,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Nicholas Paul",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Tampa Bay Lightning_Columbus Blue Jackets_20241217.json"
+    },
+    {
+      "event_id": "cb34304fa375db9df1297a6d1949f17c",
+      "game_id": 2024020540,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Nicholas Paul",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Tampa Bay Lightning_Florida Panthers_20241222.json"
+    },
+    {
+      "event_id": "c210b0d7e5923a981992d6eb5f90d593",
+      "game_id": 2024020672,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Toronto Maple Leafs_Vancouver Canucks_20250111.json"
+    },
+    {
+      "event_id": "af03e241b32bac1d4a2b153a62d0a6ac",
+      "game_id": 2024020510,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Utah Hockey Club_Vancouver Canucks_20241218.json"
+    },
+    {
+      "event_id": "35195f5ab9f1f274458ec5f6c703b71e",
+      "game_id": 2024020486,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Vancouver Canucks_Boston Bruins_20241214.json"
+    },
+    {
+      "event_id": "4fa50322fb28e00e8ac0be293e5abe29",
+      "game_id": 2024020496,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Vancouver Canucks_Colorado Avalanche_20241216.json"
+    },
+    {
+      "event_id": "e25156b6ea2ec943c6cd1fc9df878ada",
+      "game_id": 2024020735,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Vancouver Canucks_Edmonton Oilers_20250118.json"
+    },
+    {
+      "event_id": "dc5181e581148e1fa8da2b082f168aae",
+      "game_id": 2024020471,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Vancouver Canucks_Florida Panthers_20241212.json"
+    },
+    {
+      "event_id": "5545a1e17e7325beea46099d1a13705a",
+      "game_id": 2024020719,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Vancouver Canucks_Los Angeles Kings_20250116.json"
+    },
+    {
+      "event_id": "d14bbb038f69bc48459bf2313dc22a18",
+      "game_id": 2024020537,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Vancouver Canucks_Ottawa Senators_20241221.json"
+    },
+    {
+      "event_id": "f9cce0070126baed76b3809a3005e2e5",
+      "game_id": 2024020555,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Vancouver Canucks_San Jose Sharks_20241223.json"
+    },
+    {
+      "event_id": "54a2c4c5b4151e03c3597206e5841398",
+      "game_id": 2024020786,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Vancouver Canucks_Washington Capitals_20250125.json"
+    },
+    {
+      "event_id": "cc9d3fa63805bf3582bee01993ede180",
+      "game_id": 2024020519,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Vegas Golden Knights_Vancouver Canucks_20241219.json"
+    },
+    {
+      "event_id": "8aa4c7d9f19a350c29755104c406561a",
+      "game_id": 2024020524,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Sebastian Aho",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Washington Capitals_Carolina Hurricanes_20241220.json"
+    },
+    {
+      "event_id": "074cb7a5901135d45b987db93d17b5e8",
+      "game_id": 2024020400,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Alex Wennberg",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Washington Capitals_San Jose Sharks_20241203.json"
+    },
+    {
+      "event_id": "6a58f1594528c7358b6821068270dd42",
+      "game_id": 2024020702,
+      "line": 0.5,
+      "pairs_affected": 1,
+      "player": "Elias Pettersson",
+      "reason": "ambiguous_or_unmatched_player_identity",
+      "source_file": "icehockey_nhl_player_props_Winnipeg Jets_Vancouver Canucks_20250114.json"
+    }
+  ],
+  "independent_price_review": {
+    "early_games": 146,
+    "early_pairs": 1506,
+    "games": 270,
+    "later_games": 124,
+    "later_pairs": 1262,
+    "pairs": 2768,
+    "result": "A separate metadata-only reconstruction agreed on every coverage count, ambiguous/unmatched name count and exclusion; no outcomes read."
+  },
+  "limitations": [
+    "Global retrospective rosters establish name identity only; eventual participation never controls inclusion.",
+    "Market update is an historical entry proxy, not collector receipt, suspension state or accepted execution.",
+    "No power-play field semantics, non-null coverage, prior-history eligibility or model effect was tested by this audit.",
+    "Archive outcomes were previously inspected in other models; neither calendar subgroup is claimed as fresh independent validation."
+  ],
+  "mutually_exclusive_pair_rejections": {
+    "ambiguous_or_unmatched_player_identity": 36,
+    "fixture_unresolved": 12,
+    "original_debug_game_excluded": 10
+  },
+  "payload_exclusions": {
+    "fixture_unresolved": 1,
+    "no_main_goals_market": 1,
+    "original_debug_game_excluded": 1
+  },
+  "periods": {
+    "early_through_2024_12_31_utc": {
+      "first_boundary_utc": "2024-11-27T00:00:00+00:00",
+      "first_market_update_utc": "2024-11-26T18:59:42+00:00",
+      "games": 146,
+      "last_boundary_utc": "2024-12-31T22:00:00+00:00",
+      "last_market_update_utc": "2024-12-31T16:50:06+00:00",
+      "lead_seconds": {
+        "maximum": 48347.0,
+        "median": 36735.0,
+        "minimum": 2531.0
+      },
+      "pairs": 1506,
+      "players": 234,
+      "source_events": 146
+    },
+    "later_from_2025_01_01_utc": {
+      "first_boundary_utc": "2025-01-01T01:00:00+00:00",
+      "first_market_update_utc": "2024-12-31T16:48:10+00:00",
+      "games": 124,
+      "last_boundary_utc": "2025-01-26T03:00:00+00:00",
+      "last_market_update_utc": "2025-01-25T16:17:45+00:00",
+      "lead_seconds": {
+        "maximum": 47329.0,
+        "median": 35968.0,
+        "minimum": 5272.0
+      },
+      "pairs": 1262,
+      "players": 221,
+      "source_events": 124
+    }
+  },
+  "price_entries": {
+    "columns": [
+      "player",
+      "game_id",
+      "player_id",
+      "entry",
+      "boundary",
+      "home_team_abbr",
+      "away_team_abbr",
+      "over_decimal",
+      "under_decimal",
+      "q_under",
+      "period",
+      "line",
+      "over_american",
+      "under_american",
+      "overround",
+      "source_file",
+      "event_id",
+      "provider_start",
+      "independent_start",
+      "lead_seconds"
+    ],
+    "path": "data/raw/nhl-powerplay-goals-2026-09-26/price-entries.csv",
+    "probability_note": "q_under is only proportional normalization of the literal paired FanDuel prices; no modeled power-play feature or outcome.",
+    "rows": 2768,
+    "sha256": "207142b0331aac35b6ec6e9dd4db725e49ff683c1cf7fbd8e04197ca5c6fad41"
+  },
+  "publisher_error_payloads": 12,
+  "raw_fanduel_goal_player_line_keys": 2826,
+  "rules": {
+    "calendar_cut": "Conservative boundary UTC before2025-01-01 versus on/after; purely metadata, not independent holdout.",
+    "fixture": "Ordered normalized teams\u2192one independent REG fixture within1day; exclude original debug2024020345.",
+    "identity": "Unchanged normalized full name\u2192unique NHL ID across both retained roster files; no aliases or current participation filter.",
+    "market": "Literal FanDuel player_goals, paired Over/Under at exact0.5 line and one common market clock.",
+    "odds": "Finite American prices with absolute value>=100; paired overround0\u201315% inclusive; no separate bet-odds filter.",
+    "repeated_quotes": "Earliest qualifying event/player quote; conflicting same-time offers excluded, no outcome-based choice.",
+    "time": "Market update within72hours and strictly before minimum independent/provider start; no receipt or separate book clock exists."
+  },
+  "scope": "Price/identity/calendar only. No sporting outcome files, power-play values, predictions, fit, EV, selections or returns read/computed.",
+  "script_sha256": "3f4c4408e8ae953fa601a9179f2db1aab38ea61e0b78be1945e07362d1ef9e0c",
+  "source_commit": "42cf1f81bc302642ddcc9e88ce2e98c1057bc74d",
+  "source_files_verified": 285,
+  "source_pins": [
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/manifest.json",
+      "sha256": "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2024.csv",
+      "sha256": "0e70a12579b25af0532d00a0cf8bb5fda7d9eb33a23d76234ca26f2fff4ca4ba"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2025.csv",
+      "sha256": "cff04536329e7a7f3cdf9034786226e6644a7d222486eb70d4a799d12c1f80ba"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/schedule_2025_metadata.csv",
+      "sha256": "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855"
+    }
+  ],
+  "unresolved_names": {
+    "Alex Wennberg": 3,
+    "Elias Pettersson": 15,
+    "Nicholas Paul": 4,
+    "Sebastian Aho": 13,
+    "Yegor Chinakhov": 1
+  }
+}
