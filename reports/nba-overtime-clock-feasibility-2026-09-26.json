@@ -1,0 +1,144 @@
+{
+  "status": "completion_source_gap_resolved_but_original_price_and_minutes_inputs_absent",
+  "network_requests_this_check": 0,
+  "inputs": [
+    {
+      "path": "data/raw/nba-overtime-source/espn-summary-401704627.json",
+      "bytes": 346054,
+      "sha256": "1198713d7c7ae2105429b6b90ac38bac591a321ef5a859e300455a554d8d3327"
+    },
+    {
+      "path": "data/raw/nba-overtime-source/espn-summary-401704627.meta.json",
+      "bytes": 657,
+      "sha256": "da7aec6548be37191bff91f4b8b7fe067b6cc221457d4905715b269dde95237a"
+    },
+    {
+      "path": "data/raw/nba-overtime-source/playbyplay_0022400061.meta.json",
+      "bytes": 719,
+      "sha256": "12ef88dde022ad84a1962691e14a082642b9dd34a75100b3d217be596d8d25cd"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/play_by_play_2025.parquet",
+      "bytes": 21552259,
+      "sha256": "e3a61b57e491b71379abd1ad4c0b2617500a3921deadd3319ee9362d49d2a9dc"
+    },
+    {
+      "path": "data/raw/creative-market-search-2026-09-19/play_by_play_2025.parquet.meta.json",
+      "bytes": 493,
+      "sha256": "bfdf12f9b75544c654d8aee1d4507bd9a9601fedfc64eff663cf0fb35d644f54"
+    },
+    {
+      "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2024.csv",
+      "bytes": 426838,
+      "sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26"
+    },
+    {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2025.csv",
+      "bytes": 2216279,
+      "sha256": "a7a5b6607a256c84a324f819e4461248bdff90a78b1ddb675a5a117a9a94e74f"
+    },
+    {
+      "path": "data/raw/nba-minutes-cap-feasibility-2026-09-26/game_event_bijection.csv",
+      "bytes": 144240,
+      "sha256": "23f27cc66b8b333fffd7b25d756f530d79dff0cafd69ff397cf16638000ed64c"
+    }
+  ],
+  "original_prerequisite": "Explicit final/game-end absolute timezone-bearing timestamp, uniquely joined to official NBA identity, must strictly precede original price snapshot; book and market clocks must independently qualify.",
+  "primary_sample": {
+    "nba_game_id": "0022400061",
+    "espn_game_id": "401704627",
+    "game_date": "2024-10-22",
+    "season_type": "regular-season",
+    "start": "2024-10-22T23:30Z",
+    "completed": "true",
+    "end_game_utc": "2024-10-23T01:40:05Z",
+    "elapsed_hours": 2.1680555555555556,
+    "later_wallclock_rows": 0,
+    "source_url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401704627",
+    "play_id": "401704627551",
+    "type_id": 402,
+    "type_text": "End Game",
+    "primary_clock_display_value": "0.0",
+    "processed_clock_display_value": "0:0.0",
+    "primary_and_processed_final_clock_identical": true,
+    "primary_source_received_utc": "2026-09-15T03:20:55.806800+00:00"
+  },
+  "new_retained_source": {
+    "path": "data/raw/creative-market-search-2026-09-19/play_by_play_2025.parquet",
+    "url": "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_pbp/play_by_play_2025.parquet",
+    "captured_utc": "2026-09-19T22:37:10.243995+00:00",
+    "rows": 624997,
+    "games": 1324,
+    "date_range": [
+      "2024-10-22",
+      "2025-06-22"
+    ],
+    "games_with_exactly_one_end_game_marker": 1321,
+    "end_markers_with_nonempty_Z_clock": 1321
+  },
+  "identity_completion_inventory": {
+    "nba_fixtures": 1314,
+    "unique_ordered_team_date_matches": 1309,
+    "nba_invalid_two_side_fixtures": 5,
+    "matched_valid_final_clocks": 1309,
+    "matched_regular_season_schedule_label": 1225,
+    "matched_playoffs_schedule_label": 84,
+    "matched_00224_prefix": 1225,
+    "end_after_start_and_completed_and_same_game_date": true,
+    "all_end_game_clocks_zero": true,
+    "matched_games_with_later_wallclock_rows": 0,
+    "min_duration_hours": 1.9525,
+    "max_duration_hours": 3.2755555555555556
+  },
+  "metadata_usecols": {
+    "nba": [
+      "game_id",
+      "game_date",
+      "team_name",
+      "matchup",
+      "season_type"
+    ],
+    "espn": [
+      "game_id",
+      "game_date",
+      "home_display_name",
+      "away_display_name",
+      "start_date",
+      "status_type_completed",
+      "season_type"
+    ],
+    "pbp": [
+      "game_id",
+      "game_date",
+      "type_id",
+      "type_text",
+      "clock_display_value",
+      "wallclock"
+    ]
+  },
+  "current_price_and_minutes_state": {
+    "old_full_archive_present": false,
+    "alternative_nba_props_edges_clone_present": false,
+    "full_player_boxscores_2025_present": false,
+    "recovered_price_event_jsons": [
+      "data/raw/nba-minutes-cap-feasibility-2026-09-26/0d48e3b3532422c2eefee90bc29d7eab.json",
+      "data/raw/nba-minutes-cap-feasibility-2026-09-26/777d86c37951e9c17d4b0c10571de4c0.json"
+    ],
+    "recovered_event_count": 2,
+    "original_full_archive_prior_report_count": 3394,
+    "recovered_identity_mapping_present": true
+  },
+  "no_repeat_requests": {
+    "official_nba_cdn_url": "https://cdn.nba.com/static/json/liveData/playbyplay/playbyplay_0022400061.json",
+    "prior_response_status": 403,
+    "prior_request_started_utc": "2026-09-15T03:19:00.812713+00:00",
+    "repeated": false
+  },
+  "limits": [
+    "Clock-bearing ESPN release is newer than the September14 feasibility note, but the primary ESPN sample was already retained on September15; no new network source was acquired here.",
+    "One primary-response semantic reconciliation does not authenticate every processed row or prove original publication latency. Per-exposure completion before original quote still requires a price join.",
+    "No overtime/heavy-minute subgroup was selected here, no target outcome was graded, and no model or returns were computed. Root separately assesses a metadata-only trigger ceiling.",
+    "An initial raw-file inventory accidentally displayed some team box statistics at the beginning of the already-retained primary sample. No player target values or grades were used. Prior NBA research and source snippets also exposed outcomes, so there is no untouched-holdout claim.",
+    "Missing price and minute payloads could be restored only from exact existing pinned sources after a coverage decision; the failed old lineup-minute interpretation is not needed."
+  ]
+}

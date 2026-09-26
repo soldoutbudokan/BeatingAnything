@@ -1,0 +1,98 @@
+{
+  "prepared_at_utc": "2026-09-26T22:44:37.379458+00:00",
+  "status": "new_2025_26_official_injury_report_source_verified_two_samples_only",
+  "scope": "Two web queries and two distinct direct official PDF requests; no additional source request, season-wide acquisition, quote join, sporting outcomes, forecasts, effect estimate, threshold or card change.",
+  "query_log": [
+    {
+      "query": "NBA injury report 2025-26 season official archive October 2025 PDF",
+      "domains": [
+        "nba.com"
+      ]
+    },
+    {
+      "query": "NBA injury reports 2025 2026 historical PDF archive github",
+      "domains": null
+    }
+  ],
+  "samples": [
+    {
+      "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-25_12PM.pdf",
+      "local_pdf": "data/raw/nba-injury-new-source-check-2026-09-26/2025-10-25.pdf",
+      "bytes": 67869,
+      "sha256": "d45934e94ac012104ecd685345017cb8da439828d88e8ffbd0849acb7aa2cdea",
+      "receipt_headers": "data/raw/nba-injury-new-source-check-2026-09-26/2025-10-25.headers",
+      "downloaded_by_utc": "2026-09-26T22:41:40.114425+00:00",
+      "pdf_metadata": {
+        "/CreationDate": "D:20251025123003-04'00'",
+        "/Creator": "GemBox.Document 3.1 for .NET Framework 3.5 - 4.8",
+        "/Producer": "GemBox.Document 3.1 for .NET Framework 3.5 - 4.8"
+      },
+      "pages": 3,
+      "first_page_report_header": "Injury\nReport:\n10/25/25\n12:30\nPM",
+      "column_labels_present": [
+        "Game Date",
+        "Game Time",
+        "Matchup",
+        "Team",
+        "Player Name",
+        "Current Status",
+        "Reason"
+      ],
+      "first_page_contains_literal_Out": true,
+      "first_page_game_time_labeled_ET": true,
+      "full_text_retained": false,
+      "target_performance_read": false
+    },
+    {
+      "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-02-05_10_30AM.pdf",
+      "local_pdf": "data/raw/nba-injury-new-source-check-2026-09-26/2026-02-05.pdf",
+      "bytes": 76466,
+      "sha256": "2245d9bb54b3b94d8644831fe4afdbceceef276b009e0caf2ebc05de315f915e",
+      "receipt_headers": "data/raw/nba-injury-new-source-check-2026-09-26/2026-02-05.headers",
+      "downloaded_by_utc": "2026-09-26T22:41:40.093821+00:00",
+      "pdf_metadata": {
+        "/CreationDate": "D:20260205103008-05'00'",
+        "/Creator": "GemBox.Document 3.1 for .NET Framework 3.5 - 4.8",
+        "/Producer": "GemBox.Document 3.1 for .NET Framework 3.5 - 4.8"
+      },
+      "pages": 6,
+      "first_page_report_header": "Injury\nReport:\n02/05/26\n10:30\nAM",
+      "column_labels_present": [
+        "Game Date",
+        "Game Time",
+        "Matchup",
+        "Team",
+        "Player Name",
+        "Current Status",
+        "Reason"
+      ],
+      "first_page_contains_literal_Out": true,
+      "first_page_game_time_labeled_ET": true,
+      "full_text_retained": false,
+      "target_performance_read": false
+    }
+  ],
+  "local_metadata_finding": "The existing script is pinned to akng8/nba-injury-scraper@02cfe44f7453182eb4a29283285a7af64f5e3c9a. Its injury-files/PDF raw payloads are not present in this checkout filename inventory; no retained 2025-26 injury payload was discovered. Existing report metadata does not prove current local availability.",
+  "source_checks": [
+    "Both direct official ak-static.cms.nba.com PDFs returned HTTP200/application/pdf.",
+    "Both first pages contain Game Date, Game Time, Matchup, Team, Player Name, Current Status, Reason; both contain literal Out; game times are explicitly labeled ET.",
+    "October report header:2025-10-25 12:30PM; PDF CreationDate2025-10-25T12:30:03-04:00; HTTP Last-Modified2025-10-25T16:30:05Z.",
+    "February report header:2026-02-05 10:30AM; PDF CreationDate2026-02-05T10:30:08-05:00; HTTP Last-Modified2026-02-05T15:30:10Z."
+  ],
+  "parser_limitations": [
+    "tools/explore_nba_props_edges.py:133 matches hourly HHAM/HHPM form only; it does not match _10_30AM.pdf.",
+    "October official filename _12PM.pdf contains a12:30PM report, so interpreting filename alone understates the actual report clock by30minutes. The old nominal one-hour lead can become30minutes; a new source join must inspect actual PDF header and timezone-aware metadata. No old results or script were changed."
+  ],
+  "chronology_limitations": [
+    "These are retrospective current downloads. PDF creation and HTTP Last-Modified are source-asserted clocks, not independent contemporaneous publication receipts.",
+    "Two successful samples do not establish season-wide report availability, completeness, revision immutability, or source coverage before particular price snapshots.",
+    "No price or player-role join was performed, no eligible Out exposure count was computed, and Out may include noninjury reasons that need explicit future protocol handling.",
+    "Search-indexed third-party claim that all2026 official PDFs fail is contradicted by the concrete2026 minute-qualified success; do not infer whole-season completeness in the other direction."
+  ],
+  "forecasts_computed": false,
+  "new_web_queries": 2,
+  "explicit_primary_source_samples": 2,
+  "extra_source_requests": 0,
+  "target_outcome_payloads_read": false,
+  "requested_existing_summary_report_read": "reports/edge-search-2026-09-22.md; existing published summary results were visible, but no new target outcomes or effects were accessed or computed."
+}

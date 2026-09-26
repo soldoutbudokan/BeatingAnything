@@ -1,0 +1,121 @@
+{
+  "status": "one distinct candidate has retained price support for a small exploratory falsification test; no model declared or fitted",
+  "created_at_utc": "2026-09-26T22:42:33.326774+00:00",
+  "candidate": "NHL player shots on goal: relative scheduled short rest",
+  "feature_proposal": "x=1{own team previous scheduled UTC start is less than36h before current start}\u22121{opponent previous scheduled UTC start is less than36h before current start}; determine previous regular-season fixture independently for each team.36h is a single proposed definition, not an outcome-selected grid.",
+  "mechanism": "Short turnaround reduces recovery and preparation time. Hypothesis: own short rest relative to opponent lowers individual shot opportunity beyond what the paired market already reflects. This is a proposed causal pathway, not evidence of an effect or bookmaker omission.",
+  "distinctness": "Changes conditional shot opportunity from scheduled team rest. Does not reuse count-dispersion shape correction, cross-book consensus, PP-goal exposure, goal-contract payoff comparison, empty-net exposure or NBA overtime. No local card/report matching this mechanism was found in the bounded keyword and ledger review.",
+  "scope": "Local metadata and raw quoted prices only. No target boxscore/outcome field, old forecast probability, old selection/EV column, sporting effect, calibration, loss or return read/computed. No network, new acquisition or changes to closed cards.",
+  "inputs": [
+    {
+      "path": "docs/hypotheses/README.md",
+      "sha256": "80947c8b210368f427ac634a0dbf1d8250fa426fb8107f3919a5e8a539e16e9b",
+      "context_git_commit": "17d7564",
+      "role": "Prior research context at this commit; the working ledger may advance."
+    },
+    {
+      "path": "reports/new-derivative-source-search-2026-09-26.md",
+      "sha256": "37afa5449f12966d60c57d376d085d07b52659a28cb9fe66fa1d57cdd4e64019"
+    },
+    {
+      "path": "reports/nhl-unused-market-inventory-2026-09-26.md",
+      "sha256": "c8b03d46bb9bafc8fdc837028d8d6e83767555c1ebe2b88e3133f2778879f2a3"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/schedule_2025_metadata.csv",
+      "sha256": "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/dispersion-forecasts.csv",
+      "sha256": "e44bb37cdad1bae8b1ede7dd05a0419169c11b4e0677e89f320822b17169b9c2"
+    },
+    {
+      "path": "data/raw/nhl-powerplay-goals-2026-09-26/forecasts.csv",
+      "sha256": "16d2e0c52e8c8383e74b61a1dd1cc64ae33f4b6e3d232d190dfb282cc8562d38"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/manifest.json",
+      "sha256": "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da"
+    }
+  ],
+  "projection_columns": {
+    "existing_shot_forecasts": [
+      "player",
+      "game_id",
+      "player_id",
+      "event_id",
+      "entry",
+      "source_file",
+      "line",
+      "over_decimal",
+      "under_decimal"
+    ],
+    "existing_prior_team_metadata": [
+      "game_id",
+      "player_id",
+      "prior_team",
+      "opponent",
+      "latest_prior_available"
+    ],
+    "independent_schedule": [
+      "game_id",
+      "game_type",
+      "game_time",
+      "home_team_abbr",
+      "away_team_abbr"
+    ]
+  },
+  "coverage": {
+    "existing_qualified_shot_metadata_rows": 3419,
+    "existing_qualified_games": 270,
+    "unique_prior_team_metadata_matched_rows": 2392,
+    "unique_prior_team_metadata_matched_games": 269,
+    "missing_unique_prior_team_projection_rows": 1027,
+    "prior_membership_not_yet_available_rows": 0,
+    "informative_rows": 476,
+    "informative_games": 55,
+    "own_short_opponent_not_rows": 229,
+    "opponent_short_own_not_rows": 247,
+    "both_short_rows": 53,
+    "informative_player_teams": 32,
+    "short_gap_hours_range": [
+      22.0,
+      31.5
+    ],
+    "before_2025_01_01_utc": {
+      "all_rows": 1282,
+      "all_games": 145,
+      "informative_rows": 230,
+      "informative_games": 27,
+      "own_short_rows": 111,
+      "opponent_short_rows": 119
+    },
+    "from_2025_01_01_utc": {
+      "all_rows": 1110,
+      "all_games": 124,
+      "informative_rows": 246,
+      "informative_games": 28,
+      "own_short_rows": 118,
+      "opponent_short_rows": 128
+    }
+  },
+  "raw_quote_recheck": {
+    "rows": 2392,
+    "files": 269,
+    "pair_node": "fanduel/player_shots_on_goal; exact player,line,market timestamp",
+    "ambiguous_or_missing_pair_matches": 0,
+    "maximum_decimal_price_difference": 0
+  },
+  "minimal_forecast_design_for_parent_consideration": "If separately declared before labels: one constrained coefficient logit(pUnder)=logit(qUnder)+beta*x, beta>=0 with fixed .5beta^2 penalty, fitted only early whole-game labels available before later period. q is exact proportional paired FD probability. Preserve existing Jan1chronology and price/selection gates; do not invert a Poisson mean, adjust dispersion, fit a grid or select a favorable rest subset after results. Beta0 or no qualifying selections may close before further grading if declared.",
+  "limitations": [
+    "55 informative game clusters, only28 later, are materially smaller than476 nominal correlated player rows; selected-bet count is unknown and could be zero. This does not promise adequate confirmation power.",
+    "All archive outcomes were already inspected by earlier project models; any new result is exploratory and requires new independent/forward validation.",
+    "The prior-team mapping is borrowed only as a metadata feasibility subset from the closed PP-goal preparation. Its1027 excluded shot rows reflect that preparation and are not a justified final shot-market cohort. A new declaration should define independent prior-team membership for all shot rows before outcomes.",
+    "Scheduled prior game is a team exposure proxy; it does not prove a named player appeared or traveled. No prior-night box statistic was used. Historical source schedule times are retrospective and lack original schedule-version receipts.",
+    "Rest is obvious public information that FD may fully price. The symmetric sign for own versus opponent rest is an explicit falsifiable simplification, not an established causal effect.",
+    "Provider market updates lack original receipt and execution proof. Existing player identity and settlement limitations remain.",
+    "Whole-game clustering still leaves repeated teams and players; naive476-row confidence would overstate precision.",
+    "The36h definition and one-coefficient form are recommendations only. No new hypothesis declaration or fit was performed."
+  ],
+  "recommendation": "This is the one viable distinct local-price candidate identified. Declare a bounded single-feature falsification test if root chooses it; do not represent feasibility counts as sporting evidence or proven price inadequacy."
+}

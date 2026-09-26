@@ -1,0 +1,85 @@
+{
+  "audit_date": "2026-09-26",
+  "result": "pass",
+  "audited_report": {
+    "path": "reports/nba-overtime-metadata-ceiling-2026-09-26.json",
+    "sha256": "ff42ee69c47eded9bbf2476ae70dc31dc936e2643fa3fca39e41b67389907f73"
+  },
+  "source_inputs": [
+    {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2025.csv",
+      "sha256": "a7a5b6607a256c84a324f819e4461248bdff90a78b1ddb675a5a117a9a94e74f",
+      "matches_report": true
+    },
+    {
+      "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2024.csv",
+      "sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26",
+      "matches_report": true
+    }
+  ],
+  "authorized_projections": {
+    "espn_schedule": [
+      "game_id",
+      "start_date",
+      "game_date",
+      "season",
+      "season_type",
+      "status_period",
+      "status_type_completed",
+      "home_id",
+      "away_id",
+      "home_display_name",
+      "away_display_name"
+    ],
+    "nba_stats_schedule": [
+      "game_id",
+      "game_date",
+      "team_id",
+      "team_name",
+      "matchup"
+    ]
+  },
+  "method": "Independently rebuilt valid NBA regular-season fixtures from two reciprocal home/away matchup rows; matched ESPN using New York calendar start date and ordered team names. Enumerated both sides of every completed ESPN2025 season_type2 fixture and retained any same-team overtime fixture on the preceding New York calendar date, without restricting the ceiling to NBA-matched fixtures. Compared every selected row and invalid fixture group exactly. Only authorized schedule metadata columns were projected; no target performance, prices or forecasts were inspected. Whole source files were byte-hashed for provenance.",
+  "recomputed_counts": {
+    "completed_espn_season_type2_games": 1234,
+    "uniquely_matched_nba_regular_season_games": 1225,
+    "completed_espn_overtime_games": 60,
+    "next_night_exposed_team_games": 25,
+    "distinct_target_games": 25
+  },
+  "additional_counts": {
+    "nba_regular_season_groups": 1230,
+    "valid_nba_regular_season_groups": 1225,
+    "invalid_nba_fixture_groups": 5,
+    "unmatched_completed_espn_games_retained_in_universe": 9,
+    "ambiguous_completed_espn_nba_matches": 0,
+    "exposure_records": 25,
+    "distinct_exposed_prior_games": 22,
+    "distinct_selected_prior_or_target_espn_ids": 46,
+    "distinct_exposed_team_ids": 16
+  },
+  "checks": {
+    "completed_espn_season_type2_games": true,
+    "uniquely_matched_nba_regular_season_games": true,
+    "completed_espn_overtime_games": true,
+    "next_night_exposed_team_games": true,
+    "distinct_target_games": true,
+    "input_hashes_match": true,
+    "invalid_groups_exact_match": true,
+    "selected_rows_exact_match": true,
+    "reported_rows_have_no_duplicates": true,
+    "all_exposed_prior_and_target_have_exactly_one_nba_match": true,
+    "all_selected_prior_starts_before_target": true,
+    "all_completed_espn_ids_unique": true,
+    "distinct_selected_espn_ids_map_one_to_one_to_nba_ids": true
+  },
+  "invalid_nba_fixture_ids": [
+    "0022400147",
+    "0022400621",
+    "0022400633",
+    "0022401229",
+    "0022401230"
+  ],
+  "selected_row_mismatch_count": 0,
+  "limitations": "This is a generous retained-schedule metadata ceiling, not an executable or chronologically qualified betting cohort, a fixed fatigue hypothesis gate, or a finding about forecast performance. Twenty-five exposed target games fall below the existing 100-game research benchmark. Completion and source revision availability, prices, participation and minutes remain unevaluated."
+}

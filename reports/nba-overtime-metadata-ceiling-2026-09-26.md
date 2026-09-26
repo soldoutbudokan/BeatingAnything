@@ -1,0 +1,13 @@
+# NBA prior-night overtime: metadata ceiling
+
+**The retained 2024–25 schedule supplies at most 25 next-night team-games across 25 distinct target games.** This generous count precedes heavy-minute, price, prior-completion-before-quote and participant filters. It cannot support the existing NBA research benchmark of 100 independent settled games; no fatigue forecast or heavy-minute cutoff was fitted or declared.
+
+The [metadata inventory](nba-overtime-metadata-ceiling-2026-09-26.json) includes any same-team completed overtime fixture on the immediately previous New York calendar date, without requiring it to be the immediately previous fixture. All 1,234 completed ESPN season-type-2 records remain available to this ceiling, including records without a unique NBA match. Sixty reach period five or later. This deliberately generous search yields 25 target team-games, all with unique independently matched NBA IDs for both the prior and target fixture. Twenty-three prior games end in period five and two in period six.
+
+The NBA Stats source has five malformed two-side regular-season fixture groups. Its remaining fixtures match 1,225 completed ESPN regular-season games. The ceiling does not silently drop the nine other ESPN finals. It describes the retained schedule universe, not a claim of a complete official census or a newly untouched sample. It supplies no price-eligible or heavy-minute observation count.
+
+The [independent audit](nba-overtime-metadata-ceiling-audit-2026-09-26.json) reproduces both source hashes, all 25 rows, the five invalid fixture groups and the unique prior/target NBA identities. These 25 team-games cover 16 distinct teams; repeated teams are not independent population samples.
+
+The [new clock-source check](nba-overtime-clock-feasibility-2026-09-26.md) also resolves the older missing-completion-field prerequisite. All 25 prior games have explicit End Game clocks, between 19.72 and 24.45 hours before the target start. Those leads are not proof that completion preceded the original quote: a quote join would still be necessary.
+
+The clock projection is retained at `data/raw/nba-overtime-feasibility-2026-09-26/completion-metadata.json` with SHA-256 `f870b4b705ce013889d9fade34a8ae461ea3ae95f15ec87d6b48d71064113d39`. Its source report records raw-file pins and a primary ESPN semantic cross-check. No player minutes, target points, model probabilities or returns were read for this inventory. Do not restore a full price archive merely to fit this undersized 2024–25 overtime cohort or replace overtime with another exposure to enlarge it. The later NBA injury-source investigation is a separate lead.

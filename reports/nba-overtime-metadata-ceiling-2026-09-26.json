@@ -1,0 +1,565 @@
+{
+  "scope": "Generous metadata ceiling within the completed ESPN2025season_type2 archive: any same-team fixture on the immediately previous NewYorkcalendar date reached period>4. Unmatched fixtures remain in the ceiling. No player-minute, price-clock, participation, immediate-prior-game or target performance restriction applied. Actual completion clocks remain separate. Retrospective fixture status is for historical inventory, not prequote feature availability.",
+  "inputs": [
+    {
+      "path": "data/raw/nba-consensus-price/nba_schedule_2025.csv",
+      "sha256": "a7a5b6607a256c84a324f819e4461248bdff90a78b1ddb675a5a117a9a94e74f"
+    },
+    {
+      "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2024.csv",
+      "sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26"
+    }
+  ],
+  "projected_columns": {
+    "espn_schedule": [
+      "game_id",
+      "start_date",
+      "game_date",
+      "season",
+      "season_type",
+      "status_period",
+      "status_type_completed",
+      "home_id",
+      "away_id",
+      "home_display_name",
+      "away_display_name"
+    ],
+    "nba_stats_schedule": [
+      "game_id",
+      "game_date",
+      "team_id",
+      "team_name",
+      "matchup"
+    ]
+  },
+  "completed_espn_season_type2_games": 1234,
+  "uniquely_matched_nba_regular_season_games": 1225,
+  "completed_espn_overtime_games": 60,
+  "invalid_nba_fixture_groups": [
+    {
+      "nba_game_id": "0022400147",
+      "rows": [
+        {
+          "team_id": "1610612764",
+          "team_name": "Washington Wizards",
+          "game_id": "0022400147",
+          "game_date": "2024-11-02",
+          "matchup": "WAS @ MIA"
+        },
+        {
+          "team_id": "1610612748",
+          "team_name": "Miami Heat",
+          "game_id": "0022400147",
+          "game_date": "2024-11-02",
+          "matchup": "MIA @ WAS"
+        }
+      ]
+    },
+    {
+      "nba_game_id": "0022400621",
+      "rows": [
+        {
+          "team_id": "1610612759",
+          "team_name": "San Antonio Spurs",
+          "game_id": "0022400621",
+          "game_date": "2025-01-23",
+          "matchup": "SAS @ IND"
+        },
+        {
+          "team_id": "1610612754",
+          "team_name": "Indiana Pacers",
+          "game_id": "0022400621",
+          "game_date": "2025-01-23",
+          "matchup": "IND @ SAS"
+        }
+      ]
+    },
+    {
+      "nba_game_id": "0022400633",
+      "rows": [
+        {
+          "team_id": "1610612759",
+          "team_name": "San Antonio Spurs",
+          "game_id": "0022400633",
+          "game_date": "2025-01-25",
+          "matchup": "SAS @ IND"
+        },
+        {
+          "team_id": "1610612754",
+          "team_name": "Indiana Pacers",
+          "game_id": "0022400633",
+          "game_date": "2025-01-25",
+          "matchup": "IND @ SAS"
+        }
+      ]
+    },
+    {
+      "nba_game_id": "0022401229",
+      "rows": [
+        {
+          "team_id": "1610612737",
+          "team_name": "Atlanta Hawks",
+          "game_id": "0022401229",
+          "game_date": "2024-12-14",
+          "matchup": "ATL @ MIL"
+        },
+        {
+          "team_id": "1610612749",
+          "team_name": "Milwaukee Bucks",
+          "game_id": "0022401229",
+          "game_date": "2024-12-14",
+          "matchup": "MIL @ ATL"
+        }
+      ]
+    },
+    {
+      "nba_game_id": "0022401230",
+      "rows": [
+        {
+          "team_id": "1610612760",
+          "team_name": "Oklahoma City Thunder",
+          "game_id": "0022401230",
+          "game_date": "2024-12-14",
+          "matchup": "OKC @ HOU"
+        },
+        {
+          "team_id": "1610612745",
+          "team_name": "Houston Rockets",
+          "game_id": "0022401230",
+          "game_date": "2024-12-14",
+          "matchup": "HOU @ OKC"
+        }
+      ]
+    }
+  ],
+  "next_night_exposed_team_games": 25,
+  "distinct_target_games": 25,
+  "all_exposed_target_and_prior_ids_unique": true,
+  "rows": [
+    {
+      "espn_game_id": "401705676",
+      "nba_game_ids": [
+        "0022401110"
+      ],
+      "start_utc": "2025-04-03T01:00:00+00:00",
+      "ny_date": "2025-04-02",
+      "team_id": "7",
+      "team_name": "Denver Nuggets",
+      "prior_espn_game_id": "401705668",
+      "prior_nba_game_ids": [
+        "0022401102"
+      ],
+      "prior_start_utc": "2025-04-02T02:00:00+00:00",
+      "prior_ny_date": "2025-04-01",
+      "prior_period": 6
+    },
+    {
+      "espn_game_id": "401705505",
+      "nba_game_ids": [
+        "0022400939"
+      ],
+      "start_utc": "2025-03-11T02:30:00+00:00",
+      "ny_date": "2025-03-10",
+      "team_id": "23",
+      "team_name": "Sacramento Kings",
+      "prior_espn_game_id": "401705493",
+      "prior_nba_game_ids": [
+        "0022400927"
+      ],
+      "prior_start_utc": "2025-03-10T01:30:00+00:00",
+      "prior_ny_date": "2025-03-09",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705443",
+      "nba_game_ids": [
+        "0022400877"
+      ],
+      "start_utc": "2025-03-04T00:30:00+00:00",
+      "ny_date": "2025-03-03",
+      "team_id": "14",
+      "team_name": "Miami Heat",
+      "prior_espn_game_id": "401705435",
+      "prior_nba_game_ids": [
+        "0022400869"
+      ],
+      "prior_start_utc": "2025-03-02T23:00:00+00:00",
+      "prior_ny_date": "2025-03-02",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705315",
+      "nba_game_ids": [
+        "0022400749"
+      ],
+      "start_utc": "2025-02-09T02:00:00+00:00",
+      "ny_date": "2025-02-08",
+      "team_id": "21",
+      "team_name": "Phoenix Suns",
+      "prior_espn_game_id": "401705306",
+      "prior_nba_game_ids": [
+        "0022400740"
+      ],
+      "prior_start_utc": "2025-02-08T03:00:00+00:00",
+      "prior_ny_date": "2025-02-07",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705282",
+      "nba_game_ids": [
+        "0022400716"
+      ],
+      "start_utc": "2025-02-05T03:00:00+00:00",
+      "ny_date": "2025-02-04",
+      "team_id": "22",
+      "team_name": "Portland Trail Blazers",
+      "prior_espn_game_id": "401705275",
+      "prior_nba_game_ids": [
+        "0022400709"
+      ],
+      "prior_start_utc": "2025-02-04T03:00:00+00:00",
+      "prior_ny_date": "2025-02-03",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705549",
+      "nba_game_ids": [
+        "0022400983"
+      ],
+      "start_utc": "2025-01-24T03:30:00+00:00",
+      "ny_date": "2025-01-23",
+      "team_id": "12",
+      "team_name": "LA Clippers",
+      "prior_espn_game_id": "401705186",
+      "prior_nba_game_ids": [
+        "0022400620"
+      ],
+      "prior_start_utc": "2025-01-23T03:30:00+00:00",
+      "prior_ny_date": "2025-01-22",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704968",
+      "nba_game_ids": [
+        "0022400402"
+      ],
+      "start_utc": "2024-12-24T03:00:00+00:00",
+      "ny_date": "2024-12-23",
+      "team_id": "7",
+      "team_name": "Denver Nuggets",
+      "prior_espn_game_id": "401704956",
+      "prior_nba_game_ids": [
+        "0022400390"
+      ],
+      "prior_start_utc": "2024-12-23T00:00:00+00:00",
+      "prior_ny_date": "2024-12-22",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704860",
+      "nba_game_ids": [
+        "0022400294"
+      ],
+      "start_utc": "2024-11-28T01:00:00+00:00",
+      "ny_date": "2024-11-27",
+      "team_id": "16",
+      "team_name": "Minnesota Timberwolves",
+      "prior_espn_game_id": "401703406",
+      "prior_nba_game_ids": [
+        "0022400037"
+      ],
+      "prior_start_utc": "2024-11-27T01:00:00+00:00",
+      "prior_ny_date": "2024-11-26",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704799",
+      "nba_game_ids": [
+        "0022400233"
+      ],
+      "start_utc": "2024-11-17T03:00:00+00:00",
+      "ny_date": "2024-11-16",
+      "team_id": "23",
+      "team_name": "Sacramento Kings",
+      "prior_espn_game_id": "401703389",
+      "prior_nba_game_ids": [
+        "0022400020"
+      ],
+      "prior_start_utc": "2024-11-16T03:00:00+00:00",
+      "prior_ny_date": "2024-11-15",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705722",
+      "nba_game_ids": [
+        "0022401156"
+      ],
+      "start_utc": "2025-04-09T23:00:00+00:00",
+      "ny_date": "2025-04-09",
+      "team_id": "2",
+      "team_name": "Boston Celtics",
+      "prior_espn_game_id": "401705717",
+      "prior_nba_game_ids": [
+        "0022401151"
+      ],
+      "prior_start_utc": "2025-04-08T23:30:00+00:00",
+      "prior_ny_date": "2025-04-08",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401754706",
+      "nba_game_ids": [
+        "0022400617"
+      ],
+      "start_utc": "2025-04-07T00:30:00+00:00",
+      "ny_date": "2025-04-06",
+      "team_id": "15",
+      "team_name": "Milwaukee Bucks",
+      "prior_espn_game_id": "401705697",
+      "prior_nba_game_ids": [
+        "0022401131"
+      ],
+      "prior_start_utc": "2025-04-06T00:00:00+00:00",
+      "prior_ny_date": "2025-04-05",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705477",
+      "nba_game_ids": [
+        "0022400911"
+      ],
+      "start_utc": "2025-03-08T03:30:00+00:00",
+      "ny_date": "2025-03-07",
+      "team_id": "18",
+      "team_name": "New York Knicks",
+      "prior_espn_game_id": "401705469",
+      "prior_nba_game_ids": [
+        "0022400903"
+      ],
+      "prior_start_utc": "2025-03-07T03:00:00+00:00",
+      "prior_ny_date": "2025-03-06",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705442",
+      "nba_game_ids": [
+        "0022400876"
+      ],
+      "start_utc": "2025-03-04T00:00:00+00:00",
+      "ny_date": "2025-03-03",
+      "team_id": "22",
+      "team_name": "Portland Trail Blazers",
+      "prior_espn_game_id": "401705433",
+      "prior_nba_game_ids": [
+        "0022400867"
+      ],
+      "prior_start_utc": "2025-03-02T20:30:00+00:00",
+      "prior_ny_date": "2025-03-02",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705363",
+      "nba_game_ids": [
+        "0022400797"
+      ],
+      "start_utc": "2025-02-22T00:00:00+00:00",
+      "ny_date": "2025-02-21",
+      "team_id": "18",
+      "team_name": "New York Knicks",
+      "prior_espn_game_id": "401705358",
+      "prior_nba_game_ids": [
+        "0022400792"
+      ],
+      "prior_start_utc": "2025-02-21T00:30:00+00:00",
+      "prior_ny_date": "2025-02-20",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705317",
+      "nba_game_ids": [
+        "0022400751"
+      ],
+      "start_utc": "2025-02-09T03:30:00+00:00",
+      "ny_date": "2025-02-08",
+      "team_id": "26",
+      "team_name": "Utah Jazz",
+      "prior_espn_game_id": "401705306",
+      "prior_nba_game_ids": [
+        "0022400740"
+      ],
+      "prior_start_utc": "2025-02-08T03:00:00+00:00",
+      "prior_ny_date": "2025-02-07",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705195",
+      "nba_game_ids": [
+        "0022400629"
+      ],
+      "start_utc": "2025-01-24T03:00:00+00:00",
+      "ny_date": "2025-01-23",
+      "team_id": "2",
+      "team_name": "Boston Celtics",
+      "prior_espn_game_id": "401705186",
+      "prior_nba_game_ids": [
+        "0022400620"
+      ],
+      "prior_start_utc": "2025-01-23T03:30:00+00:00",
+      "prior_ny_date": "2025-01-22",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401705074",
+      "nba_game_ids": [
+        "0022400508"
+      ],
+      "start_utc": "2025-01-08T03:00:00+00:00",
+      "ny_date": "2025-01-07",
+      "team_id": "14",
+      "team_name": "Miami Heat",
+      "prior_espn_game_id": "401705067",
+      "prior_nba_game_ids": [
+        "0022400501"
+      ],
+      "prior_start_utc": "2025-01-07T03:00:00+00:00",
+      "prior_ny_date": "2025-01-06",
+      "prior_period": 6
+    },
+    {
+      "espn_game_id": "401704856",
+      "nba_game_ids": [
+        "0022400290"
+      ],
+      "start_utc": "2024-11-28T00:00:00+00:00",
+      "ny_date": "2024-11-27",
+      "team_id": "10",
+      "team_name": "Houston Rockets",
+      "prior_espn_game_id": "401703406",
+      "prior_nba_game_ids": [
+        "0022400037"
+      ],
+      "prior_start_utc": "2024-11-27T01:00:00+00:00",
+      "prior_ny_date": "2024-11-26",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704846",
+      "nba_game_ids": [
+        "0022400280"
+      ],
+      "start_utc": "2024-11-26T00:30:00+00:00",
+      "ny_date": "2024-11-25",
+      "team_id": "6",
+      "team_name": "Dallas Mavericks",
+      "prior_espn_game_id": "401704839",
+      "prior_nba_game_ids": [
+        "0022400273"
+      ],
+      "prior_start_utc": "2024-11-24T23:00:00+00:00",
+      "prior_ny_date": "2024-11-24",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704789",
+      "nba_game_ids": [
+        "0022400223"
+      ],
+      "start_utc": "2024-11-14T01:00:00+00:00",
+      "ny_date": "2024-11-13",
+      "team_id": "8",
+      "team_name": "Detroit Pistons",
+      "prior_espn_game_id": "401703371",
+      "prior_nba_game_ids": [
+        "0022400002"
+      ],
+      "prior_start_utc": "2024-11-13T00:00:00+00:00",
+      "prior_ny_date": "2024-11-12",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704782",
+      "nba_game_ids": [
+        "0022400216"
+      ],
+      "start_utc": "2024-11-12T01:00:00+00:00",
+      "ny_date": "2024-11-11",
+      "team_id": "23",
+      "team_name": "Sacramento Kings",
+      "prior_espn_game_id": "401704775",
+      "prior_nba_game_ids": [
+        "0022400209"
+      ],
+      "prior_start_utc": "2024-11-11T01:00:00+00:00",
+      "prior_ny_date": "2024-11-10",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704765",
+      "nba_game_ids": [
+        "0022400199"
+      ],
+      "start_utc": "2024-11-10T00:30:00+00:00",
+      "ny_date": "2024-11-09",
+      "team_id": "17",
+      "team_name": "Brooklyn Nets",
+      "prior_espn_game_id": "401704753",
+      "prior_nba_game_ids": [
+        "0022400187"
+      ],
+      "prior_start_utc": "2024-11-09T00:30:00+00:00",
+      "prior_ny_date": "2024-11-08",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704690",
+      "nba_game_ids": [
+        "0022400124"
+      ],
+      "start_utc": "2024-10-31T00:00:00+00:00",
+      "ny_date": "2024-10-30",
+      "team_id": "17",
+      "team_name": "Brooklyn Nets",
+      "prior_espn_game_id": "401704679",
+      "prior_nba_game_ids": [
+        "0022400113"
+      ],
+      "prior_start_utc": "2024-10-29T23:30:00+00:00",
+      "prior_ny_date": "2024-10-29",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704679",
+      "nba_game_ids": [
+        "0022400113"
+      ],
+      "start_utc": "2024-10-29T23:30:00+00:00",
+      "ny_date": "2024-10-29",
+      "team_id": "7",
+      "team_name": "Denver Nuggets",
+      "prior_espn_game_id": "401704673",
+      "prior_nba_game_ids": [
+        "0022400107"
+      ],
+      "prior_start_utc": "2024-10-28T23:30:00+00:00",
+      "prior_ny_date": "2024-10-28",
+      "prior_period": 5
+    },
+    {
+      "espn_game_id": "401704668",
+      "nba_game_ids": [
+        "0022400102"
+      ],
+      "start_utc": "2024-10-28T23:00:00+00:00",
+      "ny_date": "2024-10-28",
+      "team_id": "11",
+      "team_name": "Indiana Pacers",
+      "prior_espn_game_id": "401704663",
+      "prior_nba_game_ids": [
+        "0022400097"
+      ],
+      "prior_start_utc": "2024-10-27T19:30:00+00:00",
+      "prior_ny_date": "2024-10-27",
+      "prior_period": 5
+    }
+  ]
+}
