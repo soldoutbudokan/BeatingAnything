@@ -1,0 +1,284 @@
+{
+  "phase": "predictions_frozen_before_later_labels",
+  "frozen_at_utc": "2026-09-26T21:19:28.328659+00:00",
+  "beta": 0.0015420597113512383,
+  "penalized_gradient_at_beta": 3.3111534347707305e-16,
+  "training_games": 76,
+  "training_graded": 76,
+  "training_high_wind": 20,
+  "training_metrics_in_sample_only": {
+    "forecasts": 76,
+    "graded": 76,
+    "unknown": 0,
+    "under_wins": 32,
+    "market_log_loss": 0.6961163545083711,
+    "model_log_loss": 0.6961162450201904,
+    "paired_loss_change": {
+      "games": 76,
+      "weeks": 8,
+      "weeks_with_observations": 8,
+      "mean": -1.0948818064755216e-07,
+      "week_bootstrap_95pct": [
+        -6.584792421496241e-05,
+        8.673087895875854e-05
+      ],
+      "zero_stake_or_label_resamples": 0
+    },
+    "paired_brier_change": {
+      "games": 76,
+      "weeks": 8,
+      "weeks_with_observations": 8,
+      "mean": -5.595938190897829e-08,
+      "week_bootstrap_95pct": [
+        -3.2914112084279734e-05,
+        4.333644090984674e-05
+      ],
+      "zero_stake_or_label_resamples": 0
+    }
+  },
+  "training_high_wind_metrics_in_sample_only": {
+    "forecasts": 20,
+    "graded": 20,
+    "unknown": 0,
+    "under_wins": 10,
+    "market_log_loss": 0.6984719400911732,
+    "model_log_loss": 0.6984715240360869,
+    "paired_loss_change": {
+      "games": 20,
+      "weeks": 8,
+      "weeks_with_observations": 6,
+      "mean": -4.160550864606982e-07,
+      "week_bootstrap_95pct": [
+        -0.0003624717943790194,
+        0.00033093380898161336
+      ],
+      "zero_stake_or_label_resamples": 0
+    },
+    "paired_brier_change": {
+      "games": 20,
+      "weeks": 8,
+      "weeks_with_observations": 6,
+      "mean": -2.126456512541175e-07,
+      "week_bootstrap_95pct": [
+        -0.00018111222952279886,
+        0.00016542878153196137
+      ],
+      "zero_stake_or_label_resamples": 0
+    }
+  },
+  "latest_training_availability": "2025-10-30T00:00:00+00:00",
+  "earliest_later_entry": "2025-10-30T01:55:39+00:00",
+  "later_forecasts": 99,
+  "later_high_wind": 42,
+  "later_selections": 0,
+  "sources": [
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/fanduel-totals-pregame.csv",
+      "sha256": "1deca3bdd5287b03776c4b0821fbfe55b9bcfb7936c77e2d42f06ea963362cba"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/venue-map.json",
+      "sha256": "0e6113684297a5139d33090b27c9174446013e5f2b7e7197c0b92138d165049c"
+    },
+    {
+      "path": "data/raw/nfl-fixture-feasibility/fixture-source-uninspected-results.csv",
+      "sha256": "5a346edf3e36421cf02b4d059085e29a5a8229a74a637c921f8df95f16086aaf"
+    },
+    {
+      "path": "docs/hypotheses/football-wind-forecast-revisions.md",
+      "sha256": "54c71a2e8b32ea080ed923c9d1d82966f7146e36980324b340d9197972896ff5"
+    },
+    {
+      "path": "tools/explore_nfl_wind_revisions.py",
+      "sha256": "965e07c10c6bc63de68d851399c24812e5f6672121ac31918993b07a858a034f"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KADW.json",
+      "sha256": "863bef137d8e5883330c8bcbf79c2297c3d7364174b644a36a2b923cbe7b1d6c"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KADW.receipt.json",
+      "sha256": "f66f8a25190647e542d8e778ec2f8a07c8232d1d52114960c1301f01176c9974"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KAGC.json",
+      "sha256": "81098d9ed1b567d59ff463e7e07cf17e101501139b9574355ddb4bb4dbd6c7f2"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KAGC.receipt.json",
+      "sha256": "5d6bb73ef12a4578233a538692dcdf3bdbd3bcd5d7164f0a72825a42d408ba50"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBFI.json",
+      "sha256": "aa5a56ee40ccc413ec6ea808bc8d276ec68dccbcfe829c0d3d23bdfdb8dc83aa"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBFI.receipt.json",
+      "sha256": "2dc143c28342ecd0854f351a5cac264ccc2ad0782c0601b651d80be98a04e1a5"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBJC.json",
+      "sha256": "fde5264c0efbf52b7990a5e38f8b3b0d3e0ab75094400e7f5c574ff5bc2a14c0"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBJC.receipt.json",
+      "sha256": "87b1d51a9d641c6e7d621b5de4e0d5627c8f93be88b4fc454cdc0e405929b49a"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBKL.json",
+      "sha256": "0f98632dba9d1af58f83139355ababdf90dd9f0a9e56269e4f847a052033a1f7"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBKL.receipt.json",
+      "sha256": "2dbb3c22c569a044f1522d93eea3b7aade85b55d31b630ff287ca902a325ade8"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBNA.json",
+      "sha256": "9ac67b48f01912168f2df66c1874c7e10888d6c66a7c3cdc7621ca52caa17ea2"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBNA.receipt.json",
+      "sha256": "53a46e6a3b087a08225a8b004416593d6c2cb4ab97ff70d36078d1f7a575c1b8"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBUF.json",
+      "sha256": "3a06b83257b0224dd2fbd091a707076759fe3ca0bb5ef50a60629c8a72bfdf78"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBUF.receipt.json",
+      "sha256": "6de1a506924aeefbdd0c58151da49a2c3d5f2ad6e794ef2850363bae4b8324d5"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBWI.json",
+      "sha256": "9671c19b284c02d54c710f0abcab5ea84cef9937aee30ac6f72a472b4e6a10bd"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KBWI.receipt.json",
+      "sha256": "0247d3c71687602ff4f179e19f7c8b31c23126395d8bb4db74ada0a9be4332ec"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KCLT.json",
+      "sha256": "3d6deba1ef4dbc560429d90f6c4e2b16fc833342b53e53cd11707d5704ecaeb4"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KCLT.receipt.json",
+      "sha256": "e5851eb6372e28eaccc59b4c66932fa9e19eab0180af16b801b85b9d9c21ac52"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KCRG.json",
+      "sha256": "e91ce30c6a3547d23814146a75d01ee4558dc3842339ad9f63a299d86aa3bb55"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KCRG.receipt.json",
+      "sha256": "2aa231242230119b28de7785a1fec19c544b1335b08a9c22595659e13f5ddaae"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KGRB.json",
+      "sha256": "f05938e7971be3a8991b69d19ae49127388fa612674e3fb5a95a48d106b8ba41"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KGRB.receipt.json",
+      "sha256": "47311e71deda7f034494c7860928ff53fa4555b977866d516ab1e1901a86334e"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KLUK.json",
+      "sha256": "a836c9484162cc138f2db5e7d70f712f8bf8f8e2e901e0188c59810b2baf6d72"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KLUK.receipt.json",
+      "sha256": "a18424b603682ba16eaf48562668fe6857af3a360777cf51dc6247c536a41b5d"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KMDW.json",
+      "sha256": "749123f8097e89cfda0cbc40e3bbee4ac03c9965fd6cbe05d8344a228716e713"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KMDW.receipt.json",
+      "sha256": "a9789a44250da1cf3afc59fb02c7ea097147878fc65bf1625fcdd96982082105"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KMKC.json",
+      "sha256": "b1aca5ea92c6f00fadef5fadac971f8766b2227a595d8cef3ef6d50e6642c5b1"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KMKC.receipt.json",
+      "sha256": "7de9c0061fd2076254a5a5eeadf76300373fb60d2b3dc6d712ad6c80e73ef892"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KOPF.json",
+      "sha256": "8571c8ae6ae82cf7cc02302e4734e63c3b260ea56f686cb0dd2fa31dc36ef8c4"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KOPF.receipt.json",
+      "sha256": "ca118cba77c831a7067be952fdc6afd1bb04d60340e0792fa49be165f0f78e5a"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KOWD.json",
+      "sha256": "9065932a8de6ceb1afb7e90739d935e436f246561477cb80ff65de0f768c6d1d"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KOWD.receipt.json",
+      "sha256": "5a8ab62c5f056144050a2167b2d7f60fd1088af6d021ba52d13aefd6e9b91059"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KPHL.json",
+      "sha256": "9dd7970465602be89269d963909caadbd523991e2d25e8fb27f05ea483e69398"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KPHL.receipt.json",
+      "sha256": "9451dca05ff84eac6c9bfb0042f9b8c2f4d21afccabfde11f6b585b764df37fd"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KSJC.json",
+      "sha256": "9536209418a161f2dcdac348da695ba8ce850242999469bdc4a7aeba45230190"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KSJC.receipt.json",
+      "sha256": "94354f18f357427b7773249cde147800853f22d802c5e2d5a6107b30b6ad239a"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KTEB.json",
+      "sha256": "3be36b37d02b688b908f2cad3c18083fb1e84689e84eabe802ba9ef48d712c03"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KTEB.receipt.json",
+      "sha256": "b4cfe87abf95b682e8d8282ec8d799c3c8794063fe048b9139e4201017ad5843"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KTPA.json",
+      "sha256": "7f836ca7ae5ad86b491881eb5745666fdbc1e3c2549016d06c869d3a7eebd540"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/mos/KTPA.receipt.json",
+      "sha256": "0cfb4d54657179bcf466b359ba5aed6c6725cee91080d7347b0e818368ab9f7b"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/weather-entries.csv",
+      "sha256": "97a55e8ad9ffa571c732b5a8c6ba07a333bd6c3e044afba9eebb7138718a02db"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/weather-preparation.json",
+      "sha256": "fd8fb0d2e8c1abf1f368dadf6ae5913e692ddddd84f939339c2646631d3b035f"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/wind-forecast-freeze.json",
+      "sha256": "4f4d3df8c3da5ddd8ef83626155b9126e55d23140492666ef31d74d6ce37004b"
+    },
+    {
+      "path": "data/raw/nfl-wind-revisions-2026-09-26/early-training-labels.csv",
+      "sha256": "3f8fe8add70d70ca5b2c2a1e645939f60b41e2b1c151975f199137316999887b"
+    },
+    {
+      "path": "docs/hypotheses/football-absolute-forecast-wind.md",
+      "sha256": "1dad61279e741ca365185f0c3e268eab1e52e3300211677f0bf2394d6cd25f7e"
+    },
+    {
+      "path": "tools/explore_nfl_absolute_wind.py",
+      "sha256": "d136d3adc66626360d263a8e7c5eb7f7ee2c83f1f598525f368e67bc03ff2885"
+    }
+  ],
+  "forecast": {
+    "path": "data/raw/nfl-absolute-wind-2026-09-26/forecasts.csv",
+    "sha256": "496a427688576513e02467405e1490bd008fc96c4728e2d33cf98e78f2d4b841"
+  }
+}
