@@ -1,0 +1,304 @@
+{
+  "all_brand_reference_count_histograms": {
+    "300": {
+      "0": 662,
+      "1": 400,
+      "2": 313,
+      "3": 428,
+      "4": 410,
+      "5": 422,
+      "6": 303,
+      "7": 338,
+      "8": 167,
+      "9": 141
+    },
+    "600": {
+      "0": 662,
+      "1": 386,
+      "2": 297,
+      "3": 452,
+      "4": 407,
+      "5": 410,
+      "6": 317,
+      "7": 317,
+      "8": 180,
+      "9": 156
+    }
+  },
+  "core_coverage_at_least3": {
+    "300": {
+      "by_provider_start_month": {
+        "2024-11": {
+          "games": 2,
+          "pairs": 18
+        },
+        "2024-12": {
+          "games": 47,
+          "pairs": 580
+        },
+        "2025-01": {
+          "games": 61,
+          "pairs": 720
+        }
+      },
+      "games": 110,
+      "pairs": 1318
+    },
+    "600": {
+      "by_provider_start_month": {
+        "2024-11": {
+          "games": 2,
+          "pairs": 18
+        },
+        "2024-12": {
+          "games": 47,
+          "pairs": 580
+        },
+        "2025-01": {
+          "games": 61,
+          "pairs": 720
+        }
+      },
+      "games": 110,
+      "pairs": 1318
+    }
+  },
+  "coverage_csv": "data/raw/nhl-shot-archive-2026-09-26/consensus-price-coverage.csv",
+  "coverage_csv_sha256": "e1f76051ee8b4e8e6bbad95ae179c8019b6f6f3da2af6dd802d531d82a815a11",
+  "event_payloads": 273,
+  "fanduel_events": 272,
+  "fanduel_pairs": 3584,
+  "issues": {
+    "ballybet:no_main_market": 12,
+    "betmgm:no_main_market": 1,
+    "betrivers:no_main_market": 12,
+    "bovada:incomplete_or_duplicate_side": 3,
+    "bovada:no_main_market": 97,
+    "draftkings:incomplete_or_duplicate_side": 1,
+    "fanduel:no_main_market": 1,
+    "publisher_error_payload": 12,
+    "williamhill_us:no_main_market": 169
+  },
+  "limitations": [
+    "Outcomes in this archive were already inspected for the completed dispersion test; any new model is exploratory.",
+    "Same full normalized player text and exact main line only; no aliases, alternates, interpolation or fabricated sides.",
+    "Age means FanDuel market update minus reference market update; future reference timestamps are excluded, not moved.",
+    "No receipt/capture or book-wide clock exists in these payloads. Update ordering does not prove execution or original availability.",
+    "Proposed pool has distinct operators. Statistical independence and absence of shared pricing/data vendors are not established.",
+    "Bally Bet and BetRivers share Kambi services in 2024; do not count them as two independent pricing sources.",
+    "Full-pair inventory has no overround filter. Per-book unusual margins are counted for a later fixed protocol to address."
+  ],
+  "per_book": [
+    {
+      "book": "ballybet",
+      "exact_fd_player_line_pairs": 2182,
+      "fd_minus_reference_update_seconds": {
+        "maximum": 58.0,
+        "median": -1.0,
+        "minimum": -236.0
+      },
+      "later_than_fd_market_update": 1131,
+      "main_market_payloads": 259,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 271,
+      "timely_300s_games": 123,
+      "timely_300s_pairs": 1051,
+      "timely_600s_games": 123,
+      "timely_600s_pairs": 1051,
+      "valid_paired_main_lines": 2545
+    },
+    {
+      "book": "betmgm",
+      "exact_fd_player_line_pairs": 3261,
+      "fd_minus_reference_update_seconds": {
+        "maximum": 221.0,
+        "median": 6.0,
+        "minimum": -252.0
+      },
+      "later_than_fd_market_update": 1323,
+      "main_market_payloads": 272,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 273,
+      "timely_300s_games": 160,
+      "timely_300s_pairs": 1938,
+      "timely_600s_games": 160,
+      "timely_600s_pairs": 1938,
+      "valid_paired_main_lines": 3513
+    },
+    {
+      "book": "betonlineag",
+      "exact_fd_player_line_pairs": 3320,
+      "fd_minus_reference_update_seconds": {
+        "maximum": 64.0,
+        "median": -1.0,
+        "minimum": -273.0
+      },
+      "later_than_fd_market_update": 1672,
+      "main_market_payloads": 273,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 273,
+      "timely_300s_games": 136,
+      "timely_300s_pairs": 1648,
+      "timely_600s_games": 136,
+      "timely_600s_pairs": 1648,
+      "valid_paired_main_lines": 3581
+    },
+    {
+      "book": "betrivers",
+      "exact_fd_player_line_pairs": 2081,
+      "fd_minus_reference_update_seconds": {
+        "maximum": 51.0,
+        "median": -5.0,
+        "minimum": -247.0
+      },
+      "later_than_fd_market_update": 1138,
+      "main_market_payloads": 247,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 259,
+      "timely_300s_games": 112,
+      "timely_300s_pairs": 943,
+      "timely_600s_games": 112,
+      "timely_600s_pairs": 943,
+      "valid_paired_main_lines": 2427
+    },
+    {
+      "book": "bovada",
+      "exact_fd_player_line_pairs": 2053,
+      "fd_minus_reference_update_seconds": {
+        "maximum": 809.0,
+        "median": 18.0,
+        "minimum": -221.0
+      },
+      "later_than_fd_market_update": 770,
+      "main_market_payloads": 173,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 270,
+      "timely_300s_games": 93,
+      "timely_300s_pairs": 1100,
+      "timely_600s_games": 104,
+      "timely_600s_pairs": 1230,
+      "valid_paired_main_lines": 2228
+    },
+    {
+      "book": "draftkings",
+      "exact_fd_player_line_pairs": 3090,
+      "fd_minus_reference_update_seconds": {
+        "maximum": 111.0,
+        "median": 0.0,
+        "minimum": -238.0
+      },
+      "later_than_fd_market_update": 1524,
+      "main_market_payloads": 259,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 259,
+      "timely_300s_games": 131,
+      "timely_300s_pairs": 1566,
+      "timely_600s_games": 131,
+      "timely_600s_pairs": 1566,
+      "valid_paired_main_lines": 3338
+    },
+    {
+      "book": "espnbet",
+      "exact_fd_player_line_pairs": 3252,
+      "fd_minus_reference_update_seconds": {
+        "maximum": 60.0,
+        "median": -3.0,
+        "minimum": -275.0
+      },
+      "later_than_fd_market_update": 1709,
+      "main_market_payloads": 271,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 271,
+      "timely_300s_games": 128,
+      "timely_300s_pairs": 1543,
+      "timely_600s_games": 128,
+      "timely_600s_pairs": 1543,
+      "valid_paired_main_lines": 3501
+    },
+    {
+      "book": "fanduel",
+      "fd_minus_reference_update_seconds": null,
+      "main_market_payloads": 272,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 273,
+      "timely_300s_games": 0,
+      "timely_600s_games": 0,
+      "valid_paired_main_lines": 3584
+    },
+    {
+      "book": "fliff",
+      "exact_fd_player_line_pairs": 3242,
+      "fd_minus_reference_update_seconds": {
+        "maximum": 105.0,
+        "median": -4.0,
+        "minimum": -247.0
+      },
+      "later_than_fd_market_update": 1816,
+      "main_market_payloads": 270,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 270,
+      "timely_300s_games": 118,
+      "timely_300s_pairs": 1426,
+      "timely_600s_games": 118,
+      "timely_600s_pairs": 1426,
+      "valid_paired_main_lines": 3493
+    },
+    {
+      "book": "hardrockbet",
+      "exact_fd_player_line_pairs": 3251,
+      "fd_minus_reference_update_seconds": {
+        "maximum": 124.0,
+        "median": 0.0,
+        "minimum": -268.0
+      },
+      "later_than_fd_market_update": 1617,
+      "main_market_payloads": 271,
+      "negative_overround_pairs": 0,
+      "normalized_not_literal_name_matches": 0,
+      "overround_above_15pct_pairs": 0,
+      "raw_book_payloads": 271,
+      "timely_300s_games": 135,
+      "timely_300s_pairs": 1634,
+      "timely_600s_games": 135,
+      "timely_600s_pairs": 1634,
+      "valid_paired_main_lines": 3504
+    },
+    {
+      "book": "williamhill_us",
+      "fd_minus_reference_update_seconds": null,
+      "main_market_payloads": 0,
+      "normalized_not_literal_name_matches": 0,
+      "raw_book_payloads": 169,
+      "timely_300s_games": 0,
+      "timely_600s_games": 0
+    }
+  ],
+  "reference_books_proposed_from_availability_only": [
+    "draftkings",
+    "betmgm",
+    "espnbet",
+    "hardrockbet"
+  ],
+  "scope": "Source coverage only. No outcomes, probability comparison, disagreement, model, ROI or strategy selection evaluated.",
+  "source_commit": "42cf1f81bc302642ddcc9e88ce2e98c1057bc74d",
+  "source_files_verified": 285,
+  "source_manifest_sha256": "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da"
+}

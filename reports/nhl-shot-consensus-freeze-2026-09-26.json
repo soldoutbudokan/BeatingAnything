@@ -1,0 +1,86 @@
+{
+  "status": "frozen_before_this_model_grading; archive outcomes previously inspected",
+  "frozen_at_utc": "2026-09-26T20:59:15.208004+00:00",
+  "code_and_declaration": [
+    {
+      "path": "tools/explore_nhl_shot_consensus.py",
+      "sha256": "ef9fb77289fbe260eb261afd5801c003f12303191e94d60696d0225c84f70053"
+    },
+    {
+      "path": "tools/inventory_nhl_shot_consensus.py",
+      "sha256": "d96d29adee841692c41349c5b478c66a886b23f1b845125b2a3b4a66882b41ac"
+    },
+    {
+      "path": "docs/hypotheses/hockey-shots-crossbook-consensus.md",
+      "sha256": "556f99c515eca9f6ccb734adb5d5b99d89c365afa53c8c460a58ff00c2d0b1fb"
+    }
+  ],
+  "forecasts": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/consensus-forecasts.csv",
+    "sha256": "23e65b425d5f7da5b6f07df24145dabff567b7aca3dd2c79c4ab0fc87ca82a24"
+  },
+  "manifest": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/manifest.json",
+    "sha256": "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da"
+  },
+  "metadata_sources": [
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2024.csv",
+      "sha256": "0e70a12579b25af0532d00a0cf8bb5fda7d9eb33a23d76234ca26f2fff4ca4ba"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2025.csv",
+      "sha256": "cff04536329e7a7f3cdf9034786226e6644a7d222486eb70d4a799d12c1f80ba"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/schedule_2025_metadata.csv",
+      "sha256": "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855"
+    }
+  ],
+  "outcome_sources_hash_only": [
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/player_box_2025.csv",
+      "sha256": "511f58b09996be6165c7ad2a0f475ac029f0206653ce4e11665e1ff8088516b0"
+    }
+  ],
+  "forecast_rows": 1299,
+  "games": 109,
+  "selections": 5,
+  "period_forecasts": {
+    "later_january": 707,
+    "early_nov_dec": 592
+  },
+  "attrition": {
+    "publisher_error_payload": 12,
+    "fewer_than_3_fixed_timely_references": 2252,
+    "original_debug_game_excluded": 1,
+    "player_identity_unresolved": 10,
+    "fixture_unresolved": 1,
+    "no_fanduel_main_market": 1
+  },
+  "parser_issues": {
+    "williamhill_us:no_main_market": 168,
+    "bovada:no_main_market": 97,
+    "betmgm:no_main_market": 1,
+    "betrivers:no_main_market": 12,
+    "ballybet:no_main_market": 12,
+    "bovada:incomplete_or_duplicate_side": 3,
+    "fanduel:no_main_market": 1,
+    "draftkings:incomplete_or_duplicate_side": 1
+  },
+  "unrecognized_names": {
+    "Sebastian Aho": 4,
+    "Elias Pettersson": 3,
+    "Nicholas Paul": 3
+  },
+  "reference_books": [
+    "draftkings",
+    "betmgm",
+    "espnbet",
+    "hardrockbet"
+  ],
+  "local_freeze": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/consensus-forecast-freeze.json",
+    "sha256": "e57070f1f7fa984c79e1d95f0d2a03ced31ebd134a6fe76913a3ed220b52ef6e"
+  }
+}
