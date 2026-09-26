@@ -1,0 +1,598 @@
+{
+  "status": "exploratory; no demonstrated edge",
+  "test_year": 2025,
+  "parameters": {
+    "history_rounds": 80,
+    "min_history_rounds": 40,
+    "prior_degrees_freedom": 100,
+    "base_variance": 9.0,
+    "min_estimated_ev": 0.03,
+    "fit_on_test_outcomes": false,
+    "history_cutoff": "completed event end date strictly before min(current event date, unzoned opening date minus one day)",
+    "selection": "highest model EV, at most one per board, only EV >=3%"
+  },
+  "sources": {
+    "prices": {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/tracker-pages-test/data/matchup_backtest_detail.csv",
+      "sha256": "ba857e23af2305a8157631035ddb377533bcbd1d7e034933f701a38d51919684",
+      "publisher_commit": "5508f6f35830f09d0b1e0c06abed0b2b489dde04"
+    },
+    "exporter": {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/alpha-caddie-web/scripts/export-matchup-backtest-csv.mjs",
+      "sha256": "b12ae407a447c35fab793e60a37170f945f91b1f01603ac7768edb21c44b8703"
+    },
+    "sport": [
+      {
+        "path": "data/raw/golf-sport/scoreboard-2015.json",
+        "sha256": "08bf22e0b81797e60228dbd9d87ee722c0dc360487c006406c966abe568997dd"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2016.json",
+        "sha256": "5e3380f613a5bb14fc6803a8d322ed3c6d67fb12cc07f5588d923ea382ef3075"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2017.json",
+        "sha256": "483823e2f62fe6d9edc88ce87aa41f36f0d6f202dd35dcaaaf83be99f8c3c607"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2018.json",
+        "sha256": "7fcb215e3b3fd7a5792e6606d3a7392a55e5513a6c705f33d4a42e6c0a24b9da"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2019.json",
+        "sha256": "07b4c2dea5f0e4dc9602dd0fdd6f087014d38fb2a522624ef3ec5ac7adf2651b"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2020.json",
+        "sha256": "a4a97f76726e8d94267e94e3ef3cb57d78d66936a013511979c99d4f51c1d432"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2021.json",
+        "sha256": "7b456a555538611365989772742f87e6a8f11888358117af138c486cc0866c40"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2022.json",
+        "sha256": "fbeb36b482e6ed0c4c335204ee021af725f890d4a1e94238626fe36db1d47782"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2023.json",
+        "sha256": "bc5c87456898c6d49c3cf2cdff8a2354f3e92b4660209b5292da7035afae2aa3"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2024.json",
+        "sha256": "329cc2d0cd2a076bfadc8c52a75e06066c8271b86fba88b6405c12998bc5142e"
+      },
+      {
+        "path": "data/raw/golf-sport/scoreboard-2025.json",
+        "sha256": "8a7a69cec1cd431e2c0b082820fe0af6fc2f461de287154913b2ba02ae787a45"
+      }
+    ]
+  },
+  "raw_test_boards": 1945,
+  "forecasts_before_outcome_completeness": 1323,
+  "attrition": {
+    "excluded_event_or_format": 288,
+    "insufficient_prior_rounds": 264,
+    "identity_unresolved": 70,
+    "event_not_joined": 0
+  },
+  "identity_joins": {
+    "full_normalized_name": 4576,
+    "unique_surname_first_initial_within_event": 94,
+    "unmatched_or_ambiguous": 70
+  },
+  "unmatched_names": {
+    "Hojgaard, Nicolai": 26,
+    "Hojgaard, Rasmus": 25,
+    "Norgaard, Niklas": 17,
+    "Ballester Barrio, Jose Luis": 2
+  },
+  "primary": {
+    "boards": 1323,
+    "events": 23,
+    "player_exposures": 3969,
+    "selections": 0,
+    "selected_events": 0,
+    "baseline_log_loss": 1.0821994435090359,
+    "variance_log_loss": 1.0814527228563642,
+    "baseline_brier": 0.5792029226500935,
+    "variance_brier": 0.578760741799644,
+    "log_loss_change": {
+      "mean": -0.0007467206526714513,
+      "event_bootstrap_95": [
+        -0.0013895156411158113,
+        -0.0001235199689304688
+      ],
+      "events": 23,
+      "n": 1323
+    },
+    "brier_change": {
+      "mean": -0.0004421808504494617,
+      "event_bootstrap_95": [
+        -0.0008495902679141306,
+        -4.2095969797454625e-05
+      ],
+      "events": 23,
+      "n": 1323
+    },
+    "log_loss_change_conditional_no_triple_tie": {
+      "mean": -0.000759427596633088,
+      "event_bootstrap_95": [
+        -0.001409838587659986,
+        -0.00012960004467882052
+      ],
+      "events": 23,
+      "n": 1323
+    },
+    "tied_low_boards": 203,
+    "triple_tie_boards": 0,
+    "source_result_disagreement_boards": 0,
+    "mean_abs_probability_adjustment": 0.003419378025505527,
+    "max_abs_probability_adjustment": 0.015757697703891016,
+    "maximum_model_ev": -0.010808942014044476,
+    "boards_with_positive_model_ev": 0,
+    "mean_overround": 0.0783639488889068,
+    "mean_predicted_triple_tie_probability": 0.009794288484385223,
+    "dead_heat_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    },
+    "strict_win_only_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    },
+    "tie_void_selection_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    },
+    "full_win_on_tie_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    }
+  },
+  "exact_name_sensitivity": {
+    "boards": 1248,
+    "events": 23,
+    "player_exposures": 3744,
+    "selections": 0,
+    "selected_events": 0,
+    "baseline_log_loss": 1.081592978047144,
+    "variance_log_loss": 1.0810037470185427,
+    "baseline_brier": 0.5814740060950437,
+    "variance_brier": 0.5811215288392829,
+    "log_loss_change": {
+      "mean": -0.0005892310286011845,
+      "event_bootstrap_95": [
+        -0.001285729495429947,
+        6.306909896451222e-05
+      ],
+      "events": 23,
+      "n": 1248
+    },
+    "brier_change": {
+      "mean": -0.0003524772557608276,
+      "event_bootstrap_95": [
+        -0.000796216930191889,
+        6.955944467360874e-05
+      ],
+      "events": 23,
+      "n": 1248
+    },
+    "log_loss_change_conditional_no_triple_tie": {
+      "mean": -0.0006000020663088548,
+      "event_bootstrap_95": [
+        -0.0013038180615988566,
+        5.9309064913962095e-05
+      ],
+      "events": 23,
+      "n": 1248
+    },
+    "tied_low_boards": 185,
+    "triple_tie_boards": 0,
+    "source_result_disagreement_boards": 0,
+    "mean_abs_probability_adjustment": 0.0034210980595002793,
+    "max_abs_probability_adjustment": 0.015757697703891016,
+    "maximum_model_ev": -0.010808942014044476,
+    "boards_with_positive_model_ev": 0,
+    "mean_overround": 0.07852040159574787,
+    "mean_predicted_triple_tie_probability": 0.009797349740906642,
+    "dead_heat_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    },
+    "strict_win_only_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    },
+    "tie_void_selection_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    },
+    "full_win_on_tie_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    }
+  },
+  "source_result_agreement_sensitivity": {
+    "boards": 1323,
+    "events": 23,
+    "player_exposures": 3969,
+    "selections": 0,
+    "selected_events": 0,
+    "baseline_log_loss": 1.0821994435090359,
+    "variance_log_loss": 1.0814527228563642,
+    "baseline_brier": 0.5792029226500935,
+    "variance_brier": 0.578760741799644,
+    "log_loss_change": {
+      "mean": -0.0007467206526714513,
+      "event_bootstrap_95": [
+        -0.0013895156411158113,
+        -0.0001235199689304688
+      ],
+      "events": 23,
+      "n": 1323
+    },
+    "brier_change": {
+      "mean": -0.0004421808504494617,
+      "event_bootstrap_95": [
+        -0.0008495902679141306,
+        -4.2095969797454625e-05
+      ],
+      "events": 23,
+      "n": 1323
+    },
+    "log_loss_change_conditional_no_triple_tie": {
+      "mean": -0.000759427596633088,
+      "event_bootstrap_95": [
+        -0.001409838587659986,
+        -0.00012960004467882052
+      ],
+      "events": 23,
+      "n": 1323
+    },
+    "tied_low_boards": 203,
+    "triple_tie_boards": 0,
+    "source_result_disagreement_boards": 0,
+    "mean_abs_probability_adjustment": 0.003419378025505527,
+    "max_abs_probability_adjustment": 0.015757697703891016,
+    "maximum_model_ev": -0.010808942014044476,
+    "boards_with_positive_model_ev": 0,
+    "mean_overround": 0.0783639488889068,
+    "mean_predicted_triple_tie_probability": 0.009794288484385223,
+    "dead_heat_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    },
+    "strict_win_only_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    },
+    "tie_void_selection_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    },
+    "full_win_on_tie_roi": {
+      "mean": null,
+      "event_bootstrap_95": null,
+      "events": 0,
+      "n": 0
+    }
+  },
+  "by_round": {
+    "1": {
+      "boards": 539,
+      "events": 22,
+      "player_exposures": 1617,
+      "selections": 0,
+      "selected_events": 0,
+      "baseline_log_loss": 1.0852441722399748,
+      "variance_log_loss": 1.0840144519021166,
+      "baseline_brier": 0.5856497477254066,
+      "variance_brier": 0.5849048808988137,
+      "log_loss_change": {
+        "mean": -0.0012297203378580977,
+        "event_bootstrap_95": [
+          -0.0021448168057214725,
+          -0.00022313064053583053
+        ],
+        "events": 22,
+        "n": 539
+      },
+      "brier_change": {
+        "mean": -0.0007448668265928713,
+        "event_bootstrap_95": [
+          -0.0013066333386322398,
+          -0.00011269847620458063
+        ],
+        "events": 22,
+        "n": 539
+      },
+      "log_loss_change_conditional_no_triple_tie": {
+        "mean": -0.0012478785433782133,
+        "event_bootstrap_95": [
+          -0.0021734694348992836,
+          -0.00023091884176112124
+        ],
+        "events": 22,
+        "n": 539
+      },
+      "tied_low_boards": 78,
+      "triple_tie_boards": 0,
+      "source_result_disagreement_boards": 0,
+      "mean_abs_probability_adjustment": 0.003440928031045333,
+      "max_abs_probability_adjustment": 0.015286184283798021,
+      "maximum_model_ev": -0.015103428600099611,
+      "boards_with_positive_model_ev": 0,
+      "mean_overround": 0.07852823015088162,
+      "mean_predicted_triple_tie_probability": 0.009825074854928962,
+      "dead_heat_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "strict_win_only_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "tie_void_selection_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "full_win_on_tie_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      }
+    },
+    "2": {
+      "boards": 430,
+      "events": 19,
+      "player_exposures": 1290,
+      "selections": 0,
+      "selected_events": 0,
+      "baseline_log_loss": 1.0929662784740006,
+      "variance_log_loss": 1.0930975861173278,
+      "baseline_brier": 0.5931403085960392,
+      "variance_brier": 0.593219051112079,
+      "log_loss_change": {
+        "mean": 0.0001313076433269451,
+        "event_bootstrap_95": [
+          -0.0012172181152024716,
+          0.0014529182595580245
+        ],
+        "events": 19,
+        "n": 430
+      },
+      "brier_change": {
+        "mean": 7.874251603969782e-05,
+        "event_bootstrap_95": [
+          -0.0007260851921132964,
+          0.00086646161371072
+        ],
+        "events": 19,
+        "n": 430
+      },
+      "log_loss_change_conditional_no_triple_tie": {
+        "mean": 0.00012788763745245248,
+        "event_bootstrap_95": [
+          -0.001236148749197407,
+          0.001466337863806996
+        ],
+        "events": 19,
+        "n": 430
+      },
+      "tied_low_boards": 60,
+      "triple_tie_boards": 0,
+      "source_result_disagreement_boards": 0,
+      "mean_abs_probability_adjustment": 0.003428574672444057,
+      "max_abs_probability_adjustment": 0.015757697703891016,
+      "maximum_model_ev": -0.010808942014044476,
+      "boards_with_positive_model_ev": 0,
+      "mean_overround": 0.08062168297847978,
+      "mean_predicted_triple_tie_probability": 0.00982206670779062,
+      "dead_heat_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "strict_win_only_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "tie_void_selection_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "full_win_on_tie_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      }
+    },
+    "3": {
+      "boards": 174,
+      "events": 13,
+      "player_exposures": 522,
+      "selections": 0,
+      "selected_events": 0,
+      "baseline_log_loss": 1.0606032827631124,
+      "variance_log_loss": 1.059767140599165,
+      "baseline_brier": 0.5585509949251521,
+      "variance_brier": 0.5581224841349497,
+      "log_loss_change": {
+        "mean": -0.0008361421639476921,
+        "event_bootstrap_95": [
+          -0.003371121119287331,
+          0.0013676644268814987
+        ],
+        "events": 13,
+        "n": 174
+      },
+      "brier_change": {
+        "mean": -0.00042851079020251535,
+        "event_bootstrap_95": [
+          -0.0020511698313809964,
+          0.0009449132726260689
+        ],
+        "events": 13,
+        "n": 174
+      },
+      "log_loss_change_conditional_no_triple_tie": {
+        "mean": -0.0008496399931098585,
+        "event_bootstrap_95": [
+          -0.003409872169060633,
+          0.0013781224784134814
+        ],
+        "events": 13,
+        "n": 174
+      },
+      "tied_low_boards": 29,
+      "triple_tie_boards": 0,
+      "source_result_disagreement_boards": 0,
+      "mean_abs_probability_adjustment": 0.0034993732070768804,
+      "max_abs_probability_adjustment": 0.014301366097242946,
+      "maximum_model_ev": -0.012494075677894512,
+      "boards_with_positive_model_ev": 0,
+      "mean_overround": 0.07627476152527186,
+      "mean_predicted_triple_tie_probability": 0.009699453766018006,
+      "dead_heat_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "strict_win_only_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "tie_void_selection_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "full_win_on_tie_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      }
+    },
+    "4": {
+      "boards": 180,
+      "events": 13,
+      "player_exposures": 540,
+      "selections": 0,
+      "selected_events": 0,
+      "baseline_log_loss": 1.0682376887805891,
+      "variance_log_loss": 1.066926212605686,
+      "baseline_brier": 0.5465669268267016,
+      "variance_brier": 0.5457734798821854,
+      "log_loss_change": {
+        "mean": -0.0013114761749027962,
+        "event_bootstrap_95": [
+          -0.003162853262456096,
+          0.0005361120612539124
+        ],
+        "events": 13,
+        "n": 180
+      },
+      "brier_change": {
+        "mean": -0.0007934469445161813,
+        "event_bootstrap_95": [
+          -0.001922730058600761,
+          0.0003150823241431021
+        ],
+        "events": 13,
+        "n": 180
+      },
+      "log_loss_change_conditional_no_triple_tie": {
+        "mean": -0.0013292805598230971,
+        "event_bootstrap_95": [
+          -0.003199009407811586,
+          0.0005408641396769512
+        ],
+        "events": 13,
+        "n": 180
+      },
+      "tied_low_boards": 36,
+      "triple_tie_boards": 0,
+      "source_result_disagreement_boards": 0,
+      "mean_abs_probability_adjustment": 0.003255549287933647,
+      "max_abs_probability_adjustment": 0.013614223053135421,
+      "maximum_model_ev": -0.014920720091969653,
+      "boards_with_positive_model_ev": 0,
+      "mean_overround": 0.07449808968086048,
+      "mean_predicted_triple_tie_probability": 0.009727414879988008,
+      "dead_heat_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "strict_win_only_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "tie_void_selection_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      },
+      "full_win_on_tie_roi": {
+        "mean": null,
+        "event_bootstrap_95": null,
+        "events": 0,
+        "n": 0
+      }
+    }
+  },
+  "limitations": [
+    "Historical quote timezone, update time, original market-specific terms, jurisdiction and actual acceptance unknown.",
+    "Publisher filters to outcomes exactly 0, .5, 1 and available model estimates; three-way ties encoded 1/3 are excluded.",
+    "Opening-price cohort also requires all three valid later closing prices and publisher model availability evaluated at close_time or fallback open_time.",
+    "Opening source prices are not asserted simultaneous executable quotes; no verified closing comparison.",
+    "Independent rounded-normal score assumption, field-centered variance confounded by field composition and changing form.",
+    "2025 results were used elsewhere in prior research; this is exploratory, not a newly untouched holdout.",
+    "Incomplete-round forecasts remain counted but cannot be settled without original rules."
+  ]
+}

@@ -1,5 +1,7 @@
 # Edge search, September 23: seven more routes, one thin lead
 
+**September 26 correction:** the birdie venue is publisher-labelled Hard Rock, not a verified exchange, and closing-price semantics are unresolved. Only 671 pre-2026 contracts contain stored Under quotes. The [source audit](golf-birdie-source-audit-2026-09-26.md) and [recheck](golf-birdie-recheck-2026-09-26.md) supersede the birdie attribution, bet count and price interpretation below. At stored opening prices, observed unders retain a positive exploratory 2023–25 return but lose in 2026. The original text is preserved as research history, not current evidence of an edge.
+
 The early-payout scanner is parked at the owner's request (routine `trig_01UHusCXLyAry36A9XDudAoU` disabled; every firing had stopped at the missing BettingPros key). This round looked for a different edge. None clears the bar; one golf lead is worth a live price check.
 
 | Route | Data | Result |

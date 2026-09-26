@@ -1,0 +1,589 @@
+{
+  "status": "exploratory recheck; no verified executable closing prices or edge",
+  "source_repository_commit": "5508f6f35830f09d0b1e0c06abed0b2b489dde04",
+  "sources": [
+    {
+      "path": "data/raw/golf-historical-price-search-2026-09-19/alpha/data/odds.csv",
+      "bytes": 1854042,
+      "sha256": "d2a9b733b9d0f45d20cf8593056ef343cd6c6bb7e07b4aae29b4ac9ad2a52e97",
+      "git_blob": "104ab16b9657800309f45d8e102132b835e70459"
+    },
+    {
+      "path": "data/raw/golf-birdie-recheck-2026-09-26/historical_rounds_all.csv",
+      "bytes": 20386179,
+      "sha256": "253be8dca8645319382ece263deb08a5d58a181e8850a67db5f94c544da1abc9",
+      "git_blob": "f71c0a71490542179633e3da556b4e7996646167"
+    }
+  ],
+  "inventory": {
+    "raw_birdie_rows": 4381,
+    "distinct_side_rows": 2034,
+    "distinct_observed_unders": 873,
+    "conflicting_price_groups": 4,
+    "years": {
+      "2023": 188,
+      "2024": 2330,
+      "2025": 712,
+      "2026": 1151
+    },
+    "join_status": {
+      "complete": 815,
+      "missing": 53,
+      "fixture_date_mismatch": 3,
+      "ambiguous": 2
+    },
+    "join_status_by_year": {
+      "2023": {
+        "complete": 66,
+        "missing": 4,
+        "ambiguous": 1
+      },
+      "2024": {
+        "complete": 409,
+        "missing": 37,
+        "fixture_date_mismatch": 3,
+        "ambiguous": 1
+      },
+      "2025": {
+        "complete": 143,
+        "missing": 7
+      },
+      "2026": {
+        "complete": 197,
+        "missing": 5
+      }
+    }
+  },
+  "results": {
+    "2023_2025_observed_unders": {
+      "actual_birdies": {
+        "OPENING_AMERICAN_ODDS": {
+          "offered": 671,
+          "graded": 618,
+          "missing": 53,
+          "events": 53,
+          "wins": 358,
+          "losses": 218,
+          "pushes": 42,
+          "win_rate_excluding_pushes": 0.6215277777777778,
+          "units": 88.26814434711514,
+          "roi_all_graded_stakes": 0.14282871253578502,
+          "roi_event_bootstrap_95pct_exploratory": [
+            0.023810787846776395,
+            0.2532628130205389
+          ],
+          "roi_missing_all_losses": 0.05256057279748903,
+          "mean_decimal_price": 1.8710066814803876,
+          "mean_break_even_conditional_on_no_push": 0.5390398273238808,
+          "by_year": {
+            "2023": {
+              "n": 66,
+              "units": 22.635890099683206,
+              "roi": 0.3429680318133819
+            },
+            "2024": {
+              "n": 409,
+              "units": 55.725939817240096,
+              "roi": 0.136249241606944
+            },
+            "2025": {
+              "n": 143,
+              "units": 9.906314430191832,
+              "roi": 0.06927492608525757
+            }
+          }
+        },
+        "CLOSING_AMERICAN_ODDS": {
+          "offered": 671,
+          "graded": 618,
+          "missing": 53,
+          "events": 53,
+          "wins": 358,
+          "losses": 218,
+          "pushes": 42,
+          "win_rate_excluding_pushes": 0.6215277777777778,
+          "units": 139.7910987731744,
+          "roi_all_graded_stakes": 0.22619918895335664,
+          "roi_event_bootstrap_95pct_exploratory": [
+            0.1006497180908887,
+            0.34237415429386603
+          ],
+          "roi_missing_all_losses": 0.12934589981099018,
+          "mean_decimal_price": 2.0185440330214375,
+          "mean_break_even_conditional_on_no_push": 0.5000265847322859,
+          "by_year": {
+            "2023": {
+              "n": 66,
+              "units": 27.935219153378892,
+              "roi": 0.42326089626331653
+            },
+            "2024": {
+              "n": 409,
+              "units": 86.92760084702063,
+              "roi": 0.2125369213863585
+            },
+            "2025": {
+              "n": 143,
+              "units": 24.928278772774874,
+              "roi": 0.17432362778164248
+            }
+          }
+        }
+      },
+      "actual_birdies_or_better": {
+        "OPENING_AMERICAN_ODDS": {
+          "offered": 671,
+          "graded": 618,
+          "missing": 53,
+          "events": 53,
+          "wins": 344,
+          "losses": 232,
+          "pushes": 42,
+          "win_rate_excluding_pushes": 0.5972222222222222,
+          "units": 62.30778542123897,
+          "roi_all_graded_stakes": 0.10082165925766823,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.010582130612485339,
+            0.20708102489818575
+          ],
+          "roi_missing_all_losses": 0.013871513295438105,
+          "mean_decimal_price": 1.8710066814803876,
+          "mean_break_even_conditional_on_no_push": 0.5390398273238808,
+          "by_year": {
+            "2023": {
+              "n": 66,
+              "units": 21.06181602560913,
+              "roi": 0.3191184246304414
+            },
+            "2024": {
+              "n": 409,
+              "units": 34.96108353686657,
+              "roi": 0.08547942185052951
+            },
+            "2025": {
+              "n": 143,
+              "units": 6.284885858763262,
+              "roi": 0.04395025076058225
+            }
+          }
+        },
+        "CLOSING_AMERICAN_ODDS": {
+          "offered": 671,
+          "graded": 618,
+          "missing": 53,
+          "events": 53,
+          "wins": 344,
+          "losses": 232,
+          "pushes": 42,
+          "win_rate_excluding_pushes": 0.5972222222222222,
+          "units": 111.95483865549136,
+          "roi_all_graded_stakes": 0.18115669685354588,
+          "roi_event_bootstrap_95pct_exploratory": [
+            0.06479318235558654,
+            0.29168159270204214
+          ],
+          "roi_missing_all_losses": 0.0878611604403746,
+          "mean_decimal_price": 2.0185440330214375,
+          "mean_break_even_conditional_on_no_push": 0.5000265847322859,
+          "by_year": {
+            "2023": {
+              "n": 66,
+              "units": 26.092758030998905,
+              "roi": 0.39534481865149856
+            },
+            "2024": {
+              "n": 409,
+              "units": 64.91824629616202,
+              "roi": 0.15872431857252328
+            },
+            "2025": {
+              "n": 143,
+              "units": 20.94383432833043,
+              "roi": 0.1464603799183946
+            }
+          }
+        }
+      }
+    },
+    "2026_observed_unders": {
+      "actual_birdies": {
+        "OPENING_AMERICAN_ODDS": {
+          "offered": 202,
+          "graded": 197,
+          "missing": 5,
+          "events": 10,
+          "wins": 102,
+          "losses": 95,
+          "pushes": 0,
+          "win_rate_excluding_pushes": 0.5177664974619289,
+          "units": -1.529952846543237,
+          "roi_all_graded_stakes": -0.0077662581042803915,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.2033905688162041,
+            0.14799755176687002
+          ],
+          "roi_missing_all_losses": -0.032326499240313056,
+          "mean_decimal_price": 1.947841539604715,
+          "mean_break_even_conditional_on_no_push": 0.5219309041129728,
+          "by_year": {
+            "2026": {
+              "n": 197,
+              "units": -1.529952846543237,
+              "roi": -0.0077662581042803915
+            }
+          }
+        },
+        "CLOSING_AMERICAN_ODDS": {
+          "offered": 202,
+          "graded": 197,
+          "missing": 5,
+          "events": 10,
+          "wins": 102,
+          "losses": 95,
+          "pushes": 0,
+          "win_rate_excluding_pushes": 0.5177664974619289,
+          "units": 16.353781961047236,
+          "roi_all_graded_stakes": 0.0830141216296814,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.1325524190798392,
+            0.25546574809172923
+          ],
+          "roi_missing_all_losses": 0.056206841391322954,
+          "mean_decimal_price": 2.1245218410786326,
+          "mean_break_even_conditional_on_no_push": 0.4793074645109624,
+          "by_year": {
+            "2026": {
+              "n": 197,
+              "units": 16.353781961047236,
+              "roi": 0.0830141216296814
+            }
+          }
+        }
+      },
+      "actual_birdies_or_better": {
+        "OPENING_AMERICAN_ODDS": {
+          "offered": 202,
+          "graded": 197,
+          "missing": 5,
+          "events": 10,
+          "wins": 100,
+          "losses": 97,
+          "pushes": 0,
+          "win_rate_excluding_pushes": 0.5076142131979695,
+          "units": -5.379952846543238,
+          "roi_all_graded_stakes": -0.02730940531240222,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.22340909145639415,
+            0.13254904129470824
+          ],
+          "roi_missing_all_losses": -0.05138590518090711,
+          "mean_decimal_price": 1.947841539604715,
+          "mean_break_even_conditional_on_no_push": 0.5219309041129728,
+          "by_year": {
+            "2026": {
+              "n": 197,
+              "units": -5.379952846543238,
+              "roi": -0.02730940531240222
+            }
+          }
+        },
+        "CLOSING_AMERICAN_ODDS": {
+          "offered": 202,
+          "graded": 197,
+          "missing": 5,
+          "events": 10,
+          "wins": 100,
+          "losses": 97,
+          "pushes": 0,
+          "win_rate_excluding_pushes": 0.5076142131979695,
+          "units": 12.180385734632141,
+          "roi_all_graded_stakes": 0.06182936921133066,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.15409705864734224,
+            0.23815057374124335
+          ],
+          "roi_missing_all_losses": 0.03554646403283238,
+          "mean_decimal_price": 2.1245218410786326,
+          "mean_break_even_conditional_on_no_push": 0.4793074645109624,
+          "by_year": {
+            "2026": {
+              "n": 197,
+              "units": 12.180385734632141,
+              "roi": 0.06182936921133066
+            }
+          }
+        }
+      }
+    },
+    "2023_2025_paired_boards": {
+      "actual_birdies": {
+        "OPENING_AMERICAN_ODDS": {
+          "offered": 501,
+          "graded": 460,
+          "missing": 41,
+          "events": 50,
+          "wins": 265,
+          "losses": 166,
+          "pushes": 29,
+          "win_rate_excluding_pushes": 0.6148491879350348,
+          "units": 58.07548808482594,
+          "roi_all_graded_stakes": 0.12625106105396944,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.011426992650295415,
+            0.26052682335907584
+          ],
+          "roi_missing_all_losses": 0.034082810548554776,
+          "mean_decimal_price": 1.8666920598900643,
+          "mean_break_even_conditional_on_no_push": 0.5406252235078404,
+          "by_year": {
+            "2023": {
+              "n": 9,
+              "units": 5.292871241147104,
+              "roi": 0.5880968045719004
+            },
+            "2024": {
+              "n": 321,
+              "units": 43.22110760829219,
+              "roi": 0.1346451950414087
+            },
+            "2025": {
+              "n": 130,
+              "units": 9.56150923538664,
+              "roi": 0.0735500710414357
+            }
+          }
+        },
+        "CLOSING_AMERICAN_ODDS": {
+          "offered": 501,
+          "graded": 460,
+          "missing": 41,
+          "events": 50,
+          "wins": 265,
+          "losses": 166,
+          "pushes": 29,
+          "win_rate_excluding_pushes": 0.6148491879350348,
+          "units": 97.33872371136351,
+          "roi_all_graded_stakes": 0.21160592111165982,
+          "roi_event_bootstrap_95pct_exploratory": [
+            0.06618807098873976,
+            0.3536506314926727
+          ],
+          "roi_missing_all_losses": 0.11245254233805092,
+          "mean_decimal_price": 2.019157664555016,
+          "mean_break_even_conditional_on_no_push": 0.5002238504641671,
+          "by_year": {
+            "2023": {
+              "n": 9,
+              "units": 6.218625059984907,
+              "roi": 0.690958339998323
+            },
+            "2024": {
+              "n": 321,
+              "units": 67.9815759761647,
+              "roi": 0.21178061051764707
+            },
+            "2025": {
+              "n": 130,
+              "units": 23.138522675213892,
+              "roi": 0.1779886359631838
+            }
+          }
+        }
+      },
+      "actual_birdies_or_better": {
+        "OPENING_AMERICAN_ODDS": {
+          "offered": 501,
+          "graded": 460,
+          "missing": 41,
+          "events": 50,
+          "wins": 254,
+          "losses": 178,
+          "pushes": 28,
+          "win_rate_excluding_pushes": 0.5879629629629629,
+          "units": 36.608250852071464,
+          "roi_all_graded_stakes": 0.07958315402624232,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.04747543049993948,
+            0.20387691913974215
+          ],
+          "roi_missing_all_losses": -0.00876596636313081,
+          "mean_decimal_price": 1.8666920598900643,
+          "mean_break_even_conditional_on_no_push": 0.5406252235078404,
+          "by_year": {
+            "2023": {
+              "n": 9,
+              "units": 4.45953790781377,
+              "roi": 0.4955042119793078
+            },
+            "2024": {
+              "n": 321,
+              "units": 26.208632280299632,
+              "roi": 0.08164682953364372
+            },
+            "2025": {
+              "n": 130,
+              "units": 5.940080663958069,
+              "roi": 0.04569292818429284
+            }
+          }
+        },
+        "CLOSING_AMERICAN_ODDS": {
+          "offered": 501,
+          "graded": 460,
+          "missing": 41,
+          "events": 50,
+          "wins": 254,
+          "losses": 178,
+          "pushes": 28,
+          "win_rate_excluding_pushes": 0.5879629629629629,
+          "units": 74.35196375185828,
+          "roi_all_graded_stakes": 0.16163470380838757,
+          "roi_event_bootstrap_95pct_exploratory": [
+            0.02786681255568294,
+            0.2909728995748659
+          ],
+          "roi_missing_all_losses": 0.06657078593185285,
+          "mean_decimal_price": 2.019157664555016,
+          "mean_break_even_conditional_on_no_push": 0.5002238504641671,
+          "by_year": {
+            "2023": {
+              "n": 9,
+              "units": 5.238232903122162,
+              "roi": 0.5820258781246846
+            },
+            "2024": {
+              "n": 321,
+              "units": 49.95965261796666,
+              "roi": 0.15563754709646935
+            },
+            "2025": {
+              "n": 130,
+              "units": 19.15407823076945,
+              "roi": 0.14733906331361116
+            }
+          }
+        }
+      }
+    },
+    "2026_paired_boards": {
+      "actual_birdies": {
+        "OPENING_AMERICAN_ODDS": {
+          "offered": 173,
+          "graded": 169,
+          "missing": 4,
+          "events": 10,
+          "wins": 84,
+          "losses": 85,
+          "pushes": 0,
+          "win_rate_excluding_pushes": 0.4970414201183432,
+          "units": -11.001899016315495,
+          "roi_all_graded_stakes": -0.06509999417938163,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.28100264820471443,
+            0.11065699497398816
+          ],
+          "roi_missing_all_losses": -0.08671617928506066,
+          "mean_decimal_price": 1.9236316344571935,
+          "mean_break_even_conditional_on_no_push": 0.5285832657445275,
+          "by_year": {
+            "2026": {
+              "n": 169,
+              "units": -11.001899016315495,
+              "roi": -0.06509999417938163
+            }
+          }
+        },
+        "CLOSING_AMERICAN_ODDS": {
+          "offered": 173,
+          "graded": 169,
+          "missing": 4,
+          "events": 10,
+          "wins": 84,
+          "losses": 85,
+          "pushes": 0,
+          "win_rate_excluding_pushes": 0.4970414201183432,
+          "units": 3.4631017840148592,
+          "roi_all_graded_stakes": 0.020491726532632305,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.21696149024618747,
+            0.21765703855032983
+          ],
+          "roi_missing_all_losses": -0.0031034578958678656,
+          "mean_decimal_price": 2.09982321015064,
+          "mean_break_even_conditional_on_no_push": 0.4851442257142731,
+          "by_year": {
+            "2026": {
+              "n": 169,
+              "units": 3.4631017840148592,
+              "roi": 0.020491726532632305
+            }
+          }
+        }
+      },
+      "actual_birdies_or_better": {
+        "OPENING_AMERICAN_ODDS": {
+          "offered": 173,
+          "graded": 169,
+          "missing": 4,
+          "events": 10,
+          "wins": 83,
+          "losses": 86,
+          "pushes": 0,
+          "win_rate_excluding_pushes": 0.4911242603550296,
+          "units": -13.051899016315495,
+          "roi_all_graded_stakes": -0.07723017169417452,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.3024323999761772,
+            0.10621222476721677
+          ],
+          "roi_missing_all_losses": -0.09856589026771963,
+          "mean_decimal_price": 1.9236316344571935,
+          "mean_break_even_conditional_on_no_push": 0.5285832657445275,
+          "by_year": {
+            "2026": {
+              "n": 169,
+              "units": -13.051899016315495,
+              "roi": -0.07723017169417452
+            }
+          }
+        },
+        "CLOSING_AMERICAN_ODDS": {
+          "offered": 173,
+          "graded": 169,
+          "missing": 4,
+          "events": 10,
+          "wins": 83,
+          "losses": 86,
+          "pushes": 0,
+          "win_rate_excluding_pushes": 0.4911242603550296,
+          "units": 1.2331017840148606,
+          "roi_all_graded_stakes": 0.007296460260442962,
+          "roi_event_bootstrap_95pct_exploratory": [
+            -0.24097132533856325,
+            0.21283302518256642
+          ],
+          "roi_missing_all_losses": -0.01599363130627248,
+          "mean_decimal_price": 2.09982321015064,
+          "mean_break_even_conditional_on_no_push": 0.4851442257142731,
+          "by_year": {
+            "2026": {
+              "n": 169,
+              "units": 1.2331017840148606,
+              "roi": 0.007296460260442962
+            }
+          }
+        }
+      }
+    }
+  },
+  "detail_path": "data/raw/golf-birdie-recheck-2026-09-26/under-diagnostic.csv",
+  "limitations": [
+    "The original 863-line script was not retained; this is a new transparent diagnostic, not exact reproduction.",
+    "Actual observed Under rows only; absent Under prices are never synthesized from Over prices.",
+    "Original pre-2026 Hard Rock settlement definition remains unverified; both definitions reported.",
+    "Opening and closing quote times absent. Closing columns appear de-vigged and are not certified executable prices.",
+    "No model selection or untouched holdout; all intervals exploratory and uncorrected for past searches.",
+    "Historical outcome feed is a third-party retrospective export; incomplete holes remain unresolved.",
+    "Multiple lines and player rounds are not independent bets; bootstrap clusters whole events."
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "status": "exploratory fixed-rule forecast diagnostic; no demonstrated forecasting edge",
+  "analysis_script_sha256": "f8add67cb81c77c962cc06a23a1cce9fcc32c25495d5de8d75d4852dcdaaa987",
+  "sources": [
+    {
+      "path": "data/raw/golf-birdie-recheck-2026-09-26/under-diagnostic.csv",
+      "sha256": "d5e54b16e86b5f0459be9fca164fda7cbd6ff3b89e900dddc4a992a2ca207796"
+    },
+    {
+      "path": "data/raw/golf-birdie-recheck-2026-09-26/historical_rounds_all.csv",
+      "sha256": "253be8dca8645319382ece263deb08a5d58a181e8850a67db5f94c544da1abc9"
+    }
+  ],
+  "rule": {
+    "stat": "birdies + eagles_or_better",
+    "history_rounds": 40,
+    "minimum_history_rounds": 40,
+    "trigger": "line >= mean40 - 0.5",
+    "forecast": "Poisson(lambda=mean40); no fitted parameters",
+    "history_availability": "event_completed strictly earlier than fixture UTC calendar date; whole current event excluded",
+    "ordering": "event_completed then round_num; deterministic year/event_id tie-breaks",
+    "market_baseline": "proportionally normalized actual opening Under/Over implied probabilities, conditional on nonpush",
+    "selection": "original trigger only; no EV filter, new threshold, or parameter search"
+  },
+  "probability_model_scope": "Poisson is a newly specified, unfitted diagnostic of the count-skew explanation; the original report did not define a probability distribution.",
+  "inventory": {
+    "offered_input_rows": 873,
+    "history_eligible_graded_rows": 785,
+    "exclusions": {
+      "source_join_ambiguous": 2,
+      "source_join_missing": 53,
+      "source_join_fixture_date_mismatch": 3,
+      "fewer_than_40_prior_complete_pga_rounds": 30
+    },
+    "by_year": {
+      "2023": 64,
+      "2024": 383,
+      "2025": 142,
+      "2026": 196
+    }
+  },
+  "results": {
+    "2023_2025": {
+      "all_history_eligible_observed_unders": {
+        "n": 589,
+        "events": 52,
+        "wins": 331,
+        "losses": 221,
+        "pushes": 37,
+        "units": 61.78314078107708,
+        "roi": 0.10489497585921406,
+        "roi_event_bootstrap_95pct": [
+          -0.006452968100329994,
+          0.21927138768101734
+        ],
+        "mean_model_ev": -0.03380176166973014,
+        "mean_bob_forecast": 4.320288624787776,
+        "mean_actual_bob": 4.01358234295416,
+        "mean_p_under": 0.4916464794330043,
+        "mean_p_push": 0.05139454785535312,
+        "mean_p_over": 0.45695897271164265,
+        "forecast_vs_market": {
+          "n_nonpush_paired": 412,
+          "paired_boards_including_pushes": 436,
+          "events": 47,
+          "negative_opening_overround_pairs": 3,
+          "opening_overround_range": [
+            -0.058693244739756345,
+            0.1601731601731602
+          ],
+          "model_logloss": 0.7230968241551374,
+          "market_logloss": 0.6841146886693195,
+          "model_brier": 0.26407940400164176,
+          "market_brier": 0.2455032199698816,
+          "logloss_difference": 0.03898213548581786,
+          "brier_difference": 0.018576184031760194,
+          "logloss_difference_event_bootstrap_95pct": [
+            0.0016368646378277416,
+            0.08103816028128855
+          ],
+          "brier_difference_event_bootstrap_95pct": [
+            0.0011033869931552265,
+            0.03814443375484039
+          ]
+        },
+        "by_year": {
+          "2023": {
+            "n": 64,
+            "units": 19.222160853195337,
+            "roi": 0.30034626333117714,
+            "mean_model_ev": 0.24561862487196212
+          },
+          "2024": {
+            "n": 383,
+            "units": 35.27609406911847,
+            "roi": 0.09210468425357303,
+            "mean_model_ev": -0.03803810710098216
+          },
+          "2025": {
+            "n": 142,
+            "units": 7.284885858763266,
+            "roi": 0.05130201308988215,
+            "mean_model_ev": -0.14831151123662298
+          }
+        }
+      },
+      "original_fixed_trigger": {
+        "n": 402,
+        "events": 46,
+        "wins": 226,
+        "losses": 146,
+        "pushes": 30,
+        "units": 44.43401829930722,
+        "roi": 0.11053238382912244,
+        "roi_event_bootstrap_95pct": [
+          0.013766280073535664,
+          0.21307711961636738
+        ],
+        "mean_model_ev": 0.10536369980815154,
+        "mean_bob_forecast": 4.215422885572139,
+        "mean_actual_bob": 4.286069651741293,
+        "mean_p_under": 0.5667883876339224,
+        "mean_p_push": 0.05481295493665157,
+        "mean_p_over": 0.3783986574294261,
+        "forecast_vs_market": {
+          "n_nonpush_paired": 254,
+          "paired_boards_including_pushes": 271,
+          "events": 42,
+          "negative_opening_overround_pairs": 1,
+          "opening_overround_range": [
+            -0.022688598979013097,
+            0.1601731601731602
+          ],
+          "model_logloss": 0.6887319428550561,
+          "market_logloss": 0.6836848010886785,
+          "model_brier": 0.24808549764778676,
+          "market_brier": 0.2452877928937969,
+          "logloss_difference": 0.005047141766377545,
+          "brier_difference": 0.0027977047539898287,
+          "logloss_difference_event_bootstrap_95pct": [
+            -0.019984873999995077,
+            0.03336908575770551
+          ],
+          "brier_difference_event_bootstrap_95pct": [
+            -0.009078727410010423,
+            0.01609633654903522
+          ]
+        },
+        "by_year": {
+          "2023": {
+            "n": 59,
+            "units": 18.619948250982734,
+            "roi": 0.3155923432369955,
+            "mean_model_ev": 0.2866648725749236
+          },
+          "2024": {
+            "n": 270,
+            "units": 17.836341920801264,
+            "roi": 0.06606052563259728,
+            "mean_model_ev": 0.08158137723856886
+          },
+          "2025": {
+            "n": 73,
+            "units": 7.977728127523221,
+            "roi": 0.1092839469523729,
+            "mean_model_ev": 0.04679462995264157
+          }
+        }
+      },
+      "complement_of_trigger": {
+        "n": 187,
+        "events": 30,
+        "wins": 105,
+        "losses": 75,
+        "pushes": 7,
+        "units": 17.349122481769864,
+        "roi": 0.09277605605224526,
+        "roi_event_bootstrap_95pct": [
+          -0.12587110114560468,
+          0.2647502093968418
+        ],
+        "mean_model_ev": -0.33297029383073784,
+        "mean_bob_forecast": 4.54572192513369,
+        "mean_actual_bob": 3.427807486631016,
+        "mean_p_under": 0.3301114682203356,
+        "mean_p_push": 0.044045886643150046,
+        "mean_p_over": 0.6258426451365143,
+        "forecast_vs_market": {
+          "n_nonpush_paired": 158,
+          "paired_boards_including_pushes": 165,
+          "events": 29,
+          "negative_opening_overround_pairs": 2,
+          "opening_overround_range": [
+            -0.058693244739756345,
+            0.14855875831485577
+          ],
+          "model_logloss": 0.7783416333337491,
+          "market_logloss": 0.6848057737673119,
+          "model_brier": 0.2897911268742948,
+          "market_brier": 0.24584953944662533,
+          "logloss_difference": 0.09353585956643712,
+          "brier_difference": 0.043941587427669515,
+          "logloss_difference_event_bootstrap_95pct": [
+            0.011633167105597452,
+            0.15919184300463643
+          ],
+          "brier_difference_event_bootstrap_95pct": [
+            0.005806033361123692,
+            0.0740926650582256
+          ]
+        },
+        "by_year": {
+          "2023": {
+            "n": 5,
+            "units": 0.6022126022126022,
+            "roi": 0.12044252044252043,
+            "mean_model_ev": -0.23872709802298386
+          },
+          "2024": {
+            "n": 113,
+            "units": 17.43975214831722,
+            "roi": 0.15433408980811697,
+            "mean_model_ev": -0.32385457410698903
+          },
+          "2025": {
+            "n": 69,
+            "units": -0.6928422687599565,
+            "roi": -0.010041192300868935,
+            "mean_model_ev": -0.35472815336439567
+          }
+        }
+      }
+    },
+    "2026": {
+      "all_history_eligible_observed_unders": {
+        "n": 196,
+        "events": 10,
+        "wins": 100,
+        "losses": 96,
+        "pushes": 0,
+        "units": -4.379952846543238,
+        "roi": -0.02234669819664917,
+        "roi_event_bootstrap_95pct": [
+          -0.215668216121153,
+          0.13499489162581188
+        ],
+        "mean_model_ev": -0.17734729124244003,
+        "mean_bob_forecast": 4.339285714285714,
+        "mean_actual_bob": 3.760204081632653,
+        "mean_p_under": 0.4277632454572105,
+        "mean_p_push": 0.0,
+        "mean_p_over": 0.5722367545427894,
+        "forecast_vs_market": {
+          "n_nonpush_paired": 168,
+          "paired_boards_including_pushes": 168,
+          "events": 10,
+          "negative_opening_overround_pairs": 4,
+          "opening_overround_range": [
+            -0.05302226935312826,
+            0.1348837209302327
+          ],
+          "model_logloss": 0.7166068601607838,
+          "market_logloss": 0.6759801264624192,
+          "model_brier": 0.26076034417127164,
+          "market_brier": 0.24145294885263285,
+          "logloss_difference": 0.04062673369836457,
+          "brier_difference": 0.01930739531863875,
+          "logloss_difference_event_bootstrap_95pct": [
+            -0.01422909631032028,
+            0.0924701189733967
+          ],
+          "brier_difference_event_bootstrap_95pct": [
+            -0.006988778787516647,
+            0.0438063523278211
+          ]
+        },
+        "by_year": {
+          "2026": {
+            "n": 196,
+            "units": -4.379952846543238,
+            "roi": -0.02234669819664917,
+            "mean_model_ev": -0.17734729124244003
+          }
+        }
+      },
+      "original_fixed_trigger": {
+        "n": 73,
+        "events": 10,
+        "wins": 41,
+        "losses": 32,
+        "pushes": 0,
+        "units": 0.7949012848326338,
+        "roi": 0.01088905869633745,
+        "roi_event_bootstrap_95pct": [
+          -0.20837125627826134,
+          0.2958365313786446
+        ],
+        "mean_model_ev": -0.00992720488813828,
+        "mean_bob_forecast": 4.222602739726027,
+        "mean_actual_bob": 4.027397260273973,
+        "mean_p_under": 0.5422870904175654,
+        "mean_p_push": 0.0,
+        "mean_p_over": 0.4577129095824347,
+        "forecast_vs_market": {
+          "n_nonpush_paired": 65,
+          "paired_boards_including_pushes": 65,
+          "events": 10,
+          "negative_opening_overround_pairs": 1,
+          "opening_overround_range": [
+            -0.02777777777777768,
+            0.1348837209302327
+          ],
+          "model_logloss": 0.7125471023528409,
+          "market_logloss": 0.6788189223079045,
+          "model_brier": 0.2586209972029625,
+          "market_brier": 0.24282564894178857,
+          "logloss_difference": 0.03372818004493653,
+          "brier_difference": 0.01579534826117393,
+          "logloss_difference_event_bootstrap_95pct": [
+            -0.045879272218307295,
+            0.12790552107959843
+          ],
+          "brier_difference_event_bootstrap_95pct": [
+            -0.022563335225681814,
+            0.06052061320100368
+          ]
+        },
+        "by_year": {
+          "2026": {
+            "n": 73,
+            "units": 0.7949012848326338,
+            "roi": 0.01088905869633745,
+            "mean_model_ev": -0.00992720488813828
+          }
+        }
+      },
+      "complement_of_trigger": {
+        "n": 123,
+        "events": 9,
+        "wins": 59,
+        "losses": 64,
+        "pushes": 0,
+        "units": -5.17485413137587,
+        "roi": -0.0420719848079339,
+        "roi_event_bootstrap_95pct": [
+          -0.271480240773719,
+          0.13939187679247841
+        ],
+        "mean_model_ev": -0.27671043192426137,
+        "mean_bob_forecast": 4.408536585365854,
+        "mean_actual_bob": 3.6016260162601625,
+        "mean_p_under": 0.35979380901732516,
+        "mean_p_push": 0.0,
+        "mean_p_over": 0.640206190982675,
+        "forecast_vs_market": {
+          "n_nonpush_paired": 103,
+          "paired_boards_including_pushes": 103,
+          "events": 9,
+          "negative_opening_overround_pairs": 3,
+          "opening_overround_range": [
+            -0.05302226935312826,
+            0.12264150943396235
+          ],
+          "model_logloss": 0.719168843243466,
+          "market_logloss": 0.6741886533560452,
+          "model_brier": 0.2621104175007871,
+          "market_brier": 0.24058668180607834,
+          "logloss_difference": 0.0449801898874211,
+          "brier_difference": 0.02152373569470878,
+          "logloss_difference_event_bootstrap_95pct": [
+            -0.0234501250998436,
+            0.09385433141964424
+          ],
+          "brier_difference_event_bootstrap_95pct": [
+            -0.011449853564591808,
+            0.04505487242268742
+          ]
+        },
+        "by_year": {
+          "2026": {
+            "n": 123,
+            "units": -5.17485413137587,
+            "roi": -0.0420719848079339,
+            "mean_model_ev": -0.27671043192426137
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Historical returns and periods are exploratory; neither period is an untouched holdout.",
+    "Actual opening quote times and simultaneous availability of paired sides are absent; fixture time is only an availability proxy.",
+    "Seven history-eligible paired boards have negative opening overround; normalized comparisons are descriptive and do not authenticate simultaneous quotes. No outcome-dependent filter removes them.",
+    "Source collection/selection and executable-price provenance are unresolved; input is a retrospective third-party export.",
+    "Historical Hard Rock plain birdies versus birdies-or-better contract remains unverified; birdies-or-better is the declared primary diagnostic.",
+    "Source join exclusions and fewer-than-40-round exclusions are reported; forecasts and scores require resolved complete outcomes.",
+    "All 95% intervals resample whole events and are uncorrected for the earlier searches.",
+    "The Poisson model omits course, weather, player changes and dispersion; it tests only the proposed trailing-mean/count-skew mechanism."
+  ],
+  "predictions": {
+    "path": "data/raw/golf-birdie-recheck-2026-09-26/forecast-diagnostic.csv",
+    "rows": 785,
+    "sha256": "620ae4170e3ee0d9e1558ccbf6343f81f8753fc5db832ede2789aa68d1e69532"
+  }
+}
