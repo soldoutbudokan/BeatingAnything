@@ -1,0 +1,354 @@
+{
+  "audit_date": "2026-09-26",
+  "result": "pass",
+  "audited_reports": [
+    {
+      "path": "reports/nba-injury-price-clocks-2026-09-26.json",
+      "sha256": "7ad4cc6ddcba38884858ed5b8470f023f7c4cdae5365af848d346ef740bff70d"
+    },
+    {
+      "path": "reports/nba-injury-price-clocks-recovery-2026-09-26.json",
+      "sha256": "361faf987aafd51fd1cffb84a3b3bdb6885a988cc4be8e71c2fe7f626f222804"
+    }
+  ],
+  "checks": {
+    "all_report_reference_hashes_match": true,
+    "restored_base_tool_matches_original_and_recovery": true,
+    "wrapper_hash_matches": true,
+    "selection_unchanged": true,
+    "events_and_candidate_order_unchanged": true,
+    "first_url_only_each_event_each_pass": true,
+    "all_receipt_file_status_header_and_body_checks_pass": true,
+    "three_original_dns_then_403_200_200": true,
+    "three_urls_six_requests": true,
+    "all_35_original_fd_pairs_and_clocks_match": true,
+    "two_qualified_reports_22_pairs": true,
+    "all_independent_pdf_clock_and_fixture_checks_pass": true,
+    "summary_counts_match": true
+  },
+  "hash_reference_count": 26,
+  "verified_reference_hashes": [
+    {
+      "path": "data/raw/nba-consensus-price/archive/ccecac4a3706f43f36fd63ae97cbfc88.json",
+      "sha256": "5f2b3812a7ba95c73873015b34c0a6b70db5c5e87489ef0b9ed3e3df23b6a48e",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-consensus-price/archive/d30db337fe79fed0afb7b30e709a55bc.json",
+      "sha256": "6186d91563263fb739e579c567620263d95ea5e71c82f2d7d019c667cd633a49",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-consensus-price/archive/df4b9f35b66ef20724b6b3e81081ddfd.json",
+      "sha256": "a37d71ac25a7d1fe1758557dee4d83559f6e14005ca44bacca176ecf8164c4de",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2025-10-21_08_00AM.body",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2025-10-21_08_00AM.headers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-01-01_04_30AM.body",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-01-01_04_30AM.headers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-04-01_05_30AM.body",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-04-01_05_30AM.headers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-2026-09-26/root-dns-diagnostic.json",
+      "sha256": "2967b5494c4bf287d883d32d549ed8033e0dba5f16728b7d7024baf83540afa5",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-2026-09-26/selected-price-samples.json",
+      "sha256": "c29f3ad0a12eb8a29c8d3823963a42c325bba44646c71e1a5e68abaec51e5a36",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/official-report-receipts/Injury-Report_2025-10-21_08_00AM.body",
+      "sha256": "3bc0b187c3f098726d1765914474f05a65cd397b73118058aa992003da4e6e26",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/official-report-receipts/Injury-Report_2025-10-21_08_00AM.headers",
+      "sha256": "a945841aea0ae9ed324256620c6dcd0b859fdf0b6ae0b8f783c01043f0985ccf",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/official-report-receipts/Injury-Report_2026-01-01_04_30AM.headers",
+      "sha256": "fd768f9f461f6cdc790aaab999b5ccbe0046443274417a390e999806d83009a1",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/official-report-receipts/Injury-Report_2026-01-01_04_30AM.pdf",
+      "sha256": "2f40882813140c448c315dc47e1e4d79846c4a66bbeff26b1706ddcde5496a1a",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/official-report-receipts/Injury-Report_2026-04-01_05_30AM.headers",
+      "sha256": "165124f4ccc9d179e20a8d0e61673e213007552c51e6b68f1dc32bf6e232a1af",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/official-report-receipts/Injury-Report_2026-04-01_05_30AM.pdf",
+      "sha256": "53d34031efb40276168ddfc9edb59228ca52e555f5e0745959f20adfcbf33682",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/rendered/2026-01-page-1.png",
+      "sha256": "3edfff8f0ca50c534082b8c6d57276df8a8f6b851283b0ffe6f7d9196c244783",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/rendered/2026-04-page-1.png",
+      "sha256": "7e71694a8b235951042537c8852c94570a0a212a52e37930db0b21a24fa3e52c",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/rendered/2026-04-page-2.png",
+      "sha256": "72192dc340ba9555ed5e316aca75cd4747e81039abc9384c9c5e4e3f8e5def50",
+      "matches": true
+    },
+    {
+      "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2024.csv",
+      "sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26",
+      "matches": true
+    },
+    {
+      "path": "docs/nba-injury-clock-transport-recovery-2026-09-26.md",
+      "sha256": "f1bd754e3e61f559973c4f06555f8925cf68a3b806945e033742fd77616a745a",
+      "matches": true
+    },
+    {
+      "path": "docs/nba-injury-price-clock-inventory-declaration-2026-09-26.md",
+      "sha256": "17bf18526af7bb7243772c47c2dbab8c5ce411e18a3b0d16bcf372d88ae61b93",
+      "matches": true
+    },
+    {
+      "path": "reports/nba-injury-price-clocks-2026-09-26.json",
+      "sha256": "7ad4cc6ddcba38884858ed5b8470f023f7c4cdae5365af848d346ef740bff70d",
+      "matches": true
+    },
+    {
+      "path": "tools/inventory_nba_injury_price_clocks.py",
+      "sha256": "ff3b59b982f3925c3c0624017a652e5ee0f660e53aa0d7404bdced2a794f4164",
+      "matches": true
+    },
+    {
+      "path": "tools/recover_nba_injury_price_clocks.py",
+      "sha256": "9f8c172a3bd1aa991a5a094885ea020121998385a57da2ede51c320c2dbe4e31",
+      "matches": true
+    }
+  ],
+  "receipts": [
+    {
+      "phase": "original",
+      "month": "2025-10",
+      "receipt_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2025-10-21_08_00AM.receipt.json",
+      "receipt_sha256": "ff5eca630d532bce26c194ec90e569652434714c1e296e8172bb3f5514a9d606",
+      "stored_receipt_equals_report": true,
+      "http_status": 0,
+      "curl_exit_code": 6,
+      "body_bytes": 0,
+      "body_size_matches": true,
+      "last_modified_matches_actual_headers": true,
+      "date_matches_actual_headers": true,
+      "etag_matches_actual_headers": true,
+      "http_status_matches_headers": true,
+      "dns_failure_zero_bytes": true
+    },
+    {
+      "phase": "original",
+      "month": "2026-01",
+      "receipt_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-01-01_04_30AM.receipt.json",
+      "receipt_sha256": "24f08946540d810b6e13cee9f9b03eb72fb3d36705169eb2a1e0dede63917d3d",
+      "stored_receipt_equals_report": true,
+      "http_status": 0,
+      "curl_exit_code": 6,
+      "body_bytes": 0,
+      "body_size_matches": true,
+      "last_modified_matches_actual_headers": true,
+      "date_matches_actual_headers": true,
+      "etag_matches_actual_headers": true,
+      "http_status_matches_headers": true,
+      "dns_failure_zero_bytes": true
+    },
+    {
+      "phase": "original",
+      "month": "2026-04",
+      "receipt_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-04-01_05_30AM.receipt.json",
+      "receipt_sha256": "2d8b90a12f18f5dcc4c08224c43b9af83861fa7997eacef35875c07f7d984956",
+      "stored_receipt_equals_report": true,
+      "http_status": 0,
+      "curl_exit_code": 6,
+      "body_bytes": 0,
+      "body_size_matches": true,
+      "last_modified_matches_actual_headers": true,
+      "date_matches_actual_headers": true,
+      "etag_matches_actual_headers": true,
+      "http_status_matches_headers": true,
+      "dns_failure_zero_bytes": true
+    },
+    {
+      "phase": "recovery",
+      "month": "2025-10",
+      "receipt_path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/official-report-receipts/Injury-Report_2025-10-21_08_00AM.receipt.json",
+      "receipt_sha256": "7de43b27db96c70c91415ebf9173b460532b518d0750f8d713cdfee89ab28238",
+      "stored_receipt_equals_report": true,
+      "http_status": 403,
+      "curl_exit_code": 0,
+      "body_bytes": 263,
+      "body_size_matches": true,
+      "last_modified_matches_actual_headers": true,
+      "date_matches_actual_headers": true,
+      "etag_matches_actual_headers": true,
+      "http_status_matches_headers": true,
+      "appropriate_response_and_stop": true
+    },
+    {
+      "phase": "recovery",
+      "month": "2026-01",
+      "receipt_path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/official-report-receipts/Injury-Report_2026-01-01_04_30AM.receipt.json",
+      "receipt_sha256": "2401aefb5069db2d2a253bc407b1f345dd3ed80d8956c5fe1bcf5beee3b7fed3",
+      "stored_receipt_equals_report": true,
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "body_bytes": 74829,
+      "body_size_matches": true,
+      "last_modified_matches_actual_headers": true,
+      "date_matches_actual_headers": true,
+      "etag_matches_actual_headers": true,
+      "http_status_matches_headers": true,
+      "appropriate_response_and_stop": true
+    },
+    {
+      "phase": "recovery",
+      "month": "2026-04",
+      "receipt_path": "data/raw/nba-injury-price-clocks-recovery-2026-09-26/official-report-receipts/Injury-Report_2026-04-01_05_30AM.receipt.json",
+      "receipt_sha256": "98b7fbc4b36775dffa43ae204b4c87fe1d6d002029c32f8827d2c1bf4e6a7ded",
+      "stored_receipt_equals_report": true,
+      "http_status": 200,
+      "curl_exit_code": 0,
+      "body_bytes": 93940,
+      "body_size_matches": true,
+      "last_modified_matches_actual_headers": true,
+      "date_matches_actual_headers": true,
+      "etag_matches_actual_headers": true,
+      "http_status_matches_headers": true,
+      "appropriate_response_and_stop": true
+    }
+  ],
+  "price_checks": [
+    {
+      "month": "2025-10",
+      "pairs": 13,
+      "pair_errors": [],
+      "source_metadata_match": true,
+      "age_checks_match": true
+    },
+    {
+      "month": "2026-01",
+      "pairs": 10,
+      "pair_errors": [],
+      "source_metadata_match": true,
+      "age_checks_match": true
+    },
+    {
+      "month": "2026-04",
+      "pairs": 12,
+      "pair_errors": [],
+      "source_metadata_match": true,
+      "age_checks_match": true
+    }
+  ],
+  "independent_pdf_checks": [
+    {
+      "month": "2026-01",
+      "page_count": 5,
+      "headers": [
+        "01/01/26 04:30 AM",
+        "01/01/26 04:30 AM",
+        "01/01/26 04:30 AM",
+        "01/01/26 04:30 AM",
+        "01/01/26 04:30 AM"
+      ],
+      "pdf_creation_utc": "2026-01-01T09:30:05Z",
+      "http_last_modified": [
+        "Thu, 01 Jan 2026 09:30:07 GMT"
+      ],
+      "modification_metadata_absent": true,
+      "xmp_dates": [],
+      "available_after_bound_utc": "2026-01-01T09:30:59.999999Z",
+      "seconds_before_quote": 5677.000001,
+      "header_metadata_clock_fields_exact": true,
+      "header_timezone_corroborated": true,
+      "clock_qualification_exact": true,
+      "qualified_receipt_and_clock_equal_attempt": true,
+      "fixture_date_matches_price_provider_et_date": true,
+      "start_ambiguity_correctly_retained": true,
+      "fixture_matchup_visually_confirmed": true,
+      "rendered_pages_inspected": [
+        "data/raw/nba-injury-price-clocks-recovery-2026-09-26/rendered/2026-01-page-1.png"
+      ],
+      "paired_prices": 10
+    },
+    {
+      "month": "2026-04",
+      "page_count": 7,
+      "headers": [
+        "04/01/26 05:30 AM",
+        "04/01/26 05:30 AM",
+        "04/01/26 05:30 AM",
+        "04/01/26 05:30 AM",
+        "04/01/26 05:30 AM",
+        "04/01/26 05:30 AM",
+        "04/01/26 05:30 AM"
+      ],
+      "pdf_creation_utc": "2026-04-01T09:30:04Z",
+      "http_last_modified": [
+        "Wed, 01 Apr 2026 09:30:06 GMT"
+      ],
+      "modification_metadata_absent": true,
+      "xmp_dates": [],
+      "available_after_bound_utc": "2026-04-01T09:30:59.999999Z",
+      "seconds_before_quote": 5678.000001,
+      "header_metadata_clock_fields_exact": true,
+      "header_timezone_corroborated": true,
+      "clock_qualification_exact": true,
+      "qualified_receipt_and_clock_equal_attempt": true,
+      "fixture_date_matches_price_provider_et_date": true,
+      "start_ambiguity_correctly_retained": true,
+      "fixture_matchup_visually_confirmed": true,
+      "rendered_pages_inspected": [
+        "data/raw/nba-injury-price-clocks-recovery-2026-09-26/rendered/2026-04-page-1.png",
+        "data/raw/nba-injury-price-clocks-recovery-2026-09-26/rendered/2026-04-page-2.png"
+      ],
+      "paired_prices": 12
+    }
+  ],
+  "scope": "Local-only audit. No HTTP requests or target performance values were read. Pypdf extraction retained only report headers; metadata and HTTP Last-Modified independently recomputed the conservative upper clock. Three retained renderings were visually reviewed for exact matchup/date, team submission/status context and missing AM/PM. No source or executed tool changed. Current base tool and wrapper hashes match retained execution references; the original wrapper statically asserts the base tool hash before invoking inventory.",
+  "limitations": [
+    "Two report/date matches and 22 unchanged paired point prices are metadata feasibility only. Both independent fixture starts remain unresolved because AM/PM is absent, and publisher NBA game-ID joins are not independently certified.",
+    "Current HTTP Last-Modified and PDF metadata are retained source assertions, not contemporaneous receipts or proof of immutable historical wording.",
+    "Retained recovery JSON leaves visual_review_status pending; this separate audit records independent review of all three already-rendered pages without modifying frozen output."
+  ]
+}

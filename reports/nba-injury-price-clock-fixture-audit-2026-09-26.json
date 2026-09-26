@@ -1,0 +1,85 @@
+{
+  "status": "pass",
+  "scope": "Independent schedule metadata qualification of the same three frozen sample fixtures, not an expanded cohort or statistical test. This resolves printed AM/PM ambiguity in two report matches. No NBA-ID primary crosswalk, player-ID, role, historical release receipt, actual tip or participation qualification follows.",
+  "source": {
+    "path": "data/raw/nba-consensus-price/nba_schedule_2026.csv",
+    "sha256": "5a4a7473fce1c49d56382211c5955ad405f421d59869143b1d501e997e79223e",
+    "projected_columns": [
+      "game_id",
+      "game_date",
+      "start_date",
+      "home_display_name",
+      "away_display_name",
+      "season_type"
+    ]
+  },
+  "recovery_report": {
+    "path": "reports/nba-injury-price-clocks-recovery-2026-09-26.json",
+    "sha256": "361faf987aafd51fd1cffb84a3b3bdb6885a988cc4be8e71c2fe7f626f222804"
+  },
+  "rows": [
+    {
+      "month": "2025-10",
+      "publisher_nba_game_id": "0022500002",
+      "independent_espn_event_id": "401809244",
+      "date_et": "2025-10-21",
+      "away_team": "Golden State Warriors",
+      "home_team": "Los Angeles Lakers",
+      "snapshot_utc": "2025-10-21T13:55:39Z",
+      "provider_start_utc": "2025-10-22T02:00:00Z",
+      "independent_schedule_start_utc": "2025-10-22T02:00Z",
+      "snapshot_before_both_starts": true,
+      "minimum_start_lead_hours": 12.0725,
+      "printed_start_candidate_resolved_by_independent_schedule": null,
+      "report_clock_and_fixture_match": false,
+      "preliminary_pairs": 13
+    },
+    {
+      "month": "2026-01",
+      "publisher_nba_game_id": "0022500471",
+      "independent_espn_event_id": "401810326",
+      "date_et": "2026-01-01",
+      "away_team": "Houston Rockets",
+      "home_team": "Brooklyn Nets",
+      "snapshot_utc": "2026-01-01T11:05:37Z",
+      "provider_start_utc": "2026-01-01T23:10:00Z",
+      "independent_schedule_start_utc": "2026-01-01T23:00Z",
+      "snapshot_before_both_starts": true,
+      "minimum_start_lead_hours": 11.90638888888889,
+      "printed_start_candidate_resolved_by_independent_schedule": "2026-01-01T23:00:00Z",
+      "report_clock_and_fixture_match": true,
+      "preliminary_pairs": 10
+    },
+    {
+      "month": "2026-04",
+      "publisher_nba_game_id": "0022501105",
+      "independent_espn_event_id": "401810960",
+      "date_et": "2026-04-01",
+      "away_team": "Philadelphia 76ers",
+      "home_team": "Washington Wizards",
+      "snapshot_utc": "2026-04-01T11:05:38Z",
+      "provider_start_utc": "2026-04-01T23:10:00Z",
+      "independent_schedule_start_utc": "2026-04-01T23:00Z",
+      "snapshot_before_both_starts": true,
+      "minimum_start_lead_hours": 11.90611111111111,
+      "printed_start_candidate_resolved_by_independent_schedule": "2026-04-01T23:00:00Z",
+      "report_clock_and_fixture_match": true,
+      "preliminary_pairs": 12
+    }
+  ],
+  "all_three_independent_fixtures_unique": true,
+  "all_three_entries_before_both_scheduled_starts": true,
+  "two_report_time_ambiguities_resolved": true,
+  "source_clock_and_fixture_matched_events": 2,
+  "source_clock_and_fixture_matched_pairs": 22,
+  "target_performance_read": false,
+  "root_visual_review": {
+    "pages_checked": [
+      "2026-01-page-1",
+      "2026-04-page-1",
+      "2026-04-page-2"
+    ],
+    "exact_matchup_dates_headers_and_status_rows_agree": true,
+    "April_Washington_status_continues_on_page2": true
+  }
+}

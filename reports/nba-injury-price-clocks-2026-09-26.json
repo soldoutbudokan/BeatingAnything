@@ -1,0 +1,571 @@
+{
+  "prepared_at_utc": "2026-09-26T22:58:42.062136Z",
+  "declaration": {
+    "path": "docs/nba-injury-price-clock-inventory-declaration-2026-09-26.md",
+    "sha256": "17bf18526af7bb7243772c47c2dbab8c5ce411e18a3b0d16bcf372d88ae61b93"
+  },
+  "selection": {
+    "path": "data/raw/nba-injury-price-clocks-2026-09-26/selected-price-samples.json",
+    "sha256": "c29f3ad0a12eb8a29c8d3823963a42c325bba44646c71e1a5e68abaec51e5a36"
+  },
+  "team_abbreviation_source": {
+    "path": "data/raw/nba-source-feasibility/nba_stats_schedule_2024.csv",
+    "sha256": "ab5b7b5b978f0527a9e1ff4332b3e14d00c526964d2ea79b4d9f992f38eacb26",
+    "read_columns": [
+      "team_name",
+      "team_abbreviation"
+    ]
+  },
+  "tool": {
+    "path": "tools/inventory_nba_injury_price_clocks.py",
+    "sha256": "ff3b59b982f3925c3c0624017a652e5ee0f660e53aa0d7404bdced2a794f4164"
+  },
+  "distinct_attempted_urls": 3,
+  "network_requests_this_run": 3,
+  "events": [
+    {
+      "month": "2025-10",
+      "selected_price_metadata": {
+        "event_id": "df4b9f35b66ef20724b6b3e81081ddfd",
+        "nba_game_id": "0022500002",
+        "home_team": "Los Angeles Lakers",
+        "away_team": "Golden State Warriors",
+        "source_snapshot_utc": "2025-10-21T13:55:39Z",
+        "provider_start_utc": "2025-10-22T02:00:00Z",
+        "book_last_update": "2025-10-21T13:55:18Z",
+        "market_last_update": "2025-10-21T13:55:28Z",
+        "book_age_seconds": 21.0,
+        "market_age_seconds": 11.0,
+        "source_path": "data/raw/nba-consensus-price/archive/df4b9f35b66ef20724b6b3e81081ddfd.json",
+        "source_sha256": "a37d71ac25a7d1fe1758557dee4d83559f6e14005ca44bacca176ecf8164c4de",
+        "preliminary_pairs": [
+          {
+            "player": "Al Horford",
+            "line": 6.5,
+            "over_decimal": 1.82,
+            "under_decimal": 1.93,
+            "overround": 0.06758526447645608
+          },
+          {
+            "player": "Austin Reaves",
+            "line": 22.5,
+            "over_decimal": 1.93,
+            "under_decimal": 1.82,
+            "overround": 0.06758526447645608
+          },
+          {
+            "player": "Brandin Podziemski",
+            "line": 12.5,
+            "over_decimal": 1.82,
+            "under_decimal": 1.93,
+            "overround": 0.06758526447645608
+          },
+          {
+            "player": "Buddy Hield",
+            "line": 9.5,
+            "over_decimal": 1.98,
+            "under_decimal": 1.77,
+            "overround": 0.07002225646293447
+          },
+          {
+            "player": "Deandre Ayton",
+            "line": 14.5,
+            "over_decimal": 2.02,
+            "under_decimal": 1.74,
+            "overround": 0.06976214862865593
+          },
+          {
+            "player": "Draymond Green",
+            "line": 8.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Gabe Vincent",
+            "line": 7.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Jimmy Butler",
+            "line": 17.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Jonathan Kuminga",
+            "line": 13.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Luka Doncic",
+            "line": 30.5,
+            "over_decimal": 1.89,
+            "under_decimal": 1.85,
+            "overround": 0.06964106964106964
+          },
+          {
+            "player": "Marcus Smart",
+            "line": 8.5,
+            "over_decimal": 2.0,
+            "under_decimal": 1.76,
+            "overround": 0.06818181818181834
+          },
+          {
+            "player": "Rui Hachimura",
+            "line": 12.5,
+            "over_decimal": 2.0,
+            "under_decimal": 1.76,
+            "overround": 0.06818181818181834
+          },
+          {
+            "player": "Stephen Curry",
+            "line": 26.5,
+            "over_decimal": 1.91,
+            "under_decimal": 1.83,
+            "overround": 0.07000829685577781
+          }
+        ]
+      },
+      "candidate_urls": [
+        {
+          "slot_et": "2025-10-21T08:00:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_08_00AM.pdf"
+        },
+        {
+          "slot_et": "2025-10-21T07:30:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_07_30AM.pdf"
+        },
+        {
+          "slot_et": "2025-10-21T07:30:00-04:00",
+          "filename_form": "hourly",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_07AM.pdf"
+        },
+        {
+          "slot_et": "2025-10-21T07:00:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_07_00AM.pdf"
+        },
+        {
+          "slot_et": "2025-10-21T06:30:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_06_30AM.pdf"
+        },
+        {
+          "slot_et": "2025-10-21T06:30:00-04:00",
+          "filename_form": "hourly",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_06AM.pdf"
+        },
+        {
+          "slot_et": "2025-10-21T06:00:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_06_00AM.pdf"
+        },
+        {
+          "slot_et": "2025-10-21T05:30:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_05_30AM.pdf"
+        },
+        {
+          "slot_et": "2025-10-21T05:30:00-04:00",
+          "filename_form": "hourly",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_05AM.pdf"
+        }
+      ],
+      "attempts": [
+        {
+          "slot_et": "2025-10-21T08:00:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_08_00AM.pdf",
+          "receipt": {
+            "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2025-10-21_08_00AM.pdf",
+            "http_status": 0,
+            "curl_exit_code": 6,
+            "request_started_at_utc": "2026-09-26T22:58:42.029480Z",
+            "received_at_utc": "2026-09-26T22:58:42.040315Z",
+            "content_type": "",
+            "curl_error": "curl: (6) Could not resolve host: ak-static.cms.nba.com",
+            "body_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2025-10-21_08_00AM.body",
+            "body_bytes": 0,
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "headers_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2025-10-21_08_00AM.headers",
+            "headers_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "last_modified_raw": [],
+            "http_date_raw": [],
+            "etag": [],
+            "receipt_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2025-10-21_08_00AM.receipt.json"
+          },
+          "reused_receipt": false
+        }
+      ],
+      "stop_reason": "transport_failure_stop",
+      "distinct_attempted_urls": 1
+    },
+    {
+      "month": "2026-01",
+      "selected_price_metadata": {
+        "event_id": "d30db337fe79fed0afb7b30e709a55bc",
+        "nba_game_id": "0022500471",
+        "home_team": "Brooklyn Nets",
+        "away_team": "Houston Rockets",
+        "source_snapshot_utc": "2026-01-01T11:05:37Z",
+        "provider_start_utc": "2026-01-01T23:10:00Z",
+        "book_last_update": "2026-01-01T11:05:30Z",
+        "market_last_update": "2026-01-01T11:05:16Z",
+        "book_age_seconds": 7.0,
+        "market_age_seconds": 21.0,
+        "source_path": "data/raw/nba-consensus-price/archive/d30db337fe79fed0afb7b30e709a55bc.json",
+        "source_sha256": "6186d91563263fb739e579c567620263d95ea5e71c82f2d7d019c667cd633a49",
+        "preliminary_pairs": [
+          {
+            "player": "Alperen Sengun",
+            "line": 20.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Amen Thompson",
+            "line": 17.5,
+            "over_decimal": 1.91,
+            "under_decimal": 1.83,
+            "overround": 0.07000829685577781
+          },
+          {
+            "player": "Cam Thomas",
+            "line": 17.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Jabari Smith Jr",
+            "line": 15.5,
+            "over_decimal": 1.93,
+            "under_decimal": 1.82,
+            "overround": 0.06758526447645608
+          },
+          {
+            "player": "Kevin Durant",
+            "line": 26.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Michael Porter Jr",
+            "line": 23.5,
+            "over_decimal": 1.77,
+            "under_decimal": 1.98,
+            "overround": 0.07002225646293447
+          },
+          {
+            "player": "Nicolas Claxton",
+            "line": 11.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Noah Clowney",
+            "line": 13.5,
+            "over_decimal": 1.91,
+            "under_decimal": 1.83,
+            "overround": 0.07000829685577781
+          },
+          {
+            "player": "Tari Eason",
+            "line": 11.5,
+            "over_decimal": 1.8,
+            "under_decimal": 1.94,
+            "overround": 0.07101947308132894
+          },
+          {
+            "player": "Terance Mann",
+            "line": 7.5,
+            "over_decimal": 2.0,
+            "under_decimal": 1.76,
+            "overround": 0.06818181818181834
+          }
+        ]
+      },
+      "candidate_urls": [
+        {
+          "slot_et": "2026-01-01T04:30:00-05:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_04_30AM.pdf"
+        },
+        {
+          "slot_et": "2026-01-01T04:30:00-05:00",
+          "filename_form": "hourly",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_04AM.pdf"
+        },
+        {
+          "slot_et": "2026-01-01T04:00:00-05:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_04_00AM.pdf"
+        },
+        {
+          "slot_et": "2026-01-01T03:30:00-05:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_03_30AM.pdf"
+        },
+        {
+          "slot_et": "2026-01-01T03:30:00-05:00",
+          "filename_form": "hourly",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_03AM.pdf"
+        },
+        {
+          "slot_et": "2026-01-01T03:00:00-05:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_03_00AM.pdf"
+        },
+        {
+          "slot_et": "2026-01-01T02:30:00-05:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_02_30AM.pdf"
+        },
+        {
+          "slot_et": "2026-01-01T02:30:00-05:00",
+          "filename_form": "hourly",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_02AM.pdf"
+        },
+        {
+          "slot_et": "2026-01-01T02:00:00-05:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_02_00AM.pdf"
+        }
+      ],
+      "attempts": [
+        {
+          "slot_et": "2026-01-01T04:30:00-05:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_04_30AM.pdf",
+          "receipt": {
+            "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-01-01_04_30AM.pdf",
+            "http_status": 0,
+            "curl_exit_code": 6,
+            "request_started_at_utc": "2026-09-26T22:58:42.043450Z",
+            "received_at_utc": "2026-09-26T22:58:42.051935Z",
+            "content_type": "",
+            "curl_error": "curl: (6) Could not resolve host: ak-static.cms.nba.com",
+            "body_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-01-01_04_30AM.body",
+            "body_bytes": 0,
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "headers_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-01-01_04_30AM.headers",
+            "headers_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "last_modified_raw": [],
+            "http_date_raw": [],
+            "etag": [],
+            "receipt_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-01-01_04_30AM.receipt.json"
+          },
+          "reused_receipt": false
+        }
+      ],
+      "stop_reason": "transport_failure_stop",
+      "distinct_attempted_urls": 1
+    },
+    {
+      "month": "2026-04",
+      "selected_price_metadata": {
+        "event_id": "ccecac4a3706f43f36fd63ae97cbfc88",
+        "nba_game_id": "0022501105",
+        "home_team": "Washington Wizards",
+        "away_team": "Philadelphia 76ers",
+        "source_snapshot_utc": "2026-04-01T11:05:38Z",
+        "provider_start_utc": "2026-04-01T23:10:00Z",
+        "book_last_update": "2026-04-01T11:05:32Z",
+        "market_last_update": "2026-04-01T11:05:21Z",
+        "book_age_seconds": 6.0,
+        "market_age_seconds": 17.0,
+        "source_path": "data/raw/nba-consensus-price/archive/ccecac4a3706f43f36fd63ae97cbfc88.json",
+        "source_sha256": "5f2b3812a7ba95c73873015b34c0a6b70db5c5e87489ef0b9ed3e3df23b6a48e",
+        "preliminary_pairs": [
+          {
+            "player": "Alex Sarr",
+            "line": 12.5,
+            "over_decimal": 1.76,
+            "under_decimal": 2.0,
+            "overround": 0.06818181818181834
+          },
+          {
+            "player": "Bilal Coulibaly",
+            "line": 12.5,
+            "over_decimal": 1.93,
+            "under_decimal": 1.82,
+            "overround": 0.06758526447645608
+          },
+          {
+            "player": "Carlton Carrington",
+            "line": 11.5,
+            "over_decimal": 1.94,
+            "under_decimal": 1.8,
+            "overround": 0.07101947308132894
+          },
+          {
+            "player": "Dominick Barlow",
+            "line": 5.5,
+            "over_decimal": 1.77,
+            "under_decimal": 1.98,
+            "overround": 0.07002225646293447
+          },
+          {
+            "player": "Joel Embiid",
+            "line": 28.5,
+            "over_decimal": 1.89,
+            "under_decimal": 1.85,
+            "overround": 0.06964106964106964
+          },
+          {
+            "player": "Kelly Oubre Jr",
+            "line": 11.5,
+            "over_decimal": 1.89,
+            "under_decimal": 1.85,
+            "overround": 0.06964106964106964
+          },
+          {
+            "player": "Paul George",
+            "line": 17.5,
+            "over_decimal": 2.0,
+            "under_decimal": 1.76,
+            "overround": 0.06818181818181834
+          },
+          {
+            "player": "Quentin Grimes",
+            "line": 12.5,
+            "over_decimal": 1.98,
+            "under_decimal": 1.77,
+            "overround": 0.07002225646293447
+          },
+          {
+            "player": "Tre Johnson",
+            "line": 12.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Tyrese Maxey",
+            "line": 25.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.85,
+            "overround": 0.07245543415756162
+          },
+          {
+            "player": "VJ Edgecombe",
+            "line": 14.5,
+            "over_decimal": 1.88,
+            "under_decimal": 1.88,
+            "overround": 0.06382978723404253
+          },
+          {
+            "player": "Will Riley",
+            "line": 13.5,
+            "over_decimal": 1.8,
+            "under_decimal": 1.94,
+            "overround": 0.07101947308132894
+          }
+        ]
+      },
+      "candidate_urls": [
+        {
+          "slot_et": "2026-04-01T05:30:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_05_30AM.pdf"
+        },
+        {
+          "slot_et": "2026-04-01T05:30:00-04:00",
+          "filename_form": "hourly",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_05AM.pdf"
+        },
+        {
+          "slot_et": "2026-04-01T05:00:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_05_00AM.pdf"
+        },
+        {
+          "slot_et": "2026-04-01T04:30:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_04_30AM.pdf"
+        },
+        {
+          "slot_et": "2026-04-01T04:30:00-04:00",
+          "filename_form": "hourly",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_04AM.pdf"
+        },
+        {
+          "slot_et": "2026-04-01T04:00:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_04_00AM.pdf"
+        },
+        {
+          "slot_et": "2026-04-01T03:30:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_03_30AM.pdf"
+        },
+        {
+          "slot_et": "2026-04-01T03:30:00-04:00",
+          "filename_form": "hourly",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_03AM.pdf"
+        },
+        {
+          "slot_et": "2026-04-01T03:00:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_03_00AM.pdf"
+        }
+      ],
+      "attempts": [
+        {
+          "slot_et": "2026-04-01T05:30:00-04:00",
+          "filename_form": "minute",
+          "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_05_30AM.pdf",
+          "receipt": {
+            "url": "https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-04-01_05_30AM.pdf",
+            "http_status": 0,
+            "curl_exit_code": 6,
+            "request_started_at_utc": "2026-09-26T22:58:42.053891Z",
+            "received_at_utc": "2026-09-26T22:58:42.061591Z",
+            "content_type": "",
+            "curl_error": "curl: (6) Could not resolve host: ak-static.cms.nba.com",
+            "body_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-04-01_05_30AM.body",
+            "body_bytes": 0,
+            "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "headers_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-04-01_05_30AM.headers",
+            "headers_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "last_modified_raw": [],
+            "http_date_raw": [],
+            "etag": [],
+            "receipt_path": "data/raw/nba-injury-price-clocks-2026-09-26/official-report-receipts/Injury-Report_2026-04-01_05_30AM.receipt.json"
+          },
+          "reused_receipt": false
+        }
+      ],
+      "stop_reason": "transport_failure_stop",
+      "distinct_attempted_urls": 1
+    }
+  ],
+  "summary": {
+    "sampled_events": 3,
+    "preliminary_pairs": 35,
+    "clock_qualified_reports": 0,
+    "exact_fixture_date_found": 0
+  },
+  "target_performance_read": false,
+  "forecasts_or_returns_computed": false,
+  "limitations": [
+    "Three predetermined monthly samples do not establish whole-season availability or a qualified star-absence cohort.",
+    "Report header timezone is corroborated from offset-bearing CreationDate; Game Time (ET) alone is not publication-time evidence. The header minute’s upper endpoint is included conservatively in the clock maximum.",
+    "CreationDate is generation, not last revision. All interpretable modification/XMP/HTTP Last-Modified clocks are retained and maximized; a later clock cannot be discarded. Current source assertions are not original contemporaneous receipts or proof of immutable wording.",
+    "A 403, other denial, server/transport failure or non-PDF response stops that event; failed events are not rescued by alternate hosts or expanded searches.",
+    "Publisher NBA IDs and provider starts remain preliminary. Printed ordered matchup/date is reported separately and does not independently certify the NBA ID crosswalk. A printed time without AM/PM remains ambiguous; both UTC candidates are retained.",
+    "Status extraction uses PDFium visual-order text and retains raw lines plus rendered pages. An unlisted player is unknown, not healthy. Player name/ID and contemporaneous target-team membership joins have not been established.",
+    "No player scoring/minute values, star classifications, sporting outcomes, forecasts, selections, returns or threshold changes are included."
+  ]
+}

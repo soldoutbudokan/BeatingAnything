@@ -140,5 +140,14 @@
     "No overtime/heavy-minute subgroup was selected here, no target outcome was graded, and no model or returns were computed. Root separately assesses a metadata-only trigger ceiling.",
     "An initial raw-file inventory accidentally displayed some team box statistics at the beginning of the already-retained primary sample. No player target values or grades were used. Prior NBA research and source snippets also exposed outcomes, so there is no untouched-holdout claim.",
     "Missing price and minute payloads could be restored only from exact existing pinned sources after a coverage decision; the failed old lineup-minute interpretation is not needed."
-  ]
+  ],
+  "later_same_turn_state_update": {
+    "original_price_state_was_observed_before_restoration": true,
+    "restored_price_files": 3394,
+    "restoration_purpose": "Separate declared newer injury-report price-clock inventory; not the undersized 2024\u201325 overtime cohort.",
+    "restored_manifest_path": "data/raw/nba-consensus-price/acquisition_manifest.json",
+    "restored_manifest_sha256": "acae07fee83e0bf4661ce0e48ce746346357c0a62d3b7513cf0bbcce1fb57b7f",
+    "player_minute_payload_restored": false,
+    "overtime_coverage_report": "reports/nba-overtime-metadata-ceiling-2026-09-26.json"
+  }
 }

@@ -1,5 +1,7 @@
 # NBA prior-night overtime: retained clock-source update
 
+**Later same-turn state update:** the exact 3,394-file price archive was restored for the separately declared newer injury-report inventory after this clock check. The missing-price observation below records the state at this check; player-minute boxes remain absent. The separate [25-game overtime ceiling](nba-overtime-metadata-ceiling-2026-09-26.md) stops this retained-season fatigue route before fitting.
+
 **The missing completion-clock source is now available locally, but the original test is not executable from the current price/minute payloads.** The September 14 note predates a retained ESPN-derived play-by-play release. No request was made or repeated in this check, and no exposure, forecast or outcome comparison was computed.
 
 The previously retained [primary ESPN summary](https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=401704627) identifies play `401704627551` as `End Game` (type402), period-relative clock zero, with `wallclock=2024-10-23T01:40:05Z`. Ordered teams and date independently map ESPN401704627 to NBA0022400061. The primary response was captured September15 and its hash still matches the receipt. Its explicit final timestamp exactly matches the newer processed source; this is stronger than simply assuming the maximum basketball clock or scheduled start proves completion.
