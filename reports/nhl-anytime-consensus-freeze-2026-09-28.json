@@ -1,0 +1,1309 @@
+{
+  "status": "frozen_before_target_grading",
+  "frozen_at_utc": "2026-09-28T03:57:58.672659+00:00",
+  "card": {
+    "path": "docs/hypotheses/hockey-anytime-scorer-normalized-consensus.md",
+    "sha256": "86b0c9ed88f9b7ec03afe0b910ce0d7cf691a0bdc840c067269e1d5b05bccbc9",
+    "bytes": 6048
+  },
+  "tool": {
+    "path": "tools/screen_nhl_anytime_consensus.py",
+    "sha256": "b2b1e2d29b43a8766dce9f163716ffe986266eed061696739fa55bdb12f65a3a",
+    "bytes": 20986
+  },
+  "metadata_inputs": [
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/manifest.json",
+      "sha256": "9b43fc27fe396a7b37dd07af3e7f01ab56acb209578b2c5b0defb2bdfbeeed2f",
+      "bytes": 121480
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2024.csv",
+      "sha256": "0e70a12579b25af0532d00a0cf8bb5fda7d9eb33a23d76234ca26f2fff4ca4ba",
+      "bytes": 3598620
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/rosters_2025.csv",
+      "sha256": "cff04536329e7a7f3cdf9034786226e6644a7d222486eb70d4a799d12c1f80ba",
+      "bytes": 3593991
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/schedule_2025_metadata.csv",
+      "sha256": "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855",
+      "bytes": 173339
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/powerplay-feature-audit/schedule_2024_metadata.csv",
+      "sha256": "59afa78de1b51e0ceb7bda66207896801fc080505a0ace27cc6ed41e6397b588",
+      "bytes": 173260
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/player_box_2024.csv",
+      "sha256": "889d439dae5b5a2e831496a3a0dcbea4d385883d68d55b70d55a554169ff6e74",
+      "bytes": 6461321
+    }
+  ],
+  "source_commit": "42cf1f81bc302642ddcc9e88ce2e98c1057bc74d",
+  "raw_files_verified": 285,
+  "event_payloads": 273,
+  "prior_constant": {
+    "season_prefix": "202302",
+    "games": 1312,
+    "distinct_scorers": 7125,
+    "mean_distinct_scorers_per_game": 5.430640243902439,
+    "source": "outcomes/player_box_2024.csv"
+  },
+  "all": {
+    "rows": 8597,
+    "games": 260,
+    "players": 713,
+    "rows_in_decimal_range": 4380,
+    "qualifying_rows": 5,
+    "selections": 5,
+    "best_score": 0.6427427972487303,
+    "mean_fd_ladder_total_implied": 6.058008607471749,
+    "mean_reference_total_implied_median": 6.79003908842183
+  },
+  "periods": {
+    "early_nov_dec": {
+      "rows": 4488,
+      "games": 136,
+      "players": 653,
+      "rows_in_decimal_range": 2289,
+      "qualifying_rows": 3,
+      "selections": 3,
+      "best_score": 0.6427427972487303,
+      "mean_fd_ladder_total_implied": 6.065394968948196,
+      "mean_reference_total_implied_median": 6.9729248074464
+    },
+    "later_january": {
+      "rows": 4109,
+      "games": 124,
+      "players": 674,
+      "rows_in_decimal_range": 2091,
+      "qualifying_rows": 2,
+      "selections": 2,
+      "best_score": 0.3536058331949936,
+      "mean_fd_ladder_total_implied": 6.049940953466812,
+      "mean_reference_total_implied_median": 6.590284620915801
+    }
+  },
+  "selection_sides": "Yes only; one-sided market",
+  "selected_players": 5,
+  "reference_book_counts": {
+    "3": 1043,
+    "4": 2808,
+    "5": 4746
+  },
+  "reference_key_counts": {
+    "betmgm": 7683,
+    "betrivers": 8351,
+    "bovada": 8328,
+    "draftkings": 8278,
+    "williamhill_us": 5451
+  },
+  "event_exclusions": {
+    "event:fixture_unresolved": 1,
+    "event:original_debug_game_excluded": 1,
+    "event:publisher_error_payload": 12,
+    "prior:not_skater_position": 5247,
+    "prior:not_type_02": 3520
+  },
+  "row_exclusions": {
+    "fewer_than_three_literal_references": 578,
+    "reference:power_root_unbracketed": 1,
+    "unresolved_player_identity": 134
+  },
+  "unresolved_names": {
+    "Nicholas Paul": 14,
+    "Josh Mahura": 8,
+    "Elias Pettersson": 16,
+    "Zach Aston-Reese": 20,
+    "Alex Kerfoot": 15,
+    "Sebastian Aho": 13,
+    "Alex Wennberg": 17,
+    "Josh Brown": 2,
+    "Zack Bolduc": 16,
+    "Yegor Chinakhov": 1,
+    "Christopher Tanev": 10,
+    "Nikita Grebyonkin": 2
+  },
+  "rows_artifact": {
+    "path": "data/raw/nhl-anytime-consensus-2026-09-28/reference-rows.csv",
+    "sha256": "a7a6f7c2a5ddfd6ac2c7dab1ea5a9cbb28d7d675c635763737746e3f0a1bfbe8",
+    "bytes": 5695819
+  },
+  "event_status": {
+    "path": "data/raw/nhl-anytime-consensus-2026-09-28/event-status.json",
+    "sha256": "7096f51e1d927cf0182b6da72b4b49c58f41235d0b1fdd3c4dcd05290c69e096",
+    "bytes": 125632
+  },
+  "rules": {
+    "reference_books": "every non-FanDuel node except ballybet",
+    "minimum_references": 3,
+    "fd_window_hours": 72,
+    "reference_window_hours": 3,
+    "odds": [
+      1.2,
+      6.0
+    ],
+    "threshold": 0.03,
+    "haircut": 0.98,
+    "power_bracket": [
+      0.25,
+      4.0
+    ],
+    "score": "min(proportional EV, power EV)",
+    "selection": "one per game: greatest score, ascending NHL ID, lexical name"
+  },
+  "sources": [
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Anaheim Ducks_Calgary Flames_20250107.json",
+      "sha256": "d1fa196e23f6a56fa794ac973f4c250ceefe396a81430fd22875a4199871f515"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Anaheim Ducks_Colorado Avalanche_20241220.json",
+      "sha256": "a2b0696c0f27c33d4c5d510f85ee7bd98e9c394485ba73a024a96e381510255a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Anaheim Ducks_Los Angeles Kings_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Anaheim Ducks_Minnesota Wild_20241206.json",
+      "sha256": "7f86d776393cedb5b55f7dc177e4af71682ee153bd1965832a9b7d4ffd2c7b4f"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Anaheim Ducks_Nashville Predators_20250125.json",
+      "sha256": "519091014602b44e4b72c2d19c80408d7740d4d564448bea9ce75ca3a6dfac75"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Anaheim Ducks_New Jersey Devils_20241231.json",
+      "sha256": "97835a560ff237a4525acc2591e8dadd0cc0d1655de47dafdf3e93cf4f484c0c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Anaheim Ducks_Vegas Golden Knights_20241204.json",
+      "sha256": "81e1c90ee429f834d91dcb124d4e7cc47c82b32ce65ff400ba6cbe45f1953b9a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Anaheim Ducks_Winnipeg Jets_20241218.json",
+      "sha256": "34dc1fabd28f0c375d5e0d90ec3581791edd753e0ba4a29194b8b92ed6a5e532"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Boston Bruins_Buffalo Sabres_20241221.json",
+      "sha256": "2572e64ec5ed6403036967b866fdfe126cf7b57b9727026af9548e23789c7729"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Boston Bruins_Colorado Avalanche_20250125.json",
+      "sha256": "8cafbe5f354d09c83fe2c4d8a851a3b35fbdef22606be6045af59d0d91e123a3"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Boston Bruins_Detroit Red Wings_20241203.json",
+      "sha256": "9383acfc969393675093aba0aafa2fed95de0e6bae6a5ec99fe79908e9cfcc27"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Boston Bruins_Edmonton Oilers_20250107.json",
+      "sha256": "e306972afe1724625b3bfeb2e2e9e7d750a808871edb128d2d526e12df621e32"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Boston Bruins_Pittsburgh Penguins_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Boston Bruins_Tampa Bay Lightning_20250114.json",
+      "sha256": "e563c80e502ec7dc8e15b8f703a079c6cef3632bbb4386e26f4b55f1c883b661"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Boston Bruins_Vancouver Canucks_20241126.json",
+      "sha256": "0a291f2d1e77883fca8775c42cc225b0d04934676cd1c8522e443e8de9a981bf"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Boston Bruins_Washington Capitals_20241223.json",
+      "sha256": "1d8b0313ba6c83127bd336e0e096b4bbbc571acddc6f7110c2f9f5eb779a1df5"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Buffalo Sabres_Colorado Avalanche_20241203.json",
+      "sha256": "38631799f25c3236120c9d741f9949260f5cf93b724e998c052dd7784587ecc8"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Buffalo Sabres_Detroit Red Wings_20241209.json",
+      "sha256": "24c7c173c3adfc163b57f9307c513a238280630f6c180377bffe336d3116dd58"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Buffalo Sabres_New York Rangers_20241211.json",
+      "sha256": "02a86ac644fb1f67e6500aad351aaef51d5213afff0e00ffcb44c717f199955c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Buffalo Sabres_Seattle Kraken_20250111.json",
+      "sha256": "6a332535d85c9bc6edeb64f8dd3f27e6b9124c575da365b6838d2f57d458ec94"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Buffalo Sabres_Toronto Maple Leafs_20241220.json",
+      "sha256": "cdf671b4ef51fc69ebf5f1d04df28b79f0bd2dfb4330ffc49605b99e3f101c48"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Buffalo Sabres_Vancouver Canucks_20241129.json",
+      "sha256": "6d8f29942fe3f019c3597c192cbf01fb2643472643ac0543b58b73e1bc105943"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Buffalo Sabres_Washington Capitals_20250106.json",
+      "sha256": "9a2929baf490e0accaf8fa5cb2db739d883aee45125e9c3dbe2bc00a6f4f0091"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Boston Bruins_20241217.json",
+      "sha256": "a88b51cb2e0ed3e64a444890fc2ab615dfa7ae2e7c16fee1126786fbfac9c598"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Chicago Blackhawks_20241221.json",
+      "sha256": "1f64df2ab95108fc45a63d6f8e6f4deec7255bf4df4c31d26e2fe149fc0c0f40"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Columbus Blue Jackets_20241203.json",
+      "sha256": "bb24b23d99f85040363530759e5ce199b464572d8b0f6c13175f48f9bdb84ef9"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Florida Panthers_20241214.json",
+      "sha256": "97c019bc04cab42cbd08a1b13d546aa680ce68908cc4c71b95f6c2ea0aafd166"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Los Angeles Kings_20250111.json",
+      "sha256": "a284987cca273e1b4c5e2ec63f5658072255ba36bb2ed714c9aad32e1ce974d0"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Nashville Predators_20250104.json",
+      "sha256": "14d6a8165a966ac2b621965bf8e4043c0a9060ef74aa00d9bb7fdbac9b7abd85"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Ottawa Senators_20241219.json",
+      "sha256": "fafd8025c8fac0cab7a724609a71f03114398396474f97b93a5fa4d5f64e5311"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Tampa Bay Lightning_20241212.json",
+      "sha256": "d30e37ec5ab7c836edc2513aacd431763bf05f5447ac07b2d2b947d6860e31d6"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Utah Hockey Club_20250102.json",
+      "sha256": "428daa077d89d85b29d975a84ecf2d824f58e7834dfe2dc2414639165342951f"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Calgary Flames_Vancouver Canucks_20241231.json",
+      "sha256": "2dd253b1e439a4825dd13c7fa788bad787858774322c45d830d07f251557cbfb"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Carolina Hurricanes_Columbus Blue Jackets_20241215.json",
+      "sha256": "c35afd7e7bd433171971f5bc1723e790f036ce5ce9c4e9bd0c154532921020ca"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Carolina Hurricanes_Florida Panthers_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Carolina Hurricanes_Minnesota Wild_20250104.json",
+      "sha256": "800eae993cc80506f5ff49fd942ea3a8bae7748176cadaa4f21bd3f26513d030"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Carolina Hurricanes_New York Islanders_20241217.json",
+      "sha256": "171f1a86bb7b9594ec486db62dd0bc13e24b223f5060cff78a3a03a07463ae37"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Carolina Hurricanes_Ottawa Senators_20241213.json",
+      "sha256": "6157d90c549524fcb75ea70f97ed16d3a1ce6f5165b289ca5e94ace72b27d10e"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Carolina Hurricanes_San Jose Sharks_20241210.json",
+      "sha256": "06eac104c38df781e3fce893b22ee5c9c3711e4b147caa15b2ea25b871a6177a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Carolina Hurricanes_Seattle Kraken_20241203.json",
+      "sha256": "d99cf47c50e0f0f560a6f8775b494c6c5dfdbd36574882bf74ac04cd5dae724a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_Boston Bruins_20241204.json",
+      "sha256": "f92d8ecc3a71fe5124c2f6eee06b954fa584764955574519ab51702641f6e2f4"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_Colorado Avalanche_20250108.json",
+      "sha256": "7fc69d80c76453a37a8f6f796b7c06bf8fd54c8125dddab1965b0fc9eae14753"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_Dallas Stars_20241127.json",
+      "sha256": "6ba8747576e6fbafc5f5a1ad59e3558333e2186978b5e57fb51664c55bbad097"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_Edmonton Oilers_20250111.json",
+      "sha256": "fba8743c3644c4712f139fdab33a5dff16c0527de0494e15176347729123ec2e"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_Montr\u00e9al Canadiens_20250103.json",
+      "sha256": "ffe24f16e1a0d2fe72a551451501d2b760a3d1abaab34d0285b2c0afa57c0639"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_New York Islanders_20241215.json",
+      "sha256": "1ae67f4070c55cf94b480d78b086fd0fd7d9ee7a0184954d810876747638d23d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_Seattle Kraken_20241219.json",
+      "sha256": "db954028d57e86f27f31b650661185571973a4ca988b13b5200bb40a0e672265"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_St Louis Blues_20241231.json",
+      "sha256": "d301409ababc4ed8a2d462f4a71321ae362065eea844752c1ac74eef47514799"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_Vegas Golden Knights_20250118.json",
+      "sha256": "6ec3663fb6c8b879fdfd3f2b3b58fe294f86870a74ea3e97d2bd1126660fa324"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Chicago Blackhawks_Washington Capitals_20241217.json",
+      "sha256": "4b56cdaaf471046582003e99032f2267833cc366c6ddb50f7ecd97ed2e11e722"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_Buffalo Sabres_20250102.json",
+      "sha256": "d0b6ca7ba92c6d63cc7cf868f89f31d33611325eeb2ba749482a079685e43a21"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_Dallas Stars_20250118.json",
+      "sha256": "998a5dfb9732aa877a17453477592851b67e7169510fe4c27b40fbda6edf846c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_Edmonton Oilers_20250116.json",
+      "sha256": "6cc528a7f079391d6d8d5b9b13de24799b12f1ecf082d1805ea3879faeffbaac"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_Florida Panthers_20250106.json",
+      "sha256": "39ed66853f9cf3fa74285f0606c4065932a5205db1b34d9eb1caa0d873d87374"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_Montr\u00e9al Canadiens_20250104.json",
+      "sha256": "0fa90ff1ff8c1c2e48498325c196fd5a8a092661b894126d37fa55d7c5790ea2"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_Nashville Predators_20241214.json",
+      "sha256": "4fd4b4ec3553a04a9dac1cc6e6c87b3454ce06168e30904036149cc36d36f7d7"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_New York Rangers_20250114.json",
+      "sha256": "98918ff36fc9fea6d75ca9355a361e8dc28aaac926f4610b16fe7e844fe77aa0"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_Seattle Kraken_20241222.json",
+      "sha256": "598551cad5517c41d3813c02831dc136086b1fee28d77d72b590a892389e1b2f"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_Utah Hockey Club_20241212.json",
+      "sha256": "a5fb318132cd19f32e8a05ec94d2c21853acdbfdb1993ee9bfff9236a2155517"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Colorado Avalanche_Winnipeg Jets_20241231.json",
+      "sha256": "936d2b18d6db1aed6d68ff4c6dd0cec55f3a9d7557f244be705bf824aacd7292"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Anaheim Ducks_20241214.json",
+      "sha256": "6282fc4a81ec65f275d0de44177f94f956bd0bca681a42d187f9021551ac459a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Calgary Flames_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Carolina Hurricanes_20241231.json",
+      "sha256": "2e4e324c6780d188280d324a016d6d184ca62a7e06664a9af5999f0181155b1e"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Detroit Red Wings_20250102.json",
+      "sha256": "d4d6058be8c56e71b7ff8eb195d02e72afd74091fa49a7361a17753189588040"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Los Angeles Kings_20250125.json",
+      "sha256": "c909af6d0b511dd91103047ef7339a3c75314d96a58f5c7dca3e488c49a30f86"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Montr\u00e9al Canadiens_20241127.json",
+      "sha256": "ba5bfe0e43140e86fd45161b6c139354c49a34bde1d284b93b96c3f2ba89dc9c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Montr\u00e9al Canadiens_20241223.json",
+      "sha256": "b9183398aa6b68642e9bf4f911b0c46be4ae1b7fb2377c2c352c24523d5786db"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_New Jersey Devils_20241219.json",
+      "sha256": "6f50a9e40c6ca141a6fb42a4f455fea71d5af2d8a2af92bd38e0f6e7d957b805"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Philadelphia Flyers_20241210.json",
+      "sha256": "a6fe486d8cd07306a014003df21cd4901331a0b81dbaac9c2724ed93cbd2b404"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Philadelphia Flyers_20250114.json",
+      "sha256": "3c90fe9b5d95480c6f3f80604a990021cbe1654b40bdcd129f5fa9c27e744dd2"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_San Jose Sharks_20250116.json",
+      "sha256": "3617417e7a5a8707269bf095e012848cc01a749c9f702add5a7c9ef4abe12123"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_St Louis Blues_20250104.json",
+      "sha256": "78af77449bed8ba127d3ebf46130535af85db22a8ffa8989684ea9eedeb5b0d7"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Columbus Blue Jackets_Washington Capitals_20241212.json",
+      "sha256": "cb09adc660789298ee162a315dabba311209027d1ac2cea715a112a859d559c5"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_Buffalo Sabres_20241231.json",
+      "sha256": "6f6d29c4909968e5bbe426104478c4c683c4b258b47851892cb700980d64f331"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_Colorado Avalanche_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_Montr\u00e9al Canadiens_20250116.json",
+      "sha256": "e388b7b126d4583baa387b8594a0c9bb0109b4c633d9770a25bac96501e723f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_Nashville Predators_20241212.json",
+      "sha256": "7a949c6c0bbc5699343b9fe9c65f24f9e6261ade7893b7c8817ba43d7e7b4d0b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_New York Rangers_20241220.json",
+      "sha256": "b3e09a3229b598c6bc50dab9ca81a3a7650d1895d704cb251d9bf68c54f17a90"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_Ottawa Senators_20250102.json",
+      "sha256": "5bb440ae213e73fc513b4219da6d48f68720377123ec848e3214585912e6e26a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_St Louis Blues_20241214.json",
+      "sha256": "7ed1bc20aa091d6c8ceee9818f64d1c80711dee36b66556acc5cacf43af9ef77"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_Toronto Maple Leafs_20241218.json",
+      "sha256": "ec42e9575b190dfbead1c52208f82894cfe627c80da9b4463b8a7c15f9bbdcf6"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_Utah Hockey Club_20250104.json",
+      "sha256": "e0982cc274291bdfa1dd3a7d193130167baf55d61090fab7e8b148d275b1f27d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Dallas Stars_Washington Capitals_20241216.json",
+      "sha256": "bdd7535ffdd99064a3ec97ad17b9c925923da085347c578c25f4a8256e121886"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_Calgary Flames_20241127.json",
+      "sha256": "631008fd4f4f2124dad0b5bad15f345c6c4835fb5ef9deaa9004a6b30f8a8c53"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_Montr\u00e9al Canadiens_20241220.json",
+      "sha256": "037087a55749095140eefb4eeca75f2e6669d218e59c769ca9eb38fe5738efd1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_New Jersey Devils_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_Ottawa Senators_20250107.json",
+      "sha256": "9cf8ae8a1b173020548d03349ab9e3e3ce21e4aeaca1fae5de4e1be855ee1460"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_Philadelphia Flyers_20241218.json",
+      "sha256": "72cf024a694598c1ea07702e8c5a78459003fa7ee990b1ad4a732ddf717c8da1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_Pittsburgh Penguins_20241231.json",
+      "sha256": "547ef6d7293e450c46b41f8708c33cbfbe7c8cc874196b7d37d02b9bb0ec8cc6"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_San Jose Sharks_20250114.json",
+      "sha256": "63f75abe5991eab21efbcc934f3796dcbd49c6574eb4e94091b0c7027b39fda1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_St Louis Blues_20241223.json",
+      "sha256": "e07ce700676342b113ae8e52a6fa2dc680305cdef88cd25ee865f89ea63fc8ee"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_Tampa Bay Lightning_20250125.json",
+      "sha256": "6d666b61089d69883810108365b63f858b959ef1b77c08335634ace677e09471"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Detroit Red Wings_Toronto Maple Leafs_20241214.json",
+      "sha256": "a89f4431c6e637fb9ef53f6b58d14a1b47f6c06d04b5661fff9733004f414372"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Edmonton Oilers_Anaheim Ducks_20250103.json",
+      "sha256": "ce23a842b87babefd35881a70c2538b1d7125e5120448a57180bf465d31ac2ec"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Edmonton Oilers_Boston Bruins_20241219.json",
+      "sha256": "095cb5942eddd9f4297e82c1c705b7e77fe76ec15507326fcccfcd533e4bc253"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Edmonton Oilers_Buffalo Sabres_20250125.json",
+      "sha256": "5608699858a4bd709c3afd5941d8d8501c2bab7ca885ab62e99d56dcbe9db55c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Edmonton Oilers_Florida Panthers_20241216.json",
+      "sha256": "521aed168a061e2206a99cedfd3cd44154bc4532581f73b5efcdb113b93a5bc1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Edmonton Oilers_Ottawa Senators_20241222.json",
+      "sha256": "45c6d06c7db925f85e223afe4ada567fac2558864a44c1cf78e92687477c9c49"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Edmonton Oilers_San Jose Sharks_20241221.json",
+      "sha256": "0efd2af1cb26e25cfd0cb561f0595a95196a3e30b277e79f2e5912a545b7dae1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Edmonton Oilers_Utah Hockey Club_20241231.json",
+      "sha256": "b954bfa3ab06d70367314bd6ead414b94a833dcf19312f24d3435f49e728c886"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Edmonton Oilers_Vegas Golden Knights_20241214.json",
+      "sha256": "b056556706cdcd55b2bdec779b886ca166d43de6be1b2ccb403c90391e72abb3"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Florida Panthers_Anaheim Ducks_20250118.json",
+      "sha256": "3d571f100e3ac6541d8e072ad588c1af539149745ced99daef0ee4063da69278"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Florida Panthers_Boston Bruins_20250111.json",
+      "sha256": "14741c855bac7d2e9f38bc60014af2e4394372dfb50933ef3432df321eef1796"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Florida Panthers_Carolina Hurricanes_20250102.json",
+      "sha256": "7822b384fb9fe64507fa456ef7c5a3e428fd86aec7a553e0c4431abea407bf6a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Florida Panthers_Detroit Red Wings_20250116.json",
+      "sha256": "53a055d8e808033f728d770f70c8f1fece34c9671daab414d44910a3a5d9a296"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Florida Panthers_Pittsburgh Penguins_20250103.json",
+      "sha256": "01b39e23d49ab93addf369b4698836a077a4bdd9ec1be25a5a7f4cf2cde19223"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Florida Panthers_St Louis Blues_20241220.json",
+      "sha256": "92430b77c6b47d9e6ac82806dbba825e9c37f726b448afa720f8da34c737184a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Florida Panthers_Tampa Bay Lightning_20241223.json",
+      "sha256": "fdaf53edbaf12ea4b519bd71557e082fdcdc07d48550124a8534dc90c062ec51"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Florida Panthers_Toronto Maple Leafs_20241127.json",
+      "sha256": "f8f7bb13d10dc8cd74169c698849b7b912047b2f640df03f1bd306bd3c973b1d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Los Angeles Kings_Calgary Flames_20250108.json",
+      "sha256": "e33d476db39e5148329ba979db4b4d6485bfffae5b00b22f234156ee0fea9ee6"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Los Angeles Kings_Dallas Stars_20241204.json",
+      "sha256": "bb546cd73f44814c4df5b0d263e5e402ec3e2fda069e66e8fff2f5b71d7fcd95"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Los Angeles Kings_Tampa Bay Lightning_20250104.json",
+      "sha256": "17742e85f37a3771608c43e771396b43bae89587897145ad1b2d7f2e11edb2d3"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Calgary Flames_20250125.json",
+      "sha256": "ed73650b9ad604080504bcd44900df5054cbe167079c8161739ad2fc41aa1d31"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Chicago Blackhawks_20241129.json",
+      "sha256": "481250a500809b08dfb34f4fdd2f27caf017f2e293d9c6ad223dd2fc05e50fde"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Chicago Blackhawks_20241223.json",
+      "sha256": "9c7ec800db972c75b85ad3618f195432b2de8fd76e3ed5bcd7b7d4fed45d7845"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Edmonton Oilers_20241212.json",
+      "sha256": "aff6309e9f111bf74e1ca17eba00cb050f3ae275041de7b19399739834d09105"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Florida Panthers_20241218.json",
+      "sha256": "d15620fddf66d3f6e80437f071c315c3d3dbc3fb398496ef9a9b4987a38045ee"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Nashville Predators_20241231.json",
+      "sha256": "730be90cda4564261c3bb1eec72a485ee0a8d69365a73457d6b476c623f9b0fb"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Philadelphia Flyers_20241214.json",
+      "sha256": "a807c71607d51270765355aacac49b31367f3c0f323b9fbbbc708a576fd30ea6"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_St Louis Blues_20250107.json",
+      "sha256": "b3e0466c341980bf71f6c38dd77c010ab42456c2cccc4344a417c464a9c89c79"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Utah Hockey Club_20241220.json",
+      "sha256": "b70c405fad5ef90d3c2dd04c9aa9e707d7ca80f6964631afc61fc11c40f98a0b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Vancouver Canucks_20241203.json",
+      "sha256": "ae25624f3e5ffac306bc9814e439cf669f7c8bd731f4e25f7ee6c82743b90a4d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Minnesota Wild_Vegas Golden Knights_20241215.json",
+      "sha256": "367890cd72108d6418406e94d4a1d8af8aaade47a0b6936adc5d569ab24f105a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_Anaheim Ducks_20241209.json",
+      "sha256": "19d5cd8a207202ff09060b97c0e858f19d2282bc2983bdc1e9013945379adfc0"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_Buffalo Sabres_20241217.json",
+      "sha256": "44e9eb432d23b6701ca1f3bccdceb086e77810d68fb7ceda126d0890c6ec4d80"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_Dallas Stars_20250111.json",
+      "sha256": "9c2b981aeec6732a42cb690db3e84de5ddf151b430af5d157e3f3abd93aeed6e"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_Detroit Red Wings_20241221.json",
+      "sha256": "6e0a0c5b4d5ebb4995836c3291d4666a0e11b8a33229f37c5854ac7db36c8075"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_New Jersey Devils_20250125.json",
+      "sha256": "db963fc26208e0980e583ae6d007b65979779c35bf40969e9653d9df508a9989"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_New York Islanders_20241203.json",
+      "sha256": "192bb0758c6c6411be5087c4447fdd86ed1363e6e60eab428216ca07c46ed888"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_Pittsburgh Penguins_20241212.json",
+      "sha256": "c6b6457d0ac799b102827405f4499bf6a4ea2fe67435f2a96fcd28ad0206c88e"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_Toronto Maple Leafs_20250118.json",
+      "sha256": "5e5586dbb1fae66fda96483be74c120c731dcc9b585705b972f7c1d5197b5eae"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_Utah Hockey Club_20241126.json",
+      "sha256": "eec903c7bd51490c8eccc4a1b1ee6f645e607cdef0e3d10152dfdabe0f4f0497"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Montr\u00e9al Canadiens_Vancouver Canucks_20250106.json",
+      "sha256": "c5519e37e8db7490ac25657dd0dcc9bc5bff0e8a398e4083ff61ba99c29bc66d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Calgary Flames_20241210.json",
+      "sha256": "3cf0ea154120ddea0c52faa9aa9b7e5ea67ad79f4e8a0c04f1a8fba899b3e2d0"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Carolina Hurricanes_20241223.json",
+      "sha256": "e43a4e3740309cc651b4254514d9f42f8e57eddf412bc54b12a8cb0c0e1dae53"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Chicago Blackhawks_20250116.json",
+      "sha256": "14a268d341b668c7ab4ee4cf25d6a6d60f9f8580a3b212cdebf13e733e1cb95c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Los Angeles Kings_20241221.json",
+      "sha256": "6e9abf0b59a452ff33a9152b1ed7ecf76e724723beb22ac7f237cf3b5df4d136"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Minnesota Wild_20250118.json",
+      "sha256": "97b18101de7b40160aea9abd3f7795b5b912fd11eb0e04ad9e61d4aca0dc23cb"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_New York Rangers_20241217.json",
+      "sha256": "b8b7f7ee5d2be4086fbcabb88d09445e3df95b53826340b85c6026fc90f389f2"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Philadelphia Flyers_20241127.json",
+      "sha256": "97a641e1d63af351092672d3ec570b5cd5f528641bfc068524b943b43c8e696b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Pittsburgh Penguins_20241219.json",
+      "sha256": "c1b29fac1bfc00c1dd0660217a77deadd7339fc24b0edee1edffcbb1661bec3d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Tampa Bay Lightning_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Vegas Golden Knights_20250114.json",
+      "sha256": "35492f2ec9b08442e29b607e17620e6e633f4cb8bfb49b9c44451dee2bfe815b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Nashville Predators_Washington Capitals_20250111.json",
+      "sha256": "495370b7ca06d2e508b3ecd6d00d5f5382f25d3772926a073081671db4c2f0a4"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New Jersey Devils_Chicago Blackhawks_20241214.json",
+      "sha256": "a79cda2c697acba89b577ad0e8777e3318ba1153a210e7baaed13976831f8df2"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New Jersey Devils_Florida Panthers_20250114.json",
+      "sha256": "5d83b5ca8fb422ec825cf5627797c599cd11dbabb6cbbb70a11b191189cb5e50"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New Jersey Devils_Los Angeles Kings_20241212.json",
+      "sha256": "6be43320095a8584a3f74677ca5249105f35549b49f5e395d6c9841ed3881b0d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New Jersey Devils_New York Rangers_20241223.json",
+      "sha256": "89df901530e6c28b5b5723f48a650f9e45e8007387a1cc0621175f78a960c711"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New Jersey Devils_Philadelphia Flyers_20250118.json",
+      "sha256": "2bee705f492df2e17c4fa074cee25c8fa58d3e1c9aab4859ba01cc1f0f028315"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New Jersey Devils_Pittsburgh Penguins_20241221.json",
+      "sha256": "32dc0af428b93b5efc1d880f7d48f99e501be1335a9627c4ae093d264fb66aba"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New Jersey Devils_Seattle Kraken_20241206.json",
+      "sha256": "307cf06517db01e510dbfa53cc5994c97db999a668160c24c93facfb916661a4"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New Jersey Devils_Tampa Bay Lightning_20250111.json",
+      "sha256": "5be3c6ea1184ff7b6d500cec05b35db16f405e1c21fe88c9147f442aa40781e8"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New Jersey Devils_Toronto Maple Leafs_20241210.json",
+      "sha256": "31c515fc5b46c3da3d73503f79b5cf5ab374ebec976353e51c6a495275090125"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Islanders_Boston Bruins_20241127.json",
+      "sha256": "6abefdc57ecd0351a09108a3b284c19a9d3625da5823927b77aec547fb59dd85"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Islanders_Buffalo Sabres_20241223.json",
+      "sha256": "35f656d71549b72b197ca47e7e90222dad421b6ecfcad31566c2131e6ef89534"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Islanders_Carolina Hurricanes_20250125.json",
+      "sha256": "3e15ab469b1136a823d8fc06562313e7a8cd73b8b3205f68e6d9443b9832cb69"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Islanders_Chicago Blackhawks_20241212.json",
+      "sha256": "cf342e5a58e28c44fb69d10c037157ccf8174004881950eafb41913879eea68d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Islanders_Los Angeles Kings_20241210.json",
+      "sha256": "63ca96a8e677696dd463b52ea8a00b9b7edd6255777451f248615b90ca6397c4"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Islanders_Ottawa Senators_20250114.json",
+      "sha256": "c85569e99915cee99b1cdf6a79cea8949641390229f00d1b71a0d6376abddf11"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Islanders_Philadelphia Flyers_20250116.json",
+      "sha256": "49861922f04cdecd976253caf07b2f5bce4c890e8c2bf7d6b73f11537ad6273d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Islanders_San Jose Sharks_20250118.json",
+      "sha256": "fd958f400b49c3347a4d2d97a4bd3a6392aa63790322d906c734fbadcc2a2b6b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Islanders_Toronto Maple Leafs_20250102.json",
+      "sha256": "bd986b0b47785f0a5e1196d62c6d2511dfaebbc594b46fdffb1f5a81ad863263"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Rangers_Boston Bruins_20250102.json",
+      "sha256": "0cdd108df095b341c24f797b8df61ee33d869d58fd34fd5f9d9b08feb09b62be"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Rangers_Carolina Hurricanes_20241222.json",
+      "sha256": "88ce3e9153158ec225d52f5e2b8e4afffd303c0ac2ee58be62b411c429db7bda"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Rangers_Chicago Blackhawks_20241209.json",
+      "sha256": "ed66ad8c75f4320391f0743c40ebde7f92517713213f06a474cf511e195c351d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Rangers_Columbus Blue Jackets_20250118.json",
+      "sha256": "707ca2095e2bcbb04912f532cfb509885ef7033f3de57aea663e103b89c723fe"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Rangers_Dallas Stars_20250107.json",
+      "sha256": "69f801bc7902d0584bfefb4d1f2f0dc10eb6791ceaba02dc2db480b9121b264b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Rangers_Los Angeles Kings_20241214.json",
+      "sha256": "6d61541d52f35fdf76c67b8fe873dd59b5544b159ec09a1e65240262162ef1d0"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_New York Rangers_Pittsburgh Penguins_20241206.json",
+      "sha256": "718e9fb4ba06fd9d0ed4f1a9d3b39efdf84812c4ab3c37e9e926f4518cad81e9"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Ottawa Senators_Anaheim Ducks_20241211.json",
+      "sha256": "5533ec3829c50f18e36f671feffd4b78c2d94d1ae3b0528e9405656913771a03"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Ottawa Senators_Boston Bruins_20250118.json",
+      "sha256": "93476596a89c5746e8cf3c794a3fcd61de578d4a412229a3bce774bdb4113964"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Ottawa Senators_Pittsburgh Penguins_20241214.json",
+      "sha256": "823d97b66a4f555c652eabb01e472aa339a967e7bfa5835fbf73192a3d0eadd0"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Ottawa Senators_Toronto Maple Leafs_20250125.json",
+      "sha256": "38e0f1b8ae1cb26c9edc7c26153eddfff4bdba0bd98562a95f4a1018bfed1455"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Ottawa Senators_Washington Capitals_20250116.json",
+      "sha256": "22f37f6229eef4bfc6aed9aeee199ca5f2c0a46954852fa0323224e8508034c1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Philadelphia Flyers_Anaheim Ducks_20250111.json",
+      "sha256": "f83c753d0c1c20ca08de3725a3726c74be602eaea5deaf925a7ed2ee65e3f53e"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Philadelphia Flyers_Columbus Blue Jackets_20241221.json",
+      "sha256": "d0de932dff915dfa648df32c12d44e1234dfe9f69fd043df326c0066aab0822e"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Philadelphia Flyers_Detroit Red Wings_20241212.json",
+      "sha256": "ff31dfcffc460d3c35039ee11ba920704df81ce73bccceeb59281fbb06ed262d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Philadelphia Flyers_Los Angeles Kings_20241219.json",
+      "sha256": "a8f966344d8798437c807b1cbbc56f8e74d9a6e8e7936a3d98ee84d29ed125e8"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Philadelphia Flyers_New York Rangers_20241129.json",
+      "sha256": "429a26aca3f48836d6795ff346f270671f7b6fae3637dc11c28ac5a97bc71733"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Philadelphia Flyers_Toronto Maple Leafs_20250107.json",
+      "sha256": "25da6f650cda922cae4500a503c39fe2b8f7eb0e9153ee08238902f89403696b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Pittsburgh Penguins_Colorado Avalanche_20241210.json",
+      "sha256": "cdeede7e8aa3882249f7442b21ec4967f112a6bc07a76e9b29986e7ea1638d5d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Pittsburgh Penguins_Columbus Blue Jackets_20250107.json",
+      "sha256": "ccb90d89ee3da9a63bb2cde5b1166ce42c0476b966c2df891db5b1654cf59e4a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Pittsburgh Penguins_Florida Panthers_20241203.json",
+      "sha256": "341dcb31a74ff526f17454eb8ea98db6c51c034fc8b12b970deceaf0be9310c5"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Pittsburgh Penguins_Los Angeles Kings_20241217.json",
+      "sha256": "58553bafd426633535dd1603a72cc5b124466bfb96887c2132b453b5d594054c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Pittsburgh Penguins_Ottawa Senators_20250111.json",
+      "sha256": "0110736159dede3c5927ecf17691a2f9f7190e5d6ffab7885aecb2345e3c631a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Pittsburgh Penguins_Philadelphia Flyers_20241223.json",
+      "sha256": "7afcf646b0c870592fb75f5309e1fd61df76a1f54f20eb734888cb9e68d4b656"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Pittsburgh Penguins_Seattle Kraken_20250114.json",
+      "sha256": "478699a8c535d2b0c36ef7da4d2774ab78122cf9bf00191f7cb4cb77bae6784b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Pittsburgh Penguins_Vancouver Canucks_20241127.json",
+      "sha256": "84db34a331a09f841a824fb9b580f99d250fabf6133007c6f5ee4f125c4f55c9"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_Colorado Avalanche_20241219.json",
+      "sha256": "d151a09206372ec720d97e7f1d83139e8e2ed0e011fcf613c744d193c75bc334"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_Florida Panthers_20250125.json",
+      "sha256": "5edab14080a22a7dbcd2a2b0729775fb4f2c23efe848d2bebaecfb320cd706cc"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_Minnesota Wild_20250111.json",
+      "sha256": "5194c43b6b11c5c3f6eef829f65d032d5a196c533a9104e0c426ec4c562f758d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_New Jersey Devils_20250104.json",
+      "sha256": "2a19bd8aeab6adf227c3e626a3552aebdc5388d3b6c356feebdaf7f6bfa87dff"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_Philadelphia Flyers_20241231.json",
+      "sha256": "b014ca4fe756618dcf53065002b39fcfc6a0d37b0bbdad7c7bddf370ee3bca16"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_Seattle Kraken_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_Tampa Bay Lightning_20250102.json",
+      "sha256": "88246b6974ad5d9e35abac9823ba4dd7a52e4acee955c8c447a5f3a0bdb9ef2d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_Utah Hockey Club_20241214.json",
+      "sha256": "c5c8c85ec737704f41217f128651b7fefada2ff5fbc2bff7bbe478a25501236a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_Vegas Golden Knights_20250107.json",
+      "sha256": "e126fb361e28814e79f8ef7541a95d971484d10f714ed87cc8032d8b87faed17"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_San Jose Sharks_Winnipeg Jets_20241217.json",
+      "sha256": "ff35630dfe2ee01c1e19966669686b3a36b6aca74d5d310f906f7383cf66efa3"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Seattle Kraken_Anaheim Ducks_20241127.json",
+      "sha256": "4dc1d88f2194221ef273b167abf0775318f1e4b2d7c85c14f5e3d1597aa684f2"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Seattle Kraken_Boston Bruins_20241212.json",
+      "sha256": "26767b76f23f2d706fedbcfddf91750d34dd2cfafd962c260604676da7f35840"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Seattle Kraken_Edmonton Oilers_20250104.json",
+      "sha256": "8d177a2b487170cf3ffeef1eec49ec7d01055ff68dc14241c9f8049d3b347925"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Seattle Kraken_Los Angeles Kings_20250118.json",
+      "sha256": "effdd21dfee13923c70cf2acca737897257e1a63ac18a5d3a5d991df20ae62fc"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Seattle Kraken_New Jersey Devils_20250106.json",
+      "sha256": "f52191654acdbab32054f6023ad47eb85aee0f7346e4bf0618684624dd149967"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Seattle Kraken_Ottawa Senators_20241217.json",
+      "sha256": "4c74dccd4227e77f9b3640e8d6272d9c59709bbf987e6613618ff0492faefa88"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Seattle Kraken_Pittsburgh Penguins_20250125.json",
+      "sha256": "c880bebed327f7b3c950e5a232a2e7428103119de335b06760ca170cf9ec4780"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Seattle Kraken_Tampa Bay Lightning_20241214.json",
+      "sha256": "580ec6ef27f73b7bac8c174e6f12f3bb3b6500d20c2a2f211c6fe38f1bea7cf9"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Seattle Kraken_Vancouver Canucks_20250102.json",
+      "sha256": "e97ff90b51f050281909c98782952ac1b081a8def01d4a5f9a75ef2f8f92cf90"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_St Louis Blues_Calgary Flames_20250114.json",
+      "sha256": "5d058935efd8280a8d303cb4e44852a0ad71edbfe66088d1cbde589e3a2b5dbc"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_St Louis Blues_Calgary Flames_20250116.json",
+      "sha256": "252a459c9cb8f7aa351feb055ace00b6e70d30b201681b35b328e26a6995afef"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_St Louis Blues_Columbus Blue Jackets_20250111.json",
+      "sha256": "f948b5f365bfcc6ff8c6bbbba413f01eb187c224580032d28018184999a594d3"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_St Louis Blues_Dallas Stars_20250125.json",
+      "sha256": "84bb07da6092174190f34858452bd165388f3e5b6e0bc682a262a8a298fa66f0"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_St Louis Blues_New Jersey Devils_20241217.json",
+      "sha256": "d877be16f1f47178cd150bffbafb8fedaff71fbca58170084927ff08270e8489"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_St Louis Blues_New York Rangers_20241215.json",
+      "sha256": "c8f15ec0dc7601d87b030ae947b953e498e70fc931bdda85b8cf7250225ba112"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_St Louis Blues_Ottawa Senators_20250103.json",
+      "sha256": "bd9ee64c10cea4c6a9a5d54ab6e4ce3a58630e437ff3034541ce1b302aea57f2"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_St Louis Blues_San Jose Sharks_20241212.json",
+      "sha256": "f0ae18e75c5664c75c59c5f5aabb53edc87eba9af8aeba7ec4953edfef5702d7"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Tampa Bay Lightning_Anaheim Ducks_20250116.json",
+      "sha256": "b655958034f4fe8e9789e1afd00fe919d58d7c1d96c5c16a3fd190950217d893"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Tampa Bay Lightning_Carolina Hurricanes_20250107.json",
+      "sha256": "63a39f07d0f859ccfd7db179c1e6a44e565970627de22440f66687f583e77251"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Tampa Bay Lightning_Columbus Blue Jackets_20241217.json",
+      "sha256": "ec9a9c1d83146a71e95fbd7829634ff6a57dd365c7016db5073fefa537f31614"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Tampa Bay Lightning_Detroit Red Wings_20250118.json",
+      "sha256": "046f4222b29597868e5b25be28bff629734f1b817b45f4e001985d8b9ed813bd"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Tampa Bay Lightning_Florida Panthers_20241222.json",
+      "sha256": "2169fed4d727bf47db90d2cac4fa17c5b276cfda22a760e58f045ab00de1d23c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Tampa Bay Lightning_St Louis Blues_20241219.json",
+      "sha256": "ad0ec049d24cdb65e96f528cbebe8dedb1d3b63d1e443549cdb48392e59d4791"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Tampa Bay Lightning_Washington Capitals_20241127.json",
+      "sha256": "1db0bd9ba8b85d963b1779b071ec9aaff6954e30336dfd2a4b2369733a1dadfd"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_Anaheim Ducks_20241212.json",
+      "sha256": "63f581006a49cc8c0df0347a0b1281add8833ab65715539a652d534ab11ac3fa"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_Boston Bruins_20250104.json",
+      "sha256": "04bb1262927139d51f16511a118729cef82a1fb6fcda82b986be7a59d54dfafb"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_Buffalo Sabres_20241215.json",
+      "sha256": "f02baea11021043909686017334953f854947e385196184cd5490da0df55f075"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_Dallas Stars_20250114.json",
+      "sha256": "834a4e36d7b2072bd929fee0fc826c8a08050528b9c8b50166a98bb52ae7de0a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_Nashville Predators_20241204.json",
+      "sha256": "abce0f849a8dd59dbfeb20e3141979fbc3a02c7b7947b61081523e897937b3ef"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_New Jersey Devils_20250116.json",
+      "sha256": "980bf6dd4ed23aad1c9b984a2d01b13ad859c32708447b2777f6a04794e7da4b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_New York Islanders_20241221.json",
+      "sha256": "6f391df9a78fe76d3f180b751f7f2af45dfbd1ec0bee6cb33318b21f24be7137"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_New York Islanders_20241231.json",
+      "sha256": "8fe9cc543d8d546c82721025ab8c0764f674f43b6f90429b96250b20f439c9d9"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_Vancouver Canucks_20250111.json",
+      "sha256": "b5b398ee9b5ab6480ec3d957686e51363d8640b4168322a5ca4041b122836675"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_Washington Capitals_20241206.json",
+      "sha256": "1ad5f71c268dcc3aac61c716998114c43bce8b9f695e909ad36a544a827f9005"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Toronto Maple Leafs_Winnipeg Jets_20241223.json",
+      "sha256": "1dc73d11183d58728b0c465b2c8b7b1387e6d6813ff3fa3b4c4efbfce5d37dd7"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Utah Hockey Club_Anaheim Ducks_20241222.json",
+      "sha256": "edba4048a4c3afdf0a1189dbb0b14148a9e287ca230ef60d4205679b79961494"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Utah Hockey Club_Dallas Stars_20241223.json",
+      "sha256": "3da9f90b6a040ad1e088381ed6505d6b2c98a21fb35629ba6a0cac86a8bd480f"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Utah Hockey Club_Edmonton Oilers_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Utah Hockey Club_Florida Panthers_20250108.json",
+      "sha256": "34838ebdfedbf10e9a81204ce638e08b1da08079399b455da677284317289b3c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Utah Hockey Club_Montr\u00e9al Canadiens_20250114.json",
+      "sha256": "5a5979427107cca51b895622a65d6d9174f06f6b25b95f4da3eaff3e751e5835"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Utah Hockey Club_New York Islanders_20250111.json",
+      "sha256": "22c44cae72b9ccd924a5dbdfafe086388eeb4b2ca239565d541f8f1e32ae2058"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Utah Hockey Club_New York Rangers_20250116.json",
+      "sha256": "fec6bef4db44e3b23412cf5d7b13c75bef51370c82c30de4fa203e93dec05d1f"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Utah Hockey Club_St Louis Blues_20250118.json",
+      "sha256": "7d308c44a3783cf943ef73a8b690f84b86aee534f706bc30587fe9c162f3eb6b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Utah Hockey Club_Vancouver Canucks_20241218.json",
+      "sha256": "a8f47ba872eb220c044b314d3cc5623c4ad797188e8e8de766b6f107499c9598"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_Boston Bruins_20241214.json",
+      "sha256": "2bc670cd5583f4cb3ef77a2bb821b07080802d39e051b622b1743ab7cb4056c6"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_Colorado Avalanche_20241216.json",
+      "sha256": "55911bbca3847ad81dc68a96328ffba33b9875886226abf394fb6ec30b1d68aa"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_Columbus Blue Jackets_20241206.json",
+      "sha256": "929fe94ca817f109be808281e591fe848302957b0db342088bbbe910f5264bf1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_Edmonton Oilers_20250118.json",
+      "sha256": "4c1696e5c8f27f4eb8f4d84396d46d1ae5af370d8189279d887f443139bf895a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_Florida Panthers_20241212.json",
+      "sha256": "517a8564289a38e1e1f62f7fd891bc811c72fcf61e00479614eb64abe0202014"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_Los Angeles Kings_20250116.json",
+      "sha256": "f9a888f4dfff841bf73e80966a670dbd8e95400c107c0a8e16e8a35a7a2e6f70"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_Nashville Predators_20250103.json",
+      "sha256": "98e889bdd1a769756e0b3e63da8cc4dac140d720b99b2e4518fc96a563a0fc5a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_Ottawa Senators_20241221.json",
+      "sha256": "09bb918d568b577a77b2cb29cf9afe9eb3df97b650176049da859dd825a8e9a9"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_San Jose Sharks_20241223.json",
+      "sha256": "25a2b13be88755fd1acfe37447a2f7585e333a93736c95dae7a2d899979dc3b3"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vancouver Canucks_Washington Capitals_20250125.json",
+      "sha256": "3128626c8aa19a22dc7621c53f68ffe7987a7d23da5c6fe4b1cb7060c6a21d0b"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_Anaheim Ducks_20241223.json",
+      "sha256": "a5806ba64db381f226bcfbcc00c5e94dd4f943a3e029f7a6e078bb3715e619bf"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_Buffalo Sabres_20250104.json",
+      "sha256": "f63d811bc2b7105aead9d6bc8e20cfcf82529ddda0bbe08d4ffe079f7af9cee3"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_Dallas Stars_20241206.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_Edmonton Oilers_20241203.json",
+      "sha256": "3594a7bff1093142eb2cca7b568f63ef778333ebf193e515321bfa8aa097a150"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_Montr\u00e9al Canadiens_20241231.json",
+      "sha256": "7c3b586bd177e1c426c2f4765fd968fcaa2ddbc57ebcdc066f68830e4f667c28"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_New York Rangers_20250111.json",
+      "sha256": "ef57d0097dc7386d4016c1cd852c097ad3f91b4a6fa3d7eb19ee621e62723dd6"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_Philadelphia Flyers_20250102.json",
+      "sha256": "a53e42ee76c448e58ee9974c63bca31831189149f8e1e76cd0eba5d053d4df51"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_Seattle Kraken_20241221.json",
+      "sha256": "4ccd343fff0ad516c640406f4a423928cd0dd0b0d3a081cb856cc1b51de82c89"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_Vancouver Canucks_20241219.json",
+      "sha256": "2f362e747e12208e4b534b3c75860f213b42a733da596be7a50d5aed706030dc"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Vegas Golden Knights_Winnipeg Jets_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_Anaheim Ducks_20250114.json",
+      "sha256": "7982edf19802839316ace22505ccbeea0b814b68641356b620dff2cd31efd93a"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_Boston Bruins_20241231.json",
+      "sha256": "6c60ff4896c7d2282ac1983f5f71434bbebae66fdadc09cd6fa5253ccae21127"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_Buffalo Sabres_20241214.json",
+      "sha256": "30245884afd8881c6304f7d19be1f16bebe7c4429335a5093ff257e1872c11fa"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_Carolina Hurricanes_20241220.json",
+      "sha256": "155879a33e63b48e402b6205fc4e7f7ea3c8ba0944b0d850e940364d0f994f79"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_Los Angeles Kings_20241222.json",
+      "sha256": "6105ed0053e281fd1c598fe72bde360b4eadd554f0863ad16eeb5fed648c3f7f"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_Minnesota Wild_20250102.json",
+      "sha256": "e2344141a122052ad4d13b16760f91f6f1ff34b3da693d34928b020b4faec331"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_New York Islanders_20241129.json",
+      "sha256": "8a8a82296bbe1357557b7949f565eac8dfb5fd92c5427765d5d85432104e89f1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_New York Rangers_20250104.json",
+      "sha256": "e131368fed6988834807b1a9b6b3b26de1611b6f838868f12c7534dee240c326"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_Pittsburgh Penguins_20250118.json",
+      "sha256": "c2f8b143fa52491112c65fbe945107f168f610b99277a1b656c8426379fd6b8f"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_San Jose Sharks_20241203.json",
+      "sha256": "a76b3d42e0705b6f5e5e52f49a459973a61ff645573652262bd4b103190e5c3e"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Washington Capitals_Vancouver Canucks_20250108.json",
+      "sha256": "291c6c6b334cfa11923abf7b4339f2a4b231889dad5af5cda143dbef725090ea"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Anaheim Ducks_20250102.json",
+      "sha256": "aa083c551dee6d1528609e8d839626679912b4f35762b6c7e0046ec8903fa73e"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Boston Bruins_20241210.json",
+      "sha256": "1844378f0ac0318d0a4fe3420f81f2462d6ea690c93c49da8cc6f0faffc98ddf"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Calgary Flames_20250118.json",
+      "sha256": "85534218b8ebd72f00bae162706b31ddb34e577d262d81bf38bd72f3e30bd9bb"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Colorado Avalanche_20250111.json",
+      "sha256": "ff25e49f5e5bd87e18350549369559ad03870bccad3eb0bc1029d22c2d36875c"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Detroit Red Wings_20250104.json",
+      "sha256": "8d29071bc8f7155d0f1b6145522f03ec0f4c860a4dde3f0cc4eaae3eaeb3015f"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Minnesota Wild_20241221.json",
+      "sha256": "88780e0064facbcff48f5190f3a0fbb4eed460894fabaecc96d486d15eb418b1"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Montr\u00e9al Canadiens_20241214.json",
+      "sha256": "a2e8051f06063b71747e68239b15f2898750977667dc237200659487db364755"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Nashville Predators_20250107.json",
+      "sha256": "a10aab4d2aef377f71b539ab7465ca2f861cc978db95ca11415b9478a5fabf32"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Seattle Kraken_20250116.json",
+      "sha256": "d240b304f69e8c6e6088a3578de5c838aaa969b5437e0ebd6cf6816130812d0d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_St Louis Blues_20241203.json",
+      "sha256": "a258ed12baa00a01709cec8a5d4ff861bb683ffb193303ae79b12fd7ac7bbf62"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Vancouver Canucks_20250114.json",
+      "sha256": "b7466c0e2fe4b59147e1d9005853b4bd8e27e8253ace3d9f61a462ec5d95801d"
+    },
+    {
+      "path": "data/raw/nhl-shot-archive-2026-09-26/icehockey_nhl_player_props_Winnipeg Jets_Vegas Golden Knights_20241212.json",
+      "sha256": "4bc5f9036dfafcabffa13e14ab01acaba910c1ed76f1da38ac82062961d458c6"
+    }
+  ],
+  "target_outcomes_read": false,
+  "previous_model_predictions_read": false,
+  "limitations": [
+    "Price-reference screen in an already inspected archive; no independent forecast or execution claim.",
+    "Ladders normalized as listed; shorter ladders are slightly inflated by construction.",
+    "Market updates are entry proxies, not receipts, suspensions or accepted fills.",
+    "Reference books share platforms and data sources; they are not independent signals."
+  ]
+}
