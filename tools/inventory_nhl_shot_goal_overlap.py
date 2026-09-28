@@ -19,7 +19,10 @@ RAW = ROOT / "data/raw/nhl-shot-archive-2026-09-26"
 OUTDIR = ROOT / "data/raw/nhl-shot-goal-overlap-2026-09-26"
 REPORT = ROOT / "reports/nhl-shot-goal-overlap-feasibility-2026-09-26"
 PINS = {
-    "manifest.json": "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da",
+    # Deterministic replacement manifest from tools/rebuild_nhl_shot_archive.py (September 28, 2026);
+    # the original 869d4a6d... manifest was lost with the uncommitted data directory. All 285 raw
+    # payload hashes it lists equal the pins committed on September 26.
+    "manifest.json": "9b43fc27fe396a7b37dd07af3e7f01ab56acb209578b2c5b0defb2bdfbeeed2f",
     "outcomes/rosters_2024.csv": "0e70a12579b25af0532d00a0cf8bb5fda7d9eb33a23d76234ca26f2fff4ca4ba",
     "outcomes/rosters_2025.csv": "cff04536329e7a7f3cdf9034786226e6644a7d222486eb70d4a799d12c1f80ba",
     "outcomes/schedule_2025_metadata.csv": "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855",

@@ -1,0 +1,186 @@
+{
+  "status": "all_synthetic_checks_passed",
+  "generated_at_utc": "2026-09-28T03:44:42.590243+00:00",
+  "scope": "Synthetic numerical values only; no empirical data, prices, source requests, target labels, forecasts or returns.",
+  "declaration_sha256": "ad937404c14860f1b7c24015cdaaa8f600fb8dafc54df2e427ae2dd54a0c907f",
+  "kernel_sha256": "b97c1eb9b5e9667ccda992a18bdca15cbb698cbfe1a8284a0b3f8b76f0d004dd",
+  "verification_script_sha256": "63cee09cf164cdffbffbcc8263d0fc3216df8a446c54941b3f3996e63f89d039",
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "fixed_settings": {
+    "mean_bracket": [
+      1e-10,
+      1000.0
+    ],
+    "absolute_root_tolerance": 1e-11,
+    "quadrature_nodes": [
+      128,
+      64
+    ],
+    "quadrature_absolute_tolerance": 1e-10
+  },
+  "checks": {
+    "dispersion_hand_calculations": {
+      "cases": 5,
+      "max_absolute_error": 4.5102810375396984e-17
+    },
+    "cdf_against_scipy_distributions": {
+      "cases": 288,
+      "max_absolute_error": 2.886579864025407e-15
+    },
+    "shot_market_anchor": {
+      "cases": 378,
+      "max_probability_residual": 1.0242917625191694e-12,
+      "closed_form_inverse_cases": 70,
+      "max_closed_form_mean_error": 2.0095036745715333e-12
+    },
+    "small_positive_alpha_poisson_limit": {
+      "cases": 36,
+      "max_absolute_error": 1.5724088697766092e-12
+    },
+    "normalized_gauss_jacobi": {
+      "moment_cases": 56,
+      "max_moment_error": 2.7755575615628914e-16,
+      "scipy_rule_comparisons": 16,
+      "max_node_or_weight_error": 8.850475907706823e-12,
+      "large_shape_case": {
+        "a": 1000000.0,
+        "b": 3000000.0,
+        "finite_normalized_weights": true
+      }
+    },
+    "uniform_beta_closed_forms": {
+      "cases": 28,
+      "max_absolute_error": 2.7755575615628914e-16,
+      "max_128_64_difference": 2.4348578708810464e-14
+    },
+    "independent_adaptive_integration": {
+      "cases": 8,
+      "max_absolute_error": 2.6645352591003757e-15,
+      "details": [
+        {
+          "synthetic_parameters": {
+            "mean": 0.3,
+            "alpha": 0,
+            "a": 0.2,
+            "b": 0.3
+          },
+          "absolute_error": 2.220446049250313e-16,
+          "quad_reported_error": 5.6347361463137886e-14,
+          "difference_128_64": 0.0
+        },
+        {
+          "synthetic_parameters": {
+            "mean": 4,
+            "alpha": 0,
+            "a": 1,
+            "b": 1
+          },
+          "absolute_error": 2.220446049250313e-16,
+          "quad_reported_error": 2.7247214515504094e-15,
+          "difference_128_64": 8.326672684688674e-17
+        },
+        {
+          "synthetic_parameters": {
+            "mean": 10,
+            "alpha": 0.2,
+            "a": 2,
+            "b": 7
+          },
+          "absolute_error": 8.326672684688674e-17,
+          "quad_reported_error": 2.6796629879783515e-15,
+          "difference_128_64": 5.551115123125783e-17
+        },
+        {
+          "synthetic_parameters": {
+            "mean": 12,
+            "alpha": 1,
+            "a": 5,
+            "b": 45
+          },
+          "absolute_error": 3.3306690738754696e-16,
+          "quad_reported_error": 2.2151503730589974e-13,
+          "difference_128_64": 5.551115123125783e-17
+        },
+        {
+          "synthetic_parameters": {
+            "mean": 80,
+            "alpha": 0,
+            "a": 10,
+            "b": 90
+          },
+          "absolute_error": 2.6020852139652106e-18,
+          "quad_reported_error": 9.768478093026822e-16,
+          "difference_128_64": 3.469446951953614e-18
+        },
+        {
+          "synthetic_parameters": {
+            "mean": 1000,
+            "alpha": 0.1,
+            "a": 80,
+            "b": 920
+          },
+          "absolute_error": 4.1028158382630173e-22,
+          "quad_reported_error": 1.31024515338861e-17,
+          "difference_128_64": 9.305781891221561e-25
+        },
+        {
+          "synthetic_parameters": {
+            "mean": 1000,
+            "alpha": 1,
+            "a": 10,
+            "b": 90
+          },
+          "absolute_error": 3.642919299551295e-17,
+          "quad_reported_error": 1.3904924024863703e-16,
+          "difference_128_64": 1.1622647289044608e-16
+        },
+        {
+          "synthetic_parameters": {
+            "mean": 3,
+            "alpha": 1e-12,
+            "a": 10,
+            "b": 90
+          },
+          "absolute_error": 2.6645352591003757e-15,
+          "quad_reported_error": 1.0293096043698247e-14,
+          "difference_128_64": 0.0
+        }
+      ]
+    },
+    "independent_discrete_thinning_identity": {
+      "cases": 9,
+      "max_absolute_error": 9.992007221626409e-16,
+      "max_omitted_tail_probability": 9.038764500832588e-15
+    },
+    "monotonicity_and_jensen": {
+      "checks": 28,
+      "passed": true
+    },
+    "explicit_exclusions": {
+      "too_short_history": "shots: at least two observations required",
+      "fractional_count": "shots: nonnegative integer required",
+      "negative_count": "shots: nonnegative integer required",
+      "nonfinite_count": "shots: nonfinite value",
+      "boolean_count": "shots: finite real number required",
+      "string_count": "shots: finite real number required",
+      "goals_exceed_shots": "total_goals exceeds total_shots",
+      "improper_prior": "league_rate must give a proper positive Beta prior",
+      "invalid_line": "shot_line must be a half point from 0.5 to 8.5",
+      "invalid_probability": "q_under must lie strictly between 0 and 1",
+      "invalid_dispersion": "alpha: outside declared [0, 1] range",
+      "unbracketed_high_mean": "shot mean root is outside declared bracket",
+      "unbracketed_low_mean": "shot mean root is outside declared bracket",
+      "invalid_beta_shape": "a and b must be positive with finite sum",
+      "nonfinite_mean": "mean: nonfinite value",
+      "declared_quadrature_disagreement": "64/128-node disagreement: 9.0941847997495773e-10"
+    }
+  },
+  "limitations": [
+    "Finite synthetic checks establish implementation agreement on the stated cases, not universal numerical accuracy or forecasting validity.",
+    "History length, chronology, identities and goal/shot validation per appearance remain caller responsibilities; aggregated beta_parameters validates totals only.",
+    "The declared absolute 64/128 comparison is not a relative-error guarantee for extremely small probabilities; disagreements are excluded without fallback."
+  ]
+}

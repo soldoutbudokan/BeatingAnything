@@ -37,15 +37,18 @@ PINNED = {
     CARD: "ad937404c14860f1b7c24015cdaaa8f600fb8dafc54df2e427ae2dd54a0c907f",
     COVERAGE: "5a8eef61146038b89ba51704550ed280bb28fc9a59db43bb089d0291c7141e7c",
     PRICE: "682018f651fd789ee35a3671b39340eda055917d03124d8ce12be9a864a379d3",
-    MANIFEST: "869d4a6ddfd1473ece6e59a3aed023cedb6899b988fdb5cb6ede29c7b37552da",
-    f"{ARCHIVE}/outcomes/source_audit.json": "0c41bde3a89269a4b0d827243306bb8b63518c8a3786854ca558a2007a19e906",
+    # September 28, 2026: manifest, source audit and inventory-tool pins point at the deterministic
+    # rebuild (tools/rebuild_nhl_shot_archive.py) after the uncommitted data directory was lost.
+    # Every raw payload, box, roster and schedule hash below is unchanged from September 26.
+    MANIFEST: "9b43fc27fe396a7b37dd07af3e7f01ab56acb209578b2c5b0defb2bdfbeeed2f",
+    f"{ARCHIVE}/outcomes/source_audit.json": "0680f23b515a05483264df58fcf4212dbe0af80dc4f49377ad7b0abb2fd0da00",
     BOXES[0]: "889d439dae5b5a2e831496a3a0dcbea4d385883d68d55b70d55a554169ff6e74",
     BOXES[1]: "511f58b09996be6165c7ad2a0f475ac029f0206653ce4e11665e1ff8088516b0",
     SCHEDULES[0]: "59afa78de1b51e0ceb7bda66207896801fc080505a0ace27cc6ed41e6397b588",
     SCHEDULES[1]: "320643ed83428e28671c7508c667026ab65c46b85bcf312d173c2b025d98e855",
     f"{ARCHIVE}/outcomes/rosters_2024.csv": "0e70a12579b25af0532d00a0cf8bb5fda7d9eb33a23d76234ca26f2fff4ca4ba",
     f"{ARCHIVE}/outcomes/rosters_2025.csv": "cff04536329e7a7f3cdf9034786226e6644a7d222486eb70d4a799d12c1f80ba",
-    "tools/inventory_nhl_shot_goal_overlap.py": "6b6b59cd9d885950ecb3983588ec152aad131f890ad640a16d77497fb4ee4ce5",
+    "tools/inventory_nhl_shot_goal_overlap.py": "ef90aaf397b16a22ba46d852352123ace268128bc352ef8042a56a6c296896ce",
 }
 BOX_METADATA_COLUMNS = ("game_id", "player_id", "position", "toi", "team_abbrev")
 SCHEDULE_COLUMNS = ("game_id", "game_type", "game_state", "game_time",
