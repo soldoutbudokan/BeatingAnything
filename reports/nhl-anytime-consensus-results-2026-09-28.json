@@ -1,0 +1,596 @@
+{
+  "status": "fixed_screen_closed_no_demonstrated_edge",
+  "graded_at_utc": "2026-09-28T03:58:21.001107+00:00",
+  "freeze": {
+    "path": "reports/nhl-anytime-consensus-freeze-2026-09-28.json",
+    "sha256": "326e0c84ff08868b8d964067d53802946f6004ab7ad82829c46f744722157744"
+  },
+  "tool": {
+    "path": "tools/grade_nhl_anytime_consensus.py",
+    "sha256": "f63e71e038f316439128687bf9c5e16737590ca75186188857c4c320a3f26613"
+  },
+  "target_source": {
+    "path": "data/raw/nhl-shot-archive-2026-09-26/outcomes/player_box_2025.csv",
+    "sha256": "511f58b09996be6165c7ad2a0f475ac029f0206653ce4e11665e1ff8088516b0"
+  },
+  "graded_rows": {
+    "path": "data/raw/nhl-anytime-consensus-2026-09-28/graded-rows.csv",
+    "sha256": "c8efa954f85386381ddeb8fb14e08237acbed1c84c85a23a817ca346c41f6eff"
+  },
+  "bootstrap": {
+    "draws": 10000,
+    "seed": 970028,
+    "unit": "game"
+  },
+  "summaries": {
+    "all": {
+      "rows": 8597,
+      "games": 260,
+      "players": 713,
+      "calendar_weeks_utc": 9,
+      "target_statuses": {
+        "settled": 8294,
+        "unknown": 303
+      },
+      "target_reasons": {
+        "valid_positive_time": 8294,
+        "absent_target": 302,
+        "invalid_target_counts_or_time": 1
+      },
+      "accuracy_power": {
+        "graded_rows": 8294,
+        "graded_games": 260,
+        "reference_log_loss": 0.3922186868591234,
+        "fanduel_log_loss": 0.39276243647603243,
+        "reference_brier": 0.11956994957016334,
+        "fanduel_brier": 0.1196005887377419,
+        "log_loss_gain_fanduel_minus_reference": 0.0005437496169090196,
+        "brier_gain_fanduel_minus_reference": 3.063916757857455e-05,
+        "log_loss_gain_ci95": {
+          "lower": -0.0006373399690728412,
+          "upper": 0.0017091065914425082,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "brier_gain_ci95": {
+          "lower": -0.0002830190265807906,
+          "upper": 0.00034347275542487553,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        }
+      },
+      "accuracy_proportional": {
+        "graded_rows": 8294,
+        "graded_games": 260,
+        "reference_log_loss": 0.39273895590563684,
+        "fanduel_log_loss": 0.3929384115880293,
+        "reference_brier": 0.11966261618164599,
+        "fanduel_brier": 0.11959882023748196,
+        "log_loss_gain_fanduel_minus_reference": 0.0001994556823923991,
+        "brier_gain_fanduel_minus_reference": -6.379594416403415e-05,
+        "log_loss_gain_ci95": {
+          "lower": -0.0009684566647972667,
+          "upper": 0.0013695929624364638,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "brier_gain_ci95": {
+          "lower": -0.000421856456645128,
+          "upper": 0.00028362956491178253,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        }
+      },
+      "returns_selected_one_per_game": {
+        "selections": 5,
+        "settled": 5,
+        "wins": 0,
+        "losses": 5,
+        "voids": 0,
+        "unknowns": 0,
+        "selected_games": 5,
+        "selected_players": 5,
+        "player_concentration": {
+          "largest_selection_share": 0.2,
+          "hhi": 0.20000000000000004,
+          "top_ten": [
+            {
+              "player_id": 8475745,
+              "player": "Charlie Coyle",
+              "selections": 1
+            },
+            {
+              "player_id": 8478493,
+              "player": "Joel Eriksson Ek",
+              "selections": 1
+            },
+            {
+              "player_id": 8483515,
+              "player": "Juraj Slafkovsky",
+              "selections": 1
+            },
+            {
+              "player_id": 8483524,
+              "player": "Shane Wright",
+              "selections": 1
+            },
+            {
+              "player_id": 8484144,
+              "player": "Connor Bedard",
+              "selections": 1
+            }
+          ]
+        },
+        "raw_profit_units": -5.0,
+        "raw_roi": -1.0,
+        "raw_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 9928,
+          "total_draws": 10000
+        },
+        "raw_drawdown_settled_units": 5.0,
+        "raw_unknown_settlement_bounds": {
+          "lower_profit_units": -5.0,
+          "upper_profit_units": -5.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        },
+        "haircut_profit_units": -5.0,
+        "haircut_roi": -1.0,
+        "haircut_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 9928,
+          "total_draws": 10000
+        },
+        "haircut_drawdown_settled_units": 5.0,
+        "haircut_unknown_settlement_bounds": {
+          "lower_profit_units": -5.0,
+          "upper_profit_units": -5.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        }
+      },
+      "returns_all_qualifying_rows": {
+        "selections": 5,
+        "settled": 5,
+        "wins": 0,
+        "losses": 5,
+        "voids": 0,
+        "unknowns": 0,
+        "selected_games": 5,
+        "selected_players": 5,
+        "player_concentration": {
+          "largest_selection_share": 0.2,
+          "hhi": 0.20000000000000004,
+          "top_ten": [
+            {
+              "player_id": 8475745,
+              "player": "Charlie Coyle",
+              "selections": 1
+            },
+            {
+              "player_id": 8478493,
+              "player": "Joel Eriksson Ek",
+              "selections": 1
+            },
+            {
+              "player_id": 8483515,
+              "player": "Juraj Slafkovsky",
+              "selections": 1
+            },
+            {
+              "player_id": 8483524,
+              "player": "Shane Wright",
+              "selections": 1
+            },
+            {
+              "player_id": 8484144,
+              "player": "Connor Bedard",
+              "selections": 1
+            }
+          ]
+        },
+        "raw_profit_units": -5.0,
+        "raw_roi": -1.0,
+        "raw_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 9935,
+          "total_draws": 10000
+        },
+        "raw_drawdown_settled_units": 5.0,
+        "raw_unknown_settlement_bounds": {
+          "lower_profit_units": -5.0,
+          "upper_profit_units": -5.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        },
+        "haircut_profit_units": -5.0,
+        "haircut_roi": -1.0,
+        "haircut_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 9935,
+          "total_draws": 10000
+        },
+        "haircut_drawdown_settled_units": 5.0,
+        "haircut_unknown_settlement_bounds": {
+          "lower_profit_units": -5.0,
+          "upper_profit_units": -5.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        }
+      }
+    },
+    "early_nov_dec": {
+      "rows": 4488,
+      "games": 136,
+      "players": 653,
+      "calendar_weeks_utc": 6,
+      "target_statuses": {
+        "settled": 4325,
+        "unknown": 163
+      },
+      "target_reasons": {
+        "valid_positive_time": 4325,
+        "absent_target": 163
+      },
+      "accuracy_power": {
+        "graded_rows": 4325,
+        "graded_games": 136,
+        "reference_log_loss": 0.39976445262217775,
+        "fanduel_log_loss": 0.40023073826349975,
+        "reference_brier": 0.12271838470156711,
+        "fanduel_brier": 0.12262923574084438,
+        "log_loss_gain_fanduel_minus_reference": 0.0004662856413220152,
+        "brier_gain_fanduel_minus_reference": -8.914896072274674e-05,
+        "log_loss_gain_ci95": {
+          "lower": -0.001274522759415031,
+          "upper": 0.002221692520879722,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "brier_gain_ci95": {
+          "lower": -0.0005436496348649844,
+          "upper": 0.0003638289345194865,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        }
+      },
+      "accuracy_proportional": {
+        "graded_rows": 4325,
+        "graded_games": 136,
+        "reference_log_loss": 0.4003935450427689,
+        "fanduel_log_loss": 0.40039980854601,
+        "reference_brier": 0.12284611893012395,
+        "fanduel_brier": 0.12264658240218157,
+        "log_loss_gain_fanduel_minus_reference": 6.263503240994036e-06,
+        "brier_gain_fanduel_minus_reference": -0.00019953652794238897,
+        "log_loss_gain_ci95": {
+          "lower": -0.0017527590088511973,
+          "upper": 0.0017155840575593735,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "brier_gain_ci95": {
+          "lower": -0.000730051985783215,
+          "upper": 0.0003060399048919,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        }
+      },
+      "returns_selected_one_per_game": {
+        "selections": 3,
+        "settled": 3,
+        "wins": 0,
+        "losses": 3,
+        "voids": 0,
+        "unknowns": 0,
+        "selected_games": 3,
+        "selected_players": 3,
+        "player_concentration": {
+          "largest_selection_share": 0.3333333333333333,
+          "hhi": 0.3333333333333333,
+          "top_ten": [
+            {
+              "player_id": 8483515,
+              "player": "Juraj Slafkovsky",
+              "selections": 1
+            },
+            {
+              "player_id": 8483524,
+              "player": "Shane Wright",
+              "selections": 1
+            },
+            {
+              "player_id": 8484144,
+              "player": "Connor Bedard",
+              "selections": 1
+            }
+          ]
+        },
+        "raw_profit_units": -3.0,
+        "raw_roi": -1.0,
+        "raw_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 9538,
+          "total_draws": 10000
+        },
+        "raw_drawdown_settled_units": 3.0,
+        "raw_unknown_settlement_bounds": {
+          "lower_profit_units": -3.0,
+          "upper_profit_units": -3.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        },
+        "haircut_profit_units": -3.0,
+        "haircut_roi": -1.0,
+        "haircut_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 9538,
+          "total_draws": 10000
+        },
+        "haircut_drawdown_settled_units": 3.0,
+        "haircut_unknown_settlement_bounds": {
+          "lower_profit_units": -3.0,
+          "upper_profit_units": -3.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        }
+      },
+      "returns_all_qualifying_rows": {
+        "selections": 3,
+        "settled": 3,
+        "wins": 0,
+        "losses": 3,
+        "voids": 0,
+        "unknowns": 0,
+        "selected_games": 3,
+        "selected_players": 3,
+        "player_concentration": {
+          "largest_selection_share": 0.3333333333333333,
+          "hhi": 0.3333333333333333,
+          "top_ten": [
+            {
+              "player_id": 8483515,
+              "player": "Juraj Slafkovsky",
+              "selections": 1
+            },
+            {
+              "player_id": 8483524,
+              "player": "Shane Wright",
+              "selections": 1
+            },
+            {
+              "player_id": 8484144,
+              "player": "Connor Bedard",
+              "selections": 1
+            }
+          ]
+        },
+        "raw_profit_units": -3.0,
+        "raw_roi": -1.0,
+        "raw_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 9534,
+          "total_draws": 10000
+        },
+        "raw_drawdown_settled_units": 3.0,
+        "raw_unknown_settlement_bounds": {
+          "lower_profit_units": -3.0,
+          "upper_profit_units": -3.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        },
+        "haircut_profit_units": -3.0,
+        "haircut_roi": -1.0,
+        "haircut_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 9534,
+          "total_draws": 10000
+        },
+        "haircut_drawdown_settled_units": 3.0,
+        "haircut_unknown_settlement_bounds": {
+          "lower_profit_units": -3.0,
+          "upper_profit_units": -3.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        }
+      }
+    },
+    "later_january": {
+      "rows": 4109,
+      "games": 124,
+      "players": 674,
+      "calendar_weeks_utc": 4,
+      "target_statuses": {
+        "settled": 3969,
+        "unknown": 140
+      },
+      "target_reasons": {
+        "valid_positive_time": 3969,
+        "absent_target": 139,
+        "invalid_target_counts_or_time": 1
+      },
+      "accuracy_power": {
+        "graded_rows": 3969,
+        "graded_games": 124,
+        "reference_log_loss": 0.3839426856996444,
+        "fanduel_log_loss": 0.38457139580590693,
+        "reference_brier": 0.11611682716797854,
+        "fanduel_brier": 0.11627884686337149,
+        "log_loss_gain_fanduel_minus_reference": 0.0006287101062625082,
+        "brier_gain_fanduel_minus_reference": 0.00016201969539292693,
+        "log_loss_gain_ci95": {
+          "lower": -0.0009171082971317252,
+          "upper": 0.0021628465435853846,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "brier_gain_ci95": {
+          "lower": -0.00025587680057143514,
+          "upper": 0.0005741629600566806,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        }
+      },
+      "accuracy_proportional": {
+        "graded_rows": 3969,
+        "graded_games": 124,
+        "reference_log_loss": 0.38434360007781454,
+        "fanduel_log_loss": 0.3847549439566956,
+        "reference_brier": 0.116171032522025,
+        "fanduel_brier": 0.11625611334716626,
+        "log_loss_gain_fanduel_minus_reference": 0.0004113438788810369,
+        "brier_gain_fanduel_minus_reference": 8.50808251412582e-05,
+        "log_loss_gain_ci95": {
+          "lower": -0.00113663840201337,
+          "upper": 0.0018654790419192328,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "brier_gain_ci95": {
+          "lower": -0.0003831819116961034,
+          "upper": 0.0005329692946391874,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        }
+      },
+      "returns_selected_one_per_game": {
+        "selections": 2,
+        "settled": 2,
+        "wins": 0,
+        "losses": 2,
+        "voids": 0,
+        "unknowns": 0,
+        "selected_games": 2,
+        "selected_players": 2,
+        "player_concentration": {
+          "largest_selection_share": 0.5,
+          "hhi": 0.5,
+          "top_ten": [
+            {
+              "player_id": 8475745,
+              "player": "Charlie Coyle",
+              "selections": 1
+            },
+            {
+              "player_id": 8478493,
+              "player": "Joel Eriksson Ek",
+              "selections": 1
+            }
+          ]
+        },
+        "raw_profit_units": -2.0,
+        "raw_roi": -1.0,
+        "raw_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 8726,
+          "total_draws": 10000
+        },
+        "raw_drawdown_settled_units": 2.0,
+        "raw_unknown_settlement_bounds": {
+          "lower_profit_units": -2.0,
+          "upper_profit_units": -2.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        },
+        "haircut_profit_units": -2.0,
+        "haircut_roi": -1.0,
+        "haircut_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 8726,
+          "total_draws": 10000
+        },
+        "haircut_drawdown_settled_units": 2.0,
+        "haircut_unknown_settlement_bounds": {
+          "lower_profit_units": -2.0,
+          "upper_profit_units": -2.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        }
+      },
+      "returns_all_qualifying_rows": {
+        "selections": 2,
+        "settled": 2,
+        "wins": 0,
+        "losses": 2,
+        "voids": 0,
+        "unknowns": 0,
+        "selected_games": 2,
+        "selected_players": 2,
+        "player_concentration": {
+          "largest_selection_share": 0.5,
+          "hhi": 0.5,
+          "top_ten": [
+            {
+              "player_id": 8475745,
+              "player": "Charlie Coyle",
+              "selections": 1
+            },
+            {
+              "player_id": 8478493,
+              "player": "Joel Eriksson Ek",
+              "selections": 1
+            }
+          ]
+        },
+        "raw_profit_units": -2.0,
+        "raw_roi": -1.0,
+        "raw_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 8673,
+          "total_draws": 10000
+        },
+        "raw_drawdown_settled_units": 2.0,
+        "raw_unknown_settlement_bounds": {
+          "lower_profit_units": -2.0,
+          "upper_profit_units": -2.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        },
+        "haircut_profit_units": -2.0,
+        "haircut_roi": -1.0,
+        "haircut_roi_ci95": {
+          "lower": -1.0,
+          "upper": -1.0,
+          "defined_draws": 8673,
+          "total_draws": 10000
+        },
+        "haircut_drawdown_settled_units": 2.0,
+        "haircut_unknown_settlement_bounds": {
+          "lower_profit_units": -2.0,
+          "upper_profit_units": -2.0,
+          "lower_roi": -1.0,
+          "upper_roi": -1.0
+        }
+      }
+    }
+  },
+  "declared_gates": {
+    "later_reference_log_loss_gain_lower_above_zero": false,
+    "early_nov_dec_100_settled_selected_games": false,
+    "early_nov_dec_positive_haircut_roi": false,
+    "early_nov_dec_positive_roi_lower": false,
+    "later_january_100_settled_selected_games": false,
+    "later_january_positive_haircut_roi": false,
+    "later_january_positive_roi_lower": false
+  },
+  "passes_exploratory_gates": false,
+  "limitations": [
+    "Previously inspected archive; no untouched or prospective confirmation.",
+    "Game resampling does not resolve shared-player, weekly or model-search dependence.",
+    "Original receipt, accepted execution and jurisdiction-specific contract terms unverified.",
+    "Reference books share platforms and feeds; the consensus is not an independent forecast.",
+    "No parameter, reference set, threshold, period or subgroup changed after outcomes."
+  ]
+}
