@@ -1,0 +1,527 @@
+{
+  "status": "fixed_model_closed_no_demonstrated_edge",
+  "graded_at_utc": "2026-09-28T03:46:16.820291+00:00",
+  "freeze": {
+    "path": "reports/nhl-shot-goal-forecast-freeze-2026-09-26.json",
+    "sha256": "a95694de1dffa6c99e8a7c145094ff5aae4773f4449222af7b2a569624ff210e"
+  },
+  "tool": {
+    "path": "tools/grade_nhl_shot_goals.py",
+    "sha256": "6d9a5c20f32cc52b270b7a38d491c1b22cb95771fd217ff68dd5600d47fe60fc"
+  },
+  "graded_forecasts": {
+    "path": "data/raw/nhl-shot-goal-2026-09-26/graded-forecasts.csv",
+    "sha256": "c615a78163436b06d3d4684340e3d04c0fed8419f97863c673ff770f60d03213"
+  },
+  "bootstrap": {
+    "draws": 10000,
+    "seed": 970026,
+    "unit": "game",
+    "accuracy": "Mean within each graded game, then equal game weight; percentile interval.",
+    "roi": "Profit / settled stakes, resampling all forecast games including zero-selection games.",
+    "group_order": [
+      "all",
+      "early_nov_dec",
+      "later_january"
+    ]
+  },
+  "summaries": {
+    "all": {
+      "forecasts": 2107,
+      "games": 239,
+      "players": 207,
+      "calendar_weeks_utc": 9,
+      "target_statuses": {
+        "settled": 2086,
+        "unknown": 21
+      },
+      "target_reasons": {
+        "valid_positive_time": 2086,
+        "absent_target": 21
+      },
+      "forecast_accuracy": {
+        "graded_forecasts": 2086,
+        "graded_games": 239,
+        "model_log_loss": 0.5876112763715994,
+        "market_log_loss": 0.5848516881828234,
+        "model_brier": 0.19933313058009067,
+        "market_brier": 0.19846302319363482,
+        "log_loss_gain_market_minus_model": -0.0027595881887759735,
+        "brier_gain_market_minus_model": -0.0008701073864558304,
+        "log_loss_gain_ci95": {
+          "lower": -0.006412954518298804,
+          "upper": 0.0009419249188809187,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "brier_gain_ci95": {
+          "lower": -0.0022895800045085977,
+          "upper": 0.0006056115809190755,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "log_loss_gain_full_nonvoid_unknown_label_bounds": {
+          "lower": -0.0038524813600122475,
+          "upper": -0.0021613217006294554,
+          "forecasts": 2107,
+          "games": 239
+        },
+        "brier_gain_full_nonvoid_unknown_label_bounds": {
+          "lower": -0.0012898737274090264,
+          "upper": -0.0006304009063760042,
+          "forecasts": 2107,
+          "games": 239
+        }
+      },
+      "returns": {
+        "selections": 164,
+        "settled": 161,
+        "wins": 63,
+        "losses": 98,
+        "voids": 0,
+        "unknowns": 3,
+        "selected_games": 164,
+        "selected_players": 75,
+        "selection_sides": {
+          "Over": 111,
+          "Under": 53
+        },
+        "player_concentration": {
+          "largest_selection_share": 0.04878048780487805,
+          "hhi": 0.020077334919690663,
+          "top_ten": [
+            {
+              "player_id": 8477479,
+              "player": "Tyler Bertuzzi",
+              "selections": 8
+            },
+            {
+              "player_id": 8480069,
+              "player": "Cale Makar",
+              "selections": 7
+            },
+            {
+              "player_id": 8476539,
+              "player": "Jonathan Marchessault",
+              "selections": 6
+            },
+            {
+              "player_id": 8476461,
+              "player": "Sean Couturier",
+              "selections": 5
+            },
+            {
+              "player_id": 8478460,
+              "player": "Zach Werenski",
+              "selections": 5
+            },
+            {
+              "player_id": 8479385,
+              "player": "Jordan Kyrou",
+              "selections": 5
+            },
+            {
+              "player_id": 8476468,
+              "player": "J.T. Miller",
+              "selections": 4
+            },
+            {
+              "player_id": 8476448,
+              "player": "William Karlsson",
+              "selections": 4
+            },
+            {
+              "player_id": 8473986,
+              "player": "Alex Killorn",
+              "selections": 4
+            },
+            {
+              "player_id": 8478010,
+              "player": "Brayden Point",
+              "selections": 4
+            }
+          ]
+        },
+        "raw_profit_units": 1.4958882044931983,
+        "raw_roi": 0.009291231083808684,
+        "raw_roi_ci95": {
+          "lower": -0.22494906734489206,
+          "upper": 0.25191902616546535,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "raw_drawdown_settled_units": 20.674178074178073,
+        "raw_unknown_settlement_bounds": {
+          "lower_profit_units": -1.5041117955068017,
+          "upper_profit_units": 3.824621236167406,
+          "lower_roi": -0.009171413387236597,
+          "upper_roi": 0.023320861196142722,
+          "stake_denominator": 164,
+          "assumption": "All unknown selections settled as losses / wins; named voids excluded."
+        },
+        "raw_drawdown_unknown_scenarios": {
+          "all_unknown_losses": 21.674178074178073,
+          "all_unknown_wins": 20.289562689562693
+        },
+        "haircut_profit_units": -0.4940295595966724,
+        "haircut_roi": -0.0030685065813457913,
+        "haircut_roi_ci95": {
+          "lower": -0.234021522220301,
+          "upper": 0.23586640875744513,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "haircut_drawdown_settled_units": 20.88069451269451,
+        "haircut_unknown_settlement_bounds": {
+          "lower_profit_units": -3.4940295595966724,
+          "upper_profit_units": 1.7881288114440514,
+          "lower_roi": -0.02130505829022361,
+          "upper_roi": 0.010903224460024704,
+          "stake_denominator": 164,
+          "assumption": "All unknown selections settled as losses / wins; named voids excluded."
+        },
+        "haircut_drawdown_unknown_scenarios": {
+          "all_unknown_losses": 21.88069451269451,
+          "all_unknown_wins": 20.503771435771434
+        }
+      }
+    },
+    "early_nov_dec": {
+      "forecasts": 1158,
+      "games": 132,
+      "players": 186,
+      "calendar_weeks_utc": 6,
+      "target_statuses": {
+        "settled": 1144,
+        "unknown": 14
+      },
+      "target_reasons": {
+        "valid_positive_time": 1144,
+        "absent_target": 14
+      },
+      "forecast_accuracy": {
+        "graded_forecasts": 1144,
+        "graded_games": 132,
+        "model_log_loss": 0.5763975079396838,
+        "market_log_loss": 0.5753979426615805,
+        "model_brier": 0.19443347049608284,
+        "market_brier": 0.19424595658904617,
+        "log_loss_gain_market_minus_model": -0.000999565278103273,
+        "brier_gain_market_minus_model": -0.00018751390703668466,
+        "log_loss_gain_ci95": {
+          "lower": -0.005570026775556653,
+          "upper": 0.0034899532172648832,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "brier_gain_ci95": {
+          "lower": -0.0020172182896442854,
+          "upper": 0.001603915314397744,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "log_loss_gain_full_nonvoid_unknown_label_bounds": {
+          "lower": -0.0026506784612418902,
+          "upper": -0.00017332192094685503,
+          "forecasts": 1158,
+          "games": 132
+        },
+        "brier_gain_full_nonvoid_unknown_label_bounds": {
+          "lower": -0.0008193831237438664,
+          "upper": 0.0001426524709254358,
+          "forecasts": 1158,
+          "games": 132
+        }
+      },
+      "returns": {
+        "selections": 94,
+        "settled": 92,
+        "wins": 33,
+        "losses": 59,
+        "voids": 0,
+        "unknowns": 2,
+        "selected_games": 94,
+        "selected_players": 51,
+        "selection_sides": {
+          "Over": 68,
+          "Under": 26
+        },
+        "player_concentration": {
+          "largest_selection_share": 0.06382978723404255,
+          "hhi": 0.02738795835219556,
+          "top_ten": [
+            {
+              "player_id": 8477479,
+              "player": "Tyler Bertuzzi",
+              "selections": 6
+            },
+            {
+              "player_id": 8479385,
+              "player": "Jordan Kyrou",
+              "selections": 5
+            },
+            {
+              "player_id": 8476461,
+              "player": "Sean Couturier",
+              "selections": 4
+            },
+            {
+              "player_id": 8480069,
+              "player": "Cale Makar",
+              "selections": 4
+            },
+            {
+              "player_id": 8481068,
+              "player": "Yegor Sharangovich",
+              "selections": 4
+            },
+            {
+              "player_id": 8477956,
+              "player": "David Pastrnak",
+              "selections": 3
+            },
+            {
+              "player_id": 8479318,
+              "player": "Auston Matthews",
+              "selections": 3
+            },
+            {
+              "player_id": 8478010,
+              "player": "Brayden Point",
+              "selections": 3
+            },
+            {
+              "player_id": 8476448,
+              "player": "William Karlsson",
+              "selections": 3
+            },
+            {
+              "player_id": 8478366,
+              "player": "Frank Vatrano",
+              "selections": 3
+            }
+          ]
+        },
+        "raw_profit_units": -6.84485491124992,
+        "raw_roi": -0.07440059686141218,
+        "raw_roi_ci95": {
+          "lower": -0.3675026475880386,
+          "upper": 0.2348998078562913,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "raw_drawdown_settled_units": 18.092099095034705,
+        "raw_unknown_settlement_bounds": {
+          "lower_profit_units": -8.84485491124992,
+          "upper_profit_units": -4.900737264191096,
+          "lower_roi": -0.09409420118350978,
+          "upper_roi": -0.05213550281054358,
+          "stake_denominator": 94,
+          "assumption": "All unknown selections settled as losses / wins; named voids excluded."
+        },
+        "raw_drawdown_unknown_scenarios": {
+          "all_unknown_losses": 19.092099095034705,
+          "all_unknown_wins": 17.79798144797588
+        },
+        "haircut_profit_units": -7.887957813024921,
+        "haircut_roi": -0.08573867188070566,
+        "haircut_roi_ci95": {
+          "lower": -0.3752054967911753,
+          "upper": 0.21870833677603987,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "haircut_drawdown_settled_units": 18.51025711313401,
+        "haircut_unknown_settlement_bounds": {
+          "lower_profit_units": -9.887957813024922,
+          "upper_profit_units": -5.982722518907274,
+          "lower_roi": -0.10519104056409492,
+          "upper_roi": -0.06364598424369441,
+          "stake_denominator": 94,
+          "assumption": "All unknown selections settled as losses / wins; named voids excluded."
+        },
+        "haircut_drawdown_unknown_scenarios": {
+          "all_unknown_losses": 19.51025711313401,
+          "all_unknown_wins": 18.222021819016362
+        }
+      }
+    },
+    "later_january": {
+      "forecasts": 949,
+      "games": 107,
+      "players": 184,
+      "calendar_weeks_utc": 4,
+      "target_statuses": {
+        "settled": 942,
+        "unknown": 7
+      },
+      "target_reasons": {
+        "valid_positive_time": 942,
+        "absent_target": 7
+      },
+      "forecast_accuracy": {
+        "graded_forecasts": 942,
+        "graded_games": 107,
+        "model_log_loss": 0.6014450841567663,
+        "market_log_loss": 0.5965142527510857,
+        "model_brier": 0.20537757105755824,
+        "market_brier": 0.20366538573387505,
+        "log_loss_gain_market_minus_model": -0.004930831405680613,
+        "brier_gain_market_minus_model": -0.0017121853236831879,
+        "log_loss_gain_ci95": {
+          "lower": -0.010874608337906332,
+          "upper": 0.0007587886987426305,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "brier_gain_ci95": {
+          "lower": -0.003997201344536051,
+          "upper": 0.0004696046268139432,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "log_loss_gain_full_nonvoid_unknown_label_bounds": {
+          "lower": -0.005335079328588763,
+          "upper": -0.004613807410144438,
+          "forecasts": 949,
+          "games": 107
+        },
+        "brier_gain_full_nonvoid_unknown_label_bounds": {
+          "lower": -0.0018702920422109068,
+          "upper": -0.00158407423164507,
+          "forecasts": 949,
+          "games": 107
+        }
+      },
+      "returns": {
+        "selections": 70,
+        "settled": 69,
+        "wins": 30,
+        "losses": 39,
+        "voids": 0,
+        "unknowns": 1,
+        "selected_games": 70,
+        "selected_players": 46,
+        "selection_sides": {
+          "Over": 43,
+          "Under": 27
+        },
+        "player_concentration": {
+          "largest_selection_share": 0.05714285714285714,
+          "hhi": 0.03020408163265305,
+          "top_ten": [
+            {
+              "player_id": 8476539,
+              "player": "Jonathan Marchessault",
+              "selections": 4
+            },
+            {
+              "player_id": 8476468,
+              "player": "J.T. Miller",
+              "selections": 4
+            },
+            {
+              "player_id": 8478460,
+              "player": "Zach Werenski",
+              "selections": 4
+            },
+            {
+              "player_id": 8481559,
+              "player": "Jack Hughes",
+              "selections": 4
+            },
+            {
+              "player_id": 8476399,
+              "player": "Blake Coleman",
+              "selections": 3
+            },
+            {
+              "player_id": 8482078,
+              "player": "Lucas Raymond",
+              "selections": 3
+            },
+            {
+              "player_id": 8480069,
+              "player": "Cale Makar",
+              "selections": 3
+            },
+            {
+              "player_id": 8477493,
+              "player": "Aleksander Barkov",
+              "selections": 2
+            },
+            {
+              "player_id": 8477479,
+              "player": "Tyler Bertuzzi",
+              "selections": 2
+            },
+            {
+              "player_id": 8473986,
+              "player": "Alex Killorn",
+              "selections": 2
+            }
+          ]
+        },
+        "raw_profit_units": 8.340743115743114,
+        "raw_roi": 0.12088033501076978,
+        "raw_roi_ci95": {
+          "lower": -0.23616241033760216,
+          "upper": 0.507664297450236,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "raw_drawdown_settled_units": 20.674178074178073,
+        "raw_unknown_settlement_bounds": {
+          "lower_profit_units": 7.3407431157431144,
+          "upper_profit_units": 8.7253585003585,
+          "lower_roi": 0.1048677587963302,
+          "upper_roi": 0.12464797857655,
+          "stake_denominator": 70,
+          "assumption": "All unknown selections settled as losses / wins; named voids excluded."
+        },
+        "raw_drawdown_unknown_scenarios": {
+          "all_unknown_losses": 21.674178074178073,
+          "all_unknown_wins": 20.28956268956269
+        },
+        "haircut_profit_units": 7.393928253428253,
+        "haircut_roi": 0.10715838048446744,
+        "haircut_roi_ci95": {
+          "lower": -0.2443030312446073,
+          "upper": 0.4883600513701081,
+          "defined_draws": 10000,
+          "total_draws": 10000
+        },
+        "haircut_drawdown_settled_units": 20.88069451269451,
+        "haircut_unknown_settlement_bounds": {
+          "lower_profit_units": 6.393928253428253,
+          "upper_profit_units": 7.77085133035133,
+          "lower_roi": 0.09134183219183219,
+          "upper_roi": 0.11101216186216185,
+          "stake_denominator": 70,
+          "assumption": "All unknown selections settled as losses / wins; named voids excluded."
+        },
+        "haircut_drawdown_unknown_scenarios": {
+          "all_unknown_losses": 21.88069451269451,
+          "all_unknown_wins": 20.503771435771434
+        }
+      }
+    }
+  },
+  "declared_gates": {
+    "later_log_loss_gain_lower_above_zero": false,
+    "early_nov_dec_100_settled_selected_games": false,
+    "early_nov_dec_positive_haircut_roi": false,
+    "early_nov_dec_positive_roi_lower": false,
+    "later_january_100_settled_selected_games": false,
+    "later_january_positive_haircut_roi": true,
+    "later_january_positive_roi_lower": false
+  },
+  "passes_exploratory_gates": false,
+  "limitations": [
+    "Previously inspected archive; no untouched or prospective confirmation.",
+    "Game resampling does not resolve shared-player, weekly or model-search dependence.",
+    "Original receipt, accepted execution and jurisdiction-specific contract terms unverified.",
+    "Unknowns retained; complete-case accuracy and ROI are conditional.",
+    "No parameter, side, period, threshold or subgroup changed after outcomes."
+  ]
+}
