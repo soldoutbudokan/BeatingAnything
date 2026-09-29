@@ -1,0 +1,127 @@
+{
+  "source": "Public archive mykolafc/betsmart; captured by its publisher from PointsBet Ontario and reference books; not authenticated execution evidence",
+  "retrieval_date_utc": "2026-09-29",
+  "files": [
+    {
+      "local_name": "pointsbet_raw_buf_mia.json",
+      "repository": "mykolafc/betsmart",
+      "commit": "55d1ae445add653a0a462fc4de0b889ec8698c59",
+      "path": "generalPointsbetNflGame.json",
+      "git_blob_sha": "3c464a71286074796f48d75c607c30e18ccbd021",
+      "sha256": "53b490d295c36b566568bc6e99bec7edbd99993da7856e9b0f6a023bae5c0aad",
+      "bytes": 4035544,
+      "url": "https://raw.githubusercontent.com/mykolafc/betsmart/55d1ae445add653a0a462fc4de0b889ec8698c59/generalPointsbetNflGame.json"
+    },
+    {
+      "local_name": "pointsbet_listing.json",
+      "repository": "mykolafc/betsmart",
+      "commit": "55d1ae445add653a0a462fc4de0b889ec8698c59",
+      "path": "generalPointsbetNfl.json",
+      "git_blob_sha": "8ade3cd0c6370ae71aa12b03111ab9168e682f69",
+      "sha256": "9bd642610974b7f77e26642147860aea061992d6c5302d6132ae12a303b04d08",
+      "bytes": 285724,
+      "url": "https://raw.githubusercontent.com/mykolafc/betsmart/55d1ae445add653a0a462fc4de0b889ec8698c59/generalPointsbetNfl.json"
+    },
+    {
+      "local_name": "sep12_PointsBetGigaDump.csv",
+      "repository": "mykolafc/betsmart",
+      "commit": "69f0a66e2d8fc36793b0f5fea937f88fd4085603",
+      "path": "bin/PointsBetGigaDump.csv",
+      "git_blob_sha": "db3b5a845af1d154bba3b90efa28d0c468bfdfd6",
+      "sha256": "2ff3f95093687e299cd70a75673e951732db13fab79dc1af9134453408dac91e",
+      "bytes": 464837,
+      "url": "https://raw.githubusercontent.com/mykolafc/betsmart/69f0a66e2d8fc36793b0f5fea937f88fd4085603/bin/PointsBetGigaDump.csv"
+    },
+    {
+      "local_name": "sep12_PinnacleGigaDump.csv",
+      "repository": "mykolafc/betsmart",
+      "commit": "69f0a66e2d8fc36793b0f5fea937f88fd4085603",
+      "path": "bin/PinnacleGigaDump.csv",
+      "git_blob_sha": "6e01c9bb881f201d9bed9595bb2a097efa283c83",
+      "sha256": "2a340fbc685834fe948bd9fec9151495ad707b25e90c090c0668be8931fa074c",
+      "bytes": 384132,
+      "url": "https://raw.githubusercontent.com/mykolafc/betsmart/69f0a66e2d8fc36793b0f5fea937f88fd4085603/bin/PinnacleGigaDump.csv"
+    },
+    {
+      "local_name": "sep12_FanDuelGigaDump.csv",
+      "repository": "mykolafc/betsmart",
+      "commit": "69f0a66e2d8fc36793b0f5fea937f88fd4085603",
+      "path": "bin/FanDuelGigaDump.csv",
+      "git_blob_sha": "211b5c5b666487c4fc3f3bc688ab2c7658fef367",
+      "sha256": "e3005144f738b85902dcd3826bbbede80f25d98f9698447c01beb4555d0fba6a",
+      "bytes": 688208,
+      "url": "https://raw.githubusercontent.com/mykolafc/betsmart/69f0a66e2d8fc36793b0f5fea937f88fd4085603/bin/FanDuelGigaDump.csv"
+    },
+    {
+      "local_name": "sep12_DraftKingsGigaDump.csv",
+      "repository": "mykolafc/betsmart",
+      "commit": "69f0a66e2d8fc36793b0f5fea937f88fd4085603",
+      "path": "bin/DraftKingsGigaDump.csv",
+      "git_blob_sha": "44b04fb3415d5c8104cc2ae3ed26aca4da81135b",
+      "sha256": "5b1f9e39b1619d6c0b26cfaaecf05385ed66740156d9423cc3c02a908494e99d",
+      "bytes": 267727,
+      "url": "https://raw.githubusercontent.com/mykolafc/betsmart/69f0a66e2d8fc36793b0f5fea937f88fd4085603/bin/DraftKingsGigaDump.csv"
+    },
+    {
+      "local_name": "sep30_PointsBetGigaDump.csv",
+      "repository": "mykolafc/betsmart",
+      "commit": "55d1ae445add653a0a462fc4de0b889ec8698c59",
+      "path": "bin/PointsBetGigaDump.csv",
+      "git_blob_sha": "e5df79e4b029ce2b295dcefe6fe35474d7e5c8a7",
+      "sha256": "b7cddc81c6bba9f519ff773cb4fbfb8fa82ad4507b5aca25958616f054a2a208",
+      "bytes": 64235,
+      "url": "https://raw.githubusercontent.com/mykolafc/betsmart/55d1ae445add653a0a462fc4de0b889ec8698c59/bin/PointsBetGigaDump.csv"
+    },
+    {
+      "local_name": "sep30_PinnacleGigaDump.csv",
+      "repository": "mykolafc/betsmart",
+      "commit": "55d1ae445add653a0a462fc4de0b889ec8698c59",
+      "path": "bin/PinnacleGigaDump.csv",
+      "git_blob_sha": "8dea5c1829bbdffae0dec8c1ec5ee91dc8a7e045",
+      "sha256": "38e7f4424d8c6b242d787503a43a72d914b3f4b537d6684b1c98c46fa5aa5b00",
+      "bytes": 110603,
+      "url": "https://raw.githubusercontent.com/mykolafc/betsmart/55d1ae445add653a0a462fc4de0b889ec8698c59/bin/PinnacleGigaDump.csv"
+    }
+  ],
+  "source_commit_dates": {
+    "69f0a66e2d8fc36793b0f5fea937f88fd4085603": "2024-09-12T20:10:37Z",
+    "6274dfb82614e128afc9ae78cd5cd27b67ca3a12": "2024-09-30T05:29:37Z"
+  },
+  "raw_capture_clock": null,
+  "cross_book_synchronization_verified": false,
+  "search_log": [
+    {
+      "source": "PointsBet Ontario public NFL page",
+      "result": "Python HTTP 403; earlier web extraction contained no price rows; no bypass attempted"
+    },
+    {
+      "source": "PointsBet Ontario v2 competitions/6/events/featured endpoint found in public source code",
+      "result": "Web reader reports URL inaccessible; no current response obtained"
+    },
+    {
+      "source": "The Odds API",
+      "result": "pointsbetca is documented; alternate markets documented for selected bookmakers. No ODDS_API_KEY configured; no paid or key-authenticated request made. Actual Ontario alternate coverage unverified."
+    },
+    {
+      "source": "OddsPapi",
+      "result": "No configured key in this workspace. Public PointsBet guide identifies pointsbet.com.au, not Ontario; not substituted."
+    },
+    {
+      "source": "GitHub code search pointsbetca",
+      "result": "6 indexed results; two actual ArbyAgent JSON dumps inspected. Each has 10 events, zero NFL; 3 PointsBet Canada events with h2h only."
+    },
+    {
+      "source": "GitHub code search pointsbetca alternate_spreads and pointsbetca americanfootball_nfl",
+      "result": "0 indexed results for each; search-index absence is not proof of global absence."
+    },
+    {
+      "source": "mykolafc/betsmart",
+      "result": "Raw full NFL event and both historical paired CSV versions recovered and Git-blob-verified. This is the analyzed source."
+    }
+  ],
+  "additional_inspected_files": {
+    "sep12_FanDuelGigaDump.csv": "NFL coverage inspected; not used as fair-value reference because Pinnacle had eligible pairs and the declared alternative requires 3 reference books.",
+    "sep12_DraftKingsGigaDump.csv": "Zero NFL rows.",
+    "pointsbet_listing.json": "17 NFL event metadata rows; not a full alternate-price archive."
+  }
+}
