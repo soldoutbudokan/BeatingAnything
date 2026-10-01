@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!--
-Not installed by default. Runs the live PointsBet Ontario / Pinnacle / FanDuel Ontario NFL alternate-line monitor
+Not installed by default. Runs the live PointsBet Ontario / Pinnacle / FanDuel Ontario cross-book gap monitor (every
+PointsBet SGM league: game lines, period lines, team totals and player props against Pinnacle's no-vig fair price)
 every 5 minutes from this Mac (a Canadian residential connection is required; the hosts refuse cloud origins).
 Install:   cp config/com.beatinganything.pointsbet-alt-monitor.plist ~/Library/LaunchAgents/ && launchctl load ~/Library/LaunchAgents/com.beatinganything.pointsbet-alt-monitor.plist
 Remove:    launchctl unload ~/Library/LaunchAgents/com.beatinganything.pointsbet-alt-monitor.plist && rm ~/Library/LaunchAgents/com.beatinganything.pointsbet-alt-monitor.plist
