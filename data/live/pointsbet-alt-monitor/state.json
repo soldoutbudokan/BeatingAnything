@@ -1,1 +1,202 @@
-{}
+{
+ "San Diego Padres @ Milwaukee Brewers | mlb prop | M. Machado Over 0.5 home runs | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.2109,
+  "pb_price": 6.5,
+  "other_price": 5.08
+ },
+ "San Diego Padres @ Milwaukee Brewers | mlb prop | B. Turang Over 0.5 home runs | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.112,
+  "pb_price": 8.0,
+  "other_price": 6.81
+ },
+ "Vancouver Whitecaps @ Chicago Fire | mls total | Over 5.5 | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0748,
+  "pb_price": 7.5,
+  "other_price": 6.64
+ },
+ "Memphis Tigers @ Charlotte 49ers | ncaaf moneyline | Charlotte 49ers | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.071,
+  "pb_price": 10.0,
+  "other_price": 8.95
+ },
+ "San Diego Padres @ Milwaukee Brewers | mlb prop | J. Bauers Over 0.5 home runs | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0642,
+  "pb_price": 5.25,
+  "other_price": 4.67
+ },
+ "Detroit Lions @ Carolina Panthers | nfl team_total | Detroit Lions Over 26.5 | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.06,
+  "pb_price": 1.74,
+  "other_price": 1.578
+ },
+ "Philadelphia Phillies @ Atlanta Braves | mlb prop | T. Turner Over 0.5 home runs | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0591,
+  "pb_price": 8.5,
+  "other_price": 7.66
+ },
+ "Miami Dolphins @ Minnesota Vikings | nfl total | Under 31.5 | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.057,
+  "pb_price": 3.5,
+  "other_price": 3.17
+ },
+ "Pittsburgh Steelers @ Cleveland Browns | nfl total 1H | Over 20.5 | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0568,
+  "pb_price": 2.5,
+  "other_price": 2.27
+ },
+ "New York Jets @ Chicago Bears | nfl prop | Luther Burden Over 4.5 receptions | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0533,
+  "pb_price": 2.15,
+  "other_price": 1.9091
+ },
+ "Seattle Kraken @ Calgary Flames | nhl prop | Bobby Mcmann Over 0.5 goals | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0523,
+  "pb_price": 3.4,
+  "other_price": 3.0
+ },
+ "Seattle Kraken @ Calgary Flames | nhl prop | Brandon Montour Under 2.5 shots on goal | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0511,
+  "pb_price": 2.15,
+  "other_price": 1.9091
+ },
+ "Tennessee Titans @ Baltimore Ravens | nfl prop | Lamar Jackson Over 1.5 passing touchdowns | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0489,
+  "pb_price": 1.95,
+  "other_price": 1.7353
+ },
+ "Vancouver Whitecaps @ Chicago Fire | mls total | Over 4.5 | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0472,
+  "pb_price": 4.0,
+  "other_price": 3.62
+ },
+ "San Diego Padres @ Milwaukee Brewers | mlb prop | G. Mitchell Over 0.5 home runs | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0464,
+  "pb_price": 8.5,
+  "other_price": 7.69
+ },
+ "Los Angeles Rams @ Philadelphia Eagles | nfl prop | Matthew Stafford Under 1.5 passing touchdowns | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0457,
+  "pb_price": 2.05,
+  "other_price": 1.8333
+ },
+ "Pittsburgh Steelers @ Cleveland Browns | nfl prop | Aaron Rodgers Over 1.5 passing touchdowns | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.042,
+  "pb_price": 2.75,
+  "other_price": 2.52
+ },
+ "Buffalo Sabres @ Columbus Blue Jackets | nhl prop | Tage Thompson Over 3.5 shots on goal | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0404,
+  "pb_price": 2.4,
+  "other_price": 2.15
+ },
+ "Los Angeles Rams @ Philadelphia Eagles | nfl prop | Devonta Smith Over 5.5 receptions | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0376,
+  "pb_price": 1.83,
+  "other_price": 1.6494
+ },
+ "New York Yankees @ Tampa Bay Rays | mlb prop | B. Rice Over 0.5 home runs | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0364,
+  "pb_price": 4.5,
+  "other_price": 4.11
+ },
+ "Denver Broncos @ San Francisco 49ers | nfl total | Over 47.5 | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0349,
+  "pb_price": 1.95,
+  "other_price": 1.813
+ },
+ "Philadelphia Phillies @ Atlanta Braves | mlb prop | B. Harper Over 0.5 home runs | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0338,
+  "pb_price": 5.75,
+  "other_price": 5.31
+ },
+ "San Diego Padres @ Milwaukee Brewers | mlb prop | C. Yelich Over 0.5 home runs | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0327,
+  "pb_price": 9.5,
+  "other_price": 8.71
+ },
+ "San Diego Padres @ Milwaukee Brewers | mlb prop | T. France Over 0.5 home runs | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0311,
+  "pb_price": 8.5,
+  "other_price": 7.8
+ },
+ "Pittsburgh Steelers @ Cleveland Browns | nfl spread | Pittsburgh Steelers +3.5 | pinnacle-fair": {
+  "reported": "2026-10-01T17:08:27.762426+00:00",
+  "type": "edge",
+  "inv_sum": null,
+  "ev": 0.0302,
+  "pb_price": 1.42,
+  "other_price": 1.3279
+ }
+}
