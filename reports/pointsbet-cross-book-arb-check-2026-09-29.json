@@ -1,0 +1,480 @@
+{
+ "capture_dir": "data/raw/pointsbet-nfl-alt-2026-09-29-sim",
+ "pointsbet_games": 14,
+ "pointsbet_rung_age_hours": {
+  "median": 17.92266762220197,
+  "p90": 28.855114341027207,
+  "max": 48.67640900525782
+ },
+ "books": {
+  "pinnacle": {
+   "games": 14,
+   "pairs": 408,
+   "arbs": 4,
+   "within_1pct": 8,
+   "within_2pct": 29,
+   "median_inv_sum": 1.0499618224166452,
+   "other_rows_per_fixture_moneyline_max": 2,
+   "feed_usable": true,
+   "arb_rows": [
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 46.5",
+     "pb": 1.9,
+     "other": 2.2,
+     "inv_sum": 0.9809,
+     "pb_age_h": 33.162,
+     "other_age_h": 1.5601
+    },
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 47.5",
+     "pb": 2.0,
+     "other": 2.05,
+     "inv_sum": 0.9878,
+     "pb_age_h": 17.418,
+     "other_age_h": 1.5601
+    },
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 48.5",
+     "pb": 2.1,
+     "other": 1.917,
+     "inv_sum": 0.9978,
+     "pb_age_h": 17.114,
+     "other_age_h": 1.5601
+    },
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 41.5",
+     "pb": 1.5,
+     "other": 3.01,
+     "inv_sum": 0.9989,
+     "pb_age_h": 17.5239,
+     "other_age_h": 1.5601
+    }
+   ],
+   "best": [
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 46.5",
+     "pb": 1.9,
+     "other": 2.2,
+     "inv_sum": 0.9809,
+     "pb_age_h": 33.162,
+     "other_age_h": 1.5601
+    },
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 47.5",
+     "pb": 2.0,
+     "other": 2.05,
+     "inv_sum": 0.9878,
+     "pb_age_h": 17.418,
+     "other_age_h": 1.5601
+    },
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 48.5",
+     "pb": 2.1,
+     "other": 1.917,
+     "inv_sum": 0.9978,
+     "pb_age_h": 17.114,
+     "other_age_h": 1.5601
+    },
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 41.5",
+     "pb": 1.5,
+     "other": 3.01,
+     "inv_sum": 0.9989,
+     "pb_age_h": 17.5239,
+     "other_age_h": 1.5601
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +3.5",
+     "pb": 1.56,
+     "other": 2.76,
+     "inv_sum": 1.0033,
+     "pb_age_h": 17.9227,
+     "other_age_h": 3.2826
+    },
+    {
+     "home": "Cleveland Browns",
+     "leg": "Pittsburgh Steelers +3.5",
+     "pb": 1.42,
+     "other": 3.34,
+     "inv_sum": 1.0036,
+     "pb_age_h": 17.0929,
+     "other_age_h": 0.8995
+    },
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 49.5",
+     "pb": 2.25,
+     "other": 1.781,
+     "inv_sum": 1.0059,
+     "pb_age_h": 17.8308,
+     "other_age_h": 1.5601
+    },
+    {
+     "home": "Minnesota Vikings",
+     "leg": "Under 31.5",
+     "pb": 3.5,
+     "other": 1.386,
+     "inv_sum": 1.0072,
+     "pb_age_h": 16.081,
+     "other_age_h": 2.5611
+    },
+    {
+     "home": "Baltimore Ravens",
+     "leg": "Tennessee Titans +17.5",
+     "pb": 1.48,
+     "other": 2.99,
+     "inv_sum": 1.0101,
+     "pb_age_h": 17.4216,
+     "other_age_h": 3.3005
+    },
+    {
+     "home": "Minnesota Vikings",
+     "leg": "Under 39.5",
+     "pb": 1.9,
+     "other": 2.06,
+     "inv_sum": 1.0118,
+     "pb_age_h": 16.081,
+     "other_age_h": 2.5611
+    }
+   ]
+  },
+  "fanduel": {
+   "games": 14,
+   "pairs": 1844,
+   "arbs": 25,
+   "within_1pct": 46,
+   "within_2pct": 109,
+   "median_inv_sum": 1.060908084163898,
+   "other_rows_per_fixture_moneyline_max": 4,
+   "feed_usable": false,
+   "arb_rows": [
+    {
+     "home": "Washington Commanders",
+     "leg": "Washington Commanders -2.5",
+     "pb": 2.75,
+     "other": 1.91,
+     "inv_sum": 0.8872,
+     "pb_age_h": 24.0756,
+     "other_age_h": 0.1473
+    },
+    {
+     "home": "Seattle Seahawks",
+     "leg": "Over 47.5",
+     "pb": 2.6,
+     "other": 1.91,
+     "inv_sum": 0.9082,
+     "pb_age_h": 17.3525,
+     "other_age_h": 0.1476
+    },
+    {
+     "home": "Washington Commanders",
+     "leg": "Under 43.5",
+     "pb": 2.4,
+     "other": 1.95,
+     "inv_sum": 0.9295,
+     "pb_age_h": 17.0484,
+     "other_age_h": 0.1473
+    },
+    {
+     "home": "Seattle Seahawks",
+     "leg": "Los Angeles Chargers +3.5",
+     "pb": 2.5,
+     "other": 1.87,
+     "inv_sum": 0.9348,
+     "pb_age_h": 27.2565,
+     "other_age_h": 0.1476
+    },
+    {
+     "home": "New Orleans Saints",
+     "leg": "Atlanta Falcons -1.5",
+     "pb": 2.35,
+     "other": 1.93,
+     "inv_sum": 0.9437,
+     "pb_age_h": 35.9735,
+     "other_age_h": 0.1474
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +8.5",
+     "pb": 1.29,
+     "other": 5.0,
+     "inv_sum": 0.9752,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +9.5",
+     "pb": 1.27,
+     "other": 5.3,
+     "inv_sum": 0.9761,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +6.5",
+     "pb": 1.4,
+     "other": 3.8,
+     "inv_sum": 0.9774,
+     "pb_age_h": 17.9227,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +11.5",
+     "pb": 1.2,
+     "other": 6.6,
+     "inv_sum": 0.9848,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "Cincinnati Bengals",
+     "leg": "Jacksonville Jaguars +9.5",
+     "pb": 1.36,
+     "other": 4.0,
+     "inv_sum": 0.9853,
+     "pb_age_h": 17.9291,
+     "other_age_h": 0.1313
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +7.5",
+     "pb": 1.31,
+     "other": 4.5,
+     "inv_sum": 0.9856,
+     "pb_age_h": 17.9227,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +10.5",
+     "pb": 1.22,
+     "other": 6.0,
+     "inv_sum": 0.9863,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New Orleans Saints",
+     "leg": "Under 46.5",
+     "pb": 2.1,
+     "other": 1.96,
+     "inv_sum": 0.9864,
+     "pb_age_h": 17.4143,
+     "other_age_h": 0.1474
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +4.5",
+     "pb": 1.5,
+     "other": 3.1,
+     "inv_sum": 0.9892,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +13.5",
+     "pb": 1.16,
+     "other": 7.8,
+     "inv_sum": 0.9903,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +12.5",
+     "pb": 1.18,
+     "other": 7.0,
+     "inv_sum": 0.9903,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "Cincinnati Bengals",
+     "leg": "Jacksonville Jaguars +11.5",
+     "pb": 1.27,
+     "other": 4.9,
+     "inv_sum": 0.9915,
+     "pb_age_h": 20.3947,
+     "other_age_h": 0.1313
+    },
+    {
+     "home": "Cincinnati Bengals",
+     "leg": "Jacksonville Jaguars +12.5",
+     "pb": 1.25,
+     "other": 5.2,
+     "inv_sum": 0.9923,
+     "pb_age_h": 18.8203,
+     "other_age_h": 0.1313
+    },
+    {
+     "home": "New Orleans Saints",
+     "leg": "Atlanta Falcons +9.5",
+     "pb": 1.36,
+     "other": 3.85,
+     "inv_sum": 0.995,
+     "pb_age_h": 17.5702,
+     "other_age_h": 0.1198
+    },
+    {
+     "home": "Cincinnati Bengals",
+     "leg": "Jacksonville Jaguars +8.5",
+     "pb": 1.36,
+     "other": 3.85,
+     "inv_sum": 0.995,
+     "pb_age_h": 21.3374,
+     "other_age_h": 0.1313
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +14.5",
+     "pb": 1.13,
+     "other": 9.0,
+     "inv_sum": 0.9961,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "San Francisco 49ers",
+     "leg": "Over 45.5",
+     "pb": 1.83,
+     "other": 2.22,
+     "inv_sum": 0.9969,
+     "pb_age_h": 28.8902,
+     "other_age_h": 0.6486
+    },
+    {
+     "home": "Cincinnati Bengals",
+     "leg": "Jacksonville Jaguars +10.5",
+     "pb": 1.29,
+     "other": 4.5,
+     "inv_sum": 0.9974,
+     "pb_age_h": 20.3947,
+     "other_age_h": 0.1313
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +5.5",
+     "pb": 1.44,
+     "other": 3.3,
+     "inv_sum": 0.9975,
+     "pb_age_h": 17.9227,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +3.5",
+     "pb": 1.56,
+     "other": 2.8,
+     "inv_sum": 0.9982,
+     "pb_age_h": 17.9227,
+     "other_age_h": 3.6606
+    }
+   ],
+   "best": [
+    {
+     "home": "Washington Commanders",
+     "leg": "Washington Commanders -2.5",
+     "pb": 2.75,
+     "other": 1.91,
+     "inv_sum": 0.8872,
+     "pb_age_h": 24.0756,
+     "other_age_h": 0.1473
+    },
+    {
+     "home": "Seattle Seahawks",
+     "leg": "Over 47.5",
+     "pb": 2.6,
+     "other": 1.91,
+     "inv_sum": 0.9082,
+     "pb_age_h": 17.3525,
+     "other_age_h": 0.1476
+    },
+    {
+     "home": "Washington Commanders",
+     "leg": "Under 43.5",
+     "pb": 2.4,
+     "other": 1.95,
+     "inv_sum": 0.9295,
+     "pb_age_h": 17.0484,
+     "other_age_h": 0.1473
+    },
+    {
+     "home": "Seattle Seahawks",
+     "leg": "Los Angeles Chargers +3.5",
+     "pb": 2.5,
+     "other": 1.87,
+     "inv_sum": 0.9348,
+     "pb_age_h": 27.2565,
+     "other_age_h": 0.1476
+    },
+    {
+     "home": "New Orleans Saints",
+     "leg": "Atlanta Falcons -1.5",
+     "pb": 2.35,
+     "other": 1.93,
+     "inv_sum": 0.9437,
+     "pb_age_h": 35.9735,
+     "other_age_h": 0.1474
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +8.5",
+     "pb": 1.29,
+     "other": 5.0,
+     "inv_sum": 0.9752,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +9.5",
+     "pb": 1.27,
+     "other": 5.3,
+     "inv_sum": 0.9761,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +6.5",
+     "pb": 1.4,
+     "other": 3.8,
+     "inv_sum": 0.9774,
+     "pb_age_h": 17.9227,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "New York Giants",
+     "leg": "Arizona Cardinals +11.5",
+     "pb": 1.2,
+     "other": 6.6,
+     "inv_sum": 0.9848,
+     "pb_age_h": 17.4206,
+     "other_age_h": 3.6606
+    },
+    {
+     "home": "Cincinnati Bengals",
+     "leg": "Jacksonville Jaguars +9.5",
+     "pb": 1.36,
+     "other": 4.0,
+     "inv_sum": 0.9853,
+     "pb_age_h": 17.9291,
+     "other_age_h": 0.1313
+    }
+   ]
+  }
+ }
+}

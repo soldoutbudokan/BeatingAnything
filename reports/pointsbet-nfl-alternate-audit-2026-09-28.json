@@ -1,0 +1,890 @@
+{
+ "inputs": {
+  "raw_dir": "data/raw/pointsbet-nfl-alt-2026-09-28",
+  "games_csv": "data/raw/nfl-teaser-review-2026-09-26/games.csv",
+  "empirical_from_season": 2010,
+  "empirical_bucket_half_width": 0.5,
+  "pinnacle_freshness_hours": 1.0,
+  "live_events_excluded": [
+   "2894312"
+  ],
+  "pointsbet_pregame_games": 14,
+  "pinnacle_games_with_result_markets": 11,
+  "pinnacle_stale_rungs_dropped": 118
+ },
+ "main_lines": [
+  {
+   "home": "Baltimore Ravens",
+   "pb_ml_away": 6.0,
+   "pb_ml_home": 1.13,
+   "pin_ml_home": NaN,
+   "pin_ml_away": NaN,
+   "pb_p_home": 0.8415,
+   "pin_p_home": NaN,
+   "pb_main_home": -11.5,
+   "pin_main_home": NaN
+  },
+  {
+   "home": "Buffalo Bills",
+   "pb_ml_away": 3.5,
+   "pb_ml_home": 1.31,
+   "pin_ml_home": 1.327,
+   "pin_ml_away": 3.48,
+   "pb_p_home": 0.7277,
+   "pin_p_home": 0.7239,
+   "pb_main_home": -6.5,
+   "pin_main_home": -7.0
+  },
+  {
+   "home": "Carolina Panthers",
+   "pb_ml_away": 1.53,
+   "pb_ml_home": 2.6,
+   "pin_ml_home": 2.64,
+   "pin_ml_away": 1.52,
+   "pb_p_home": 0.3705,
+   "pin_p_home": 0.3654,
+   "pb_main_home": 3.5,
+   "pin_main_home": 3.0
+  },
+  {
+   "home": "Cincinnati Bengals",
+   "pb_ml_away": 2.2,
+   "pb_ml_home": 1.71,
+   "pin_ml_home": 1.694,
+   "pin_ml_away": 2.25,
+   "pb_p_home": 0.5627,
+   "pin_p_home": 0.5705,
+   "pb_main_home": -2.5,
+   "pin_main_home": -2.5
+  },
+  {
+   "home": "Cleveland Browns",
+   "pb_ml_away": 1.69,
+   "pb_ml_home": 2.25,
+   "pin_ml_home": 2.27,
+   "pin_ml_away": 1.699,
+   "pb_p_home": 0.4289,
+   "pin_p_home": 0.4281,
+   "pb_main_home": 2.5,
+   "pin_main_home": 2.5
+  },
+  {
+   "home": "Houston Texans",
+   "pb_ml_away": 2.15,
+   "pb_ml_home": 1.74,
+   "pin_ml_home": 1.709,
+   "pin_ml_away": 2.23,
+   "pb_p_home": 0.5527,
+   "pin_p_home": 0.5661,
+   "pb_main_home": -2.5,
+   "pin_main_home": -2.0
+  },
+  {
+   "home": "Las Vegas Raiders",
+   "pb_ml_away": 1.44,
+   "pb_ml_home": 2.85,
+   "pin_ml_home": 2.83,
+   "pin_ml_away": 1.46,
+   "pb_p_home": 0.3357,
+   "pin_p_home": 0.3403,
+   "pb_main_home": 4.5,
+   "pin_main_home": 4.5
+  },
+  {
+   "home": "Minnesota Vikings",
+   "pb_ml_away": 5.5,
+   "pb_ml_home": 1.16,
+   "pin_ml_home": NaN,
+   "pin_ml_away": NaN,
+   "pb_p_home": 0.8258,
+   "pin_p_home": NaN,
+   "pb_main_home": -10.5,
+   "pin_main_home": NaN
+  },
+  {
+   "home": "New Orleans Saints",
+   "pb_ml_away": 2.3,
+   "pb_ml_home": 1.67,
+   "pin_ml_home": 1.675,
+   "pin_ml_away": 2.3,
+   "pb_p_home": 0.5793,
+   "pin_p_home": 0.5786,
+   "pb_main_home": -2.5,
+   "pin_main_home": -3.0
+  },
+  {
+   "home": "New York Giants",
+   "pb_ml_away": 1.87,
+   "pb_ml_home": 1.95,
+   "pin_ml_home": 2.0,
+   "pin_ml_away": 1.869,
+   "pb_p_home": 0.4895,
+   "pin_p_home": 0.4831,
+   "pb_main_home": 1.5,
+   "pin_main_home": -1.5
+  },
+  {
+   "home": "San Francisco 49ers",
+   "pb_ml_away": 2.25,
+   "pb_ml_home": 1.69,
+   "pin_ml_home": NaN,
+   "pin_ml_away": NaN,
+   "pb_p_home": 0.5711,
+   "pin_p_home": NaN,
+   "pb_main_home": -2.5,
+   "pin_main_home": NaN
+  },
+  {
+   "home": "Seattle Seahawks",
+   "pb_ml_away": 3.6,
+   "pb_ml_home": 1.29,
+   "pin_ml_home": 1.312,
+   "pin_ml_away": 3.58,
+   "pb_p_home": 0.7362,
+   "pin_p_home": 0.7318,
+   "pb_main_home": -7.5,
+   "pin_main_home": -6.5
+  },
+  {
+   "home": "Tampa Bay Buccaneers",
+   "pb_ml_away": 1.53,
+   "pb_ml_home": 2.6,
+   "pin_ml_home": NaN,
+   "pin_ml_away": NaN,
+   "pb_p_home": 0.3705,
+   "pin_p_home": NaN,
+   "pb_main_home": 3.5,
+   "pin_main_home": NaN
+  },
+  {
+   "home": "Washington Commanders",
+   "pb_ml_away": 1.56,
+   "pb_ml_home": 2.5,
+   "pin_ml_home": 2.64,
+   "pin_ml_away": 1.518,
+   "pb_p_home": 0.3842,
+   "pin_p_home": 0.3651,
+   "pb_main_home": 3.5,
+   "pin_main_home": 3.0
+  }
+ ],
+ "moneyline_no_vig_gap_abs_mean": 0.0066305026891764875,
+ "spreads_vs_pinnacle": {
+  "matched_lines": 140,
+  "games": 10,
+  "mean_ev": -0.06420532567073024,
+  "median_ev": -0.053365878792452415,
+  "n_positive": 7,
+  "max_ev": 0.010920685532084695,
+  "mean_pb_two_sided_overround": 1.0632238284621018,
+  "mean_pin_overround": 1.0364858128628773,
+  "by_offset": [
+   {
+    "off": -8.0,
+    "n": 3,
+    "mean_ev": -0.1962
+   },
+   {
+    "off": -6.0,
+    "n": 9,
+    "mean_ev": -0.1468
+   },
+   {
+    "off": -5.0,
+    "n": 3,
+    "mean_ev": -0.1374
+   },
+   {
+    "off": -4.0,
+    "n": 8,
+    "mean_ev": -0.0819
+   },
+   {
+    "off": -3.0,
+    "n": 1,
+    "mean_ev": -0.0447
+   },
+   {
+    "off": -2.0,
+    "n": 22,
+    "mean_ev": -0.0845
+   },
+   {
+    "off": -1.0,
+    "n": 9,
+    "mean_ev": -0.0816
+   },
+   {
+    "off": 0.0,
+    "n": 30,
+    "mean_ev": -0.0541
+   },
+   {
+    "off": 1.0,
+    "n": 9,
+    "mean_ev": -0.0368
+   },
+   {
+    "off": 2.0,
+    "n": 22,
+    "mean_ev": -0.0356
+   },
+   {
+    "off": 3.0,
+    "n": 1,
+    "mean_ev": -0.0461
+   },
+   {
+    "off": 4.0,
+    "n": 8,
+    "mean_ev": -0.0432
+   },
+   {
+    "off": 5.0,
+    "n": 3,
+    "mean_ev": -0.0136
+   },
+   {
+    "off": 6.0,
+    "n": 9,
+    "mean_ev": -0.0217
+   },
+   {
+    "off": 8.0,
+    "n": 3,
+    "mean_ev": -0.0027
+   }
+  ],
+  "buy_points": {
+   "n": 65,
+   "mean_ev": -0.03282365418183523
+  },
+  "sell_points": {
+   "n": 65,
+   "mean_ev": -0.09713712500805076
+  },
+  "top": [
+   {
+    "home": "Buffalo Bills",
+    "away": "New England Patriots",
+    "team": "New England Patriots +14.5",
+    "line": 14.5,
+    "price": 1.36,
+    "pin_price": 1.288,
+    "pin_fair": 0.7433,
+    "ev_vs_pin": 0.0109,
+    "offset": 7.5
+   },
+   {
+    "home": "Cleveland Browns",
+    "away": "Pittsburgh Steelers",
+    "team": "Pittsburgh Steelers +3.5",
+    "line": 3.5,
+    "price": 1.42,
+    "pin_price": 1.355,
+    "pin_fair": 0.7077,
+    "ev_vs_pin": 0.0049,
+    "offset": 6.0
+   },
+   {
+    "home": "Cleveland Browns",
+    "away": "Pittsburgh Steelers",
+    "team": "Cleveland Browns +4.5",
+    "line": 4.5,
+    "price": 1.67,
+    "pin_price": 1.602,
+    "pin_fair": 0.6017,
+    "ev_vs_pin": 0.0048,
+    "offset": 2.0
+   },
+   {
+    "home": "Seattle Seahawks",
+    "away": "Los Angeles Chargers",
+    "team": "Los Angeles Chargers +14.5",
+    "line": 14.5,
+    "price": 1.36,
+    "pin_price": 1.296,
+    "pin_fair": 0.7385,
+    "ev_vs_pin": 0.0044,
+    "offset": 8.0
+   },
+   {
+    "home": "Houston Texans",
+    "away": "Dallas Cowboys",
+    "team": "Dallas Cowboys +4.5",
+    "line": 4.5,
+    "price": 1.67,
+    "pin_price": 1.606,
+    "pin_fair": 0.6001,
+    "ev_vs_pin": 0.0022,
+    "offset": 2.5
+   },
+   {
+    "home": "New York Giants",
+    "away": "Arizona Cardinals",
+    "team": "Arizona Cardinals +3.5",
+    "line": 3.5,
+    "price": 1.56,
+    "pin_price": 1.5,
+    "pin_fair": 0.642,
+    "ev_vs_pin": 0.0015,
+    "offset": 2.0
+   },
+   {
+    "home": "Cleveland Browns",
+    "away": "Pittsburgh Steelers",
+    "team": "Cleveland Browns +7.5",
+    "line": 7.5,
+    "price": 1.4,
+    "pin_price": 1.341,
+    "pin_fair": 0.7147,
+    "ev_vs_pin": 0.0006,
+    "offset": 5.0
+   },
+   {
+    "home": "Cleveland Browns",
+    "away": "Pittsburgh Steelers",
+    "team": "Cleveland Browns +3.5",
+    "line": 3.5,
+    "price": 1.74,
+    "pin_price": 1.684,
+    "pin_fair": 0.5741,
+    "ev_vs_pin": -0.0011,
+    "offset": 1.0
+   }
+  ]
+ },
+ "spreads_vs_empirical": {
+  "lines": 944,
+  "games": 14,
+  "mean_ev": -0.100541308546419,
+  "buy_points": {
+   "n": 463,
+   "mean_ev": -0.023062038100636357
+  },
+  "sell_points": {
+   "n": 463,
+   "mean_ev": -0.17996934299386202
+  },
+  "by_offset": [
+   {
+    "off": -18.0,
+    "n": 7,
+    "mean_ev": -0.3522
+   },
+   {
+    "off": -17.0,
+    "n": 10,
+    "mean_ev": -0.3368
+   },
+   {
+    "off": -16.0,
+    "n": 32,
+    "mean_ev": -0.2771
+   },
+   {
+    "off": -15.0,
+    "n": 15,
+    "mean_ev": -0.2948
+   },
+   {
+    "off": -14.0,
+    "n": 37,
+    "mean_ev": -0.2599
+   },
+   {
+    "off": -13.0,
+    "n": 18,
+    "mean_ev": -0.2407
+   },
+   {
+    "off": -12.0,
+    "n": 38,
+    "mean_ev": -0.2369
+   },
+   {
+    "off": -11.0,
+    "n": 18,
+    "mean_ev": -0.2142
+   },
+   {
+    "off": -10.0,
+    "n": 38,
+    "mean_ev": -0.1969
+   },
+   {
+    "off": -9.0,
+    "n": 18,
+    "mean_ev": -0.172
+   },
+   {
+    "off": -8.0,
+    "n": 38,
+    "mean_ev": -0.1673
+   },
+   {
+    "off": -7.0,
+    "n": 18,
+    "mean_ev": -0.1394
+   },
+   {
+    "off": -6.0,
+    "n": 38,
+    "mean_ev": -0.1412
+   },
+   {
+    "off": -5.0,
+    "n": 18,
+    "mean_ev": -0.1126
+   },
+   {
+    "off": -4.0,
+    "n": 38,
+    "mean_ev": -0.1072
+   },
+   {
+    "off": -3.0,
+    "n": 18,
+    "mean_ev": -0.0849
+   },
+   {
+    "off": -2.0,
+    "n": 37,
+    "mean_ev": -0.0829
+   },
+   {
+    "off": -1.0,
+    "n": 17,
+    "mean_ev": -0.0725
+   },
+   {
+    "off": 0.0,
+    "n": 38,
+    "mean_ev": -0.0507
+   },
+   {
+    "off": 1.0,
+    "n": 17,
+    "mean_ev": -0.0459
+   },
+   {
+    "off": 2.0,
+    "n": 37,
+    "mean_ev": -0.0338
+   },
+   {
+    "off": 3.0,
+    "n": 18,
+    "mean_ev": -0.036
+   },
+   {
+    "off": 4.0,
+    "n": 38,
+    "mean_ev": -0.0291
+   },
+   {
+    "off": 5.0,
+    "n": 18,
+    "mean_ev": -0.0288
+   },
+   {
+    "off": 6.0,
+    "n": 38,
+    "mean_ev": -0.0225
+   },
+   {
+    "off": 7.0,
+    "n": 18,
+    "mean_ev": -0.0222
+   },
+   {
+    "off": 8.0,
+    "n": 38,
+    "mean_ev": -0.0179
+   },
+   {
+    "off": 9.0,
+    "n": 18,
+    "mean_ev": -0.0185
+   },
+   {
+    "off": 10.0,
+    "n": 38,
+    "mean_ev": -0.0161
+   },
+   {
+    "off": 11.0,
+    "n": 18,
+    "mean_ev": -0.0172
+   },
+   {
+    "off": 12.0,
+    "n": 38,
+    "mean_ev": -0.0156
+   },
+   {
+    "off": 13.0,
+    "n": 18,
+    "mean_ev": -0.0204
+   },
+   {
+    "off": 14.0,
+    "n": 37,
+    "mean_ev": -0.0195
+   },
+   {
+    "off": 15.0,
+    "n": 15,
+    "mean_ev": -0.0157
+   },
+   {
+    "off": 16.0,
+    "n": 32,
+    "mean_ev": -0.0219
+   },
+   {
+    "off": 17.0,
+    "n": 10,
+    "mean_ev": -0.0131
+   },
+   {
+    "off": 18.0,
+    "n": 7,
+    "mean_ev": -0.0113
+   }
+  ],
+  "caveat": "Benchmark conditions on the closing-line bucket only, not on the total or the matchup; single-game values are noisy, aggregates are informative."
+ },
+ "wong_legs": {
+  "legs": [
+   {
+    "home": "Cleveland Browns",
+    "away": "Pittsburgh Steelers",
+    "team": "Cleveland Browns +8.5",
+    "anchor": 2.5,
+    "main_src": "pinnacle",
+    "line": 8.5,
+    "price": 1.36,
+    "pb_fair": 0.6951,
+    "pin_price": NaN,
+    "pin_fair": NaN,
+    "emp_p": 0.7439,
+    "emp_n": 1140,
+    "ev_vs_pin": NaN,
+    "ev_vs_emp": 0.0116,
+    "updated": "2026-09-29T01:22:30.4187901Z"
+   },
+   {
+    "home": "Cincinnati Bengals",
+    "away": "Jacksonville Jaguars",
+    "team": "Jacksonville Jaguars +8.5",
+    "anchor": 2.5,
+    "main_src": "pinnacle",
+    "line": 8.5,
+    "price": 1.33,
+    "pb_fair": 0.7064,
+    "pin_price": NaN,
+    "pin_fair": NaN,
+    "emp_p": 0.7439,
+    "emp_n": 1140,
+    "ev_vs_pin": NaN,
+    "ev_vs_emp": -0.0107,
+    "updated": "2026-09-29T02:54:37.5822005Z"
+   },
+   {
+    "home": "Houston Texans",
+    "away": "Dallas Cowboys",
+    "team": "Dallas Cowboys +8.5",
+    "anchor": 2.0,
+    "main_src": "pinnacle",
+    "line": 8.5,
+    "price": 1.36,
+    "pb_fair": 0.6881,
+    "pin_price": NaN,
+    "pin_fair": NaN,
+    "emp_p": 0.7717,
+    "emp_n": 635,
+    "ev_vs_pin": NaN,
+    "ev_vs_emp": 0.0494,
+    "updated": "2026-09-28T15:40:02.5064501Z"
+   },
+   {
+    "home": "Houston Texans",
+    "away": "Dallas Cowboys",
+    "team": "Dallas Cowboys +7.5",
+    "anchor": 2.0,
+    "main_src": "pinnacle",
+    "line": 7.5,
+    "price": 1.4,
+    "pb_fair": 0.6706,
+    "pin_price": 1.384,
+    "pin_fair": 0.6934,
+    "emp_p": 0.7433,
+    "emp_n": 635,
+    "ev_vs_pin": -0.0292,
+    "ev_vs_emp": 0.0406,
+    "updated": "2026-09-29T01:40:29.0527973Z"
+   },
+   {
+    "home": "New York Giants",
+    "away": "Arizona Cardinals",
+    "team": "Arizona Cardinals +7.5",
+    "anchor": 1.5,
+    "main_src": "pinnacle",
+    "line": 7.5,
+    "price": 1.29,
+    "pb_fair": 0.7249,
+    "pin_price": 1.285,
+    "pin_fair": 0.7443,
+    "emp_p": 0.7593,
+    "emp_n": 594,
+    "ev_vs_pin": -0.0399,
+    "ev_vs_emp": -0.0206,
+    "updated": "2026-09-29T01:53:20.8206315Z"
+   },
+   {
+    "home": "San Francisco 49ers",
+    "away": "Denver Broncos",
+    "team": "Denver Broncos +8.5",
+    "anchor": 2.5,
+    "main_src": "pointsbet",
+    "line": 8.5,
+    "price": 1.36,
+    "pb_fair": 0.6881,
+    "pin_price": NaN,
+    "pin_fair": NaN,
+    "emp_p": 0.7439,
+    "emp_n": 1140,
+    "ev_vs_pin": NaN,
+    "ev_vs_emp": 0.0116,
+    "updated": "2026-09-28T19:50:08.5624129Z"
+   }
+  ],
+  "n": 6,
+  "mean_price": 1.3500000000000003,
+  "mean_pb_no_vig": 0.6955251249932163,
+  "mean_pin_fair": 0.718838461657155,
+  "historical_wong_leg_win_rate": {
+   "p": 0.753125,
+   "n": 960,
+   "ci95_half": 0.02727674498647688,
+   "seasons": "2010-2026 to date"
+  },
+  "mean_ev_vs_bucket_empirical": 0.013692460591548938,
+  "mean_ev_vs_pinnacle": -0.03456147706306756,
+  "two_leg_parlay_price_geomean": 1.8213582224308837,
+  "two_leg_parlay_ev_at_historical_rate": 0.033069403486407856,
+  "fixed_chart_reference": {
+   "minus_135_ev_at_historical_rate": -0.01265661168981469,
+   "minus_120_ev_at_historical_rate": 0.039861653645833606
+  }
+ },
+ "key_number_mass": {
+  "by_margin": [
+   {
+    "m": 0,
+    "n": 26,
+    "pb": 0.0077,
+    "pin": NaN,
+    "pin_n": 0,
+    "emp": 0.0032
+   },
+   {
+    "m": 1,
+    "n": 52,
+    "pb": 0.0189,
+    "pin": NaN,
+    "pin_n": 0,
+    "emp": 0.0212
+   },
+   {
+    "m": 2,
+    "n": 56,
+    "pb": 0.0199,
+    "pin": 0.0254,
+    "pin_n": 16,
+    "emp": 0.0242
+   },
+   {
+    "m": 3,
+    "n": 52,
+    "pb": 0.057,
+    "pin": 0.0838,
+    "pin_n": 18,
+    "emp": 0.0789
+   },
+   {
+    "m": 4,
+    "n": 52,
+    "pb": 0.0258,
+    "pin": 0.0303,
+    "pin_n": 16,
+    "emp": 0.0253
+   },
+   {
+    "m": 5,
+    "n": 52,
+    "pb": 0.0183,
+    "pin": 0.0227,
+    "pin_n": 12,
+    "emp": 0.0222
+   },
+   {
+    "m": 6,
+    "n": 52,
+    "pb": 0.031,
+    "pin": 0.0371,
+    "pin_n": 6,
+    "emp": 0.033
+   },
+   {
+    "m": 7,
+    "n": 52,
+    "pb": 0.0415,
+    "pin": 0.0727,
+    "pin_n": 4,
+    "emp": 0.0477
+   },
+   {
+    "m": 8,
+    "n": 48,
+    "pb": 0.0188,
+    "pin": 0.0251,
+    "pin_n": 4,
+    "emp": 0.022
+   },
+   {
+    "m": 9,
+    "n": 48,
+    "pb": 0.0119,
+    "pin": 0.0144,
+    "pin_n": 2,
+    "emp": 0.0069
+   },
+   {
+    "m": 10,
+    "n": 48,
+    "pb": 0.0272,
+    "pin": NaN,
+    "pin_n": 0,
+    "emp": 0.0289
+   },
+   {
+    "m": 11,
+    "n": 48,
+    "pb": 0.0141,
+    "pin": NaN,
+    "pin_n": 0,
+    "emp": 0.0122
+   },
+   {
+    "m": 12,
+    "n": 46,
+    "pb": 0.0127,
+    "pin": NaN,
+    "pin_n": 0,
+    "emp": 0.0092
+   },
+   {
+    "m": 13,
+    "n": 42,
+    "pb": 0.0165,
+    "pin": NaN,
+    "pin_n": 0,
+    "emp": 0.0125
+   },
+   {
+    "m": 14,
+    "n": 36,
+    "pb": 0.0294,
+    "pin": NaN,
+    "pin_n": 0,
+    "emp": 0.032
+   }
+  ],
+  "margin3": {
+   "n": 52,
+   "pb": 0.0570480856717169,
+   "emp": 0.07886972476513178,
+   "pin": 0.08379736323694531,
+   "pin_n": 18,
+   "share_pb_below_emp": 1.0,
+   "gap_min": -0.040157480314960664,
+   "gap_max": -0.00178991259586736
+  },
+  "margin7": {
+   "n": 52,
+   "pb": 0.04152053249635313,
+   "emp": 0.047674680599846,
+   "pin": 0.07272401500291194,
+   "pin_n": 4,
+   "share_pb_below_emp": 0.8461538461538461
+  },
+  "note": "Mass is the no-vig two-sided PointsBet cover probability difference between adjacent half-point rungs; empirical mass conditions on the closing-line bucket."
+ },
+ "totals_vs_pinnacle": {
+  "matched_lines": 75,
+  "games": 10,
+  "mean_ev": -0.06008185140933765,
+  "n_positive": 3,
+  "max_ev": 0.0095262224474284,
+  "mean_pb_overround": 1.0617634084277867,
+  "mean_pin_overround": 1.0404592199607718,
+  "top": [
+   {
+    "home": "Cincinnati Bengals",
+    "away": "Jacksonville Jaguars",
+    "points": 53.5,
+    "side": "Under",
+    "price": 1.74,
+    "pin_price": 1.657,
+    "ev": 0.0095
+   },
+   {
+    "home": "Seattle Seahawks",
+    "away": "Los Angeles Chargers",
+    "points": 45.5,
+    "side": "Under",
+    "price": 1.71,
+    "pin_price": 1.641,
+    "ev": 0.0016
+   },
+   {
+    "home": "Houston Texans",
+    "away": "Dallas Cowboys",
+    "points": 48.5,
+    "side": "Under",
+    "price": 1.9,
+    "pin_price": 1.826,
+    "ev": 0.0003
+   },
+   {
+    "home": "Cleveland Browns",
+    "away": "Pittsburgh Steelers",
+    "points": 31.5,
+    "side": "Under",
+    "price": 3.2,
+    "pin_price": 3.09,
+    "ev": -0.0091
+   },
+   {
+    "home": "Seattle Seahawks",
+    "away": "Los Angeles Chargers",
+    "points": 43.5,
+    "side": "Under",
+    "price": 1.9,
+    "pin_price": 1.847,
+    "ev": -0.0099
+   },
+   {
+    "home": "Houston Texans",
+    "away": "Dallas Cowboys",
+    "points": 49.5,
+    "side": "Under",
+    "price": 1.77,
+    "pin_price": 1.719,
+    "ev": -0.0104
+   }
+  ]
+ }
+}

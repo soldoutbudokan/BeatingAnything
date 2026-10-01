@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+Not installed by default. Runs the live PointsBet Ontario / Pinnacle / FanDuel Ontario NFL alternate-line monitor
+every 5 minutes from this Mac (a Canadian residential connection is required; the hosts refuse cloud origins).
+Install:   cp config/com.beatinganything.pointsbet-alt-monitor.plist ~/Library/LaunchAgents/ && launchctl load ~/Library/LaunchAgents/com.beatinganything.pointsbet-alt-monitor.plist
+Remove:    launchctl unload ~/Library/LaunchAgents/com.beatinganything.pointsbet-alt-monitor.plist && rm ~/Library/LaunchAgents/com.beatinganything.pointsbet-alt-monitor.plist
+Logs:      data/live/pointsbet-alt-monitor/launchd.out.log and launchd.err.log
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.beatinganything.pointsbet-alt-monitor</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/tirthbhatt/Documents/BeatingAnything/.venv/bin/python</string>
+    <string>/Users/tirthbhatt/Documents/BeatingAnything/tools/collect_pointsbet_live_alternates.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>/Users/tirthbhatt/Documents/BeatingAnything</string>
+  <key>StartInterval</key><integer>300</integer>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>/Users/tirthbhatt/Documents/BeatingAnything/data/live/pointsbet-alt-monitor/launchd.out.log</string>
+  <key>StandardErrorPath</key><string>/Users/tirthbhatt/Documents/BeatingAnything/data/live/pointsbet-alt-monitor/launchd.err.log</string>
+</dict>
+</plist>

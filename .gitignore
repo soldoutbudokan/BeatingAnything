@@ -13,3 +13,6 @@ data/processed/*
 *.db
 state/
 reports/predictions.csv
+
+# live monitor output (JSON lines snapshots); analysed, not versioned
+data/live/
