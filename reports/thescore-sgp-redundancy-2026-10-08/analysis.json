@@ -1,0 +1,91 @@
+{
+  "raw_implied_sum": 1.225612120457129,
+  "overround": 0.22561212045712908,
+  "proportional": {
+    "UU": 0.2442870730530306,
+    "OU": 0.2541803190022187,
+    "OO": 0.24575868192684405,
+    "UO": 0.25577392601790666
+  },
+  "power": {
+    "UU": 0.24330759461594922,
+    "OU": 0.2548960291629103,
+    "OO": 0.2450263312007505,
+    "UO": 0.25677004502039036
+  },
+  "power_exponent": 1.1720257293646763,
+  "study_date": "2026-10-08",
+  "reference_book": "FanDuel Ontario",
+  "reference_cells": {
+    "UU": {
+      "raw_index": 4,
+      "captured_at": "2026-10-08T17:11:40.614Z",
+      "american": 234,
+      "decimal": 3.34
+    },
+    "OU": {
+      "raw_index": 5,
+      "captured_at": "2026-10-08T17:12:30.496Z",
+      "american": 221,
+      "decimal": 3.21
+    },
+    "OO": {
+      "raw_index": 6,
+      "captured_at": "2026-10-08T17:13:06.345Z",
+      "american": 232,
+      "decimal": 3.32
+    },
+    "UO": {
+      "raw_index": 7,
+      "captured_at": "2026-10-08T17:14:00.988Z",
+      "american": 219,
+      "decimal": 3.19
+    }
+  },
+  "score_sequence": [
+    {
+      "raw_index": 15,
+      "captured_at": "2026-10-08T17:07:52.732Z",
+      "variant": "A",
+      "american": 193
+    },
+    {
+      "raw_index": 16,
+      "captured_at": "2026-10-08T17:08:03.797Z",
+      "variant": "B",
+      "american": 194
+    },
+    {
+      "raw_index": 18,
+      "captured_at": "2026-10-08T17:08:43.704Z",
+      "variant": "A",
+      "american": 193
+    },
+    {
+      "raw_index": 19,
+      "captured_at": "2026-10-08T17:08:58.233Z",
+      "variant": "B",
+      "american": 194
+    },
+    {
+      "raw_index": 24,
+      "captured_at": "2026-10-08T17:18:31.636Z",
+      "variant": "A",
+      "american": 193
+    },
+    {
+      "raw_index": 25,
+      "captured_at": "2026-10-08T17:19:36.090Z",
+      "variant": "B",
+      "american": 194
+    }
+  ],
+  "reference_relation": "superset_of_target_completed_game_win_event",
+  "target_decimal": 2.94,
+  "target_break_even_probability": 0.3401360544217687,
+  "gross_payout_improvement_fraction": 0.0034129692832765013,
+  "ev_bound_type": "model_dependent_upper_bound_conditional_on_common_settlement",
+  "proportional_ev_upper_bound": -0.2817960052240901,
+  "power_ev_upper_bound": -0.28467567182910924,
+  "exact_target_ev": null
+}
