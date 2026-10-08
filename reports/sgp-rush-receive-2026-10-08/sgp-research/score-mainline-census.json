@@ -1,0 +1,459 @@
+[
+  {
+    "event": "CLE @ NYJ",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/4ea568cd-2f64-4845-9a7d-1b1ff0c1824c#receiving",
+    "observed_at": "2026-10-08T20:35:51.461Z",
+    "combined_market_available": false,
+    "checked_tabs": [
+      "Popular",
+      "Rushing",
+      "Receiving"
+    ],
+    "receiving_headings": "CLE Browns\n3-1-0, 1st AFC North\n\nOct 11\n\n1:00 PM\n\nNY Jets\n1-3-0, 3rd AFC East\nPopular\nTD Scorers\nPassing\nReceiving\nRushing\nGame Props\nDrive Props\nPlay Props\nQuarter\nHalf\nSpecial Teams\nDefense\nSpecials\nTotal Receiving Yards\nTotal Receptions\n1st Quarter Total Receiving Yards\nLongest Reception\nTotal Receiving Yards (O/U)\nTotal Receptions (O/U)\n1st Quarter Total Receiving Yards (O/U)\nLongest Reception (O/U)\nRelated Stories\n\nDeshaun Watson and surprising Browns are on a 3-game winning streak and set to face struggling Jets\n\nEAST RUTHERFORD, N.J. (AP) — Deshaun Watson is making plays in the clutch , the Cleveland Browns are winning and they're doing it late in games. They're perhaps the NFL's most surprising team, off to a 3-1 start that has them tied with Baltimore atop the AFC North. “It's still early,” first-year coach Todd Monken said. \"I\n\n1h · The Associated Press"
+  },
+  {
+    "event": "LV @ NE",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/d8af1412-65de-4d5d-a9f0-c155ce0b8603#popular",
+    "observed_at": "2026-10-08T20:36:22.412Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Ashton Jeanty",
+        "combined": 89.5,
+        "rushing": 59.5,
+        "receiving": 24.5,
+        "receiving_floor": 31,
+        "redundant_milestones": [
+          10,
+          20,
+          30
+        ]
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nLas Vegas Raiders @ New England Patriots\nA. Jeanty\nO 89.5\nEven\nEven\nU 89.5\n-130\n-130",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nLas Vegas Raiders @ New England Patriots\nA. Jeanty\nO 59.5\n-110\n-110\nU 59.5\n-120\n-120\nLas Vegas Raiders @ New England Patriots\nD. Maye\nO 31.5\n-115\n-115\nU 31.5\n-115\n-115\nLas Vegas Raiders @ New England Patriots\nM. Washington Jr.\nO 24.5\n-110\n-110\nU 24.5\n-120\n-120",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nLas Vegas Raiders @ New England Patriots\nB. Bowers\nO 69.5\n-125\n-125\nU 69.5\n-105\n-105\nLas Vegas Raiders @ New England Patriots\nT. Tucker\nO 39.5\n-105\n-105\nU 39.5\n-125\n-125\nLas Vegas Raiders @ New England Patriots\nR. Doubs\nO 51.5\n-120\n-120\nU 51.5\n-110\n-110\nLas Vegas Raiders @ New England Patriots\nD. Douglas\nO 24.5\n-105\n-105\nU 24.5\n-125\n-125\nLas Vegas Raiders @ New England Patriots\nH. Henry\nO 38.5\n-105\n-105\nU 38.5\n-125\n-125\nLas Vegas Raiders @ New England Patriots\nM. Mayer\nO 29.5\n-120\n-120\nU 29.5\n-110\n-110\nLas Vegas Raiders @ New England Patriots\nA. Jeanty\nO 24.5\n-110\n-110\nU 24.5\n-120\n-120",
+      "Total Receiving Yards": "Total Receiving Yards\nLas Vegas Raiders @ New England Patriots\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\t130+\nB. Bowers\t\n-25000\n-25000\n\t\n-5000\n-5000\n\t\n-1400\n-1400\n\t\n-650\n-650\n\t\n-350\n-350\n\t\n-200\n-200\n\t\n-125\n-125\n\t\n+125\n+125\n\t\n+185\n+185\n\t\n+275\n+275\n\t\n+400\n+400\n\t\n+600\n+600\n\t\n+900\n+900\n\nR. Doubs\t\n-2250\n-2250\n\t\n-800\n-800\n\t\n-375\n-375\n\t\n-210\n-210\n\t\n-130\n-130\n\t\n+120\n+120\n\t\n+175\n+175\n\t\n+260\n+260\n\t\n+375\n+375\n\t\n+550\n+550\n\t\n--\n\t\n--\n\t\n--\n\nH. Henry\t\n-1100\n-1100\n\t\n-375\n-375\n\t\n-170\n-170\n\t\nEven\nEven\n\t\n+165\n+165\n\t\n+260\n+260\n\t\n+400\n+400\n\t\n+600\n+600\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nT. Tucker\t\n-1100\n-1100\n\t\n-400\n-400\n\t\n-190\n-190\n\t\n-105\n-105\n\t\n+165\n+165\n\t\n+275\n+275\n\t\n+425\n+425\n\t\n+650\n+650\n\t\n+1100\n+1100\n\t\n+1600\n+1600\n\t\n--\n\t\n--\n\t\n--\n\nM. Mayer\t\n-900\n-900\n\t\n-250\n-250\n\t\n-120\n-120\n\t\n+160\n+160\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nA. Jeanty\t\n-525\n-525\n\t\n-170\n-170\n\t\n+135\n+135\n\t\n+260\n+260\n\t\n+500\n+500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nD. Douglas\t\n-450\n-450\n\t\n-145\n-145\n\t\n+125\n+125\n\t\n+225\n+225\n\t\n+375\n+375\n\t\n+600\n+600\n\t\n+900\n+900\n\t\n+1400\n+1400\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "NYG @ WSH",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/c77d780f-a547-4ce5-a092-595a8a6060ed#popular",
+    "observed_at": "2026-10-08T20:38:13.121Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Cam Skattebo",
+        "combined": 74.5,
+        "rushing": 57.5,
+        "receiving": 12.5,
+        "receiving_floor": 18,
+        "redundant_milestones": [
+          10
+        ]
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nNew York Giants @ Washington Commanders\nC. Skattebo\nO 74.5\n-115\n-115\nU 74.5\n-115\n-115",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nNew York Giants @ Washington Commanders\nJ. Croskey-Merritt\nO 54.5\n-125\n-125\nU 54.5\n-105\n-105\nNew York Giants @ Washington Commanders\nC. Skattebo\nO 57.5\n-105\n-105\nU 57.5\n-125\n-125\nNew York Giants @ Washington Commanders\nJ. Daniels\nO 29.5\n-125\n-125\nU 29.5\n-105\n-105\nNew York Giants @ Washington Commanders\nN. Harris\nO 29.5\n-110\n-110\nU 29.5\n-120\n-120\nNew York Giants @ Washington Commanders\nJ. Winston\nO 2.5\n-110\n-110\nU 2.5\n-120\n-120",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nNew York Giants @ Washington Commanders\nM. Nabers\nO 55.5\n-115\n-115\nU 55.5\n-115\n-115\nNew York Giants @ Washington Commanders\nI. Likely\nO 41.5\n-110\n-110\nU 41.5\n-120\n-120\nNew York Giants @ Washington Commanders\nM. Fields\nO 27.5\n-110\n-110\nU 27.5\n-120\n-120\nNew York Giants @ Washington Commanders\nD. Mooney\nO 19.5\n+105\n+105\nU 19.5\n-135\n-135\nNew York Giants @ Washington Commanders\nC. Skattebo\nO 12.5\n-125\n-125\nU 12.5\n-105\n-105",
+      "Total Receiving Yards": "Total Receiving Yards\nNew York Giants @ Washington Commanders\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\nM. Nabers\t\n-4000\n-4000\n\t\n-1200\n-1200\n\t\n-475\n-475\n\t\n-250\n-250\n\t\n-145\n-145\n\t\n+105\n+105\n\t\n+165\n+165\n\t\n+250\n+250\n\t\n+360\n+360\n\t\n+500\n+500\n\t\n+750\n+750\n\nI. Likely\t\n-1600\n-1600\n\t\n-475\n-475\n\t\n-225\n-225\n\t\n-125\n-125\n\t\n+135\n+135\n\t\n+210\n+210\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n+750\n+750\n\t\n--\n\t\n--\n\nM. Fields\t\n-475\n-475\n\t\n-190\n-190\n\t\nEven\nEven\n\t\n+175\n+175\n\t\n+275\n+275\n\t\n+450\n+450\n\t\n+700\n+700\n\t\n+1000\n+1000\n\t\n--\n\t\n--\n\t\n--\n\nD. Mooney\t\n-240\n-240\n\t\n+105\n+105\n\t\n+200\n+200\n\t\n+325\n+325\n\t\n+550\n+550\n\t\n+850\n+850\n\t\n+1300\n+1300\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nC. Skattebo\t\n-170\n-170\n\t\n+160\n+160\n\t\n+350\n+350\n\t\n+650\n+650\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "HOU @ TEN",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/7082fd77-c4af-4e43-9db2-360ad66132dc#popular",
+    "observed_at": "2026-10-08T20:38:53.982Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Tony Pollard",
+        "combined": 64.5,
+        "rushing": 49.5,
+        "receiving": null,
+        "receiving_floor": 16,
+        "redundant_milestones": []
+      },
+      {
+        "name": "David Montgomery",
+        "combined": 59.5,
+        "rushing": 44.5,
+        "receiving": null,
+        "receiving_floor": 16,
+        "redundant_milestones": []
+      },
+      {
+        "name": "Woody Marks",
+        "combined": 44.5,
+        "rushing": 29.5,
+        "receiving": 9.5,
+        "receiving_floor": 16,
+        "redundant_milestones": [
+          10
+        ]
+      },
+      {
+        "name": "Tyjae Spears",
+        "combined": 26.5,
+        "rushing": 14.5,
+        "receiving": null,
+        "receiving_floor": 13,
+        "redundant_milestones": []
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nHouston Texans @ Tennessee Titans\nT. Pollard\nO 64.5\nEven\nEven\nU 64.5\n-130\n-130\nHouston Texans @ Tennessee Titans\nD. Montgomery\nO 59.5\n+105\n+105\nU 59.5\n-135\n-135\nHouston Texans @ Tennessee Titans\nW. Marks\nO 44.5\n-105\n-105\nU 44.5\n-125\n-125\nHouston Texans @ Tennessee Titans\nT. Spears\nO 26.5\n-115\n-115\nU 26.5\n-115\n-115",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nHouston Texans @ Tennessee Titans\nD. Montgomery\nO 44.5\n-125\n-125\nU 44.5\n-105\n-105\nHouston Texans @ Tennessee Titans\nW. Marks\nO 29.5\n-125\n-125\nU 29.5\n-105\n-105\nHouston Texans @ Tennessee Titans\nT. Pollard\nO 49.5\n-105\n-105\nU 49.5\n-125\n-125\nHouston Texans @ Tennessee Titans\nT. Spears\nO 14.5\nEven\nEven\nU 14.5\n-130\n-130\nHouston Texans @ Tennessee Titans\nC. Stroud\nO 9.5\n-125\n-125\nU 9.5\n-105\n-105\nHouston Texans @ Tennessee Titans\nC. Ward\nO 10.5\n-130\n-130\nU 10.5\nEven\nEven",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nHouston Texans @ Tennessee Titans\nN. Collins\nO 79.5\n-125\n-125\nU 79.5\n-105\n-105\nHouston Texans @ Tennessee Titans\nC. Tate\nO 52.5\n-115\n-115\nU 52.5\n-115\n-115\nHouston Texans @ Tennessee Titans\nW. Robinson\nO 33.5\n-105\n-105\nU 33.5\n-125\n-125\nHouston Texans @ Tennessee Titans\nD. Schultz\nO 34.5\n-130\n-130\nU 34.5\nEven\nEven\nHouston Texans @ Tennessee Titans\nX. Hutchinson\nO 12.5\n-135\n-135\nU 12.5\n+105\n+105\nHouston Texans @ Tennessee Titans\nK. Boutte\nO 26.5\n-105\n-105\nU 26.5\n-125\n-125\nHouston Texans @ Tennessee Titans\nG. Helm\nO 18.5\n-105\n-105\nU 18.5\n-125\n-125\nHouston Texans @ Tennessee Titans\nJ. Noel\nO 19.5\nEven\nEven\nU 19.5\n-130\n-130\nHouston Texans @ Tennessee Titans\nE. Ayomanor\nO 17.5\nEven\nEven\nU 17.5\n-130\n-130\nHouston Texans @ Tennessee Titans\nW. Marks\nO 9.5\nEven\nEven\nU 9.5\n-130\n-130",
+      "Total Receiving Yards": "Total Receiving Yards\nHouston Texans @ Tennessee Titans\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\t130+\t140+\t150+\nN. Collins\t\n-25000\n-25000\n\t\n-5000\n-5000\n\t\n-1600\n-1600\n\t\n-800\n-800\n\t\n-450\n-450\n\t\n-300\n-300\n\t\n-185\n-185\n\t\n-125\n-125\n\t\n+120\n+120\n\t\n+165\n+165\n\t\n+225\n+225\n\t\n+325\n+325\n\t\n+450\n+450\n\t\n+600\n+600\n\t\n+850\n+850\n\nC. Tate\t\n-4000\n-4000\n\t\n-1100\n-1100\n\t\n-450\n-450\n\t\n-240\n-240\n\t\n-135\n-135\n\t\n+125\n+125\n\t\n+200\n+200\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n+750\n+750\n\t\n+1200\n+1200\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nD. Schultz\t\n-1400\n-1400\n\t\n-400\n-400\n\t\n-175\n-175\n\t\n+105\n+105\n\t\n+185\n+185\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n+750\n+750\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nW. Robinson\t\n-1000\n-1000\n\t\n-325\n-325\n\t\n-140\n-140\n\t\n+135\n+135\n\t\n+225\n+225\n\t\n+400\n+400\n\t\n+650\n+650\n\t\n+1100\n+1100\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nK. Boutte\t\n-475\n-475\n\t\n-175\n-175\n\t\n+110\n+110\n\t\n+200\n+200\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n+800\n+800\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nG. Helm\t\n-325\n-325\n\t\nEven\nEven\n\t\n+225\n+225\n\t\n+450\n+450\n\t\n+800\n+800\n\t\n+1300\n+1300\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nJ. Noel\t\n-225\n-225\n\t\nEven\nEven\n\t\n+185\n+185\n\t\n+325\n+325\n\t\n+550\n+550\n\t\n+900\n+900\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nE. Ayomanor\t\n-220\n-220\n\t\n+120\n+120\n\t\n+250\n+250\n\t\n+450\n+450\n\t\n+750\n+750\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nX. Hutchinson\t\n-200\n-200\n\t\n+130\n+130\n\t\n+250\n+250\n\t\n+425\n+425\n\t\n+750\n+750\n\t\n+1200\n+1200\n\t\n+2000\n+2000\n\t\n+3500\n+3500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nW. Marks\t\n-105\n-105\n\t\n+275\n+275\n\t\n+650\n+650\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    },
+    "receiving_tab_check": {
+      "main": "Total Receiving Yards (O/U)",
+      "milestones": "Total Receiving Yards\nHouston Texans @ Tennessee Titans\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\t130+\t140+\t150+\nN. Collins\t\n-25000\n-25000\n\t\n-5000\n-5000\n\t\n-1600\n-1600\n\t\n-800\n-800\n\t\n-450\n-450\n\t\n-300\n-300\n\t\n-185\n-185\n\t\n-125\n-125\n\t\n+120\n+120\n\t\n+165\n+165\n\t\n+225\n+225\n\t\n+325\n+325\n\t\n+450\n+450\n\t\n+600\n+600\n\t\n+850\n+850\n\nC. Tate\t\n-4000\n-4000\n\t\n-1100\n-1100\n\t\n-450\n-450\n\t\n-240\n-240\n\t\n-135\n-135\n\t\n+125\n+125\n\t\n+200\n+200\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n+750\n+750\n\t\n+1200\n+1200\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nD. Schultz\t\n-1400\n-1400\n\t\n-400\n-400\n\t\n-175\n-175\n\t\n+105\n+105\n\t\n+185\n+185\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n+750\n+750\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nW. Robinson\t\n-1000\n-1000\n\t\n-325\n-325\n\t\n-140\n-140\n\t\n+135\n+135\n\t\n+225\n+225\n\t\n+400\n+400\n\t\n+650\n+650\n\t\n+1100\n+1100\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nK. Boutte\t\n-475\n-475\n\t\n-175\n-175\n\t\n+110\n+110\n\t\n+200\n+200\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n+800\n+800\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nG. Helm\t\n-325\n-325\n\t\nEven\nEven\n\t\n+225\n+225\n\t\n+450\n+450\n\t\n+800\n+800\n\t\n+1300\n+1300\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nJ. Noel\t\n-225\n-225\n\t\nEven\nEven\n\t\n+185\n+185\n\t\n+325\n+325\n\t\n+550\n+550\n\t\n+900\n+900\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nE. Ayomanor\t\n-220\n-220\n\t\n+120\n+120\n\t\n+250\n+250\n\t\n+450\n+450\n\t\n+750\n+750\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nX. Hutchinson\t\n-200\n-200\n\t\n+130\n+130\n\t\n+250\n+250\n\t\n+425\n+425\n\t\n+750\n+750\n\t\n+1200\n+1200\n\t\n+2000\n+2000\n\t\n+3500\n+3500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nW. Marks\t\n-105\n-105\n\t\n+275\n+275\n\t\n+650\n+650\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "DEN @ LAC",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/4d4e7a53-d0c6-4a7f-ab58-2abcd37bcf98#popular",
+    "observed_at": "2026-10-08T20:40:08.978Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "RJ Harvey",
+        "combined": 54.5,
+        "rushing": 19.5,
+        "receiving": 29.5,
+        "receiving_floor": 36,
+        "redundant_milestones": [
+          10,
+          20,
+          30
+        ]
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nDenver Broncos @ Los Angeles Chargers\nR. Harvey\nO 54.5\n-110\n-110\nU 54.5\n-120\n-120",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nDenver Broncos @ Los Angeles Chargers\nO. Hampton\nO 37.5\n-125\n-125\nU 37.5\n-105\n-105\nDenver Broncos @ Los Angeles Chargers\nJ. Dobbins\nO 49.5\n-130\n-130\nU 49.5\nEven\nEven\nDenver Broncos @ Los Angeles Chargers\nK. Mitchell\nO 34.5\nEven\nEven\nU 34.5\n-130\n-130\nDenver Broncos @ Los Angeles Chargers\nR. Harvey\nO 19.5\n-135\n-135\nU 19.5\n+105\n+105\nDenver Broncos @ Los Angeles Chargers\nJ. Herbert\nO 24.5\n-130\n-130\nU 24.5\nEven\nEven\nDenver Broncos @ Los Angeles Chargers\nB. Nix\nO 14.5\n-105\n-105\nU 14.5\n-125\n-125",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nDenver Broncos @ Los Angeles Chargers\nJ. Waddle\nO 54.5\n-105\n-105\nU 54.5\n-125\n-125\nDenver Broncos @ Los Angeles Chargers\nCour. Sutton\nO 37.5\n-105\n-105\nU 37.5\n-125\n-125\nDenver Broncos @ Los Angeles Chargers\nM. Mims\nO 9.5\n-135\n-135\nU 9.5\n+105\n+105\nDenver Broncos @ Los Angeles Chargers\nT. Franklin\nO 19.5\n-110\n-110\nU 19.5\n-120\n-120\nDenver Broncos @ Los Angeles Chargers\nR. Harvey\nO 29.5\n+105\n+105\nU 29.5\n-135\n-135\nDenver Broncos @ Los Angeles Chargers\nE. Engram\nO 17.5\n-110\n-110\nU 17.5\n-120\n-120",
+      "Total Receiving Yards": "Total Receiving Yards\nDenver Broncos @ Los Angeles Chargers\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\nJ. Waddle\t\n-3500\n-3500\n\t\n-1000\n-1000\n\t\n-450\n-450\n\t\n-225\n-225\n\t\n-130\n-130\n\t\n+120\n+120\n\t\n+185\n+185\n\t\n+275\n+275\n\t\n+425\n+425\n\t\n+600\n+600\n\t\n+900\n+900\n\nCour. Sutton\t\n-1100\n-1100\n\t\n-375\n-375\n\t\n-175\n-175\n\t\n+105\n+105\n\t\n+175\n+175\n\t\n+275\n+275\n\t\n+450\n+450\n\t\n+700\n+700\n\t\n+1000\n+1000\n\t\n--\n\t\n--\n\nR. Harvey\t\n-800\n-800\n\t\n-225\n-225\n\t\n+105\n+105\n\t\n+200\n+200\n\t\n+375\n+375\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nE. Engram\t\n-275\n-275\n\t\n+105\n+105\n\t\n+210\n+210\n\t\n+375\n+375\n\t\n+600\n+600\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nT. Franklin\t\n-250\n-250\n\t\n-110\n-110\n\t\n+155\n+155\n\t\n+250\n+250\n\t\n+375\n+375\n\t\n+550\n+550\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nM. Mims\t\n-135\n-135\n\t\n+155\n+155\n\t\n+275\n+275\n\t\n+450\n+450\n\t\n+750\n+750\n\t\n+1200\n+1200\n\t\n+1800\n+1800\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "IND @ PIT",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/a478b533-8517-4ab7-bc9d-2455d7a420e5#popular",
+    "observed_at": "2026-10-08T20:41:15.747Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Jonathan Taylor",
+        "combined": 108.5,
+        "rushing": 84.5,
+        "receiving": 15.5,
+        "receiving_floor": 25,
+        "redundant_milestones": [
+          10,
+          20
+        ]
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nIndianapolis Colts @ Pittsburgh Steelers\nJon. Taylor\nO 108.5\n-105\n-105\nU 108.5\n-125\n-125",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nIndianapolis Colts @ Pittsburgh Steelers\nJon. Taylor\nO 84.5\n-105\n-105\nU 84.5\n-125\n-125\nIndianapolis Colts @ Pittsburgh Steelers\nDan. Jones\nO 10.5\n-105\n-105\nU 10.5\n-125\n-125",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nIndianapolis Colts @ Pittsburgh Steelers\nJ. Downs\nO 54.5\n-130\n-130\nU 54.5\nEven\nEven\nIndianapolis Colts @ Pittsburgh Steelers\nD. Metcalf\nO 54.5\n-105\n-105\nU 54.5\n-125\n-125\nIndianapolis Colts @ Pittsburgh Steelers\nT. Warren\nO 44.5\n-125\n-125\nU 44.5\n-105\n-105\nIndianapolis Colts @ Pittsburgh Steelers\nRom. Wilson\nO 39.5\n-130\n-130\nU 39.5\nEven\nEven\nIndianapolis Colts @ Pittsburgh Steelers\nK. Allen\nO 27.5\n-115\n-115\nU 27.5\n-115\n-115\nIndianapolis Colts @ Pittsburgh Steelers\nP. Freiermuth\nO 28.5\n-105\n-105\nU 28.5\n-125\n-125\nIndianapolis Colts @ Pittsburgh Steelers\nM. Pittman Jr.\nO 26.5\n-115\n-115\nU 26.5\n-115\n-115\nIndianapolis Colts @ Pittsburgh Steelers\nD. Washington\nO 22.5\n-110\n-110\nU 22.5\n-120\n-120\nIndianapolis Colts @ Pittsburgh Steelers\nJon. Taylor\nO 15.5\n-120\n-120\nU 15.5\n-110\n-110",
+      "Total Receiving Yards": "Total Receiving Yards\nIndianapolis Colts @ Pittsburgh Steelers\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\nJ. Downs\t\n-4000\n-4000\n\t\n-1200\n-1200\n\t\n-500\n-500\n\t\n-275\n-275\n\t\n-155\n-155\n\t\n-105\n-105\n\t\n+150\n+150\n\t\n+210\n+210\n\t\n+325\n+325\n\t\n+450\n+450\n\t\n+700\n+700\n\t\n+1000\n+1000\n\nD. Metcalf\t\n-2500\n-2500\n\t\n-900\n-900\n\t\n-450\n-450\n\t\n-225\n-225\n\t\n-130\n-130\n\t\n+120\n+120\n\t\n+185\n+185\n\t\n+275\n+275\n\t\n+400\n+400\n\t\n+600\n+600\n\t\n+900\n+900\n\t\n--\n\nT. Warren\t\n-2250\n-2250\n\t\n-800\n-800\n\t\n-325\n-325\n\t\n-160\n-160\n\t\n+105\n+105\n\t\n+165\n+165\n\t\n+250\n+250\n\t\n+375\n+375\n\t\n+550\n+550\n\t\n+850\n+850\n\t\n--\n\t\n--\n\nRom. Wilson\t\n-1200\n-1200\n\t\n-475\n-475\n\t\n-225\n-225\n\t\n-125\n-125\n\t\n+130\n+130\n\t\n+200\n+200\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nP. Freiermuth\t\n-700\n-700\n\t\n-225\n-225\n\t\nEven\nEven\n\t\n+200\n+200\n\t\n+350\n+350\n\t\n+600\n+600\n\t\n+1000\n+1000\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nK. Allen\t\n-550\n-550\n\t\n-200\n-200\n\t\nEven\nEven\n\t\n+185\n+185\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n+800\n+800\n\t\n+1300\n+1300\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nM. Pittman Jr.\t\n-525\n-525\n\t\n-190\n-190\n\t\n+105\n+105\n\t\n+200\n+200\n\t\n+325\n+325\n\t\n+550\n+550\n\t\n+900\n+900\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nD. Washington\t\n-400\n-400\n\t\n-135\n-135\n\t\n+150\n+150\n\t\n+275\n+275\n\t\n+450\n+450\n\t\n+800\n+800\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nJon. Taylor\t\n-250\n-250\n\t\n+120\n+120\n\t\n+260\n+260\n\t\n+500\n+500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "CIN @ MIA",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/5f14dd5d-a7f4-4040-9d1e-6ac362b6f01a#popular",
+    "observed_at": "2026-10-08T20:41:49.005Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Ollie Gordon II",
+        "combined": 54.5,
+        "rushing": 44.5,
+        "receiving": null,
+        "receiving_floor": 11,
+        "redundant_milestones": []
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nCincinnati Bengals @ Miami Dolphins\nO. Gordon II\nO 54.5\n-130\n-130\nU 54.5\nEven\nEven",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nCincinnati Bengals @ Miami Dolphins\nO. Gordon II\nO 44.5\n-105\n-105\nU 44.5\n-125\n-125\nCincinnati Bengals @ Miami Dolphins\nJ. Wright\nO 24.5\nEven\nEven\nU 24.5\n-130\n-130\nCincinnati Bengals @ Miami Dolphins\nM. Willis\nO 33.5\n-110\n-110\nU 33.5\n-120\n-120",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nCincinnati Bengals @ Miami Dolphins\nMa. Washington\nO 47.5\nEven\nEven\nU 47.5\n-130\n-130\nCincinnati Bengals @ Miami Dolphins\nG. Dulcich\nO 27.5\nEven\nEven\nU 27.5\n-130\n-130",
+      "Total Receiving Yards": "Total Receiving Yards\nCincinnati Bengals @ Miami Dolphins\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\nMa. Washington\t\n-3000\n-3000\n\t\n-800\n-800\n\t\n-325\n-325\n\t\n-160\n-160\n\t\n+110\n+110\n\t\n+185\n+185\n\t\n+275\n+275\n\t\n+400\n+400\n\t\n+600\n+600\n\t\n+800\n+800\n\nG. Dulcich\t\n-475\n-475\n\t\n-175\n-175\n\t\n+120\n+120\n\t\n+210\n+210\n\t\n+360\n+360\n\t\n+600\n+600\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "PHI @ JAX",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/f355ad3e-f25b-4f23-8481-1f69fa48015d#popular",
+    "observed_at": "2026-10-08T20:44:37.525Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Bhayshul Tuten",
+        "combined": 79.5,
+        "rushing": 69.5,
+        "receiving": 9.5,
+        "receiving_floor": 11,
+        "redundant_milestones": [
+          10
+        ]
+      },
+      {
+        "name": "Will Shipley",
+        "combined": 54.5,
+        "rushing": 34.5,
+        "receiving": null,
+        "receiving_floor": 21,
+        "redundant_milestones": []
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nPhiladelphia Eagles @ Jacksonville Jaguars\nB. Tuten\nO 79.5\n-125\n-125\nU 79.5\n-105\n-105\nPhiladelphia Eagles @ Jacksonville Jaguars\nW. Shipley\nO 54.5\n-110\n-110\nU 54.5\n-120\n-120",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nPhiladelphia Eagles @ Jacksonville Jaguars\nB. Tuten\nO 69.5\n-105\n-105\nU 69.5\n-125\n-125\nPhiladelphia Eagles @ Jacksonville Jaguars\nW. Shipley\nO 34.5\n-115\n-115\nU 34.5\n-115\n-115\nPhiladelphia Eagles @ Jacksonville Jaguars\nC. Rodriguez Jr.\nO 26.5\n-125\n-125\nU 26.5\n-105\n-105\nPhiladelphia Eagles @ Jacksonville Jaguars\nJ. Hurts\nO 26.5\n-115\n-115\nU 26.5\n-115\n-115\nPhiladelphia Eagles @ Jacksonville Jaguars\nT. Lawrence\nO 13.5\n-135\n-135\nU 13.5\n+105\n+105",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nPhiladelphia Eagles @ Jacksonville Jaguars\nP. Washington\nO 61.5\n-125\n-125\nU 61.5\n-105\n-105\nPhiladelphia Eagles @ Jacksonville Jaguars\nJ. Meyers\nO 39.5\n-130\n-130\nU 39.5\nEven\nEven\nPhiladelphia Eagles @ Jacksonville Jaguars\nB. Strange\nO 34.5\n-120\n-120\nU 34.5\n-110\n-110\nPhiladelphia Eagles @ Jacksonville Jaguars\nBri. Thomas Jr.\nO 22.5\n-125\n-125\nU 22.5\n-105\n-105\nPhiladelphia Eagles @ Jacksonville Jaguars\nB. Tuten\nO 9.5\n-115\n-115\nU 9.5\n-115\n-115\nPhiladelphia Eagles @ Jacksonville Jaguars\nJ. Cameron\nO 9.5\n-125\n-125\nU 9.5\n-105\n-105",
+      "Total Receiving Yards": "Total Receiving Yards\nPhiladelphia Eagles @ Jacksonville Jaguars\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\nP. Washington\t\n-6000\n-6000\n\t\n-1500\n-1500\n\t\n-650\n-650\n\t\n-350\n-350\n\t\n-210\n-210\n\t\n-130\n-130\n\t\n+115\n+115\n\t\n+175\n+175\n\t\n+250\n+250\n\t\n+360\n+360\n\t\n+500\n+500\n\t\n+750\n+750\n\nJ. Meyers\t\n-1400\n-1400\n\t\n-475\n-475\n\t\n-225\n-225\n\t\n-130\n-130\n\t\n+130\n+130\n\t\n+200\n+200\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n+700\n+700\n\t\n--\n\t\n--\n\t\n--\n\nB. Strange\t\n-1000\n-1000\n\t\n-325\n-325\n\t\n-155\n-155\n\t\n+110\n+110\n\t\n+175\n+175\n\t\n+300\n+300\n\t\n+450\n+450\n\t\n+750\n+750\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nBri. Thomas Jr.\t\n-400\n-400\n\t\n-155\n-155\n\t\n+130\n+130\n\t\n+210\n+210\n\t\n+360\n+360\n\t\n+600\n+600\n\t\n+900\n+900\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nJ. Cameron\t\n-125\n-125\n\t\n+185\n+185\n\t\n+375\n+375\n\t\n+650\n+650\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nB. Tuten\t\n-115\n-115\n\t\n+225\n+225\n\t\n+450\n+450\n\t\n+900\n+900\n\t\n+1600\n+1600\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "CHI @ GB",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/22d44675-65b8-40cc-83b2-adbd67c4ae60#popular",
+    "observed_at": "2026-10-08T20:45:31.535Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "D'Andre Swift",
+        "combined": 84.5,
+        "rushing": 59.5,
+        "receiving": 13.5,
+        "receiving_floor": 26,
+        "redundant_milestones": [
+          10,
+          20
+        ]
+      },
+      {
+        "name": "MarShawn Lloyd",
+        "combined": 44.5,
+        "rushing": 28.5,
+        "receiving": 12.5,
+        "receiving_floor": 17,
+        "redundant_milestones": [
+          10
+        ]
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nChicago Bears @ Green Bay Packers\nD. Swift\nO 84.5\nEven\nEven\nU 84.5\n-130\n-130\nChicago Bears @ Green Bay Packers\nM. Lloyd\nO 44.5\n-115\n-115\nU 44.5\n-115\n-115",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nChicago Bears @ Green Bay Packers\nD. Swift\nO 59.5\n-130\n-130\nU 59.5\nEven\nEven\nChicago Bears @ Green Bay Packers\nM. Lloyd\nO 28.5\nEven\nEven\nU 28.5\n-130\n-130\nChicago Bears @ Green Bay Packers\nK. Monangai\nO 54.5\nEven\nEven\nU 54.5\n-130\n-130\nChicago Bears @ Green Bay Packers\nK. Johnson\nO 34.5\n-125\n-125\nU 34.5\n-105\n-105\nChicago Bears @ Green Bay Packers\nT. Bagent\nO 9.5\n-135\n-135\nU 9.5\n+105\n+105\nChicago Bears @ Green Bay Packers\nJ. Love\nO 6.5\n-115\n-115\nU 6.5\n-115\n-115",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nChicago Bears @ Green Bay Packers\nC. Watson\nO 59.5\n-120\n-120\nU 59.5\n-110\n-110\nChicago Bears @ Green Bay Packers\nM. Golden\nO 56.5\n-115\n-115\nU 56.5\n-115\n-115\nChicago Bears @ Green Bay Packers\nT. Kraft\nO 49.5\n-110\n-110\nU 49.5\n-120\n-120\nChicago Bears @ Green Bay Packers\nL. Burden III\nO 49.5\n-105\n-105\nU 49.5\n-125\n-125\nChicago Bears @ Green Bay Packers\nC. Loveland\nO 39.5\nEven\nEven\nU 39.5\n-130\n-130\nChicago Bears @ Green Bay Packers\nR. Odunze\nO 39.5\n-120\n-120\nU 39.5\n-110\n-110\nChicago Bears @ Green Bay Packers\nS. Moore\nO 11.5\n-125\n-125\nU 11.5\n-105\n-105\nChicago Bears @ Green Bay Packers\nK. Raymond\nO 29.5\n-105\n-105\nU 29.5\n-125\n-125\nChicago Bears @ Green Bay Packers\nM. Lloyd\nO 12.5\n-130\n-130\nU 12.5\nEven\nEven\nChicago Bears @ Green Bay Packers\nD. Swift\nO 13.5\n-110\n-110\nU 13.5\n-120\n-120",
+      "Total Receiving Yards": "Total Receiving Yards\nChicago Bears @ Green Bay Packers\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\nC. Watson\t\n-5000\n-5000\n\t\n-1200\n-1200\n\t\n-550\n-550\n\t\n-300\n-300\n\t\n-185\n-185\n\t\n-120\n-120\n\t\n+125\n+125\n\t\n+185\n+185\n\t\n+260\n+260\n\t\n+375\n+375\n\t\n+550\n+550\n\t\n+750\n+750\n\nM. Golden\t\n-4000\n-4000\n\t\n-1200\n-1200\n\t\n-500\n-500\n\t\n-275\n-275\n\t\n-160\n-160\n\t\nEven\nEven\n\t\n+155\n+155\n\t\n+225\n+225\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n+700\n+700\n\t\n+1000\n+1000\n\nL. Burden III\t\n-2500\n-2500\n\t\n-800\n-800\n\t\n-350\n-350\n\t\n-185\n-185\n\t\n-105\n-105\n\t\n+155\n+155\n\t\n+225\n+225\n\t\n+360\n+360\n\t\n+550\n+550\n\t\n+800\n+800\n\t\n--\n\t\n--\n\nT. Kraft\t\n-2500\n-2500\n\t\n-800\n-800\n\t\n-350\n-350\n\t\n-190\n-190\n\t\n-110\n-110\n\t\n+145\n+145\n\t\n+225\n+225\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n+750\n+750\n\t\n--\n\t\n--\n\nC. Loveland\t\n-1300\n-1300\n\t\n-400\n-400\n\t\n-185\n-185\n\t\nEven\nEven\n\t\n+175\n+175\n\t\n+275\n+275\n\t\n+450\n+450\n\t\n+700\n+700\n\t\n+1100\n+1100\n\t\n--\n\t\n--\n\t\n--\n\nR. Odunze\t\n-1100\n-1100\n\t\n-400\n-400\n\t\n-210\n-210\n\t\n-120\n-120\n\t\n+140\n+140\n\t\n+210\n+210\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nK. Raymond\t\n-650\n-650\n\t\n-225\n-225\n\t\n-110\n-110\n\t\n+175\n+175\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n+850\n+850\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nD. Swift\t\n-185\n-185\n\t\n+160\n+160\n\t\n+325\n+325\n\t\n+600\n+600\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nM. Lloyd\t\n-175\n-175\n\t\n+160\n+160\n\t\n+375\n+375\n\t\n+750\n+750\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nS. Moore\t\n-160\n-160\n\t\n+165\n+165\n\t\n+325\n+325\n\t\n+650\n+650\n\t\n+1100\n+1100\n\t\n+1800\n+1800\n\t\n+3000\n+3000\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "MIN @ NO",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/6874d241-3972-4335-b51f-08ef44cfd27b#popular",
+    "observed_at": "2026-10-08T20:46:13.179Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Aaron Jones",
+        "combined": 95.5,
+        "rushing": 74.5,
+        "receiving": 18.5,
+        "receiving_floor": 22,
+        "redundant_milestones": [
+          10,
+          20
+        ]
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nMinnesota Vikings @ New Orleans Saints\nA. Jones Sr.\nO 95.5\n-120\n-120\nU 95.5\n-110\n-110",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nMinnesota Vikings @ New Orleans Saints\nA. Jones Sr.\nO 74.5\n-105\n-105\nU 74.5\n-125\n-125\nMinnesota Vikings @ New Orleans Saints\nT. Shough\nO 9.5\n-120\n-120\nU 9.5\n-110\n-110\nMinnesota Vikings @ New Orleans Saints\nK. Murray\nO 19.5\n+105\n+105\nU 19.5\n-135\n-135",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nMinnesota Vikings @ New Orleans Saints\nC. Olave\nO 79.5\n-125\n-125\nU 79.5\n-105\n-105\nMinnesota Vikings @ New Orleans Saints\nJuw. Johnson\nO 43.5\n-120\n-120\nU 43.5\n-110\n-110\nMinnesota Vikings @ New Orleans Saints\nD. Vele\nO 35.5\n-120\n-120\nU 35.5\n-110\n-110\nMinnesota Vikings @ New Orleans Saints\nA. Jones Sr.\nO 18.5\n-115\n-115\nU 18.5\n-115\n-115",
+      "Total Receiving Yards": "Total Receiving Yards\nMinnesota Vikings @ New Orleans Saints\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\t130+\t140+\nC. Olave\t\n--\n\t\n-6000\n-6000\n\t\n-2000\n-2000\n\t\n-1000\n-1000\n\t\n-475\n-475\n\t\n-300\n-300\n\t\n-185\n-185\n\t\n-120\n-120\n\t\n+120\n+120\n\t\n+175\n+175\n\t\n+250\n+250\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n+700\n+700\n\nJuw. Johnson\t\n-1800\n-1800\n\t\n-600\n-600\n\t\n-275\n-275\n\t\n-145\n-145\n\t\n+115\n+115\n\t\n+175\n+175\n\t\n+275\n+275\n\t\n+400\n+400\n\t\n+550\n+550\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nD. Vele\t\n-1100\n-1100\n\t\n-375\n-375\n\t\n-170\n-170\n\t\n+105\n+105\n\t\n+185\n+185\n\t\n+300\n+300\n\t\n+450\n+450\n\t\n+700\n+700\n\t\n+1100\n+1100\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nA. Jones Sr.\t\n-325\n-325\n\t\n-105\n-105\n\t\n+225\n+225\n\t\n+425\n+425\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "DET @ ARI",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/760d69a8-82bd-4ef6-a38d-9cbe063e05c1#popular",
+    "observed_at": "2026-10-08T20:46:47.547Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Jahmyr Gibbs",
+        "combined": 132.5,
+        "rushing": 91.5,
+        "receiving": 34.5,
+        "receiving_floor": 42,
+        "redundant_milestones": [
+          10,
+          20,
+          30,
+          40
+        ]
+      },
+      {
+        "name": "Jeremiyah Love",
+        "combined": 59.5,
+        "rushing": 46.5,
+        "receiving": 11.5,
+        "receiving_floor": 14,
+        "redundant_milestones": [
+          10
+        ]
+      },
+      {
+        "name": "Tyler Allgeier",
+        "combined": 41.5,
+        "rushing": 25.5,
+        "receiving": null,
+        "receiving_floor": 17,
+        "redundant_milestones": []
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nDetroit Lions @ Arizona Cardinals\nJ. Gibbs\nO 132.5\n-125\n-125\nU 132.5\n-105\n-105\nDetroit Lions @ Arizona Cardinals\nJer. Love\nO 59.5\n-125\n-125\nU 59.5\n-105\n-105\nDetroit Lions @ Arizona Cardinals\nT. Allgeier\nO 41.5\n-115\n-115\nU 41.5\n-115\n-115",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nDetroit Lions @ Arizona Cardinals\nJ. Gibbs\nO 91.5\n-125\n-125\nU 91.5\n-105\n-105\nDetroit Lions @ Arizona Cardinals\nJer. Love\nO 46.5\n-110\n-110\nU 46.5\n-120\n-120\nDetroit Lions @ Arizona Cardinals\nT. Allgeier\nO 25.5\n-115\n-115\nU 25.5\n-115\n-115\nDetroit Lions @ Arizona Cardinals\nJ. Goff\nO 0.5\n-120\n-120\nU 0.5\n-110\n-110\nDetroit Lions @ Arizona Cardinals\nJ. Brissett\nO 6.5\n-130\n-130\nU 6.5\nEven\nEven",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nDetroit Lions @ Arizona Cardinals\nT. McBride\nO 79.5\n-120\n-120\nU 79.5\n-110\n-110\nDetroit Lions @ Arizona Cardinals\nA. St. Brown\nO 79.5\n-120\n-120\nU 79.5\n-110\n-110\nDetroit Lions @ Arizona Cardinals\nMi. Wilson\nO 74.5\n-120\n-120\nU 74.5\n-110\n-110\nDetroit Lions @ Arizona Cardinals\nJame. Williams\nO 52.5\n-120\n-120\nU 52.5\n-110\n-110\nDetroit Lions @ Arizona Cardinals\nS. LaPorta\nO 49.5\n-125\n-125\nU 49.5\n-105\n-105\nDetroit Lions @ Arizona Cardinals\nM. Harrison Jr.\nO 35.5\n-110\n-110\nU 35.5\n-120\n-120\nDetroit Lions @ Arizona Cardinals\nJ. Gibbs\nO 34.5\n-135\n-135\nU 34.5\n+105\n+105\nDetroit Lions @ Arizona Cardinals\nK. Bourne\nO 23.5\n-115\n-115\nU 23.5\n-115\n-115\nDetroit Lions @ Arizona Cardinals\nI. TeSlaa\nO 27.5\nEven\nEven\nU 27.5\n-130\n-130\nDetroit Lions @ Arizona Cardinals\nJer. Love\nO 11.5\n-105\n-105\nU 11.5\n-125\n-125",
+      "Total Receiving Yards": "Total Receiving Yards\nDetroit Lions @ Arizona Cardinals\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\t130+\t140+\nA. St. Brown\t\n--\n\t\n--\n\t\n-2000\n-2000\n\t\n-1100\n-1100\n\t\n-500\n-500\n\t\n-300\n-300\n\t\n-185\n-185\n\t\n-120\n-120\n\t\n+130\n+130\n\t\n+185\n+185\n\t\n+275\n+275\n\t\n+375\n+375\n\t\n+550\n+550\n\t\n+800\n+800\n\nT. McBride\t\n--\n\t\n-6000\n-6000\n\t\n-1800\n-1800\n\t\n-900\n-900\n\t\n-475\n-475\n\t\n-275\n-275\n\t\n-175\n-175\n\t\n-120\n-120\n\t\n+125\n+125\n\t\n+175\n+175\n\t\n+260\n+260\n\t\n+360\n+360\n\t\n+500\n+500\n\t\n+700\n+700\n\nMi. Wilson\t\n-15000\n-15000\n\t\n-2500\n-2500\n\t\n-1200\n-1200\n\t\n-550\n-550\n\t\n-325\n-325\n\t\n-210\n-210\n\t\n-140\n-140\n\t\n+105\n+105\n\t\n+150\n+150\n\t\n+210\n+210\n\t\n+300\n+300\n\t\n+400\n+400\n\t\n+550\n+550\n\t\n--\n\nS. LaPorta\t\n-4000\n-4000\n\t\n-1000\n-1000\n\t\n-400\n-400\n\t\n-220\n-220\n\t\n-125\n-125\n\t\n+135\n+135\n\t\n+210\n+210\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nJame. Williams\t\n-2250\n-2250\n\t\n-900\n-900\n\t\n-400\n-400\n\t\n-225\n-225\n\t\n-135\n-135\n\t\n+115\n+115\n\t\n+175\n+175\n\t\n+260\n+260\n\t\n+375\n+375\n\t\n+550\n+550\n\t\n+800\n+800\n\t\n--\n\t\n--\n\t\n--\n\nJ. Gibbs\t\n-1600\n-1600\n\t\n-475\n-475\n\t\n-190\n-190\n\t\n+105\n+105\n\t\n+185\n+185\n\t\n+325\n+325\n\t\n+550\n+550\n\t\n+900\n+900\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nM. Harrison Jr.\t\n-800\n-800\n\t\n-300\n-300\n\t\n-145\n-145\n\t\n+115\n+115\n\t\n+175\n+175\n\t\n+275\n+275\n\t\n+400\n+400\n\t\n+600\n+600\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nK. Bourne\t\n-400\n-400\n\t\n-155\n-155\n\t\n+130\n+130\n\t\n+225\n+225\n\t\n+375\n+375\n\t\n+600\n+600\n\t\n+1000\n+1000\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nI. TeSlaa\t\n-400\n-400\n\t\n-170\n-170\n\t\n+115\n+115\n\t\n+200\n+200\n\t\n+325\n+325\n\t\n+500\n+500\n\t\n+800\n+800\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nJer. Love\t\n-145\n-145\n\t\n+210\n+210\n\t\n+500\n+500\n\t\n+1000\n+1000\n\t\n+1500\n+1500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "SF @ SEA",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/9ac173dd-50ea-4ef9-bf02-34001ba89466#popular",
+    "observed_at": "2026-10-08T20:47:28.488Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Christian McCaffrey",
+        "combined": 94.5,
+        "rushing": 54.5,
+        "receiving": 34.5,
+        "receiving_floor": 41,
+        "redundant_milestones": [
+          10,
+          20,
+          30,
+          40
+        ]
+      },
+      {
+        "name": "Emanuel Wilson",
+        "combined": 79.5,
+        "rushing": 64.5,
+        "receiving": null,
+        "receiving_floor": 16,
+        "redundant_milestones": []
+      },
+      {
+        "name": "George Holani",
+        "combined": 34.5,
+        "rushing": 19.5,
+        "receiving": 9.5,
+        "receiving_floor": 16,
+        "redundant_milestones": [
+          10
+        ]
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nSan Francisco 49ers @ Seattle Seahawks\nEm. Wilson\nO 79.5\n-110\n-110\nU 79.5\n-120\n-120\nSan Francisco 49ers @ Seattle Seahawks\nC. McCaffrey\nO 94.5\n-120\n-120\nU 94.5\n-110\n-110\nSan Francisco 49ers @ Seattle Seahawks\nG. Holani\nO 34.5\n-105\n-105\nU 34.5\n-125\n-125",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nSan Francisco 49ers @ Seattle Seahawks\nEm. Wilson\nO 64.5\n-105\n-105\nU 64.5\n-125\n-125\nSan Francisco 49ers @ Seattle Seahawks\nC. McCaffrey\nO 54.5\n-105\n-105\nU 54.5\n-125\n-125\nSan Francisco 49ers @ Seattle Seahawks\nG. Holani\nO 19.5\n+110\n+110\nU 19.5\n-140\n-140\nSan Francisco 49ers @ Seattle Seahawks\nK. Black\nO 14.5\n-115\n-115\nU 14.5\n-115\n-115\nSan Francisco 49ers @ Seattle Seahawks\nB. Purdy\nO 24.5\n+110\n+110\nU 24.5\n-140\n-140\nSan Francisco 49ers @ Seattle Seahawks\nS. Darnold\nO 5.5\n+105\n+105\nU 5.5\n-135\n-135\nSan Francisco 49ers @ Seattle Seahawks\nD. Samuel Sr.\nO 8.5\n-115\n-115\nU 8.5\n-115\n-115",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nSan Francisco 49ers @ Seattle Seahawks\nJ. Smith-Njigba\nO 89.5\n-125\n-125\nU 89.5\n-105\n-105\nSan Francisco 49ers @ Seattle Seahawks\nG. Kittle\nO 49.5\n-125\n-125\nU 49.5\n-105\n-105\nSan Francisco 49ers @ Seattle Seahawks\nM. Evans\nO 49.5\n-105\n-105\nU 49.5\n-125\n-125\nSan Francisco 49ers @ Seattle Seahawks\nD. Samuel Sr.\nO 34.5\n-105\n-105\nU 34.5\n-125\n-125\nSan Francisco 49ers @ Seattle Seahawks\nC. Kupp\nO 25.5\nEven\nEven\nU 25.5\n-130\n-130\nSan Francisco 49ers @ Seattle Seahawks\nR. Shaheed\nO 19.5\n-125\n-125\nU 19.5\n-105\n-105\nSan Francisco 49ers @ Seattle Seahawks\nA. Barner\nO 24.5\n-110\n-110\nU 24.5\n-120\n-120\nSan Francisco 49ers @ Seattle Seahawks\nC. McCaffrey\nO 34.5\n-115\n-115\nU 34.5\n-115\n-115\nSan Francisco 49ers @ Seattle Seahawks\nT. Horton\nO 9.5\n-115\n-115\nU 9.5\n-115\n-115\nSan Francisco 49ers @ Seattle Seahawks\nG. Holani\nO 9.5\nEven\nEven\nU 9.5\n-130\n-130",
+      "Total Receiving Yards": "Total Receiving Yards\nSan Francisco 49ers @ Seattle Seahawks\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\t130+\t140+\t150+\nJ. Smith-Njigba\t\n--\n\t\n-15000\n-15000\n\t\n-4000\n-4000\n\t\n-1600\n-1600\n\t\n-800\n-800\n\t\n-475\n-475\n\t\n-300\n-300\n\t\n-185\n-185\n\t\n-125\n-125\n\t\n+120\n+120\n\t\n+175\n+175\n\t\n+250\n+250\n\t\n+325\n+325\n\t\n+450\n+450\n\t\n+700\n+700\n\nG. Kittle\t\n--\n\t\n-1000\n-1000\n\t\n-450\n-450\n\t\n-220\n-220\n\t\n-125\n-125\n\t\n+135\n+135\n\t\n+200\n+200\n\t\n+300\n+300\n\t\n+450\n+450\n\t\n+700\n+700\n\t\n+1000\n+1000\n\t\n+1400\n+1400\n\t\n--\n\t\n--\n\t\n--\n\nM. Evans\t\n-2000\n-2000\n\t\n-700\n-700\n\t\n-325\n-325\n\t\n-175\n-175\n\t\n-105\n-105\n\t\n+150\n+150\n\t\n+225\n+225\n\t\n+350\n+350\n\t\n+550\n+550\n\t\n+650\n+650\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nC. McCaffrey\t\n-1300\n-1300\n\t\n-375\n-375\n\t\n-155\n-155\n\t\n+120\n+120\n\t\n+200\n+200\n\t\n+325\n+325\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nD. Samuel Sr.\t\n-900\n-900\n\t\n-325\n-325\n\t\n-145\n-145\n\t\n+125\n+125\n\t\n+210\n+210\n\t\n+350\n+350\n\t\n+600\n+600\n\t\n+900\n+900\n\t\n+1500\n+1500\n\t\n+2200\n+2200\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nA. Barner\t\n-475\n-475\n\t\n-160\n-160\n\t\n+135\n+135\n\t\n+250\n+250\n\t\n+450\n+450\n\t\n+800\n+800\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nC. Kupp\t\n-450\n-450\n\t\n-155\n-155\n\t\n+135\n+135\n\t\n+250\n+250\n\t\n+450\n+450\n\t\n+750\n+750\n\t\n+1300\n+1300\n\t\n+2000\n+2000\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nR. Shaheed\t\n-300\n-300\n\t\n-120\n-120\n\t\n+160\n+160\n\t\n+275\n+275\n\t\n+500\n+500\n\t\n+800\n+800\n\t\n+1300\n+1300\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nT. Horton\t\n-115\n-115\n\t\n+225\n+225\n\t\n+500\n+500\n\t\n+900\n+900\n\t\n+1800\n+1800\n\t\n+3500\n+3500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nG. Holani\t\n-105\n-105\n\t\n+275\n+275\n\t\n+600\n+600\n\t\n+1200\n+1200\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "BAL @ ATL",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/b91550dd-02c9-4e34-87df-37b32a3c5a31#popular",
+    "observed_at": "2026-10-08T20:48:09.065Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Bijan Robinson",
+        "combined": 119.5,
+        "rushing": 89.5,
+        "receiving": 27.5,
+        "receiving_floor": 31,
+        "redundant_milestones": [
+          10,
+          20,
+          30
+        ]
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nBaltimore Ravens @ Atlanta Falcons\nBij. Robinson\nO 119.5\n-120\n-120\nU 119.5\n-110\n-110",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nBaltimore Ravens @ Atlanta Falcons\nBij. Robinson\nO 89.5\n-110\n-110\nU 89.5\n-120\n-120\nBaltimore Ravens @ Atlanta Falcons\nD. Henry\nO 84.5\n-105\n-105\nU 84.5\n-125\n-125\nBaltimore Ravens @ Atlanta Falcons\nBri. Robinson Jr.\nO 34.5\n-120\n-120\nU 34.5\n-110\n-110\nBaltimore Ravens @ Atlanta Falcons\nJus. Hill\nO 11.5\n-115\n-115\nU 11.5\n-115\n-115\nBaltimore Ravens @ Atlanta Falcons\nM. Penix Jr.\nO 0.5\n-110\n-110\nU 0.5\n-120\n-120",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nBaltimore Ravens @ Atlanta Falcons\nD. London\nO 79.5\n-120\n-120\nU 79.5\n-110\n-110\nBaltimore Ravens @ Atlanta Falcons\nZ. Flowers\nO 69.5\n-110\n-110\nU 69.5\n-120\n-120\nBaltimore Ravens @ Atlanta Falcons\nM. Andrews\nO 29.5\n-115\n-115\nU 29.5\n-115\n-115\nBaltimore Ravens @ Atlanta Falcons\nR. Bateman\nO 19.5\n+105\n+105\nU 19.5\n-135\n-135\nBaltimore Ravens @ Atlanta Falcons\nK. Pitts\nO 25.5\nEven\nEven\nU 25.5\n-130\n-130\nBaltimore Ravens @ Atlanta Falcons\nJ. Dotson\nO 19.5\n-110\n-110\nU 19.5\n-120\n-120\nBaltimore Ravens @ Atlanta Falcons\nBij. Robinson\nO 27.5\n-105\n-105\nU 27.5\n-125\n-125",
+      "Total Receiving Yards": "Total Receiving Yards\nBaltimore Ravens @ Atlanta Falcons\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\t130+\t140+\t150+\nD. London\t\n-25000\n-25000\n\t\n-4000\n-4000\n\t\n-1600\n-1600\n\t\n-900\n-900\n\t\n-450\n-450\n\t\n-275\n-275\n\t\n-185\n-185\n\t\n-120\n-120\n\t\n+120\n+120\n\t\n+175\n+175\n\t\n+250\n+250\n\t\n+325\n+325\n\t\n+450\n+450\n\t\n+650\n+650\n\t\n+900\n+900\n\nZ. Flowers\t\n-10000\n-10000\n\t\n-2250\n-2250\n\t\n-900\n-900\n\t\n-475\n-475\n\t\n-275\n-275\n\t\n-170\n-170\n\t\n-110\n-110\n\t\n+135\n+135\n\t\n+200\n+200\n\t\n+275\n+275\n\t\n+400\n+400\n\t\n+550\n+550\n\t\n+800\n+800\n\t\n+1100\n+1100\n\t\n--\n\nM. Andrews\t\n-900\n-900\n\t\n-250\n-250\n\t\n-115\n-115\n\t\n+165\n+165\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n+800\n+800\n\t\n+1300\n+1300\n\t\n+2000\n+2000\n\t\n+3500\n+3500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nBij. Robinson\t\n-600\n-600\n\t\n-210\n-210\n\t\n+105\n+105\n\t\n+200\n+200\n\t\n+350\n+350\n\t\n+600\n+600\n\t\n+1000\n+1000\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nK. Pitts\t\n-400\n-400\n\t\n-155\n-155\n\t\n+125\n+125\n\t\n+210\n+210\n\t\n+350\n+350\n\t\n+600\n+600\n\t\n+900\n+900\n\t\n+1500\n+1500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nJ. Dotson\t\n-250\n-250\n\t\n-110\n-110\n\t\n+175\n+175\n\t\n+300\n+300\n\t\n+450\n+450\n\t\n+750\n+750\n\t\n+1200\n+1200\n\t\n+1800\n+1800\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nR. Bateman\t\n-240\n-240\n\t\n+105\n+105\n\t\n+210\n+210\n\t\n+375\n+375\n\t\n+650\n+650\n\t\n+1000\n+1000\n\t\n+1800\n+1800\n\t\n+2500\n+2500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "TB @ DAL",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/6c943f82-ed85-4c3d-9196-dff21388536e#popular",
+    "observed_at": "2026-10-08T20:48:47.838Z",
+    "combined_market_available": true,
+    "players": [
+      {
+        "name": "Javonte Williams",
+        "combined": 84.5,
+        "rushing": 64.5,
+        "receiving": 14.5,
+        "receiving_floor": 21,
+        "redundant_milestones": [
+          10,
+          20
+        ]
+      },
+      {
+        "name": "Bucky Irving",
+        "combined": 69.5,
+        "rushing": 54.5,
+        "receiving": 13.5,
+        "receiving_floor": 16,
+        "redundant_milestones": [
+          10
+        ]
+      },
+      {
+        "name": "Kenneth Gainwell",
+        "combined": 29.5,
+        "rushing": 10.5,
+        "receiving": 9.5,
+        "receiving_floor": 20,
+        "redundant_milestones": [
+          10,
+          20
+        ]
+      }
+    ],
+    "raw": {
+      "Total Rushing + Receiving Yards (O/U)": "Total Rushing + Receiving Yards (O/U)\nTampa Bay Buccaneers @ Dallas Cowboys\nJav. Williams\nO 84.5\n-120\n-120\nU 84.5\n-110\n-110\nTampa Bay Buccaneers @ Dallas Cowboys\nB. Irving\nO 69.5\n-110\n-110\nU 69.5\n-120\n-120\nTampa Bay Buccaneers @ Dallas Cowboys\nK. Gainwell\nO 29.5\n+105\n+105\nU 29.5\n-135\n-135",
+      "Total Rushing Yards (O/U)": "Total Rushing Yards (O/U)\nTampa Bay Buccaneers @ Dallas Cowboys\nJav. Williams\nO 64.5\n-115\n-115\nU 64.5\n-115\n-115\nTampa Bay Buccaneers @ Dallas Cowboys\nB. Irving\nO 54.5\nEven\nEven\nU 54.5\n-130\n-130\nTampa Bay Buccaneers @ Dallas Cowboys\nT. Goodson\nO 16.5\n+110\n+110\nU 16.5\n-140\n-140\nTampa Bay Buccaneers @ Dallas Cowboys\nJ. Daniels\nO 39.5\n-130\n-130\nU 39.5\nEven\nEven\nTampa Bay Buccaneers @ Dallas Cowboys\nK. Gainwell\nO 10.5\n-140\n-140\nU 10.5\n+110\n+110\nTampa Bay Buccaneers @ Dallas Cowboys\nD. Prescott\nO 9.5\n-105\n-105\nU 9.5\n-125\n-125\nTampa Bay Buccaneers @ Dallas Cowboys\nS. Tucker\nO 13.5\n-105\n-105\nU 13.5\n-125\n-125",
+      "Total Receiving Yards (O/U)": "Total Receiving Yards (O/U)\nTampa Bay Buccaneers @ Dallas Cowboys\nC. Lamb\nO 84.5\n-105\n-105\nU 84.5\n-125\n-125\nTampa Bay Buccaneers @ Dallas Cowboys\nG. Pickens\nO 64.5\n-115\n-115\nU 64.5\n-115\n-115\nTampa Bay Buccaneers @ Dallas Cowboys\nE. Egbuka\nO 36.5\n-110\n-110\nU 36.5\n-120\n-120\nTampa Bay Buccaneers @ Dallas Cowboys\nR. Flournoy\nO 29.5\n-125\n-125\nU 29.5\n-105\n-105\nTampa Bay Buccaneers @ Dallas Cowboys\nC. Godwin\nO 34.5\n-110\n-110\nU 34.5\n-120\n-120\nTampa Bay Buccaneers @ Dallas Cowboys\nC. Otton\nO 29.5\n-105\n-105\nU 29.5\n-125\n-125\nTampa Bay Buccaneers @ Dallas Cowboys\nB. Irving\nO 13.5\n+105\n+105\nU 13.5\n-135\n-135\nTampa Bay Buccaneers @ Dallas Cowboys\nJ. Ferguson\nO 27.5\n-105\n-105\nU 27.5\n-125\n-125\nTampa Bay Buccaneers @ Dallas Cowboys\nT. Hurst\nO 14.5\n-120\n-120\nU 14.5\n-110\n-110\nTampa Bay Buccaneers @ Dallas Cowboys\nJav. Williams\nO 14.5\nEven\nEven\nU 14.5\n-130\n-130\nTampa Bay Buccaneers @ Dallas Cowboys\nK. Turpin\nO 0.5\n-120\n-120\nU 0.5\n-110\n-110\nTampa Bay Buccaneers @ Dallas Cowboys\nT. Johnson\nO 11.5\n-125\n-125\nU 11.5\n-105\n-105\nTampa Bay Buccaneers @ Dallas Cowboys\nB. Spann-Ford\nO 2.5\n-155\n-155\nU 2.5\n+120\n+120\nTampa Bay Buccaneers @ Dallas Cowboys\nK. Gainwell\nO 9.5\n-135\n-135\nU 9.5\n+105\n+105",
+      "Total Receiving Yards": "Total Receiving Yards\nTampa Bay Buccaneers @ Dallas Cowboys\n\t10+\t20+\t30+\t40+\t50+\t60+\t70+\t80+\t90+\t100+\t110+\t120+\t130+\t140+\t150+\nC. Lamb\t\n--\n\t\n-3500\n-3500\n\t\n-1400\n-1400\n\t\n-800\n-800\n\t\n-450\n-450\n\t\n-275\n-275\n\t\n-185\n-185\n\t\n-130\n-130\n\t\n+110\n+110\n\t\n+150\n+150\n\t\n+210\n+210\n\t\n+275\n+275\n\t\n+375\n+375\n\t\n+550\n+550\n\t\n+700\n+700\n\nG. Pickens\t\n--\n\t\n-1100\n-1100\n\t\n-525\n-525\n\t\n-325\n-325\n\t\n-210\n-210\n\t\n-135\n-135\n\t\n+105\n+105\n\t\n+155\n+155\n\t\n+210\n+210\n\t\n+300\n+300\n\t\n+400\n+400\n\t\n+550\n+550\n\t\n--\n\t\n--\n\t\n--\n\nE. Egbuka\t\n-800\n-800\n\t\n-300\n-300\n\t\n-155\n-155\n\t\n+105\n+105\n\t\n+165\n+165\n\t\n+250\n+250\n\t\n+375\n+375\n\t\n+550\n+550\n\t\n+850\n+850\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nC. Godwin\t\n-800\n-800\n\t\n-300\n-300\n\t\n-145\n-145\n\t\n+120\n+120\n\t\n+200\n+200\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n+750\n+750\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nR. Flournoy\t\n-700\n-700\n\t\n-250\n-250\n\t\n-120\n-120\n\t\n+150\n+150\n\t\n+260\n+260\n\t\n+425\n+425\n\t\n+550\n+550\n\t\n+850\n+850\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nC. Otton\t\n-650\n-650\n\t\n-240\n-240\n\t\n-110\n-110\n\t\n+175\n+175\n\t\n+300\n+300\n\t\n+500\n+500\n\t\n+850\n+850\n\t\n+1400\n+1400\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nJ. Ferguson\t\n-550\n-550\n\t\n-190\n-190\n\t\n+115\n+115\n\t\n+210\n+210\n\t\n+350\n+350\n\t\n+500\n+500\n\t\n+850\n+850\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nT. Hurst\t\n-200\n-200\n\t\n+125\n+125\n\t\n+225\n+225\n\t\n+375\n+375\n\t\n+650\n+650\n\t\n+1000\n+1000\n\t\n+1600\n+1600\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nJav. Williams\t\n-190\n-190\n\t\n+160\n+160\n\t\n+360\n+360\n\t\n+700\n+700\n\t\n+1200\n+1200\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nB. Irving\t\n-160\n-160\n\t\n+175\n+175\n\t\n+375\n+375\n\t\n+800\n+800\n\t\n+1500\n+1500\n\t\n+2500\n+2500\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nT. Johnson\t\n-140\n-140\n\t\n+150\n+150\n\t\n+275\n+275\n\t\n+450\n+450\n\t\n+750\n+750\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nK. Gainwell\t\n-135\n-135\n\t\n+200\n+200\n\t\n+450\n+450\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nK. Turpin\t\n+115\n+115\n\t\n+200\n+200\n\t\n+375\n+375\n\t\n+650\n+650\n\t\n+1100\n+1100\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\nB. Spann-Ford\t\n+150\n+150\n\t\n+325\n+325\n\t\n+700\n+700\n\t\n+1200\n+1200\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--\n\t\n--"
+    }
+  },
+  {
+    "event": "BUF @ LAR",
+    "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/af629487-cab5-4d62-bfcf-c4ee663d516d#popular",
+    "observed_at": "2026-10-08T20:49:12.685Z",
+    "combined_market_available": false,
+    "checked_tabs": [
+      "Popular",
+      "Rushing",
+      "Receiving"
+    ],
+    "headings": {
+      "Popular": "BUF Bills\n3-1-0, 1st AFC East\n\nOct 12\n\n8:15 PM\n\nLA Rams\n2-2-0, 3rd NFC West\nPopular\nTD Scorers\nPassing\nReceiving\nRushing\nGame Props\nQuarter\nHalf\nSpecials\nMain Lines\nBuffalo Bills @ Los Angeles Rams\n\tSpread\tTotal\tMoney\nBUF Bills\t\n+3.5\n-115\n-115\n\t\nO 55.5\n-105\n-105\n\t\n+145\n+145\n\nLA Rams\t\n-3.5\n-105\n-105\n\t\nU 55.5\n-115\n-115\n\t\n-170\n-170\nAlternate Game Spread\nAlternate Total Points\nTotal Touchdowns\nFirst Touchdown Scorer\n1st Half Moneyline\n1st Half Spread\n1st Half Total Points\nTeam Total Points\nTotal Passing Yards\nTotal Passing Touchdowns\nTotal Receiving Yards\nTotal Receptions\nTotal Rushing Yards\nTotal Passing Yards (O/U)\nTotal Passing Touchdowns (O/U)\nTotal Receiving Yards (O/U)\nTotal Rushing Yards (O/U)\nTotal Receptions (O/U)\n",
+      "Rushing": "BUF Bills\n3-1-0, 1st AFC East\n\nOct 12\n\n8:15 PM\n\nLA Rams\n2-2-0, 3rd NFC West\nPopular\nTD Scorers\nPassing\nReceiving\nRushing\nGame Props\nQuarter\nHalf\nSpecials\nTotal Rushing Yards\nTotal Rushing Yards (O/U)\n",
+      "Receiving": "BUF Bills\n3-1-0, 1st AFC East\n\nOct 12\n\n8:15 PM\n\nLA Rams\n2-2-0, 3rd NFC West\nPopular\nTD Scorers\nPassing\nReceiving\nRushing\nGame Props\nQuarter\nHalf\nSpecials\nTotal Receiving Yards\nTotal Receptions\nTotal Receiving Yards (O/U)\nTotal Receptions (O/U)\n"
+    }
+  }
+]
