@@ -98,15 +98,21 @@ class TheScore:
         self.requests += 1
         if self.sleep:
             time.sleep(self.sleep)
-        try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-                return json.loads(resp.read().decode("utf-8"))
-        except urllib.error.HTTPError as e:
-            text = e.read().decode("utf-8", "replace")
+        last = None
+        for attempt in range(3):
             try:
-                return json.loads(text)
-            except ValueError:
-                return {"errors": [{"message": f"HTTP {e.code}: {text[:300]}"}]}
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    return json.loads(resp.read().decode("utf-8"))
+            except urllib.error.HTTPError as e:
+                text = e.read().decode("utf-8", "replace")
+                try:
+                    return json.loads(text)
+                except ValueError:
+                    return {"errors": [{"message": f"HTTP {e.code}: {text[:300]}"}]}
+            except (urllib.error.URLError, OSError, ValueError) as e:  # transient TLS / connection resets
+                last = e
+                time.sleep(1.0 + attempt)
+        raise last
 
     def persisted(self, op, variables, auth=True, post=False):
         ext = {"persistedQuery": {"version": 1, "sha256Hash": PERSISTED[op]}}

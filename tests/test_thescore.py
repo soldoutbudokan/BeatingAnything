@@ -152,3 +152,48 @@ class DraftTests(unittest.TestCase):
         self.assertFalse(classify_draft(pending)["settled"])
         ineligible = {"isParlayPlusEligible": False, "betToWinRatio": 2.0, "totalOdds": {"formattedOdds": "+200"}, "errors": [], "draftLegs": []}
         self.assertEqual(classify_draft(ineligible)["error"], "not_parlay_plus_eligible")
+
+
+class ConjunctionTests(unittest.TestCase):
+    def test_mccaffrey_conjunction_found_and_single_leg_cases_excluded(self):
+        from beating.thescore_conjunctions import constructions
+        event = {"name": "San Francisco 49ers @ Seattle Seahawks"}
+        markets = [
+            market("s", "Christian McCaffrey Total Rushing + Receiving Yards", "LIST", [sel("s90", "90+", "LIST", 12, 7), sel("s100", "100+", "LIST", 41, 20)]),
+            market("sou", "Christian McCaffrey Total Rushing + Receiving Yards", "TOTAL", [sel("sov", "Over 94.5", "OVER", 20, 11, 94.5), sel("sun", "Under 94.5", "UNDER", 20, 11, 94.5)]),
+            market("r", "Christian McCaffrey Total Rushing Yards", "TOTAL", [sel("rov", "Over 54.5", "OVER", 41, 20, 54.5), sel("run", "Under 54.5", "UNDER", 8, 5, 54.5)]),
+            market("c", "Christian McCaffrey Total Receiving Yards", "LIST", [sel("c20", "20+", "LIST", 19, 15), sel("c30", "30+", "LIST", 20, 13), sel("c40", "40+", "LIST", 11, 5)]),
+            market("cou", "Christian McCaffrey Total Receiving Yards", "TOTAL", [sel("cov", "Over 34.5", "OVER", 20, 11, 34.5), sel("cun", "Under 34.5", "UNDER", 20, 11, 34.5)]),
+        ]
+        cons = constructions(event, markets, "football")
+        base_labels = {tuple(sorted(a.label for a in c["base"])) for c in cons}
+        key = tuple(sorted(["Christian McCaffrey Total Rushing + Receiving Yards 90+", "Christian McCaffrey Total Rushing Yards Under 54.5"]))
+        self.assertIn(key, base_labels)
+        c = next(c for c in cons if tuple(sorted(a.label for a in c["base"])) == key)
+        implied = {a.label for a in c["implied"]}
+        # S >= 90 and R <= 54 force C >= 36: Over 34.5, 30+ and 20+ are implied; 40+ is not
+        self.assertIn("Christian McCaffrey Total Receiving Yards Over 34.5", implied)
+        self.assertIn("Christian McCaffrey Total Receiving Yards 30+", implied)
+        self.assertNotIn("Christian McCaffrey Total Receiving Yards 40+", implied)
+        stack = {a.label for a in c["stack"]}
+        self.assertEqual(stack, {"Christian McCaffrey Total Receiving Yards Over 34.5", "Christian McCaffrey Total Receiving Yards 30+"})
+        # a leg implied by one base leg alone (100+ implies 90+) must never count as a conjunction implication
+        for c in cons:
+            labels = {a.label for a in c["base"]}
+            if "Christian McCaffrey Total Rushing + Receiving Yards 100+" in labels:
+                self.assertNotIn("Christian McCaffrey Total Rushing + Receiving Yards 90+", {a.label for a in c["implied"]})
+
+    def test_team_space_spread_and_total_imply_team_total(self):
+        from beating.thescore_conjunctions import constructions
+        event = {"name": "Tampa Bay Buccaneers @ Dallas Cowboys"}
+        markets = [
+            market("sp", "Game Spread", "SPREAD", [sel("hs", "DAL Cowboys -9.5", "HOME_SPREAD", 21, 11, -9.5), sel("as", "TB Buccaneers +9.5", "AWAY_SPREAD", 21, 11, 9.5)]),
+            market("tp", "Total Points", "TOTAL", [sel("o", "Over 49.5", "OVER", 41, 21, 49.5), sel("u", "Under 49.5", "UNDER", 20, 11, 49.5)]),
+            market("tt", "DAL Cowboys Total Points", "TOTAL", [sel("to", "Over 28.5", "OVER", 20, 11, 28.5), sel("tu", "Under 28.5", "UNDER", 20, 11, 28.5)]),
+            market("at", "TB Buccaneers Total Points", "TOTAL", [sel("ao", "Over 20.5", "OVER", 20, 11, 20.5), sel("au", "Under 20.5", "UNDER", 20, 11, 20.5)]),
+        ]
+        cons = constructions(event, markets, "football")
+        found = {(tuple(sorted(a.label for a in c["base"])), tuple(sorted(a.label for a in c["implied"]))) for c in cons}
+        # DAL wins by 10+ and 50+ total points force DAL >= 30 (Over 28.5); DAL by 10+ with under 50 forces TB <= 19 (Under 20.5)
+        self.assertIn((("Game Spread DAL Cowboys -9.5", "Total Points Over 49.5"), ("DAL Cowboys Total Points Over 28.5",)), found)
+        self.assertIn((("Game Spread DAL Cowboys -9.5", "Total Points Under 49.5"), ("TB Buccaneers Total Points Under 20.5",)), found)
