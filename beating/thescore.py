@@ -41,6 +41,7 @@ MARKET_FIELDS = "{ id name status type selections { id rawId type status name { 
 CARD_TYPES = ["GridMarketCard", "SimpleGridMarketCard", "SoccerGridMarketCard", "TennisGridMarketCard", "CombatGridMarketCard", "CricketGridMarketCard"]
 BETSLIP_Q = ("query { betslip { id numberOfSelections errors { message code } parlay { errors { message code } draftBets { id isParlayPlusEligible betToWinRatio "
              "totalOdds { formattedOdds(oddsFormat: AMERICAN) } errors { message code } draftLegs { marketName errors { message code } marketSelection { id } } } } } }")
+REFUSAL_CODES = ("vegas.not.parlayable", "vegas.related.markets", "vegas.correlated.markets", "vegas.parlay_plus.pricing_failed_to_build_request", "not_parlay_plus_eligible")
 
 
 def now_iso():
@@ -193,8 +194,12 @@ class TheScore:
         return ((r.get("data") or {}).get("betslip")), r.get("errors")
 
     def price_parlay(self, selections, max_wait=6.0, poll=0.3):
-        """Clear the slip, add each selection, wait for the parlay draft bet to be priced.
-        -> dict(decimal, legs, waited, error, errors) ; decimal is None when the book refuses or does not price the combination."""
+        """Clear the slip, add each selection, wait for the parlay draft to settle.
+
+        -> dict(decimal, formatted, eligible, draft_decimal, error, errors, waited, n).
+        `decimal` is set only for a draft the book will accept: Parlay+ eligible and free of draft-level errors. A draft that
+        carries `vegas.not.parlayable` still shows a product of the leg prices (`draft_decimal`); the site displays
+        "Parlay not available" for it and it cannot be placed, so it is reported as a refusal."""
         self.clear()
         for s in selections:
             b, err = self.add(s)
@@ -204,29 +209,48 @@ class TheScore:
                 return {"decimal": None, "error": "betslip_error", "errors": b["errors"]}
         t0 = time.time()
         last = None
+        wanted = {str(s["id"]).replace("MarketSelection:", "") for s in selections}
         while time.time() - t0 <= max_wait:
             b, err = self.betslip()
             if b:
                 last = b
-                drafts = (b.get("parlay") or {}).get("draftBets") or []
-                wanted = {str(s["id"]).replace("MarketSelection:", "") for s in selections}
                 if b.get("numberOfSelections") != len(selections):
                     return {"decimal": None, "error": "slip_count_mismatch", "errors": None, "waited": round(time.time() - t0, 2), "n": b.get("numberOfSelections")}
+                drafts = (b.get("parlay") or {}).get("draftBets") or []
                 if drafts:
-                    d = drafts[0]
-                    legs = {str((leg.get("marketSelection") or {}).get("id") or "").replace("BetslipMarketSelection:", "") for leg in d.get("draftLegs") or []}
+                    legs = {str((leg.get("marketSelection") or {}).get("id") or "").replace("BetslipMarketSelection:", "") for leg in drafts[0].get("draftLegs") or []}
                     if legs and legs != wanted:
                         return {"decimal": None, "error": "slip_legs_mismatch", "errors": None, "waited": round(time.time() - t0, 2), "n": b.get("numberOfSelections")}
-                    if d.get("betToWinRatio") is not None:
-                        return {"decimal": 1.0 + float(d["betToWinRatio"]), "formatted": (d.get("totalOdds") or {}).get("formattedOdds"), "eligible": d.get("isParlayPlusEligible"),
-                                "waited": round(time.time() - t0, 2), "error": None, "errors": None, "n": b.get("numberOfSelections")}
-                    errs = list(d.get("errors") or []) + [e for leg in d.get("draftLegs") or [] for e in (leg.get("errors") or [])]
+                    res = classify_draft(drafts[0])
+                    if res["settled"]:
+                        res.update(waited=round(time.time() - t0, 2), n=b.get("numberOfSelections"))
+                        res.pop("settled")
+                        return res
                 else:
                     errs = list((b.get("parlay") or {}).get("errors") or []) + list(b.get("errors") or [])
-                if errs:
-                    return {"decimal": None, "error": (errs[0].get("code") or errs[0].get("message")), "errors": errs, "waited": round(time.time() - t0, 2), "n": b.get("numberOfSelections")}
+                    if errs:
+                        return {"decimal": None, "error": (errs[0].get("code") or errs[0].get("message")), "errors": errs, "waited": round(time.time() - t0, 2), "n": b.get("numberOfSelections")}
             time.sleep(poll)
         return {"decimal": None, "error": "timeout", "errors": None, "waited": round(time.time() - t0, 2), "n": (last or {}).get("numberOfSelections")}
+
+
+def classify_draft(draft):
+    """Read one parlay draft bet. A quote counts only when the draft is Parlay+ eligible and carries no error; the engine
+    attaches a plain product of the leg prices to refused same-game drafts (`vegas.not.parlayable`), which the site shows as
+    'Parlay not available'."""
+    errs = list(draft.get("errors") or []) + [e for leg in draft.get("draftLegs") or [] for e in (leg.get("errors") or [])]
+    ratio = draft.get("betToWinRatio")
+    draft_decimal = 1.0 + float(ratio) if ratio is not None else None
+    formatted = (draft.get("totalOdds") or {}).get("formattedOdds")
+    eligible = draft.get("isParlayPlusEligible")
+    if errs:
+        return {"settled": True, "decimal": None, "formatted": formatted, "eligible": eligible, "draft_decimal": draft_decimal,
+                "error": errs[0].get("code") or errs[0].get("message"), "errors": errs}
+    if ratio is None:
+        return {"settled": False}
+    if not eligible:
+        return {"settled": True, "decimal": None, "formatted": formatted, "eligible": eligible, "draft_decimal": draft_decimal, "error": "not_parlay_plus_eligible", "errors": None}
+    return {"settled": True, "decimal": draft_decimal, "formatted": formatted, "eligible": eligible, "draft_decimal": draft_decimal, "error": None, "errors": None}
 
 
 # ---------------------------------------------------------------------------------------------------------------------

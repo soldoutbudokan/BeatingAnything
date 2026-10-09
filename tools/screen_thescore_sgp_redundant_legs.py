@@ -66,7 +66,7 @@ def price_event(client, comp, row, max_pairs, max_per_rule):
             "captured": datetime.now(timezone.utc).isoformat(timespec="seconds"), "board": client.region, "sport": comp["sport"], "competition": comp["path"][-1],
             "competition_url": comp["url"], "event_id": ev.get("id"), "event": ev.get("name"), "start": ev.get("startTime"), "event_url": url,
             "rule": p["rule"], "a": p["a"], "b": p["b"], "sgp_decimal": res.get("decimal"), "sgp_formatted": res.get("formatted"), "eligible": res.get("eligible"),
-            "waited_s": res.get("waited"), "error": res.get("error"), "errors": res.get("errors"),
+            "draft_decimal": res.get("draft_decimal"), "waited_s": res.get("waited"), "error": res.get("error"), "errors": res.get("errors"),
             "improvement": (res["decimal"] / a_dec - 1.0) if res.get("decimal") and a_dec else None,
             "vs_independent": (res["decimal"] / (a_dec * p["b"]["decimal"]) - 1.0) if res.get("decimal") and a_dec and p["b"]["decimal"] else None,
         })
@@ -83,7 +83,14 @@ def main():
     ap.add_argument("--horizon-hours", type=float, default=72)
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--competitions", default="", help="comma list of competition URL substrings to keep")
+    ap.add_argument("--resummarize", default="", help="rebuild the summary JSON from this row file instead of pricing")
     args = ap.parse_args()
+    if args.resummarize:
+        summary, rp = resummarize(args.resummarize)
+        log(f"resummarized {args.resummarize}: priced={summary['priced']} refused={summary['refused_with_product_placeholder']} improved={summary['improved']} -> {rp.relative_to(ROOT)}")
+        for k, v in sorted(summary["by_rule"].items()):
+            log(f"  {k:26s} pairs={v['pairs']:4d} priced={v['priced']:4d} exact={v['exact']:4d} below={v['below']:4d} improved={v['improved']:4d} max={v['max_improvement']} refused={v['refused']} errors={v['errors']}")
+        return
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H%M%SZ")
@@ -143,7 +150,25 @@ def main():
 
     # %% summary
     rows = [json.loads(l) for l in open(out_path)] if out_path.exists() else []
-    by_rule = defaultdict(lambda: {"pairs": 0, "priced": 0, "exact": 0, "below": 0, "improved": 0, "max_improvement": None, "errors": Counter()})
+    summary = summarize(rows, stamp, nav.region, region, len(comps), stats, out_path, errors)
+    rp = REPORTS / f"thescore-sgp-redundant-legs-{stamp[:10]}.json"
+    rp.write_text(json.dumps(summary, indent=1))
+    log(f"done: {stats['events']} events, {stats['pairs']} pairs, {summary['priced']} priced (eligible drafts), {summary['refused']} refused, {summary['improved']} improved -> {rp.relative_to(ROOT)}")
+    for k, v in sorted(summary["by_rule"].items()):
+        log(f"  {k:26s} pairs={v['pairs']:4d} priced={v['priced']:4d} exact={v['exact']:4d} below={v['below']:4d} improved={v['improved']:4d} max={v['max_improvement']} refused={v['refused']} errors={v['errors']}")
+
+
+def summarize(rows, stamp, board, region, n_comps, stats, out_path, errors):
+    """Aggregate rows. Older row files lack `draft_decimal`; a priced row whose draft was not Parlay+ eligible is a refused
+    draft (the book attaches a product of the legs to drafts it rejects with `vegas.not.parlayable`), so it is reclassified."""
+    for r in rows:
+        if r.get("sgp_decimal") and r.get("eligible") is False:
+            r["draft_decimal"] = r["sgp_decimal"]
+            r["sgp_decimal"] = None
+            r["improvement"] = None
+            r["vs_independent"] = None
+            r["error"] = r.get("error") or "vegas.not.parlayable"
+    by_rule = defaultdict(lambda: {"pairs": 0, "priced": 0, "exact": 0, "below": 0, "improved": 0, "refused": 0, "max_improvement": None, "errors": Counter()})
     by_sport = defaultdict(lambda: {"events": set(), "pairs": 0, "priced": 0, "improved": 0})
     for r in rows:
         br = by_rule[r["rule"]]
@@ -165,19 +190,31 @@ def main():
                 br["exact"] += 1
         else:
             br["errors"][str(r["error"])] += 1
-    summary = {
-        "captured": stamp, "board": nav.region, "regional_metadata": region, "competitions": len(comps), "events": stats["events"], "pairs": stats["pairs"],
-        "priced": stats["priced"], "improved": stats["improved"], "rows_path": str(out_path.relative_to(ROOT)),
+            if r.get("draft_decimal"):
+                br["refused"] += 1
+    priced = sum(1 for r in rows if r["sgp_decimal"])
+    improved = sum(1 for r in rows if r["improvement"] is not None and r["improvement"] > 0.005)
+    refused = sum(1 for r in rows if not r["sgp_decimal"] and r.get("draft_decimal"))
+    return {
+        "captured": stamp, "board": board, "regional_metadata": region, "competitions": n_comps, "events": stats["events"], "pairs": stats["pairs"],
+        "priced": priced, "improved": improved, "refused_with_product_placeholder": refused, "rows_path": str(out_path.relative_to(ROOT)),
         "by_rule": {k: dict(v, errors=dict(v["errors"])) for k, v in by_rule.items()},
         "by_sport": {k: dict(v, events=len(v["events"])) for k, v in by_sport.items()},
         "improved_rows": sorted([r for r in rows if r["improvement"] is not None and r["improvement"] > 0.005], key=lambda r: -r["improvement"]),
+        "refused_rows": [r for r in rows if not r["sgp_decimal"] and r.get("draft_decimal")],
         "errors": errors[:50],
     }
+
+
+def resummarize(path):
+    """Rebuild the summary JSON from an existing row file."""
+    rows = [json.loads(l) for l in open(path) if l.strip()]
+    stamp = Path(path).stem
+    stats = Counter(events=len({r["event_id"] for r in rows}), pairs=len(rows))
+    summary = summarize(rows, stamp, rows[0]["board"] if rows else REGION, None, len({r["competition_url"] for r in rows}), stats, Path(path).resolve(), [])
     rp = REPORTS / f"thescore-sgp-redundant-legs-{stamp[:10]}.json"
     rp.write_text(json.dumps(summary, indent=1))
-    log(f"done: {stats['events']} events, {stats['pairs']} pairs, {stats['priced']} priced, {stats['improved']} improved -> {rp.relative_to(ROOT)}")
-    for k, v in sorted(by_rule.items()):
-        log(f"  {k:26s} pairs={v['pairs']:4d} priced={v['priced']:4d} exact={v['exact']:4d} below={v['below']:4d} improved={v['improved']:4d} max={v['max_improvement']} errors={dict(v['errors'])}")
+    return summary, rp
 
 
 if __name__ == "__main__":

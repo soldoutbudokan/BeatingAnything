@@ -349,8 +349,15 @@ def main():
     args = ap.parse_args()
     path = Path(args.rows) if args.rows else Path(sorted(glob.glob(str(ROOT / "data/live/thescore-sgp-redundant/*.jsonl")))[-1])
     rows = [json.loads(l) for l in open(path)]
+    refused = 0
+    for r in rows:  # a quote on a draft the book refuses (not Parlay+ eligible, `vegas.not.parlayable`) is not a price
+        if r.get("sgp_decimal") and r.get("eligible") is False:
+            r["draft_decimal"] = r["sgp_decimal"]
+            r["sgp_decimal"] = None
+            r["improvement"] = None
+            refused += 1
     todo = [r for r in rows if r.get("sgp_decimal") and (args.all or (r.get("improvement") or 0) > args.min_improvement)]
-    print(f"{len(rows)} rows, {len(todo)} to devig from {path.name}")
+    print(f"{len(rows)} rows, {refused} refused drafts set aside, {len(todo)} to devig from {path.name}")
 
     fd_cache, fd_markets_cache = {}, {}
     out, unmatched = [], defaultdict(int)
@@ -394,6 +401,7 @@ def main():
     one_sided = [o for o in priced if not o.get("fd_partition")]
     summary = {
         "screen_rows": str(path.relative_to(ROOT)) if str(path).startswith(str(ROOT)) else str(path), "devigged_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "candidates": len(todo), "fd_matched_legs": len(priced),
+        "refused_drafts_excluded": refused,
         "two_sided_reference": len(two_sided), "positive_ev_power": sum(1 for o in two_sided if o["ev_power"] > 0), "positive_ev_mult": sum(1 for o in two_sided if o["ev_mult"] > 0),
         "one_sided_reference": len(one_sided), "one_sided_positive_ev_upper_bound": sum(1 for o in one_sided if o["ev_vs_fd_raw"] > 0),
         "unmatched": dict(unmatched),

@@ -129,3 +129,26 @@ class RuleTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DraftTests(unittest.TestCase):
+    def test_refused_draft_is_not_a_quote(self):
+        from beating.thescore import classify_draft
+        refused = {"isParlayPlusEligible": False, "betToWinRatio": 16.6, "totalOdds": {"formattedOdds": "+1660"},
+                   "errors": [{"code": "vegas.not.parlayable", "message": "These selections cannot be parlayed."}], "draftLegs": []}
+        r = classify_draft(refused)
+        self.assertTrue(r["settled"])
+        self.assertIsNone(r["decimal"])
+        self.assertEqual(r["error"], "vegas.not.parlayable")
+        self.assertAlmostEqual(r["draft_decimal"], 17.6)
+
+    def test_eligible_draft_is_a_quote_and_pending_draft_waits(self):
+        from beating.thescore import classify_draft
+        ok = {"isParlayPlusEligible": True, "betToWinRatio": 8.54, "totalOdds": {"formattedOdds": "+854"}, "errors": [], "draftLegs": [{"errors": []}]}
+        r = classify_draft(ok)
+        self.assertAlmostEqual(r["decimal"], 9.54)
+        self.assertIsNone(r["error"])
+        pending = {"isParlayPlusEligible": None, "betToWinRatio": None, "totalOdds": None, "errors": [], "draftLegs": []}
+        self.assertFalse(classify_draft(pending)["settled"])
+        ineligible = {"isParlayPlusEligible": False, "betToWinRatio": 2.0, "totalOdds": {"formattedOdds": "+200"}, "errors": [], "draftLegs": []}
+        self.assertEqual(classify_draft(ineligible)["error"], "not_parlay_plus_eligible")
