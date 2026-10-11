@@ -1,0 +1,550 @@
+{
+  "schema_version": 1,
+  "mode": "historical",
+  "observations": [
+    {
+      "request": {
+        "event_id": "replay:SF-SEA:2026-10-09-observation",
+        "player_id": "replay:christian-mccaffrey",
+        "league": "nfl",
+        "region": "CA-ON",
+        "settlement": "full-game-including-ot;rush-plus-receive-equals-sum;player-action-rules-matched",
+        "book": "thescore",
+        "sportsbook": "theScore",
+        "fixture_id": "replay:thescore:SF-SEA",
+        "revision": "6be8a87e91ab4a7e08e88623a86627d5846b1b9358ff8a9910d46998a3f9686b",
+        "legs": [
+          {
+            "selection_id": "replay:thescore:S90+",
+            "market_id": "replay:S:milestone",
+            "stat": "S",
+            "side": "at_least",
+            "line": 90.0,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Rushing + Receiving Yards",
+              "name": "Christian McCaffrey S90+"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:R<49.5",
+            "market_id": "replay:R:total",
+            "stat": "R",
+            "side": "under",
+            "line": 49.5,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Rushing Yards",
+              "name": "Christian McCaffrey R<49.5"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:C>34.5",
+            "market_id": "replay:C:total",
+            "stat": "C",
+            "side": "over",
+            "line": 34.5,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Receiving Yards",
+              "name": "Christian McCaffrey C>34.5"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:C40+",
+            "market_id": "replay:C:milestone",
+            "stat": "C",
+            "side": "at_least",
+            "line": 40.0,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Receiving Yards",
+              "name": "Christian McCaffrey C40+"
+            }
+          }
+        ],
+        "key": "b015eb1c36bce1bf914d3fa0fd7fc31a703c6f5732590849bdcc7ab069b502af",
+        "scope_key": "2e9c4446c74b4f79ce27548408beef014a7c1aab5eb76ab3cdae5a379835d64e",
+        "purpose": "candidate",
+        "inventory_captured_at": "2026-10-09T19:30:14.230Z"
+      },
+      "status": "priced",
+      "american": 1064,
+      "received_at": "2026-10-09T19:29:02.990Z",
+      "source_at": null,
+      "source": "historical_browser_observation",
+      "exact_legs_verified": true,
+      "confirmed": true,
+      "region_verified": true,
+      "freshness_verified": false,
+      "evidence": {
+        "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/9ac173dd-50ea-4ef9-bf02-34001ba89466#popular",
+        "capture_note": "After reload betslip showed 4 selections: Christian McCaffrey 90+ Total Rushing + Receiving Yards; Under49.5 Total Rushing Yards; Over34.5 Total Receiving Yards; 40+ Total Receiving Yards. PARLAY +1064. No rejection or suspension."
+      }
+    },
+    {
+      "request": {
+        "event_id": "replay:SF-SEA:2026-10-09-observation",
+        "player_id": "replay:christian-mccaffrey",
+        "league": "nfl",
+        "region": "CA-ON",
+        "settlement": "full-game-including-ot;rush-plus-receive-equals-sum;player-action-rules-matched",
+        "book": "thescore",
+        "sportsbook": "theScore",
+        "fixture_id": "replay:thescore:SF-SEA",
+        "revision": "6be8a87e91ab4a7e08e88623a86627d5846b1b9358ff8a9910d46998a3f9686b",
+        "legs": [
+          {
+            "selection_id": "replay:thescore:S90+",
+            "market_id": "replay:S:milestone",
+            "stat": "S",
+            "side": "at_least",
+            "line": 90.0,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Rushing + Receiving Yards",
+              "name": "Christian McCaffrey S90+"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:R<49.5",
+            "market_id": "replay:R:total",
+            "stat": "R",
+            "side": "under",
+            "line": 49.5,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Rushing Yards",
+              "name": "Christian McCaffrey R<49.5"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:C>34.5",
+            "market_id": "replay:C:total",
+            "stat": "C",
+            "side": "over",
+            "line": 34.5,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Receiving Yards",
+              "name": "Christian McCaffrey C>34.5"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:C30+",
+            "market_id": "replay:C:milestone",
+            "stat": "C",
+            "side": "at_least",
+            "line": 30.0,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Receiving Yards",
+              "name": "Christian McCaffrey C30+"
+            }
+          }
+        ],
+        "key": "51e53a11c438c7e3fdc06bf5571a43bed88d478f05ccf83feacba55f974e963a",
+        "scope_key": "2e9c4446c74b4f79ce27548408beef014a7c1aab5eb76ab3cdae5a379835d64e",
+        "purpose": "candidate",
+        "inventory_captured_at": "2026-10-09T19:30:14.230Z"
+      },
+      "status": "priced",
+      "american": 1059,
+      "received_at": "2026-10-09T19:29:25.202Z",
+      "source_at": null,
+      "source": "historical_browser_observation",
+      "exact_legs_verified": true,
+      "confirmed": true,
+      "region_verified": true,
+      "freshness_verified": false,
+      "evidence": {
+        "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/9ac173dd-50ea-4ef9-bf02-34001ba89466#popular",
+        "capture_note": "After reload betslip showed 4 selections: Christian McCaffrey 90+ Total Rushing + Receiving Yards; Under49.5 Total Rushing Yards; Over34.5 Total Receiving Yards; 30+ Total Receiving Yards. PARLAY +1059. No rejection or suspension."
+      }
+    },
+    {
+      "request": {
+        "event_id": "replay:SF-SEA:2026-10-09-observation",
+        "player_id": "replay:christian-mccaffrey",
+        "league": "nfl",
+        "region": "CA-ON",
+        "settlement": "full-game-including-ot;rush-plus-receive-equals-sum;player-action-rules-matched",
+        "book": "thescore",
+        "sportsbook": "theScore",
+        "fixture_id": "replay:thescore:SF-SEA",
+        "revision": "6be8a87e91ab4a7e08e88623a86627d5846b1b9358ff8a9910d46998a3f9686b",
+        "legs": [
+          {
+            "selection_id": "replay:thescore:S90+",
+            "market_id": "replay:S:milestone",
+            "stat": "S",
+            "side": "at_least",
+            "line": 90.0,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Rushing + Receiving Yards",
+              "name": "Christian McCaffrey S90+"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:R<49.5",
+            "market_id": "replay:R:total",
+            "stat": "R",
+            "side": "under",
+            "line": 49.5,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Rushing Yards",
+              "name": "Christian McCaffrey R<49.5"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:C>34.5",
+            "market_id": "replay:C:total",
+            "stat": "C",
+            "side": "over",
+            "line": 34.5,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Receiving Yards",
+              "name": "Christian McCaffrey C>34.5"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:C20+",
+            "market_id": "replay:C:milestone",
+            "stat": "C",
+            "side": "at_least",
+            "line": 20.0,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Receiving Yards",
+              "name": "Christian McCaffrey C20+"
+            }
+          }
+        ],
+        "key": "fa866cb34cb439d12b56c2af14e97ef944ab02d23e83d7ae8f1adec4d4763fcc",
+        "scope_key": "2e9c4446c74b4f79ce27548408beef014a7c1aab5eb76ab3cdae5a379835d64e",
+        "purpose": "candidate",
+        "inventory_captured_at": "2026-10-09T19:30:14.230Z"
+      },
+      "status": "priced",
+      "american": 997,
+      "received_at": "2026-10-09T19:29:53.130Z",
+      "source_at": null,
+      "source": "historical_browser_observation",
+      "exact_legs_verified": true,
+      "confirmed": true,
+      "region_verified": true,
+      "freshness_verified": false,
+      "evidence": {
+        "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/9ac173dd-50ea-4ef9-bf02-34001ba89466#popular",
+        "capture_note": "After reload betslip showed 4 selections: Christian McCaffrey 90+ Total Rushing + Receiving Yards; Under49.5 Total Rushing Yards; Over34.5 Total Receiving Yards; 20+ Total Receiving Yards. PARLAY +997. No rejection or suspension."
+      }
+    },
+    {
+      "request": {
+        "event_id": "replay:SF-SEA:2026-10-09-observation",
+        "player_id": "replay:christian-mccaffrey",
+        "league": "nfl",
+        "region": "CA-ON",
+        "settlement": "full-game-including-ot;rush-plus-receive-equals-sum;player-action-rules-matched",
+        "book": "thescore",
+        "sportsbook": "theScore",
+        "fixture_id": "replay:thescore:SF-SEA",
+        "revision": "6be8a87e91ab4a7e08e88623a86627d5846b1b9358ff8a9910d46998a3f9686b",
+        "legs": [
+          {
+            "selection_id": "replay:thescore:S90+",
+            "market_id": "replay:S:milestone",
+            "stat": "S",
+            "side": "at_least",
+            "line": 90.0,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Rushing + Receiving Yards",
+              "name": "Christian McCaffrey S90+"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:R<49.5",
+            "market_id": "replay:R:total",
+            "stat": "R",
+            "side": "under",
+            "line": 49.5,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Rushing Yards",
+              "name": "Christian McCaffrey R<49.5"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:C>34.5",
+            "market_id": "replay:C:total",
+            "stat": "C",
+            "side": "over",
+            "line": 34.5,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Receiving Yards",
+              "name": "Christian McCaffrey C>34.5"
+            }
+          },
+          {
+            "selection_id": "replay:thescore:C10+",
+            "market_id": "replay:C:milestone",
+            "stat": "C",
+            "side": "at_least",
+            "line": 10.0,
+            "provider": {
+              "fixture_id": "replay:thescore:SF-SEA",
+              "market": "Total Receiving Yards",
+              "name": "Christian McCaffrey C10+"
+            }
+          }
+        ],
+        "key": "ea02847d61f9d668711ea017edb67199722ffec32c7e075bc5d53328ebda4b70",
+        "scope_key": "2e9c4446c74b4f79ce27548408beef014a7c1aab5eb76ab3cdae5a379835d64e",
+        "purpose": "candidate",
+        "inventory_captured_at": "2026-10-09T19:30:14.230Z"
+      },
+      "status": "priced",
+      "american": 869,
+      "received_at": "2026-10-09T19:30:14.230Z",
+      "source_at": null,
+      "source": "historical_browser_observation",
+      "exact_legs_verified": true,
+      "confirmed": true,
+      "region_verified": true,
+      "freshness_verified": false,
+      "evidence": {
+        "url": "https://sportsbook.thescore.bet/sport/football/organization/united-states/competition/nfl/event/9ac173dd-50ea-4ef9-bf02-34001ba89466#popular",
+        "capture_note": "After reload betslip showed 4 selections: Christian McCaffrey 90+ Total Rushing + Receiving Yards; Under49.5 Total Rushing Yards; Over34.5 Total Receiving Yards; 10+ Total Receiving Yards. PARLAY +869. No rejection or suspension."
+      }
+    },
+    {
+      "request": {
+        "event_id": "replay:SF-SEA:2026-10-09-observation",
+        "player_id": "replay:christian-mccaffrey",
+        "league": "nfl",
+        "region": "CA-ON",
+        "settlement": "full-game-including-ot;rush-plus-receive-equals-sum;player-action-rules-matched",
+        "book": "fanduel",
+        "sportsbook": "FanDuel",
+        "fixture_id": "replay:fanduel:SF-SEA",
+        "revision": "82260c63b77fda073b244932bac56ec660202b40767b161c24704a7b21b4c0ea",
+        "legs": [
+          {
+            "selection_id": "replay:fanduel:S>89.5",
+            "market_id": "replay:S:total",
+            "stat": "S",
+            "side": "over",
+            "line": 89.5,
+            "provider": {
+              "fixture_id": "replay:fanduel:SF-SEA",
+              "market": "Total Rushing + Receiving Yards",
+              "name": "Christian McCaffrey S>89.5"
+            }
+          },
+          {
+            "selection_id": "replay:fanduel:R>49.5",
+            "market_id": "replay:R:total",
+            "stat": "R",
+            "side": "over",
+            "line": 49.5,
+            "provider": {
+              "fixture_id": "replay:fanduel:SF-SEA",
+              "market": "Total Rushing Yards",
+              "name": "Christian McCaffrey R>49.5"
+            }
+          }
+        ],
+        "key": "b836d7a0f0d42e99a03c31163dd74af40e1047a4919d93684cbc002172e1578f",
+        "scope_key": "41cdf55f49de0b0d5594d81c7049f46b0f94f338eaa9153e6ae6c4868b9749e0",
+        "purpose": "reference",
+        "inventory_captured_at": "2026-10-09T19:28:08.634Z"
+      },
+      "status": "priced",
+      "american": 128,
+      "received_at": "2026-10-09T19:28:08.634Z",
+      "source_at": null,
+      "source": "historical_browser_observation",
+      "exact_legs_verified": true,
+      "confirmed": true,
+      "region_verified": true,
+      "freshness_verified": false,
+      "evidence": {
+        "url": "https://sportsbook.fanduel.ca/football/nfl/san-francisco-49ers-@-seattle-seahawks-36132646",
+        "capture_note": "Four-cell partition captured as a group. Per-cell source clocks were not retained."
+      }
+    },
+    {
+      "request": {
+        "event_id": "replay:SF-SEA:2026-10-09-observation",
+        "player_id": "replay:christian-mccaffrey",
+        "league": "nfl",
+        "region": "CA-ON",
+        "settlement": "full-game-including-ot;rush-plus-receive-equals-sum;player-action-rules-matched",
+        "book": "fanduel",
+        "sportsbook": "FanDuel",
+        "fixture_id": "replay:fanduel:SF-SEA",
+        "revision": "82260c63b77fda073b244932bac56ec660202b40767b161c24704a7b21b4c0ea",
+        "legs": [
+          {
+            "selection_id": "replay:fanduel:S>89.5",
+            "market_id": "replay:S:total",
+            "stat": "S",
+            "side": "over",
+            "line": 89.5,
+            "provider": {
+              "fixture_id": "replay:fanduel:SF-SEA",
+              "market": "Total Rushing + Receiving Yards",
+              "name": "Christian McCaffrey S>89.5"
+            }
+          },
+          {
+            "selection_id": "replay:fanduel:R<49.5",
+            "market_id": "replay:R:total",
+            "stat": "R",
+            "side": "under",
+            "line": 49.5,
+            "provider": {
+              "fixture_id": "replay:fanduel:SF-SEA",
+              "market": "Total Rushing Yards",
+              "name": "Christian McCaffrey R<49.5"
+            }
+          }
+        ],
+        "key": "c3d4a1c89af28459ceeb2dcc86ab1323c9558f4b6838ba0fc0c94569221bcfa7",
+        "scope_key": "41cdf55f49de0b0d5594d81c7049f46b0f94f338eaa9153e6ae6c4868b9749e0",
+        "purpose": "reference",
+        "inventory_captured_at": "2026-10-09T19:28:08.634Z"
+      },
+      "status": "priced",
+      "american": 506,
+      "received_at": "2026-10-09T19:28:08.634Z",
+      "source_at": null,
+      "source": "historical_browser_observation",
+      "exact_legs_verified": true,
+      "confirmed": true,
+      "region_verified": true,
+      "freshness_verified": false,
+      "evidence": {
+        "url": "https://sportsbook.fanduel.ca/football/nfl/san-francisco-49ers-@-seattle-seahawks-36132646",
+        "capture_note": "Four-cell partition captured as a group. Per-cell source clocks were not retained."
+      }
+    },
+    {
+      "request": {
+        "event_id": "replay:SF-SEA:2026-10-09-observation",
+        "player_id": "replay:christian-mccaffrey",
+        "league": "nfl",
+        "region": "CA-ON",
+        "settlement": "full-game-including-ot;rush-plus-receive-equals-sum;player-action-rules-matched",
+        "book": "fanduel",
+        "sportsbook": "FanDuel",
+        "fixture_id": "replay:fanduel:SF-SEA",
+        "revision": "82260c63b77fda073b244932bac56ec660202b40767b161c24704a7b21b4c0ea",
+        "legs": [
+          {
+            "selection_id": "replay:fanduel:S<89.5",
+            "market_id": "replay:S:total",
+            "stat": "S",
+            "side": "under",
+            "line": 89.5,
+            "provider": {
+              "fixture_id": "replay:fanduel:SF-SEA",
+              "market": "Total Rushing + Receiving Yards",
+              "name": "Christian McCaffrey S<89.5"
+            }
+          },
+          {
+            "selection_id": "replay:fanduel:R>49.5",
+            "market_id": "replay:R:total",
+            "stat": "R",
+            "side": "over",
+            "line": 49.5,
+            "provider": {
+              "fixture_id": "replay:fanduel:SF-SEA",
+              "market": "Total Rushing Yards",
+              "name": "Christian McCaffrey R>49.5"
+            }
+          }
+        ],
+        "key": "935801c8f107c6d93b5dad3b26747f0014f57658bd431176010191c23d844e16",
+        "scope_key": "41cdf55f49de0b0d5594d81c7049f46b0f94f338eaa9153e6ae6c4868b9749e0",
+        "purpose": "reference",
+        "inventory_captured_at": "2026-10-09T19:28:08.634Z"
+      },
+      "status": "priced",
+      "american": 521,
+      "received_at": "2026-10-09T19:28:08.634Z",
+      "source_at": null,
+      "source": "historical_browser_observation",
+      "exact_legs_verified": true,
+      "confirmed": true,
+      "region_verified": true,
+      "freshness_verified": false,
+      "evidence": {
+        "url": "https://sportsbook.fanduel.ca/football/nfl/san-francisco-49ers-@-seattle-seahawks-36132646",
+        "capture_note": "Four-cell partition captured as a group. Per-cell source clocks were not retained."
+      }
+    },
+    {
+      "request": {
+        "event_id": "replay:SF-SEA:2026-10-09-observation",
+        "player_id": "replay:christian-mccaffrey",
+        "league": "nfl",
+        "region": "CA-ON",
+        "settlement": "full-game-including-ot;rush-plus-receive-equals-sum;player-action-rules-matched",
+        "book": "fanduel",
+        "sportsbook": "FanDuel",
+        "fixture_id": "replay:fanduel:SF-SEA",
+        "revision": "82260c63b77fda073b244932bac56ec660202b40767b161c24704a7b21b4c0ea",
+        "legs": [
+          {
+            "selection_id": "replay:fanduel:S<89.5",
+            "market_id": "replay:S:total",
+            "stat": "S",
+            "side": "under",
+            "line": 89.5,
+            "provider": {
+              "fixture_id": "replay:fanduel:SF-SEA",
+              "market": "Total Rushing + Receiving Yards",
+              "name": "Christian McCaffrey S<89.5"
+            }
+          },
+          {
+            "selection_id": "replay:fanduel:R<49.5",
+            "market_id": "replay:R:total",
+            "stat": "R",
+            "side": "under",
+            "line": 49.5,
+            "provider": {
+              "fixture_id": "replay:fanduel:SF-SEA",
+              "market": "Total Rushing Yards",
+              "name": "Christian McCaffrey R<49.5"
+            }
+          }
+        ],
+        "key": "7f639f4d4070cf0a0e58f9c8c1ad8920be39207ddeff758d553933fa887c009e",
+        "scope_key": "41cdf55f49de0b0d5594d81c7049f46b0f94f338eaa9153e6ae6c4868b9749e0",
+        "purpose": "reference",
+        "inventory_captured_at": "2026-10-09T19:28:08.634Z"
+      },
+      "status": "priced",
+      "american": 126,
+      "received_at": "2026-10-09T19:28:08.634Z",
+      "source_at": null,
+      "source": "historical_browser_observation",
+      "exact_legs_verified": true,
+      "confirmed": true,
+      "region_verified": true,
+      "freshness_verified": false,
+      "evidence": {
+        "url": "https://sportsbook.fanduel.ca/football/nfl/san-francisco-49ers-@-seattle-seahawks-36132646",
+        "capture_note": "Four-cell partition captured as a group. Per-cell source clocks were not retained."
+      }
+    }
+  ]
+}

@@ -11,3 +11,6 @@ dependencies = ["numpy>=1.26,<3", "pandas>=2.2,<3", "scipy>=1.12,<2", "lxml>=5,<
 
 [tool.setuptools.packages.find]
 include = ["beating*"]
+
+[tool.setuptools.package-data]
+"beating.sgp" = ["fixtures/*.json"]
