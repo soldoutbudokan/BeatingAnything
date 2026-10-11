@@ -1,0 +1,5 @@
+{
+  "Player Rushing Yards": {"stat": "R"},
+  "Player Receiving Yards": {"stat": "C"},
+  "Player Rushing + Receiving Yards": {"stat": "S"}
+}

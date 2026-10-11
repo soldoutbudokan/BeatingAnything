@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "mode": "historical",
+  "captured_at": "2026-10-09T19:30:30Z",
+  "boards": [
+    {
+      "event_id": "replay:SF-SEA:2026-10-09-observation",
+      "player_id": "replay:christian-mccaffrey",
+      "player_name": "Christian McCaffrey",
+      "league": "nfl",
+      "region": "CA-ON",
+      "settlement": "full-game-including-ot;rush-plus-receive-equals-sum;player-action-rules-matched",
+      "starts_at": null,
+      "books": {
+        "thescore": {
+          "sportsbook": "theScore",
+          "fixture_id": "replay:thescore:SF-SEA",
+          "captured_at": "2026-10-09T19:30:14.230Z",
+          "legs": [
+            {
+              "selection_id": "replay:thescore:S90+",
+              "market_id": "replay:S:milestone",
+              "stat": "S",
+              "side": "at_least",
+              "line": 90.0,
+              "provider": {
+                "fixture_id": "replay:thescore:SF-SEA",
+                "market": "Total Rushing + Receiving Yards",
+                "name": "Christian McCaffrey S90+"
+              }
+            },
+            {
+              "selection_id": "replay:thescore:R<49.5",
+              "market_id": "replay:R:total",
+              "stat": "R",
+              "side": "under",
+              "line": 49.5,
+              "provider": {
+                "fixture_id": "replay:thescore:SF-SEA",
+                "market": "Total Rushing Yards",
+                "name": "Christian McCaffrey R<49.5"
+              }
+            },
+            {
+              "selection_id": "replay:thescore:C>34.5",
+              "market_id": "replay:C:total",
+              "stat": "C",
+              "side": "over",
+              "line": 34.5,
+              "provider": {
+                "fixture_id": "replay:thescore:SF-SEA",
+                "market": "Total Receiving Yards",
+                "name": "Christian McCaffrey C>34.5"
+              }
+            },
+            {
+              "selection_id": "replay:thescore:C40+",
+              "market_id": "replay:C:milestone",
+              "stat": "C",
+              "side": "at_least",
+              "line": 40.0,
+              "provider": {
+                "fixture_id": "replay:thescore:SF-SEA",
+                "market": "Total Receiving Yards",
+                "name": "Christian McCaffrey C40+"
+              }
+            },
+            {
+              "selection_id": "replay:thescore:C30+",
+              "market_id": "replay:C:milestone",
+              "stat": "C",
+              "side": "at_least",
+              "line": 30.0,
+              "provider": {
+                "fixture_id": "replay:thescore:SF-SEA",
+                "market": "Total Receiving Yards",
+                "name": "Christian McCaffrey C30+"
+              }
+            },
+            {
+              "selection_id": "replay:thescore:C20+",
+              "market_id": "replay:C:milestone",
+              "stat": "C",
+              "side": "at_least",
+              "line": 20.0,
+              "provider": {
+                "fixture_id": "replay:thescore:SF-SEA",
+                "market": "Total Receiving Yards",
+                "name": "Christian McCaffrey C20+"
+              }
+            },
+            {
+              "selection_id": "replay:thescore:C10+",
+              "market_id": "replay:C:milestone",
+              "stat": "C",
+              "side": "at_least",
+              "line": 10.0,
+              "provider": {
+                "fixture_id": "replay:thescore:SF-SEA",
+                "market": "Total Receiving Yards",
+                "name": "Christian McCaffrey C10+"
+              }
+            }
+          ]
+        },
+        "fanduel": {
+          "sportsbook": "FanDuel",
+          "fixture_id": "replay:fanduel:SF-SEA",
+          "captured_at": "2026-10-09T19:28:08.634Z",
+          "legs": [
+            {
+              "selection_id": "replay:fanduel:S>89.5",
+              "market_id": "replay:S:total",
+              "stat": "S",
+              "side": "over",
+              "line": 89.5,
+              "provider": {
+                "fixture_id": "replay:fanduel:SF-SEA",
+                "market": "Total Rushing + Receiving Yards",
+                "name": "Christian McCaffrey S>89.5"
+              }
+            },
+            {
+              "selection_id": "replay:fanduel:S<89.5",
+              "market_id": "replay:S:total",
+              "stat": "S",
+              "side": "under",
+              "line": 89.5,
+              "provider": {
+                "fixture_id": "replay:fanduel:SF-SEA",
+                "market": "Total Rushing + Receiving Yards",
+                "name": "Christian McCaffrey S<89.5"
+              }
+            },
+            {
+              "selection_id": "replay:fanduel:R>49.5",
+              "market_id": "replay:R:total",
+              "stat": "R",
+              "side": "over",
+              "line": 49.5,
+              "provider": {
+                "fixture_id": "replay:fanduel:SF-SEA",
+                "market": "Total Rushing Yards",
+                "name": "Christian McCaffrey R>49.5"
+              }
+            },
+            {
+              "selection_id": "replay:fanduel:R<49.5",
+              "market_id": "replay:R:total",
+              "stat": "R",
+              "side": "under",
+              "line": 49.5,
+              "provider": {
+                "fixture_id": "replay:fanduel:SF-SEA",
+                "market": "Total Rushing Yards",
+                "name": "Christian McCaffrey R<49.5"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "notes": [
+    "Historical selected-market reconstruction, not a complete sportsbook inventory.",
+    "All replay:* IDs are local fixture identities, never provider IDs.",
+    "Event start time was not retained; no value is invented.",
+    "Original source: browser observations in this conversation, 2026-10-09 19:28\u201319:30 UTC."
+  ]
+}
