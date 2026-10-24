@@ -1,0 +1,1446 @@
+event_name,match_type,gender,team_type,competition_id,event_id,tier,generic,n_matches,first,last
+Indian Premier League,T20,male,club,ipl,ipl,franchise_major,False,1243,2008-04-18,2026-05-31
+Vitality Blast,T20,male,club,blast,blast,domestic_major,False,835,2018-07-04,2024-09-14
+County Championship,MDM,male,club,county_championship,county_championship,domestic_major,False,750,2021-04-08,2026-09-24
+Syed Mushtaq Ali Trophy,T20,male,club,smat,smat,domestic_major,False,695,2016-01-02,2024-12-15
+Big Bash League,T20,male,club,bbl,bbl,franchise_major,False,662,2011-12-16,2026-01-25
+Royal London One-Day Cup,ODM,male,club,eng_one_day_cup,eng_one_day_cup,domestic_major,False,586,2014-07-26,2022-08-30
+Women's Big Bash League,T20,female,club,wbbl,wbbl,franchise_major,False,519,2015-12-18,2025-12-13
+NatWest T20 Blast,T20,male,club,blast,blast,domestic_major,False,488,2014-05-16,2017-09-02
+Specsavers County Championship,MDM,male,club,county_championship,county_championship,domestic_major,False,471,2016-04-10,2019-09-23
+Bangladesh Premier League,T20,male,club,bpl,bpl,franchise_major,False,469,2012-02-11,2026-01-23
+Caribbean Premier League,T20,male,club,cpl,cpl,franchise_major,False,445,2013-07-30,2026-09-20
+Pakistan Super League,T20,male,club,psl,psl,franchise_major,False,357,2016-02-04,2026-05-03
+Plunket Shield,MDM,male,club,plunket_shield,plunket_shield,domestic_major,False,343,2012-10-27,2026-03-27
+One-Day Cup,ODM,male,club,eng_one_day_cup,eng_one_day_cup,domestic_major,False,301,2023-08-01,2026-09-20
+Super Smash,T20,male,club,super_smash,super_smash,domestic_major,False,266,2017-12-13,2026-01-31
+LV= County Championship,MDM,male,club,county_championship,county_championship,domestic_major,False,262,2014-04-06,2015-09-22
+Vitality Blast Men,T20,male,club,blast,blast,domestic_major,False,247,2025-05-29,2026-07-18
+ICC Men's Cricket World Cup League 2,ODI,male,international,intl_odi_m,icc_league,intl_assoc,False,243,2019-08-14,2026-10-13
+The Hundred Men's Competition,T20,male,club,hundred_m,hundred_m,franchise_major,False,201,2021-07-22,2026-08-16
+Sheffield Shield,MDM,male,club,sheffield_shield,sheffield_shield,domestic_major,False,193,2017-03-26,2026-10-08
+Rachael Heyhoe Flint Trophy,ODM,female,club,eng_women_one_day,eng_women_one_day,domestic_major,False,189,2020-08-29,2024-09-21
+The Hundred Women's Competition,T20,female,club,hundred_w,hundred_w,franchise_major,False,188,2021-07-21,2026-08-16
+Major Clubs Limited Over Tournament,ODM,male,club,slc_major_clubs_odm,slc_major_clubs_odm,domestic_major,False,160,2024-06-10,2026-09-11
+CSA T20 Challenge,T20,male,club,csa_t20,csa_t20,domestic_major,False,154,2016-11-12,2024-10-27
+Women's Super Smash,T20,female,club,super_smash_w,super_smash_w,domestic_major,False,148,2021-12-12,2026-01-31
+Lanka Premier League,T20,male,club,lpl,lpl,franchise_major,False,143,2020-11-26,2026-08-08
+International League T20,T20,male,club,ilt20,ilt20,franchise_major,False,134,2023-01-13,2026-01-04
+Major League Tournament,MDM,male,club,slc_major_league,slc_major_league,domestic_major,False,134,2024-12-27,2026-03-28
+ECB Women's One-Day Cup,ODM,female,club,eng_women_one_day,eng_women_one_day,domestic_major,False,130,2025-04-23,2026-09-19
+Ram Slam T20 Challenge,T20,male,club,csa_t20,csa_t20,domestic_major,False,130,2013-02-17,2017-12-16
+SA20,T20,male,club,sa20,sa20,franchise_major,False,130,2023-01-10,2026-01-25
+CWC Challenge League,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,128,2019-09-16,2026-08-18
+Charlotte Edwards Cup,T20,female,club,charlotte_edwards_cup,charlotte_edwards_cup,domestic_major,False,124,2021-06-26,2024-06-22
+Major Clubs T20 Tournament,T20,male,club,slc_major_clubs_t20,slc_major_clubs_t20,domestic_major,False,121,2024-05-12,2026-09-16
+ICC Men's T20 World Cup Sub Regional Africa Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,115,2021-10-17,2026-05-30
+Vitality Blast Women,T20,female,club,blast_w,blast_w,domestic_major,False,112,2025-05-30,2026-07-17
+Cricket Ireland Inter-Provincial Twenty20 Trophy,T20,male,club,ire_ip_t20,ire_ip_t20,domestic_minor,False,111,2016-05-27,2026-07-29
+Major League Cricket,T20,male,club,mlc,mlc,franchise_major,False,109,2023-07-13,2026-07-18
+ICC Women's T20 World Cup,T20,female,international,intl_t20_w,icc_t20wc,intl_full,False,104,2018-11-09,2026-07-05
+ICC Women's World Cup,ODI,female,international,intl_odi_w,icc_cwc,intl_full,False,102,2009-03-10,2025-11-02
+Kwibuka Women's Twenty20 Tournament,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,95,2019-06-18,2026-06-20
+NatWest Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,95,2002-06-27,2013-09-16
+Women's Cricket Super League,T20,female,club,wcsl,wcsl,franchise_major,False,95,2016-07-30,2019-09-01
+Cricket Ireland Inter-Provincial Limited Over Cup,ODM,male,club,ire_ip_odm,ire_ip_odm,domestic_minor,False,90,2016-05-02,2026-07-23
+ICC Men's T20 World Cup Sub Regional Europe Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,88,2022-07-12,2024-07-14
+Women's Premier League,T20,female,club,wpl,wpl,franchise_major,False,88,2023-03-04,2026-02-05
+ICC Men's T20 World Cup,T20,male,international,intl_t20_m,icc_t20wc,intl_assoc,False,87,2021-10-17,2026-02-20
+ICC World Twenty20,T20,male,international,intl_t20_m,icc_t20wc,intl_full,False,87,2007-09-11,2012-10-07
+ICC Champions Trophy,ODI,male,international,intl_odi_m,icc_ct,intl_full,False,86,2004-09-10,2025-03-09
+ICC Men's T20 World Cup,T20,male,international,intl_t20_m,icc_t20wc,intl_full,False,86,2014-03-22,2026-03-08
+ICC Cricket World Cup,ODI,male,international,intl_odi_m,icc_cwc,intl_full,False,84,2011-02-19,2023-11-19
+ICC Women's Championship,ODI,female,international,intl_odi_w,icc_womens_championship,intl_full,False,79,2014-08-21,2026-05-06
+ICC World Twenty20 Qualifier,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,74,2013-11-15,2015-07-23
+Asian Cricket Council Women's Premier Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,71,2024-02-10,2026-06-13
+ICC Women's T20 World Cup Asia Region Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,71,2019-02-18,2025-05-20
+ICC Men's T20 World Cup Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,70,2019-10-18,2022-07-17
+The Marsh Cup,ODM,male,club,aus_one_day_cup,aus_one_day_cup,domestic_major,False,69,2021-02-15,2024-02-25
+ICC World Cricket League Division Four,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,68,2010-08-14,2018-05-06
+Nepal Premier League,T20,male,club,npl,npl,domestic_minor,False,64,2024-11-30,2025-12-13
+(none),T20,male,international,intl_t20_m,intl_unnamed,intl_full,True,58,2005-02-17,2017-07-09
+Africa Continental Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,56,2023-06-10,2026-09-19
+Mzansi Super League,T20,male,club,msl,msl,franchise_major,False,56,2018-11-16,2019-12-16
+ICC World Cup,ODI,male,international,intl_odi_m,icc_cwc,intl_full,False,55,2003-02-09,2007-04-28
+ICC Women's T20 World Cup Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,54,2019-08-31,2024-05-07
+One-Day Cup (Australia),ODM,male,club,aus_one_day_cup,aus_one_day_cup,domestic_major,False,52,2024-09-22,2026-10-13
+ICC World Cricket League Division Two,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,51,2015-01-17,2019-04-27
+Asia Cup,ODI,male,international,intl_odi_m,asia_cup,intl_full,False,50,2004-07-17,2023-09-17
+BCA Kalahari Women's T20 International Tournament,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,49,2024-04-22,2026-04-11
+New Zealand Cricket Women's Twenty20,T20,female,club,super_smash_w,super_smash_w,domestic_major,False,49,2020-01-02,2021-12-10
+ICC World Cricket League Division Three,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,48,2013-04-28,2018-11-19
+Bob Willis Trophy,MDM,male,club,county_championship,county_championship,domestic_major,False,47,2020-08-01,2021-09-28
+ICC Women's T20 World Cup Africa Region Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,47,2019-05-05,2023-12-17
+ICC Cricket World Cup,ODI,male,international,intl_odi_m,icc_cwc,intl_assoc,False,46,2011-02-20,2023-11-12
+ICC World Cricket League Championship,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,46,2011-07-25,2017-12-08
+The Ashes,Test,male,international,intl_test_m,bilateral,intl_full,False,45,2009-07-08,2026-01-04
+ICC World Cup,ODI,male,international,intl_odi_m,icc_cwc,intl_assoc,False,44,2003-02-10,2007-04-18
+Commonwealth Bank Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,42,2007-01-12,2012-03-08
+VB Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,41,2003-01-09,2006-02-14
+FairBreak Invitational Tournament,T20,female,club,fairbreak,fairbreak,domestic_minor,False,39,2022-05-04,2023-04-16
+West Africa Trophy,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,39,2023-10-04,2025-12-14
+ICC Men's T20 World Cup Sub Regional Europe Qualifier Group C,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,38,2022-06-28,2024-08-28
+Women's World T20,T20,female,international,intl_t20_w,icc_t20wc,intl_full,False,38,2014-03-23,2016-04-03
+Valletta Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,37,2021-10-21,2023-07-16
+World T20,T20,male,international,intl_t20_m,icc_t20wc,intl_full,False,37,2014-03-21,2016-04-03
+ICC Women's T20 World Cup Africa Region Division Two Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,36,2023-09-02,2025-07-26
+World Cup,ODI,male,international,intl_odi_m,icc_cwc,intl_full,False,36,2019-05-30,2019-07-14
+Continental Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,35,2021-09-02,2026-06-21
+Quadrangular Twenty20 Series (Malaysia),T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,35,2022-07-02,2025-05-02
+ICC Cricket World Cup Qualifier,ODI,male,international,intl_odi_m,icc_qualifier,intl_assoc,False,34,2014-01-23,2023-07-09
+ICC Men's T20 World Cup Sub Regional Americas Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,34,2024-12-06,2024-12-16
+ICC Men's T20 World Cup Africa Region Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,33,2021-11-17,2023-11-30
+Women's Caribbean Premier League,T20,female,club,wcpl,wcpl,franchise_major,False,33,2022-08-31,2026-09-17
+ICC Men's T20 World Cup East Asia-Pacific Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,32,2023-07-22,2026-05-18
+Women's Asia Cup,T20,female,international,intl_t20_w,asia_cup,intl_assoc,False,32,2022-10-01,2026-09-08
+European T20 Premier League,T20,male,club,etpl,etpl,domestic_minor,False,31,2026-08-26,2026-09-20
+ICC Men's T20 World Cup Americas Region Final,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,31,2019-08-18,2025-06-22
+ICC Men's T20 World Cup Europe Region Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,31,2021-10-15,2023-07-28
+GCC Women's Twenty20 Championship Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,30,2022-03-20,2025-12-19
+ICC Men's T20 World Cup Sub Regional Asia Qualifier A,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,30,2023-09-28,2026-10-14
+ICC World Cricket League Division Five,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,30,2014-03-07,2017-09-09
+MiWAY T20 Challenge,T20,male,club,csa_t20,csa_t20,domestic_major,False,30,2012-02-15,2012-04-01
+Women's Continental Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,30,2023-08-04,2026-08-30
+ICC Men's T20 World Cup Africa Region Final,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,29,2019-05-20,2025-10-04
+ICC World Twenty20 Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,29,2008-08-03,2015-07-25
+ICC Women's Emerging Nations Trophy,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,28,2025-11-20,2025-11-30
+ICC Women's T20 World Cup Americas Region Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,28,2019-05-18,2025-03-17
+ICC Women's T20 World Cup Europe Division 2 Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,28,2023-05-29,2025-05-29
+Nepal Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,28,2021-04-17,2024-03-05
+Women's T20 World Cup Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,28,2026-01-18,2026-02-01
+ICC Women's T20 World Cup East Asia-Pacific Region Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,26,2019-05-06,2023-09-08
+ACC Men's Premier Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,24,2024-04-12,2024-04-21
+Border-Gavaskar Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,24,2008-01-02,2017-03-25
+Chappell-Hadlee Trophy,ODI,male,international,intl_odi_m,bilateral,intl_full,False,24,2007-02-16,2017-02-05
+ICC Men's T20 World Cup Americas Region Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,24,2021-11-07,2023-03-04
+ICC Men's T20 World Cup Sub Regional Europe Qualifier A,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,24,2026-05-16,2026-05-23
+ICC Women's T20 World Cup Europe Region Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,24,2019-06-26,2023-09-12
+ICC Women's World Twenty20 Qualifier,IT20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,24,2013-07-23,2015-12-05
+Indonesia Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,24,2025-07-06,2025-11-14
+Malaysia Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,24,2019-06-24,2025-03-17
+Women's T20 Quadrangular Series (in Namibia),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,24,2023-04-25,2026-07-30
+Asian Cricket Council Women's T20 Championship,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,23,2022-06-17,2022-06-25
+Cambodia tour of Indonesia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,23,2023-11-20,2025-12-29
+England in India ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,23,2006-03-28,2017-01-22
+ICC Men's T20 World Cup Sub Regional Europe Qualifier C,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,23,2026-08-14,2026-08-21
+ICC Men's T20 World Cup East Asia-Pacific Region Qualifier A,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,22,2022-09-10,2024-08-24
+Zimbabwe in Bangladesh ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,22,2006-12-03,2015-11-11
+Central Europe Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,21,2021-05-21,2026-06-28
+ICC Men's T20 World Cup Asia & EAP Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,21,2025-10-08,2025-10-17
+ICC Men's T20 World Cup Asia Qualifier A,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,21,2024-08-30,2024-09-09
+ICC Men's T20 World Cup Asia Qualifier B,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,21,2024-11-19,2024-11-28
+ICC Men's T20 World Cup Europe Region Final,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,21,2019-06-15,2025-07-11
+ICC Women's World Twenty20,T20,female,international,intl_t20_w,icc_t20wc,intl_full,False,21,2009-06-18,2012-10-07
+Nordic Women T20 Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,21,2023-08-25,2026-08-30
+Pakistan in Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,21,2006-03-17,2015-07-26
+Asia Pacific Cricket Champions Trophy,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,20,2025-07-18,2026-06-26
+Australia in India ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,20,2007-09-29,2013-11-02
+Basil D'Oliveira Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,20,2008-07-10,2020-01-24
+ICC Women's T20 World Cup Africa Region Division One Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,20,2025-08-31,2025-09-06
+ICC Women's T20I Challenge Trophy,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,20,2026-04-18,2026-05-01
+Mdina Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,20,2023-07-10,2025-06-01
+World T20,T20,male,international,intl_t20_m,icc_t20wc,intl_assoc,False,20,2014-03-16,2016-03-13
+Australia tour of India,ODI,male,international,intl_odi_m,bilateral,intl_full,False,19,2017-09-17,2023-09-27
+ICC Men's T20 World Cup Sub Regional Europe Qualifier B,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,19,2026-07-08,2026-07-14
+ICC Women's T20 World Cup East Asia Pacific Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,19,2025-09-09,2025-09-15
+Marsh Sheffield Shield,MDM,male,club,sheffield_shield,sheffield_shield,domestic_major,False,19,2019-10-10,2020-03-06
+Asian Cricket Council Men's Challenger Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,18,2024-01-27,2024-02-11
+Australia in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,18,2006-02-26,2016-10-12
+England tour of West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,18,2019-03-05,2024-11-17
+ICC Women's T20 Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,18,2018-07-07,2018-07-14
+ICC Women's T20 World Cup,T20,female,international,intl_t20_w,icc_t20wc,intl_assoc,False,18,2020-02-22,2026-06-27
+India in West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,18,2006-05-20,2017-07-06
+Women's Asia Cup,T20,female,international,intl_t20_w,asia_cup,intl_full,False,18,2022-10-01,2026-09-13
+Central American Cricket Championships,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,17,2024-04-12,2026-04-05
+East Africa Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,17,2023-08-20,2023-08-31
+ICC Men's T20 World Cup East Asia-Pacific Region Qualifier B,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,17,2022-10-15,2024-10-05
+ICC Women's World Cup Qualifier,ODI,female,international,intl_odi_w,icc_qualifier,intl_full,False,17,2017-02-07,2025-04-19
+ICC World Twenty20,T20,male,international,intl_t20_m,icc_t20wc,intl_assoc,False,17,2007-09-12,2016-03-08
+ICC World Twenty20 Asia Region Qualifier A,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,17,2018-04-20,2018-04-27
+ICC World Twenty20 Asia Region Qualifier B,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,17,2018-10-03,2018-10-12
+Netherlands Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,17,2018-06-12,2024-08-28
+Sri Lanka in New Zealand ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,17,2006-01-03,2016-01-05
+West Indies Tri-Nation Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,17,2013-06-28,2016-06-26
+Gulf T20I Championship,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,16,2024-12-13,2024-12-21
+ICC Men's T20 World Cup Qualifier A,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,16,2022-02-19,2022-02-24
+India in Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,16,2006-08-18,2012-08-04
+India tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,16,2003-12-04,2025-01-03
+India tour of New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_full,False,16,2002-12-29,2022-11-30
+Pakistan tour of New Zealand,T20,male,international,intl_t20_m,bilateral,intl_full,False,16,2018-01-22,2025-03-26
+Quadrangular Twenty20 Series (Hong Kong),T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,16,2023-03-08,2025-04-13
+Quadrangular Twenty20 Series (Thailand),T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,16,2024-02-12,2026-02-28
+Tri-Nation Tournament in Bangladesh,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,16,2009-01-10,2018-01-27
+Women's Ashes,T20,female,international,intl_t20_w,bilateral,intl_full,False,16,2013-08-27,2025-01-25
+Women's T20 Quadrangular Series (in Hong Kong),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,16,2023-11-15,2024-12-08
+ICC Intercontinental Cup,MDM,male,international,intl_test_m,icc_intercontinental,intl_assoc,False,15,2006-12-05,2017-11-29
+ICC Men's T20 World Cup Sub Regional Africa Qualifier Group C,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,15,2024-11-23,2024-11-28
+ICC Men's T20 World Cup Sub Regional Asia Qualifier B,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,15,2026-10-08,2026-10-14
+ICC Women's World Twenty20 Qualifying Series Asia Region,IT20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,15,2017-11-20,2017-11-27
+ICC World Cricket League Africa Region Qualifiers,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,15,2017-04-07,2017-04-13
+ICC World Cricket League Championship,ODI,male,international,intl_odi_m,icc_league,intl_assoc,False,15,2011-06-29,2017-12-06
+ICC World Twenty20 Africa Region Qualifier C,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,15,2018-10-28,2018-11-03
+Nordic T20 Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,15,2023-05-18,2025-06-15
+Women Central Europe Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,15,2024-06-14,2026-06-28
+Women's Ashes,ODI,female,international,intl_odi_w,bilateral,intl_full,False,15,2013-08-20,2025-01-17
+(none),ODI,male,international,intl_odi_m,intl_unnamed,intl_assoc,True,14,2006-06-13,2016-09-27
+African Games,T20,male,international,intl_t20_m,multisport,intl_assoc,False,14,2024-03-17,2024-03-23
+Bangladesh in Zimbabwe ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,14,2006-08-06,2013-05-08
+Desert Cup T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,14,2022-11-14,2022-11-21
+ICC Women's World Cup Qualifier,ODM,female,international,intl_odi_w,icc_qualifier,intl_assoc,False,14,2017-02-07,2017-02-13
+ICC Women's World Cup Qualifier,ODI,female,international,intl_odi_w,icc_qualifier,intl_assoc,False,14,2017-02-08,2025-04-19
+India Women tour of England,T20,female,international,intl_t20_w,bilateral,intl_full,False,14,2021-07-09,2026-06-02
+New Zealand tour of India,T20,male,international,intl_t20_m,bilateral,intl_full,False,14,2017-11-01,2026-01-31
+South Africa tour of India,T20,male,international,intl_t20_m,bilateral,intl_full,False,14,2019-09-18,2025-12-19
+Sri Lanka in India ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,14,2007-02-08,2014-11-16
+The Frank Worrell Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,14,2008-05-22,2016-01-03
+Trans-Tasman Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,14,2008-11-20,2020-01-03
+Tri-Nation T20 Cup (Rwanda),T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,14,2022-12-13,2022-12-23
+Viking Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,14,2025-08-08,2026-06-14
+West Indies tour of India,ODI,male,international,intl_odi_m,bilateral,intl_full,False,14,2018-10-21,2026-10-03
+Zimbabwe Triangular Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,14,2010-05-28,2014-09-06
+Zimbabwe Twenty20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_full,False,14,2018-07-01,2025-07-26
+Asia Cup,T20,male,international,intl_t20_m,asia_cup,intl_full,False,13,2016-02-24,2022-09-11
+Asian Games Men's Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,13,2026-05-31,2026-06-08
+Australia tour of England,ODI,male,international,intl_odi_m,bilateral,intl_full,False,13,2018-06-13,2024-09-29
+Botswana Cricket Association Women's T20I Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,13,2018-08-20,2018-08-25
+Commonwealth Games Women's Cricket Competition,T20,female,international,intl_t20_w,multisport,intl_full,False,13,2022-07-29,2022-08-07
+ECA Men's European Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,13,2026-07-25,2026-07-30
+England tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,13,2005-01-30,2023-02-01
+Germany T20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,13,2021-08-05,2022-06-11
+ICC Cricket World Cup Qualifier (ICC Trophy),ODI,male,international,intl_odi_m,icc_qualifier,intl_assoc,False,13,2018-03-04,2018-03-22
+ICC Cricket World Cup Qualifier Play-off,ODI,male,international,intl_odi_m,icc_qualifier,intl_assoc,False,13,2023-03-26,2023-04-05
+ICC World Cricket League Asia Region Division One,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,13,2017-04-22,2017-05-01
+North America T20 Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,13,2025-04-19,2025-04-27
+Pakistan in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,13,2007-02-04,2013-11-30
+Pakistan in West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,13,2011-04-23,2017-04-11
+Rwanda Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,13,2025-07-18,2025-07-27
+T20 Blaze,T20,female,club,wi_women_t20,wi_women_t20,domestic_major,False,13,2022-06-07,2022-06-14
+The Wisden Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,13,2009-02-04,2015-05-01
+West Indies in India ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,13,2007-01-27,2014-10-17
+Women's T20 Quadrangular Series (in Uganda),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,13,2025-03-08,2025-03-16
+Africa Cricket Association Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,12,2022-09-15,2022-09-22
+Australia tour of India,T20,male,international,intl_t20_m,bilateral,intl_full,False,12,2017-10-07,2023-12-03
+England in Australia ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,12,2011-01-16,2014-01-26
+England tour of India,Test,male,international,intl_test_m,bilateral,intl_full,False,12,2001-12-19,2024-03-07
+England tour of West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,12,2004-04-24,2024-11-06
+ICC Men's T20 World Cup Africa Sub Regional Qualifier B,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,12,2026-03-24,2026-03-28
+ICC Men's T20 World Cup Sub Regional Americas Qualifier B,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,12,2026-03-08,2026-03-15
+ICC Women's T20 World Cup Europe Division 1 Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,12,2025-08-20,2025-08-27
+ICC Women's World Twenty20 Qualifying Series Africa Region,IT20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,12,2017-09-08,2017-09-16
+India in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,12,2006-11-22,2013-12-11
+India tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,12,2018-02-01,2023-12-21
+Malaysia Open T20 Championship,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,12,2024-03-05,2024-03-11
+Namibia T20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,12,2024-09-29,2026-06-23
+Oman Quadrangular T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,12,2019-02-13,2022-02-14
+Portugal T20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,12,2021-08-20,2026-04-09
+South American Men's Championships,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,12,2023-10-18,2026-08-09
+Spain Triangular T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,12,2022-04-29,2022-11-06
+Sri Lanka tour of India,ODI,male,international,intl_odi_m,bilateral,intl_full,False,12,2005-10-25,2023-01-15
+West Indies tour of India,T20,male,international,intl_t20_m,bilateral,intl_full,False,12,2018-11-04,2026-10-11
+West Indies tour of New Zealand,T20,male,international,intl_t20_m,bilateral,intl_full,False,12,2008-12-26,2025-11-13
+Women's T20 Challenge,T20,female,club,womens_t20_challenge,womens_t20_challenge,domestic_minor,False,12,2019-05-06,2022-05-28
+Women's T20 Quadrangular Series (in Thailand),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,12,2025-05-03,2025-11-17
+Women's Twenty20 Asia Cup,T20,female,international,intl_t20_w,asia_cup,intl_assoc,False,12,2018-06-03,2026-08-30
+Zimbabwe in West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,12,2006-04-29,2013-02-26
+Asian Games Women's Cricket Competition,IT20,female,international,intl_t20_w,multisport,intl_assoc,False,11,2014-09-20,2014-09-26
+Australia tour of New Zealand,T20,male,international,intl_t20_m,bilateral,intl_full,False,11,2021-02-22,2025-10-04
+Australia tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,11,2020-02-29,2026-09-30
+Cyprus T20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,11,2021-10-06,2025-11-02
+England in India Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,11,2008-12-11,2016-12-16
+England in Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,11,2007-10-01,2014-12-16
+England in West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,11,2009-03-20,2017-03-09
+ICC Men's T20 World Cup Asia Qualifier Final,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,11,2023-10-31,2023-11-05
+ICC World Twenty20 Africa Region Qualifier B,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,11,2018-07-07,2018-07-14
+ICC World Twenty20 East Asia-Pacific Region Qualifier A,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,11,2018-08-25,2018-08-29
+ICC World Twenty20 East Asia-Pacific Region Qualifier B,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,11,2018-12-01,2018-12-07
+India in Zimbabwe ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,11,2013-07-24,2016-06-15
+India tour of Australia,T20,male,international,intl_t20_m,bilateral,intl_full,False,11,2018-11-21,2025-11-08
+India tour of South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,11,2006-12-15,2024-01-03
+India tour of Sri Lanka,ODI,male,international,intl_odi_m,bilateral,intl_full,False,11,2017-08-20,2024-08-07
+New Zealand Women tour of England,T20,female,international,intl_t20_w,bilateral,intl_full,False,11,2021-09-01,2026-05-25
+New Zealand tour of Pakistan,ODI,male,international,intl_odi_m,bilateral,intl_full,False,11,2003-11-29,2023-05-07
+Pakistan Women tour of South Africa,T20,female,international,intl_t20_w,bilateral,intl_full,False,11,2019-05-15,2026-02-16
+Pakistan in Sri Lanka Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,11,2009-07-04,2015-07-03
+Pakistan tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,11,2019-01-19,2024-12-22
+Pearl of Africa T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,11,2025-07-17,2025-07-27
+Quadrangular Twenty20 Series (Malawi),T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,11,2025-07-05,2025-07-13
+South Africa in New Zealand ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,11,2012-02-25,2017-03-04
+South Africa tour of West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,11,2021-06-26,2024-08-27
+Sri Lanka tour of India,T20,male,international,intl_t20_m,bilateral,intl_full,False,11,2017-12-20,2023-01-07
+West Indies in New Zealand ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,11,2006-02-18,2014-01-08
+West Indies tour of England,Test,male,international,intl_test_m,bilateral,intl_full,False,11,2004-07-29,2024-07-26
+ACC Twenty20 Cup,IT20,male,international,intl_t20_m,multi_nation,intl_assoc,False,10,2015-01-25,2015-01-30
+Asian Cricket Council Elite League,ODM,male,international,intl_odi_m,multi_nation,intl_assoc,False,10,2014-06-08,2014-06-13
+Asian Games Women's Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,10,2026-05-26,2026-05-31
+Australia in Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2011-08-10,2016-09-04
+Australia in West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2008-06-24,2012-03-25
+Australia tour of Sri Lanka,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2004-02-20,2025-02-14
+Australia tour of West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,10,2021-07-09,2025-07-28
+Bangladesh tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2004-03-14,2026-07-11
+Capricorn Women's Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,10,2022-04-20,2022-04-26
+England tour of Australia and New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2018-01-14,2018-03-10
+Gulf Cricket T20I Championship,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,10,2023-09-15,2023-09-23
+ICC Cricket World Cup Qualifier,ODM,male,international,intl_odi_m,icc_qualifier,intl_assoc,False,10,2018-03-04,2018-03-17
+ICC Men's T20 World Cup Asia B Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,10,2023-07-26,2023-08-01
+ICC Women's World Twenty20 Qualifying Series East Asia-Pacific Region,IT20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,10,2017-04-28,2017-05-04
+ICC World Cricket League Division Six,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,10,2015-09-07,2015-09-13
+ICC World Twenty20 Americas Sub Regional Qualifier A,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,10,2018-09-19,2018-09-26
+ICC World Twenty20 Europe Region Qualifier B,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,10,2018-08-29,2018-09-02
+India Women tour of South Africa,T20,female,international,intl_t20_w,bilateral,intl_full,False,10,2018-02-13,2026-04-27
+India in New Zealand ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2009-03-03,2014-01-31
+India tour of England,Test,male,international,intl_test_m,bilateral,intl_full,False,10,2021-08-04,2025-07-31
+India tour of New Zealand,T20,male,international,intl_t20_m,bilateral,intl_full,False,10,2019-02-06,2022-11-22
+Ireland Tri-Nation Women's T20I Series,T20,female,international,intl_t20_w,multi_nation,intl_full,False,10,2022-07-16,2026-06-03
+Japan Twenty20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,10,2025-05-07,2026-05-17
+Nepal Women tour of Malaysia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,10,2023-05-29,2025-10-08
+New Zealand Women tour of England,ODI,female,international,intl_odi_w,bilateral,intl_full,False,10,2021-09-16,2026-05-16
+New Zealand in India ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2010-11-28,2016-10-29
+New Zealand tour of Pakistan,T20,male,international,intl_t20_m,bilateral,intl_full,False,10,2023-04-14,2024-04-27
+Pakistan Women tour of South Africa,ODI,female,international,intl_odi_w,bilateral,intl_full,False,10,2007-01-22,2026-03-01
+Pakistan in Australia ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2010-01-22,2017-01-26
+Pakistan in New Zealand ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2011-01-22,2016-01-31
+Pakistan v South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2010-10-29,2013-11-11
+Pakistan v Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2011-11-11,2013-12-27
+SEA Games Men's Twenty20 Cricket Competition,T20,male,international,intl_t20_m,multisport,intl_assoc,False,10,2025-12-09,2025-12-13
+SEA Games Women's Twenty20 Cricket Competition,T20,female,international,intl_t20_w,multisport,intl_assoc,False,10,2025-12-15,2025-12-19
+Singapore Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,10,2024-10-21,2024-10-30
+Sofia Twenty20,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,10,2021-06-24,2022-06-26
+South Africa Women tour of India,T20,female,international,intl_t20_w,bilateral,intl_full,False,10,2019-09-24,2024-07-09
+South Africa in Australia ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2009-01-16,2014-11-23
+South Africa tour of Sri Lanka,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2004-08-28,2021-09-07
+Sri Lanka in England ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2014-05-22,2016-07-02
+Sri Lanka in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2012-01-11,2017-02-10
+West Indies in Australia ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2010-02-07,2013-02-10
+West Indies in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,10,2008-01-20,2015-01-28
+Women's African Games,T20,female,international,intl_t20_w,multisport,intl_assoc,False,10,2024-03-07,2024-03-13
+Women's T20 Pentangular Series (in Japan),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,10,2025-06-04,2025-06-08
+Women's T20I Quadrangular Series (in Netherlands),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,10,2019-08-08,2019-08-14
+Asia Cup,T20,male,international,intl_t20_m,asia_cup,intl_assoc,False,9,2016-02-19,2022-09-02
+Asian Games Men's Cricket Competition,IT20,male,international,intl_t20_m,multisport,intl_assoc,False,9,2014-09-27,2014-10-03
+Australia in South Africa T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,9,2009-03-27,2016-03-09
+Bangladesh in New Zealand ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2007-12-26,2016-12-31
+Bangladesh in Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2007-07-20,2017-04-01
+Bangladesh tour of New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2019-02-13,2023-12-23
+Bangladesh tour of West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2004-05-15,2024-12-12
+Bangladesh tour of Zimbabwe,T20,male,international,intl_t20_m,bilateral,intl_full,False,9,2021-07-22,2026-07-19
+Bhutan Quadrangular T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,9,2024-10-19,2024-10-24
+England tour of India,T20,male,international,intl_t20_m,bilateral,intl_full,False,9,2021-03-14,2025-02-02
+England tour of Sri Lanka,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2003-11-18,2026-01-27
+England tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,9,2003-12-18,2021-01-22
+Gibraltar Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,9,2023-05-04,2023-05-07
+ICC Men's T20 World Cup Asia Region Final,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,9,2019-07-22,2019-07-28
+ICC World Twenty20 Americas Sub Regional Qualifier A,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,9,2026-06-21,2026-06-27
+ICC World Twenty20 Europe Region Qualifier C,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,9,2018-08-29,2018-09-02
+India Women tour of Australia,ODI,female,international,intl_odi_w,bilateral,intl_full,False,9,2021-09-21,2026-03-01
+India Women tour of England,ODI,female,international,intl_odi_w,bilateral,intl_full,False,9,2021-06-27,2025-07-22
+India in Sri Lanka Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,9,2008-07-23,2015-08-28
+India in West Indies Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,9,2011-06-20,2019-08-30
+India tour of Australia,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2019-01-12,2025-10-25
+India tour of England,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2004-09-01,2026-07-19
+India tour of South Africa,T20,male,international,intl_t20_m,bilateral,intl_full,False,9,2018-02-18,2024-11-15
+Ireland tour of Zimbabwe,T20,male,international,intl_t20_m,bilateral,intl_full,False,9,2023-01-12,2025-02-25
+Ireland tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2023-01-18,2025-02-18
+Men's T20 Asia Cup,T20,male,international,intl_t20_m,asia_cup,intl_full,False,9,2025-09-13,2025-09-28
+Namibia Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,9,2024-09-06,2024-09-14
+Nepal Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,9,2025-01-30,2025-02-07
+New Zealand Women tour of Australia,T20,female,international,intl_t20_w,bilateral,intl_full,False,9,2018-09-29,2024-09-24
+New Zealand in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2007-11-25,2015-08-26
+New Zealand tour of India,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2017-10-22,2026-01-18
+Oman Pentangular T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,9,2019-10-05,2019-10-10
+Pakistan in Zimbabwe ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2011-09-08,2015-10-05
+Pakistan tour of England,T20,male,international,intl_t20_m,bilateral,intl_full,False,9,2019-05-05,2024-05-30
+Pakistan tour of England,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2004-09-04,2021-07-13
+Pakistan tour of New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2004-01-03,2025-04-05
+Pakistan tour of South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,9,2002-12-26,2025-01-03
+Pakistan tour of South Africa,T20,male,international,intl_t20_m,bilateral,intl_full,False,9,2019-02-01,2024-12-13
+Pataudi Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,9,2011-07-21,2014-08-15
+Rose Bowl,ODI,female,international,intl_odi_w,bilateral,intl_full,False,9,2012-12-12,2019-03-03
+South Africa Women tour of India,ODI,female,international,intl_odi_w,bilateral,intl_full,False,9,2019-10-09,2024-06-23
+South Africa Women tour of New Zealand,T20,female,international,intl_t20_w,bilateral,intl_full,False,9,2020-02-02,2026-03-25
+South Africa Women tour of West Indies,T20,female,international,intl_t20_w,bilateral,intl_full,False,9,2018-09-28,2025-06-23
+South Africa in Australia Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,9,2008-12-17,2016-11-24
+Sri Lanka tour of New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_full,False,9,2005-12-31,2025-01-11
+United Arab Emirates Tri-Nation Series,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,9,2017-01-22,2018-01-23
+Warne-Muralitharan Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,9,2011-08-31,2016-08-13
+(none),Test,male,international,intl_test_m,intl_unnamed,intl_full,True,8,2010-02-15,2017-02-09
+ACC Eastern Region T20,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,8,2020-02-29,2020-03-06
+Asia Cup,ODI,male,international,intl_odi_m,asia_cup,intl_assoc,False,8,2008-06-24,2023-09-04
+Asian Games Women's Cricket Competition,T20,female,international,intl_t20_w,multisport,intl_full,False,8,2023-09-24,2026-09-22
+Australia Women tour of India,T20,female,international,intl_t20_w,bilateral,intl_full,False,8,2022-12-09,2024-01-09
+Australia in South Africa Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2009-02-26,2014-03-01
+Australia tour of Bangladesh,T20,male,international,intl_t20_m,bilateral,intl_full,False,8,2021-08-03,2026-06-21
+Australia tour of South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2006-03-16,2026-10-09
+Bahrain tour of Indonesia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,8,2025-02-19,2025-11-21
+Bangladesh Women tour of South Africa,ODI,female,international,intl_odi_w,bilateral,intl_full,False,8,2018-05-04,2023-12-23
+Bangladesh tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2005-09-12,2025-06-25
+Budapest Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,8,2025-07-25,2025-07-27
+CG United Women's Super50,ODM,female,club,wi_women_super50,wi_women_super50,domestic_major,False,8,2022-06-17,2022-06-25
+Czech Republic Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,8,2026-09-04,2026-09-06
+DLF Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,8,2006-04-18,2006-09-24
+Desert T20 Challenge,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,8,2017-01-14,2017-01-20
+England Women tour of New Zealand,T20,female,international,intl_t20_w,bilateral,intl_full,False,8,2021-03-03,2024-03-29
+England in New Zealand ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2008-02-09,2013-02-23
+England in New Zealand Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2008-03-05,2019-11-29
+England in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2009-11-22,2016-02-14
+England tour of New Zealand,T20,male,international,intl_t20_m,bilateral,intl_full,False,8,2019-11-01,2025-10-23
+England tour of Pakistan,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2005-11-12,2024-10-24
+Estonia tour of Cyprus,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,8,2021-10-05,2024-06-19
+Eswatini T20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,8,2026-06-02,2026-06-07
+ICC Women's Cricket World Cup Qualifier,ODM,female,international,intl_odi_w,icc_qualifier,intl_assoc,False,8,2021-11-21,2021-11-27
+ICC World Twenty20 Europe Region Qualifier A,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,8,2018-08-29,2018-09-02
+India Women tour of Bangladesh,T20,female,international,intl_t20_w,bilateral,intl_full,False,8,2023-07-09,2024-05-09
+India in Bangladesh ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2007-05-10,2015-06-24
+India tour of England,T20,male,international,intl_t20_m,bilateral,intl_full,False,8,2022-07-07,2026-07-11
+India tour of Zimbabwe,T20,male,international,intl_t20_m,bilateral,intl_full,False,8,2024-07-06,2026-07-26
+Indonesia Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,8,2024-07-02,2024-07-08
+Ireland Tri-Nation Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,8,2017-05-17,2019-05-17
+Ireland tour of United Arab Emirates,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,8,2021-10-07,2026-01-31
+Lotus Cup Women's Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,8,2026-01-20,2026-01-29
+Malawi Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,8,2026-08-11,2026-08-16
+Namibia tour of Zimbabwe,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,8,2022-05-17,2025-09-18
+NatWest Challenge,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2005-06-16,2005-07-02
+New Zealand in India Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2010-11-04,2016-10-08
+New Zealand tour of England,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2021-06-02,2026-06-25
+New Zealand tour of West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2022-08-17,2026-07-21
+Pakistan in Australia Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2009-12-26,2019-11-29
+Pakistan in England Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2010-07-29,2016-08-11
+Pakistan in India ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2007-11-05,2013-01-06
+Pakistan tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2018-07-13,2024-11-28
+Pakistan v England ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2012-02-13,2015-11-20
+Pakistan v England T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,8,2010-02-19,2015-11-30
+Pakistan v New Zealand ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2009-11-03,2014-12-19
+South Africa Women tour of West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,8,2021-09-07,2025-06-17
+South Africa in India ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2010-02-21,2015-10-25
+South Africa in India Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2008-03-26,2019-10-19
+South Africa in Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2013-07-20,2014-07-12
+South Africa tour of India,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2005-11-16,2025-12-06
+South Africa tour of Pakistan,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2003-10-17,2025-10-20
+South Africa tour of Pakistan,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2003-10-03,2025-11-08
+Sri Lanka in Australia ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2010-11-03,2013-01-23
+Sri Lanka in England Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2011-05-26,2016-06-09
+Sri Lanka tour of Australia,T20,male,international,intl_t20_m,bilateral,intl_full,False,8,2019-10-27,2022-02-20
+Sri Lanka tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2006-02-28,2024-03-30
+Sweden tour of Indonesia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,8,2026-04-07,2026-04-13
+Uganda T20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,8,2021-09-10,2021-09-17
+West Indies Women tour of England,T20,female,international,intl_t20_w,bilateral,intl_full,False,8,2020-09-21,2025-05-26
+West Indies in Bangladesh ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2011-10-13,2012-12-08
+West Indies tour of England,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2017-09-19,2025-06-03
+West Indies tour of New Zealand,Test,male,international,intl_test_m,bilateral,intl_full,False,8,2006-03-09,2025-12-18
+Women's East Asia Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,8,2022-10-27,2024-10-13
+Women's T20 Quadrangular Series (in Bulgaria),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,8,2025-07-07,2025-07-09
+Women's T20I Quadrangular Series (in China),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,8,2024-11-07,2024-11-10
+Women's World T20,T20,female,international,intl_t20_w,icc_t20wc,intl_assoc,False,8,2014-03-25,2016-03-26
+Zimbabwe in Pakistan ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2008-01-21,2015-05-31
+Zimbabwe in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2006-09-15,2010-10-22
+Zimbabwe tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,8,2005-01-24,2020-03-06
+ACC Western Region T20,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,7,2020-02-25,2020-02-27
+Asian Cricket Council Premier League,ODM,male,international,intl_odi_m,multi_nation,intl_assoc,False,7,2014-05-01,2014-05-07
+Asian Games Men's Cricket Competition,T20,male,international,intl_t20_m,multisport,intl_assoc,False,7,2023-09-27,2026-09-26
+Australia Tri-Nation Women's T20 Series,T20,female,international,intl_t20_w,multi_nation,intl_full,False,7,2020-01-31,2020-02-12
+Bangladesh tour of Sri Lanka,ODI,male,international,intl_odi_m,bilateral,intl_full,False,7,2005-08-31,2025-07-08
+Bulgaria Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,7,2025-07-10,2025-07-13
+Canada Women tour of Argentina,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,7,2026-07-29,2026-08-02
+Carlton Mid One-Day International Tri-Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,7,2015-01-16,2015-02-01
+East Asia Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,7,2024-02-14,2024-02-17
+England Tri-Nation T20 Women's Series,T20,female,international,intl_t20_w,multi_nation,intl_full,False,7,2018-06-20,2018-07-01
+England tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,7,2002-12-26,2007-01-02
+England tour of Australia and New Zealand,Test,male,international,intl_test_m,bilateral,intl_full,False,7,2017-11-23,2018-03-30
+England tour of Pakistan,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2022-09-20,2022-10-02
+England tour of West Indies,Test,male,international,intl_test_m,bilateral,intl_full,False,7,2004-04-10,2022-03-24
+Hong Kong Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,7,2026-05-07,2026-05-11
+ICC Men's T20 World Cup Asia A Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,7,2021-10-23,2021-10-29
+ICC World Cricket League East Asia-Pacific Region Qualifiers,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,7,2017-02-19,2017-02-25
+India Tri-Nation Women's T20 Series,T20,female,international,intl_t20_w,multi_nation,intl_full,False,7,2018-03-22,2018-03-31
+India Women tour of Sri Lanka,T20,female,international,intl_t20_w,bilateral,intl_full,False,7,2018-09-21,2022-06-27
+India in New Zealand Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,7,2009-03-18,2020-02-29
+India in Zimbabwe T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2010-06-12,2016-06-22
+India tour of Sri Lanka,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2017-09-06,2024-07-30
+Ireland Women tour of Zimbabwe,ODI,female,international,intl_odi_w,bilateral,intl_full,False,7,2021-10-05,2024-01-23
+Men's T20 Asia Cup,T20,male,international,intl_t20_m,asia_cup,intl_assoc,False,7,2025-09-10,2025-09-19
+Mongolia tour of Japan,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,7,2024-05-07,2024-05-12
+New Zealand T20I Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_full,False,7,2022-10-07,2022-10-14
+New Zealand in Bangladesh ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,7,2010-10-05,2013-11-03
+New Zealand in England Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,7,2008-05-15,2015-05-29
+New Zealand in Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,7,2012-11-04,2013-11-16
+New Zealand tour of Bangladesh,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2021-09-01,2026-05-02
+New Zealand tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,7,2004-11-02,2026-04-23
+Nidahas Trophy,T20,male,international,intl_t20_m,multi_nation,intl_full,False,7,2018-03-06,2018-03-18
+Pakistan T20I Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_full,False,7,2025-11-18,2025-11-29
+Pakistan Women in England T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,7,2012-09-04,2016-07-07
+Pakistan in New Zealand Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,7,2009-11-24,2016-11-25
+Pakistan tour of West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2021-07-28,2025-08-03
+South Africa Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_full,False,7,2023-01-19,2023-02-02
+South Africa tour of England,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2022-07-27,2025-09-12
+Sri Lanka Triangular Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,7,2010-08-10,2010-08-28
+Sri Lanka Women's ODI Tri-Series,ODI,female,international,intl_odi_w,multi_nation,intl_full,False,7,2025-04-27,2025-05-11
+Sri Lanka tour of New Zealand,Test,male,international,intl_test_m,bilateral,intl_full,False,7,2005-04-11,2023-03-17
+Sri Lanka tour of New Zealand,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2019-01-11,2025-01-02
+Sri Lanka tour of West Indies,Test,male,international,intl_test_m,bilateral,intl_full,False,7,2018-06-06,2026-07-03
+TVS Cup (India),ODI,male,international,intl_odi_m,multi_nation,intl_full,False,7,2003-10-23,2003-11-15
+Trans-Tasman Twenty20 Trophy,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2018-02-03,2018-02-21
+Twenty20 Quadrangular (in Kenya),T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,7,2007-09-01,2024-07-05
+West Indies tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,7,2018-12-09,2025-10-23
+Women's T20 Quadrangular Series (in Malaysia),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,7,2023-08-22,2023-08-26
+Zimbabwe Tri-Nation Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,7,2016-11-14,2016-11-27
+Zimbabwe tour of Bangladesh,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2020-03-09,2024-05-12
+ACC Men's Premier Cup,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,6,2023-04-21,2026-09-12
+Asian Games Men's Cricket Competition,T20,male,international,intl_t20_m,multisport,intl_full,False,6,2023-10-06,2026-10-03
+Australia Women tour of India,ODI,female,international,intl_odi_w,bilateral,intl_full,False,6,2023-12-28,2025-09-20
+Australia Women tour of New Zealand,T20,female,international,intl_t20_w,bilateral,intl_full,False,6,2021-03-28,2025-03-26
+Australia Women tour of West Indies,T20,female,international,intl_t20_w,bilateral,intl_full,False,6,2019-09-14,2026-03-23
+Australia in Bangladesh ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2006-04-23,2011-04-13
+Australia tour of England,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2018-06-27,2024-09-13
+Australia tour of India,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2004-10-14,2023-03-09
+Australia tour of Pakistan,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2022-03-29,2026-06-04
+Australia tour of South Africa,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2020-02-21,2023-09-03
+Australia tour of West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2003-05-17,2021-07-26
+Australia tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2004-05-25,2026-09-20
+Bangladesh in West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2009-07-26,2014-08-25
+Bangladesh tour of India,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2019-11-03,2024-10-12
+Bangladesh tour of New Zealand,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2021-03-28,2023-12-31
+Bangladesh tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2017-10-15,2022-03-23
+Bangladesh tour of West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2022-07-02,2024-12-19
+CSA Pro20,T20,male,club,csa_t20,csa_t20,domestic_major,False,6,2026-09-25,2026-09-29
+Canada T20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,6,2024-09-28,2024-10-03
+England Women tour of India,T20,female,international,intl_t20_w,bilateral,intl_full,False,6,2019-03-04,2023-12-10
+England Women tour of New Zealand,ODI,female,international,intl_odi_w,bilateral,intl_full,False,6,2021-02-23,2024-04-07
+England in Bangladesh ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2010-02-28,2016-10-12
+England tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2003-11-07,2023-03-06
+England tour of India,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2021-03-23,2025-02-12
+England tour of South Africa,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2020-02-12,2020-12-01
+Germany Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,6,2024-07-26,2024-07-28
+Gibraltar tour of Malta,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,6,2026-05-07,2026-05-09
+Greece Women tour of Cyprus,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,6,2026-04-03,2026-04-05
+ICC World Cricket League Division Eight,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,6,2012-09-17,2012-09-22
+ICC World Twenty20 East Asia-Pacific Region Final,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,6,2019-03-22,2019-03-24
+India Women tour of Australia,T20,female,international,intl_t20_w,bilateral,intl_full,False,6,2021-10-07,2026-02-21
+India tour of Ireland,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2022-06-26,2026-06-28
+India tour of West Indies,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2006-06-02,2023-07-20
+Ireland tour of Bangladesh,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2023-03-27,2025-12-02
+Kenya Quadrangular Women's T20 Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,6,2022-12-15,2022-12-21
+Malta Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,6,2025-02-03,2025-02-05
+Men's T20 Asia Cup Qualifier,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,6,2022-08-20,2022-08-24
+Mongolia Women tour of Indonesia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,6,2024-04-21,2024-04-24
+Myanmar Women tour of Singapore,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,6,2023-08-24,2025-11-30
+Myanmar tour of Indonesia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,6,2024-11-12,2024-11-19
+Namibia Women tour of United Arab Emirates,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,6,2023-09-26,2023-10-03
+Netherlands Women's ODI Tri-Series,ODI,female,international,intl_odi_w,multi_nation,intl_assoc,False,6,2024-08-05,2024-08-12
+New Zealand in Sri Lanka Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2009-08-18,2019-08-22
+New Zealand in Zimbabwe ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2011-10-20,2015-08-07
+New Zealand tour of Australia,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2004-12-05,2022-09-11
+New Zealand tour of India,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2003-10-16,2024-11-01
+PacificAus Sports Cricket Invitational,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,6,2025-06-15,2025-06-21
+Pakistan in Bangladesh ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2011-12-01,2015-04-22
+Pakistan in New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2010-12-26,2016-01-22
+Pakistan in West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2013-07-27,2017-04-02
+Pakistan in Zimbabwe T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2011-09-16,2015-09-29
+Pakistan tour of Australia,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2019-11-03,2024-11-18
+Pakistan tour of Bangladesh,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2021-11-19,2025-07-24
+Pakistan tour of England,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2020-08-05,2026-09-09
+Pakistan tour of Zimbabwe,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2021-04-21,2024-12-05
+Pakistan v Australia ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2012-08-28,2014-10-12
+Pakistan v England Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2012-01-17,2015-11-01
+Pakistan v Sri Lanka Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2011-10-18,2014-01-16
+Philippines tour of Indonesia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,6,2023-12-22,2023-12-26
+Quadrangular Twenty20 Series (Bulgaria),T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,6,2023-06-23,2023-06-24
+Saudari Cup,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,6,2019-08-28,2022-07-10
+Scotland T20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,6,2025-06-15,2025-06-20
+Scotland Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,6,2026-05-28,2026-06-04
+South Africa Women tour of Pakistan,T20,female,international,intl_t20_w,bilateral,intl_full,False,6,2023-09-01,2024-09-20
+South Africa Women tour of Pakistan,ODI,female,international,intl_odi_w,bilateral,intl_full,False,6,2023-09-08,2025-09-22
+South Africa in Bangladesh ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2008-03-09,2015-07-15
+South Africa in England T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2012-09-08,2017-06-25
+South Africa in New Zealand Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2012-03-07,2017-03-25
+South Africa in Zimbabwe ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2007-08-22,2014-08-21
+South Africa tour of Australia,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2018-11-04,2025-08-24
+South Africa tour of England,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2017-07-14,2022-09-08
+South Africa tour of England,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2022-07-19,2025-09-07
+South Africa tour of New Zealand,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2004-03-18,2024-02-13
+South Africa tour of Pakistan,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2021-02-11,2025-11-01
+South Africa tour of West Indies,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2005-04-21,2024-08-15
+Sri Lanka in Bangladesh ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2006-02-20,2014-02-22
+Sri Lanka in South Africa Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2011-12-15,2017-01-12
+Sri Lanka tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2021-05-23,2024-03-18
+Sri Lanka tour of England,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2021-06-29,2026-09-27
+Sri Lanka tour of England,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2021-06-23,2026-09-19
+Sri Lanka tour of England,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2006-05-11,2024-09-06
+Sri Lanka tour of India,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2005-12-18,2022-03-12
+Sri Lanka tour of Pakistan,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2019-10-05,2026-10-13
+Sri Lanka tour of South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,6,2019-02-13,2024-12-05
+Sri Lanka tour of West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2021-03-03,2026-06-14
+The Pacific-France Women Championship,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,6,2025-03-10,2025-03-14
+Uganda Women tour of Namibia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,6,2025-04-08,2025-04-15
+Uganda tour of Namibia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,6,2021-04-03,2022-04-10
+West Indies Women tour of Pakistan,ODI,female,international,intl_odi_w,bilateral,intl_full,False,6,2021-11-08,2024-04-23
+West Indies in Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2011-01-31,2015-11-07
+West Indies tour of Bangladesh,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2018-12-17,2025-10-31
+West Indies tour of New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2017-12-20,2025-11-22
+West Indies tour of Pakistan,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2018-04-01,2021-12-16
+West Indies tour of South Africa,T20,male,international,intl_t20_m,bilateral,intl_full,False,6,2023-03-25,2026-01-31
+West Indies tour of Sri Lanka,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2020-02-22,2024-10-26
+Women's Ashes,Test,female,international,intl_test_w,bilateral,intl_full,False,6,2013-08-11,2025-01-30
+Women's Quadrangular Series (in South Africa),ODM,female,international,intl_odi_w,multi_nation,intl_assoc,False,6,2017-05-07,2017-05-19
+Women's Twenty20 Asia Cup,T20,female,international,intl_t20_w,asia_cup,intl_full,False,6,2018-06-04,2018-06-10
+Zimbabwe tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2005-02-25,2018-10-06
+Zimbabwe tour of Sri Lanka,ODI,male,international,intl_odi_m,bilateral,intl_full,False,6,2022-01-16,2024-01-11
+Asian Cricket Council Women's Twenty20 Asia Cup,T20,female,international,intl_t20_w,asia_cup,intl_full,False,5,2012-10-28,2016-12-04
+Asian Games Women's Cricket Competition,T20,female,international,intl_t20_w,multisport,intl_assoc,False,5,2023-09-21,2026-09-18
+Australia Women tour of New Zealand,ODI,female,international,intl_odi_w,bilateral,intl_full,False,5,2021-04-04,2024-12-23
+Australia in England ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2015-09-03,2015-09-13
+Australia tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2004-03-08,2025-02-06
+Australia tour of United Arab Emirates,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2019-03-22,2019-03-31
+Australia v Pakistan ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2009-04-22,2009-05-03
+Bangladesh Women tour of South Africa,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2018-05-19,2023-12-08
+Bangladesh in Pakistan ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2008-04-08,2008-04-19
+Bangladesh tour of Pakistan,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2020-01-24,2025-06-01
+Bangladesh tour of United Arab Emirates,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2022-09-25,2025-05-21
+Belgium tour of Malta,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2021-07-08,2021-07-10
+Botswana Women tour of Namibia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2019-04-01,2019-04-03
+Canada Women tour of Uganda,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2025-10-20,2025-10-26
+Croatia tour of Spain,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2025-12-05,2025-12-07
+Cyprus Women tour of Czech Republic,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2025-05-02,2025-05-04
+England Women tour of India,ODI,female,international,intl_odi_w,bilateral,intl_full,False,5,2018-04-09,2019-02-28
+England Women tour of West Indies,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2022-12-11,2022-12-22
+England in Australia T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2011-01-12,2014-02-02
+England in India T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2012-12-20,2017-02-01
+England in New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2008-02-05,2013-02-15
+England tour of New Zealand,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2023-02-16,2024-12-14
+Finland Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,5,2025-07-19,2025-07-20
+Germany Women tour of Austria,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2020-08-12,2020-08-15
+Germany tour of Spain,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2020-03-08,2021-09-11
+Hong Kong tour of Malaysia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2020-02-20,2020-02-26
+ICC Women's T20 World Cup Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_full,False,5,2019-09-05,2024-04-29
+ICC World Cricket League Americas Region Division One Twenty20,IT20,male,international,intl_t20_m,icc_league,intl_assoc,False,5,2010-06-04,2010-06-06
+ICC World Cricket League Division One,ODI,male,international,intl_odi_m,icc_league,intl_assoc,False,5,2007-02-02,2010-07-07
+ICC World Twenty20 Africa Region Qualifier A,IT20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,5,2018-04-14,2018-04-21
+Iberia Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,5,2019-10-25,2019-10-27
+India Women tour of New Zealand,ODI,female,international,intl_odi_w,bilateral,intl_full,False,5,2022-02-12,2022-02-24
+India Women tour of West Indies,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2019-11-09,2019-11-20
+India in Australia ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2016-01-12,2016-01-23
+India in Australia T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2012-02-01,2016-01-31
+India in Pakistan ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2006-02-06,2006-02-19
+India in South Africa Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2010-12-16,2013-12-26
+India tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2004-12-23,2022-12-10
+India tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2004-12-10,2022-12-22
+India tour of Ireland and England,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2018-06-27,2018-07-08
+India tour of Ireland and England,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2018-08-01,2018-09-07
+India tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2017-07-26,2026-08-23
+India tour of West Indies and United States of America,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2023-08-03,2023-08-13
+Ireland Women tour of Zimbabwe,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2024-01-26,2024-02-02
+Ireland tour of England,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2020-07-30,2023-09-26
+Isle of Man tour of Spain,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2023-02-24,2023-02-26
+Kenya T20 Quadrangular Series,IT20,male,international,intl_t20_m,multi_nation,intl_assoc,False,5,2016-09-27,2016-09-29
+Kenya Women tour of Rwanda,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2024-10-29,2024-11-02
+Lesotho tour of Botswana,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2026-03-09,2026-03-15
+Mozambique tour of Eswatini,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2025-09-12,2025-09-14
+Myanmar tour of Bhutan,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2025-12-23,2025-12-29
+Namibia tour of Oman,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2024-04-01,2024-04-07
+Netherlands Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,5,2023-07-12,2024-08-16
+New Zealand Women tour of West Indies,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2022-09-28,2022-10-06
+New Zealand in England ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2015-06-09,2015-06-20
+New Zealand in South Africa T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2012-12-21,2015-08-16
+New Zealand in West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2012-07-05,2012-07-16
+New Zealand in West Indies Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2012-07-25,2014-06-26
+New Zealand tour of South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2006-04-15,2007-11-16
+New Zealand tour of Sri Lanka,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2019-09-01,2024-11-10
+Nigeria Quadrangular T20 Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,5,2026-09-21,2026-09-27
+Nigeria tour of Kenya,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2024-07-12,2024-07-17
+North America Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,5,2026-09-23,2026-09-27
+Oman Women tour of Qatar,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2026-02-09,2026-02-14
+Pakistan Women tour of Sri Lanka,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2018-03-28,2026-08-04
+Pakistan Women tour of West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,5,2021-07-07,2021-07-18
+Pakistan in England ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2016-08-24,2016-09-04
+Pakistan in West Indies Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2011-05-12,2017-05-10
+Pakistan tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2006-04-03,2023-07-24
+Pakistan tour of United Arab Emirates,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2017-10-13,2017-10-23
+Pakistan tour of West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2005-05-18,2025-08-12
+Pakistan v West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2008-11-12,2016-10-05
+Paktel Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,5,2004-09-30,2004-10-16
+Rwanda Women tour of Kenya,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2024-09-10,2024-09-14
+Serbia Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,5,2026-09-04,2026-09-06
+Sierra Leone tour of Nigeria,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2021-10-19,2021-10-26
+Singapore Twenty20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,5,2019-09-27,2019-10-03
+Singapore Women tour of Japan,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2024-10-01,2024-10-06
+Sir Vivian Richards Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2008-01-02,2015-01-02
+South Africa Women tour of Zimbabwe,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2026-09-11,2026-09-19
+South Africa in Australia T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2009-01-11,2014-11-09
+South Africa in Pakistan ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2007-10-18,2007-10-29
+South Africa in West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2010-05-22,2010-06-03
+South Africa tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2005-12-26,2023-01-04
+South Africa tour of New Zealand,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2026-03-15,2026-03-25
+Spain tour of Croatia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2024-08-02,2024-08-04
+Sri Lanka Women tour of India,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2025-12-21,2025-12-30
+Sri Lanka Women tour of South Africa,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2019-02-01,2024-04-03
+Sri Lanka in Australia T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2013-01-26,2017-02-22
+Sri Lanka in India T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2009-12-09,2016-02-14
+Sri Lanka tour of Bangladesh,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2018-02-15,2024-03-09
+Sri Lanka tour of Pakistan,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2019-09-30,2025-11-16
+Sri Lanka tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2019-03-03,2019-03-16
+Switzerland Women tour of Germany,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2026-07-10,2026-07-12
+Thailand tour of Indonesia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2024-05-01,2024-05-06
+Uganda Women tour of Nepal,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,5,2022-05-16,2022-05-21
+United States of America Women tour of Zimbabwe,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,5,2024-10-17,2024-10-28
+Vanuatu tour of Malaysia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2019-09-29,2019-10-04
+West Indies Women in England T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2012-09-08,2012-09-16
+West Indies Women in Sri Lanka T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2013-03-03,2015-05-26
+West Indies Women tour of Pakistan,T20,female,international,intl_t20_w,bilateral,intl_full,False,5,2024-04-26,2024-05-03
+West Indies in India Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2011-11-06,2013-11-14
+West Indies in South Africa T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2007-12-16,2015-01-14
+West Indies tour of Australia,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2022-10-05,2024-02-13
+West Indies tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2005-11-17,2024-01-25
+West Indies tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2004-01-25,2023-03-21
+West Indies tour of Sri Lanka,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2020-03-04,2024-10-17
+West Indies tour of Zimbabwe,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2003-11-12,2023-02-12
+Women's T20I Quadrangular Series (in Denmark),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,5,2024-09-14,2024-09-15
+Women's Twenty20 East Asia Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,5,2019-09-19,2019-09-22
+Zimbabwe in Sri Lanka ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,5,2017-06-30,2017-07-10
+Zimbabwe tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,5,2018-11-03,2025-04-28
+Zimbabwe tour of Ireland and Scotland,T20,male,international,intl_t20_m,bilateral,intl_full,False,5,2021-08-27,2021-09-04
+Zimbabwe tour of Namibia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,5,2023-10-24,2023-10-30
+(none),T20,male,international,intl_t20_m,intl_unnamed,intl_assoc,True,4,2013-04-19,2016-02-04
+Australia Women tour of West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,4,2019-09-05,2026-04-02
+Australia in Sri Lanka T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2011-08-06,2016-09-09
+Australia tour of England and Scotland,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2005-07-21,2005-09-08
+Australia tour of New Zealand,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2005-03-10,2024-03-08
+Australia tour of Pakistan,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2022-04-05,2026-02-01
+Australia tour of West Indies,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2003-05-09,2025-07-12
+Austria tour of Germany,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2026-05-01,2026-05-03
+Austria tour of Romania,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2025-10-18,2025-10-19
+Bahrain Women tour of Qatar,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2024-12-04,2024-12-08
+Bahrain tour of Bhutan,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2025-12-09,2025-12-13
+Bahrain tour of Qatar,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2026-02-11,2026-02-15
+Bahrain tour of Singapore,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2025-02-28,2025-03-04
+Bangladesh in New Zealand Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2008-01-04,2017-01-20
+Bangladesh in Sri Lanka Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2013-03-08,2017-03-15
+Bangladesh in West Indies Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2009-07-09,2014-09-13
+Bangladesh tour of New Zealand,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2019-02-28,2022-01-09
+Bangladesh tour of South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2017-09-28,2022-04-08
+Bangladesh tour of West Indies,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2022-06-16,2024-11-30
+Bank Alfalah Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,4,2003-05-10,2003-05-23
+Belgium Women tour of Luxembourg,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2026-08-22,2026-08-23
+Belgium tour of Austria,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2025-08-23,2025-08-24
+Botswana tour of Namibia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2019-08-19,2019-08-23
+Brazil tour of Argentina,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2025-11-28,2025-11-30
+Bulgaria tour of Romania,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2026-05-08,2026-05-10
+Canada tour of United States of America,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2024-04-07,2024-04-13
+Cherry Blossom Sharjah Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,4,2003-04-03,2003-04-10
+Compaq Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,4,2009-09-08,2009-09-14
+Cyprus tour of Croatia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2025-08-07,2025-08-08
+Czech Republic tour of Romania,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2025-08-21,2025-08-22
+Denmark Women tour of Greece,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2026-05-09,2026-05-10
+Denmark Women tour of Oman,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2026-02-03,2026-02-07
+East Asia Cup,IT20,male,international,intl_t20_m,multi_nation,intl_assoc,False,4,2016-11-03,2018-09-15
+England Women in Sri Lanka ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,4,2016-11-09,2019-03-21
+England in Bangladesh Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2010-03-12,2016-10-28
+England in South Africa T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2009-11-13,2016-02-21
+England tour of Sri Lanka,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2018-10-27,2026-02-03
+Finland tour of Cyprus,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2026-05-08,2026-05-09
+Finland tour of Denmark,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2022-05-07,2025-06-15
+Freedom Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2015-11-05,2015-12-03
+Germany Women tour of Greece,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2025-05-10,2025-05-11
+Germany Women tour of Oman,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2020-02-04,2020-02-08
+Germany tour of Denmark,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2026-06-18,2026-06-20
+Germany tour of Netherlands,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2019-05-25,2023-08-15
+Ghana tour of Rwanda,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2021-08-18,2021-08-21
+Hong Kong Women tour of Netherlands,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2024-06-17,2024-06-19
+Hong Kong Women tour of United Arab Emirates,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2022-04-27,2022-04-30
+ICC Champions Trophy,ODI,male,international,intl_odi_m,icc_ct,intl_assoc,False,4,2004-09-10,2004-09-14
+ICC Cricket World Cup Qualifier,ODI,male,international,intl_odi_m,icc_qualifier,intl_full,False,4,2023-06-24,2023-07-07
+ICC Men's Cricket World Cup Super League,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2021-01-20,2023-05-14
+ICC Men’s T20 World Cup Asia Qualifier Final,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,4,2023-10-30,2023-10-30
+ICC Men’s T20 World Cup Qualifier A,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,4,2022-02-18,2022-02-18
+ICC Tri-Series (in South Africa),ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,4,2006-11-27,2006-12-02
+ICC World Cricket League Americas Region Division One,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,4,2010-05-28,2010-06-01
+ICC World Cricket League Europe Region Division Two Twenty20,IT20,male,international,intl_t20_m,icc_league,intl_assoc,False,4,2016-08-17,2016-08-17
+India Women in England ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,4,2012-07-01,2012-07-11
+India Women tour of New Zealand,T20,female,international,intl_t20_w,bilateral,intl_full,False,4,2019-02-06,2022-02-09
+India in England ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2014-08-27,2014-09-05
+India tour of Pakistan,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2004-03-16,2004-03-24
+India tour of West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2022-07-22,2023-07-27
+Indonesia tour of Malaysia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2026-05-01,2026-05-05
+Indonesia tour of South Korea,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2026-10-03,2026-10-05
+Inter-Insular T20 Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2022-05-20,2025-06-07
+Ireland Tri-Nation Series,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,4,2017-05-12,2017-05-21
+Ireland Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,4,2019-09-16,2019-09-19
+Isle of Man tour of Guernsey,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2020-08-21,2026-05-03
+Kartini Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,4,2025-04-09,2025-04-12
+Kitply Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,4,2008-06-08,2008-06-14
+Luxembourg Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,4,2025-09-12,2025-09-14
+Malta Women tour of Cyprus,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2026-06-18,2026-06-20
+Mini SEA Men's Twenty20 Cricket Competition,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,4,2025-11-24,2025-11-30
+Myanmar Women tour of Bhutan,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2024-12-22,2024-12-27
+Namibia T20I Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,4,2026-08-28,2026-09-04
+Namibia Women tour of Netherlands,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2022-06-28,2022-07-01
+Nepal tour of Hong Kong,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2024-03-09,2024-03-13
+Nepal tour of Kenya,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2022-08-25,2022-08-30
+Netherlands Women tour of Thailand,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,4,2022-11-20,2022-11-26
+Netherlands Women tour of Thailand,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2022-11-29,2022-12-03
+New Zealand Women in South Africa ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,4,2016-10-17,2016-10-24
+New Zealand in South Africa Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2013-01-02,2016-08-27
+New Zealand tour of England,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2023-08-30,2023-09-05
+New Zealand tour of England,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2023-09-08,2023-09-15
+New Zealand tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2005-10-28,2005-11-06
+New Zealand tour of Zimbabwe,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2005-08-07,2025-08-07
+Nigeria Invitational Women's T20I Tournament,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,4,2026-03-20,2026-03-28
+No Frills T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,4,2025-06-12,2025-06-13
+Pakistan Tri-Nation Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,4,2025-02-08,2025-02-14
+Pakistan Women in Australia T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,4,2014-08-30,2014-09-05
+Pakistan in Bangladesh Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2011-12-09,2015-05-06
+Pakistan in Sri Lanka T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2012-06-01,2015-08-01
+Pakistan tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2004-12-16,2024-01-03
+Pakistan tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2021-11-26,2026-05-16
+Pakistan tour of England and Scotland,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2006-07-13,2006-08-17
+Pakistan tour of India,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2005-04-05,2005-04-17
+Pakistan tour of West Indies,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2021-08-12,2026-08-02
+Pakistan v New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2009-11-12,2014-12-05
+Pakistan v South Africa T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2010-10-26,2013-11-15
+Pakistan v South Africa Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2010-11-12,2013-10-23
+Saudi Arabia tour of Qatar,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2025-07-19,2025-07-23
+Scotland Women tour of Ireland,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2021-05-24,2021-05-27
+Serbia Women tour of Bulgaria,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2026-06-26,2026-06-28
+Serbia tour of Gibraltar,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2023-10-05,2024-09-30
+Singapore Women tour of Cambodia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2023-02-09,2023-02-12
+South Africa in Bangladesh Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2008-02-22,2015-07-30
+South Africa tour of Australia,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2018-11-17,2025-08-16
+South Africa tour of England and Ireland,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2003-07-24,2003-09-04
+South Africa tour of India,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2004-11-20,2025-11-22
+South Africa tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2006-07-27,2018-07-20
+South Africa tour of Sri Lanka,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2018-08-14,2021-09-14
+South Asian Games Men's Cricket Competition,T20,male,international,intl_t20_m,multisport,intl_assoc,False,4,2019-12-05,2019-12-09
+South Asian Games Women's Cricket Competition,T20,female,international,intl_t20_w,multisport,intl_assoc,False,4,2019-12-02,2019-12-07
+Spain Women tour of Greece,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2024-09-21,2024-09-22
+Sri Lanka Women tour of West Indies,T20,female,international,intl_t20_w,bilateral,intl_full,False,4,2017-10-21,2026-03-03
+Sri Lanka in New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2006-12-22,2016-01-10
+Sri Lanka in New Zealand Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2014-12-26,2015-12-18
+Sri Lanka in Pakistan Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2009-02-21,2019-12-19
+Sri Lanka in Zimbabwe ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2008-11-20,2008-11-30
+Sri Lanka tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2007-11-08,2019-02-01
+Sri Lanka tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2004-04-20,2025-08-31
+Sweden tour of Finland,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2021-08-21,2021-08-22
+Switzerland Women tour of Belgium,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2025-05-28,2025-05-29
+Switzerland tour of Austria,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,4,2025-05-30,2025-06-01
+Thailand Women tour of Netherlands,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2023-07-10,2023-07-14
+United Arab Emirates Women tour of Papua New Guinea,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,4,2025-10-13,2025-10-19
+United Arab Emirates Women tour of Zimbabwe,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,4,2025-09-26,2025-10-02
+United States of America Women tour of Netherlands,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,4,2025-06-09,2025-06-13
+Videocon Triangular Series,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,4,2005-08-29,2005-09-06
+Walton T20 Cricket Series,T20,male,international,intl_t20_m,multi_nation,intl_full,False,4,2016-01-15,2016-01-22
+West Indies Women tour of England and Ireland,T20,female,international,intl_t20_w,bilateral,intl_full,False,4,2019-05-26,2019-06-21
+West Indies Women tour of New Zealand,T20,female,international,intl_t20_w,bilateral,intl_full,False,4,2018-03-14,2018-03-25
+West Indies Women tour of South Africa,ODI,female,international,intl_odi_w,bilateral,intl_full,False,4,2022-01-28,2022-02-06
+West Indies Women tour of Sri Lanka,T20,female,international,intl_t20_w,bilateral,intl_full,False,4,2015-05-23,2024-06-28
+West Indies in Bangladesh Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2011-10-21,2012-11-21
+West Indies in England T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2007-06-28,2011-09-25
+West Indies in Pakistan ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2006-12-07,2006-12-16
+West Indies tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2018-11-22,2021-02-11
+West Indies tour of England,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2017-09-16,2025-06-10
+West Indies tour of England and Ireland,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2007-05-17,2007-06-15
+West Indies tour of India,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2018-10-04,2025-10-10
+West Indies tour of Pakistan,Test,male,international,intl_test_m,bilateral,intl_full,False,4,2006-11-11,2025-01-25
+West Indies tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_full,False,4,2003-11-23,2003-11-30
+West Indies v India T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,4,2016-08-27,2022-08-07
+Women's T20 Blaze,T20,female,club,wi_women_t20,wi_women_t20,domestic_major,False,4,2019-03-29,2019-04-03
+Women's Valletta Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,4,2024-08-21,2024-08-25
+(none),T20,female,international,intl_t20_w,intl_unnamed,intl_full,True,3,2009-06-25,2016-11-21
+Afro-Asia Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,3,2007-06-06,2007-06-10
+Australia Women in Ireland T20I Series,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2015-08-19,2015-08-22
+Australia Women tour of Bangladesh,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-03-21,2024-03-27
+Australia Women tour of Bangladesh,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2024-03-31,2024-04-04
+Australia Women tour of England,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2019-07-02,2019-07-07
+Australia Women tour of England,Test,female,international,intl_test_w,bilateral,intl_full,False,3,2005-08-24,2019-07-18
+Australia Women tour of England,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2019-07-26,2019-07-31
+Australia Women v Pakistan Women T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2018-10-25,2018-10-29
+Australia in England T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2009-08-30,2013-08-31
+Australia tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2006-04-09,2017-09-04
+Australia tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2026-06-09,2026-06-14
+Australia tour of New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2005-02-26,2005-12-03
+Australia tour of Pakistan,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2022-03-04,2022-03-21
+Australia tour of Scotland,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2024-09-04,2024-09-07
+Australia tour of Sri Lanka,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2022-06-07,2022-06-11
+Australia tour of United Arab Emirates,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2018-10-24,2018-10-28
+Austria tour of Hungary,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2026-06-27,2026-06-28
+Bahrain Women tour of Oman,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2025-05-02,2025-05-05
+Bahrain tour of Malaysia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2026-03-07,2026-03-10
+Bahrain tour of Oman,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2022-08-13,2022-08-17
+Balkan Cup,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,3,2020-10-16,2020-10-18
+Bangladesh Women tour of Australia,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2026-10-09,2026-10-14
+Bangladesh Women tour of Ireland,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2018-06-28,2018-07-01
+Bangladesh Women tour of New Zealand,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2022-12-11,2022-12-17
+Bangladesh Women tour of New Zealand,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2022-12-02,2022-12-07
+Bangladesh Women tour of Sri Lanka,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2023-05-09,2023-05-12
+Bangladesh Women tour of West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2025-01-19,2025-01-24
+Bangladesh Women tour of West Indies,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2025-01-27,2025-01-31
+Bangladesh in Australia ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2008-08-30,2008-09-06
+Bangladesh in Kenya ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2006-08-12,2006-08-15
+Bangladesh in New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2017-01-03,2017-01-08
+Bangladesh tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2003-07-18,2026-08-22
+Bangladesh tour of Australia,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2003-08-02,2003-08-06
+Bangladesh tour of Pakistan,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2003-09-03,2024-08-30
+Bangladesh tour of Pakistan,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2003-09-09,2003-09-21
+Bangladesh tour of Sri Lanka,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2025-07-10,2025-07-16
+Bangladesh tour of United States of America,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2024-05-21,2024-05-25
+Bangladesh tour of West Indies and United States of America,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2018-07-22,2018-07-28
+Bangladesh tour of West Indies and United States of America,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2018-07-31,2018-08-05
+Bermuda in Kenya ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2007-10-25,2007-10-28
+Bermuda tour of Argentina,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2023-02-21,2024-12-02
+Bulgaria Women tour of Serbia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2024-10-12,2024-10-13
+Bulgaria tour of Serbia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2022-07-08,2022-07-09
+Cambodia Women tour of Singapore,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2025-08-13,2025-08-16
+Canada Women tour of Tanzania,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2025-11-04,2025-11-05
+Canada tour of Namibia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2025-03-19,2025-03-23
+Canada tour of Nepal,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2024-02-08,2024-02-12
+Cherry Blossom Sharjah Cup,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,3,2003-04-05,2003-04-08
+Commonwealth Games Women's Cricket Competition,T20,female,international,intl_t20_w,multisport,intl_assoc,False,3,2022-07-29,2022-08-03
+Costa Rica Women tour of Mexico,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2024-11-16,2024-11-17
+Czech Republic Women tour of Estonia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2025-09-06,2025-09-07
+England Women ODI tour of Malaysia,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2019-12-09,2019-12-14
+England Women in New Zealand T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2012-02-17,2012-02-22
+England Women in South Africa ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2011-10-21,2011-10-25
+England Women in South Africa T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2011-10-29,2016-02-21
+England Women tour of Australia,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2017-11-17,2017-11-21
+England Women tour of Ireland,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-09-07,2024-09-11
+England Women tour of Malaysia,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2019-12-17,2019-12-20
+England Women tour of South Africa,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2024-11-24,2024-11-30
+England Women tour of South Africa,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-12-04,2024-12-11
+England Women tour of Sri Lanka,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2019-03-24,2019-03-28
+England Women tour of West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2022-12-04,2022-12-09
+England in West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2014-03-09,2014-03-13
+England tour of Australia,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2022-10-09,2022-10-14
+England tour of Australia,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2022-11-17,2022-11-22
+England tour of Bangladesh,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2023-03-09,2023-03-14
+England tour of Netherlands,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2022-06-17,2022-06-22
+England tour of New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2025-10-26,2025-11-01
+England tour of Pakistan,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2005-12-10,2005-12-21
+England tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2004-11-28,2004-12-05
+Estonia Women tour of Cyprus,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2024-06-17,2024-06-19
+Estonia Women tour of Gibraltar,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2024-04-20,2024-04-21
+Estonia tour of Malta,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2025-05-06,2025-05-07
+France Women tour of Germany,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2021-07-08,2021-07-09
+Future Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,3,2007-06-26,2007-07-01
+Gibraltar tour of Portugal,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2023-04-10,2023-04-11
+HRV Twenty20,T20,male,club,super_smash,super_smash,domestic_major,False,3,2014-01-03,2014-01-18
+Hong Kong tour of Qatar,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2024-02-27,2024-03-01
+Hong Kong v Oman T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2015-11-21,2015-11-26
+ICC Cricket World Cup Qualifier (ICC Trophy),ODI,male,international,intl_odi_m,icc_qualifier,intl_full,False,3,2018-03-10,2018-03-19
+ICC Men's T20 World Cup Sub Regional Africa Qualifier Group A & B,T20,male,international,intl_t20_m,icc_qualifier,intl_assoc,False,3,2021-10-16,2021-10-16
+ICC Women's World Cup Qualifying Series,ODI,female,international,intl_odi_w,icc_qualifier,intl_assoc,False,3,2008-02-21,2008-02-22
+ICC Women's World Twenty20 Qualifying Series European-Americas Region,IT20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,3,2017-08-14,2017-08-19
+ICC World Cricket League Europe Region Division One,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,3,2017-06-09,2017-06-12
+ICC World Test Championship,Test,male,international,intl_test_m,icc_wtc_final,intl_full,False,3,2021-06-18,2025-06-11
+Independence Cup,T20,male,international,intl_t20_m,multi_nation,intl_full,False,3,2017-09-12,2017-09-15
+India Women tour of Sri Lanka,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2022-07-01,2022-07-07
+India in New Zealand ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2019-01-24,2019-02-01
+India tour of Ireland and England,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2018-07-12,2018-07-17
+"India tour of Ireland, England and Scotland",Test,male,international,intl_test_m,bilateral,intl_full,False,3,2007-07-19,2007-08-09
+India tour of Pakistan,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2004-04-13,2006-01-29
+India tour of United States of America and West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2019-08-03,2019-08-06
+India tour of United States of America and West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2019-08-08,2019-08-14
+India tour of West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2022-07-29,2022-08-02
+India tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2022-08-18,2022-08-22
+Indian Oil Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,3,2005-07-31,2005-08-06
+Indonesia Women tour of Singapore,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2025-07-02,2025-07-05
+Ireland Women tour of Bangladesh,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-11-27,2024-12-02
+Ireland Women tour of Bangladesh,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2024-12-05,2024-12-09
+Ireland Women tour of England,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2026-09-01,2026-09-06
+Ireland Women tour of India,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2025-01-10,2025-01-15
+Ireland Women tour of Netherlands,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,3,2022-08-22,2022-08-26
+Ireland Women tour of Netherlands,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2023-08-14,2023-08-17
+Ireland Women tour of Pakistan,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2022-11-04,2022-11-09
+Ireland Women tour of Pakistan,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2022-11-12,2022-11-16
+Ireland Women tour of South Africa,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2025-12-13,2025-12-19
+Ireland Women tour of West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2023-06-26,2023-07-01
+Ireland Women tour of West Indies,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2023-07-04,2023-07-08
+Ireland Women v Scotland Women,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,3,2023-10-17,2023-10-21
+Ireland in Kenya T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2012-02-22,2012-02-24
+Ireland in Zimbabwe ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2015-10-09,2015-10-13
+Ireland tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2023-03-18,2023-03-23
+Ireland tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2023-04-04,2025-11-19
+Ireland tour of Netherlands,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2021-06-02,2021-06-07
+Ireland tour of United States of America and West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2022-01-08,2022-01-16
+Ireland tour of West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2020-01-07,2020-01-12
+Ireland tour of West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2020-01-15,2020-01-19
+Ireland vs South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2024-10-02,2024-10-07
+Jersey Women tour of Netherlands,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2023-08-24,2023-08-25
+Jersey tour of Guernsey,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2024-06-22,2024-06-23
+Kuwait tour of Hong Kong,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2026-02-25,2026-03-01
+Luxembourg Twenty20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,3,2020-08-29,2020-08-30
+Malaysia tour of Singapore,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2022-06-28,2022-06-30
+Namibia T20I Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_full,False,3,2026-08-29,2026-09-06
+Nepal Women tour of Qatar,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2021-11-16,2021-11-18
+Nepal tour of United Arab Emirates,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2019-01-25,2019-01-28
+Nepal tour of United Arab Emirates,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2019-01-31,2019-02-03
+Nepal tour of United States of America,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2024-10-17,2024-10-20
+Nepal v West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2025-09-27,2025-09-30
+Netherlands Women tour of Ireland,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2021-07-26,2021-07-30
+Netherlands tour of Bangladesh,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2025-08-30,2025-09-03
+Netherlands tour of New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2022-03-29,2022-04-04
+Netherlands tour of Oman,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2024-11-13,2024-11-16
+Netherlands tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2021-11-26,2023-04-02
+Netherlands tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2023-03-21,2023-03-25
+New Zealand Women in Australia T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2017-02-17,2017-02-22
+New Zealand Women tour of Australia,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2020-10-03,2020-10-07
+New Zealand Women tour of India,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-10-24,2024-10-29
+New Zealand Women tour of South Africa,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2023-09-24,2023-10-01
+New Zealand Women tour of South Africa,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2023-10-08,2023-10-15
+New Zealand Women tour of Sri Lanka,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2023-07-08,2023-07-12
+New Zealand Women tour of United Arab Emirates,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2017-11-09,2017-11-14
+New Zealand Women tour of West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2022-09-19,2022-09-25
+New Zealand in Bangladesh Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2008-10-25,2013-10-21
+New Zealand in Sri Lanka T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2009-09-02,2013-11-21
+New Zealand tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2004-10-26,2023-12-06
+New Zealand tour of Ireland,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2022-07-10,2022-07-15
+New Zealand tour of Ireland,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2022-07-18,2022-07-22
+New Zealand tour of Sri Lanka,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2024-11-13,2024-11-19
+New Zealand tour of United Arab Emirates,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2018-10-31,2018-11-04
+New Zealand tour of United Arab Emirates,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2018-11-07,2018-11-11
+New Zealand tour of United Arab Emirates,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2018-11-16,2018-12-03
+New Zealand tour of United Arab Emirates,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2023-08-17,2023-08-20
+New Zealand tour of West Indies,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2022-08-10,2022-08-14
+Norway Tri-Nation T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,3,2025-08-17,2025-08-17
+Norway Women tour of Portugal,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2025-04-07,2025-04-09
+Norway tour of Portugal,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2025-04-07,2025-04-09
+Oman Women's T20I Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,3,2025-12-06,2025-12-10
+Pakistan Women tour of Australia,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2023-01-16,2023-01-21
+Pakistan Women tour of Bangladesh,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2023-10-25,2023-10-29
+Pakistan Women tour of Bangladesh,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2023-11-04,2023-11-10
+Pakistan Women tour of England,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2024-05-11,2024-05-19
+Pakistan Women tour of England,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-05-23,2024-05-29
+Pakistan Women tour of Ireland,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2025-08-06,2025-08-10
+Pakistan Women tour of New Zealand,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2023-12-03,2023-12-09
+Pakistan Women tour of New Zealand,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2023-12-12,2023-12-18
+Pakistan Women tour of Sri Lanka,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2026-07-23,2026-07-28
+Pakistan Women tour of West Indies,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2021-06-30,2021-07-04
+Pakistan Women v South Africa Women T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2015-03-19,2015-03-22
+Pakistan in Ireland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2013-05-23,2016-08-18
+Pakistan in South Africa T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2013-03-03,2013-11-22
+Pakistan in South Africa Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2013-02-01,2013-02-22
+Pakistan tour of Australia,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2024-11-04,2024-11-10
+Pakistan tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2026-03-11,2026-03-15
+Pakistan tour of England and Scotland,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2003-06-17,2003-06-22
+Pakistan tour of India,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2007-11-22,2007-12-08
+Pakistan tour of Ireland,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2024-05-10,2024-05-14
+"Pakistan tour of Ireland, England and Scotland",Test,male,international,intl_test_m,bilateral,intl_full,False,3,2018-05-11,2018-06-01
+Pakistan tour of Netherlands,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2022-08-16,2022-08-21
+Pakistan v Australia T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2012-09-05,2012-09-10
+Pakistan v New Zealand Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2014-11-09,2014-11-26
+Pakistan v West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2016-09-23,2016-09-27
+Pakistan v West Indies Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2016-10-13,2016-10-30
+Papua New Guinea Women tour of Zimbabwe,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2024-03-30,2024-04-02
+Papua New Guinea in Hong Kong ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2016-11-04,2016-11-08
+Papua New Guinea in United Arab Emirates T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2017-04-12,2017-04-14
+Papua New Guinea tour of Oman,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2024-03-06,2024-03-08
+Philippines Women tour of Singapore,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2024-12-24,2024-12-27
+Portugal tour of Sweden,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2026-07-01,2026-07-02
+Rwanda tour of Malawi,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2024-10-09,2024-10-13
+Saudari Cup,IT20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2016-08-26,2016-08-28
+Scotland in Ireland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2014-09-08,2014-09-12
+Scotland tour of Namibia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2026-04-15,2026-04-18
+Scotland tour of United Arab Emirates,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2024-03-11,2024-03-14
+Slovenia tour of Austria,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2025-05-17,2025-05-18
+Slovenia tour of Hungary,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2025-06-21,2025-06-22
+South Africa Women in England T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2014-09-01,2014-09-07
+South Africa Women in New Zealand ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2020-01-25,2020-01-30
+South Africa Women in Sri Lanka T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2014-10-23,2014-10-26
+South Africa Women tour of Australia,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2024-01-27,2024-01-30
+South Africa Women tour of Australia,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-02-03,2024-02-10
+South Africa Women tour of England,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2022-07-11,2022-07-18
+South Africa Women tour of England,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2022-07-21,2022-07-25
+South Africa Women tour of Ireland,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2022-06-03,2022-06-08
+South Africa Women tour of Ireland,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2022-06-11,2022-06-17
+South Africa Women tour of New Zealand,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2026-03-29,2026-04-04
+South Africa in England ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2017-05-24,2017-05-29
+South Africa in New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2012-02-17,2012-02-22
+South Africa in Sri Lanka T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2013-08-02,2013-08-06
+South Africa in West Indies Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2010-06-10,2010-06-26
+South Africa tour of Ireland,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2021-07-11,2021-07-16
+South Africa tour of Ireland,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2021-07-19,2021-07-24
+South Africa tour of Namibia,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2026-09-09,2026-09-13
+Sri Lanka Women in South Africa T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2013-10-31,2013-11-04
+Sri Lanka Women tour of Australia,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2019-09-29,2019-10-02
+Sri Lanka Women tour of Bangladesh,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2026-04-20,2026-04-25
+Sri Lanka Women tour of Bangladesh,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2026-04-28,2026-05-02
+Sri Lanka Women tour of England,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2023-08-31,2023-09-06
+Sri Lanka Women tour of England,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2023-09-09,2023-09-14
+Sri Lanka Women tour of Ireland,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-08-16,2024-08-20
+Sri Lanka Women tour of New Zealand,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2025-03-04,2025-03-09
+Sri Lanka Women tour of New Zealand,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2025-03-14,2025-03-18
+Sri Lanka Women tour of Pakistan,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2022-05-24,2022-05-28
+Sri Lanka Women tour of Pakistan,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2022-06-01,2022-06-05
+Sri Lanka Women tour of South Africa,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-04-09,2024-04-17
+Sri Lanka Women tour of West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2026-02-20,2026-02-25
+Sri Lanka in Bangladesh Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2009-01-03,2014-02-04
+Sri Lanka in India Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2009-11-16,2009-12-02
+Sri Lanka in Pakistan ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2009-01-20,2009-01-24
+Sri Lanka in South Africa ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2019-02-11,2019-02-17
+Sri Lanka in South Africa T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2017-01-20,2017-01-25
+Sri Lanka in West Indies ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2008-04-10,2008-04-15
+Sri Lanka tour of South Africa,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2019-03-19,2019-03-24
+Sri Lanka tour of United Arab Emirates and Pakistan,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2017-10-26,2017-10-29
+Sri Lanka tour of West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2003-06-07,2026-06-03
+Sri Lanka tour of Zimbabwe,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2025-09-03,2025-09-07
+Switzerland tour of Estonia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2025-08-02,2025-08-03
+Switzerland tour of Luxembourg,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2025-06-21,2025-06-22
+Thailand Women tour of Papua New Guinea,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,3,2026-08-13,2026-08-17
+Thailand Women tour of Zimbabwe,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2021-08-27,2021-08-30
+UAE Women's ODI Tri-Series,ODI,female,international,intl_odi_w,multi_nation,intl_assoc,False,3,2024-04-11,2024-04-14
+United Arab Emirates tour of Malaysia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2026-09-14,2026-09-17
+United Arab Emirates tour of Nepal,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2022-11-14,2022-11-18
+United Arab Emirates tour of Zimbabwe,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2019-04-10,2019-04-16
+West Indies Women in South Africa T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2009-10-28,2016-03-09
+West Indies Women in Sri Lanka ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2013-02-22,2013-02-26
+West Indies Women tour of Australia,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2023-10-01,2023-10-05
+West Indies Women tour of Australia,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2023-10-08,2023-10-14
+West Indies Women tour of England,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2025-05-30,2025-06-07
+West Indies Women tour of India,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2024-12-15,2024-12-19
+West Indies Women tour of India,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-12-22,2024-12-27
+West Indies Women tour of Ireland,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2026-07-10,2026-07-15
+West Indies Women tour of Pakistan and United Arab Emirates,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2019-01-31,2019-02-03
+West Indies Women tour of Sri Lanka,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2024-06-15,2024-06-21
+West Indies Women tour of Zimbabwe,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2026-09-24,2026-09-30
+West Indies Women tour of Zimbabwe,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2026-10-03,2026-10-07
+West Indies in New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2008-12-28,2014-01-15
+West Indies in New Zealand Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2013-12-03,2013-12-19
+West Indies in Sri Lanka Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2010-11-15,2010-12-01
+West Indies in Zimbabwe ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2007-11-30,2007-12-07
+West Indies tour of Australia,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2024-02-02,2024-02-06
+West Indies tour of Ireland,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2025-05-21,2025-05-25
+West Indies tour of Netherlands,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2022-05-31,2022-06-04
+West Indies tour of Pakistan,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2022-06-08,2022-06-12
+West Indies tour of South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2003-12-12,2023-03-08
+West Indies tour of United Arab Emirates,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,3,2023-06-04,2023-06-09
+West Indies v Sri Lanka,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2021-03-10,2021-03-14
+Women's ICC T20 Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,3,2025-08-31,2025-09-02
+Women's Quadrangular Series (in South Africa),ODI,female,international,intl_odi_w,multi_nation,intl_assoc,False,3,2017-05-07,2017-05-19
+Women's Quadrangular Series (in South Africa),ODI,female,international,intl_odi_w,multi_nation,intl_full,False,3,2017-05-09,2017-05-21
+Zimbabwe Women tour of Ireland,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2025-07-20,2025-07-23
+Zimbabwe Women tour of New Zealand,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2026-02-25,2026-03-01
+Zimbabwe Women tour of New Zealand,ODI,female,international,intl_odi_w,bilateral,intl_full,False,3,2026-03-05,2026-03-11
+Zimbabwe Women tour of Pakistan,T20,female,international,intl_t20_w,bilateral,intl_full,False,3,2026-05-12,2026-05-15
+Zimbabwe Women tour of Thailand,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2023-04-25,2023-04-28
+Zimbabwe Women tour of Thailand,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,3,2023-04-19,2023-04-23
+Zimbabwe Women tour of United States of America,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,3,2025-04-25,2025-04-29
+Zimbabwe in Bangladesh Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2014-10-25,2014-11-12
+Zimbabwe in New Zealand ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2012-02-03,2012-02-09
+Zimbabwe tour of Australia,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2022-08-28,2022-09-03
+Zimbabwe tour of Ireland and Scotland,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2021-09-08,2021-09-13
+Zimbabwe tour of Ireland and Scotland,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,3,2021-09-15,2021-09-19
+Zimbabwe tour of Netherlands and Ireland,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2019-07-01,2019-07-07
+Zimbabwe tour of Pakistan,ODI,male,international,intl_odi_m,bilateral,intl_full,False,3,2020-10-30,2020-11-03
+Zimbabwe tour of Pakistan,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2020-11-07,2020-11-10
+Zimbabwe tour of South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,3,2005-03-04,2017-12-26
+Zimbabwe tour of Sri Lanka,T20,male,international,intl_t20_m,bilateral,intl_full,False,3,2024-01-14,2024-01-18
+Asia XI tour of South Africa,ODI,male,international,intl_odi_m,bilateral,intl_full,False,2,2005-08-17,2005-08-21
+Australia Women tour of Ireland,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2023-07-25,2023-07-29
+Australia in New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2010-02-26,2010-02-28
+Australia in West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2012-03-27,2012-03-30
+Australia tour of United Arab Emirates,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2018-10-07,2018-10-16
+Austria tour of Cyprus,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2026-03-14,2026-03-16
+Austria tour of Netherlands,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2023-06-29,2023-06-30
+Bahrain Women v Oman Women T20I Series,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2026-05-29,2026-05-30
+Bahrain tour of Kenya,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2026-07-31,2026-08-01
+Bahrain tour of Uganda,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2024-10-28,2024-10-29
+Bangladesh Twenty20 Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_full,False,2,2019-09-13,2019-09-18
+Bangladesh Women in Pakistan T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2015-09-30,2015-10-01
+Bangladesh Women in South Africa ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2013-09-20,2013-09-24
+Bangladesh Women in South Africa T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2013-09-14,2013-09-15
+Bangladesh Women tour of Malaysia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2022-01-19,2022-01-23
+Bangladesh Women tour of Sri Lanka,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2023-04-29,2023-05-04
+Bangladesh in England Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2010-05-27,2010-06-04
+Bangladesh in India Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2019-11-14,2019-11-22
+Bangladesh in Netherlands T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2012-07-25,2012-07-26
+Bangladesh in South Africa Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2008-11-19,2008-11-26
+Bangladesh in Sri Lanka T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2017-04-04,2017-04-06
+Bangladesh in Zimbabwe T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2013-05-11,2013-05-12
+Bangladesh in Zimbabwe Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2013-04-17,2013-04-25
+Bangladesh tour of India,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2024-09-19,2024-09-27
+Bangladesh tour of South Africa,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2017-10-26,2017-10-29
+Bangladesh tour of West Indies and United States of America,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2018-07-04,2018-07-12
+Bangladesh tour of Zimbabwe,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2021-07-07,2026-06-28
+Belgium tour of Germany,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2023-06-10,2023-06-11
+Bulgaria Women tour of Estonia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2025-05-15,2025-05-15
+Bulgaria in Cyprus T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2025-11-03,2025-11-03
+Canada in Kenya ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2007-10-18,2007-10-20
+Canada v Kenya T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2013-03-15,2013-03-16
+Chile Women tour of Argentina,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2023-10-14,2023-10-15
+Chile Women tour of Costa Rica,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2026-04-25,2026-04-26
+Clive Lloyd Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2013-03-12,2013-03-20
+Commonwealth Games Women's Cricket Competition Qualifiers,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,2,2022-01-18,2022-01-18
+Cook Islands tour of Japan,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2025-05-13,2025-05-14
+Croatia Women tour of Malta,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2025-05-05,2025-05-05
+Croatia tour of Hungary,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2023-08-05,2023-08-06
+Cyprus Women tour of Serbia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2024-09-14,2024-09-14
+Desert T20 Challenge,IT20,male,international,intl_t20_m,multi_nation,intl_assoc,False,2,2017-01-15,2017-01-17
+England Women tour of Australia,Test,female,international,intl_test_w,bilateral,intl_full,False,2,2003-02-22,2011-01-22
+England Women tour of Ireland,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2024-09-14,2024-09-15
+England in Sri Lanka Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2012-03-26,2012-04-03
+England tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2003-10-21,2003-10-29
+England tour of Ireland,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2025-09-17,2025-09-21
+Estonia tour of Gibraltar,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2023-09-30,2023-09-30
+European Championship Division One,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,2,2008-07-29,2008-07-31
+Finland Women tour of Estonia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2026-07-25,2026-07-25
+Finland tour of Estonia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2025-07-26,2025-07-27
+Guernsey Women tour of Jersey,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2026-06-14,2026-06-14
+Hong Kong in Qatar T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2025-11-12,2025-11-13
+Hong Kong in Scotland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2016-09-08,2016-09-10
+Hungary tour of Czech Republic,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2023-06-11,2023-06-11
+ICC Intercontinental Shield,MDM,male,international,intl_test_m,icc_intercontinental,intl_assoc,False,2,2009-08-14,2010-02-20
+ICC Women's Cricket World Cup Qualifier,ODI,female,international,intl_odi_w,icc_qualifier,intl_full,False,2,2021-11-21,2021-11-27
+ICC Women's World Twenty20 Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_assoc,False,2,2013-07-29,2015-12-05
+ICC World Cricket League Division Two,ODI,male,international,intl_odi_m,icc_league,intl_assoc,False,2,2019-04-27,2019-04-27
+ICC World Cup Qualifiers,ODI,male,international,intl_odi_m,icc_qualifier,intl_assoc,False,2,2009-04-01,2009-04-08
+ICC World XI tour of Australia,ODI,male,international,intl_odi_m,bilateral,intl_full,False,2,2005-10-07,2005-10-09
+India Women in Australia T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2016-01-29,2016-01-31
+India Women in England T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2012-06-26,2012-06-28
+India Women tour of Australia,Test,female,international,intl_test_w,bilateral,intl_full,False,2,2021-09-30,2026-03-06
+India Women tour of England,Test,female,international,intl_test_w,bilateral,intl_full,False,2,2021-06-16,2026-07-10
+India Women tour of West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2019-11-03,2019-11-06
+India Women v South Africa Women,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2021-03-12,2021-03-14
+India in Bangladesh Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2010-01-17,2010-01-24
+India in New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2009-02-25,2009-02-27
+India tour of West Indies and United States of America,ODI,male,international,intl_odi_m,bilateral,intl_full,False,2,2023-07-29,2023-08-01
+Indonesia tour of Japan,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2022-10-10,2022-10-11
+Inter-Insular Women's Twenty20 Series,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2022-06-25,2024-07-14
+Ireland Women tour of Scotland,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2022-09-05,2022-09-06
+Ireland Women tour of South Africa,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2025-12-05,2025-12-07
+Ireland Women v Scotland Women,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2023-10-23,2023-10-24
+Ireland in England ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2017-05-05,2017-05-07
+Ireland in United Arab Emirates ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2017-03-02,2017-03-04
+Ireland in United Arab Emirates T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2016-02-14,2016-02-16
+Ireland in West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2014-02-19,2014-02-21
+Ireland tour of England,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2019-07-24,2023-06-01
+Ireland tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2023-04-16,2023-04-24
+Ireland tour of United Arab Emirates,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2021-01-08,2021-01-18
+Ireland tour of United States of America and West Indies,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2021-12-22,2021-12-23
+Ireland vs South Africa,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2024-09-27,2024-09-29
+Italy Women tour of Netherlands,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2024-05-28,2024-05-30
+Japan Women tour of Fiji,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2025-09-05,2025-09-06
+Japan Women tour of Vanuatu,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2023-08-28,2023-08-30
+Japan tour of South Korea,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2024-09-25,2024-09-26
+Jersey Women tour of Gibraltar,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2024-12-15,2024-12-16
+Jersey tour of Denmark,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2024-06-16,2024-06-16
+Jersey tour of Spain,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2024-04-14,2024-04-14
+Kenya Women tour of Malaysia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2022-01-20,2022-01-23
+Kuwait Women tour of Malaysia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2024-02-04,2024-02-05
+Kuwait Women v Myanmar Women T20I Series,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2026-05-30,2026-05-31
+Luxembourg tour of Gibraltar,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2023-10-15,2023-10-15
+MCC Spirit of Cricket T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2010-07-05,2010-07-06
+MCC Spirit of Cricket Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2010-07-13,2010-07-21
+Malaysia Women tour of Japan,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2026-09-12,2026-09-13
+Namibia Women tour of Malaysia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2024-12-10,2024-12-12
+Nepal Women in Malaysia T20I Series,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2026-05-20,2026-05-22
+Nepal in Netherlands T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2015-07-01,2015-07-02
+Nepal tour of Malaysia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2019-07-13,2019-07-14
+Nepal v Papua New Guinea ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2021-09-07,2021-09-10
+New Zealand Women in India ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2015-07-06,2015-07-08
+New Zealand in England T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2013-06-25,2013-06-27
+New Zealand in West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2014-07-05,2014-07-06
+New Zealand in Zimbabwe T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2011-10-15,2011-10-17
+New Zealand in Zimbabwe Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2016-07-28,2016-08-06
+New Zealand tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2004-11-18,2004-11-26
+New Zealand tour of Netherlands,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2022-08-04,2022-08-05
+New Zealand tour of Pakistan,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2022-12-26,2023-01-02
+New Zealand tour of Scotland,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2022-07-27,2022-07-29
+New Zealand tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2024-09-18,2024-09-26
+New Zealand v Sri Lanka T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2010-05-22,2010-05-23
+New Zealand v West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2012-06-30,2012-07-01
+Oman tour of United Arab Emirates,ODM,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2015-11-12,2015-11-14
+PCB Qatar Women's 20-over Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_full,False,2,2014-01-19,2014-01-24
+PCB Qatar Women's 20-over Tri-Series,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,2,2014-01-19,2014-01-20
+Pakistan Women in England ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2013-07-01,2013-07-03
+Pakistan Women in Ireland ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,2,2013-07-17,2013-07-19
+Pakistan Women tour of Australia,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2023-01-24,2023-01-26
+Pakistan Women v Sri Lanka Women T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2015-01-16,2015-01-17
+Pakistan in England T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2010-09-05,2010-09-07
+Pakistan in India T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2012-12-25,2012-12-28
+Pakistan in Zimbabwe Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2013-09-03,2013-09-10
+"Pakistan tour of Ireland, England and Scotland",T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2018-06-12,2018-06-13
+Pakistan tour of New Zealand,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2020-12-26,2021-01-03
+Pakistan tour of Sri Lanka,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2026-01-07,2026-01-11
+Pakistan tour of Zimbabwe,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2021-04-29,2021-05-07
+Pakistan v Australia Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2014-10-22,2014-10-30
+Pakistan v Sri Lanka T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2013-12-11,2013-12-13
+Pakistan vs West Indies ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2019-02-07,2019-02-09
+Papua New Guinea Women tour of Zimbabwe,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,2,2024-03-26,2024-03-28
+Papua New Guinea tour of Malaysia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2024-03-16,2024-03-17
+Papua New Guinea tour of Nepal,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2022-03-25,2022-03-26
+Papua New Guinea tour of Singapore,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2022-07-02,2022-07-03
+Papua New Guinea v Ireland T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2016-02-07,2016-02-09
+Papua New Guinea v United States of America ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2021-09-06,2021-09-09
+Portugal tour of Finland,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2026-07-03,2026-07-04
+Quadrangular Series (Ireland),ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,2,2007-07-13,2007-07-14
+Scotland Women tour of Malaysia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2022-01-19,2022-01-22
+Scotland in Hong Kong T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2016-01-30,2016-01-31
+Scotland tour of Netherlands,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2021-05-19,2021-05-20
+Slovenia tour of Serbia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2025-06-07,2025-06-08
+Sobers/Tissera Trophy,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2015-10-14,2015-10-22
+South Africa Women in Bangladesh ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2017-01-18,2017-01-20
+South Africa Women in West Indies T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2013-01-19,2013-01-20
+South Africa in Bangladesh T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2015-07-05,2015-07-07
+South Africa in India T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2015-10-02,2015-10-05
+South Africa in Sri Lanka Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2014-07-16,2014-07-24
+South Africa in West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2010-05-19,2010-05-20
+South Africa tour of Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2024-10-21,2024-10-29
+South Africa tour of West Indies,ODI,male,international,intl_odi_m,bilateral,intl_full,False,2,2005-05-08,2005-05-15
+South Africa tour of Zimbabwe,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2025-06-28,2025-07-06
+South American Women's Championships,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,2,2026-09-23,2026-09-25
+Sri Lanka Women in South Africa ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2013-10-26,2013-10-28
+Sri Lanka Women tour of Ireland,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2024-08-11,2024-08-13
+Sri Lanka in Bangladesh T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2014-02-12,2014-02-14
+Sri Lanka in West Indies Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2008-03-22,2008-04-03
+Sri Lanka in Zimbabwe Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2016-10-29,2016-11-06
+Sri Lanka tour of United Arab Emirates and Pakistan,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2017-09-28,2017-10-06
+Sri Lanka tour of Zimbabwe,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2020-01-19,2020-01-27
+Sweden tour of Denmark,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2021-08-14,2021-08-15
+Switzerland tour of Guernsey,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2025-08-30,2025-08-30
+T20 Canada,T20,male,international,intl_t20_m,multi_nation,intl_full,False,2,2008-10-11,2008-10-13
+Thailand Women tour of Netherlands,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,2,2023-07-03,2023-07-07
+Thailand Women tour of Papua New Guinea,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2026-08-10,2026-08-11
+Uganda tour of Namibia,ODM,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2021-04-07,2021-04-08
+United Arab Emirates T20I Tri-Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,2,2025-08-30,2025-09-04
+United Arab Emirates Women tour of Zimbabwe,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2025-10-05,2025-10-06
+United Arab Emirates tour of Nepal,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2026-04-20,2026-04-21
+United Arab Emirates tour of Netherlands,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2019-08-05,2019-08-08
+United States of America tour of Oman,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2025-02-21,2025-02-23
+United States of America tour of United Arab Emirates,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2019-03-15,2019-03-16
+Videocon Cup,ODI,male,international,intl_odi_m,multi_nation,intl_full,False,2,2004-08-21,2004-08-23
+West Indies Women in Australia T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,2,2014-11-02,2014-11-07
+West Indies in Australia T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2010-02-21,2010-02-23
+West Indies in Sri Lanka T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2015-11-09,2015-11-11
+West Indies tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2021-11-21,2021-11-29
+Women's Asia Cup,ODI,female,international,intl_odi_w,asia_cup,intl_full,False,2,2008-05-08,2008-05-11
+Women's T20 Pentangular Series (in Spain),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,2,2022-11-13,2022-11-14
+Women's T20I Quadrangular Series (in UAE),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,2,2022-09-12,2022-09-13
+Zimbabwe Women tour of Bangladesh,IT20,female,international,intl_t20_w,bilateral,intl_assoc,False,2,2015-11-17,2015-11-19
+Zimbabwe Women tour of Ireland,ODI,female,international,intl_odi_w,bilateral,intl_full,False,2,2025-07-26,2025-07-28
+Zimbabwe Women tour of United States of America,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,2,2025-05-01,2025-05-03
+Zimbabwe in Bangladesh T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2015-11-13,2015-11-15
+Zimbabwe in New Zealand T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2012-02-11,2012-02-14
+Zimbabwe in Pakistan T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2015-05-22,2015-05-24
+Zimbabwe in Scotland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2017-06-15,2017-06-17
+Zimbabwe in South Africa T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2010-10-08,2010-10-10
+Zimbabwe in West Indies T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2013-03-02,2013-03-03
+Zimbabwe tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,2,2003-10-09,2003-10-17
+Zimbabwe tour of Netherlands and Ireland,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,2,2019-06-19,2019-06-21
+Zimbabwe tour of Netherlands and Ireland,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,2,2019-06-23,2019-06-25
+Zimbabwe tour of South Africa,T20,male,international,intl_t20_m,bilateral,intl_full,False,2,2018-10-09,2018-10-12
+(none),T20,female,international,intl_t20_w,intl_unnamed,intl_assoc,True,1,2013-07-16,2013-07-16
+(none),Test,female,international,intl_test_w,intl_unnamed,intl_full,True,1,2014-08-13,2014-08-13
+Asia Cup Qualifiers,ODI,male,international,intl_odi_m,icc_qualifier,intl_assoc,False,1,2018-08-30,2018-08-30
+Asia Cup Rising Stars,T20,male,international,intl_t20_m,asia_cup,intl_assoc,False,1,2025-11-16,2025-11-16
+Asian Cricket Council Premier League,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,1,2014-05-04,2014-05-04
+Asian Cricket Council Women's Emerging Teams Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,1,2023-06-14,2023-06-14
+Australia Women in England ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2009-06-29,2009-06-29
+Australia Women in Sri Lanka ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2016-09-18,2016-09-18
+Australia Women tour of India,Test,female,international,intl_test_w,bilateral,intl_full,False,1,2023-12-21,2023-12-21
+Australia in India Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2017-02-23,2017-02-23
+Australia tour of England and Scotland,ODI,male,international,intl_odi_m,bilateral,intl_full,False,1,2005-07-12,2005-07-12
+Australia tour of United Arab Emirates,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2018-10-22,2018-10-22
+Bangladesh Women in Ireland T20I Series,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,1,2016-09-05,2016-09-05
+Bangladesh Women in Pakistan ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2015-10-06,2015-10-06
+Bangladesh Women in Zimbabwe ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2021-11-15,2021-11-15
+Bangladesh Women tour of Pakistan,T20,female,international,intl_t20_w,bilateral,intl_full,False,1,2019-10-26,2019-10-26
+Bangladesh in Ireland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2010-07-16,2010-07-16
+Bangladesh in Ireland T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2012-07-18,2012-07-18
+Bangladesh in Pakistan Test Series,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2020-02-07,2020-02-07
+Bangladesh in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_full,False,1,2008-11-07,2008-11-07
+Bangladesh tour of England,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2005-06-03,2005-06-03
+Bermuda in Canada ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2008-06-29,2008-06-29
+Bulgaria Women tour of Greece,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,1,2024-10-26,2024-10-26
+Commonwealth Games Women's Cricket Competition Qualifiers,T20,female,international,intl_t20_w,icc_qualifier,intl_full,False,1,2022-01-24,2022-01-24
+Continental Cup,IT20,male,international,intl_t20_m,multi_nation,intl_assoc,False,1,2024-05-26,2024-05-26
+Dubai Triangular Series,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,1,2015-01-12,2015-01-12
+England Women tour of Australia and New Zealand,Test,female,international,intl_test_w,bilateral,intl_full,False,1,2008-02-15,2008-02-15
+England Women tour of India,Test,female,international,intl_test_w,bilateral,intl_full,False,1,2023-12-14,2023-12-14
+England Women tour of South Africa,Test,female,international,intl_test_w,bilateral,intl_full,False,1,2024-12-15,2024-12-15
+England tour of Ireland,ODI,male,international,intl_odi_m,bilateral,intl_full,False,1,2019-05-03,2019-05-03
+England tour of South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2005-01-02,2005-01-02
+Germany tour of Finland,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2026-08-11,2026-08-11
+HRV Cup,T20,male,club,super_smash,super_smash,domestic_major,False,1,2013-01-20,2013-01-20
+Hong Kong Men's T20I Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,1,2024-03-12,2024-03-12
+Hong Kong in Ireland T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2016-09-05,2016-09-05
+Hong Kong tour of Japan,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2026-09-19,2026-09-19
+Hong Kong tour of Namibia,IT20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2015-05-18,2015-05-18
+Hong Kong v Nepal T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2014-11-24,2014-11-24
+ICC Men's Cricket World Cup League 2,ODM,male,international,intl_odi_m,icc_league,intl_assoc,False,1,2024-10-27,2024-10-27
+ICC Women's T20 Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_full,False,1,2018-07-14,2018-07-14
+ICC Women's World Cup Qualifying Series Europe Region,ODM,female,international,intl_odi_w,icc_qualifier,intl_assoc,False,1,2016-07-15,2016-07-15
+ICC Women's World Twenty20 Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_full,False,1,2013-07-31,2013-07-31
+ICC World XI tour of Australia,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2005-10-14,2005-10-14
+ICC World XI tour of England,T20,male,international,intl_t20_m,bilateral,intl_full,False,1,2018-05-31,2018-05-31
+India Women in West Indies,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2019-11-01,2019-11-01
+India Women tour of Ireland and England,Test,female,international,intl_test_w,bilateral,intl_full,False,1,2006-08-08,2006-08-08
+India tour of Japan,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2026-09-22,2026-09-22
+India tour of Zimbabwe,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2005-09-13,2005-09-13
+India v England,T20,male,international,intl_t20_m,bilateral,intl_full,False,1,2021-03-12,2021-03-12
+Ireland Women v Thailand Women T20I Series,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,1,2024-04-18,2024-04-18
+Ireland in Canada ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2010-09-06,2010-09-06
+Ireland tour of Zimbabwe,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2025-02-06,2025-02-06
+Ireland v Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,1,2023-05-09,2023-05-09
+Ireland v Zimbabwe,T20,male,international,intl_t20_m,bilateral,intl_full,False,1,2019-07-14,2019-07-14
+Italy Women in Germany T20I Match,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,1,2024-07-28,2024-07-28
+Kenya in Canada ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2009-08-19,2009-08-19
+Kenya in Ireland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2008-08-25,2008-08-25
+Kenya in Scotland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2008-08-12,2008-08-12
+Kenya in South Africa ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2008-10-31,2008-10-31
+Kuwait in Oman T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2025-09-29,2025-09-29
+Marylebone Cricket Club Tri-Nation T20 Series,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,1,2018-07-29,2018-07-29
+Namibia v Papua New Guinea T20I Match,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2021-10-10,2021-10-10
+Namibia v Scotland T20I Match,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2021-10-09,2021-10-09
+NatWest Women's T20 Quadrangular Series,T20,female,international,intl_t20_w,multi_nation,intl_full,False,1,2011-06-26,2011-06-26
+Netherlands Women tour of Scotland,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,1,2026-08-30,2026-08-30
+Netherlands in Ireland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2010-08-18,2010-08-18
+New Zealand Women tour of Ireland and England,T20,female,international,intl_t20_w,bilateral,intl_full,False,1,2018-06-06,2018-06-06
+New Zealand Women tour of Ireland and England,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2018-06-10,2018-06-10
+New Zealand in India T20I Series,T20,male,international,intl_t20_m,bilateral,intl_full,False,1,2012-09-11,2012-09-11
+New Zealand tour of Ireland,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2026-05-27,2026-05-27
+New Zealand tour of Scotland,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2022-07-31,2022-07-31
+Nigeria Cricket Federation Women's T20I Tournament,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,1,2023-03-27,2023-03-27
+Nigeria Women tour of Rwanda,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,1,2019-09-07,2019-09-07
+Norway Women tour of Sweden,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,1,2021-08-29,2021-08-29
+Pakistan Women in New Zealand ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2016-11-11,2016-11-11
+Pakistan Women in West Indies T20I Series,T20,female,international,intl_t20_w,bilateral,intl_full,False,1,2015-10-29,2015-10-29
+Pakistan Women tour of Zimbabwe,ODM,female,international,intl_odi_w,bilateral,intl_assoc,False,1,2021-02-09,2021-02-09
+Pakistan in Scotland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2013-05-17,2013-05-17
+Papua New Guinea in United Arab Emirates ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2017-04-04,2017-04-04
+Papua New Guinea tour of Guernsey,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2025-08-14,2025-08-14
+Papua New Guinea v Scotland T20I Match,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2021-10-08,2021-10-08
+RSA Challenge,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,1,2013-09-03,2013-09-03
+Rose Bowl,T20,female,international,intl_t20_w,bilateral,intl_full,False,1,2010-12-30,2010-12-30
+Scotland in Ireland T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2015-06-20,2015-06-20
+Seychelles in Kenya T20I Match,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2024-10-18,2024-10-18
+South Africa Women in Australia ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2016-11-29,2016-11-29
+South Africa Women in Ireland ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_assoc,False,1,2016-08-11,2016-08-11
+South Africa Women in Sri Lanka ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2014-10-21,2014-10-21
+South Africa Women tour of Australia,Test,female,international,intl_test_w,bilateral,intl_full,False,1,2024-02-15,2024-02-15
+South Africa Women tour of England,Test,female,international,intl_test_w,bilateral,intl_full,False,1,2022-06-27,2022-06-27
+South Africa Women tour of India,Test,female,international,intl_test_w,bilateral,intl_full,False,1,2024-06-28,2024-06-28
+South Africa tour of Namibia,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2025-10-11,2025-10-11
+South Africa tour of New Zealand,ODI,male,international,intl_odi_m,bilateral,intl_full,False,1,2004-02-25,2004-02-25
+Sri Lanka Women tour of Malaysia,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,1,2022-01-22,2022-01-22
+Sri Lanka in Ireland ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2016-06-18,2016-06-18
+Sri Lanka tour of England and Ireland,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2014-05-06,2014-05-06
+Sri Lanka tour of England and Scotland,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2019-05-21,2019-05-21
+Sri Lanka v Bangladesh,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2021-04-21,2021-04-21
+Stan Nagaiah Trophy,ODM,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2016-02-20,2016-02-20
+Stan Nagaiah Trophy,IT20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2016-02-21,2016-02-21
+Switzerland Women tour of Denmark,T20,female,international,intl_t20_w,bilateral,intl_assoc,False,1,2026-06-27,2026-06-27
+TVS Cup (Bangladesh),ODI,male,international,intl_odi_m,multi_nation,intl_full,False,1,2003-04-21,2003-04-21
+Tri-Nation Tournament in Kenya,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,1,2008-10-17,2008-10-17
+Twenty20 Quadrangular (in Kenya),T20,male,international,intl_t20_m,multi_nation,intl_full,False,1,2007-09-02,2007-09-02
+Twenty20 Quadrangular (in Namibia),T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,1,2013-04-20,2013-04-20
+United States of America in Oman T20I Series,T20,male,international,intl_t20_m,bilateral,intl_assoc,False,1,2025-02-20,2025-02-20
+West Indies Women in Australia ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2014-11-18,2014-11-18
+West Indies Women in South Africa ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2009-10-21,2009-10-21
+West Indies tour of Ireland,T20,male,international,intl_t20_m,bilateral,intl_full,False,1,2025-06-15,2025-06-15
+West Indies tour of Zimbabwe and South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2007-12-26,2007-12-26
+Women's African Games,T20,female,international,intl_t20_w,multisport,intl_full,False,1,2024-03-13,2024-03-13
+Women's Asia Cup Rising Stars,T20,female,international,intl_t20_w,asia_cup,intl_assoc,False,1,2026-02-14,2026-02-14
+Women's Quadrangular Series,ODI,female,international,intl_odi_w,multi_nation,intl_full,False,1,2007-03-05,2007-03-05
+Women's T20 Challenge Match,T20,female,club,womens_t20_challenge,womens_t20_challenge,domestic_minor,False,1,2018-05-22,2018-05-22
+Women's T20 World Cup Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_full,False,1,2026-01-24,2026-01-24
+Zimbabwe Women tour of Pakistan,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2026-05-09,2026-05-09
+Zimbabwe in Kenya ODI Series,ODI,male,international,intl_odi_m,bilateral,intl_assoc,False,1,2009-01-31,2009-01-31
+Zimbabwe tour of England,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2025-05-22,2025-05-22
+Zimbabwe tour of Ireland,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2024-07-25,2024-07-25
+Zimbabwe tour of Netherlands and Ireland,T20,male,international,intl_t20_m,bilateral,intl_full,False,1,2019-07-12,2019-07-12
+Zimbabwe tour of Sri Lanka,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2017-07-14,2017-07-14
