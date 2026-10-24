@@ -53,7 +53,7 @@ Arnos Vale Ground,Kingstown,2,2004-05-15,2004-05-16,arnos_vale,Arnos Vale Ground
 Arun Jaitley Stadium,,29,2018-01-08,2021-11-22,arun_jaitley_stadium,Arun Jaitley Stadium,Delhi,exact,True,False,"Feroz Shah Kotla was renamed Arun Jaitley Stadium (2019); no city in Cricsheet; ground identified from name, teams and event"
 Arun Jaitley Stadium,Delhi,20,2005-04-17,2019-11-03,arun_jaitley_stadium,Arun Jaitley Stadium,Delhi,exact,True,False,Feroz Shah Kotla was renamed Arun Jaitley Stadium (2019)
 "Arun Jaitley Stadium, Delhi",Delhi,55,2021-04-28,2026-05-17,arun_jaitley_stadium,Arun Jaitley Stadium,Delhi,city_suffix,True,False,Feroz Shah Kotla was renamed Arun Jaitley Stadium (2019)
-Feroz Shah Kotla,Delhi,84,2006-03-28,2017-05-14,arun_jaitley_stadium,Arun Jaitley Stadium,Delhi,exact,True,False,Feroz Shah Kotla was renamed Arun Jaitley Stadium (2019)
+Feroz Shah Kotla,Delhi,84,2006-03-28,2017-05-14,arun_jaitley_stadium,Arun Jaitley Stadium,Delhi,renamed_or_variant,True,False,Feroz Shah Kotla was renamed Arun Jaitley Stadium (2019)
 Arundel Castle Cricket Club Ground,,5,2012-09-16,2017-07-09,arundel_castle,Arundel Castle Cricket Club Ground,Arundel,single,False,False,"no city in Cricsheet; ground identified from name, teams and event"
 Arundel Castle Cricket Club Ground,Arundel,20,2014-06-16,2026-07-29,arundel_castle,Arundel Castle Cricket Club Ground,Arundel,single,False,False,
 Asgiriya Stadium,Kandy,3,2006-04-03,2007-12-01,asgiriya_stadium,Asgiriya Stadium,Kandy,single,False,False,
@@ -89,7 +89,8 @@ Bellerive Oval,Hobart,90,2004-01-14,2021-01-04,bellerive_oval,Bellerive Oval,Hob
 "Bellerive Oval, Hobart",Hobart,118,2003-01-11,2026-03-14,bellerive_oval,Bellerive Oval,Hobart,city_suffix,False,False,
 Bert Sutcliffe Oval,Lincoln,7,2014-01-23,2018-03-08,bert_sutcliffe_oval,Bert Sutcliffe Oval,Lincoln,exact,False,False,
 "Bert Sutcliffe Oval, Lincoln",Lincoln,1,2022-04-12,2022-04-12,bert_sutcliffe_oval,Bert Sutcliffe Oval,Lincoln,city_suffix,False,False,
-BKC Ground,,12,2019-11-09,2019-11-18,bkc_ground,BKC Ground,Mumbai,single,False,False,"MCA Bandra-Kurla Complex ground; kept separate from the Sharad Pawar Cricket Academy string; no city in Cricsheet; ground identified from name, teams and event"
+BKC Ground,,12,2019-11-09,2019-11-18,bkc_ground,BKC Ground,Mumbai,exact,True,False,"MCA ground at Bandra-Kurla Complex, home of the Sharad Pawar Cricket Academy; Cricsheet uses both strings for Syed Mushtaq Ali matches (2016, 2019, 2021) at the one ground (medium confidence); no city in Cricsheet; ground identified from name, teams and event"
+Sharad Pawar Cricket Academy BKC,,10,2016-01-15,2021-01-19,bkc_ground,BKC Ground,Mumbai,renamed_or_variant,True,False,"MCA ground at Bandra-Kurla Complex, home of the Sharad Pawar Cricket Academy; Cricsheet uses both strings for Syed Mushtaq Ali matches (2016, 2019, 2021) at the one ground (medium confidence); no city in Cricsheet; ground identified from name, teams and event"
 Blacktown International Sportspark,Sydney,11,2017-01-02,2020-11-11,blacktown_sportspark,Blacktown International Sportspark,Sydney,exact,False,False,
 "Blacktown International Sportspark, Sydney",Sydney,4,2022-10-14,2022-10-18,blacktown_sportspark,Blacktown International Sportspark,Sydney,city_suffix,False,False,
 "Bloomfield Cricket and Athletic Club Ground, Colombo",Colombo,22,2024-05-12,2026-09-03,bloomfield_ground,Bloomfield Cricket and Athletic Club Ground,Colombo,single,False,False,
@@ -126,8 +127,8 @@ Carrara Oval,,1,2018-11-17,2018-11-17,carrara_oval,Carrara Oval,Gold Coast,singl
 Carrara Oval,Carrara,24,2018-12-22,2025-11-06,carrara_oval,Carrara Oval,Gold Coast,single,False,False,
 "Casey Fields No 4, Melbourne",Melbourne,1,2023-11-04,2023-11-04,casey_fields,Casey Fields No 4,Melbourne,city_suffix,False,False,
 Casey Fields No. 4,Melbourne,6,2016-12-17,2018-12-16,casey_fields,Casey Fields No 4,Melbourne,exact,False,False,
-Castle Avenue,Dublin,4,2013-09-11,2019-05-15,castle_avenue,Castle Avenue (Clontarf Cricket Club),Dublin,exact,True,False,Castle Avenue is Clontarf Cricket Club's ground
-"Castle Avenue, Dublin",Dublin,20,2021-08-27,2026-06-03,castle_avenue,Castle Avenue (Clontarf Cricket Club),Dublin,city_suffix,True,False,Castle Avenue is Clontarf Cricket Club's ground
+Castle Avenue,Dublin,4,2013-09-11,2019-05-15,castle_avenue,Castle Avenue (Clontarf Cricket Club),Dublin,renamed_or_variant,True,False,Castle Avenue is Clontarf Cricket Club's ground
+"Castle Avenue, Dublin",Dublin,20,2021-08-27,2026-06-03,castle_avenue,Castle Avenue (Clontarf Cricket Club),Dublin,renamed_or_variant,True,False,Castle Avenue is Clontarf Cricket Club's ground
 Clontarf Cricket Club Ground,Dublin,15,2007-07-14,2017-05-24,castle_avenue,Castle Avenue (Clontarf Cricket Club),Dublin,renamed_or_variant,True,False,Castle Avenue is Clontarf Cricket Club's ground
 "Clontarf Cricket Club Ground, Dublin",Dublin,4,2014-05-06,2025-08-10,castle_avenue,Castle Avenue (Clontarf Cricket Club),Dublin,renamed_or_variant,True,False,Castle Avenue is Clontarf Cricket Club's ground
 Castle Park Cricket Ground,Colchester,3,2014-07-12,2015-09-08,castle_park_colchester,Castle Park Cricket Ground,Colchester,exact,False,False,
@@ -157,10 +158,10 @@ City Oval,Pietermaritzburg,2,2019-05-18,2019-05-19,city_oval_pmb,City Oval,Piete
 "Church of Ireland Young Men's Society Cricket Club Ground, Belfast",Belfast,2,2017-06-04,2017-08-11,ciyms_belfast,CIYMS Cricket Club Ground,Belfast,single,False,False,
 "Clayton Panama, Panama City",Panama City,7,2025-04-17,2025-04-20,clayton_panama,Clayton Panama,Panama City,single,False,False,
 "Clifton Park Ground, York",York,10,2017-08-20,2026-08-14,clifton_park_york,Clifton Park Ground,York,city_suffix,True,False,York Cricket Club plays at Clifton Park
-York Cricket Club,York,13,2019-06-17,2025-08-14,clifton_park_york,Clifton Park Ground,York,exact,True,False,York Cricket Club plays at Clifton Park
+York Cricket Club,York,13,2019-06-17,2025-08-14,clifton_park_york,Clifton Park Ground,York,renamed_or_variant,True,False,York Cricket Club plays at Clifton Park
 Cobham Oval,,4,2017-02-25,2019-03-01,cobham_oval,Cobham Oval,Whangarei,exact,True,False,"'Cobham Oval (New)' is the rebuilt Cobham Oval on the same site; no city in Cricsheet; ground identified from name, teams and event"
-Cobham Oval (New),Whangarei,2,2012-02-06,2017-12-20,cobham_oval,Cobham Oval,Whangarei,exact,True,False,'Cobham Oval (New)' is the rebuilt Cobham Oval on the same site
-"Cobham Oval (New), Whangarei",Whangarei,11,2013-12-04,2022-04-06,cobham_oval,Cobham Oval,Whangarei,city_suffix,True,False,'Cobham Oval (New)' is the rebuilt Cobham Oval on the same site
+Cobham Oval (New),Whangarei,2,2012-02-06,2017-12-20,cobham_oval,Cobham Oval,Whangarei,renamed_or_variant,True,False,'Cobham Oval (New)' is the rebuilt Cobham Oval on the same site
+"Cobham Oval (New), Whangarei",Whangarei,11,2013-12-04,2022-04-06,cobham_oval,Cobham Oval,Whangarei,renamed_or_variant,True,False,'Cobham Oval (New)' is the rebuilt Cobham Oval on the same site
 "Cobham Oval, Whangarei",Whangarei,1,2025-12-13,2025-12-13,cobham_oval,Cobham Oval,Whangarei,city_suffix,True,False,'Cobham Oval (New)' is the rebuilt Cobham Oval on the same site
 International Sports Stadium,Coffs Harbour,3,2016-11-29,2020-01-05,coffs_harbour_stadium,International Sports Stadium,Coffs Harbour,exact,False,False,
 "International Sports Stadium, Coffs Harbour",Coffs Harbour,4,2022-01-09,2026-01-05,coffs_harbour_stadium,International Sports Stadium,Coffs Harbour,city_suffix,False,False,
@@ -173,7 +174,7 @@ Colombo Cricket Club Ground,Colombo,36,2024-12-27,2026-08-18,colombo_cc,Colombo 
 Colts Cricket Club Ground,Colombo,3,2014-10-23,2018-09-21,colts_cc,Colts Cricket Club Ground,Colombo,exact,False,False,
 "Colts Cricket Club Ground, Colombo",Colombo,49,2024-07-27,2026-09-05,colts_cc,Colts Cricket Club Ground,Colombo,city_suffix,False,False,
 Colwyn Bay Cricket Club Ground,Colwyn Bay,1,2019-08-18,2019-08-18,colwyn_bay,"Colwyn Bay Cricket Club Ground, Rhos-on-Sea",Colwyn Bay,exact,True,False,"Colwyn Bay CC's ground is at Penrhyn Avenue, Rhos-on-Sea"
-"Penrhyn Avenue, Rhos-on-Sea, Colwyn Bay",Colwyn Bay,4,2014-07-06,2018-08-29,colwyn_bay,"Colwyn Bay Cricket Club Ground, Rhos-on-Sea",Colwyn Bay,city_suffix,True,False,"Colwyn Bay CC's ground is at Penrhyn Avenue, Rhos-on-Sea"
+"Penrhyn Avenue, Rhos-on-Sea, Colwyn Bay",Colwyn Bay,4,2014-07-06,2018-08-29,colwyn_bay,"Colwyn Bay Cricket Club Ground, Rhos-on-Sea",Colwyn Bay,renamed_or_variant,True,False,"Colwyn Bay CC's ground is at Penrhyn Avenue, Rhos-on-Sea"
 Coolidge Cricket Ground,Antigua,1,2017-10-21,2017-10-21,coolidge_cricket_ground,Coolidge Cricket Ground,Coolidge,exact,False,False,
 "Coolidge Cricket Ground, Antigua",Coolidge,19,2019-09-05,2021-11-14,coolidge_cricket_ground,Coolidge Cricket Ground,Coolidge,city_suffix,False,False,
 County Ground,Bristol,60,2006-08-28,2020-10-01,county_ground_bristol,"County Ground, Bristol",Bristol,exact,True,True,"Royal & Sun Alliance County Ground was a sponsored name (2003); string shared by county_ground_bristol, county_ground_chelmsford, county_ground_derby, county_ground_hove, county_ground_northampton, county_ground_taunton; the city decides"
@@ -182,17 +183,20 @@ County Ground,Bristol,60,2006-08-28,2020-10-01,county_ground_bristol,"County Gro
 County Ground,Chelmsford,50,2009-06-29,2020-09-20,county_ground_chelmsford,"County Ground, Chelmsford",Chelmsford,exact,False,True,"string shared by county_ground_bristol, county_ground_chelmsford, county_ground_derby, county_ground_hove, county_ground_northampton, county_ground_taunton; the city decides"
 "County Ground, Chelmsford",,1,2022-08-04,2022-08-04,county_ground_chelmsford,"County Ground, Chelmsford",Chelmsford,city_suffix,False,False,"no city in Cricsheet; ground identified from name, teams and event"
 "County Ground, Chelmsford",Chelmsford,238,2014-04-13,2026-09-15,county_ground_chelmsford,"County Ground, Chelmsford",Chelmsford,city_suffix,False,False,
-County Ground,Derby,45,2009-06-25,2021-07-02,county_ground_derby,"County Ground, Derby",Derby,exact,False,True,"string shared by county_ground_bristol, county_ground_chelmsford, county_ground_derby, county_ground_hove, county_ground_northampton, county_ground_taunton; the city decides"
-"County Ground, Derby",Derby,159,2014-04-20,2026-09-08,county_ground_derby,"County Ground, Derby",Derby,city_suffix,False,False,
-County Ground,Hove,41,2012-09-15,2020-10-01,county_ground_hove,"County Ground, Hove",Hove,exact,False,True,"Cricsheet city alternates Hove/Brighton; string shared by county_ground_bristol, county_ground_chelmsford, county_ground_derby, county_ground_hove, county_ground_northampton, county_ground_taunton; the city decides"
-"County Ground, Hove",Brighton,189,2014-04-06,2026-09-08,county_ground_hove,"County Ground, Hove",Hove,city_suffix,False,False,
-"The County Ground, Hove",Brighton,1,2026-09-15,2026-09-15,county_ground_hove,"County Ground, Hove",Hove,city_suffix,False,False,
+County Ground,Derby,45,2009-06-25,2021-07-02,county_ground_derby,"County Ground, Derby",Derby,exact,True,True,"'Racecourse Ground, Derby' (one 2024 Rachael Heyhoe Flint Trophy match) is the ground's historic name: it stands on the old Derby racecourse (medium confidence); string shared by county_ground_bristol, county_ground_chelmsford, county_ground_derby, county_ground_hove, county_ground_northampton, county_ground_taunton; the city decides"
+"County Ground, Derby",Derby,159,2014-04-20,2026-09-08,county_ground_derby,"County Ground, Derby",Derby,city_suffix,True,False,"'Racecourse Ground, Derby' (one 2024 Rachael Heyhoe Flint Trophy match) is the ground's historic name: it stands on the old Derby racecourse (medium confidence)"
+"Racecourse Ground, Derby",Derby,1,2024-08-31,2024-08-31,county_ground_derby,"County Ground, Derby",Derby,renamed_or_variant,True,False,"'Racecourse Ground, Derby' (one 2024 Rachael Heyhoe Flint Trophy match) is the ground's historic name: it stands on the old Derby racecourse (medium confidence)"
+County Ground,Hove,41,2012-09-15,2020-10-01,county_ground_hove,"County Ground, Hove",Hove,exact,True,True,"Cricsheet city alternates Hove/Brighton; 'New County Ground' and 'Royal Brunswick Ground' (one 2024 women's match each) are historic Sussex ground names; the Royal Brunswick ground closed in 1871, so both must be this ground (medium confidence); string shared by county_ground_bristol, county_ground_chelmsford, county_ground_derby, county_ground_hove, county_ground_northampton, county_ground_taunton; the city decides"
+"County Ground, Hove",Brighton,189,2014-04-06,2026-09-08,county_ground_hove,"County Ground, Hove",Hove,city_suffix,True,False,"Cricsheet city alternates Hove/Brighton; 'New County Ground' and 'Royal Brunswick Ground' (one 2024 women's match each) are historic Sussex ground names; the Royal Brunswick ground closed in 1871, so both must be this ground (medium confidence)"
+"New County Ground, Hove, Brighton",Brighton,1,2024-06-30,2024-06-30,county_ground_hove,"County Ground, Hove",Hove,renamed_or_variant,True,False,"Cricsheet city alternates Hove/Brighton; 'New County Ground' and 'Royal Brunswick Ground' (one 2024 women's match each) are historic Sussex ground names; the Royal Brunswick ground closed in 1871, so both must be this ground (medium confidence)"
+"Royal Brunswick Ground, Hove, Brighton",Brighton,1,2024-06-19,2024-06-19,county_ground_hove,"County Ground, Hove",Hove,renamed_or_variant,True,False,"Cricsheet city alternates Hove/Brighton; 'New County Ground' and 'Royal Brunswick Ground' (one 2024 women's match each) are historic Sussex ground names; the Royal Brunswick ground closed in 1871, so both must be this ground (medium confidence)"
+"The County Ground, Hove",Brighton,1,2026-09-15,2026-09-15,county_ground_hove,"County Ground, Hove",Hove,city_suffix,True,False,"Cricsheet city alternates Hove/Brighton; 'New County Ground' and 'Royal Brunswick Ground' (one 2024 women's match each) are historic Sussex ground names; the Royal Brunswick ground closed in 1871, so both must be this ground (medium confidence)"
 County Ground,Northampton,46,2012-09-13,2020-09-15,county_ground_northampton,"County Ground, Northampton",Northampton,exact,False,True,"string shared by county_ground_bristol, county_ground_chelmsford, county_ground_derby, county_ground_hove, county_ground_northampton, county_ground_taunton; the city decides"
 "County Ground, Northampton",Northampton,187,2014-04-13,2026-09-15,county_ground_northampton,"County Ground, Northampton",Northampton,city_suffix,False,False,
 County Ground,Taunton,19,2011-06-26,2017-07-15,county_ground_taunton,"County Ground, Taunton",Taunton,exact,True,True,"The Cooper Associates County Ground is the sponsored name of the Taunton County Ground; string shared by county_ground_bristol, county_ground_chelmsford, county_ground_derby, county_ground_hove, county_ground_northampton, county_ground_taunton; the city decides"
 "County Ground, Taunton",Taunton,60,2014-04-13,2019-09-23,county_ground_taunton,"County Ground, Taunton",Taunton,city_suffix,True,False,The Cooper Associates County Ground is the sponsored name of the Taunton County Ground
-The Cooper Associates County Ground,Taunton,43,2014-05-18,2020-09-18,county_ground_taunton,"County Ground, Taunton",Taunton,exact,True,False,The Cooper Associates County Ground is the sponsored name of the Taunton County Ground
-"The Cooper Associates County Ground, Taunton",Taunton,172,2017-08-12,2026-09-09,county_ground_taunton,"County Ground, Taunton",Taunton,city_suffix,True,False,The Cooper Associates County Ground is the sponsored name of the Taunton County Ground
+The Cooper Associates County Ground,Taunton,43,2014-05-18,2020-09-18,county_ground_taunton,"County Ground, Taunton",Taunton,renamed_or_variant,True,False,The Cooper Associates County Ground is the sponsored name of the Taunton County Ground
+"The Cooper Associates County Ground, Taunton",Taunton,172,2017-08-12,2026-09-09,county_ground_taunton,"County Ground, Taunton",Taunton,renamed_or_variant,True,False,The Cooper Associates County Ground is the sponsored name of the Taunton County Ground
 "The County Ground, Taunton",Taunton,1,2026-09-24,2026-09-24,county_ground_taunton,"County Ground, Taunton",Taunton,city_suffix,True,False,The Cooper Associates County Ground is the sponsored name of the Taunton County Ground
 "Cricket Central, Sydney",Sydney,20,2023-10-04,2026-10-13,cricket_central_sydney,Cricket Central,Sydney,single,False,False,
 Cricket Field Lane,Bishop's Stortford,1,2015-09-13,2015-09-13,cricket_field_lane,Cricket Field Lane,Bishop's Stortford,single,False,False,
@@ -274,7 +278,7 @@ Forthill,Dundee,10,2019-08-31,2019-09-07,forthill,Forthill,Dundee,exact,False,Fa
 Friendship Oval,Dasmarinas,11,2018-12-01,2018-12-07,friendship_oval,Friendship Oval,Dasmarinas,single,False,False,
 Chilaw Marians Cricket Club Ground,FTZ Sports Complex,2,2018-09-16,2018-09-25,ftz_katunayake,FTZ Sports Complex,Katunayake,renamed_or_variant,True,False,"Chilaw Marians CC play at the FTZ (Board of Investment) Sports Complex, Katunayake; BOI is the abbreviation"
 FTZ Sports Complex (BOI),Katunayake,1,2019-03-21,2019-03-21,ftz_katunayake,FTZ Sports Complex,Katunayake,renamed_or_variant,True,False,"Chilaw Marians CC play at the FTZ (Board of Investment) Sports Complex, Katunayake; BOI is the abbreviation"
-"FTZ Sports Complex (Board of Investment), Katunayake",Katunayake,9,2024-06-13,2025-02-07,ftz_katunayake,FTZ Sports Complex,Katunayake,city_suffix,True,False,"Chilaw Marians CC play at the FTZ (Board of Investment) Sports Complex, Katunayake; BOI is the abbreviation"
+"FTZ Sports Complex (Board of Investment), Katunayake",Katunayake,9,2024-06-13,2025-02-07,ftz_katunayake,FTZ Sports Complex,Katunayake,renamed_or_variant,True,False,"Chilaw Marians CC play at the FTZ (Board of Investment) Sports Complex, Katunayake; BOI is the abbreviation"
 Brisbane Cricket Ground,Brisbane,10,2004-01-18,2021-01-29,gabba,"Brisbane Cricket Ground, Woolloongabba",Brisbane,exact,False,False,
 "Brisbane Cricket Ground, Woolloongabba",Brisbane,88,2005-01-19,2020-01-23,gabba,"Brisbane Cricket Ground, Woolloongabba",Brisbane,city_suffix,False,False,
 "Brisbane Cricket Ground, Woolloongabba, Brisbane",Brisbane,66,2003-01-15,2026-02-21,gabba,"Brisbane Cricket Ground, Woolloongabba",Brisbane,city_suffix,False,False,
@@ -292,8 +296,8 @@ Garon Park,Southend-on-Sea,1,2016-07-15,2016-07-15,garon_park,Garon Park,Southen
 Geelong Cricket Ground,Geelong,2,2018-12-16,2019-01-13,geelong_cricket_ground,Geelong Cricket Ground,Geelong,single,False,False,
 Gelephu International Cricket Ground,Gelephu,30,2024-10-19,2026-01-29,gelephu_ground,Gelephu International Cricket Ground,Gelephu,single,False,False,
 "GelsenTrabPark, Gelsenkirchen",Gelsenkirchen,5,2026-08-28,2026-08-30,gelsentrabpark,GelsenTrabPark,Gelsenkirchen,single,False,False,
-Gliderol Stadium,Adelaide,3,2017-12-09,2017-12-17,glenelg_oval,Glenelg Oval (Gliderol Stadium),Adelaide,exact,False,False,
-"Gliderol Stadium, Adelaide",Adelaide,3,2018-03-14,2020-11-08,glenelg_oval,Glenelg Oval (Gliderol Stadium),Adelaide,city_suffix,False,False,
+Gliderol Stadium,Adelaide,3,2017-12-09,2017-12-17,glenelg_oval,Glenelg Oval (Gliderol Stadium),Adelaide,renamed_or_variant,False,False,
+"Gliderol Stadium, Adelaide",Adelaide,3,2018-03-14,2020-11-08,glenelg_oval,Glenelg Oval (Gliderol Stadium),Adelaide,renamed_or_variant,False,False,
 "The Gnoll, Neath",Neath,8,2022-08-17,2026-07-24,gnoll_neath,The Gnoll,Neath,single,False,False,
 Goldenacre,Edinburgh,4,2015-07-15,2015-07-18,goldenacre,Goldenacre,Edinburgh,exact,False,False,
 "Goldenacre, Edinburgh",Edinburgh,8,2023-07-20,2023-07-28,goldenacre,Goldenacre,Edinburgh,city_suffix,False,False,
@@ -313,7 +317,7 @@ Green Park,Kanpur,15,2004-11-20,2017-10-29,green_park_kanpur,Green Park,Kanpur,e
 "Green Park, Kanpur",Kanpur,2,2021-11-25,2024-09-27,green_park_kanpur,Green Park,Kanpur,city_suffix,False,False,
 Greenfield International Stadium,Thiruvananthapuram,3,2017-11-07,2019-12-08,greenfield_stadium,Greenfield International Stadium,Thiruvananthapuram,exact,True,False,"'Greenfield Stadium' (2019 SMAT, no city) is the Greenfield International Stadium, Karyavattom"
 "Greenfield International Stadium, Thiruvananthapuram",Thiruvananthapuram,8,2022-09-28,2026-09-27,greenfield_stadium,Greenfield International Stadium,Thiruvananthapuram,city_suffix,True,False,"'Greenfield Stadium' (2019 SMAT, no city) is the Greenfield International Stadium, Karyavattom"
-Greenfield Stadium,,13,2019-11-08,2019-11-17,greenfield_stadium,Greenfield International Stadium,Thiruvananthapuram,exact,True,False,"'Greenfield Stadium' (2019 SMAT, no city) is the Greenfield International Stadium, Karyavattom; no city in Cricsheet; ground identified from name, teams and event"
+Greenfield Stadium,,13,2019-11-08,2019-11-17,greenfield_stadium,Greenfield International Stadium,Thiruvananthapuram,renamed_or_variant,True,False,"'Greenfield Stadium' (2019 SMAT, no city) is the Greenfield International Stadium, Karyavattom; no city in Cricsheet; ground identified from name, teams and event"
 "GSSS, Sector 26",,12,2019-11-08,2019-11-15,gsss_sector26,GSSS Sector 26 Ground,Chandigarh,single,False,False,"no city in Cricsheet; ground identified from name, teams and event"
 Guanggong International Cricket Stadium,,4,2012-10-28,2012-10-31,guanggong_stadium,Guanggong International Cricket Stadium,Guangzhou,single,False,False,"no city in Cricsheet; ground identified from name, teams and event"
 Gucherre Cricket Ground,Albergaria,3,2021-08-20,2021-08-22,gucherre_ground,Gucherre Cricket Ground,Albergaria dos Doze,single,False,False,
@@ -338,7 +342,7 @@ Hare Field,Coggeshall,1,2015-09-11,2015-09-11,hare_field,Hare Field,Coggeshall,s
 Harlequins,Pretoria,1,2007-01-22,2007-01-22,harlequins_pretoria,Harlequins,Pretoria,single,False,False,
 "Great Barrier Reef Arena, Mackay",Mackay,12,2022-10-15,2026-08-22,harrup_park,Harrup Park (Great Barrier Reef Arena),Mackay,renamed_or_variant,True,False,"Ray Mitchell Oval at Harrup Park, renamed Great Barrier Reef Arena (2022)"
 Harrup Park,Mackay,6,2018-01-12,2019-11-03,harrup_park,Harrup Park (Great Barrier Reef Arena),Mackay,renamed_or_variant,True,False,"Ray Mitchell Oval at Harrup Park, renamed Great Barrier Reef Arena (2022)"
-"Ray Mitchell Oval, Harrup Park, Mackay",Mackay,14,2021-09-21,2022-10-18,harrup_park,Harrup Park (Great Barrier Reef Arena),Mackay,city_suffix,True,False,"Ray Mitchell Oval at Harrup Park, renamed Great Barrier Reef Arena (2022)"
+"Ray Mitchell Oval, Harrup Park, Mackay",Mackay,14,2021-09-21,2022-10-18,harrup_park,Harrup Park (Great Barrier Reef Arena),Mackay,renamed_or_variant,True,False,"Ray Mitchell Oval at Harrup Park, renamed Great Barrier Reef Arena (2022)"
 "Harry Barker Reserve, Gisborne",Gisborne,2,2012-11-17,2014-01-30,harry_barker_reserve,Harry Barker Reserve,Gisborne,single,False,False,
 Haslegrave Ground,Loughborough,5,2012-09-04,2013-07-05,haslegrave_ground,Haslegrave Ground,Loughborough,exact,False,False,
 "Haslegrave Ground, Loughborough",Loughborough,22,2016-08-03,2025-05-20,haslegrave_ground,Haslegrave Ground,Loughborough,city_suffix,False,False,
@@ -351,7 +355,7 @@ Hong Kong Cricket Club,,1,2018-09-14,2018-09-14,hkcc,Hong Kong Cricket Club,Wong
 Hong Kong Cricket Club,Wong Nai Chung Gap,8,2023-11-15,2023-11-19,hkcc,Hong Kong Cricket Club,Wong Nai Chung Gap,single,False,False,
 Holkar Cricket Stadium,Indore,16,2011-05-13,2020-01-07,holkar_stadium,Holkar Cricket Stadium,Indore,exact,True,False,Maharani Usharaje Trust Cricket Ground was renamed Holkar Cricket Stadium (2010)
 "Holkar Cricket Stadium, Indore",Indore,23,2022-10-04,2026-10-11,holkar_stadium,Holkar Cricket Stadium,Indore,city_suffix,True,False,Maharani Usharaje Trust Cricket Ground was renamed Holkar Cricket Stadium (2010)
-Holkar Stadium,,29,2019-02-21,2021-01-19,holkar_stadium,Holkar Cricket Stadium,Indore,exact,True,False,"Maharani Usharaje Trust Cricket Ground was renamed Holkar Cricket Stadium (2010); no city in Cricsheet; ground identified from name, teams and event"
+Holkar Stadium,,29,2019-02-21,2021-01-19,holkar_stadium,Holkar Cricket Stadium,Indore,renamed_or_variant,True,False,"Maharani Usharaje Trust Cricket Ground was renamed Holkar Cricket Stadium (2010); no city in Cricsheet; ground identified from name, teams and event"
 Maharani Usharaje Trust Cricket Ground,Indore,2,2006-04-15,2008-11-17,holkar_stadium,Holkar Cricket Stadium,Indore,renamed_or_variant,True,False,Maharani Usharaje Trust Cricket Ground was renamed Holkar Cricket Stadium (2010)
 Howell Oval,Sydney,1,2016-12-17,2016-12-17,howell_oval,Howell Oval,Penrith,single,False,False,
 Himachal Pradesh Cricket Association Stadium,Dharamsala,20,2010-04-16,2017-12-10,hpca_dharamsala,Himachal Pradesh Cricket Association Stadium,Dharamsala,exact,False,False,
@@ -360,12 +364,12 @@ Himachal Pradesh Cricket Association Stadium,Dharmasala,3,2014-10-17,2016-10-16,
 "Hurlingham Club Ground, Buenos Aires",Buenos Aires,15,2023-02-25,2024-12-15,hurlingham_club,Hurlingham Club Ground,Buenos Aires,single,False,False,
 Hurstville Oval,Sydney,20,2014-11-11,2020-11-18,hurstville_oval,Hurstville Oval,Sydney,single,False,False,
 IC-Gurunanak College Ground,,3,2021-01-13,2021-01-17,ic_gurunanak_college,IC-Gurunanak College Ground,Chennai,single,False,False,"no city in Cricsheet; ground identified from name, teams and event"
-ICC Academy,Dubai,39,2013-11-18,2019-12-15,icc_academy_dubai,ICC Academy Oval 1,Dubai,exact,True,False,ICC Academy main ground (Oval 1) inside Dubai Sports City; ICC Global Cricket Academy is the formal name of the same facility
+ICC Academy,Dubai,39,2013-11-18,2019-12-15,icc_academy_dubai,ICC Academy Oval 1,Dubai,renamed_or_variant,True,False,ICC Academy main ground (Oval 1) inside Dubai Sports City; ICC Global Cricket Academy is the formal name of the same facility
 ICC Academy Oval 1,Dubai,1,2013-11-16,2013-11-16,icc_academy_dubai,ICC Academy Oval 1,Dubai,exact,True,False,ICC Academy main ground (Oval 1) inside Dubai Sports City; ICC Global Cricket Academy is the formal name of the same facility
-"ICC Academy, Dubai",Dubai,42,2021-10-07,2025-11-05,icc_academy_dubai,ICC Academy Oval 1,Dubai,city_suffix,True,False,ICC Academy main ground (Oval 1) inside Dubai Sports City; ICC Global Cricket Academy is the formal name of the same facility
+"ICC Academy, Dubai",Dubai,42,2021-10-07,2025-11-05,icc_academy_dubai,ICC Academy Oval 1,Dubai,renamed_or_variant,True,False,ICC Academy main ground (Oval 1) inside Dubai Sports City; ICC Global Cricket Academy is the formal name of the same facility
 ICC Global Cricket Academy,Dubai,5,2013-03-11,2017-03-04,icc_academy_dubai,ICC Academy Oval 1,Dubai,renamed_or_variant,True,False,ICC Academy main ground (Oval 1) inside Dubai Sports City; ICC Global Cricket Academy is the formal name of the same facility
-ICC Academy Ground No 2,Dubai,12,2013-11-18,2019-10-23,icc_academy_dubai_2,ICC Academy Oval 2,Dubai,exact,True,False,Ground No 2 and Oval 2 are the same second ICC Academy oval
-"ICC Academy Ground No 2, Dubai",Dubai,5,2021-11-23,2021-11-28,icc_academy_dubai_2,ICC Academy Oval 2,Dubai,city_suffix,True,False,Ground No 2 and Oval 2 are the same second ICC Academy oval
+ICC Academy Ground No 2,Dubai,12,2013-11-18,2019-10-23,icc_academy_dubai_2,ICC Academy Oval 2,Dubai,renamed_or_variant,True,False,Ground No 2 and Oval 2 are the same second ICC Academy oval
+"ICC Academy Ground No 2, Dubai",Dubai,5,2021-11-23,2021-11-28,icc_academy_dubai_2,ICC Academy Oval 2,Dubai,renamed_or_variant,True,False,Ground No 2 and Oval 2 are the same second ICC Academy oval
 ICC Academy Oval 2,Dubai,2,2013-11-15,2013-11-16,icc_academy_dubai_2,ICC Academy Oval 2,Dubai,exact,True,False,Ground No 2 and Oval 2 are the same second ICC Academy oval
 "Independence Park, Port Vila",Port Vila,10,2022-09-10,2022-09-15,independence_park,Independence Park,Port Vila,single,False,False,
 "Ground 1, Independence Park",Port Vila,6,2019-05-06,2019-05-10,independence_park_1,Independence Park Ground 1,Port Vila,single,False,False,
@@ -403,7 +407,7 @@ Junction Oval,Melbourne,26,2018-12-01,2020-03-02,junction_oval,Junction Oval,Mel
 Kaizuka Cricket Ground,Osaka,4,2022-10-27,2022-10-30,kaizuka_ground,Kaizuka Cricket Ground,Kaizuka,single,False,False,
 Kallang Ground,Singapore,9,2014-06-08,2014-06-28,kallang_ground,Kallang Ground,Singapore,single,False,False,
 "Shahid Kamruzzaman Stadium, Rajshahi",Rajshahi,3,2026-04-20,2026-04-25,kamruzzaman_stadium,Shahid Kamruzzaman Stadium,Rajshahi,single,False,False,
-"GMHBA Stadium, South Geelong, Victoria",Geelong,15,2022-01-06,2025-12-21,kardinia_park,Kardinia Park (GMHBA Stadium),Geelong,city_suffix,True,False,Simonds Stadium and GMHBA Stadium are successive sponsored names of Kardinia Park; 2017 rows carry city 'Victoria'
+"GMHBA Stadium, South Geelong, Victoria",Geelong,15,2022-01-06,2025-12-21,kardinia_park,Kardinia Park (GMHBA Stadium),Geelong,renamed_or_variant,True,False,Simonds Stadium and GMHBA Stadium are successive sponsored names of Kardinia Park; 2017 rows carry city 'Victoria'
 "Simonds Stadium, South Geelong",Victoria,2,2017-02-19,2017-02-19,kardinia_park,Kardinia Park (GMHBA Stadium),Geelong,renamed_or_variant,True,False,Simonds Stadium and GMHBA Stadium are successive sponsored names of Kardinia Park; 2017 rows carry city 'Victoria'
 "Simonds Stadium, South Geelong, Victoria",Geelong,6,2018-01-03,2020-01-07,kardinia_park,Kardinia Park (GMHBA Stadium),Geelong,renamed_or_variant,True,False,Simonds Stadium and GMHBA Stadium are successive sponsored names of Kardinia Park; 2017 rows carry city 'Victoria'
 Karen Rolton Oval,Adelaide,9,2018-12-21,2019-11-10,karen_rolton_oval,Karen Rolton Oval,Adelaide,exact,False,False,
@@ -446,13 +450,13 @@ La Manga Club Bottom Ground,Murcia,15,2019-10-25,2023-02-26,la_manga_bottom,La M
 La Manga Club Top Ground,Murcia,18,2019-04-24,2025-12-07,la_manga_top,La Manga Club Top Ground,La Manga,single,False,False,
 Lalabhai Contractor Stadium,Surat,4,2019-09-24,2019-10-04,lalbhai_contractor_stadium,Lalbhai Contractor Stadium,Surat,spelling,False,False,spelling or punctuation variant
 Lalbhai Contractor Stadium,,33,2019-02-21,2019-12-01,lalbhai_contractor_stadium,Lalbhai Contractor Stadium,Surat,exact,False,False,"'Lalabhai' is a misspelling; no city in Cricsheet; ground identified from name, teams and event"
-AMI Stadium,Christchurch,9,2005-03-10,2011-01-29,lancaster_park,Lancaster Park (AMI Stadium),Christchurch,exact,True,False,Jade Stadium and AMI Stadium are successive sponsored names of Lancaster Park
+AMI Stadium,Christchurch,9,2005-03-10,2011-01-29,lancaster_park,Lancaster Park (AMI Stadium),Christchurch,renamed_or_variant,True,False,Jade Stadium and AMI Stadium are successive sponsored names of Lancaster Park
 Jade Stadium,Christchurch,4,2006-01-03,2008-02-07,lancaster_park,Lancaster Park (AMI Stadium),Christchurch,renamed_or_variant,True,False,Jade Stadium and AMI Stadium are successive sponsored names of Lancaster Park
 "Jade Stadium, Christchurch",Christchurch,1,2003-01-01,2003-01-01,lancaster_park,Lancaster Park (AMI Stadium),Christchurch,renamed_or_variant,True,False,Jade Stadium and AMI Stadium are successive sponsored names of Lancaster Park
 Las Caballerizas,Mexico City,1,2024-11-17,2024-11-17,las_caballerizas,Las Caballerizas,Mexico City,single,False,False,
 "Latrobe Recreation Ground, Latrobe",Latrobe,2,2022-11-15,2022-11-16,latrobe_rec_ground,Latrobe Recreation Ground,Latrobe,single,False,False,
-Central Broward Regional Park Stadium Turf Ground,Lauderhill,30,2010-05-22,2019-09-23,lauderhill,Central Broward Regional Park Stadium,Lauderhill,exact,False,False,
-"Central Broward Regional Park Stadium Turf Ground, Lauderhill",Lauderhill,25,2021-12-22,2025-08-03,lauderhill,Central Broward Regional Park Stadium,Lauderhill,city_suffix,False,False,
+Central Broward Regional Park Stadium Turf Ground,Lauderhill,30,2010-05-22,2019-09-23,lauderhill,Central Broward Regional Park Stadium,Lauderhill,renamed_or_variant,False,False,
+"Central Broward Regional Park Stadium Turf Ground, Lauderhill",Lauderhill,25,2021-12-22,2025-08-03,lauderhill,Central Broward Regional Park Stadium,Lauderhill,renamed_or_variant,False,False,
 Lavington Sports Oval,Albury,2,2016-12-13,2017-12-12,lavington_oval,Lavington Sports Oval,Albury,exact,False,False,
 "Lavington Sports Oval, Albury",Albury,3,2022-12-31,2023-12-23,lavington_oval,Lavington Sports Oval,Albury,city_suffix,False,False,
 "Lal Bahadur Shastri Stadium, Hyderabad, Deccan",Hyderabad,1,2003-11-15,2003-11-15,lb_stadium_hyderabad,Lal Bahadur Shastri Stadium,Hyderabad,single,False,False,
@@ -562,8 +566,8 @@ Sardar Patel Stadium,Ahmedabad,1,2005-12-18,2005-12-18,narendra_modi_stadium,Nar
 "Sardar Patel Stadium, Motera",Ahmedabad,28,2006-10-08,2015-04-24,narendra_modi_stadium,Narendra Modi Stadium,Ahmedabad,renamed_or_variant,True,False,"Sardar Patel Stadium, Motera was rebuilt on the same site and renamed Narendra Modi Stadium (2021)"
 "Nassau County International Cricket Stadium, New York",New York,8,2024-06-03,2024-06-12,nassau_county_stadium,Nassau County International Cricket Stadium,East Meadow,single,False,False,
 Bermuda National Stadium,Hamilton,1,2019-08-22,2019-08-22,national_stadium_bermuda,Bermuda National Stadium,Hamilton (Bermuda),exact,True,False,"Hamilton, Bermuda, not Hamilton, New Zealand (teams are Americas associates)"
-National Stadium,Hamilton,11,2010-05-28,2019-08-19,national_stadium_bermuda,Bermuda National Stadium,Hamilton (Bermuda),exact,True,True,"Hamilton, Bermuda, not Hamilton, New Zealand (teams are Americas associates); string shared by national_stadium_bermuda, national_stadium_karachi; the city decides"
-"National Stadium, Hamilton",Hamilton,5,2023-10-03,2023-10-07,national_stadium_bermuda,Bermuda National Stadium,Hamilton (Bermuda),city_suffix,True,False,"Hamilton, Bermuda, not Hamilton, New Zealand (teams are Americas associates)"
+National Stadium,Hamilton,11,2010-05-28,2019-08-19,national_stadium_bermuda,Bermuda National Stadium,Hamilton (Bermuda),renamed_or_variant,True,True,"Hamilton, Bermuda, not Hamilton, New Zealand (teams are Americas associates); string shared by national_stadium_bermuda, national_stadium_karachi; the city decides"
+"National Stadium, Hamilton",Hamilton,5,2023-10-03,2023-10-07,national_stadium_bermuda,Bermuda National Stadium,Hamilton (Bermuda),renamed_or_variant,True,False,"Hamilton, Bermuda, not Hamilton, New Zealand (teams are Americas associates)"
 National Cricket Stadium,St George's,1,2004-05-19,2004-05-19,national_stadium_grenada,National Cricket Stadium,St George's,exact,True,False,Queen's Park was rebuilt on the same site as the National Cricket Stadium (2007)
 "National Cricket Stadium, Grenada",St George's,3,2019-02-27,2020-01-15,national_stadium_grenada,National Cricket Stadium,St George's,city_suffix,True,False,Queen's Park was rebuilt on the same site as the National Cricket Stadium (2007)
 "National Cricket Stadium, St George's",Grenada,17,2007-04-10,2015-10-29,national_stadium_grenada,National Cricket Stadium,St George's,city_suffix,True,False,Queen's Park was rebuilt on the same site as the National Cricket Stadium (2007)
@@ -587,7 +591,6 @@ Nelson Park,,2,2016-11-22,2018-04-02,nelson_park_napier,Nelson Park,Napier,exact
 Nevill Ground,Tunbridge Wells,2,2015-07-17,2016-07-15,nevill_ground,Nevill Ground,Tunbridge Wells,exact,False,False,
 "Nevill Ground, Tunbridge Wells",Tunbridge Wells,5,2014-05-25,2019-06-17,nevill_ground,Nevill Ground,Tunbridge Wells,city_suffix,False,False,
 "New Close County Cricket Ground, Newport, Isle-of-Wight",Newport,4,2019-05-20,2023-08-22,new_close_iow,New Close County Cricket Ground,Newport (Isle of Wight),single,False,False,
-"New County Ground, Hove, Brighton",Brighton,1,2024-06-30,2024-06-30,new_county_ground_hove,"New County Ground, Hove",Hove,single,False,False,
 "New Farnley CC, Leeds",Leeds,3,2025-08-31,2025-09-02,new_farnley_cc,New Farnley CC,Leeds,single,False,False,
 "County Ground, New Road",Worcester,44,2014-05-30,2020-09-20,new_road_worcester,"County Ground, New Road",Worcester,city_suffix,True,False,New Road is the Worcester county ground
 "County Ground, New Road, Worcester",Worcester,196,2005-08-24,2026-09-08,new_road_worcester,"County Ground, New Road",Worcester,city_suffix,True,False,New Road is the Worcester county ground
@@ -619,9 +622,9 @@ Oakham School Ground,Oakham,2,2018-05-31,2023-07-19,oakham_school,Oakham School 
 Old Deer Park,Richmond,7,2014-07-03,2019-08-04,old_deer_park,Old Deer Park,Richmond,exact,False,False,
 "Old Deer Park, Richmond",Richmond,1,2026-06-28,2026-06-28,old_deer_park,Old Deer Park,Richmond,city_suffix,False,False,
 "Old Edwardians Cricket Club Ground, Solihull",Solihull,1,2024-09-04,2024-09-04,old_edwardians_solihull,Old Edwardians Cricket Club Ground,Solihull,single,False,False,
-Old Hararians,Harare,12,2018-03-06,2019-05-11,old_hararians,Old Hararians Sports Club,Harare,exact,True,False,Same club ground
+Old Hararians,Harare,12,2018-03-06,2019-05-11,old_hararians,Old Hararians Sports Club,Harare,renamed_or_variant,True,False,Same club ground
 Old Hararians Sports Club,Harare,3,2018-03-04,2018-03-15,old_hararians,Old Hararians Sports Club,Harare,exact,True,False,Same club ground
-"Old Hararians, Harare",Harare,2,2021-11-21,2021-11-27,old_hararians,Old Hararians Sports Club,Harare,city_suffix,True,False,Same club ground
+"Old Hararians, Harare",Harare,2,2021-11-21,2021-11-27,old_hararians,Old Hararians Sports Club,Harare,renamed_or_variant,True,False,Same club ground
 Old Trafford,Manchester,86,2005-06-25,2026-09-24,old_trafford,Old Trafford,Manchester,exact,False,False,
 "Old Trafford, Manchester",Manchester,232,2003-06-17,2026-09-08,old_trafford,Old Trafford,Manchester,city_suffix,False,False,
 Khan Shaheb Osman Ali Stadium,Fatullah,8,2006-04-09,2016-02-21,osmani_stadium_fatullah,Khan Shaheb Osman Ali Stadium,Fatullah,exact,True,False,Narayanganj Osmani Stadium is the same Fatullah ground
@@ -630,8 +633,8 @@ Ovale di Rastignano,Pianoro,5,2010-08-14,2010-08-21,ovale_rastignano,Ovale di Ra
 P Sara Oval,Colombo,25,2005-09-20,2019-08-22,p_sara_oval,P Sara Oval,Colombo,exact,True,False,P Saravanamuttu Stadium is the full name of the P Sara Oval
 "P Sara Oval, Colombo",Colombo,52,2023-04-29,2026-09-07,p_sara_oval,P Sara Oval,Colombo,city_suffix,True,False,P Saravanamuttu Stadium is the full name of the P Sara Oval
 P Saravanamuttu Stadium,Colombo,2,2007-07-20,2008-08-08,p_sara_oval,P Sara Oval,Colombo,renamed_or_variant,True,False,P Saravanamuttu Stadium is the full name of the P Sara Oval
-Singapore Cricket Club,Padang,4,2014-06-21,2014-06-28,padang_singapore,The Padang (Singapore Cricket Club),Singapore,exact,True,False,Singapore Cricket Club plays on the Padang
-Singapore Cricket Club,Singapore,1,2014-06-11,2014-06-11,padang_singapore,The Padang (Singapore Cricket Club),Singapore,exact,True,False,Singapore Cricket Club plays on the Padang
+Singapore Cricket Club,Padang,4,2014-06-21,2014-06-28,padang_singapore,The Padang (Singapore Cricket Club),Singapore,renamed_or_variant,True,False,Singapore Cricket Club plays on the Padang
+Singapore Cricket Club,Singapore,1,2014-06-11,2014-06-11,padang_singapore,The Padang (Singapore Cricket Club),Singapore,renamed_or_variant,True,False,Singapore Cricket Club plays on the Padang
 The Padang,Singapore,3,2014-06-08,2014-06-13,padang_singapore,The Padang (Singapore Cricket Club),Singapore,renamed_or_variant,True,False,Singapore Cricket Club plays on the Padang
 Pallekele International Cricket Stadium,,48,2010-12-01,2018-11-14,pallekele_stadium,Pallekele International Cricket Stadium,Kandy,single,False,False,"no city in Cricsheet; ground identified from name, teams and event"
 Pallekele International Cricket Stadium,Kandy,69,2019-09-01,2026-08-02,pallekele_stadium,Pallekele International Cricket Stadium,Kandy,single,False,False,
@@ -642,8 +645,8 @@ Punjab Cricket Association IS Bindra Stadium,Chandigarh,10,2018-04-08,2019-05-05
 "Punjab Cricket Association IS Bindra Stadium, Mohali",Chandigarh,22,2005-10-28,2019-09-18,pca_stadium_mohali,Punjab Cricket Association IS Bindra Stadium,Mohali,city_suffix,True,False,PCA Stadium renamed IS Bindra Stadium (2015); Cricsheet city alternates Chandigarh/Mohali
 "Punjab Cricket Association IS Bindra Stadium, Mohali",Mohali,1,2016-03-20,2016-03-20,pca_stadium_mohali,Punjab Cricket Association IS Bindra Stadium,Mohali,city_suffix,True,False,PCA Stadium renamed IS Bindra Stadium (2015); Cricsheet city alternates Chandigarh/Mohali
 "Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh",Chandigarh,15,2022-03-04,2023-11-06,pca_stadium_mohali,Punjab Cricket Association IS Bindra Stadium,Mohali,city_suffix,True,False,PCA Stadium renamed IS Bindra Stadium (2015); Cricsheet city alternates Chandigarh/Mohali
-"Punjab Cricket Association Stadium, Mohali",Chandigarh,55,2006-10-07,2016-10-23,pca_stadium_mohali,Punjab Cricket Association IS Bindra Stadium,Mohali,city_suffix,True,False,PCA Stadium renamed IS Bindra Stadium (2015); Cricsheet city alternates Chandigarh/Mohali
-"Punjab Cricket Association Stadium, Mohali, Chandigarh",Chandigarh,1,2003-10-16,2003-10-16,pca_stadium_mohali,Punjab Cricket Association IS Bindra Stadium,Mohali,city_suffix,True,False,PCA Stadium renamed IS Bindra Stadium (2015); Cricsheet city alternates Chandigarh/Mohali
+"Punjab Cricket Association Stadium, Mohali",Chandigarh,55,2006-10-07,2016-10-23,pca_stadium_mohali,Punjab Cricket Association IS Bindra Stadium,Mohali,renamed_or_variant,True,False,PCA Stadium renamed IS Bindra Stadium (2015); Cricsheet city alternates Chandigarh/Mohali
+"Punjab Cricket Association Stadium, Mohali, Chandigarh",Chandigarh,1,2003-10-16,2003-10-16,pca_stadium_mohali,Punjab Cricket Association IS Bindra Stadium,Mohali,renamed_or_variant,True,False,PCA Stadium renamed IS Bindra Stadium (2015); Cricsheet city alternates Chandigarh/Mohali
 "Pembroke Cricket Club, Sandymount",Dublin,1,2018-07-01,2018-07-01,pembroke_cc,"Pembroke Cricket Club, Sydney Parade",Dublin,city_suffix,True,False,"Pembroke CC's ground is at Sydney Parade, Sandymount"
 "Pembroke Cricket Club, Sandymount, Dublin",Dublin,70,2018-07-06,2026-07-23,pembroke_cc,"Pembroke Cricket Club, Sydney Parade",Dublin,city_suffix,True,False,"Pembroke CC's ground is at Sydney Parade, Sandymount"
 Sydney Parade,Dublin,2,2019-05-28,2019-05-29,pembroke_cc,"Pembroke Cricket Club, Sydney Parade",Dublin,renamed_or_variant,True,False,"Pembroke CC's ground is at Sydney Parade, Sandymount"
@@ -680,7 +683,6 @@ Queen's Park Oval,Port of Spain,1,2004-04-24,2004-04-24,queens_park_oval,Queen's
 "Queen's Park Oval, Trinidad",Port of Spain,2,2019-08-11,2019-08-14,queens_park_oval,Queen's Park Oval,Port of Spain,city_suffix,False,False,
 Queens Sports Club,Bulawayo,49,2004-04-20,2018-07-22,queens_sports_club,Queens Sports Club,Bulawayo,exact,False,False,
 "Queens Sports Club, Bulawayo",Bulawayo,61,2003-02-24,2026-09-19,queens_sports_club,Queens Sports Club,Bulawayo,city_suffix,False,False,
-"Racecourse Ground, Derby",Derby,1,2024-08-31,2024-08-31,racecourse_ground_derby,"Racecourse Ground, Derby",Derby,single,False,False,
 Radlett Cricket Club,Radlett,1,2019-08-11,2019-08-11,radlett_cc,Radlett Cricket Club,Radlett,exact,False,False,
 "Radlett Cricket Club, Radlett",Radlett,30,2016-06-07,2025-08-19,radlett_cc,Radlett Cricket Club,Radlett,city_suffix,False,False,
 Rajiv Gandhi International Stadium,Hyderabad,15,2018-04-09,2019-05-12,rajiv_gandhi_uppal,Rajiv Gandhi International Stadium,Hyderabad,exact,False,False,
@@ -690,7 +692,7 @@ Rawalpindi Cricket Stadium,,8,2005-12-21,2020-11-10,rawalpindi_cricket_stadium,R
 Rawalpindi Cricket Stadium,Rawalpindi,75,2003-09-18,2026-10-13,rawalpindi_cricket_stadium,Rawalpindi Cricket Stadium,Rawalpindi,single,False,False,
 "Reforma Athletic Club, Naucalpan",Naucalpan,11,2021-10-19,2026-04-05,reforma_athletic_club,Reforma Athletic Club,Naucalpan,single,False,False,
 Indian Petrochemicals Corporation Limited Sports Complex Ground,Vadodara,1,2007-01-31,2007-01-31,reliance_stadium,Reliance Stadium,Vadodara,renamed_or_variant,True,False,IPCL Sports Complex Ground was renamed Reliance Stadium; 'Reliance Cricket Stadium' is the same ground
-Reliance Cricket Stadium,,18,2016-01-02,2021-11-09,reliance_stadium,Reliance Stadium,Vadodara,exact,True,False,"IPCL Sports Complex Ground was renamed Reliance Stadium; 'Reliance Cricket Stadium' is the same ground; no city in Cricsheet; ground identified from name, teams and event"
+Reliance Cricket Stadium,,18,2016-01-02,2021-11-09,reliance_stadium,Reliance Stadium,Vadodara,renamed_or_variant,True,False,"IPCL Sports Complex Ground was renamed Reliance Stadium; 'Reliance Cricket Stadium' is the same ground; no city in Cricsheet; ground identified from name, teams and event"
 Reliance Stadium,Vadodara,9,2005-11-12,2019-10-14,reliance_stadium,Reliance Stadium,Vadodara,exact,True,False,IPCL Sports Complex Ground was renamed Reliance Stadium; 'Reliance Cricket Stadium' is the same ground
 Repton School Ground,Repton,1,2026-07-31,2026-07-31,repton_school,Repton School Ground,Repton,single,False,False,
 Riverside Ground,Chester-le-Street,70,2004-06-29,2020-09-13,riverside_durham,Riverside Ground,Chester-le-Street,exact,False,False,
@@ -704,7 +706,6 @@ The Rose Bowl,Southampton,85,2004-09-11,2020-09-20,rose_bowl,The Rose Bowl,South
 "The Rose Bowl, Southampton",Southampton,298,2003-07-10,2026-09-24,rose_bowl,The Rose Bowl,Southampton,city_suffix,False,False,
 The Rose Bowl (Nursery),Southampton,1,2015-06-27,2015-06-27,rose_bowl_nursery,The Rose Bowl (Nursery),Southampton,single,False,False,
 "Roseworth Terrace, Gosforth",Gosforth,14,2014-07-31,2026-07-29,roseworth_terrace,Roseworth Terrace,Gosforth,single,False,False,
-"Royal Brunswick Ground, Hove, Brighton",Brighton,1,2024-06-19,2024-06-19,royal_brunswick_hove,"Royal Brunswick Ground, Hove",Hove,single,False,False,
 "Royal Brussels Cricket Club Ground, Waterloo",Waterloo,10,2022-06-29,2022-07-04,royal_brussels_cc,Royal Brussels Cricket Club Ground,Waterloo,single,False,False,
 Royal Chiangmai Golf Club,,5,2017-04-25,2017-05-01,royal_chiangmai_golf_club,Royal Chiangmai Golf Club,Chiang Mai,single,False,False,"no city in Cricsheet; ground identified from name, teams and event"
 Royal Chiangmai Golf Club,Chiang Mai,9,2017-04-22,2022-12-03,royal_chiangmai_golf_club,Royal Chiangmai Golf Club,Chiang Mai,single,False,False,
@@ -740,7 +741,7 @@ Sportpark Het Schootsveld 2,Deventer,1,2018-09-02,2018-09-02,schootsveld_2,Sport
 "Shrimant Madhavrao Scindia Cricket Stadium, Gwalior",Gwalior,1,2024-10-06,2024-10-06,scindia_stadium_gwalior,Shrimant Madhavrao Scindia Cricket Stadium,Gwalior,single,False,False,
 "Scott Page Field, Vinor",Prague,45,2021-05-21,2026-09-06,scott_page_field,"Scott Page Field, Vinor",Prague,single,False,False,
 Sea Breeze Oval,Hamilton,1,2010-06-04,2010-06-04,sea_breeze_oval,Sea Breeze Oval,Hamilton (Bermuda),single,False,False,
-"Cricket Stadium, Sector-16",,13,2019-11-08,2019-11-18,sector16_stadium,Sector 16 Stadium,Chandigarh,city_suffix,True,False,"'Cricket Stadium, Sector-16' is the Sector 16 Stadium; no city in Cricsheet; ground identified from name, teams and event"
+"Cricket Stadium, Sector-16",,13,2019-11-08,2019-11-18,sector16_stadium,Sector 16 Stadium,Chandigarh,renamed_or_variant,True,False,"'Cricket Stadium, Sector-16' is the Sector 16 Stadium; no city in Cricsheet; ground identified from name, teams and event"
 Sector 16 Stadium,Chandigarh,1,2007-10-08,2007-10-08,sector16_stadium,Sector 16 Stadium,Chandigarh,exact,True,False,"'Cricket Stadium, Sector-16' is the Sector 16 Stadium"
 Sedbergh School,Sedbergh,2,2019-06-30,2023-08-01,sedbergh_school,"The Cricket Field, Sedbergh School",Sedbergh,renamed_or_variant,True,False,Same school ground
 "The Cricket Field, Sedbergh School",Sedbergh,4,2021-07-23,2026-07-21,sedbergh_school,"The Cricket Field, Sedbergh School",Sedbergh,city_suffix,True,False,Same school ground
@@ -759,7 +760,6 @@ Senwes Park,Potchefstroom,34,2008-11-07,2020-03-07,senwes_park,Senwes Park,Potch
 "Senwes Park, Potchefstroom",Potchefstroom,51,2012-02-17,2026-09-30,senwes_park,Senwes Park,Potchefstroom,city_suffix,True,False,"North West Cricket Stadium, Sedgars Park and Senwes Park are successive names of the same Potchefstroom ground"
 "7he Sevens Stadium, Dubai",Dubai,4,2024-04-18,2026-01-26,sevens_stadium_dubai,The Sevens Stadium,Dubai,single,False,False,
 Shaheed Chandu Stadium,Bogra,5,2006-02-20,2006-12-05,shaheed_chandu_stadium,Shaheed Chandu Stadium,Bogra,single,False,False,
-Sharad Pawar Cricket Academy BKC,,10,2016-01-15,2021-01-19,sharad_pawar_academy_bkc,Sharad Pawar Cricket Academy BKC,Mumbai,single,False,False,"no city in Cricsheet; ground identified from name, teams and event"
 Sharjah Cricket Association Stadium,Sharjah,7,2003-04-03,2003-04-10,sharjah_cricket_stadium,Sharjah Cricket Stadium,Sharjah,renamed_or_variant,True,False,Sharjah Cricket Association Stadium is the older name of Sharjah Cricket Stadium
 Sharjah Cricket Stadium,,85,2011-11-03,2020-11-03,sharjah_cricket_stadium,Sharjah Cricket Stadium,Sharjah,exact,True,False,"Sharjah Cricket Association Stadium is the older name of Sharjah Cricket Stadium; no city in Cricsheet; ground identified from name, teams and event"
 Sharjah Cricket Stadium,Sharjah,108,2013-11-15,2026-01-02,sharjah_cricket_stadium,Sharjah Cricket Stadium,Sharjah,exact,True,False,Sharjah Cricket Association Stadium is the older name of Sharjah Cricket Stadium
@@ -885,7 +885,7 @@ University of Doha for Science and Technology,Doha,13,2024-02-27,2025-11-13,udst
 UKM Cricket Oval,Bandar Kinrara,1,2018-05-02,2018-05-02,ukm_ysd_oval,UKM-YSD Cricket Oval,Bangi,renamed_or_variant,True,False,"'YSD-UKM' is a word-order variant; 'UKM Cricket Oval' (2018, city Bandar Kinrara) assigned by name to the UKM oval in Bangi"
 UKM-YSD Cricket Oval,Bangi,10,2018-04-29,2018-10-12,ukm_ysd_oval,UKM-YSD Cricket Oval,Bangi,exact,True,False,"'YSD-UKM' is a word-order variant; 'UKM Cricket Oval' (2018, city Bandar Kinrara) assigned by name to the UKM oval in Bangi"
 "UKM-YSD Cricket Oval, Bangi",Bangi,47,2022-06-17,2023-09-08,ukm_ysd_oval,UKM-YSD Cricket Oval,Bangi,city_suffix,True,False,"'YSD-UKM' is a word-order variant; 'UKM Cricket Oval' (2018, city Bandar Kinrara) assigned by name to the UKM oval in Bangi"
-"YSD-UKM Cricket Oval, Bangi",Bangi,50,2023-05-29,2026-10-14,ukm_ysd_oval,UKM-YSD Cricket Oval,Bangi,city_suffix,True,False,"'YSD-UKM' is a word-order variant; 'UKM Cricket Oval' (2018, city Bandar Kinrara) assigned by name to the UKM oval in Bangi"
+"YSD-UKM Cricket Oval, Bangi",Bangi,50,2023-05-29,2026-10-14,ukm_ysd_oval,UKM-YSD Cricket Oval,Bangi,renamed_or_variant,True,False,"'YSD-UKM' is a word-order variant; 'UKM Cricket Oval' (2018, city Bandar Kinrara) assigned by name to the UKM oval in Bangi"
 University of Lagos Cricket Oval,Lagos,8,2021-10-19,2024-11-24,unilag_oval,University of Lagos Cricket Oval,Lagos,single,False,False,
 United Cricket Club Ground,Windhoek,31,2012-09-29,2019-08-23,united_cc_windhoek,United Cricket Club Ground,Windhoek,exact,False,False,
 "United Cricket Club Ground, Windhoek",Windhoek,41,2022-04-08,2024-09-24,united_cc_windhoek,United Cricket Club Ground,Windhoek,city_suffix,False,False,
@@ -898,7 +898,7 @@ Uxbridge Cricket Club Ground,,5,2015-06-26,2018-07-08,uxbridge_cc,Uxbridge Crick
 Uxbridge Cricket Club Ground,Uxbridge,3,2015-06-21,2019-08-24,uxbridge_cc,Uxbridge Cricket Club Ground,Uxbridge,single,False,False,
 Vanuatu Cricket Ground,Port Vila,10,2023-08-28,2023-09-08,vanuatu_cricket_ground,Vanuatu Cricket Ground,Port Vila,single,False,False,
 Vanuatu Cricket Ground (Oval 2),Port Vila,8,2023-09-01,2023-09-08,vanuatu_cricket_ground_2,Vanuatu Cricket Ground (Oval 2),Port Vila,single,False,False,
-VCA Ground,,7,2016-01-02,2016-01-10,vca_civil_lines,Vidarbha Cricket Association Ground,Nagpur,exact,True,False,"Old VCA ground in Civil Lines; 'VCA Ground' (2016 SMAT, played alongside Jamtha) assumed to be this ground; no city in Cricsheet; ground identified from name, teams and event"
+VCA Ground,,7,2016-01-02,2016-01-10,vca_civil_lines,Vidarbha Cricket Association Ground,Nagpur,renamed_or_variant,True,False,"Old VCA ground in Civil Lines; 'VCA Ground' (2016 SMAT, played alongside Jamtha) assumed to be this ground; no city in Cricsheet; ground identified from name, teams and event"
 Vidarbha C.A. Ground,Nagpur,2,2005-10-25,2006-03-01,vca_civil_lines,Vidarbha Cricket Association Ground,Nagpur,renamed_or_variant,True,False,"Old VCA ground in Civil Lines; 'VCA Ground' (2016 SMAT, played alongside Jamtha) assumed to be this ground"
 Vidarbha Cricket Association Ground,Nagpur,1,2007-10-14,2007-10-14,vca_civil_lines,Vidarbha Cricket Association Ground,Nagpur,exact,True,False,"Old VCA ground in Civil Lines; 'VCA Ground' (2016 SMAT, played alongside Jamtha) assumed to be this ground"
 "Vidarbha Cricket Association Stadium, Jamtha",,9,2016-01-02,2016-01-10,vca_jamtha,"Vidarbha Cricket Association Stadium, Jamtha",Nagpur,city_suffix,False,False,"no city in Cricsheet; ground identified from name, teams and event"
@@ -915,8 +915,8 @@ W.A.C.A. Ground,Perth,32,2004-02-01,2020-02-24,waca,Western Australia Cricket As
 Western Australia Cricket Association Ground,Perth,64,2006-01-29,2017-01-28,waca,Western Australia Cricket Association Ground,Perth,exact,True,False,W.A.C.A. and WACA are abbreviations of the same ground
 "Western Australia Cricket Association Ground, Perth",Perth,79,2003-10-09,2026-03-06,waca,Western Australia Cricket Association Ground,Perth,city_suffix,True,False,W.A.C.A. and WACA are abbreviations of the same ground
 "Lisburn Cricket Club, Wallace Park, Lisburn",Lisburn,3,2026-07-14,2026-07-29,wallace_park_lisburn,"Lisburn Cricket Club, Wallace Park",Lisburn,single,False,False,
-New Wanderers Stadium,Johannesburg,59,2005-10-21,2017-02-04,wanderers_johannesburg,Wanderers Stadium,Johannesburg,exact,True,False,"New Wanderers Stadium, The Wanderers Stadium and Wanderers Stadium are the same ground"
-"New Wanderers Stadium, Johannesburg",Johannesburg,41,2003-02-11,2019-12-01,wanderers_johannesburg,Wanderers Stadium,Johannesburg,city_suffix,True,False,"New Wanderers Stadium, The Wanderers Stadium and Wanderers Stadium are the same ground"
+New Wanderers Stadium,Johannesburg,59,2005-10-21,2017-02-04,wanderers_johannesburg,Wanderers Stadium,Johannesburg,renamed_or_variant,True,False,"New Wanderers Stadium, The Wanderers Stadium and Wanderers Stadium are the same ground"
+"New Wanderers Stadium, Johannesburg",Johannesburg,41,2003-02-11,2019-12-01,wanderers_johannesburg,Wanderers Stadium,Johannesburg,renamed_or_variant,True,False,"New Wanderers Stadium, The Wanderers Stadium and Wanderers Stadium are the same ground"
 The Wanderers Stadium,Johannesburg,21,2005-01-30,2021-04-04,wanderers_johannesburg,Wanderers Stadium,Johannesburg,exact,True,False,"New Wanderers Stadium, The Wanderers Stadium and Wanderers Stadium are the same ground"
 "The Wanderers Stadium, Johannesburg",Johannesburg,52,2021-04-10,2026-04-25,wanderers_johannesburg,Wanderers Stadium,Johannesburg,city_suffix,True,False,"New Wanderers Stadium, The Wanderers Stadium and Wanderers Stadium are the same ground"
 "Wanderers Stadium, Johannesburg",Johannesburg,1,2026-09-27,2026-09-27,wanderers_johannesburg,Wanderers Stadium,Johannesburg,city_suffix,True,False,"New Wanderers Stadium, The Wanderers Stadium and Wanderers Stadium are the same ground"
@@ -937,9 +937,9 @@ Welbeck Abbey Cricket Ground,Welbeck,3,2021-07-30,2022-08-23,welbeck_abbey,Welbe
 "Welbeck Colliery Cricket Club Ground, Market Warsop",Market Warsop,5,2015-07-25,2018-05-20,welbeck_colliery,Welbeck Colliery Cricket Club Ground,Market Warsop,single,False,False,
 Sky Stadium,Wellington,2,2021-03-07,2021-03-07,wellington_regional_stadium,Wellington Regional Stadium (Sky Stadium),Wellington,renamed_or_variant,True,False,Westpac Stadium and Sky Stadium are successive sponsored names
 "Sky Stadium, Wellington",Wellington,6,2024-02-21,2026-03-22,wellington_regional_stadium,Wellington Regional Stadium (Sky Stadium),Wellington,renamed_or_variant,True,False,Westpac Stadium and Sky Stadium are successive sponsored names
-Westpac Stadium,,1,2017-03-06,2017-03-06,wellington_regional_stadium,Wellington Regional Stadium (Sky Stadium),Wellington,exact,True,False,"Westpac Stadium and Sky Stadium are successive sponsored names; no city in Cricsheet; ground identified from name, teams and event"
-Westpac Stadium,Wellington,38,2006-01-06,2021-03-05,wellington_regional_stadium,Wellington Regional Stadium (Sky Stadium),Wellington,exact,True,False,Westpac Stadium and Sky Stadium are successive sponsored names
-"Westpac Stadium, Wellington",Wellington,1,2003-01-08,2003-01-08,wellington_regional_stadium,Wellington Regional Stadium (Sky Stadium),Wellington,city_suffix,True,False,Westpac Stadium and Sky Stadium are successive sponsored names
+Westpac Stadium,,1,2017-03-06,2017-03-06,wellington_regional_stadium,Wellington Regional Stadium (Sky Stadium),Wellington,renamed_or_variant,True,False,"Westpac Stadium and Sky Stadium are successive sponsored names; no city in Cricsheet; ground identified from name, teams and event"
+Westpac Stadium,Wellington,38,2006-01-06,2021-03-05,wellington_regional_stadium,Wellington Regional Stadium (Sky Stadium),Wellington,renamed_or_variant,True,False,Westpac Stadium and Sky Stadium are successive sponsored names
+"Westpac Stadium, Wellington",Wellington,1,2003-01-08,2003-01-08,wellington_regional_stadium,Wellington Regional Stadium (Sky Stadium),Wellington,renamed_or_variant,True,False,Westpac Stadium and Sky Stadium are successive sponsored names
 West End Park International Cricket Stadium,Doha,4,2014-01-19,2014-01-24,west_end_park_doha,West End Park International Cricket Stadium,Doha,exact,False,False,
 "West End Park International Cricket Stadium, Doha",Doha,60,2021-10-23,2026-02-15,west_end_park_doha,West End Park International Cricket Stadium,Doha,city_suffix,False,False,
 West Mersea Cricket Club,,1,2015-09-08,2015-09-08,west_mersea_cc,West Mersea Cricket Club,West Mersea,single,False,False,"no city in Cricsheet; ground identified from name, teams and event"
@@ -968,8 +968,8 @@ Sir Paul Getty's Ground,Wormsley,3,2012-07-11,2014-08-13,wormsley,Sir Paul Getty
 Yeonhui Cricket Ground,Incheon,25,2014-09-20,2019-09-22,yeonhui_ground,Yeonhui Cricket Ground,Incheon,exact,False,False,
 "Yeonhui Cricket Ground, Incheon",Incheon,22,2024-09-25,2026-10-05,yeonhui_ground,Yeonhui Cricket Ground,Incheon,city_suffix,False,False,
 YMCA Cricket Club,Dublin,13,2013-07-16,2019-05-26,ymca_dublin,YMCA Cricket Club,Dublin,single,False,False,
-Aurora Stadium,Launceston,11,2017-01-05,2020-12-16,york_park,York Park (University of Tasmania Stadium),Launceston,exact,True,False,Aurora Stadium and University of Tasmania Stadium are successive sponsored names of York Park
-"Aurora Stadium, Launceston",Launceston,9,2021-10-24,2021-12-08,york_park,York Park (University of Tasmania Stadium),Launceston,city_suffix,True,False,Aurora Stadium and University of Tasmania Stadium are successive sponsored names of York Park
+Aurora Stadium,Launceston,11,2017-01-05,2020-12-16,york_park,York Park (University of Tasmania Stadium),Launceston,renamed_or_variant,True,False,Aurora Stadium and University of Tasmania Stadium are successive sponsored names of York Park
+"Aurora Stadium, Launceston",Launceston,9,2021-10-24,2021-12-08,york_park,York Park (University of Tasmania Stadium),Launceston,renamed_or_variant,True,False,Aurora Stadium and University of Tasmania Stadium are successive sponsored names of York Park
 "University of Tasmania Stadium, Launceston",Launceston,8,2022-10-26,2025-02-05,york_park,York Park (University of Tasmania Stadium),Launceston,renamed_or_variant,True,False,Aurora Stadium and University of Tasmania Stadium are successive sponsored names of York Park
 "Bir Sreshtho Flight Lieutenant Matiur Rahman Stadium, Chattogram",Chattogram,11,2025-10-27,2026-06-21,zahur_ahmed_chowdhury_stadium,Zahur Ahmed Chowdhury Stadium,Chattogram,renamed_or_variant,True,False,"Chittagong Divisional Stadium was renamed Zahur Ahmed Chowdhury Stadium (2009) and Bir Sreshtho Flight Lieutenant Matiur Rahman Stadium (2025; inferred from the switch-over of Chattogram internationals, medium confidence); 'Zohur' is a spelling variant"
 Chittagong Divisional Stadium,,5,2006-02-25,2009-01-03,zahur_ahmed_chowdhury_stadium,Zahur Ahmed Chowdhury Stadium,Chattogram,renamed_or_variant,True,False,"Chittagong Divisional Stadium was renamed Zahur Ahmed Chowdhury Stadium (2009) and Bir Sreshtho Flight Lieutenant Matiur Rahman Stadium (2025; inferred from the switch-over of Chattogram internationals, medium confidence); 'Zohur' is a spelling variant; no city in Cricsheet; ground identified from name, teams and event"
@@ -978,8 +978,8 @@ Zahur Ahmed Chowdhury Stadium,Chittagong,31,2010-01-17,2016-10-20,zahur_ahmed_ch
 "Zahur Ahmed Chowdhury Stadium, Chattogram",Chattogram,87,2019-01-25,2025-04-28,zahur_ahmed_chowdhury_stadium,Zahur Ahmed Chowdhury Stadium,Chattogram,city_suffix,True,False,"Chittagong Divisional Stadium was renamed Zahur Ahmed Chowdhury Stadium (2009) and Bir Sreshtho Flight Lieutenant Matiur Rahman Stadium (2025; inferred from the switch-over of Chattogram internationals, medium confidence); 'Zohur' is a spelling variant"
 "Zahur Ahmed Chowdhury Stadium, Chittagong",Chattogram,34,2012-02-18,2017-11-29,zahur_ahmed_chowdhury_stadium,Zahur Ahmed Chowdhury Stadium,Chattogram,city_suffix,True,False,"Chittagong Divisional Stadium was renamed Zahur Ahmed Chowdhury Stadium (2009) and Bir Sreshtho Flight Lieutenant Matiur Rahman Stadium (2025; inferred from the switch-over of Chattogram internationals, medium confidence); 'Zohur' is a spelling variant"
 Zohur Ahmed Chowdhury Stadium,Chittagong,4,2009-11-03,2010-03-12,zahur_ahmed_chowdhury_stadium,Zahur Ahmed Chowdhury Stadium,Chattogram,spelling,True,False,"Chittagong Divisional Stadium was renamed Zahur Ahmed Chowdhury Stadium (2009) and Bir Sreshtho Flight Lieutenant Matiur Rahman Stadium (2025; inferred from the switch-over of Chattogram internationals, medium confidence); 'Zohur' is a spelling variant; spelling or punctuation variant"
-Sheikh Zayed Stadium,Abu Dhabi,141,2006-04-18,2021-01-18,zayed_cricket_stadium,Zayed Cricket Stadium,Abu Dhabi,exact,True,False,Sheikh Zayed Stadium was renamed Zayed Cricket Stadium (2020); same ground
-"Sheikh Zayed Stadium, Abu Dhabi",Abu Dhabi,30,2021-06-09,2025-12-21,zayed_cricket_stadium,Zayed Cricket Stadium,Abu Dhabi,city_suffix,True,False,Sheikh Zayed Stadium was renamed Zayed Cricket Stadium (2020); same ground
+Sheikh Zayed Stadium,Abu Dhabi,141,2006-04-18,2021-01-18,zayed_cricket_stadium,Zayed Cricket Stadium,Abu Dhabi,renamed_or_variant,True,False,Sheikh Zayed Stadium was renamed Zayed Cricket Stadium (2020); same ground
+"Sheikh Zayed Stadium, Abu Dhabi",Abu Dhabi,30,2021-06-09,2025-12-21,zayed_cricket_stadium,Zayed Cricket Stadium,Abu Dhabi,renamed_or_variant,True,False,Sheikh Zayed Stadium was renamed Zayed Cricket Stadium (2020); same ground
 Zayed Cricket Stadium,Abu Dhabi,2,2013-11-16,2013-11-22,zayed_cricket_stadium,Zayed Cricket Stadium,Abu Dhabi,exact,True,False,Sheikh Zayed Stadium was renamed Zayed Cricket Stadium (2020); same ground
 "Zayed Cricket Stadium, Abu Dhabi",Abu Dhabi,86,2021-09-20,2025-12-30,zayed_cricket_stadium,Zayed Cricket Stadium,Abu Dhabi,city_suffix,True,False,Sheikh Zayed Stadium was renamed Zayed Cricket Stadium (2020); same ground
 Zhejiang University of Technology Cricket Field,Hangzhou,20,2023-09-21,2024-11-10,zjut_hangzhou,Zhejiang University of Technology Cricket Field,Hangzhou,single,False,False,
