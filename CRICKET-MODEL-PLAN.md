@@ -10,7 +10,7 @@ This file is the contract between components. Every module, parameter file and t
 - **No lookahead, no match-day leakage.** Every fitted quantity used for a match is estimated from data dated strictly before its first day. Pre-match inputs are restricted to what is known at the toss: the starting XIs (not their realized batting order), the toss, venue, officials and climatology-based weather. Realized batting order, the impact substitute actually used, and observed weather appear only in labelled "oracle" diagnostics.
 - **Shrinkage everywhere.** Player, venue, umpire and season effects are random effects with Gaussian priors whose scales are estimated by empirical Bayes, per class.
 - **Carry the variance the model fits.** Match-level and innings-level latent effects and player-parameter uncertainty are drawn inside each simulation, not set to zero.
-- **One semantics, two engines.** The Python engine (`beating/cricket/sim.py`) is the reference for evaluation; the browser engine (`docs/cricket/engine.js`) implements identical formulas, transition rules and random-number consumption. Parity tests compare exact feature levels, probability vectors, transitions and full seeded trajectories.
+- **One semantics, two engines.** The JavaScript engine (`docs/cricket/engine.js`) is the fast engine: it runs the page in Web Workers and the bulk evaluation through a Node command-line wrapper (`docs/cricket/cli.js`). The Python engine (`beating/cricket/sim.py`) is a scalar, readable twin with identical formulas, transition rules and random-number consumption, used for parity checks and for interactive analysis. Parity tests compare exact feature levels, probability vectors, transitions and full seeded trajectories, so a result from either engine is a result from both.
 - **Measured, not assumed.** A component is called helpful only when its held-out improvement interval excludes zero. Components that do not earn their place stay available as what-if inputs on the page with their fitted (possibly near-zero) coefficients, and the report says so.
 
 ## 2. Data sources (verified reachable October 24, 2026)
@@ -48,10 +48,11 @@ beating/cricket/drs.py          DRS review-process estimation
 beating/cricket/tactics.py      bowler choice, batting order, toss, declaration, follow-on, new ball
 beating/cricket/time_rain.py    Test clock, limited-overs interruptions, no-result
 beating/cricket/params.py       parameter bundle assembly and export
-beating/cricket/sim.py          reference engine (vectorized numpy, float64, own PRNG)
+beating/cricket/rng.py          shared xoshiro128** stream generator (done; twin docs/cricket/rng.js)
+beating/cricket/sim.py          scalar reference engine (float64, own PRNG), exact twin of engine.js
 beating/cricket/evaluate.py     walk-forward evaluation, calibration, ablations
 tools/*.py                      runnable pipelines, split into "# %%" cells
-docs/cricket/                   index.html, app.js, engine.js, worker.js, data/*.json (static page, no external libraries)
+docs/cricket/                   index.html, app.js, engine.js, provider.js, rng.js, worker.js, cli.js, data/*.json (static page, ES modules, no external libraries)
 tests/test_cricket_*.py         unit, recovery and parity tests (parity tests call node; skip if absent)
 tests/data/cricket_parity/      prng_kat.json, features.jsonl, transitions.jsonl, trajectories.jsonl
 config/cricket-venues.csv, config/cricket-rules.json, config/cricket-teams.csv, config/cricket-day-night.csv
@@ -577,11 +578,9 @@ The numpy engine never calls `np.random`. The known-answer vectors in `tests/dat
 - Precompute static eta per scenario: player pairs × innings × death × umpire parity.
 - No per-ball allocation.
 
-**numpy engine:**
+**Python engine:** scalar, one simulation at a time, written for clarity; it must reproduce `engine.js` trajectories exactly. Bulk evaluation calls `node docs/cricket/cli.js` with JSON-lines scenarios and reads JSON-lines results.
 
-- Lockstep over sims, with fixed-slot RNG gathered per step.
-- Compact the active set when below 50%.
-- Batch many evaluation scenarios along the sim axis.
+**Probability provider.** Both engines separate match flow (`engine.js` / `sim.py`) from probabilities (`provider.js` / `beating/cricket/provider.py`). The provider interprets the declarative feature spec and the parameter bundle. Its interface is: delivery-type, outcome and dismissal-kind probabilities for a pre-ball state; bowler-choice utilities; toss, declaration, follow-on and new-ball probabilities; DRS probabilities; empirical tables; latent-effect directions and SDs; interruption and Test-clock draws. A stub provider with small hand-set tables exists for tests.
 
 ### 9.7 Outputs
 
