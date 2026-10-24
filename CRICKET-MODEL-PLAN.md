@@ -1,281 +1,697 @@
 # Cricket win-probability model plan
 
-Written October 24, 2026. Goal: a bottom-up, ball-by-ball Monte Carlo model of cricket matches (T20, ODI, Test; men's and women's) that rates players, pitch, venue, umpires, DRS rules and weather, and an interactive static web page that runs the same simulator in the browser.
+Written October 24, 2026; revision 2 the same day after four independent reviews (cricket strategy, statistics, simulation engineering, and a data audit run against the raw files). Goal: a bottom-up, ball-by-ball Monte Carlo model of men's and women's T20, ODI and Test cricket that rates players, pitch, venue, home conditions, umpires, DRS rules and weather, plus an interactive static web page that runs the same simulator in the browser.
 
-This file is the contract between components. Every module, parameter file and the browser engine follows it. When an implementation must deviate, it records the deviation in the "Deviations" section at the bottom with a reason.
+This file is the contract between components. Every module, parameter file and the browser engine follows it. An implementation that must deviate records the deviation, with a reason, under "Deviations" at the bottom (only the coordinating session edits this file; agents report deviations in their final reports).
 
 ## 1. Principles
 
-- **Bottom-up.** Win probability is never fitted directly. It emerges from simulating every delivery: delivery type (legal/wide/no-ball), outcome (dot, 1, 2, 3, 4, 6, wicket, byes), dismissal kind, the DRS review process, bowler choice, declarations, weather interruptions and target revisions.
-- **No lookahead.** Every fitted quantity used to forecast a match is estimated from data dated strictly before that match's first day. Walk-forward fits use explicit cutoffs.
-- **Shrinkage everywhere.** Player, venue, umpire and season effects are random effects (Gaussian priors, i.e. penalized maximum likelihood) so a player with 40 balls stays near their role prior.
-- **One semantics, two engines.** The Python engine (`beating/cricket/sim.py`) is the reference used for evaluation. The browser engine (`docs/cricket/engine.js`) implements the same formulas. Parity tests compare exact per-ball probability vectors from shared test vectors and statistical agreement of simulated outputs.
-- **Measured, not assumed.** Every component (weather, umpire, pitch effect, matchups) must earn its place on held-out log loss. Components that do not improve held-out log loss are still exposed on the web page as user-adjustable what-if inputs but carry a fitted coefficient near zero, and the report says so.
+- **Bottom-up.** Win probability is never fitted directly. It emerges from simulating every delivery: delivery type, on-field outcome, dismissal kind, the DRS review process, strike rotation, bowler choice, declarations, weather interruptions, target revisions and tie-breaks.
+- **No lookahead, no match-day leakage.** Every fitted quantity used for a match is estimated from data dated strictly before its first day. Pre-match inputs are restricted to what is known at the toss: the starting XIs (not their realized batting order), the toss, venue, officials and climatology-based weather. Realized batting order, the impact substitute actually used, and observed weather appear only in labelled "oracle" diagnostics.
+- **Shrinkage everywhere.** Player, venue, umpire and season effects are random effects with Gaussian priors whose scales are estimated by empirical Bayes, per class.
+- **Carry the variance the model fits.** Match-level and innings-level latent effects and player-parameter uncertainty are drawn inside each simulation, not set to zero.
+- **One semantics, two engines.** The Python engine (`beating/cricket/sim.py`) is the reference for evaluation; the browser engine (`docs/cricket/engine.js`) implements identical formulas, transition rules and random-number consumption. Parity tests compare exact feature levels, probability vectors, transitions and full seeded trajectories.
+- **Measured, not assumed.** A component is called helpful only when its held-out improvement interval excludes zero. Components that do not earn their place stay available as what-if inputs on the page with their fitted (possibly near-zero) coefficients, and the report says so.
 
 ## 2. Data sources (verified reachable October 24, 2026)
 
 | Source | What | Access |
 | --- | --- | --- |
-| Cricsheet `all_json.zip` (data version 1.3.0, created 2026-10-14) | 23,132 matches, 11.69M deliveries, all formats, men and women; officials, toss, XIs, powerplays, replacements (impact player, concussion), 17,153 DRS reviews with reviewing team, umpire, decision and umpire's-call flag | `https://cricsheet.org/downloads/all_json.zip` |
+| Cricsheet `all_json.zip` (created 2026-10-14; 22,978 files at data version 1.2.0 and 154 at 1.3.0) | 23,132 matches, 11.69M deliveries; officials, toss, listed players, powerplays, replacements (impact player, concussion, supersub), 17,153 DRS reviews with reviewing team, umpire, decision and an umpire's-call flag | `https://cricsheet.org/downloads/all_json.zip` |
 | Cricsheet people register | identifiers including Cricinfo keys | `https://cricsheet.org/register/people.csv`, `names.csv` |
-| cricketdata R package `player_meta` | 16,101 players: batting hand, bowling style, playing role, DOB, country, keyed by Cricsheet id | `git clone https://github.com/robjhyndman/cricketdata` (`data/player_meta.rda`, read with `pyreadr`) |
-| NOAA ISD-lite (AWS open data) | hourly temperature, dew point, sea-level pressure, wind, sky cover, 1h/6h precipitation per station-year | `https://noaa-isd-pds.s3.amazonaws.com/isd-lite/data/{YYYY}/{USAF}-{WBAN}-{YYYY}.gz`, station list `isd-history.csv` |
-| NOAA GSOD (AWS open data) | daily summaries with fog/rain/thunder flags; fallback when ISD-lite is sparse | `https://noaa-gsod-pds.s3.amazonaws.com/{YYYY}/{USAF}{WBAN}.csv` |
+| cricketdata `player_meta` | 16,101 players: batting hand, bowling style, role, DOB, country, keyed by Cricsheet id | `git clone https://github.com/robjhyndman/cricketdata` (`data/player_meta.rda`, read with `pyreadr`) |
+| NOAA ISD-lite (AWS open data) | hourly temperature, dew point, pressure, wind, sky cover, precipitation | `https://noaa-isd-pds.s3.amazonaws.com/isd-lite/data/{YYYY}/{USAF}-{WBAN}-{YYYY}.gz`; stations `isd-history.csv` |
+| NOAA GSOD (AWS open data) | daily summaries with rain/thunder flags | `https://noaa-gsod-pds.s3.amazonaws.com/{YYYY}/{USAF}{WBAN}.csv` |
 
-Blocked from this container (do not retry): Open-Meteo, ESPNcricinfo, Cricbuzz, Wikipedia, Kaggle, Zenodo, Betfair, The Odds API, CDNs. No historical odds source is reachable, so market comparison is out of scope for this build and is listed as the next step.
+Blocked from this container: Open-Meteo, ESPNcricinfo, Cricbuzz, Wikipedia, Kaggle, Zenodo, Betfair, The Odds API and CDNs. No historical odds source is reachable, so market comparison is out of scope for this build.
 
-Raw downloads live under `data/raw/cricket/` (git-ignored). Processed tables live under `data/processed/cricket/` (git-ignored, parquet via `pyarrow`). Small curated or derived files that the page or reproducibility needs are committed under `config/` or `docs/cricket/data/`.
+Raw downloads: `data/raw/cricsheet/`, `data/raw/noaa/` (git-ignored). Processed tables: `data/processed/cricket/` (git-ignored, parquet). Small derived files needed for reproducibility or the page: `data/derived/cricket/`, `config/`, `docs/cricket/data/` (committed).
 
-Known data limits: Cricsheet has no ball timestamps, no day/session markers in Tests, no match start times (day/night), no ball-tracking, no boundary dimensions, and no record of appeals that were turned down and not reviewed.
+Known data limits: no ball timestamps, no session or day markers in Tests, no match start times, no ball-tracking, no boundary dimensions, no record of appeals turned down and not reviewed, only the final revised target of a chase. Cricsheet withholds about 380 Afghanistan men's matches (zip README): Afghanistan international XIs are unsupported on the page and opponents' histories have that gap.
 
 ## 3. Repository layout
 
 ```
-beating/cricket/__init__.py
-beating/cricket/ingest.py        Cricsheet -> matches/balls/players/officials tables
-beating/cricket/players.py       player metadata (hand, bowling type) + fallback inference
-beating/cricket/venues.py        venue canonicalisation, coordinates, station matching
-beating/cricket/weather.py       ISD-lite/GSOD download + per-match weather features
-beating/cricket/rules.py         playing-conditions timeline (overs, powerplays, quotas, DRS, free hit, follow-on)
-beating/cricket/features.py      state -> context indices (THE shared feature definitions, mirrored in engine.js)
-beating/cricket/glm.py           penalized multinomial logit with random-effect groups (numpy/scipy)
-beating/cricket/fit_ball.py      fits delivery-type, outcome and dismissal-kind models
-beating/cricket/drs.py           DRS review-process estimation
-beating/cricket/tactics.py       bowler choice, toss, declaration, follow-on, batting order defaults
-beating/cricket/time_rain.py     Test overs-available model, limited-overs rain interruptions, DLS-style resource table
-beating/cricket/params.py        assembles and exports parameter bundles (JSON) for both engines
-beating/cricket/sim.py           reference vectorized Monte Carlo engine
-beating/cricket/evaluate.py      walk-forward evaluation, baselines, calibration, ablations
-tools/build_cricket_site_data.py exports docs/cricket/data/*.json for the web page
-docs/cricket/index.html, app.js, engine.js, worker.js, styles inline   static interactive page (no external libraries)
-tests/test_cricket_*.py          unit + parity tests (parity tests call `node` and skip if absent)
-config/cricket-venues.csv        curated venue table
-config/cricket-rules.json        playing-conditions timeline
-requirements-cricket.txt         pinned optional extras (pyarrow, pyreadr)
-reports/cricket-*.md|json        evaluation outputs
+beating/cricket/glm.py          penalized multinomial logit with random-effect groups (done)
+beating/cricket/baselines.py    Elo and XI-aware logistic baselines
+beating/cricket/venues.py       venue canonicalisation, coordinates, station matching
+beating/cricket/weather.py      ISD-lite/GSOD acquisition and per-match-day features
+beating/cricket/players.py      player metadata and bowling-type inference
+beating/cricket/competitions.py event -> competition_id, tier, season_key, series key
+beating/cricket/rules.py        playing-conditions timeline lookup
+beating/cricket/ingest.py       Cricsheet -> matches / balls / events / officials tables
+beating/cricket/teams.py        team lineage (renames) and home-venue table
+beating/cricket/features.py     the shared feature definitions (mirrored line for line in engine.js)
+beating/cricket/resource.py     fitted resource table Z(u, w) (chase pressure and DLS-style targets)
+beating/cricket/fit_ball.py     delivery-type, outcome and dismissal-kind fits per (family, gender, cutoff)
+beating/cricket/drs.py          DRS review-process estimation
+beating/cricket/tactics.py      bowler choice, batting order, toss, declaration, follow-on, new ball
+beating/cricket/time_rain.py    Test clock, limited-overs interruptions, no-result
+beating/cricket/params.py       parameter bundle assembly and export
+beating/cricket/sim.py          reference engine (vectorized numpy, float64, own PRNG)
+beating/cricket/evaluate.py     walk-forward evaluation, calibration, ablations
+tools/*.py                      runnable pipelines, split into "# %%" cells
+docs/cricket/                   index.html, app.js, engine.js, worker.js, data/*.json (static page, no external libraries)
+tests/test_cricket_*.py         unit, recovery and parity tests (parity tests call node; skip if absent)
+tests/data/cricket_parity/      prng_kat.json, features.jsonl, transitions.jsonl, trajectories.jsonl
+config/cricket-venues.csv, config/cricket-rules.json, config/cricket-teams.csv, config/cricket-day-night.csv
+requirements-cricket.txt        optional extras (pyarrow, pyreadr)
+reports/cricket-*.md|json       evaluation outputs
 ```
-
-Python scripts under `tools/` use `# %%` cell markers so they run in chunks in VS Code. Package modules follow the existing `beating/` style.
 
 ## 4. Canonical tables
 
-### 4.1 `matches` (one row per Cricsheet match)
+### 4.1 Format families
 
-`match_id` (int, Cricsheet file stem), `start_date`, `end_date`, `n_days`, `season`, `match_type` (Cricsheet: T20, IT20, ODI, ODM, Test, MDM), `fmt` (family: `T20`, `ODI`, `TEST`; plus `HUNDRED` when the event is The Hundred), `gender`, `team_type`, `event_name`, `competition_id` (canonical competition string, see 4.5), `match_number`, `venue_raw`, `city`, `venue_id` (canonical, from `config/cricket-venues.csv`), `team1`, `team2`, `toss_winner`, `toss_decision`, `winner`, `result` (`win`, `tie`, `draw`, `no_result`), `method` (e.g. `D/L`), `win_by_runs`, `win_by_wickets`, `eliminator` (super-over winner), `scheduled_overs`, `balls_per_over`, `umpire1_id`, `umpire2_id`, `tv_umpire_id`, `referee_id`, `xi_team1`, `xi_team2` (JSON lists of player ids as listed), `bat_order_team1`, `bat_order_team2` (actual arrival order), `impact_or_sub_events` (JSON), `reviews_missing` (bool, from `info.missing`), `drs_observed` (any review recorded), `n_innings`, `super_over` (bool).
+`fam` ∈ {`T20`, `HUNDRED`, `ODI`, `TEST`}: T20 = Cricsheet T20 and IT20 with `balls_per_over` 6; HUNDRED = `balls_per_over` 5 (exactly the 389 Hundred matches; detect by `balls_per_over`, not event name); ODI = ODI and ODM; TEST = Test and MDM. Fits run per fitting family {T20+HUNDRED, ODI, TEST} × gender. HUNDRED balls enter the T20 fit with their own context levels; the engines do not simulate the Hundred in v1 (deviation D1).
 
-### 4.2 `balls` (one row per delivery, super overs excluded and stored separately)
+### 4.2 `matches`
 
-Identity: `match_id`, `innings` (1..4), `bat_team`, `bowl_team`, `over` (0-based), `ball_seq` (0-based delivery index within innings), `legal_ball_index` (0-based count of legal balls before this one in the innings), `ball_in_over` (legal balls already bowled in this over), `batter_id`, `non_striker_id`, `bowler_id`.
+`match_id` (int, file stem), `start_date`, `dates_played` (JSON), `scheduled_days` (from rules, never from `len(dates)`, which leaks the result), `season` (string), `match_type`, `fam`, `gender`, `team_type`, `event_name`, `competition_id`, `tier`, `season_key`, `series_key` (event + season; bilateral series = same teams within 60 days), `match_number`, `venue_raw`, `city_raw`, `venue_id`, `team1`, `team2` (lineage-canonical names) and `team1_raw`, `team2_raw`, `home_status1`, `home_status2` (`home`, `away`, `neutral`), `toss_winner`, `toss_decision`, `toss_uncontested`, `winner`, `result` (`win`, `tie`, `draw`, `no_result`), `method`, `win_by_runs`, `win_by_wickets`, `win_by_innings`, `eliminator`, `bowl_out`, `tie_break_used`, `scheduled_overs` (corrected when inconsistent with the match type; log fixes), `balls_per_over`, `umpire1_id`, `umpire2_id`, `tv_umpire_id`, `referee_id`, `squad_listed_team{1,2}` (raw lists), `xi_start_team{1,2}` (listed players minus replacement "in" players), `subs` (JSON of replacements with reason, team, in, out, delivery), `bat_order_team{1,2}_inn{k}` (actual arrival order per innings), `reviews_missing`, `drs_available` (true/false/null), `drs_source` (`match`, `series`, `rules`, `unknown`), `start_slot` (`day`, `day_night`, `night`, `unknown`, from `config/cricket-day-night.csv` and competition defaults), `follow_on` (derived), `n_innings`, `super_over`, `awarded`.
 
-Recorded outcome: `runs_batter`, `runs_extras`, `runs_total`, `wides`, `noballs`, `byes`, `legbyes`, `penalty`, `dtype` (`legal`, `wide`, `noball`), `wicket` (bool), `wicket_kind` (raw), `wk` (canonical: `caught`, `bowled`, `lbw`, `run_out`, `stumped`, `other`; caught-and-bowled -> caught; hit wicket/obstructing/handled/hit twice/timed out -> other; retired hurt/retired not out are not wickets and are stored in `retired` columns), `player_out_id`, `out_is_striker`, `second_wicket` (bool, rare).
+### 4.3 `balls` (one row per delivery in main innings; super overs stored separately)
 
-Review: `review_by` (`bat`, `bowl`, null), `review_decision` (`upheld`, `struck_down`, `technical`), `review_umpires_call` (bool or null when the field predates recording), `review_umpire_id`, `review_batter_id`.
+Keys: `match_id`, `innings` (1..4), `ball_seq` (0-based delivery index in innings; the unique key), `over` (0-based; HUNDRED = 5-ball set index), `ball_in_over` (legal balls already bowled in this over; may reach 6 or 7), `legal_ball_index` (legal balls before this one in the innings), `bat_team`, `bowl_team`, `batter_id`, `non_striker_id`, `bowler_id`.
 
-On-field reconstruction (section 6.4): `onfield_out` (bool), `onfield_wk` (canonical kind or `unknown_reviewable`), `final_out` (= `wicket`).
+Outcome as recorded: `runs_batter`, `non_boundary`, `wides`, `noballs`, `byes`, `legbyes`, `penalty`, `runs_total`, `dtype` (`legal`, `wide`, `noball`), `wicket_kind_raw`, `wk` (`caught` incl. caught-and-bowled, `bowled`, `lbw`, `stumped`, `run_out`, `other` = hit wicket, obstructing, handled, hit twice, timed out), `player_out_id` (handle the misspelt key `playeer_out`), `out_role` (`striker`, `non_striker`, `neither`), `second_wicket`, `retire_event` (`retired_hurt`, `retired_not_out`, `retired_out`, or null; recorded on the delivery it is attached to, which still counts), `fielders` (JSON).
 
-State before the delivery: `inn_runs`, `inn_wkts`, `inn_legal_balls`, `striker_balls`, `striker_runs`, `nonstriker_balls`, `nonstriker_runs`, `partnership_runs`, `partnership_balls`, `striker_position` (arrival order 1..11), `bowler_balls_inn` (legal balls by this bowler so far in innings), `bowler_spell_overs` (consecutive-alternate-over spell length, Tests), `free_hit` (bool), `powerplay` (`none`, `mandatory`/`pp1`, `batting`, `fielding`, from Cricsheet `powerplays`), `balls_remaining` (limited overs, using the innings' effective scheduled/revised balls), `target` (chase innings), `runs_required`, `match_legal_balls` (cumulative legal balls in match before this ball, Tests), `ball_age_overs` (overs since the current ball was taken, Tests: resets when the new ball is due at 80 overs and the bowling side is assumed to take it), `est_day` (Tests: `1 + floor(match_overs / overs_per_day)`, capped at the scheduled days), `lead` (batting side's runs minus opponent's, Tests, before this ball), `test_overs_left_est` (scheduled match overs minus overs bowled, Tests), `bowl_end_umpire_id` (section 6.5), `bowl_end_umpire_known` (bool), `bat_reviews_left`, `bowl_reviews_left` (reconstructed per section 6.4), `drs_available` (bool).
+Review fields: `review_by` (`bat`, `bowl`), `review_decision` (`upheld`, `struck_down`, `technical`), `review_umpires_call` (true when the key is present; false when absent and the date is on or after that family's first recorded flag — Test 2017-08-25, ODI 2017-10-16, T20 2017-12-24, Hundred 2021-07-30; null before), `review_umpire_id` (from `review.umpire`; 1.8% missing), `review_batter_id`, `review_about_wicket` (false when `review.batter` differs from `player_out`). The `type` field carries no information and is dropped.
 
-Indexing: the training code maps string ids to dense int32 indices (`players.idx`, `venues.idx`, ...). Use int8/int16/int32/float32 dtypes; the full table must fit in about 3 GB of RAM.
+On-field reconstruction (section 6.5): `onfield_out` (bool), `onfield_class` (outcome class the umpire's decision implies), `final_out`.
 
-### 4.3 `players`
+State before the delivery (computed from the pre-ball state only): `inn_runs` (starting at `penalty_runs.pre`), `inn_wkts` (wickets including retired out), `inn_unavailable` (wickets + absent hurt + retired hurt not resumed), `striker_balls`, `striker_runs`, `nonstriker_balls`, `nonstriker_runs` (balls count legal balls and no-balls, not wides), `partnership_runs`, `partnership_balls` (reset whenever the pair changes), `striker_arrival` (rank at first appearance as batter or non-striker; resuming batters keep it), `bowler_balls_inn`, `bowler_spell_overs` (consecutive alternate overs k−2, k−4, …), `free_hit` (derived from rules and the previous delivery, including carry-over through wides and no-balls), `pp_window` (`pp1`, `pp2`, `pp3`, `batting`, `fielding`, `power_surge`, `none`), `pp_source` (`recorded`, `rules`), `field_restr` (maximum fielders allowed outside the circle, from rules and the window), `max_balls` (innings length in legal balls as known before the ball: scheduled, or the revised length when the revision is known to precede the ball; never the ex-post reduced first-innings length), `balls_remaining`, `target_runs`, `target_known`, `target_timing` (`original`, `pre_inn2`, `unknown`), `runs_required`, `match_legal_balls` (Tests), `ball_age_overs` (completed innings overs mod 80), `second_new_ball` (completed overs ≥ 80), `est_day` (section 7.5), `lead` (batting side's aggregate minus the opponent's; negative after a follow-on), `bat_fail_reviews`, `bowl_fail_reviews` (unsuccessful, non-umpire's-call reviews so far in the innings by each side), `bowl_end_umpire_p` (probability umpire 1 is at the bowler's end, section 6.6).
 
-`player_id` (Cricsheet registry hex id), `name`, `unique_name`, `cricinfo_id`, `bat_hand` (`R`, `L`, `U`), `bowl_type` (one of `pace_fast`, `pace_medium`, `off_spin`, `leg_spin`, `left_orth`, `left_wrist`, `none`, `unknown`), `bowl_arm` (`R`, `L`, `U`), `bowl_class` (`pace`, `spin`, `none`, `unknown`), `role`, `dob`, `country`, `meta_source` (`cricinfo_meta`, `inferred`, `none`), `infer_confidence`.
+Pre-match player context (as of the match date, from strictly earlier matches in the same fitting family): `striker_exp`, `bowler_exp` (prior balls faced / bowled), `striker_role_pos` (median arrival position over the player's previous 10 innings; fallback this match's arrival), `striker_overseas`, `bowler_overseas` (player country ≠ venue country, franchise and domestic only).
 
-Mapping: "Right arm Fast", "Right arm Fast medium", "Left arm Fast", "Left arm Fast medium", "Right arm Medium fast", "Left arm Medium fast" -> `pace_fast`; "Medium", "Slow medium", "Medium" variants -> `pace_medium`; "Offbreak" -> `off_spin`; "Legbreak", "Legbreak Googly" -> `leg_spin`; "Slow Left arm Orthodox" -> `left_orth`; "Left arm Wrist spin" / "chinaman" -> `left_wrist`. Multiple styles: use the first listed, record the second. Unmatched bowlers who bowled at least 60 balls are inferred from data (stumping share of their dismissals, phase usage, wide/no-ball rates, keeper-standing-up proxy) with a classifier trained on players whose type is known; record `infer_confidence`.
+Storage: int8/int16/int32/float32 with dense integer ids; the full table must fit in about 3 GB RAM.
 
-### 4.4 `venues` (`config/cricket-venues.csv`, curated and committed)
+### 4.4 Other tables
 
-`venue_id` (slug), `name`, `aliases` (pipe-separated Cricsheet `venue` strings), `city`, `country`, `region` (`subcontinent`, `sena_eng`, `sena_aus`, `sena_nz`, `sena_sa`, `west_indies`, `uae_gulf`, `other`), `lat`, `lon`, `elevation_m`, `utc_offset_hours` (standard time), `isd_station` (USAF-WBAN), `station_distance_km`, `coord_confidence` (`high`, `medium`, `low`). Every venue string that appears in Cricsheet maps to exactly one `venue_id`. Coordinates must be checked against the matched station's country and a distance under 60 km; violations are flagged, not silently accepted.
-
-### 4.5 Competitions and seasons
-
-`competition_id` is a canonical slug per gender and format (`intl_t20_m`, `intl_odi_m`, `intl_test_m`, `ipl`, `bbl`, `psl`, `cpl`, `sa20`, `ilt20`, `mlc`, `blast`, `hundred_m`, `wpl`, `wbbl`, `county_championship`, `sheffield_shield`, ...). International matches between associate members share the international competition id but carry an `assoc_match` flag. The `season_key` is `competition_id` plus the Cricsheet season.
-
-### 4.6 `weather_match` (derived; committed as a compact CSV for the page and reproducibility)
-
-Per match and per scheduled day: `station`, `distance_km`, `n_obs`, `temp_c_mean`, `rh_mean`, `dewpt_c_mean`, `dew_depression_evening` (temperature minus dew point averaged over local 18:00 to 23:00 using `utc_offset_hours`), `cloud_oktas_mean` (if the station reports sky cover), `precip_mm_day`, `precip_hours`, `wind_ms_mean`, `pressure_hpa_mean`, `elevation_m`. Missing is NaN; models impute to the venue-month climatology, then the global mean, and carry a missing indicator.
+- `events`: one row per non-ball event (retired hurt/out/not out, absent hurt, temporary retirement and resumption, replacement, declaration, forfeiture, follow-on, interruption inferred from target revision).
+- `players` (section 4.3 of revision 1, plus `bowl_type_2`, `keeper` inferred from stumping fielders, dedup rule: prefer the `player_meta` row whose `cricinfo_id` equals `people.csv` `key_cricinfo`; style strings matched case- and hyphen-insensitively; "Right/Left arm Bowler", "Slow", "Right arm Slow" -> unknown, then inferred).
+- `venues` (`config/cricket-venues.csv`): aliases keyed on the (venue_raw, city_raw) pair; never merge across different non-null cities; Nursery / Academy / "No N" / "Ground A" / "B" grounds stay separate; renamed grounds merge (Feroz Shah Kotla -> Arun Jaitley Stadium; Motera -> Narendra Modi Stadium; Sheikh Zayed -> Zayed Cricket Stadium; Wanderers variants). Columns as before plus `region`, `elevation_m`, `utc_offset_hours`, `dst_region`, `ball_brand_default` (Dukes: England, Ireland, Scotland, West Indies; SG: India; Kookaburra elsewhere; Tests only — verify start years).
+- `teams` (`config/cricket-teams.csv`): lineage (Kings XI Punjab -> Punjab Kings, Delhi Daredevils -> Delhi Capitals, Royal Challengers Bangalore -> Bengaluru, CPL and PSL renames, ...), country of internationals, and franchise home venues by season (derived from data: a venue is a team's home in a season when the team plays at least 30% of its matches there and the venue is not neutral for the competition that season; neutral when it hosts more than 40% of the competition's matches or the season is played abroad).
+- `weather_match_day` (unchanged fields; per scheduled day).
+- `climatology`: per venue × calendar month, recomputed from data before each cutoff (section 10).
 
 ## 5. Rules timeline (`config/cricket-rules.json`)
 
-For each (`competition_id` or `fmt`/`gender` default, date range): `overs_per_innings`, `balls_per_over`, `bowler_quota_overs` (T20 4, ODI 10, Hundred 20 balls), `powerplay_overs` (mandatory/batting/fielding windows), `free_hit` (`none`, `front_foot`, `all_noballs`), `noball_extra_runs` (1, or 2 in some domestic competitions), `drs_available`, `reviews_per_innings`, `umpires_call_retains_review` (true from October 2017), `review_topup_after_80` (Tests 2013 to 2017), `test_overs_per_day`, `test_days`, `follow_on_lead` (200 for five-day, 150 for shorter), `new_ball_after_overs` (80), `impact_player` (IPL 2023+), `super_over` (limited overs ties), `min_overs_for_result` (T20 5, ODI 20).
+Fields per (competition, date range) with family/gender defaults: `overs_per_innings`, `balls_per_over`, `bowler_quota` (overs; reduced matches: ⌊N/5⌋ with up to N mod 5 bowlers allowed one more, validated against data), `pp_windows` (by era, including reduced-match tables), `field_restr` by window, `free_hit` (`none`, `front_foot`, `all_noballs`, with `p_free_hit_given_nb` when uncertain), `noball_penalty_runs` (1, or 2 in ECB domestic competitions through 2025; men's Blast, Hundred and One-Day Cup 1 from 2026; County Championship 2), `caught_crossing_counts` (true before 2022-10-01 internationally and before IPL 2022), `drs_allowed`, `reviews_per_innings`, `umpires_call_retains_review` (from October 2017), `review_topup_after_80` (Tests 2013-10 to 2017-09: reset to 2), `ucall_zone_era` (2016 widening, 2021 raise to top of bails; anchors only), `test_overs_per_day` (90; 98 for men's four-day Tests; women's Tests mostly four days at about 100), `scheduled_days`, `follow_on_lead` by days remaining when play starts (200 / 150 / 100 / 75 for 5+ / 3-4 / 2 / 1 days), `new_ball_after_overs` (80), `two_new_balls` (ODIs 2011-10 to 2025-07; from July 2025 two balls until over 34), `impact_player` (IPL 2023+, ILT20 2023/24+, Syed Mushtaq Ali 2022/23-2023/24, LPL 2026; BBL X-factor 2020/21-2021/22 and ODI supersub 2005-06 as `supersub`), `tie_break` (`none`, `bowl_out`, `so_boundary_count`, `so_repeat`, by competition, stage and date), `min_overs_for_result` (T20 5, ODI 20).
 
-Facts must be validated against the data: for example, the maximum count of unsuccessful, non-umpire's-call reviews by one team in one innings is 3 in Tests from 2020 onward and 2 in ODIs from 2020 onward, while T20 shows 1 until 2018 and 2 from 2019. Where memory and data disagree, data wins and the disagreement is recorded.
+DRS facts validated against the data (the rules agent reconciles these with its own validation and records conflicts in `docs/cricket-rules.md`):
+
+- Tests: 2008 trial 3 unsuccessful reviews; 2009 to 2013-10: 2; 2013-10 to 2017-09: 2 with a reset to 2 after 80 overs; 2017-10 to 2020-06: 2 with umpire's call retaining; from 2020-07-16: 3. India series 2009-2016-11 played without DRS.
+- ODIs: 2 in 2011-01 to 2011-04 (including the World Cup), then 1, then 2 from 2020-08-01.
+- T20Is: 1 until 2020; 2 from 2020-08-28.
+- Leagues: IPL 1 (2018-21), 2 (2022+); BBL/WBBL none until 2022/23, then 1; Hundred 1 (2021+); CPL 2 from 2022 (none 2019-21); LPL 2 (2021+); SA20, ILT20, MLC, WPL 2; Blast finals only; Super Smash, CSA T20 and county none; PSL 2017-20 to verify.
+- `drs_available` per match = rules allow DRS AND (any review recorded in the match OR in the same series_key) AND "reviews" not in `info.missing`; when "reviews" is missing, null and excluded from DRS fits.
 
 ## 6. Delivery models
 
-All three delivery models are multinomial logits fitted by `glm.py` with this structure:
+### 6.1 Model form
+
+All three delivery models are multinomial logits fitted by `glm.py`:
 
 ```
-eta[k] = intercept[k]
-       + sum over categorical groups g:  B_g[level_g(row), k]
-       + sum over dense features j:      x_j(row) * C_j[k]
-       + player and official terms (below)
-P(k)   = softmax(eta)[k]
+eta[0] = 0 (reference class)
+eta[1:] = intercept + sum_g w_g(row) * theta_g[level_g(row)] @ basis_g + dense(row) @ C + mask(row)
 ```
 
-Class 0 is the reference and is fixed at eta = 0. Every group has a Gaussian prior with its own standard deviation `sigma_g` (one hyperparameter per group, tuned on the validation year). Observations carry time-decay weights `w = 0.5 ** (age_days / half_life_fmt)` relative to the fit cutoff, with half-lives tuned per format family. Rows with weight under 0.02 are dropped.
+- Priors: each group has a per-dimension SD vector (one SD per class), estimated by empirical Bayes (MacKay update `sigma^2 <- sum(theta^2) / sum(gamma)`, `gamma = 1 - v / sigma^2`, v the per-level posterior variance from the Hessian diagonal).
+- **Random-walk groups** (competition season, umpire-by-year if used): `theta_t ~ N(theta_{t-1}, tau^2)`, root `N(0, sigma_root^2)`; the forecast for a new season is the latest level.
+- **Nested groups:** region × family and then venue × family (the venue SD is the within-region spread); competition, then competition season.
+- **Masks:** a per-row class mask sets eta = −30 for impossible classes, identically in the fit and both engines (bowler-credited wicket on no-balls and free hits).
+- Observation weights: `w = 0.5 ** (age_days / half_life)`, with one half-life per (fitting family, gender, model), tuned on 2023 from at most three values each. Rows with w < 0.02 are dropped.
+- Optimizer: L-BFGS with diagonal preconditioning (the Hessian diagonal plus prior precision at the start point), a per-group gradient-norm stopping rule, and warm starts across cutoffs.
+- Fits run per (fitting family, gender, cutoff).
 
-### 6.1 Delivery type model `dtype`: classes `legal`, `wide`, `noball`
+### 6.2 Delivery type `dtype`: classes `legal`, `wide`, `noball`
 
-Groups: `fmt_gender x phase`, `competition season`, `bowl_type`, bowler (global), bowler x fmt, bowl-end umpire (or average of the two umpires when unknown, see 6.5), venue. Dense: free-hit flag is irrelevant here; weather wind if available.
+Groups:
 
-### 6.2 Outcome model `outcome` (legal deliveries and the bat-runs part of no-balls): classes
+- `fam × phase6`
+- `competition season` (random walk)
+- `bowl_type`
+- bowler (global)
+- bowler experience bucket
+- bowl-end umpire (on wide and no-ball)
+- venue
+- `home_status` of the bowling side
+- `start_slot × innings` (dew makes the ball harder to grip)
 
-`0 dot, 1 one, 2 two, 3 three, 4 four, 5 six, 6 wicket(on-field out), 7 byes/leg-byes`
+### 6.3 Outcome model: nine classes
 
-Runs 5 map to class 4 and runs 7 map to class 5, with the exact runs drawn from the conditional empirical distribution. A wicket ball's runs (run-outs while running) and the bye/leg-bye run count come from empirical conditional tables by format.
+`0 dot, 1 one, 2 two, 3 three, 4 four, 5 six, 6 out (bowler-credited: caught, bowled, lbw, stumped, other), 7 run_out, 8 byes/leg-byes`
 
-Groups (levels computed by `features.py`; identical code paths in `engine.js`):
+The class is chosen from runs off the bat: runs 5 map to class 4 and runs 7 to class 5 (exact runs from `runs5_7`); runs 4 with `non_boundary` map to class 4. Wicket balls take class 6 or 7. A ball with both bye/leg-bye runs and bat runs is impossible; a ball with only bye/leg-bye runs takes class 8.
 
-1. `ctx_main`: limited overs: `fmt_gender x innings(1|2) x phase6 x wkts(0..9)`; Tests: `gender x innings(1..4) x wkts(0..9)`.
-2. `powerplay`: `fmt x powerplay type`.
-3. `chase` (limited overs second innings): `fmt x rrr_bucket x wkts_bucket3`. `rrr = 6 * runs_required / balls_remaining`. T20 buckets: <6, 6-7.5, 7.5-9, 9-10.5, 10.5-12, 12-14, 14-18, >=18. ODI: <4, 4-5, 5-6, 6-7, 7-8, 8-10, >=10. `wkts_bucket3`: 0-3, 4-6, 7-9.
-4. `set`: `fmt x striker_balls bucket` with buckets 0, 1-3, 4-7, 8-15, 16-30, 31-60, 61-120, 121+.
-5. `position`: `fmt x striker_position bucket` with buckets 1-2, 3, 4-5, 6-7, 8, 9-11. This gives role priors so unknown players start near their slot.
-6. `test_ball`: Tests: `ball_age bucket (0-9, 10-24, 25-49, 50-79, 80+) x bowl_class`.
-7. `test_wear`: Tests: `region x est_day(1..5) x bowl_class`.
-8. `test_situation`: Tests: innings 3 and 4 by lead/target bucket x overs-left bucket (to capture batting-for-a-draw and declaration-chasing intent).
-9. `competition season`: `season_key`. For future matches, the most recent `season_key` of the competition is used, shrunk toward the competition mean.
-10. `venue`: `venue_id x fmt`, and `venue_id x bowl_class` (shrunk harder).
-11. `matchup`: `fmt x bat_hand x bowl_type`.
-12. `match` (2-dimensional random effect per match, the latent "pitch on the day"): enters as `m_runs * s + m_wkt * e_W`, where `s` is a fixed scoring direction (`s = [0, 0.25, 0.5, 0.75, 1, 1.5, 0, 0]` before normalisation by its fitted scale) and `e_W` is the wicket indicator. `sigma_match_runs` and `sigma_match_wkt` are fitted. In simulation the pre-match value is 0 (or the user's pitch slider in standard-deviation units); in-play it is updated from the balls already bowled (section 9.3).
-13. `umpire` (bowl-end umpire) on the wicket class only.
+Groups, with levels computed in `features.py` and mirrored exactly in `engine.js`:
 
-Dense features, each multiplied by `is_pace` and `is_spin` indicators separately: standardized `rh`, `cloud`, `temp`, `precip_flag`, `elevation`, and (limited overs second innings only) `dew_evening = -dew_depression_evening` standardized. The fit standardizes with training means and SDs and exports them.
+1. `phase6`: by balls remaining in the current innings length. For T20, HUNDRED and ODI, boundaries are the fractions of `max_balls` elapsed: [0, 1/10), [1/10, 3/10), [3/10, 1/2), [1/2, 3/4), [3/4, 9/10), [9/10, 1]. Compare with integers: `10*elapsed < max_balls`, ... Tests use one level.
+2. `ctx_main` as main effects plus shrunk interactions:
+   - `fam × innings`
+   - `fam × phase6`
+   - `fam × wkts(0..9)`
+   - `fam × phase6 × wkts` (interaction, SD estimated)
+   - `fam × phase6 × bowl_class` (pace/spin balance)
+   - Tests use `innings(1..4) × wkts`.
+3. `field_restr`: `fam × field_restr × phase6-coarse`.
+4. `chase` (limited-overs second innings, `target_known` and timing not `unknown`): `fam × resource-ratio bucket × phase3`. The ratio is `R = runs_required / Z(balls_remaining, wkts)` from the fitted resource table (section 7.6), with buckets <0.8, 0.8-0.95, 0.95-1.05, 1.05-1.2, 1.2-1.4, 1.4-1.7, ≥1.7.
+5. `set`: `fam × striker_balls bucket (0, 1-3, 4-7, 8-15, 16-30, 31-60, 61-120, 121+) × phase3`.
+6. `role`: `fam × striker_role_pos bucket (1-2, 3, 4-5, 6-7, 8, 9-11)`.
+7. `depth`: `fam × wickets-in-hand-quality bucket` (number of recognized batters still to come, i.e. players with role_pos ≤ 7 not yet batted).
+8. Tests:
+   - `ball`: ball age bucket (0-9, 10-24, 25-49, 50-79) × second_new_ball × bowl_class × ball_brand.
+   - `wear`: region × est_day(1..5) × bowl_class, plus venue × daygroup{1-2, 3, 4-5} × bowl_class shrunk to it.
+   - `situation`:
+     - innings 3: signed lead {<0, 0-99, 100-199, 200-299, 300+} × expected overs left {≤60, 61-120, 121-200, >200};
+     - innings 4: runs_required per expected over left {<2.5, 2.5-3.5, 3.5-4.5, 4.5-6, ≥6} × wkts_bucket3.
+   - `session_proxy` (candidate): overs into the estimated day {0-5, 6-30, 31-60, 61+} × region × bowl_class.
+9. `competition season` (random walk, under a `fam × gender × year` era walk), with a `phase3` split for the runs classes.
+10. `venue` within region: `region × fam`, `venue × fam`, `venue × bowl_class`.
+11. `home`: `fam × bat home_status`, `fam × bowl home_status`. Player-by-conditions terms `bat_cond[b, c]` and `bowl_cond[w, c]`, with c ∈ {subcontinent+uae_gulf, SENA, other}. Franchise and domestic: `fam × overseas` for striker and bowler.
+12. `matchup`: `fam × bat_hand × bowl_type`.
+13. `experience`: `fam × striker_exp bucket`, `fam × bowler_exp bucket` (0, 1-30, 31-120, 121-300, 301-1000, 1000+ prior balls in the family before the match).
+14. **Match latent** (one level per match): directions
+    - `m_runs` along the scoring direction `s = [0, 1, 2, 3, 4, 6, 0, 0, 1] / 6.5` (exported and used as is);
+    - `m_wkt` on class 6;
+    - `m_spin` on class 6 with weight +1 for spin, −1 for pace, 0 for unknown;
+    - `m_wear` (Tests) on class 6 with weight `(est_day−1)/(scheduled_days−1)`.
+    
+    Each direction is its own group with a fitted SD.
+15. **Team-innings latent** (one level per match × innings): directions `i_runs` (s) and `i_wkt` (class 6), each with a fitted SD.
+16. `umpire` (bowl-end): on class 6 only. When the end is unknown the row carries both umpires, with weights p and 1−p (section 6.6). Add `region × bowl_class` on class 6 to absorb confounding.
+17. `free_hit`: indicator on classes 4 and 5.
+18. **Dense weather:** standardized `rh`, `cloud`, `temp`, `precip_flag` and `elevation`, each times `is_pace` and times `is_spin`. `dew = −dew_depression_evening` applies only in the second innings when `start_slot` is `night` or `day_night`; when `start_slot` is `unknown`, a separate coefficient is used. Training means and SDs are exported.
 
 Player terms:
 
-- Batter: `bat[b]` + `bat_fmt[b, fmt]` + `is_spin * bat_spin[b]` + `is_death * bat_death[b]` (death = last 4 overs of a T20 innings or last 10 overs of an ODI innings).
-- Bowler: `bowl[w]` + `bowl_fmt[w, fmt]` + `is_death * bowl_death[w]`.
-- Non-striker: none.
+- Batters: `bat[b]`, `bat_spin[b]` (×is_spin), `bat_death[b]` (×is_death), `bat_start[b]` (×first 10 balls of the innings), `bat_newball[b]` (×powerplay or Test ball age ≤ 15).
+- Bowlers: `bowl[w]`, `bowl_death[w]`, `bowl_newball[w]`.
+- Player terms apply to all classes except that bowler terms skip class 7 (run-out).
+- Unknown players get zero vectors plus their experience, role and context terms.
+- Each player's posterior SD along `s` and class 6 is exported (section 8).
 
-All player vectors have 7 free entries (classes 1..7). Unknown players in simulation get zero vectors, so their prior is their position, format and context.
+Masks: class 6 is masked on no-ball rows and free-hit rows. On no-balls the outcome model gives the bat runs and run-outs.
 
-Free hit: on a free-hit ball the wicket class is restricted to run-outs. The engine multiplies `P(wicket)` by the run-out share and renormalizes.
+Rows excluded from the outcome fit:
 
-### 6.3 Dismissal-kind model `wk`: classes `caught, bowled, lbw, run_out, stumped, other`
+- retirements without a ball outcome;
+- deliveries in matches marked `awarded`;
+- second-innings balls with `target_timing = unknown` (these are kept for player terms through a fit-only flag that zeros the chase group).
 
-Fitted on on-field out events with known kind. Groups: `fmt x phase6`, `bowl_type`, `bat_hand x bowl_type`, bowler, batter, bowl-end umpire (lbw-sensitive), venue, `drs_available x fmt`. Also: empirical `P(non-striker out | run_out)` by format and phase, and the runs completed on run-outs.
+### 6.4 Dismissal-kind model `wk`: classes `caught, bowled, lbw, stumped, other`
 
-### 6.4 On-field reconstruction and the DRS process
+Fitted on on-field bowler-credited outs (class 6) with a known kind.
 
-The outcome model predicts the **on-field umpire's decision**, not the final result. Reconstruction from Cricsheet reviews:
+Groups:
 
-| Recorded | On-field | Final |
+- `fam × phase6`
+- `bowl_type`
+- `bat_hand × bowl_type`
+- bowler
+- batter
+- bowl-end umpire (lbw)
+- venue
+- `drs_available × fam` (with venue and region present, to avoid the India/subcontinent confound)
+- `free-hit/no-ball`, masked to none
+
+Empirical tables by family: `runout_who` (striker vs non-striker), `runout_runs` (runs completed), and `runout_new_on_strike[who_out][min(r, 2)][dtype]`.
+
+### 6.5 On-field reconstruction and the DRS process
+
+The outcome model predicts the on-field umpire's decision:
+
+| Recorded | On-field class | Final |
 | --- | --- | --- |
-| wicket, no review | out | out |
-| batting review, struck down (incl. umpire's call) | out | out |
-| batting review, upheld (no wicket recorded) | out (kind `unknown_reviewable`) | not out |
-| fielding review, upheld (wicket recorded) | not out | out |
-| fielding review, struck down | not out | not out |
+| wicket, no review | out (class 6, or class 7 for run-outs) | out |
+| batting review struck down (umpire's call included) | class 6 (kind as recorded) | out |
+| batting review upheld (no wicket recorded) | class 6, kind `lbw` or `caught` (imputed) | not out; the ball is a dot (2,457 of 2,490 are) |
+| fielding review upheld (wicket recorded) | dot (all 2,203 have 0 runs) | out |
+| fielding review struck down | recorded class | not out |
 
-`drs.py` estimates, by `fmt x era` (era boundaries from the rules timeline) and with umpire random effects where data allows:
+Reviewable kinds are `lbw` and `caught`. Reviews on wides and no-balls are ignored in the fit.
 
-- `q_bat(state)`: probability the batting side reviews an on-field out of a reviewable kind (`lbw`, `caught`, `stumped`... not `run_out` or `bowled`), as a logistic function of reviews left, striker position, striker runs, wickets down, phase and kind.
-- `p_overturn_bat(kind, umpire)`: probability a batting review succeeds. `p_ucall_bat`: share of failed batting reviews that are umpire's call (review retained when the rules say so).
-- `r_missed(state, umpire, bowl_class)`: per-ball rate of on-field not-out decisions that are actually out. Identification: compare the per-ball rate of successful fielding reviews when the fielding side has reviews left versus none left. `q_field` is the share of such missed outs the fielding side reviews when it can.
-- `r_spec(state)`: per-ball rate of unsuccessful speculative fielding reviews, and their umpire's-call share.
-- Kind split of overturned outs (`unknown_reviewable` rows): estimated so that the reconstructed on-field kind mix is consistent with batting-review struck-down kinds and era LBW rates.
+The kind of an overturned on-field out is imputed so that the reconstructed on-field kind mix stays consistent with the struck-down batting reviews and the era.
 
-Simulation of each delivery with the DRS layer (rules from the scenario):
+`drs.py` estimates the following by `fam × era`, with umpire random effects where the data support them. Each is a logistic function of reviews left (0, 1, 2+), phase, overs to the innings end or to the 80-over top-up, wickets down, striker role and runs, kind and bowl_class.
 
-1. Draw delivery type, then the on-field outcome from the outcome model, then the kind if out.
-2. If on-field out with a reviewable kind and DRS is on and the batting side has reviews left: review with `q_bat`; if reviewed, overturn with `p_overturn_bat` -> not out (the ball becomes a dot ball, or leg-byes per the empirical table). A failed review costs a review unless it was umpire's call and the rules retain reviews.
-3. If on-field not out (and not a wicket): with probability `r_missed` the decision is a missed out. If DRS is on and the fielding side has reviews left, it reviews with `q_field` and the batter is out (kind drawn from the missed-out kind mix, mostly lbw/caught). Otherwise the batter survives. Separately, with probability `r_spec` the fielding side burns a review on a not-out that stands.
-4. With DRS off: on-field outs stand and missed outs stand. Umpire behavior also shifts: `drs_available` enters the dismissal-kind model, so LBW shares follow the no-DRS era.
+- `q_bat`: probability the batting side reviews an on-field out.
+- `p_overturn_bat`: probability that review succeeds.
+- `p_ucall_bat`: probability a failed batting review is umpire's call (LBW only).
+- `lambda_field`: per-ball rate of successful fielding reviews. Only the product of missed outs and review propensity is identified. "Missed outs" displayed on the page assume `q_field = 1` and are labelled a lower bound.
+- `r_spec`: per-ball rate of failed fielding reviews, and their umpire's-call share.
 
-The web page exposes: DRS on/off, reviews per innings, umpire's call retains review, an umpire-accuracy multiplier on `r_missed` and `p_overturn_bat`, and a "ball-tracking margin" multiplier on the umpire's-call share.
+These apply only on legal non-wicket deliveries:
 
-### 6.5 Umpire end assignment
+- `lambda_field` on dots and byes/leg-byes;
+- `r_spec` on dots, byes/leg-byes, bat runs and wides, with class-specific rates.
 
-Two on-field umpires each keep one end; the bowler's-end umpire therefore alternates by over parity within an innings. For each innings, the assignment (umpire 1 on even or odd overs) is identified when a review in that innings names an umpire; reviews in other innings of the same day/match propagate through ends (bowlers usually bowl from the same end in consecutive spells). When unidentified, the bowl-end umpire feature is the average of both umpires' effects (`bowl_end_umpire_known = False`). Report the share of balls with identified ends.
+Fit only matches with `drs_available = true`.
 
-## 7. Tactics and match-structure models (`tactics.py`, `time_rain.py`)
+### 6.6 Umpire ends
 
-- **Bowler choice per over:** conditional logit over eligible bowlers (not the previous over's bowler; quota not exhausted in limited overs). Utilities: bowler's shrunk log share of overs in this phase (from history, by format), spell-continuation bonus (bowled the over before last), quota pressure (overs needed to finish the quota vs overs left), new-ball bonus for opening bowlers (Tests: first overs and after 80), spinner-by-ball-age and by match day (Tests), fatigue by spell length (Tests). Validate: simulated distribution of overs per bowler and phase vs actual.
-- **Batting order:** scenario order; next batter is the next unused player in order (nightwatchman not modeled in v1; record as a deviation if added).
-- **Toss decision:** logistic `P(bat first)` by format, competition, venue, dew, season trend. Pre-toss simulations flip a fair coin then draw the decision.
-- **Declarations (Tests):** discrete-time hazard at each over end: lead, innings number, estimated overs left in the match, wickets down, current run rate, day. **Follow-on:** `P(enforce | lead >= threshold)` with era trend.
-- **Test time:** total available overs `A = days * overs_per_day - L`, with weather loss `L` modeled from precipitation features; fitted with censoring (drawn matches reveal `A`; results only bound it). Innings changeovers cost 2 overs. The engine ends the match as a draw when available overs run out.
-- **Limited-overs rain:** interruption probability and overs lost from precipitation features; minimum overs for a result; revised targets from a fitted DLS-style resource table `Z(u, w) = Z0(w) * (1 - exp(-b(w) * u))` estimated from data (not the proprietary DLS Professional Edition; document this). No-result when the minimum is not reached.
-- **Ties:** limited-overs ties go to a simulated super over (top three batters by rating, best death bowler); Tests can tie (rare).
+Within an innings the bowler's-end umpire alternates by over parity. In the HUNDRED it alternates by ⌊set/2⌋ parity. Assignments do not carry across innings, because the parity match across innings is close to a coin flip.
+
+For each innings, the probability `p` that umpire 1 stands at even-over ends is set as follows:
+
+- Sources: named reviews and `miscounted_overs` umpire names, allowing a 2% error rate per name.
+- Otherwise 0.5.
+- Conflicts reset to 0.5.
+
+In training, the umpire term uses weights p and 1−p. In simulation, each innings draws its assignment from p, and the in-play state can fix it.
+
+## 7. Tactics and match structure
+
+### 7.1 Bowler choice
+
+A conditional logit over eligible bowlers, evaluated at each over (set) end.
+
+Eligibility: not the bowler of the previous over's last delivery (HUNDRED v1 excluded), quota remaining, and feasibility. Feasibility means that after giving bowler i this over, the remaining R′ overs can still be covered: Σ_j min(q_j, cap_j) ≥ R′, where cap_j = ⌊R′/2⌋ for j = i and ⌈R′/2⌉ otherwise. Reduced-match unit bonuses are added greedily inside the test.
+
+Utilities:
+
+- the bowler's shrunk log share of overs in this phase;
+- spell continuation;
+- quota pressure;
+- new-ball and opening-bowler bonus;
+- Tests: spinner × ball age × day, fatigue by spell length, and second-new-ball take-up;
+- a matchup utility: the bowler's predicted wicket and runs value against the current striker and non-striker, with fitted coefficients.
+
+If the scenario's bowling options are infeasible from the start, part-timers are appended in batting order (non-keepers) with zero player vectors, and this is reported. The current bowler finishes the over in-play. Multi-bowler overs are ignored (deviation D2).
+
+### 7.2 Batting order
+
+Pre-match order is the starting XI sorted by each player's median batting position over the team's previous 10 matches in the family (strictly earlier), falling back to the career median and then the role. The page lets the user reorder. There are no nightwatchmen in v1 (deviation D3).
+
+### 7.3 Toss
+
+`P(bat first)` is a logistic in family, competition, venue, start slot, dew climatology and era. Matches with an uncontested toss are excluded from the fit. The model's implied toss value is validated against the empirical figures: toss winners win 54.5% of Tests and about 50% of ODIs and T20s.
+
+### 7.4 Declarations and follow-on (Tests)
+
+Declarations use a discrete-time hazard at over ends, fitted with mid-over declarations assigned to that over's end and a "wicket this over" covariate. Covariates are lead, innings number, expected overs left, wickets down, run rate and day.
+
+- Innings 3 may declare only with lead > 0.
+- There are no declarations in innings 4.
+
+Follow-on enforcement is `P(enforce | lead, bowlers' overs just bowled, expected overs left, era)`, applied when lead ≥ the threshold for the days remaining.
+
+### 7.5 Test clock
+
+The availability model is fitted on drawn matches, which reveal it, with censoring for matches that ended in a result. Per-day available overs A_d = opd − L_d, where L_d covers rain and bad light (precipitation and cloud climatology × latitude/month, with capped recovery), less 2 overs per innings changeover.
+
+The engines simulate a ball-level clock: `used = match_legal_balls + 12 × changeovers`. A match is a draw when the sum of A_d is exhausted.
+
+Training `est_day`:
+
+- D = `len(dates_played)`.
+- Rate: r = min(opd, O_total / (D − 1 + φ)), with φ = 0.5 for results and 1 for draws.
+- est_day = min(D, 1 + ⌊overs / r⌋), refined by spreading lost overs (scheduled − bowled) over days by daily precipitation hours.
+- `overs_into_day` is derived the same way.
+
+In simulation, est_day comes from the simulated clock. Expected overs left at a ball is E[remaining A] − used, using climatology and any observed day-loss in-play.
+
+### 7.6 Limited-overs interruptions, DLS-style targets, no result
+
+**Resource table.** Z(u, w) = Z0(w)(1 − exp(−b(w) u)) is fitted on first innings by family and gender. Resources are integer tenths of a percent: P = round(1000 Z(u, w) / Z(N_sched, 0)).
+
+**Revised target.**
+
+- R2 ≤ R1: T = ⌊S·R2/R1⌋ + 1.
+- R2 > R1: T = S + ⌊G·(R2 − R1)/1000⌋ + 1, with G = Z(N_sched, 0).
+
+This is a DLS-like table, not the proprietary DLS Professional Edition (deviation D4).
+
+**Interruption schedule.** Drawn at simulation start: count, start point in scheduled match balls (with a point mass at 0 for pre-match reductions), and overs lost. Inputs are precipitation climatology or the user's rain risk.
+
+**Applying an interruption.** It takes effect at the first over end at or after its start, via `apply_interruption(state, lost)`:
+
+- Before innings 2: reduce both innings equally, ending innings 1 if it is already past the new length.
+- During innings 2: reduce innings 2 only.
+
+**After every revision.** Recompute `max_balls`, quotas, powerplay windows, phase and chase features.
+
+**Results.**
+
+- A match where innings 2 is cut short is decided against par = T − 1.
+- No result when innings 2 is shorter than `min_overs_for_result` before the match is decided.
+
+### 7.7 Ties
+
+Limited-overs ties apply `tie_break` from the rules (deviation D5 records simplifications).
+
+The super over:
+
+- 6 legal balls, 2 wickets maximum; the side that batted second bats first; 1 review each.
+- Context: last phase; chase group from the super-over target.
+- Batters: the three highest expected runs per ball in the death context against an average bowler with zero latent effects, ties broken by order.
+- Bowler: the lowest expected runs per ball, from all of the bowling XI with no quota.
+- Repeat while tied, up to 5 times, then a fair coin.
+
+`p_tie` is reported before and after tie-breaks.
+
+In Tests, a tie needs the innings-4 side all out with scores level. Time running out level is a draw.
 
 ## 8. Parameter bundles
 
-`params.py` writes `docs/cricket/data/params-{gender}.json` (and a full-precision `data/processed/cricket/params-*.json` for evaluation). Schema (all arrays as nested lists, numbers rounded to 4 decimals for the page):
+`params.py` writes:
+
+- `data/processed/cricket/params/{fam}-{gender}-{cutoff}.json`: full precision, for evaluation.
+- `docs/cricket/data/params-{gender}.json`: 4-decimal rounding, for the page.
+
+A test asserts that the page bundle differs from full precision by max |Δp| < 1e-3 per ball and |Δp_win| < 0.002 on reference scenarios. The model-card numbers are computed from the page bundle.
+
+Schema:
 
 ```
 {
-  "version", "fit_cutoff", "gender", "classes": {...},
-  "feature_spec_version",
-  "dtype":    {"intercept", "groups": {name: {"levels": [...], "B": [[...]]}}, "dense": {...}, "standardize": {...}},
-  "outcome":  same + "players": {"bat": {id: [7]}, "bat_fmt": {id: {fmt: [7]}}, "bat_spin": {...}, "bat_death": {...}, "bowl": {...}, "bowl_fmt": {...}, "bowl_death": {...}},
-  "wk":       same layout,
-  "empirical": {"bye_runs", "wide_runs", "noball_extra", "runout_runs", "runout_nonstriker", "runs5_7"},
-  "drs":      {...section 6.4 parameters by fmt/era...},
-  "tactics":  {"bowler_choice": {...}, "toss": {...}, "declare": {...}, "follow_on": {...}},
-  "time_rain": {"test_overs": {...}, "lo_rain": {...}, "resource_table": {...}},
-  "rules":    {...},
-  "match_effect": {"sigma_runs", "sigma_wkt", "scoring_direction"}
+  "version", "feature_spec_version", "fit_cutoff", "gender",
+  "fams": {
+    "T20"|"ODI"|"TEST": {
+      "dtype":   {"intercept", "groups": {name: {"levels", "theta", "basis"}}, "dense", "standardize"},
+      "outcome": {...},
+      "wk":      {...},
+      "players": {id: {"bat": [8], "bat_spin", "bat_death", "bat_start", "bat_newball", "bat_cond": {c: [8]},
+                       "bowl", "bowl_death", "bowl_newball", "bowl_cond", "dtype_bowl", "wk_bowl", "wk_bat",
+                       "sd_runs", "sd_wkt", "exp_balls_bat", "exp_balls_bowl", "role_pos"}},
+      "latent":  {"match": {"sd": {...}, "directions": {...}}, "innings": {...}},
+      "calibration": {"runs_offset", "wkt_offset", "innings_sd_scale"},
+      "empirical": {"bye_runs", "wide_runs", "wide_wkt", "runs5_7", "runout_who", "runout_runs",
+                    "runout_new_on_strike", "p_crossed"},
+      "drs", "tactics", "time_rain", "resource_table"
+    }
+  },
+  "rules", "venues_ref", "umpires_ref"
 }
 ```
 
-Site support files: `players-{gender}.json` (id, name, country, hand, bowl type, recent teams, balls faced/bowled, display ratings), `venues.json`, `umpires.json` (id, name, matches, LBW tendency, wide tendency, accuracy), `teams-{gender}.json` (latest XIs in batting order by team and format), `evaluation.json` (model card numbers and calibration bins).
+Site support files:
 
-The page payload stays under 12 MB in total. Players with no delivery since 2019 are dropped from the page bundle (they remain in the evaluation bundle).
+- `players-{gender}.json`: id, name, country, hand, bowl type, recent teams, balls, display ratings with SDs.
+- `venues.json`: venue effects in interpretable units, region, climatology.
+- `umpires.json`: LBW tendency, wide tendency, DRS accuracy, each with posterior SDs.
+- `teams-{gender}.json`: latest likely XIs by team and family, ordered by section 7.2.
+- `evaluation.json`.
 
-## 9. Simulation engine semantics (both engines)
+Players with no delivery since 2019 are dropped from the page bundle. The page payload stays under 12 MB.
+
+## 9. Engine semantics (identical in both engines)
 
 ### 9.1 Scenario input
 
 ```
 {
-  "fmt": "T20"|"ODI"|"TEST", "gender": "male"|"female", "competition_id", "date",
-  "venue_id", "teams": [{"name", "batting_xi": [ids in order], "bowling_xi": [ids] (defaults to batting_xi)}, {...}],
+  "fam": "T20"|"ODI"|"TEST", "gender", "competition_id", "date", "venue_id", "neutral": bool,
+  "start_slot": "day"|"day_night"|"night",
+  "teams": [{"name", "batting_order": [ids], "bowling_xi": [ids], "home": bool}, {...}],
   "toss": null | {"winner": 0|1, "decision": "bat"|"field"},
-  "umpires": [id, id] | null, "drs": {"enabled", "reviews_per_innings", "umpires_call_retains", "accuracy_mult", "ucall_mult"},
-  "weather": {"temp_c", "rh", "cloud_oktas", "dew_depression_evening", "precip_risk", "expected_overs_lost"} (null fields -> venue climatology),
-  "pitch": {"runs_sd", "wkt_sd", "spin_sd", "pace_sd", "wear_mult"} (defaults 0 / 1),
-  "player_form": {id: {"bat_runs", "bat_wkt", "bowl_runs", "bowl_wkt"}} (SD units, optional),
-  "state": null | {in-play state: innings so far (runs, wkts, legal balls), current innings detail (striker/non-striker ids, their runs/balls, bowler overs used per bowler, last bowler, reviews left per side, free hit), match_legal_balls, balls bowled so far this match as a list for the pitch update (optional)},
-  "n_sims", "seed"
+  "umpires": [id, id] | null,
+  "drs": {"enabled", "reviews_per_innings", "umpires_call_retains", "accuracy_mult", "ucall_mult"},
+  "weather": {"temp_c", "rh", "cloud_oktas", "dew_depression_evening", "rain_risk", "days": [...]} | null,
+  "pitch": {"known": bool, "runs_sd", "wkt_sd", "spin_sd", "wear_sd"},
+  "player_form": {id: {"bat_runs_sd", "bat_wkt_sd", "bowl_runs_sd", "bowl_wkt_sd"}},
+  "state": null | <canonical state, 9.3>,
+  "n_sims", "seed", "sensitivity": bool
 }
 ```
 
-### 9.2 Output
+- Weather fields set to null use climatology.
+- If `pitch.known`, the match latent is fixed at slider × SD. Otherwise it is drawn from N(slider × SD, SD²).
+- Form sliders shift the player's effect along the exported directions by slider × player SD.
 
-`p_win` per team, `p_tie`, `p_draw`, `p_no_result`, Monte Carlo standard errors, per-innings score and wicket distributions, mean and 10/50/90% runs by over (worm), margin distribution, per-player distributions (runs, balls, P(50+), P(100+), wickets, P(3+ wkts), economy), dismissal-kind mix, DRS counters (reviews used, overturns, umpire's calls, missed outs standing), and when requested, a sensitivity table that reruns with each factor reset to neutral using common random numbers.
+### 9.2 Delivery transition (exact order)
 
-### 9.3 In-play pitch update
+1. Compute every feature from the pre-ball state.
+2. Draw dtype (masks applied).
+3. **Wide.**
+   - Draw wide runs k ∈ 1..5 from `wide_runs[fam]` (5 = boundary).
+   - Draw a wicket on the wide from {none, stumped, run_out} with `wide_wkt[fam][bowl_class]`. Stumping off a wide is impossible on a free hit.
+   - `ran = k − 1`. No ball is faced and the over does not advance.
+4. **No-ball.**
+   - Add `noball_penalty_runs` to the team and the bowler.
+   - Draw the outcome with class 6 masked: bat runs, byes or a run-out.
+   - Skip DRS. The striker's balls faced += 1.
+5. **Legal ball.**
+   - Draw the outcome class with masks (free hit masks class 6).
+   - For class 6, draw the kind and then run the DRS layer (9.4).
+   - For non-wicket classes, run the missed-out and speculative-review draws.
+6. **Exact runs.**
+   - four: 4, or 5 with `runs5_7`;
+   - six: 6, or 7;
+   - byes/leg-byes: 1–5 from `bye_runs` (4 = boundary);
+   - run-out: runs completed from `runout_runs`;
+   - other wickets and overturned decisions: 0.
+7. **Chase completion.** If team runs + credited ≥ target:
+   - Boundaries (bat 4/6 and 5-wide or 4-bye boundaries) count in full.
+   - Other runs count as min(runs run, needed), plus any penalty extras.
+   - The match ends and any wicket on that delivery is void.
+8. **Wicket.**
+   - wickets += 1. A run-out's victim comes from `runout_who`.
+   - The next unused batter comes in; with none left, the side is all out.
+   - The new batter takes the striker's end for non-run-out kinds. Exception: a catch when `caught_crossing_counts`, where the new batter goes to the non-striker's end with probability `p_crossed[fam]`.
+   - Run-outs use `runout_new_on_strike`.
+9. **No wicket:** swap ends iff `ran` is odd, where `ran` = bat runs + byes + leg-byes + (wides − 1), excluding no-ball penalty and penalty extras.
+10. **Counters.**
+    - A legal ball increments innings legal balls, `ball_in_over` and the bowler's balls.
+    - The pre-ball striker's balls faced += 1 on legal balls and no-balls.
+    - The bowler is charged bat runs, wides and the no-ball penalty, not byes or leg-byes.
+11. **End checks, in order:** target reached; all out (unavailable = 10, or no batter left); balls exhausted; Test clock exhausted.
+12. **Over end.**
+    - Swap ends.
+    - Over-level draws, in order: interruption application, declaration (Tests), follow-on decision (at innings end), next bowler, new-ball take-up (Tests).
+13. **Free hit for the next delivery.** Set it when this delivery is a no-ball and the rules give a free hit (or with `p_free_hit_given_nb`), or when this delivery was a free hit and was a wide or no-ball. Clear it after a legal delivery.
 
-Given balls already bowled in the current match, the engine computes the posterior mode of the 2-dimensional match effect `(m_runs, m_wkt)` by a few Newton steps on the outcome-model likelihood of those balls (all other terms fixed) with the fitted prior SDs. The page shows the inferred "pitch reading" in SD units.
+### 9.3 Canonical state (in-play)
 
-### 9.4 Random numbers and parity
+Per innings so far: batting team, runs, wickets, legal balls, `max_balls`, and the target.
 
-Both engines use a documented PRNG (xoshiro128** seeded by splitmix32 from `seed`) so a fixed seed produces reproducible runs inside each engine. Cross-engine parity is checked on (a) exact per-ball probability vectors for exported test states (tolerance 1e-9) and (b) win probability and mean innings totals within Monte Carlo error for fixed scenarios.
+For the current innings:
 
-## 10. Evaluation protocol (declared before any test-window result is computed)
+- `legal_balls` (the page's "12.3" means 75);
+- striker and non-striker ids with their runs and balls;
+- dismissed and unavailable ids;
+- next-batter index;
+- each batter's arrival rank;
+- bowler balls and runs per bowler;
+- current bowler (mid-over) and last bowler;
+- free hit;
+- reviews left per side;
+- umpire end assignment;
+- partnership;
+- balls bowled so far as an optional list, for the latent update.
 
-- **Validation for hyperparameters:** fit cutoff 2023-01-01, validate on matches dated 2023-01-01 to 2023-12-31. Hyperparameters (prior SDs, half-lives) are frozen after this step.
-- **Walk-forward tests:** cutoffs 2024-01-01, 2025-01-01, 2026-01-01; each test window runs to the next cutoff (the last ends 2026-10-14). Nothing from a test window informs its own fit.
-- **Ball level:** mean log loss of each delivery model versus nested baselines: (B0) context-only (`ctx_main` + `powerplay` + `chase` + `set`), (B1) + players, (B2) + venue and competition season, (Full) + umpire, weather, matchups, match effect. Ablations remove one component at a time from Full.
-- **Match level, pre-match at the toss** (XIs and toss known, which is when lineups are announced): win probability from 2,000 simulations per match. Metrics: log loss and Brier (decisive results; ties counted as half), calibration in ten bins, with match-bootstrap 95% intervals. Baselines: coin flip; team Elo fitted walk-forward on the same cutoffs with a toss/home term. Samples: men's internationals and major men's T20 leagues; women's reported separately; Tests use three-way (win/draw/loss) log loss.
-- **In-play:** win probability at the start of each innings and every 5 overs (limited overs) or every 30 overs (Tests), from the actual state, versus the outcome; baseline is a logistic model on runs, wickets, balls and target fitted on pre-cutoff data.
-- **Distribution calibration:** probability integral transform of first-innings totals (limited overs) and Test match length.
-- **Reporting:** every number with its sample size; no component is described as helpful unless its held-out improvement interval excludes zero.
+Tests also carry: `innings_team` order, used balls toward A and the remaining A, ball-age reset, and spells.
 
-## 11. Web page requirements (`docs/cricket/`)
+`app.js` fills unknown fields deterministically and shows them:
 
-Static, self-contained (no CDN; hand-written SVG charts), works offline, loads in under 3 s on a laptop, light and dark themes, usable at phone width. Simulations run in a Web Worker with a progress bar and a cancel button.
+- batters: the next two not yet dismissed, at 0 runs and 0 balls;
+- bowler overs: filled greedily, respecting the consecutive-over and quota rules.
 
-Inputs: format and gender; team and XI pickers with search (defaulting to the latest XI per team and format), drag or arrow reorder of batting order, bowling options, per-player form sliders; venue picker with its pitch profile (venue effects shown as runs/wicket tendencies vs average) plus pitch sliders (batting ease, wicket-taking, spin help, pace help, wear rate); weather (temperature, humidity, cloud, evening dew, rain risk/overs lost) prefilled from venue climatology for the chosen month; umpire pickers showing LBW and wide tendencies and accuracy; DRS settings; toss (unknown or set); live state entry (innings, score, wickets, overs, batters at the crease, target); number of simulations and seed.
+Both engines check invariants:
 
-Outputs: headline win probabilities (with tie/draw/no result) and their MC error; innings score histograms; worm chart with bands; margin distribution; player projection table; dismissal-kind and DRS summaries; "what moved the needle" sensitivity bars (pitch, weather, umpires, DRS, toss, each player's form); saved-scenario comparison; a model-card tab with the evaluation numbers, calibration chart and data provenance.
+- wickets = dismissed count;
+- Σ bowler balls = legal balls;
+- no current batter is dismissed;
+- runs_required > 0;
+- legal_balls < max_balls.
+
+In-play latent update: Newton iterations from 0 for the match and current-innings latents on the outcome-model likelihood of the balls bowled. Use exactly 10 iterations, no line search, with the fitted prior SDs. Each simulation then draws from the Laplace posterior N(mode, H⁻¹), via a Cholesky factor of the small Hessian.
+
+### 9.4 DRS layer in the engine
+
+**On-field out (class 6) with a reviewable kind (lbw, caught), when DRS is enabled and the batting side has reviews left:**
+
+1. The batting side reviews with probability `q_bat`.
+2. A review is overturned with probability min(1, `p_overturn_bat` × accuracy_mult). An overturned review becomes a dot ball.
+3. A review that is not overturned is umpire's call with probability min(1, `p_ucall_bat` × ucall_mult), on LBW only.
+4. A failed review costs a review unless it was umpire's call and the rules retain reviews.
+
+**Legal dot or bye/leg-bye with DRS enabled and the fielding side holding reviews:**
+
+- With probability min(1, `lambda_field` × accuracy_mult), it is a successful fielding review: out, with kind from the missed-out kind mix, runs 0.
+- Then, with probability `r_spec` (class-specific), the fielding side spends a review on a not-out that stands. Umpire's-call retention applies.
+
+**DRS disabled:** on-field decisions stand, and the dismissal-kind model uses its `drs_available = false` level.
+
+Reviews reset each innings. The Test top-up after 80 overs follows the rules.
+
+### 9.5 Random numbers
+
+Generator: xoshiro128**.
+
+- `fmix32` is the murmur3 finalizer:
+  ```
+  x ^= x >>> 16; x = imul(x, 0x85EBCA6B);
+  x ^= x >>> 13; x = imul(x, 0xC2B2AE35);
+  x ^= x >>> 16
+  ```
+- `splitmix32` advances by the Weyl increment 0x9E3779B9 and returns `fmix32` of the state.
+- The 128-bit state for (seed, sim, stream) is four `splitmix32` outputs from `key = fmix32(fmix32(seed ^ 0x243F6A88) ^ stream_id) ^ sim`. If the result is all zero, set word 0 to 1.
+
+Streams and their fixed uniforms per event, consumed whether or not they are needed:
+
+- 0 = ball, 12 per delivery: dtype, outcome, exact runs, kind or wide-wicket, run-out who, run-out end or crossing, bat review taken, overturn, umpire's call, missed out, field review, speculative.
+- 1 = over, 4 per over end: interruption, declaration, bowler, new ball.
+- 2 = innings, 4 per innings start: follow-on, umpire end, two spare.
+- 3 = match, 64 per match: toss coin, toss decision, latent normals, Test day availability, interruption schedule, spares.
+- 4 = player, 4 per player slot: form normals for runs and wicket, for batting and bowling.
+
+Conversions:
+
+- Uniform: u = x · 2⁻³².
+- Categorical: running float64 sums of exp(eta_k − max) in class order; pick the first k with u·cum_last < cum_k, falling back to the last class.
+- Bernoulli: u < p.
+- Normal: Box–Muller with log(1 − u).
+
+The numpy engine never calls `np.random`. The known-answer vectors in `tests/data/cricket_parity/prng_kat.json` are generated once and checked by both engines.
+
+### 9.6 Precision, parity and performance
+
+**Precision.** All engine arithmetic is float64. Parity tests load the page bundle in both engines.
+
+**Test vectors:**
+
+- `features.jsonl`: state → every group level and per-group eta contribution, `p_dtype`, raw and masked `p_outcome`, `p_wk`, the DRS probabilities, bowler eligibility and choice probabilities, and the declaration and follow-on hazards. Tolerance 1e-9.
+- `transitions.jsonl`: scripted draws → exact post-state. Cases:
+  - 1 run needed with a 5-wide;
+  - a free hit followed by a wide, then a run-out;
+  - a wicket on the last ball;
+  - 10 wickets;
+  - 9 wickets with one batter absent;
+  - a run-out with 1 run completed;
+  - a catch before and after 2022;
+  - a quota dead end;
+  - a DLS revision mid-innings;
+  - a follow-on followed by an innings defeat;
+  - a fourth-innings tie;
+  - ball 80 in a Test;
+  - a super over.
+- `trajectories.jsonl`: seed + scenario → full ball log for sims 0–2. Results must match exactly; a mismatch is allowed only when |u·S − cum_k| < 1e-12 at the first divergence.
+
+**JS performance targets:**
+
+- At least 1.5M deliveries per second per worker; min(4, hardwareConcurrency − 1) workers over sim ranges.
+- Defaults: 10k sims for limited overs, 4k for Tests.
+- Progress every 500 sims; cancellation checked between sims.
+- Precompute static eta per scenario: player pairs × innings × death × umpire parity.
+- No per-ball allocation.
+
+**numpy engine:**
+
+- Lockstep over sims, with fixed-slot RNG gathered per step.
+- Compact the active set when below 50%.
+- Batch many evaluation scenarios along the sim axis.
+
+### 9.7 Outputs
+
+- `p_win` per team, `p_tie` (before and after tie-break), `p_draw`, `p_no_result`, each with MC standard errors.
+- Per-innings score and wicket distributions.
+- Runs by over: mean and 10/50/90%.
+- Margin distribution.
+- Per player:
+  - balls faced (legal + no-balls), runs, P(50+), P(100+);
+  - bowler runs (bat runs + wides + no-ball penalty), wickets (excluding run-outs, retirements, obstructing, timed out), P(3+), economy per 6 legal balls.
+- Dismissal-kind mix.
+- DRS counters: reviews used, overturns, umpire's calls, and missed outs standing as a lower bound.
+- Sensitivity: each factor reset to neutral using common random numbers, with paired-difference SEs.
+
+## 10. Evaluation protocol (declared before any test-window result)
+
+**Cutoffs.** Hyperparameter validation fits at 2023-01-01, scored on 2023. Walk-forward fits every six months, at 2024-01-01, 2024-07-01, 2025-01-01, 2025-07-01, 2026-01-01 and 2026-07-01. Each window runs to the next cutoff; the last ends 2026-10-14. Fits warm-start from the previous cutoff. The final page fit uses all data.
+
+**Clean pre-match inputs.**
+
+- Starting XI (squad minus replacement-in players), ordered by section 7.2.
+- No impact substitute in v1 (deviation D6).
+- Toss as recorded; venue; officials.
+- Weather from climatology computed on data before the cutoff, with an oracle-weather ablation.
+- Start slot from the curated table.
+
+**Simulator calibration.**
+
+- Stage A, on 2023 only: per fitting family and gender, choose at most three scalars (runs offset, wicket offset, innings-latent SD scale) to match the mean and SD of first-innings totals, wickets, and Test overs. Freeze them and ship them in the bundle.
+- Stage B (optional): a win-probability temperature per family (Dirichlet for Tests), fitted only on earlier windows' out-of-sample predictions. Adopt it only if earlier-window log loss improves. Report raw and calibrated results.
+
+**Primary pre-registered family.** For each delivery model, the held-out ball-level log loss gain of each component over Full-minus-component, pooled over windows. Use a paired bootstrap resampling matches, with Holm correction. Components:
+
+- players
+- venue/region
+- home/conditions
+- competition season
+- match/innings latents
+- umpire
+- weather
+- matchup
+- experience
+- Test wear/situation
+
+**Descriptive outcomes:**
+
+- Innings-total PIT, with an acceptance target: simulated/actual SD of first-innings totals within 0.9–1.1.
+- Match-level pre-match win probability: log loss and Brier, calibration in ten bins, match-bootstrap 95% intervals, and the minimum detectable difference stated for each sample.
+- In-play win probability at each innings start and every 5 overs (limited overs) or every 30 overs (Tests), bootstrapped by match. Also score the imputed minimal state.
+- Test three-way log loss (descriptive; about 110 men's Tests).
+
+**Scoring rules.** Limited-overs ties are scored by the tie-break winner when one exists, otherwise as half. No-results and awarded matches are excluded.
+
+**Samples, fixed now:**
+
+- Men's: internationals (full members), associate internationals, and major T20 leagues (IPL, BBL, PSL, CPL, SA20, ILT20, MLC, Hundred excluded in v1, Blast, Super Smash, LPL, BPL).
+- Women's: internationals, WPL, WBBL.
+
+**Baselines:**
+
+- coin flip;
+- Elo continuous (updated every match);
+- Elo frozen at each cutoff (same information schedule as the model);
+- an XI-aware logistic on summed shrunk player ratings plus toss and home.
+
+**Diagnostics:** the gap between leaky and clean inputs (realized batting order and realized weather) is reported once.
+
+## 11. Web page (`docs/cricket/`)
+
+- **Technical:** static and self-contained (no CDN; hand-written SVG charts); works offline; loads in under 3 s; light and dark themes; usable at phone width. Simulations run in Web Workers with progress and cancel.
+- **Inputs:**
+  - format and gender;
+  - team and XI pickers with search, defaulting to the latest likely XI;
+  - batting order reorder, bowling XI and impact substitute;
+  - per-player form sliders;
+  - venue, with its profile (venue effects in runs-per-over and wickets-per-innings units vs average) and pitch sliders (batting ease, wicket-taking, spin vs pace, wear), plus a "pitch known" toggle;
+  - home / neutral;
+  - start slot;
+  - weather prefilled from climatology for the chosen month, with per-day rain for Tests;
+  - umpire pickers showing LBW and wide tendencies and DRS accuracy with uncertainty;
+  - DRS settings;
+  - toss;
+  - live state entry;
+  - number of sims and seed.
+- **Outputs:**
+  - headline probabilities with MC error;
+  - innings score histograms;
+  - worm chart with bands;
+  - margin distribution;
+  - player projections;
+  - dismissal-kind and DRS summaries;
+  - "what moved the needle" sensitivity bars;
+  - saved-scenario comparison;
+  - a model-card tab with evaluation numbers, calibration charts, data provenance and limits.
 
 ## 12. Compute constraints for this build
 
-4 CPUs, 15 GB RAM, shared by parallel agents. Any job that needs over 1.5 GB of RAM or more than two CPU-minutes runs under `flock /tmp/claude-0/-home-user-BeatingAnything/dca149a3-fa9a-5e66-94bf-d6c38ea6be14/scratchpad/cricket-heavy.lock <command>`. Develop and test on small slices (one season, one competition) first. Use the virtual environment at `/home/user/BeatingAnything/.venv` (Python 3.12, numpy 2.3.5, pandas 2.2.3, scipy 1.17.0, pyarrow 21.0.0, pyreadr).
+The machine has 4 CPUs and 15 GB RAM, shared by parallel agents.
+
+- Any job needing over 1.5 GB RAM or more than two CPU-minutes runs under `flock /tmp/claude-0/-home-user-BeatingAnything/dca149a3-fa9a-5e66-94bf-d6c38ea6be14/scratchpad/cricket-heavy.lock <command>`.
+- Each agent uses its own scratch subfolder.
+- Use the virtual environment `/home/user/BeatingAnything/.venv`: Python 3.12, numpy 2.3.5, pandas 2.2.3, scipy 1.17.0, pyarrow 21.0.0, pyreadr.
+- Develop on small slices first.
 
 ## Deviations
 
-(Record any departure from this contract here with a one-line reason.)
+- D1: The Hundred is used in T20-family training with its own context levels but is not simulated by the v1 engines.
+- D2: Multi-bowler overs (0.09% of overs) are not simulated; the bowler who starts an over finishes it.
+- D3: No nightwatchman or situational batting-order changes in simulation (the page allows manual reordering).
+- D4: Revised targets use a fitted DLS-like resource table, not DLS Professional Edition.
+- D5: Bowl-outs and boundary-count tie-breaks are simplified to a coin flip and the repeated super over respectively, where the rules call for them.
+- D6: Pre-match evaluation uses no impact substitute; the page lets the user add one.
+- D7: Simulated retirements (hurt) are not drawn.

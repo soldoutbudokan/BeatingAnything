@@ -57,9 +57,9 @@ class GlmTests(unittest.TestCase):
         res = glm.fit_eb(design, rounds=2, processes=2)
         est = res.params["player"]
         self.assertGreater(np.corrcoef(est.ravel(), true.ravel())[0, 1], 0.9)
-        self.assertLess(abs(design.groups[0].sigma - 0.5), 0.12)
+        self.assertLess(np.abs(design.groups[0].sigma - 0.5).max(), 0.12)
         np.testing.assert_allclose(res.params["dense"], dense_true, atol=0.06)
-        self.assertLess(design.groups[3].sigma, 0.2)
+        self.assertLess(np.max(design.groups[3].sigma), 0.2)
 
     def test_parallel_and_serial_agree(self):
         design, _, _ = _synthetic(n=20_000, n_players=30)
@@ -82,6 +82,55 @@ class GlmTests(unittest.TestCase):
                 gu = prep.loss_grad(theta + e, range(len(prep.chunks)))[1][j]
                 gd = prep.loss_grad(theta - e, range(len(prep.chunks)))[1][j]
                 self.assertAlmostEqual((gu - gd) / 2e-4, hd[name].ravel()[j - s.start], delta=1e-3)
+
+    def test_penalty_gradient_with_random_walk_and_prior_mean(self):
+        design, _, _ = _synthetic(n=2_000, n_players=8)
+        rng = np.random.default_rng(5)
+        design.groups.append(glm.Group("season", rng.integers(0, 6, design.n).astype(np.int32), 6,
+                                       np.array([0.2, 0.3, 0.4]), rw_prev=np.array([-1, 0, 1, -1, 3, 4]),
+                                       sigma_root=0.8))
+        design.groups[1].prior_mean = rng.normal(0, 0.2, (5, 3))
+        layout = glm._Layout(design)
+        theta = rng.normal(0, 0.3, layout.size)
+        pen, grad = glm._penalty(design, layout, theta)
+        for j in rng.choice(layout.size, 40, replace=False):
+            e = np.zeros(layout.size)
+            e[j] = 1e-6
+            num = (glm._penalty(design, layout, theta + e)[0] - glm._penalty(design, layout, theta - e)[0]) / 2e-6
+            self.assertAlmostEqual(num, grad[j], delta=1e-5 * max(1, abs(grad[j])))
+
+    def test_random_walk_forecast_tracks_drift(self):
+        rng = np.random.default_rng(11)
+        n_seasons, n = 8, 80_000
+        drift = np.cumsum(rng.normal(0, 0.15, n_seasons))
+        season = rng.integers(0, n_seasons, n).astype(np.int32)
+        p1 = 1 / (1 + np.exp(-(-0.5 + drift[season])))
+        y = (rng.random(n) < p1).astype(np.int8)
+        g = glm.Group("season", season, n_seasons, 0.1, rw_prev=np.array([-1] + list(range(n_seasons - 1))),
+                      sigma_root=2.0)
+        design = glm.Design(y=y, n_classes=2, groups=[g], sigma_intercept=0.01)
+        res = glm.fit_eb(design, processes=1)
+        est = res.params["season"][:, 0] - 0.5
+        self.assertGreater(np.corrcoef(est, drift)[0, 1], 0.95)
+        self.assertLess(abs(np.diff(est).std() - np.diff(drift).std()), 0.08)
+
+    def test_mask_makes_class_impossible_and_matches_offset(self):
+        design, _, _ = _synthetic(n=4_000, n_players=10)
+        rows = np.zeros(design.n, bool)
+        rows[::3] = True
+        design.y[rows & (design.y == 3)] = 0
+        design.masks = [(rows, 3)]
+        res = glm.fit(design, processes=1, maxiter=80)
+        p = glm.predict_proba(design, res.params)
+        self.assertLess(p[rows, 3].max(), 1e-10)
+        self.assertGreater(p[~rows, 3].mean(), 0.05)
+
+    def test_preconditioning_reaches_same_optimum(self):
+        design, _, _ = _synthetic(n=15_000, n_players=25)
+        a = glm.fit(design, processes=1, precondition=True)
+        b = glm.fit(design, processes=1, precondition=False, maxiter=3000)
+        self.assertLess(a.n_eval, b.n_eval)
+        np.testing.assert_allclose(a.params["player"], b.params["player"], atol=2e-3)
 
     def test_predict_proba_sums_to_one(self):
         design, _, _ = _synthetic(n=2_000, n_players=10)
