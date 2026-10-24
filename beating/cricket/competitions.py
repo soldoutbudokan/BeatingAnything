@@ -2,8 +2,9 @@
 
 Method. International matches (``team_type == 'international'``) always map to
 ``intl_<fmt>_<m|w>`` from the Cricsheet ``match_type`` family (Test/MDM -> test,
-ODI/ODM -> odi, T20/IT20 -> t20); the event name only sets a finer ``event_id``
-(ICC World Cup, T20 World Cup, qualifier, bilateral tour, multi-nation series, ...),
+ODI/ODM -> odi, T20/IT20 -> t20; ``fmt`` is HUNDRED when ``balls_per_over`` is 5
+or, without that key, when the event is The Hundred); the event name only sets a
+finer ``event_id`` (ICC World Cup, T20 World Cup, qualifier, bilateral tour, multi-nation series, ...),
 which the rules timeline uses for event-level overrides such as super overs.
 ``assoc_match`` is set when either side was not an ICC full member on the match
 date (Zimbabwe from 1992-07-06, Bangladesh from 2000-06-26, Ireland and
@@ -249,7 +250,7 @@ def competition_for(info: dict) -> Competition:
     """Map a Cricsheet ``info`` dict to its canonical :class:`Competition`."""
     event_name = (info.get("event") or {}).get("name")
     gender, team_type, match_type = info["gender"], info["team_type"], info["match_type"]
-    fmt = fmt_family(match_type, event_name)
+    fmt = "HUNDRED" if info.get("balls_per_over") == 5 else fmt_family(match_type, event_name)
     date = str(info["dates"][0])
     if team_type == "international":
         assoc = not all(is_full_member(t, date) for t in info["teams"])

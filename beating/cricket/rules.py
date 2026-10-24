@@ -15,8 +15,9 @@ data-testable field against what the timeline says for each match: DRS
 observed share, the most unsuccessful non-umpire's-call reviews by one team in an
 innings, recorded powerplay windows, scheduled overs and balls per over, bowler
 quotas, follow-on enforcements and leads, impact-player replacements, protected
-dismissals on free-hit balls, one- versus two-run no-balls, super overs in ties,
-minimum overs in D/L results and Test days and overs per day.
+dismissals on free-hit balls, who faces after a mid-over catch, one- versus two-run
+no-balls, super overs in ties, minimum overs in D/L results and Test days and overs
+per day.
 
 Limits. Where Cricsheet cannot see a rule (two new balls, stop clock, fielders
 outside the circle beyond powerplays) the value is from memory and marked so.
@@ -45,13 +46,14 @@ FIELDS = (
     "reviews_per_innings", "umpires_call_retains_review", "review_topup_after_80", "test_overs_per_day",
     "test_days", "follow_on_lead", "new_ball_after_overs", "balls_in_use", "impact_player", "tactical_sub",
     "super_over", "min_overs_for_result", "max_consecutive_balls_per_end", "slow_over_rate_fielding_penalty",
-    "stop_clock", "concussion_substitutes",
+    "stop_clock", "concussion_substitutes", "caught_crossing_counts",
 )
 WHEN_KEYS = {"fmt", "gender", "team_type", "competition_id", "tier", "event_id", "official", "assoc_match",
              "teams_any", "teams_all", "knockout", "stage_regex"}
 KNOCKOUT_RE = re.compile(r"final|semi|quarter|qualifier \d|qualifier$|eliminator|play-?off|knock-?out|challenger",
                          re.IGNORECASE)
 PROTECTED = {"bowled", "caught", "caught and bowled", "lbw", "stumped", "hit wicket"}
+CAUGHT = {"caught", "caught and bowled"}
 NOT_OUT = {"retired hurt", "retired not out"}
 
 
@@ -115,6 +117,7 @@ def _resolve(competition_id: str, fmt: str, gender: str, date: str, event_id: st
         out["drs_available"] = knockout
     if out["drs_scope"] == "none":
         out["drs_available"], out["reviews_per_innings"] = False, None
+    out["drs_allowed"] = out["drs_available"] or out["drs_scope"] == "selected"
     so = out["super_over"]
     if so == "knockout_only":
         so = ("repeat" if date >= "2019-10-14" else "single") if knockout else "none"
@@ -131,7 +134,9 @@ def rules_for(competition_id: str, fmt: str, gender: str, date, *, event_id: str
     """Every section-5 field for one match; ``_layers`` gives the layer that set each field.
 
     ``knockout`` defaults to :func:`is_knockout` of ``stage``; ``match_id`` picks up
-    ``match_overrides`` (scheduled days) from the config."""
+    ``match_overrides`` (scheduled days) from the config. ``drs_allowed`` (plan section 5)
+    is true when the rules permit DRS in this match, including ``drs_scope='selected'``
+    series; ``drs_available`` is only the competition default."""
     date = str(date)[:10]
     if knockout is None:
         knockout = is_knockout(stage)
@@ -176,14 +181,19 @@ def scan_match(d: dict, match_id: str) -> dict:
                  forfeited=bool(inn.get("forfeited")), target=inn.get("target"), powerplays=pps)
         legal = runs = wkts = prot_wkts = 0
         max_over, nb, bowler_balls, bowler_overs, reviews, repl = -1, Counter(), Counter(), defaultdict(set), [], []
-        fh_pending, fh_n, fh_viol, sets = False, 0, 0, []
+        fh_pending, fh_n, fh_viol, sets, catches, crossed = False, 0, 0, [], 0, 0
         for o in inn.get("overs", []):
             max_over = max(max_over, o["over"])
             first = None
-            for dl in o["deliveries"]:
+            dels = o["deliveries"]
+            for j, dl in enumerate(dels):
                 ex = dl.get("extras", {})
                 is_legal = "wides" not in ex and "noballs" not in ex
                 kinds = [w["kind"] for w in dl.get("wickets", [])]
+                if j + 1 < len(dels) and any(w["kind"] in CAUGHT and w.get("player_out") == dl["batter"]
+                                             for w in dl.get("wickets", [])):
+                    catches += 1
+                    crossed += dels[j + 1]["batter"] == dl["non_striker"]
                 runs += dl["runs"]["total"]
                 wkts += sum(k not in NOT_OUT for k in kinds)
                 prot_wkts += sum(k in PROTECTED for k in kinds)
@@ -212,7 +222,8 @@ def scan_match(d: dict, match_id: str) -> dict:
         r.update(legal=legal, runs=runs, wkts=wkts, prot_wkts=prot_wkts, max_over=max_over, nb=dict(nb),
                  bowler_max_balls=max(bowler_balls.values(), default=0),
                  bowler_max_overs=max(map(len, bowler_overs.values()), default=0), fh_n=fh_n, fh_viol=fh_viol,
-                 reviews=reviews, repl=repl, max_consecutive_overs=best)
+                 reviews=reviews, repl=repl, max_consecutive_overs=best, catches_mid_over=catches,
+                 catches_crossed=crossed)
         rec["innings"].append(r)
     return rec
 
@@ -314,7 +325,8 @@ def check_review_limits(summaries: list[dict]) -> dict:
 
     A failed review counts against the allowance unless it was umpire's call and the
     rules retain such reviews; during the 2013-2017 Test top-up the allowance applies
-    to the first 80 overs and again after them."""
+    to the first 80 overs and again after them. A failed review in a match whose rules
+    have no DRS at all (``reviews_per_innings`` null) is counted separately."""
     rows = {"pooled": defaultdict(Counter), "by_competition": defaultdict(Counter)}
     extra = defaultdict(lambda: dict(counts=Counter(), limits=set(), examples=[]))
     for s in summaries:
@@ -330,6 +342,9 @@ def check_review_limits(summaries: list[dict]) -> dict:
                 x["counts"][counted] += 1
                 x["limits"].add(lim)
                 if lim is None:
+                    g["no_allowance"] += 1
+                    if len(x["examples"]) < 5:
+                        x["examples"].append(f"{s['match_id']}:{team}:{counted}:no_drs_in_rules")
                     continue
                 bad = (pre80 > lim or counted > 2 * lim) if r["review_topup_after_80"] else counted > lim
                 g["at_limit"] += counted == lim
@@ -343,12 +358,13 @@ def check_review_limits(summaries: list[dict]) -> dict:
             x = extra[(part, key)]
             robust = max([k for k, c in x["counts"].items() if c >= 2] or [max(x["counts"])])
             lims = sorted(v for v in x["limits"] if v is not None)
-            status = ("conflict" if g["viol"] > 1 else
+            status = ("conflict" if g["viol"] > 1 or g["no_allowance"] > 1 else
                       "ok" if not lims or robust >= max(lims) or g["n"] < 30 else "limit_not_reached")
             out[part].append(dict(key=key[0], year=key[1], team_innings=g["n"], max_failed=g["max_fail"],
                                   max_failed_non_ucall=g["max_nuc"], robust_max_counted=robust,
                                   rules_reviews=lims or None, n_at_limit=g["at_limit"], n_violations=g["viol"],
-                                  examples=x["examples"], status=status))
+                                  n_failed_without_drs_in_rules=g["no_allowance"], examples=x["examples"],
+                                  status=status))
     return out
 
 
@@ -527,6 +543,32 @@ def check_free_hit(summaries: list[dict]) -> list[dict]:
     return rows
 
 
+def check_caught_crossing(summaries: list[dict]) -> list[dict]:
+    """Mid-over catches: share where the old non-striker faces the next ball vs caught_crossing_counts.
+
+    With crossing counted, batters who crossed leave the new batter at the non-striker's
+    end (about half of T20 catches, a few percent in first-class cricket). Without it the
+    share must be about zero: 'false' conflicts above max(2, 2%) of catches, 'true' when
+    100+ catches show no crossing at all."""
+    groups = defaultdict(lambda: Counter())
+    for s in summaries:
+        g = groups[(_key(s), s["rules"]["caught_crossing_counts"])]
+        g["y0"] = min(g["y0"] or 9999, s["year"])
+        g["y1"] = max(g["y1"], s["year"])
+        for inn in s["main_innings"]:
+            g["n"] += inn["catches_mid_over"]
+            g["x"] += inn["catches_crossed"]
+    rows = []
+    for (cid, rule), g in sorted(groups.items()):
+        if not g["n"]:
+            continue
+        bad = g["x"] > max(2, 0.02 * g["n"]) if not rule else g["n"] >= 100 and g["x"] == 0
+        rows.append(dict(competition_id=cid, rule=rule, years=[g["y0"], g["y1"]], catches_mid_over=g["n"],
+                         old_non_striker_on_strike=g["x"], share=round(g["x"] / g["n"], 3),
+                         status="conflict" if bad else "ok"))
+    return rows
+
+
 def check_noball_runs(summaries: list[dict]) -> list[dict]:
     """No-ball penalty: share of no-balls carrying 1 vs 2 extras vs noball_extra_runs."""
     groups = defaultdict(lambda: Counter())
@@ -668,7 +710,8 @@ def validate(summaries: list[dict], config_path: str | None = None) -> dict:
         drs_observed=check_drs(summaries), review_limits=check_review_limits(summaries),
         powerplays=check_powerplays(summaries), overs_balls=check_overs_balls(summaries),
         follow_on=check_follow_on(summaries), replacements=check_replacements(summaries),
-        free_hit=check_free_hit(summaries), noball_runs=check_noball_runs(summaries),
+        free_hit=check_free_hit(summaries), caught_crossing=check_caught_crossing(summaries),
+        noball_runs=check_noball_runs(summaries),
         super_overs=check_super_overs(summaries), min_overs_for_result=check_min_overs(summaries),
         test_days=check_test_days(summaries))
     explain_anomalies(sections, load_config(config_path).get("data_anomalies", []))

@@ -1,0 +1,1515 @@
+{
+ "params": {
+  "share_min": 0.3,
+  "host_share_max": 0.4,
+  "dominant_min": 0.5,
+  "secondary_share": 0.75,
+  "secondary_min": 2,
+  "asof_min_season": 8,
+  "asof_min_team": 4,
+  "lookback": 3,
+  "tz_gap_hours": 1.5
+ },
+ "rows": {
+  "config/cricket-teams.csv": 749,
+  "config/cricket-day-night.csv": 10020,
+  "data/derived/cricket/team-home-venues.csv": 1930,
+  "data/processed/cricket/match_teams.parquet": 23132
+ },
+ "lineage": {
+  "n_rows": 749,
+  "n_raw_names": 536,
+  "n_team_ids": 502,
+  "n_club_ids": 303,
+  "n_international_ids": 200,
+  "merged_ids": {
+   "auckland_m": [
+    "Auckland",
+    "Auckland Aces"
+   ],
+   "barbados_tridents_m": [
+    "Barbados Royals",
+    "Barbados Tridents"
+   ],
+   "barbados_tridents_w": [
+    "Barbados Royals",
+    "Barbados Tridents"
+   ],
+   "central_districts_m": [
+    "Central Districts",
+    "Central Stags"
+   ],
+   "delhi_capitals_m": [
+    "Delhi Capitals",
+    "Delhi Daredevils"
+   ],
+   "eswatini_m": [
+    "Eswatini",
+    "Swaziland"
+   ],
+   "himachal_pradesh_m": [
+    "Himachal",
+    "Himachal Pradesh"
+   ],
+   "jaffna_kings_m": [
+    "Jaffna Kings",
+    "Jaffna Stallions"
+   ],
+   "kandy_falcons_m": [
+    "B-Love Kandy",
+    "Kandy Falcons"
+   ],
+   "kathmandu_gorkhas_m": [
+    "Kathmandu Gorkhas",
+    "Kathmandu Gurkhas"
+   ],
+   "manchester_super_giants_m": [
+    "Manchester Originals",
+    "Manchester Super Giants"
+   ],
+   "manchester_super_giants_w": [
+    "Manchester Originals",
+    "Manchester Super Giants"
+   ],
+   "mi_london_m": [
+    "MI London",
+    "Oval Invincibles"
+   ],
+   "mi_london_w": [
+    "MI London",
+    "Oval Invincibles"
+   ],
+   "northern_diamonds_w": [
+    "Northern Diamonds",
+    "Yorkshire Diamonds"
+   ],
+   "otago_m": [
+    "Otago",
+    "Otago Volts"
+   ],
+   "punjab_kings_m": [
+    "Kings XI Punjab",
+    "Punjab Kings"
+   ],
+   "rising_pune_supergiant_m": [
+    "Rising Pune Supergiant",
+    "Rising Pune Supergiants"
+   ],
+   "royal_challengers_bengaluru_m": [
+    "Royal Challengers Bangalore",
+    "Royal Challengers Bengaluru"
+   ],
+   "royal_challengers_bengaluru_w": [
+    "Royal Challengers Bangalore",
+    "Royal Challengers Bengaluru"
+   ],
+   "sharjah_warriorz_m": [
+    "Sharjah Warriors",
+    "Sharjah Warriorz"
+   ],
+   "south_east_stars_w": [
+    "South East Stars",
+    "Surrey Stars"
+   ],
+   "st_lucia_kings_m": [
+    "St Lucia Kings",
+    "St Lucia Stars",
+    "St Lucia Zouks"
+   ],
+   "sunrisers_leeds_m": [
+    "Northern Superchargers",
+    "Sunrisers Leeds"
+   ],
+   "sunrisers_leeds_w": [
+    "Northern Superchargers",
+    "Sunrisers Leeds"
+   ],
+   "the_blaze_w": [
+    "Lightning",
+    "Loughborough Lightning",
+    "The Blaze"
+   ],
+   "thunder_w": [
+    "Lancashire Thunder",
+    "Thunder"
+   ],
+   "trinbago_knight_riders_m": [
+    "Trinbago Knight Riders",
+    "Trinidad & Tobago Red Steel"
+   ],
+   "warriors_fairbreak_w": [
+    "Warriors",
+    "Warriors (FairBreak)"
+   ],
+   "warwickshire_m": [
+    "Birmingham Bears",
+    "Warwickshire"
+   ],
+   "wellington_m": [
+    "Wellington",
+    "Wellington Firebirds"
+   ]
+  },
+  "n_with_predecessor": 46,
+  "two_names_one_id_same_season": {
+   "blast:2026:warwickshire_m": "Cricsheet switches from Birmingham Bears to Warwickshire mid-season (2026-05-29)"
+  },
+  "ids_with_two_canonical_names": [],
+  "self_matches": 0,
+  "matches_without_venue_id": 0,
+  "full_members": [
+   "Australia",
+   "Bangladesh",
+   "England",
+   "India",
+   "Ireland",
+   "New Zealand",
+   "Pakistan",
+   "South Africa",
+   "Sri Lanka",
+   "West Indies",
+   "Zimbabwe"
+  ]
+ },
+ "intl_home_win": {
+  "TEST_male": {
+   "bilateral": {
+    "n_decisive": 692,
+    "home_wins": 440,
+    "home_win_rate": 0.636
+   },
+   "all_events": {
+    "n_decisive": 699,
+    "home_wins": 444,
+    "home_win_rate": 0.635
+   },
+   "event_host_definition": {
+    "n_decisive": 537,
+    "host_wins": 328,
+    "host_win_rate": 0.611
+   },
+   "target_men_event_host": 0.611
+  },
+  "TEST_female": {
+   "bilateral": {
+    "n_decisive": 13,
+    "home_wins": 8,
+    "home_win_rate": 0.615
+   },
+   "all_events": {
+    "n_decisive": 14,
+    "home_wins": 8,
+    "home_win_rate": 0.571
+   },
+   "event_host_definition": {
+    "n_decisive": 9,
+    "host_wins": 7,
+    "host_win_rate": 0.778
+   },
+   "target_men_event_host": null
+  },
+  "ODI_male": {
+   "bilateral": {
+    "n_decisive": 1338,
+    "home_wins": 794,
+    "home_win_rate": 0.593
+   },
+   "all_events": {
+    "n_decisive": 1872,
+    "home_wins": 1108,
+    "home_win_rate": 0.592
+   },
+   "event_host_definition": {
+    "n_decisive": 1283,
+    "host_wins": 759,
+    "host_win_rate": 0.592
+   },
+   "target_men_event_host": 0.592
+  },
+  "ODI_female": {
+   "bilateral": {
+    "n_decisive": 350,
+    "home_wins": 199,
+    "home_win_rate": 0.569
+   },
+   "all_events": {
+    "n_decisive": 475,
+    "home_wins": 278,
+    "home_win_rate": 0.585
+   },
+   "event_host_definition": {
+    "n_decisive": 323,
+    "host_wins": 181,
+    "host_win_rate": 0.56
+   },
+   "target_men_event_host": null
+  },
+  "T20_male": {
+   "bilateral": {
+    "n_decisive": 1115,
+    "home_wins": 604,
+    "home_win_rate": 0.542
+   },
+   "all_events": {
+    "n_decisive": 1994,
+    "home_wins": 1146,
+    "home_win_rate": 0.575
+   },
+   "event_host_definition": {
+    "n_decisive": 1079,
+    "host_wins": 586,
+    "host_win_rate": 0.543
+   },
+   "target_men_event_host": 0.543
+  },
+  "T20_female": {
+   "bilateral": {
+    "n_decisive": 671,
+    "home_wins": 365,
+    "home_win_rate": 0.544
+   },
+   "all_events": {
+    "n_decisive": 1171,
+    "home_wins": 656,
+    "home_win_rate": 0.56
+   },
+   "event_host_definition": {
+    "n_decisive": 639,
+    "host_wins": 348,
+    "host_win_rate": 0.545
+   },
+   "target_men_event_host": null
+  }
+ },
+ "club_home_win": {
+  "blast": {
+   "n_matches": 1570,
+   "asof": {
+    "n_decisive": 1286,
+    "home_wins": 683,
+    "home_win_rate": 0.531
+   },
+   "full": {
+    "n_decisive": 1421,
+    "home_wins": 747,
+    "home_win_rate": 0.526
+   },
+   "asof_status_counts": {
+    "home": 1338,
+    "away": 1338,
+    "neutral": 464
+   },
+   "asof_full_agreement": 0.905
+  },
+  "county_championship": {
+   "n_matches": 1530,
+   "asof": {
+    "n_decisive": 787,
+    "home_wins": 450,
+    "home_win_rate": 0.572
+   },
+   "full": {
+    "n_decisive": 872,
+    "home_wins": 496,
+    "home_win_rate": 0.569
+   },
+   "asof_status_counts": {
+    "home": 1321,
+    "away": 1321,
+    "neutral": 418
+   },
+   "asof_full_agreement": 0.916
+  },
+  "ipl": {
+   "n_matches": 1243,
+   "asof": {
+    "n_decisive": 722,
+    "home_wins": 388,
+    "home_win_rate": 0.537
+   },
+   "full": {
+    "n_decisive": 898,
+    "home_wins": 476,
+    "home_win_rate": 0.53
+   },
+   "asof_status_counts": {
+    "neutral": 1012,
+    "home": 737,
+    "away": 737
+   },
+   "asof_full_agreement": 0.853
+  },
+  "eng_one_day_cup": {
+   "n_matches": 887,
+   "asof": {
+    "n_decisive": 575,
+    "home_wins": 303,
+    "home_win_rate": 0.527
+   },
+   "full": {
+    "n_decisive": 736,
+    "home_wins": 387,
+    "home_win_rate": 0.526
+   },
+   "asof_status_counts": {
+    "home": 600,
+    "away": 600,
+    "neutral": 574
+   },
+   "asof_full_agreement": 0.786
+  },
+  "smat": {
+   "n_matches": 695,
+   "asof": {
+    "n_decisive": 13,
+    "home_wins": 6,
+    "home_win_rate": 0.462
+   },
+   "full": {
+    "n_decisive": 43,
+    "home_wins": 24,
+    "home_win_rate": 0.558
+   },
+   "asof_status_counts": {
+    "neutral": 1362,
+    "away": 14,
+    "home": 14
+   },
+   "asof_full_agreement": 0.931
+  },
+  "bbl": {
+   "n_matches": 662,
+   "asof": {
+    "n_decisive": 491,
+    "home_wins": 268,
+    "home_win_rate": 0.546
+   },
+   "full": {
+    "n_decisive": 568,
+    "home_wins": 309,
+    "home_win_rate": 0.544
+   },
+   "asof_status_counts": {
+    "home": 502,
+    "away": 502,
+    "neutral": 320
+   },
+   "asof_full_agreement": 0.861
+  },
+  "wbbl": {
+   "n_matches": 519,
+   "asof": {
+    "n_decisive": 93,
+    "home_wins": 49,
+    "home_win_rate": 0.527
+   },
+   "full": {
+    "n_decisive": 181,
+    "home_wins": 95,
+    "home_win_rate": 0.525
+   },
+   "asof_status_counts": {
+    "neutral": 850,
+    "home": 94,
+    "away": 94
+   },
+   "asof_full_agreement": 0.782
+  },
+  "bpl": {
+   "n_matches": 469,
+   "asof": {
+    "n_decisive": 10,
+    "home_wins": 4,
+    "home_win_rate": 0.4
+   },
+   "full": {
+    "n_decisive": 20,
+    "home_wins": 7,
+    "home_win_rate": 0.35
+   },
+   "asof_status_counts": {
+    "neutral": 918,
+    "home": 10,
+    "away": 10
+   },
+   "asof_full_agreement": 0.953
+  },
+  "cpl": {
+   "n_matches": 445,
+   "asof": {
+    "n_decisive": 201,
+    "home_wins": 112,
+    "home_win_rate": 0.557
+   },
+   "full": {
+    "n_decisive": 282,
+    "home_wins": 153,
+    "home_win_rate": 0.543
+   },
+   "asof_status_counts": {
+    "neutral": 480,
+    "home": 205,
+    "away": 205
+   },
+   "asof_full_agreement": 0.778
+  },
+  "psl": {
+   "n_matches": 357,
+   "asof": {
+    "n_decisive": 46,
+    "home_wins": 27,
+    "home_win_rate": 0.587
+   },
+   "full": {
+    "n_decisive": 61,
+    "home_wins": 35,
+    "home_win_rate": 0.574
+   },
+   "asof_status_counts": {
+    "neutral": 620,
+    "home": 47,
+    "away": 47
+   },
+   "asof_full_agreement": 0.877
+  },
+  "plunket_shield": {
+   "n_matches": 343,
+   "asof": {
+    "n_decisive": 129,
+    "home_wins": 75,
+    "home_win_rate": 0.581
+   },
+   "full": {
+    "n_decisive": 195,
+    "home_wins": 118,
+    "home_win_rate": 0.605
+   },
+   "asof_status_counts": {
+    "neutral": 334,
+    "home": 176,
+    "away": 176
+   },
+   "asof_full_agreement": 0.662
+  },
+  "csa_t20": {
+   "n_matches": 320,
+   "asof": {
+    "n_decisive": 101,
+    "home_wins": 55,
+    "home_win_rate": 0.545
+   },
+   "full": {
+    "n_decisive": 169,
+    "home_wins": 91,
+    "home_win_rate": 0.538
+   },
+   "asof_status_counts": {
+    "neutral": 424,
+    "away": 108,
+    "home": 108
+   },
+   "asof_full_agreement": 0.631
+  },
+  "eng_women_one_day": {
+   "n_matches": 319,
+   "asof": {
+    "n_decisive": 130,
+    "home_wins": 69,
+    "home_win_rate": 0.531
+   },
+   "full": {
+    "n_decisive": 239,
+    "home_wins": 123,
+    "home_win_rate": 0.515
+   },
+   "asof_status_counts": {
+    "neutral": 364,
+    "home": 137,
+    "away": 137
+   },
+   "asof_full_agreement": 0.63
+  },
+  "super_smash": {
+   "n_matches": 270,
+   "asof": {
+    "n_decisive": 164,
+    "home_wins": 78,
+    "home_win_rate": 0.476
+   },
+   "full": {
+    "n_decisive": 227,
+    "home_wins": 111,
+    "home_win_rate": 0.489
+   },
+   "asof_status_counts": {
+    "neutral": 192,
+    "home": 174,
+    "away": 174
+   },
+   "asof_full_agreement": 0.726
+  },
+  "sheffield_shield": {
+   "n_matches": 212,
+   "asof": {
+    "n_decisive": 80,
+    "home_wins": 39,
+    "home_win_rate": 0.487
+   },
+   "full": {
+    "n_decisive": 123,
+    "home_wins": 61,
+    "home_win_rate": 0.496
+   },
+   "asof_status_counts": {
+    "neutral": 208,
+    "away": 108,
+    "home": 108
+   },
+   "asof_full_agreement": 0.651
+  },
+  "hundred_m": {
+   "n_matches": 201,
+   "asof": {
+    "n_decisive": 160,
+    "home_wins": 87,
+    "home_win_rate": 0.544
+   },
+   "full": {
+    "n_decisive": 182,
+    "home_wins": 102,
+    "home_win_rate": 0.56
+   },
+   "asof_status_counts": {
+    "away": 166,
+    "home": 166,
+    "neutral": 70
+   },
+   "asof_full_agreement": 0.886
+  },
+  "super_smash_w": {
+   "n_matches": 197,
+   "asof": {
+    "n_decisive": 116,
+    "home_wins": 67,
+    "home_win_rate": 0.578
+   },
+   "full": {
+    "n_decisive": 171,
+    "home_wins": 89,
+    "home_win_rate": 0.52
+   },
+   "asof_status_counts": {
+    "neutral": 152,
+    "away": 121,
+    "home": 121
+   },
+   "asof_full_agreement": 0.675
+  },
+  "hundred_w": {
+   "n_matches": 188,
+   "asof": {
+    "n_decisive": 152,
+    "home_wins": 72,
+    "home_win_rate": 0.474
+   },
+   "full": {
+    "n_decisive": 176,
+    "home_wins": 83,
+    "home_win_rate": 0.472
+   },
+   "asof_status_counts": {
+    "away": 156,
+    "home": 156,
+    "neutral": 64
+   },
+   "asof_full_agreement": 0.872
+  },
+  "slc_major_clubs_odm": {
+   "n_matches": 160,
+   "asof": {
+    "n_decisive": 69,
+    "home_wins": 36,
+    "home_win_rate": 0.522
+   },
+   "full": {
+    "n_decisive": 108,
+    "home_wins": 55,
+    "home_win_rate": 0.509
+   },
+   "asof_status_counts": {
+    "neutral": 174,
+    "away": 73,
+    "home": 73
+   },
+   "asof_full_agreement": 0.675
+  },
+  "lpl": {
+   "n_matches": 143,
+   "asof": {
+    "n_decisive": 3,
+    "home_wins": 2,
+    "home_win_rate": 0.667
+   },
+   "full": {
+    "n_decisive": 4,
+    "home_wins": 2,
+    "home_win_rate": 0.5
+   },
+   "asof_status_counts": {
+    "neutral": 280,
+    "home": 3,
+    "away": 3
+   },
+   "asof_full_agreement": 0.951
+  },
+  "slc_major_league": {
+   "n_matches": 134,
+   "asof": {
+    "n_decisive": 9,
+    "home_wins": 5,
+    "home_win_rate": 0.556
+   },
+   "full": {
+    "n_decisive": 28,
+    "home_wins": 12,
+    "home_win_rate": 0.429
+   },
+   "asof_status_counts": {
+    "neutral": 238,
+    "away": 15,
+    "home": 15
+   },
+   "asof_full_agreement": 0.687
+  },
+  "ilt20": {
+   "n_matches": 134,
+   "asof": {
+    "n_decisive": 20,
+    "home_wins": 5,
+    "home_win_rate": 0.25
+   },
+   "full": {
+    "n_decisive": 19,
+    "home_wins": 5,
+    "home_win_rate": 0.263
+   },
+   "asof_status_counts": {
+    "neutral": 228,
+    "home": 20,
+    "away": 20
+   },
+   "asof_full_agreement": 0.91
+  },
+  "sa20": {
+   "n_matches": 130,
+   "asof": {
+    "n_decisive": 94,
+    "home_wins": 50,
+    "home_win_rate": 0.532
+   },
+   "full": {
+    "n_decisive": 109,
+    "home_wins": 62,
+    "home_win_rate": 0.569
+   },
+   "asof_status_counts": {
+    "home": 101,
+    "away": 101,
+    "neutral": 58
+   },
+   "asof_full_agreement": 0.877
+  },
+  "charlotte_edwards_cup": {
+   "n_matches": 124,
+   "asof": {
+    "n_decisive": 22,
+    "home_wins": 10,
+    "home_win_rate": 0.455
+   },
+   "full": {
+    "n_decisive": 61,
+    "home_wins": 31,
+    "home_win_rate": 0.508
+   },
+   "asof_status_counts": {
+    "neutral": 204,
+    "home": 22,
+    "away": 22
+   },
+   "asof_full_agreement": 0.645
+  },
+  "slc_major_clubs_t20": {
+   "n_matches": 121,
+   "asof": {
+    "n_decisive": 0,
+    "home_wins": 0,
+    "home_win_rate": null
+   },
+   "full": {
+    "n_decisive": 8,
+    "home_wins": 1,
+    "home_win_rate": 0.125
+   },
+   "asof_status_counts": {
+    "neutral": 242
+   },
+   "asof_full_agreement": 0.926
+  },
+  "aus_one_day_cup": {
+   "n_matches": 121,
+   "asof": {
+    "n_decisive": 53,
+    "home_wins": 29,
+    "home_win_rate": 0.547
+   },
+   "full": {
+    "n_decisive": 82,
+    "home_wins": 43,
+    "home_win_rate": 0.524
+   },
+   "asof_status_counts": {
+    "neutral": 134,
+    "home": 54,
+    "away": 54
+   },
+   "asof_full_agreement": 0.661
+  },
+  "blast_w": {
+   "n_matches": 112,
+   "asof": {
+    "n_decisive": 78,
+    "home_wins": 42,
+    "home_win_rate": 0.538
+   },
+   "full": {
+    "n_decisive": 97,
+    "home_wins": 49,
+    "home_win_rate": 0.505
+   },
+   "asof_status_counts": {
+    "away": 82,
+    "home": 82,
+    "neutral": 60
+   },
+   "asof_full_agreement": 0.812
+  },
+  "ire_ip_t20": {
+   "n_matches": 111,
+   "asof": {
+    "n_decisive": 5,
+    "home_wins": 1,
+    "home_win_rate": 0.2
+   },
+   "full": {
+    "n_decisive": 9,
+    "home_wins": 3,
+    "home_win_rate": 0.333
+   },
+   "asof_status_counts": {
+    "neutral": 212,
+    "away": 5,
+    "home": 5
+   },
+   "asof_full_agreement": 0.874
+  },
+  "mlc": {
+   "n_matches": 109,
+   "asof": {
+    "n_decisive": 2,
+    "home_wins": 0,
+    "home_win_rate": 0.0
+   },
+   "full": {
+    "n_decisive": 0,
+    "home_wins": 0,
+    "home_win_rate": null
+   },
+   "asof_status_counts": {
+    "neutral": 214,
+    "home": 2,
+    "away": 2
+   },
+   "asof_full_agreement": 0.982
+  },
+  "wcsl": {
+   "n_matches": 95,
+   "asof": {
+    "n_decisive": 32,
+    "home_wins": 14,
+    "home_win_rate": 0.438
+   },
+   "full": {
+    "n_decisive": 57,
+    "home_wins": 32,
+    "home_win_rate": 0.561
+   },
+   "asof_status_counts": {
+    "neutral": 126,
+    "away": 32,
+    "home": 32
+   },
+   "asof_full_agreement": 0.674
+  },
+  "ire_ip_odm": {
+   "n_matches": 90,
+   "asof": {
+    "n_decisive": 30,
+    "home_wins": 12,
+    "home_win_rate": 0.4
+   },
+   "full": {
+    "n_decisive": 46,
+    "home_wins": 22,
+    "home_win_rate": 0.478
+   },
+   "asof_status_counts": {
+    "neutral": 112,
+    "away": 34,
+    "home": 34
+   },
+   "asof_full_agreement": 0.733
+  },
+  "wpl": {
+   "n_matches": 88,
+   "asof": {
+    "n_decisive": 2,
+    "home_wins": 2,
+    "home_win_rate": 1.0
+   },
+   "full": {
+    "n_decisive": 7,
+    "home_wins": 4,
+    "home_win_rate": 0.571
+   },
+   "asof_status_counts": {
+    "neutral": 172,
+    "home": 2,
+    "away": 2
+   },
+   "asof_full_agreement": 0.943
+  },
+  "npl": {
+   "n_matches": 64,
+   "asof": {
+    "n_decisive": 0,
+    "home_wins": 0,
+    "home_win_rate": null
+   },
+   "full": {
+    "n_decisive": 0,
+    "home_wins": 0,
+    "home_win_rate": null
+   },
+   "asof_status_counts": {
+    "neutral": 128
+   },
+   "asof_full_agreement": 1.0
+  },
+  "msl": {
+   "n_matches": 56,
+   "asof": {
+    "n_decisive": 37,
+    "home_wins": 17,
+    "home_win_rate": 0.459
+   },
+   "full": {
+    "n_decisive": 53,
+    "home_wins": 25,
+    "home_win_rate": 0.472
+   },
+   "asof_status_counts": {
+    "home": 40,
+    "away": 40,
+    "neutral": 32
+   },
+   "asof_full_agreement": 0.714
+  }
+ },
+ "home_venues": {
+  "n_rows": 1930,
+  "by_rule": {
+   "share": 1476,
+   "secondary": 454
+  },
+  "neutral_reasons": {
+   "home_or_open": 1949,
+   "no_dominant_team": 880,
+   "host_share": 71,
+   "abroad": 32
+  },
+  "seasons_all_neutral": [
+   "bpl:2011/12",
+   "bpl:2012/13",
+   "bpl:2015/16",
+   "bpl:2016/17",
+   "bpl:2022/23",
+   "bpl:2023/24",
+   "bpl:2024/25",
+   "cpl:2020",
+   "cpl:2021",
+   "csa_t20:2020/21",
+   "csa_t20:2021/22",
+   "csa_t20:2022/23",
+   "csa_t20:2023/24",
+   "csa_t20:2026/27",
+   "etpl:2026",
+   "fairbreak:2022",
+   "fairbreak:2023",
+   "ipl:2009",
+   "ipl:2020/21",
+   "ipl:2021",
+   "ipl:2022",
+   "ire_ip_odm:2016",
+   "ire_ip_odm:2017",
+   "ire_ip_odm:2020",
+   "ire_ip_t20:2016",
+   "ire_ip_t20:2018",
+   "ire_ip_t20:2019",
+   "ire_ip_t20:2020",
+   "ire_ip_t20:2021",
+   "ire_ip_t20:2022",
+   "ire_ip_t20:2023",
+   "ire_ip_t20:2025",
+   "lpl:2020/21",
+   "lpl:2021/22",
+   "lpl:2022/23",
+   "lpl:2024",
+   "lpl:2026",
+   "mlc:2023",
+   "mlc:2024",
+   "mlc:2025",
+   "mlc:2026",
+   "npl:2024/25",
+   "npl:2025/26",
+   "psl:2015/16",
+   "psl:2016/17",
+   "psl:2017/18",
+   "psl:2018/19",
+   "psl:2020/21",
+   "psl:2021",
+   "psl:2021/22",
+   "psl:2026",
+   "sheffield_shield:2026/27",
+   "smat:2018/19",
+   "smat:2019/20",
+   "smat:2022/23",
+   "smat:2023/24",
+   "super_smash:2013/14",
+   "wbbl:2015/16",
+   "wbbl:2020/21",
+   "wcpl:2022",
+   "wcpl:2024",
+   "wcpl:2025",
+   "wcpl:2026",
+   "wi_women_super50:2022",
+   "wi_women_t20:2018/19",
+   "wi_women_t20:2022",
+   "womens_t20_challenge:2018",
+   "womens_t20_challenge:2019",
+   "womens_t20_challenge:2020/21",
+   "womens_t20_challenge:2022",
+   "wpl:2022/23",
+   "wpl:2023/24",
+   "wpl:2025/26"
+  ],
+  "asof_sources": {
+   "season": 12279,
+   "prev": 6172,
+   "none": 3029,
+   "season_neutral": 2622,
+   "abroad": 618
+  }
+ },
+ "start_slot": {
+  "overall_known_share": 0.411,
+  "by_slot": {
+   "unknown": 13629,
+   "day": 5556,
+   "night": 2782,
+   "day_night": 1165
+  },
+  "by_source": {
+   "no_rule": 13112,
+   "first_class_default": 2210,
+   "test_default": 885,
+   "domestic_one_day_default": 766,
+   "ipl_single_default": 634,
+   "women_before_men_same_ground": 622,
+   "odi_country_pattern": 577,
+   "ipl_double_header": 572,
+   "t20i_country_pattern": 463,
+   "bbl_single_default": 461,
+   "bpl_double_header": 400,
+   "cpl_single_default": 268,
+   "psl_single_default": 193,
+   "odi_floodlit_venue": 193,
+   "hundred_men_after_women": 186,
+   "cpl_double_header": 166,
+   "psl_double_header": 160,
+   "bbl_double_header": 151,
+   "lpl_double_header": 98,
+   "wbbl_same_ground_earlier": 97,
+   "ilt20_single_default": 92,
+   "sa20_single_default": 86,
+   "wpl_single_default": 76,
+   "icc_double_header": 64,
+   "mlc_single_default": 59,
+   "wbbl_curtain_raiser": 51,
+   "bpl_single_default": 49,
+   "mlc_double_header": 46,
+   "sa20_double_header": 44,
+   "ilt20_double_header": 42,
+   "ipl_2009_south_africa": 37,
+   "lpl_single_default": 35,
+   "bbl_double_header_ambiguous": 32,
+   "womens_cwc_2025_afternoon_starts": 29,
+   "pink_ball_list": 26,
+   "odi_day_start_venue": 23,
+   "test_default_after_list": 20,
+   "bpl_double_header_unordered": 20,
+   "bbl_double_header_unordered": 18,
+   "icc_double_header_ambiguous": 13,
+   "wpl_double_header": 12,
+   "lpl_double_header_unordered": 10,
+   "county_floodlit_round": 9,
+   "cpl_double_header_unordered": 8,
+   "womens_test_australia": 6,
+   "psl_double_header_unordered": 4,
+   "mlc_double_header_unordered": 4,
+   "cpl_double_header_ambiguous": 3
+  },
+  "coverage_by_competition": {
+   "intl_t20_m": {
+    "n": 3867,
+    "known_share": 0.133,
+    "day": 53,
+    "day_night": 0,
+    "night": 463,
+    "unknown": 3351
+   },
+   "intl_odi_m": {
+    "n": 3058,
+    "known_share": 0.255,
+    "day": 10,
+    "day_night": 770,
+    "night": 0,
+    "unknown": 2278
+   },
+   "intl_t20_w": {
+    "n": 2263,
+    "known_share": 0.032,
+    "day": 72,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 2191
+   },
+   "blast": {
+    "n": 1570,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 1570
+   },
+   "county_championship": {
+    "n": 1530,
+    "known_share": 1.0,
+    "day": 1521,
+    "day_night": 9,
+    "night": 0,
+    "unknown": 0
+   },
+   "ipl": {
+    "n": 1243,
+    "known_share": 1.0,
+    "day": 296,
+    "day_night": 37,
+    "night": 910,
+    "unknown": 0
+   },
+   "intl_test_m": {
+    "n": 913,
+    "known_share": 1.0,
+    "day": 890,
+    "day_night": 23,
+    "night": 0,
+    "unknown": 0
+   },
+   "eng_one_day_cup": {
+    "n": 887,
+    "known_share": 0.504,
+    "day": 447,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 440
+   },
+   "smat": {
+    "n": 695,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 695
+   },
+   "bbl": {
+    "n": 662,
+    "known_share": 0.924,
+    "day": 61,
+    "day_night": 0,
+    "night": 551,
+    "unknown": 50
+   },
+   "intl_odi_w": {
+    "n": 647,
+    "known_share": 0.046,
+    "day": 1,
+    "day_night": 29,
+    "night": 0,
+    "unknown": 617
+   },
+   "wbbl": {
+    "n": 519,
+    "known_share": 0.285,
+    "day": 148,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 371
+   },
+   "bpl": {
+    "n": 469,
+    "known_share": 0.853,
+    "day": 200,
+    "day_night": 0,
+    "night": 200,
+    "unknown": 69
+   },
+   "cpl": {
+    "n": 445,
+    "known_share": 0.373,
+    "day": 83,
+    "day_night": 0,
+    "night": 83,
+    "unknown": 279
+   },
+   "psl": {
+    "n": 357,
+    "known_share": 0.989,
+    "day": 80,
+    "day_night": 0,
+    "night": 273,
+    "unknown": 4
+   },
+   "plunket_shield": {
+    "n": 343,
+    "known_share": 1.0,
+    "day": 343,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 0
+   },
+   "csa_t20": {
+    "n": 320,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 320
+   },
+   "eng_women_one_day": {
+    "n": 319,
+    "known_share": 1.0,
+    "day": 319,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 0
+   },
+   "super_smash": {
+    "n": 270,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 270
+   },
+   "sheffield_shield": {
+    "n": 212,
+    "known_share": 1.0,
+    "day": 212,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 0
+   },
+   "hundred_m": {
+    "n": 201,
+    "known_share": 0.925,
+    "day": 0,
+    "day_night": 186,
+    "night": 0,
+    "unknown": 15
+   },
+   "super_smash_w": {
+    "n": 197,
+    "known_share": 0.964,
+    "day": 190,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 7
+   },
+   "hundred_w": {
+    "n": 188,
+    "known_share": 0.989,
+    "day": 186,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 2
+   },
+   "slc_major_clubs_odm": {
+    "n": 160,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 160
+   },
+   "lpl": {
+    "n": 143,
+    "known_share": 0.93,
+    "day": 49,
+    "day_night": 0,
+    "night": 84,
+    "unknown": 10
+   },
+   "ilt20": {
+    "n": 134,
+    "known_share": 1.0,
+    "day": 21,
+    "day_night": 0,
+    "night": 113,
+    "unknown": 0
+   },
+   "slc_major_league": {
+    "n": 134,
+    "known_share": 1.0,
+    "day": 134,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 0
+   },
+   "sa20": {
+    "n": 130,
+    "known_share": 1.0,
+    "day": 22,
+    "day_night": 108,
+    "night": 0,
+    "unknown": 0
+   },
+   "charlotte_edwards_cup": {
+    "n": 124,
+    "known_share": 0.435,
+    "day": 54,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 70
+   },
+   "aus_one_day_cup": {
+    "n": 121,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 121
+   },
+   "slc_major_clubs_t20": {
+    "n": 121,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 121
+   },
+   "blast_w": {
+    "n": 112,
+    "known_share": 0.643,
+    "day": 72,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 40
+   },
+   "ire_ip_t20": {
+    "n": 111,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 111
+   },
+   "mlc": {
+    "n": 109,
+    "known_share": 0.422,
+    "day": 23,
+    "day_night": 0,
+    "night": 23,
+    "unknown": 63
+   },
+   "wcsl": {
+    "n": 95,
+    "known_share": 0.189,
+    "day": 18,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 77
+   },
+   "ire_ip_odm": {
+    "n": 90,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 90
+   },
+   "wpl": {
+    "n": 88,
+    "known_share": 1.0,
+    "day": 6,
+    "day_night": 0,
+    "night": 82,
+    "unknown": 0
+   },
+   "npl": {
+    "n": 64,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 64
+   },
+   "msl": {
+    "n": 56,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 56
+   },
+   "fairbreak": {
+    "n": 39,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 39
+   },
+   "wcpl": {
+    "n": 33,
+    "known_share": 0.879,
+    "day": 29,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 4
+   },
+   "etpl": {
+    "n": 31,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 31
+   },
+   "intl_test_w": {
+    "n": 24,
+    "known_share": 0.75,
+    "day": 15,
+    "day_night": 3,
+    "night": 0,
+    "unknown": 6
+   },
+   "wi_women_t20": {
+    "n": 17,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 17
+   },
+   "womens_t20_challenge": {
+    "n": 13,
+    "known_share": 0.077,
+    "day": 1,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 12
+   },
+   "wi_women_super50": {
+    "n": 8,
+    "known_share": 0.0,
+    "day": 0,
+    "day_night": 0,
+    "night": 0,
+    "unknown": 8
+   }
+  },
+  "pink_ball_listed": 26,
+  "pink_ball_matched": 26,
+  "pink_ball_venue_mismatch": [],
+  "pink_ball_unmatched": [],
+  "toss_field_share_by_slot": {
+   "bbl": {
+    "day": 0.508,
+    "night": 0.637,
+    "unknown": 0.56
+   },
+   "bpl": {
+    "day": 0.675,
+    "night": 0.715,
+    "unknown": 0.681
+   },
+   "cpl": {
+    "day": 0.795,
+    "night": 0.663,
+    "unknown": 0.796
+   },
+   "ilt20": {
+    "day": 0.857,
+    "night": 0.929
+   },
+   "intl_odi_m": {
+    "day": 0.5,
+    "day_night": 0.339,
+    "unknown": 0.581
+   },
+   "intl_t20_m": {
+    "day": 0.585,
+    "night": 0.657,
+    "unknown": 0.52
+   },
+   "ipl": {
+    "day": 0.547,
+    "day_night": 0.297,
+    "night": 0.716
+   },
+   "lpl": {
+    "day": 0.449,
+    "night": 0.667,
+    "unknown": 0.7
+   },
+   "mlc": {
+    "day": 0.739,
+    "night": 0.739,
+    "unknown": 0.841
+   },
+   "psl": {
+    "day": 0.738,
+    "night": 0.762,
+    "unknown": 0.75
+   },
+   "sa20": {
+    "day": 0.455,
+    "day_night": 0.583
+   },
+   "wpl": {
+    "day": 0.833,
+    "night": 0.768
+   }
+  }
+ }
+}
