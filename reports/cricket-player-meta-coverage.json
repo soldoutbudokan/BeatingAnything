@@ -1,0 +1,1620 @@
+{
+ "rows": {
+  "players": 15273,
+  "with_matches": 13741,
+  "with_meta": 12886,
+  "with_meta_and_matches": 11535,
+  "player_meta_rows": 16101,
+  "player_meta_unique": 16093,
+  "player_meta_not_in_people_csv": 19,
+  "player_meta_not_in_zip": 3207
+ },
+ "dedup": [
+  {
+   "cricsheet_id": "16301313",
+   "kept": "271884",
+   "dropped": [
+    "1119429"
+   ],
+   "key_cricinfo": "271884"
+  },
+  {
+   "cricsheet_id": "26a8b2fe",
+   "kept": "1398125",
+   "dropped": [
+    "1329695"
+   ],
+   "key_cricinfo": "1398125"
+  },
+  {
+   "cricsheet_id": "2cc557f8",
+   "kept": "519029",
+   "dropped": [
+    "917073"
+   ],
+   "key_cricinfo": "519029"
+  },
+  {
+   "cricsheet_id": "37525dbf",
+   "kept": "422584",
+   "dropped": [
+    "973795"
+   ],
+   "key_cricinfo": "422584"
+  },
+  {
+   "cricsheet_id": "4f91427c",
+   "kept": "647743",
+   "dropped": [
+    "1082730"
+   ],
+   "key_cricinfo": "647743"
+  },
+  {
+   "cricsheet_id": "cf785dd1",
+   "kept": "520121",
+   "dropped": [
+    "1046639"
+   ],
+   "key_cricinfo": "520121"
+  },
+  {
+   "cricsheet_id": "e0bed605",
+   "kept": "552759",
+   "dropped": [
+    "454834"
+   ],
+   "key_cricinfo": "552759"
+  },
+  {
+   "cricsheet_id": "e3273ac2",
+   "kept": "517481",
+   "dropped": [
+    "1096129"
+   ],
+   "key_cricinfo": "517481"
+  }
+ ],
+ "batting_style_fixed": [
+  {
+   "player_id": "402893d6",
+   "unique_name": "Haseeb Khan",
+   "bowling_style_raw": "Left-arm medium"
+  },
+  {
+   "player_id": "4d748b6a",
+   "unique_name": "BC Floros",
+   "bowling_style_raw": "Right-arm fast"
+  },
+  {
+   "player_id": "752cd438",
+   "unique_name": "TB Thapa",
+   "bowling_style_raw": "Left-arm wrist-spin"
+  },
+  {
+   "player_id": "a42406e2",
+   "unique_name": "R Bowley",
+   "bowling_style_raw": "Right-arm offbreak"
+  },
+  {
+   "player_id": "f4e52218",
+   "unique_name": "SR Das",
+   "bowling_style_raw": "Right-arm medium-fast"
+  }
+ ],
+ "style_strings": {
+  "n_distinct": 69,
+  "unmapped_vague": {
+   "Right arm Slow": 31,
+   "Right arm Bowler": 64,
+   "Left arm Slow": 9,
+   "Right-arm slow": 1,
+   "Left-arm slow": 1,
+   "Right-arm bowler": 3,
+   "(Unknown Arm) Slow": 2,
+   "Left arm Bowler": 7,
+   "Right arm Slow, Right arm Slow": 1
+  },
+  "mapped": {
+   "(Unknown Arm) Slow": "unknown",
+   "Left arm Bowler": "unknown",
+   "Left arm Fast": "pace_fast",
+   "Left arm Fast medium": "pace_fast",
+   "Left arm Fast medium, Left arm Slow": "pace_fast/unknown",
+   "Left arm Fast medium, Slow Left arm Orthodox": "pace_fast/left_orth",
+   "Left arm Fast medium, Slow Left arm Orthodox, Left arm Wrist spin": "pace_fast/left_orth",
+   "Left arm Medium": "pace_medium",
+   "Left arm Medium fast": "pace_fast",
+   "Left arm Medium fast, Right arm Medium": "pace_fast/pace_medium",
+   "Left arm Medium fast, Slow Left arm Orthodox": "pace_fast/left_orth",
+   "Left arm Medium, Slow Left arm Orthodox": "pace_medium/left_orth",
+   "Left arm Medium, Slow Left arm Orthodox, Left arm Wrist spin": "pace_medium/left_orth",
+   "Left arm Slow": "unknown",
+   "Left arm Slow medium": "pace_medium",
+   "Left arm Wrist spin": "left_wrist",
+   "Left-arm fast": "pace_fast",
+   "Left-arm fast-medium": "pace_fast",
+   "Left-arm medium": "pace_medium",
+   "Left-arm medium-fast": "pace_fast",
+   "Left-arm slow": "unknown",
+   "Left-arm wrist-spin": "left_wrist",
+   "Legbreak": "leg_spin",
+   "Legbreak Googly": "leg_spin",
+   "Legbreak googly": "leg_spin",
+   "Right arm Bowler": "unknown",
+   "Right arm Fast": "pace_fast",
+   "Right arm Fast medium": "pace_fast",
+   "Right arm Fast medium, Legbreak": "pace_fast/leg_spin",
+   "Right arm Fast medium, Legbreak Googly": "pace_fast/leg_spin",
+   "Right arm Fast medium, Right arm Medium": "pace_fast/pace_medium",
+   "Right arm Fast medium, Right arm Medium, Legbreak Googly": "pace_fast/pace_medium",
+   "Right arm Fast medium, Right arm Offbreak": "pace_fast/off_spin",
+   "Right arm Fast medium, Right arm Offbreak, Legbreak": "pace_fast/off_spin",
+   "Right arm Fast, Legbreak": "pace_fast/leg_spin",
+   "Right arm Fast, Right arm Medium": "pace_fast/pace_medium",
+   "Right arm Fast, Right arm Slow": "pace_fast/unknown",
+   "Right arm Medium": "pace_medium",
+   "Right arm Medium fast": "pace_fast",
+   "Right arm Medium fast, Legbreak": "pace_fast/leg_spin",
+   "Right arm Medium fast, Right arm Medium": "pace_fast/pace_medium",
+   "Right arm Medium fast, Right arm Medium, Right arm Offbreak": "pace_fast/pace_medium",
+   "Right arm Medium fast, Right arm Offbreak": "pace_fast/off_spin",
+   "Right arm Medium, Legbreak": "pace_medium/leg_spin",
+   "Right arm Medium, Legbreak Googly": "pace_medium/leg_spin",
+   "Right arm Medium, Right arm Offbreak": "pace_medium/off_spin",
+   "Right arm Medium, Right arm Offbreak, Slow Left arm Orthodox": "pace_medium/off_spin",
+   "Right arm Medium, Right arm Slow": "pace_medium/unknown",
+   "Right arm Medium, Right arm Slow medium": "pace_medium",
+   "Right arm Offbreak": "off_spin",
+   "Right arm Offbreak, Legbreak": "off_spin/leg_spin",
+   "Right arm Offbreak, Legbreak Googly": "off_spin/leg_spin",
+   "Right arm Offbreak, Slow Left arm Orthodox": "off_spin/left_orth",
+   "Right arm Slow": "unknown",
+   "Right arm Slow medium": "pace_medium",
+   "Right arm Slow medium, Right arm Offbreak": "pace_medium/off_spin",
+   "Right arm Slow, Right arm Offbreak": "off_spin",
+   "Right arm Slow, Right arm Slow": "unknown",
+   "Right-arm bowler": "unknown",
+   "Right-arm fast": "pace_fast",
+   "Right-arm fast-medium": "pace_fast",
+   "Right-arm medium": "pace_medium",
+   "Right-arm medium-fast": "pace_fast",
+   "Right-arm offbreak": "off_spin",
+   "Right-arm slow": "unknown",
+   "Slow Left arm Orthodox": "left_orth",
+   "Slow Left arm Orthodox, Left arm Wrist spin": "left_orth/left_wrist",
+   "Slow Left arm Orthodox, Slow Left arm Orthodox": "left_orth",
+   "Slow left-arm orthodox": "left_orth"
+  }
+ },
+ "counts": {
+  "meta_source": {
+   "cricinfo_meta": 9144,
+   "none": 3398,
+   "inferred": 1199
+  },
+  "bowl_class": {
+   "pace": 6311,
+   "spin": 4032,
+   "none": 2353,
+   "unknown": 1045
+  },
+  "bowl_type": {
+   "pace_medium": 3477,
+   "pace_fast": 2619,
+   "none": 2353,
+   "off_spin": 2017,
+   "unknown": 1490,
+   "left_orth": 923,
+   "leg_spin": 816,
+   "left_wrist": 46
+  },
+  "bowl_type_2": {
+   "none": 13663,
+   "off_spin": 30,
+   "leg_spin": 21,
+   "pace_medium": 12,
+   "left_orth": 10,
+   "pace_fast": 3,
+   "unknown": 1,
+   "left_wrist": 1
+  },
+  "bat_hand": {
+   "R": 8954,
+   "U": 2793,
+   "L": 1994
+  },
+  "keeper": {
+   "none": 14118,
+   "stumping": 728,
+   "role+stumping": 336,
+   "role": 91
+  },
+  "bowlers_ge_min_balls": 6879,
+  "bowlers_ge_min_balls_no_style": 1199
+ },
+ "inference": {
+  "n_train": 5636,
+  "n_features": 25,
+  "features": [
+   "wide",
+   "noball",
+   "legbye",
+   "bye",
+   "dot",
+   "boundary",
+   "econ",
+   "wkt_rate",
+   "pp",
+   "death",
+   "open",
+   "spell",
+   "newball",
+   "age",
+   "stumped",
+   "lbw",
+   "bowled",
+   "cb",
+   "keeper_caught",
+   "lhb_tilt",
+   "share_t20",
+   "share_test",
+   "female",
+   "club",
+   "log_balls"
+  ],
+  "lambda_grid_oof_logloss": {
+   "0.0001": 0.9793,
+   "0.001": 0.97807,
+   "0.003": 0.97754,
+   "0.01": 0.97997,
+   "0.03": 0.99229,
+   "0.1": 1.03054
+  },
+  "lambda_chosen": 0.003,
+  "train_type_counts": {
+   "off_spin": 990,
+   "leg_spin": 456,
+   "left_orth": 648,
+   "pace_fast": 1722,
+   "pace_medium": 1788,
+   "left_wrist": 32
+  },
+  "cv_no_arm": {
+   "class_accuracy": 0.8808,
+   "class_baseline": 0.6228,
+   "class_brier": 0.0874,
+   "class_confusion": {
+    "pace": {
+     "pace": 3188,
+     "spin": 322
+    },
+    "spin": {
+     "pace": 350,
+     "spin": 1776
+    }
+   },
+   "class_accuracy_by_balls": {
+    "60-299": {
+     "n": 2440,
+     "acc": 0.8123
+    },
+    "300-1199": {
+     "n": 1625,
+     "acc": 0.9003
+    },
+    "1200+": {
+     "n": 1571,
+     "acc": 0.9669
+    }
+   },
+   "class_calibration": [
+    {
+     "conf": "0.5-0.7",
+     "n": 844,
+     "mean_conf": 0.6038,
+     "accuracy": 0.622
+    },
+    {
+     "conf": "0.7-0.9",
+     "n": 1421,
+     "mean_conf": 0.816,
+     "accuracy": 0.8184
+    },
+    {
+     "conf": "0.9-0.97",
+     "n": 1339,
+     "mean_conf": 0.9414,
+     "accuracy": 0.941
+    },
+    {
+     "conf": "0.97-1",
+     "n": 2032,
+     "mean_conf": 0.9897,
+     "accuracy": 0.9921
+    }
+   ],
+   "type_accuracy": 0.5837,
+   "type_accuracy_when_set": {
+    "n": 3885,
+    "acc": 0.66
+   },
+   "spin_subtype_accuracy": 0.6936,
+   "pace_subtype_accuracy": 0.6497,
+   "type_confusion": {
+    "pace_fast": {
+     "pace_fast": 995,
+     "pace_medium": 640,
+     "off_spin": 58,
+     "leg_spin": 14,
+     "left_orth": 15,
+     "left_wrist": 0
+    },
+    "pace_medium": {
+     "pace_fast": 481,
+     "pace_medium": 1084,
+     "off_spin": 129,
+     "leg_spin": 42,
+     "left_orth": 52,
+     "left_wrist": 0
+    },
+    "off_spin": {
+     "pace_fast": 12,
+     "pace_medium": 187,
+     "off_spin": 656,
+     "leg_spin": 51,
+     "left_orth": 84,
+     "left_wrist": 0
+    },
+    "leg_spin": {
+     "pace_fast": 6,
+     "pace_medium": 77,
+     "off_spin": 98,
+     "leg_spin": 176,
+     "left_orth": 99,
+     "left_wrist": 0
+    },
+    "left_orth": {
+     "pace_fast": 4,
+     "pace_medium": 90,
+     "off_spin": 115,
+     "leg_spin": 60,
+     "left_orth": 379,
+     "left_wrist": 0
+    },
+    "left_wrist": {
+     "pace_fast": 0,
+     "pace_medium": 4,
+     "off_spin": 7,
+     "leg_spin": 14,
+     "left_orth": 7,
+     "left_wrist": 0
+    }
+   }
+  },
+  "cv_with_arm": {
+   "class_accuracy": 0.8838,
+   "class_baseline": 0.6228,
+   "class_brier": 0.0848,
+   "class_confusion": {
+    "pace": {
+     "pace": 3204,
+     "spin": 306
+    },
+    "spin": {
+     "pace": 349,
+     "spin": 1777
+    }
+   },
+   "class_accuracy_by_balls": {
+    "60-299": {
+     "n": 2440,
+     "acc": 0.816
+    },
+    "300-1199": {
+     "n": 1625,
+     "acc": 0.9034
+    },
+    "1200+": {
+     "n": 1571,
+     "acc": 0.9688
+    }
+   },
+   "class_calibration": [
+    {
+     "conf": "0.5-0.7",
+     "n": 756,
+     "mean_conf": 0.6004,
+     "accuracy": 0.619
+    },
+    {
+     "conf": "0.7-0.9",
+     "n": 1321,
+     "mean_conf": 0.8142,
+     "accuracy": 0.8039
+    },
+    {
+     "conf": "0.9-0.97",
+     "n": 1264,
+     "mean_conf": 0.9409,
+     "accuracy": 0.9343
+    },
+    {
+     "conf": "0.97-1",
+     "n": 2295,
+     "mean_conf": 0.9902,
+     "accuracy": 0.9891
+    }
+   ],
+   "type_accuracy": 0.6464,
+   "type_accuracy_when_set": {
+    "n": 4568,
+    "acc": 0.6929
+   },
+   "spin_subtype_accuracy": 0.8729,
+   "pace_subtype_accuracy": 0.654,
+   "type_confusion": {
+    "pace_fast": {
+     "pace_fast": 1008,
+     "pace_medium": 608,
+     "off_spin": 58,
+     "leg_spin": 20,
+     "left_orth": 28,
+     "left_wrist": 0
+    },
+    "pace_medium": {
+     "pace_fast": 484,
+     "pace_medium": 1056,
+     "off_spin": 149,
+     "leg_spin": 56,
+     "left_orth": 43,
+     "left_wrist": 0
+    },
+    "off_spin": {
+     "pace_fast": 10,
+     "pace_medium": 187,
+     "off_spin": 722,
+     "leg_spin": 71,
+     "left_orth": 0,
+     "left_wrist": 0
+    },
+    "leg_spin": {
+     "pace_fast": 4,
+     "pace_medium": 85,
+     "off_spin": 130,
+     "leg_spin": 237,
+     "left_orth": 0,
+     "left_wrist": 0
+    },
+    "left_orth": {
+     "pace_fast": 10,
+     "pace_medium": 18,
+     "off_spin": 0,
+     "leg_spin": 0,
+     "left_orth": 619,
+     "left_wrist": 1
+    },
+    "left_wrist": {
+     "pace_fast": 1,
+     "pace_medium": 2,
+     "off_spin": 0,
+     "leg_spin": 0,
+     "left_orth": 28,
+     "left_wrist": 1
+    }
+   }
+  },
+  "arm_likelihood": {
+   "pace_fast": {
+    "R": 0.8463,
+    "L": 0.1537
+   },
+   "pace_medium": {
+    "R": 0.8927,
+    "L": 0.1073
+   },
+   "off_spin": {
+    "R": 0.999,
+    "L": 0.001
+   },
+   "leg_spin": {
+    "R": 0.9978,
+    "L": 0.0022
+   },
+   "left_orth": {
+    "R": 0.0015,
+    "L": 0.9985
+   },
+   "left_wrist": {
+    "R": 0.0294,
+    "L": 0.9706
+   }
+  },
+  "coef": {
+   "wide": {
+    "pace_fast": 0.548,
+    "pace_medium": 0.443,
+    "off_spin": -0.168,
+    "leg_spin": -0.261,
+    "left_orth": -0.373,
+    "left_wrist": -0.189
+   },
+   "noball": {
+    "pace_fast": 0.271,
+    "pace_medium": 0.163,
+    "off_spin": -0.131,
+    "leg_spin": -0.015,
+    "left_orth": -0.214,
+    "left_wrist": -0.073
+   },
+   "legbye": {
+    "pace_fast": 0.301,
+    "pace_medium": 0.173,
+    "off_spin": -0.131,
+    "leg_spin": -0.121,
+    "left_orth": -0.062,
+    "left_wrist": -0.16
+   },
+   "bye": {
+    "pace_fast": -0.006,
+    "pace_medium": -0.023,
+    "off_spin": 0.049,
+    "leg_spin": -0.035,
+    "left_orth": -0.052,
+    "left_wrist": 0.065
+   },
+   "dot": {
+    "pace_fast": 0.229,
+    "pace_medium": 0.247,
+    "off_spin": -0.277,
+    "leg_spin": -0.08,
+    "left_orth": -0.025,
+    "left_wrist": -0.094
+   },
+   "boundary": {
+    "pace_fast": 0.211,
+    "pace_medium": 0.184,
+    "off_spin": -0.284,
+    "leg_spin": -0.097,
+    "left_orth": -0.199,
+    "left_wrist": 0.185
+   },
+   "econ": {
+    "pace_fast": -0.169,
+    "pace_medium": -0.319,
+    "off_spin": -0.091,
+    "leg_spin": 0.39,
+    "left_orth": 0.038,
+    "left_wrist": 0.151
+   },
+   "wkt_rate": {
+    "pace_fast": -0.195,
+    "pace_medium": -0.183,
+    "off_spin": -0.045,
+    "leg_spin": 0.238,
+    "left_orth": -0.011,
+    "left_wrist": 0.195
+   },
+   "pp": {
+    "pace_fast": 0.508,
+    "pace_medium": 0.361,
+    "off_spin": -0.332,
+    "leg_spin": -0.422,
+    "left_orth": -0.07,
+    "left_wrist": -0.044
+   },
+   "death": {
+    "pace_fast": 0.296,
+    "pace_medium": 0.273,
+    "off_spin": -0.044,
+    "leg_spin": -0.218,
+    "left_orth": -0.171,
+    "left_wrist": -0.136
+   },
+   "open": {
+    "pace_fast": -0.117,
+    "pace_medium": -0.116,
+    "off_spin": 0.428,
+    "leg_spin": -0.153,
+    "left_orth": 0.321,
+    "left_wrist": -0.364
+   },
+   "spell": {
+    "pace_fast": -0.192,
+    "pace_medium": -0.301,
+    "off_spin": 0.177,
+    "leg_spin": 0.061,
+    "left_orth": 0.18,
+    "left_wrist": 0.074
+   },
+   "newball": {
+    "pace_fast": -0.042,
+    "pace_medium": -0.098,
+    "off_spin": 0.106,
+    "leg_spin": 0.147,
+    "left_orth": -0.043,
+    "left_wrist": -0.07
+   },
+   "age": {
+    "pace_fast": -0.285,
+    "pace_medium": -0.157,
+    "off_spin": 0.179,
+    "leg_spin": 0.208,
+    "left_orth": -0.021,
+    "left_wrist": 0.077
+   },
+   "stumped": {
+    "pace_fast": -0.629,
+    "pace_medium": -0.462,
+    "off_spin": 0.176,
+    "leg_spin": 0.338,
+    "left_orth": 0.342,
+    "left_wrist": 0.235
+   },
+   "lbw": {
+    "pace_fast": -0.133,
+    "pace_medium": -0.085,
+    "off_spin": 0.02,
+    "leg_spin": 0.178,
+    "left_orth": 0.094,
+    "left_wrist": -0.075
+   },
+   "bowled": {
+    "pace_fast": -0.052,
+    "pace_medium": -0.011,
+    "off_spin": 0.041,
+    "leg_spin": 0.047,
+    "left_orth": 0.028,
+    "left_wrist": -0.052
+   },
+   "cb": {
+    "pace_fast": -0.099,
+    "pace_medium": -0.076,
+    "off_spin": 0.069,
+    "leg_spin": 0.032,
+    "left_orth": 0.061,
+    "left_wrist": 0.013
+   },
+   "keeper_caught": {
+    "pace_fast": 0.128,
+    "pace_medium": 0.127,
+    "off_spin": 0.032,
+    "leg_spin": -0.003,
+    "left_orth": -0.207,
+    "left_wrist": -0.077
+   },
+   "lhb_tilt": {
+    "pace_fast": 0.078,
+    "pace_medium": 0.064,
+    "off_spin": 0.652,
+    "leg_spin": -0.157,
+    "left_orth": -0.559,
+    "left_wrist": -0.079
+   },
+   "share_t20": {
+    "pace_fast": -0.231,
+    "pace_medium": -0.044,
+    "off_spin": 0.086,
+    "leg_spin": -0.065,
+    "left_orth": 0.215,
+    "left_wrist": 0.038
+   },
+   "share_test": {
+    "pace_fast": 0.269,
+    "pace_medium": -0.05,
+    "off_spin": -0.102,
+    "leg_spin": 0.232,
+    "left_orth": -0.474,
+    "left_wrist": 0.124
+   },
+   "female": {
+    "pace_fast": -0.067,
+    "pace_medium": 0.058,
+    "off_spin": 0.091,
+    "leg_spin": 0.21,
+    "left_orth": -0.205,
+    "left_wrist": -0.087
+   },
+   "club": {
+    "pace_fast": -0.082,
+    "pace_medium": -0.008,
+    "off_spin": -0.072,
+    "leg_spin": -0.021,
+    "left_orth": 0.066,
+    "left_wrist": 0.117
+   },
+   "log_balls": {
+    "pace_fast": 0.313,
+    "pace_medium": -0.1,
+    "off_spin": 0.085,
+    "leg_spin": -0.488,
+    "left_orth": 0.134,
+    "left_wrist": 0.055
+   }
+  },
+  "n_inferred": 1199,
+  "n_inferred_type_set": 754,
+  "n_inferred_arm_known": 13,
+  "inferred_class_counts": {
+   "pace": 770,
+   "spin": 429
+  },
+  "inferred_type_counts": {
+   "pace_medium": 387,
+   "unknown": 445,
+   "off_spin": 117,
+   "left_orth": 67,
+   "pace_fast": 168,
+   "leg_spin": 15
+  },
+  "inferred_confidence_quantiles": {
+   "0.1": 0.5975,
+   "0.25": 0.747,
+   "0.5": 0.8956,
+   "0.75": 0.9672
+  },
+  "vague_style_inferred": {
+   "n": 13,
+   "n_slow": 9,
+   "slow_inferred_spin": 7
+  },
+  "mixed_class_styles": {
+   "n": 54,
+   "with_min_balls": 44,
+   "swapped": 12,
+   "swapped_players": [
+    {
+     "player_id": "1747ea18",
+     "name": "DS Airee",
+     "style": "Right arm Medium, Right arm Offbreak",
+     "p_second_class": 0.9842,
+     "legal_balls": 4461
+    },
+    {
+     "player_id": "1f7825dd",
+     "name": "SF Daley",
+     "style": "Left arm Medium, Slow Left arm Orthodox",
+     "p_second_class": 0.9684,
+     "legal_balls": 936
+    },
+    {
+     "player_id": "4b2d6789",
+     "name": "TS Chisoro",
+     "style": "Left arm Fast medium, Slow Left arm Orthodox",
+     "p_second_class": 0.956,
+     "legal_balls": 1419
+    },
+    {
+     "player_id": "5be810ba",
+     "name": "MD Dai",
+     "style": "Right arm Medium, Legbreak Googly",
+     "p_second_class": 0.9575,
+     "legal_balls": 1602
+    },
+    {
+     "player_id": "6b4593ee",
+     "name": "L Siaka",
+     "style": "Right arm Fast medium, Legbreak",
+     "p_second_class": 0.9318,
+     "legal_balls": 589
+    },
+    {
+     "player_id": "8d1dad51",
+     "name": "A Javid",
+     "style": "Right arm Medium, Right arm Offbreak",
+     "p_second_class": 0.9911,
+     "legal_balls": 1892
+    },
+    {
+     "player_id": "8d8c24fd",
+     "name": "RJ Nicol",
+     "style": "Right arm Medium, Right arm Offbreak",
+     "p_second_class": 0.9938,
+     "legal_balls": 1299
+    },
+    {
+     "player_id": "9706e64b",
+     "name": "LA Marsh",
+     "style": "Right arm Fast medium, Right arm Offbreak",
+     "p_second_class": 0.9849,
+     "legal_balls": 5258
+    },
+    {
+     "player_id": "9e707e02",
+     "name": "KS Carlson",
+     "style": "Right arm Medium, Right arm Offbreak",
+     "p_second_class": 0.9871,
+     "legal_balls": 4362
+    },
+    {
+     "player_id": "ebf683f9",
+     "name": "Marie Kelly",
+     "style": "Right arm Medium, Right arm Offbreak, Slow Left arm Orthodox",
+     "p_second_class": 0.9306,
+     "legal_balls": 395
+    },
+    {
+     "player_id": "f468293b",
+     "name": "JN Loftie-Eaton",
+     "style": "Right arm Medium, Legbreak",
+     "p_second_class": 0.9652,
+     "legal_balls": 1689
+    },
+    {
+     "player_id": "fb2d1dda",
+     "name": "N Rana",
+     "style": "Right arm Medium, Right arm Offbreak",
+     "p_second_class": 0.9586,
+     "legal_balls": 643
+    }
+   ]
+  },
+  "meta_conflicts_p_lt_0.05_300_balls": {
+   "n": 20,
+   "top": [
+    {
+     "player_id": "0e0d43b4",
+     "name": "SJ Mullaney",
+     "style": "Right arm Medium",
+     "p_spin": 0.975,
+     "legal_balls": 11386
+    },
+    {
+     "player_id": "8108e2d2",
+     "name": "DKH Mitchell",
+     "style": "Right arm Medium",
+     "p_spin": 0.9957,
+     "legal_balls": 3913
+    },
+    {
+     "player_id": "f281dd00",
+     "name": "L Tshuma",
+     "style": "Right arm Medium",
+     "p_spin": 0.9572,
+     "legal_balls": 2160
+    },
+    {
+     "player_id": "61c22ad0",
+     "name": "SR Magar",
+     "style": "Left arm Medium fast",
+     "p_spin": 0.9815,
+     "legal_balls": 1425
+    },
+    {
+     "player_id": "4e602f29",
+     "name": "ND Paranavithana",
+     "style": "Left arm Slow medium",
+     "p_spin": 0.9963,
+     "legal_balls": 1402
+    },
+    {
+     "player_id": "ba607b88",
+     "name": "V Kohli",
+     "style": "Right arm Medium",
+     "p_spin": 0.957,
+     "legal_balls": 1240
+    },
+    {
+     "player_id": "b38a9f73",
+     "name": "OH Agbomadzie",
+     "style": "Left arm Medium",
+     "p_spin": 0.9661,
+     "legal_balls": 1146
+    },
+    {
+     "player_id": "99639abf",
+     "name": "NJ Astle",
+     "style": "Right arm Medium",
+     "p_spin": 0.9683,
+     "legal_balls": 1031
+    },
+    {
+     "player_id": "1a3cc554",
+     "name": "RK Paudel",
+     "style": "Right arm Medium",
+     "p_spin": 0.9935,
+     "legal_balls": 999
+    },
+    {
+     "player_id": "ff36e706",
+     "name": "Sirajullah Khadim",
+     "style": "Left arm Fast medium",
+     "p_spin": 0.974,
+     "legal_balls": 758
+    },
+    {
+     "player_id": "12963b14",
+     "name": "ARG Thomas",
+     "style": "Right-arm medium",
+     "p_spin": 0.9528,
+     "legal_balls": 734
+    },
+    {
+     "player_id": "d7e51f87",
+     "name": "GM Muthui",
+     "style": "Right arm Offbreak",
+     "p_spin": 0.005,
+     "legal_balls": 639
+    },
+    {
+     "player_id": "749a1b3a",
+     "name": "BP Nash",
+     "style": "Left arm Medium",
+     "p_spin": 0.9951,
+     "legal_balls": 631
+    },
+    {
+     "player_id": "94271647",
+     "name": "V Vira",
+     "style": "Right-arm offbreak",
+     "p_spin": 0.0277,
+     "legal_balls": 615
+    },
+    {
+     "player_id": "ac574559",
+     "name": "EK Marlow",
+     "style": "Right arm Offbreak",
+     "p_spin": 0.0295,
+     "legal_balls": 568
+    },
+    {
+     "player_id": "cdda92be",
+     "name": "M Upadhayay",
+     "style": "Left-arm medium",
+     "p_spin": 0.9507,
+     "legal_balls": 558
+    },
+    {
+     "player_id": "65cd62a9",
+     "name": "A Martel",
+     "style": "Left arm Medium",
+     "p_spin": 0.9897,
+     "legal_balls": 505
+    },
+    {
+     "player_id": "8bb34d86",
+     "name": "J Neill",
+     "style": "Right-arm offbreak",
+     "p_spin": 0.0273,
+     "legal_balls": 482
+    },
+    {
+     "player_id": "9c91218d",
+     "name": "A Natubhai Ahir",
+     "style": "Left arm Medium",
+     "p_spin": 0.9801,
+     "legal_balls": 401
+    },
+    {
+     "player_id": "219a417a",
+     "name": "Assad Borham",
+     "style": "Right arm Medium",
+     "p_spin": 0.9862,
+     "legal_balls": 306
+    }
+   ]
+  }
+ },
+ "coverage": {
+  "since": "2019-01-01",
+  "deliveries": 6758969,
+  "overall": {
+   "cls_meta": 0.9396,
+   "cls_inferred": 0.057,
+   "type_known": 0.9798,
+   "hand_known": 0.9471
+  },
+  "by_fam_gender": {
+   "HUNDRED/female": {
+    "cls_meta": 0.9856,
+    "cls_inferred": 0.0143,
+    "type_known": 0.995,
+    "hand_known": 0.996,
+    "cls_known_or_inferred": 0.9999,
+    "deliveries": 36850
+   },
+   "HUNDRED/male": {
+    "cls_meta": 0.9983,
+    "cls_inferred": 0.0012,
+    "type_known": 0.9995,
+    "hand_known": 0.999,
+    "cls_known_or_inferred": 0.9995,
+    "deliveries": 38777
+   },
+   "ODI/female": {
+    "cls_meta": 0.9307,
+    "cls_inferred": 0.0676,
+    "type_known": 0.9773,
+    "hand_known": 0.9533,
+    "cls_known_or_inferred": 0.9983,
+    "deliveries": 398262
+   },
+   "ODI/male": {
+    "cls_meta": 0.927,
+    "cls_inferred": 0.0709,
+    "type_known": 0.9743,
+    "hand_known": 0.9288,
+    "cls_known_or_inferred": 0.9979,
+    "deliveries": 982247
+   },
+   "T20/female": {
+    "cls_meta": 0.8976,
+    "cls_inferred": 0.0914,
+    "type_known": 0.9658,
+    "hand_known": 0.9383,
+    "cls_known_or_inferred": 0.989,
+    "deliveries": 669636
+   },
+   "T20/male": {
+    "cls_meta": 0.9377,
+    "cls_inferred": 0.0555,
+    "type_known": 0.9712,
+    "hand_known": 0.952,
+    "cls_known_or_inferred": 0.9932,
+    "deliveries": 1714690
+   },
+   "TEST/female": {
+    "cls_meta": 1.0,
+    "cls_inferred": 0.0,
+    "type_known": 1.0,
+    "hand_known": 1.0,
+    "cls_known_or_inferred": 1.0,
+    "deliveries": 24776
+   },
+   "TEST/male": {
+    "cls_meta": 0.9541,
+    "cls_inferred": 0.0454,
+    "type_known": 0.9897,
+    "hand_known": 0.9497,
+    "cls_known_or_inferred": 0.9995,
+    "deliveries": 2893731
+   }
+  },
+  "top_unmapped_bowlers": [
+   {
+    "player_id": "a651cd4d",
+    "name": "B Wani",
+    "country": "Estonia",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 73,
+    "legal_balls_career": 48
+   },
+   {
+    "player_id": "8047ca8c",
+    "name": "H Nguyen",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 70,
+    "legal_balls_career": 50
+   },
+   {
+    "player_id": "fc67158b",
+    "name": "B Willis",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 68,
+    "legal_balls_career": 52
+   },
+   {
+    "player_id": "d4bebd88",
+    "name": "Rahat Kazi",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 68,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "4325e7ae",
+    "name": "K Moingoto",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 68,
+    "legal_balls_career": 55
+   },
+   {
+    "player_id": "1e843603",
+    "name": "M Khauta",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 65,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "c5d00347",
+    "name": "Sadat Said",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 65,
+    "legal_balls_career": 58
+   },
+   {
+    "player_id": "93b40209",
+    "name": "B Unenchtseceg",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 65,
+    "legal_balls_career": 56
+   },
+   {
+    "player_id": "1775e31e",
+    "name": "Frida Larsen",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 65,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "560ef10a",
+    "name": "M Zwilling",
+    "country": "Netherlands",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 64,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "c92f74da",
+    "name": "B Mosoaboli",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 64,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "0e8f734c",
+    "name": "H Shreya",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 63,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "2f94b39d",
+    "name": "Adil Latheef",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 63,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "0272042d",
+    "name": "Danaya Ilieva",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 63,
+    "legal_balls_career": 42
+   },
+   {
+    "player_id": "eb45b187",
+    "name": "I Mustafoev",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 63,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "59ff3c57",
+    "name": "IY Mckeon",
+    "country": "France",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 63,
+    "legal_balls_career": 51
+   },
+   {
+    "player_id": "d33fce1b",
+    "name": "Luqman Hussan",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 62,
+    "legal_balls_career": 58
+   },
+   {
+    "player_id": "11174f6d",
+    "name": "S Gasteratos",
+    "country": "Greece",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 62,
+    "legal_balls_career": 53
+   },
+   {
+    "player_id": "2f644e7f",
+    "name": "SRE Lara",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 61,
+    "legal_balls_career": 42
+   },
+   {
+    "player_id": "82c10dac",
+    "name": "Abhinandan Singh",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 60,
+    "legal_balls_career": 58
+   },
+   {
+    "player_id": "4437df8c",
+    "name": "R Patten",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 60,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "d7d8f0ed",
+    "name": "V Kai",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 59,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "2bea8bda",
+    "name": "T Elikana",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 59,
+    "legal_balls_career": 53
+   },
+   {
+    "player_id": "30291c08",
+    "name": "H Beresford-Peirse",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 59,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "5bfdbfcc",
+    "name": "Ankita Mehta",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 59,
+    "legal_balls_career": 34
+   },
+   {
+    "player_id": "3ddd957f",
+    "name": "OSB Tilley",
+    "country": "Croatia",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 59,
+    "legal_balls_career": 53
+   },
+   {
+    "player_id": "46987dc7",
+    "name": "T Navodya",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 59,
+    "legal_balls_career": 59
+   },
+   {
+    "player_id": "c122ab7f",
+    "name": "J Brown",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 59,
+    "legal_balls_career": 48
+   },
+   {
+    "player_id": "1e3db5f4",
+    "name": "C Bevin",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 59,
+    "legal_balls_career": 54
+   },
+   {
+    "player_id": "6059bb14",
+    "name": "TC Mataora",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 59,
+    "legal_balls_career": 54
+   }
+  ],
+  "top_unknown_hand_batters": [
+   {
+    "player_id": "99528b4b",
+    "name": "HR Cooper",
+    "country": "New Zealand",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 7416,
+    "legal_balls_career": 1238
+   },
+   {
+    "player_id": "25dcd237",
+    "name": "BD Schmulian",
+    "country": "New Zealand",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 6072,
+    "legal_balls_career": 2755
+   },
+   {
+    "player_id": "39d608d4",
+    "name": "F O'Neill",
+    "country": "Australia",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 3228,
+    "legal_balls_career": 10074
+   },
+   {
+    "player_id": "c3e40574",
+    "name": "DD de Soysa",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 3147,
+    "legal_balls_career": 366
+   },
+   {
+    "player_id": "f51ed6ad",
+    "name": "RK Chandraguptha",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2977,
+    "legal_balls_career": 30
+   },
+   {
+    "player_id": "92b94582",
+    "name": "J Grewcock",
+    "country": "England",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 2717,
+    "legal_balls_career": 2195
+   },
+   {
+    "player_id": "39571f64",
+    "name": "MPM Weerasinghe",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2552,
+    "legal_balls_career": 397
+   },
+   {
+    "player_id": "4830fcaf",
+    "name": "KVA Adikari",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2424,
+    "legal_balls_career": 174
+   },
+   {
+    "player_id": "532cc5b8",
+    "name": "KPNM Karunanayake",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2331,
+    "legal_balls_career": 30
+   },
+   {
+    "player_id": "2d71e6cc",
+    "name": "A Bandara",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2327,
+    "legal_balls_career": 6
+   },
+   {
+    "player_id": "1917d713",
+    "name": "Hamza Shaikh",
+    "country": "England",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 2292,
+    "legal_balls_career": 24
+   },
+   {
+    "player_id": "54fff140",
+    "name": "MMMS Cooray",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2227,
+    "legal_balls_career": 713
+   },
+   {
+    "player_id": "fb12d010",
+    "name": "R Rasantha",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2195,
+    "legal_balls_career": 6
+   },
+   {
+    "player_id": "0e0d4577",
+    "name": "MRJA Perera",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2184,
+    "legal_balls_career": 60
+   },
+   {
+    "player_id": "bb716014",
+    "name": "P Maduwantha",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2099,
+    "legal_balls_career": 520
+   },
+   {
+    "player_id": "b8e5ed34",
+    "name": "DH Lategan",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2089,
+    "legal_balls_career": 90
+   },
+   {
+    "player_id": "81acb5f5",
+    "name": "S Gimhan",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2084,
+    "legal_balls_career": 0
+   },
+   {
+    "player_id": "50ed826d",
+    "name": "S Shanmuganathan",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2080,
+    "legal_balls_career": 12
+   },
+   {
+    "player_id": "13ef4457",
+    "name": "A Wanninayake",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 2049,
+    "legal_balls_career": 353
+   },
+   {
+    "player_id": "0d6ab15a",
+    "name": "KHRA de Silva",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1963,
+    "legal_balls_career": 793
+   },
+   {
+    "player_id": "1117e543",
+    "name": "R Silva",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1892,
+    "legal_balls_career": 6
+   },
+   {
+    "player_id": "b4411c29",
+    "name": "S Kosala",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1836,
+    "legal_balls_career": 0
+   },
+   {
+    "player_id": "e88e6a14",
+    "name": "Kevin Perera",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1784,
+    "legal_balls_career": 150
+   },
+   {
+    "player_id": "c9439c2e",
+    "name": "A Norgrove",
+    "country": "England",
+    "has_meta": true,
+    "style": null,
+    "deliveries_since_2019": 1779,
+    "legal_balls_career": 0
+   },
+   {
+    "player_id": "2cbe4f4d",
+    "name": "WSEN Fernando",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1723,
+    "legal_balls_career": 208
+   },
+   {
+    "player_id": "8505bd55",
+    "name": "HS Liyanage",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1720,
+    "legal_balls_career": 30
+   },
+   {
+    "player_id": "b75b09a8",
+    "name": "TD Polgampola",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1712,
+    "legal_balls_career": 12
+   },
+   {
+    "player_id": "43ba0ada",
+    "name": "WGRL Wijenayake",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1704,
+    "legal_balls_career": 0
+   },
+   {
+    "player_id": "7f280989",
+    "name": "D Induwara",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1683,
+    "legal_balls_career": 96
+   },
+   {
+    "player_id": "b3ef6c41",
+    "name": "HG Kumara",
+    "country": null,
+    "has_meta": false,
+    "style": null,
+    "deliveries_since_2019": 1627,
+    "legal_balls_career": 60
+   }
+  ],
+  "unmapped_bowlers_with_deliveries": 889,
+  "unknown_hand_batters_with_deliveries": 2273
+ }
+}

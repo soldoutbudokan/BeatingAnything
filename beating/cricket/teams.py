@@ -24,11 +24,17 @@ are the non-neutral venues it dominates where it played at least 30% of its seas
 a second extension, secondary grounds where it played at least two matches and 75% of the ground's
 matches (Guwahati, Dharamsala, Cheltenham). Only league-stage matches define home venues (knockout
 pairings depend on results and are often at neutral grounds); every match is labelled.
-`home_status_table` labels each match twice: `full` uses the whole season's league stage (fixtures are
-public before a season), `asof` only matches before the match day: until the season has 8 matches and
-the team 4, the team's latest earlier season of the competition with a home venue (at most three back)
-stands in, after that the season so far plus that season's grounds no other team has taken this season;
-a forecast season uses the previous season.
+`home_status_table` labels each match twice. `home_status1/2` are as of the match day, from matches on
+earlier days only. A team's home venues are first the grounds whose latest home season of the
+competition in the last five years was the team's (hub and abroad seasons have none; a team new to the
+competition takes its home grounds in another competition, an extension); once the season has 4 matches
+and the team 2, its home grounds in the season so far join them and earlier grounds another team has
+taken this season drop out. The season so far makes a venue neutral only once it has max(8, half the
+expected length) matches, the expected length being the larger of the two previous seasons', and the
+venue 3, with host share judged against the expected length, so leagues that play blocks of games in
+one city (PSL, CPL) are not read as hubs. A forecast season uses the earlier seasons alone.
+`home_status1/2_full` use the whole season's league stage (the fixture list, public before a season, so
+no results) and are kept as a diagnostic; the validation report gives the two labels' agreement.
 
 Start slots. `config/cricket-day-night.csv` lists every match a rule covers with its `start_slot`
 (`day`, `day_night`, `night`, or `unknown` where a rule finds the slot ambiguous), `source` and
@@ -50,8 +56,11 @@ Limits. Renames, successors, the pink-ball list (complete to about January 2026)
 the curator's knowledge of the leagues, not scraped schedules; the slot is a category, not a start
 time, and a double-header whose other match is missing from Cricsheet is misread as a single. Home
 grounds are inferred from where teams played: a club's single match at an outground is neutral, and two
-clubs sharing a ground both lose it. BPL and LPL franchises churn nearly every edition, so their
-`team_id`s are short-lived and `lineage_id` is the useful key there.
+clubs sharing a ground both lose it. As of the day, a team's first match at a ground new to it, and the
+first Cricsheet season of a competition (county cricket 2014, IPL 2008) unless the team plays another
+competition, cannot be labelled home; about 9% of club matches get a different label from the full
+season. BPL and LPL franchises churn nearly every edition, so their `team_id`s are short-lived and
+`lineage_id` is the useful key there.
 
 Matches are keyed by ingest's integer `match_id` (the file stem; `wi_` stems map to 90M + number).
 Run `python -m beating.cricket.teams` (about 30 s) to rebuild both config files, the home-venue table
@@ -88,9 +97,12 @@ HOST_SHARE_MAX = 0.40     # plan 4.4: neutral when the venue hosts > 40% of the 
 DOMINANT_MIN = 0.50       # extension: neutral unless one team plays in >= half the venue's matches
 SECONDARY_SHARE = 0.75    # extension: secondary home ground, the team in >= 75% of its matches ...
 SECONDARY_MIN = 2         # ... and at least two of them
-ASOF_MIN_SEASON = 8       # as-of labels use the current season once it has this many matches ...
-ASOF_MIN_TEAM = 4         # ... and the team this many
-LOOKBACK = 3              # earlier seasons searched for a team's home venues
+ASOF_MIN_SEASON = 4       # as of a day, the season so far adds home venues once it has this many matches ...
+ASOF_MIN_TEAM = 2         # ... and the team this many
+ASOF_NEUTRAL_MIN = 8      # it can make a venue neutral once it has this many matches ...
+ASOF_SEASON_FRAC = 0.5    # ... and this share of the expected season length ...
+ASOF_MIN_VENUE = 3        # ... and the venue this many
+LOOKBACK_YEARS = 5        # earlier seasons (started this many years back at most) searched for home venues
 TZ_GAP_HOURS = 1.5        # a later match this far west may be the night game of the day
 TEAM_COLUMNS = ["team_raw", "gender", "team_type", "competition_id", "team_id", "team_name", "lineage_id",
                 "succeeds", "country", "full_member_from", "n_matches", "first_date", "last_date", "notes"]
@@ -395,6 +407,10 @@ def intl_status(country: str, opp_country: str, at: frozenset) -> str:
     return "home" if mine and not theirs else "away" if theirs and not mine else "neutral"
 
 
+def _years_back(day: str) -> str:
+    return f"{int(day[:4]) - LOOKBACK_YEARS}{day[4:10]}"
+
+
 class _Season:
     __slots__ = ("first", "last", "n", "n_venue", "vt", "tv")
 
@@ -425,76 +441,128 @@ class HomeVenues:
         self.comp_country = comp_country or {}
         self.seasons: dict[str, dict[str, _Season]] = defaultdict(dict)
         self._cache: dict = {}
+        self.team_comps: dict[str, set] = defaultdict(set)
 
     def add(self, comp: str, season: str, day: str, venue: str, teams) -> None:
         self.seasons[comp].setdefault(season, _Season()).add(day, venue, teams)
+        for t in teams:
+            self.team_comps[t].add(comp)
 
     def abroad(self, comp: str, venue: str) -> bool:
         c, v = self.comp_country.get(comp), self.venue_country.get(venue)
         return bool(c and v and v != c)
 
-    def owner(self, comp: str, s: _Season, venue: str) -> tuple[str | None, str]:
-        """(the team the venue is home to in this season or None, the reason it is neutral)."""
+    def owner(self, comp: str, s: _Season, venue: str, n_expected: float = 0) -> tuple[str | None, str]:
+        """(the team the venue is home to in this season or None, the reason it is neutral).
+
+        The host-share test divides by the larger of the season's matches and `n_expected`, so a season
+        to date whose fixtures come in blocks by city is judged against its expected length."""
         if self.abroad(comp, venue):
             return None, "abroad"
         nv = s.n_venue[venue]
         if nv == 0:
             return None, "unplayed"
-        if nv > HOST_SHARE_MAX * s.n + 1e-9:
+        if nv > HOST_SHARE_MAX * max(s.n, n_expected) + 1e-9:
             return None, "host_share"
         top = s.vt[venue].most_common(2)
         if (len(top) > 1 and top[0][1] == top[1][1]) or top[0][1] < DOMINANT_MIN * nv - 1e-9:
             return None, "no_dominant_team"
         return top[0][0], ""
 
-    def rule(self, comp: str, s: _Season, team: str, venue: str) -> str:
+    def rule(self, comp: str, s: _Season, team: str, venue: str, n_expected: float = 0) -> str:
         """'share' (plan rule), 'secondary' (extension) or '' for one team and venue in a season."""
-        if self.owner(comp, s, venue)[0] != team:
+        if self.owner(comp, s, venue, n_expected)[0] != team:
             return ""
         c, nt = s.tv[team][venue], sum(s.tv[team].values())
         if c >= SHARE_MIN * nt - 1e-9:
             return "share"
         return "secondary" if c >= SECONDARY_MIN and c >= SECONDARY_SHARE * s.n_venue[venue] - 1e-9 else ""
 
-    def home_set(self, comp: str, season: str, team: str) -> frozenset:
+    def home_set(self, comp: str, season: str, team: str, n_expected: float = 0) -> frozenset:
         s = self.seasons[comp].get(season)
         if s is None or team not in s.tv:
             return frozenset()
-        key = (comp, season, s.n, team)
+        key = (comp, season, s.n, team, n_expected)
         if key not in self._cache:
-            self._cache[key] = frozenset(v for v in s.tv[team] if self.rule(comp, s, team, v))
+            self._cache[key] = frozenset(v for v in s.tv[team] if self.rule(comp, s, team, v, n_expected))
         return self._cache[key]
 
+    def earlier(self, comp: str, season: str, day: str) -> list[str]:
+        """Seasons of the competition other than `season` that started before day, latest first."""
+        return [k for k, s in sorted(self.seasons[comp].items(), key=lambda kv: kv[1].first, reverse=True)
+                if k != season and s.first < day]
+
+    def expected_n(self, comp: str, season: str, day: str) -> int:
+        """Expected league-stage length of a season: the larger of the two previous seasons' (0 if none)."""
+        return max([self.seasons[comp][k].n for k in self.earlier(comp, season, day)[:2]], default=0)
+
     def previous(self, comp: str, season: str, day: str, team: str) -> tuple[frozenset, str]:
-        """The team's home venues in its latest earlier season of the competition that has any."""
-        earlier = sorted(((s.first, k) for k, s in self.seasons[comp].items() if k != season and s.first < day),
-                         reverse=True)[:LOOKBACK]
-        for _, k in earlier:
-            h = self.home_set(comp, k, team)
+        """The team's home venues before this season: venues whose latest home season of the competition
+        in the last LOOKBACK_YEARS made them the team's (hub and abroad seasons have none), else its home
+        venues in another competition (`elsewhere`)."""
+        own = self.prior_owners(comp, season, day)
+        h = frozenset(v for v, (t, _) in own.items() if t == team)
+        if not h:
+            return self.elsewhere(comp, day, team)
+        return h, "prev:" + max((own[v][1] for v in h), key=lambda k: self.seasons[comp][k].first)
+
+    def prior_owners(self, comp: str, season: str, day: str) -> dict[str, tuple[str, str]]:
+        """venue -> (team, season) for the latest earlier season in which the venue was a team's home."""
+        ks = [k for k in self.earlier(comp, season, day) if self.seasons[comp][k].first >= _years_back(day)]
+        key = ("owners", comp, tuple((k, self.seasons[comp][k].n) for k in ks))
+        if key not in self._cache:
+            own: dict = {}
+            for k in ks:
+                for t in self.seasons[comp][k].tv:
+                    for v in self.home_set(comp, k, t):
+                        own.setdefault(v, (t, k))
+            self._cache[key] = own
+        return self._cache[key]
+
+    def elsewhere(self, comp: str, day: str, team: str) -> tuple[frozenset, str]:
+        """The team's home venues in its latest season of another competition (extension), as far as
+        that season had been played, for a team new to this competition."""
+        lo = _years_back(day)
+        cand = sorted(((s.first, c, k) for c in self.team_comps.get(team, ()) if c != comp
+                       for k, s in self.seasons[c].items() if lo <= s.first < day and team in s.tv), reverse=True)
+        for _, c, k in cand:
+            h = self.home_set(c, k, team)
             if h:
-                return h, f"prev:{k}"
+                return h, f"other:{c}:{k}"
         return frozenset(), "none"
 
     def status(self, comp: str, season: str, day: str, venue: str, a: str, b: str,
                full: bool = False) -> tuple[str, str, str, str]:
-        """(status of a, status of b, source for a, source for b) for a match at venue on day."""
+        """(status of a, status of b, source for a, source for b) for a match at venue on day.
+
+        full: home venues from the whole season's league stage. As of the day (default): each team's
+        home venues from earlier seasons (`previous`), joined by those of the season so far once it has
+        ASOF_MIN_SEASON matches and the team ASOF_MIN_TEAM; the season so far makes the venue neutral
+        only once it has max(ASOF_NEUTRAL_MIN, ASOF_SEASON_FRAC x the expected length) matches, judging
+        host share against the expected length, so fixtures blocked by city do not look like a hub."""
         if self.abroad(comp, venue):
             return "neutral", "neutral", "abroad", "abroad"
         s = self.seasons[comp].get(season)
-        if (s is not None and not full and s.n >= ASOF_MIN_SEASON and s.n_venue[venue] >= 3
-                and self.owner(comp, s, venue)[0] is None):
-            return "neutral", "neutral", "season_neutral", "season_neutral"
         homes, srcs = [], []
-        for t in (a, b):
-            if s is not None and t in s.tv and (full or (s.n >= ASOF_MIN_SEASON
-                                                         and sum(s.tv[t].values()) >= ASOF_MIN_TEAM)):
-                h = self.home_set(comp, season, t)
-                if not full:   # keep earlier seasons' grounds no other team has taken (festival outgrounds)
-                    h = h | {v for v in self.previous(comp, season, day, t)[0] if self.owner(comp, s, v)[0] in (None, t)}
+        if full:
+            for t in (a, b):
+                h, src = (self.home_set(comp, season, t), "season") if s is not None and t in s.tv else \
+                    self.previous(comp, season, day, t)
                 homes.append(h)
-                srcs.append("season")
-            else:
+                srcs.append(src)
+        else:
+            n_exp = self.expected_n(comp, season, day)
+            s = s if s is not None and s.n >= ASOF_MIN_SEASON else None
+            if (s is not None and s.n >= max(ASOF_NEUTRAL_MIN, ASOF_SEASON_FRAC * n_exp)
+                    and s.n_venue[venue] >= ASOF_MIN_VENUE and self.owner(comp, s, venue, n_exp)[0] is None):
+                return "neutral", "neutral", "season_neutral", "season_neutral"
+            for t in (a, b):
                 h, src = self.previous(comp, season, day, t)
+                if s is not None and sum(s.tv.get(t, {}).values()) >= ASOF_MIN_TEAM:
+                    # this season's grounds plus earlier ones no other team has taken (festival outgrounds)
+                    h = self.home_set(comp, season, t, n_exp) | {
+                        v for v in h if self.owner(comp, s, v, n_exp)[0] in (None, t)}
+                    src = "season"
                 homes.append(h)
                 srcs.append(src)
         ha, hb = venue in homes[0], venue in homes[1]
@@ -560,9 +628,12 @@ def home_status(team_id: str, opponent_id: str, team_type: str, venue_id: str, c
     """'home', 'away' or 'neutral' for team_id against opponent_id at venue_id (plan 4.4).
 
     Clubs need `homes` built from matches before the match day (`home_venues_at(matches, day)`); a
-    season absent from it, such as a forecast season, falls back to the team's previous seasons.
+    season absent from it, such as a forecast season, falls back to the team's previous seasons. A
+    venue_id missing from the venue table raises KeyError rather than reading as neutral.
     """
     venues = load_venues() if venues is None else venues
+    if not venues.venue_id.eq(venue_id).any():
+        raise KeyError(f"venue_id {venue_id!r} is not in the venue table")
     if team_type == "international":
         at = venue_countries(venues[venues.venue_id.eq(venue_id)]).get(venue_id, frozenset())
         a, b = team_countries or (team_country(team_id), team_country(opponent_id))
@@ -573,7 +644,11 @@ def home_status(team_id: str, opponent_id: str, team_type: str, venue_id: str, c
 
 
 def home_status_table(m: pd.DataFrame, venues: pd.DataFrame | None = None) -> tuple[pd.DataFrame, HomeVenues]:
-    """Per match: as-of and full-season home status of both teams, plus the full-season HomeVenues."""
+    """Per match: as-of and full-season home status of both teams, plus the full-season HomeVenues.
+
+    home_status1/2 are as of the match day (from matches on earlier days only) and home_source1/2 say
+    what decided them (`season`, `prev:<season>`, `other:<competition>:<season>`, `none`,
+    `season_neutral`, `abroad`, `country`, `no_venue`); home_status1/2_full are the full-season labels."""
     venues = load_venues() if venues is None else venues
     at = venue_countries(venues)
     out = {}
@@ -765,6 +840,30 @@ def _pink_venue_mismatch(m: pd.DataFrame, slots: pd.DataFrame) -> list:
                    ["match_id", "start_date", "venue_raw", "note"]].values.tolist()
 
 
+def _side(s1: pd.Series, s2: pd.Series) -> np.ndarray:
+    return np.where(s1.eq("home") & s2.eq("away"), "team1", np.where(s2.eq("home") & s1.eq("away"), "team2", "neutral"))
+
+
+def _asof_vs_full(c: pd.DataFrame) -> dict:
+    """How the as-of labels compare with the full-season ones, and what decided the disagreements."""
+    a, f = _side(c.home_status1, c.home_status2), _side(c.home_status1_full, c.home_status2_full)
+    kind = np.where(a == f, "agree", np.where(a == "neutral", "asof_neutral_full_home",
+                                              np.where(f == "neutral", "asof_home_full_neutral", "flipped")))
+    src = (c.home_source1.str.replace(r":.*", "", regex=True) + "/"
+           + c.home_source2.str.replace(r":.*", "", regex=True))
+    miss = kind == "asof_neutral_full_home"
+    return dict(n_matches=len(c), agreement=round(float((a == f).mean()), 4) if len(c) else None,
+                coverage_asof=round(float((a != "neutral").mean()), 3) if len(c) else None,
+                coverage_full=round(float((f != "neutral").mean()), 3) if len(c) else None,
+                by_kind=pd.Series(kind).value_counts().to_dict(),
+                asof_neutral_full_home_by_source=src[miss].value_counts().to_dict(),
+                asof_home_full_neutral_by_source=src[kind == "asof_home_full_neutral"].value_counts().to_dict(),
+                home_win_agree=_win_rate(c[kind == "agree"], "home_status1", "home_status2"),
+                home_win_asof_only=_win_rate(c[kind == "asof_home_full_neutral"], "home_status1", "home_status2"),
+                home_win_full_only=_win_rate(c[miss], "home_status1_full", "home_status2_full"))
+
+
+ASOF_EXAMPLES = {1354937: "PSL 2022/23 at Karachi, which hosted 8 of the season's first 13 games and 9 of 34"}
 EXPECTED_SAME_SEASON = {("blast", "2026", "warwickshire_m"): "Cricsheet switches from Birmingham Bears to "
                         "Warwickshire mid-season (2026-05-29)"}
 
@@ -814,6 +913,16 @@ def validate(m: pd.DataFrame, teams: pd.DataFrame, slots: pd.DataFrame, homes: H
     rep["club_home_win_pooled"] = {t: dict(asof=_win_rate(club[tier.eq(t)], "home_status1", "home_status2"),
                                            full=_win_rate(club[tier.eq(t)], "home_status1_full", "home_status2_full"))
                                    for t in sorted(tier.unique())}
+    rep["club_home_win_pooled"]["all"] = dict(asof=_win_rate(club, "home_status1", "home_status2"),
+                                              full=_win_rate(club, "home_status1_full", "home_status2_full"))
+    with_venue = club.venue_id.notna()
+    rep["asof_vs_full"] = {"all": _asof_vs_full(club[with_venue]),
+                           **{t: _asof_vs_full(club[with_venue & tier.eq(t)]) for t in sorted(tier.unique())}}
+    ex = m.set_index("match_id")
+    rep["asof_examples"] = {str(k): dict(note=note, **ex.loc[k, ["team1_id", "team2_id", "venue_id", "home_status1",
+                                                                  "home_status2", "home_source1", "home_status1_full",
+                                                                  "home_status2_full"]].to_dict())
+                            for k, note in ASOF_EXAMPLES.items() if k in ex.index}
     ht = homes.table()
     nv = homes.neutral_venues()
     rep["home_venues"] = dict(
@@ -872,7 +981,9 @@ def main() -> None:
         .to_parquet(MATCH_TEAMS, index=False)
     rep = dict(params=dict(share_min=SHARE_MIN, host_share_max=HOST_SHARE_MAX, dominant_min=DOMINANT_MIN,
                            secondary_share=SECONDARY_SHARE, secondary_min=SECONDARY_MIN, asof_min_season=ASOF_MIN_SEASON,
-                           asof_min_team=ASOF_MIN_TEAM, lookback=LOOKBACK, tz_gap_hours=TZ_GAP_HOURS),
+                           asof_min_team=ASOF_MIN_TEAM, asof_neutral_min=ASOF_NEUTRAL_MIN,
+                           asof_season_frac=ASOF_SEASON_FRAC, asof_min_venue=ASOF_MIN_VENUE,
+                           lookback_years=LOOKBACK_YEARS, tz_gap_hours=TZ_GAP_HOURS),
                rows={"config/cricket-teams.csv": len(teams),
                      "config/cricket-day-night.csv": int(slots.source.ne("no_rule").sum()),
                      "data/derived/cricket/team-home-venues.csv": len(homes.table()),

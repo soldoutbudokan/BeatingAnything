@@ -477,7 +477,7 @@ Sri Lanka tour of New Zealand,Test,male,international,intl_test_m,bilateral,intl
 Sri Lanka tour of New Zealand,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2019-01-11,2025-01-02
 Sri Lanka tour of West Indies,Test,male,international,intl_test_m,bilateral,intl_full,False,7,2018-06-06,2026-07-03
 TVS Cup (India),ODI,male,international,intl_odi_m,multi_nation,intl_full,False,7,2003-10-23,2003-11-15
-Trans-Tasman Twenty20 Trophy,T20,male,international,intl_t20_m,bilateral,intl_full,False,7,2018-02-03,2018-02-21
+Trans-Tasman Twenty20 Trophy,T20,male,international,intl_t20_m,multi_nation,intl_full,False,7,2018-02-03,2018-02-21
 Twenty20 Quadrangular (in Kenya),T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,7,2007-09-01,2024-07-05
 West Indies tour of Bangladesh,ODI,male,international,intl_odi_m,bilateral,intl_full,False,7,2018-12-09,2025-10-23
 Women's T20 Quadrangular Series (in Malaysia),T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,7,2023-08-22,2023-08-26
@@ -1326,7 +1326,7 @@ Zimbabwe tour of South Africa,T20,male,international,intl_t20_m,bilateral,intl_f
 (none),T20,female,international,intl_t20_w,intl_unnamed,intl_assoc,True,1,2013-07-16,2013-07-16
 (none),Test,female,international,intl_test_w,intl_unnamed,intl_full,True,1,2014-08-13,2014-08-13
 Asia Cup Qualifiers,ODI,male,international,intl_odi_m,icc_qualifier,intl_assoc,False,1,2018-08-30,2018-08-30
-Asia Cup Rising Stars,T20,male,international,intl_t20_m,asia_cup,intl_assoc,False,1,2025-11-16,2025-11-16
+Asia Cup Rising Stars,T20,male,international,intl_t20_m,multi_nation,intl_assoc,False,1,2025-11-16,2025-11-16
 Asian Cricket Council Premier League,ODI,male,international,intl_odi_m,multi_nation,intl_assoc,False,1,2014-05-04,2014-05-04
 Asian Cricket Council Women's Emerging Teams Cup,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,1,2023-06-14,2023-06-14
 Australia Women in England ODI Series,ODI,female,international,intl_odi_w,bilateral,intl_full,False,1,2009-06-29,2009-06-29
@@ -1434,7 +1434,7 @@ West Indies Women in South Africa ODI Series,ODI,female,international,intl_odi_w
 West Indies tour of Ireland,T20,male,international,intl_t20_m,bilateral,intl_full,False,1,2025-06-15,2025-06-15
 West Indies tour of Zimbabwe and South Africa,Test,male,international,intl_test_m,bilateral,intl_full,False,1,2007-12-26,2007-12-26
 Women's African Games,T20,female,international,intl_t20_w,multisport,intl_full,False,1,2024-03-13,2024-03-13
-Women's Asia Cup Rising Stars,T20,female,international,intl_t20_w,asia_cup,intl_assoc,False,1,2026-02-14,2026-02-14
+Women's Asia Cup Rising Stars,T20,female,international,intl_t20_w,multi_nation,intl_assoc,False,1,2026-02-14,2026-02-14
 Women's Quadrangular Series,ODI,female,international,intl_odi_w,multi_nation,intl_full,False,1,2007-03-05,2007-03-05
 Women's T20 Challenge Match,T20,female,club,womens_t20_challenge,womens_t20_challenge,domestic_minor,False,1,2018-05-22,2018-05-22
 Women's T20 World Cup Qualifier,T20,female,international,intl_t20_w,icc_qualifier,intl_full,False,1,2026-01-24,2026-01-24

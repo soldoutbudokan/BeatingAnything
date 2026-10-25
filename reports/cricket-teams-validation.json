@@ -5,9 +5,12 @@
   "dominant_min": 0.5,
   "secondary_share": 0.75,
   "secondary_min": 2,
-  "asof_min_season": 8,
-  "asof_min_team": 4,
-  "lookback": 3,
+  "asof_min_season": 4,
+  "asof_min_team": 2,
+  "asof_neutral_min": 8,
+  "asof_season_frac": 0.5,
+  "asof_min_venue": 3,
+  "lookback_years": 5,
   "tz_gap_hours": 1.5
  },
  "rows": {
@@ -246,8 +249,8 @@
   },
   "T20_male": {
    "bilateral": {
-    "n_decisive": 1115,
-    "home_wins": 604,
+    "n_decisive": 1108,
+    "home_wins": 600,
     "home_win_rate": 0.542
    },
    "all_events": {
@@ -285,9 +288,9 @@
   "blast": {
    "n_matches": 1570,
    "asof": {
-    "n_decisive": 1360,
-    "home_wins": 718,
-    "home_win_rate": 0.528
+    "n_decisive": 1411,
+    "home_wins": 742,
+    "home_win_rate": 0.526
    },
    "full": {
     "n_decisive": 1421,
@@ -295,18 +298,18 @@
     "home_win_rate": 0.526
    },
    "asof_status_counts": {
-    "home": 1417,
-    "away": 1417,
-    "neutral": 306
+    "home": 1472,
+    "away": 1472,
+    "neutral": 196
    },
-   "asof_full_agreement": 0.948
+   "asof_full_agreement": 0.971
   },
   "county_championship": {
    "n_matches": 1530,
    "asof": {
-    "n_decisive": 839,
-    "home_wins": 478,
-    "home_win_rate": 0.57
+    "n_decisive": 851,
+    "home_wins": 484,
+    "home_win_rate": 0.569
    },
    "full": {
     "n_decisive": 872,
@@ -314,18 +317,18 @@
     "home_win_rate": 0.569
    },
    "asof_status_counts": {
-    "home": 1388,
-    "away": 1388,
-    "neutral": 284
+    "home": 1409,
+    "away": 1409,
+    "neutral": 242
    },
-   "asof_full_agreement": 0.956
+   "asof_full_agreement": 0.969
   },
   "ipl": {
    "n_matches": 1243,
    "asof": {
-    "n_decisive": 788,
-    "home_wins": 418,
-    "home_win_rate": 0.53
+    "n_decisive": 829,
+    "home_wins": 438,
+    "home_win_rate": 0.528
    },
    "full": {
     "n_decisive": 898,
@@ -333,18 +336,18 @@
     "home_win_rate": 0.53
    },
    "asof_status_counts": {
-    "neutral": 876,
-    "home": 805,
-    "away": 805
+    "home": 846,
+    "away": 846,
+    "neutral": 794
    },
-   "asof_full_agreement": 0.899
+   "asof_full_agreement": 0.929
   },
   "eng_one_day_cup": {
    "n_matches": 887,
    "asof": {
-    "n_decisive": 663,
-    "home_wins": 348,
-    "home_win_rate": 0.525
+    "n_decisive": 728,
+    "home_wins": 379,
+    "home_win_rate": 0.521
    },
    "full": {
     "n_decisive": 736,
@@ -352,18 +355,18 @@
     "home_win_rate": 0.526
    },
    "asof_status_counts": {
-    "home": 694,
-    "away": 694,
-    "neutral": 386
+    "home": 766,
+    "away": 766,
+    "neutral": 242
    },
-   "asof_full_agreement": 0.869
+   "asof_full_agreement": 0.928
   },
   "smat": {
    "n_matches": 695,
    "asof": {
-    "n_decisive": 13,
-    "home_wins": 6,
-    "home_win_rate": 0.462
+    "n_decisive": 29,
+    "home_wins": 13,
+    "home_win_rate": 0.448
    },
    "full": {
     "n_decisive": 43,
@@ -371,18 +374,18 @@
     "home_win_rate": 0.558
    },
    "asof_status_counts": {
-    "neutral": 1362,
-    "away": 14,
-    "home": 14
+    "neutral": 1330,
+    "home": 30,
+    "away": 30
    },
-   "asof_full_agreement": 0.931
+   "asof_full_agreement": 0.928
   },
   "bbl": {
    "n_matches": 662,
    "asof": {
-    "n_decisive": 542,
-    "home_wins": 294,
-    "home_win_rate": 0.542
+    "n_decisive": 556,
+    "home_wins": 303,
+    "home_win_rate": 0.545
    },
    "full": {
     "n_decisive": 568,
@@ -390,18 +393,18 @@
     "home_win_rate": 0.544
    },
    "asof_status_counts": {
-    "home": 555,
-    "away": 555,
-    "neutral": 214
+    "home": 569,
+    "away": 569,
+    "neutral": 186
    },
-   "asof_full_agreement": 0.923
+   "asof_full_agreement": 0.938
   },
   "wbbl": {
    "n_matches": 519,
    "asof": {
-    "n_decisive": 141,
-    "home_wins": 71,
-    "home_win_rate": 0.504
+    "n_decisive": 177,
+    "home_wins": 94,
+    "home_win_rate": 0.531
    },
    "full": {
     "n_decisive": 181,
@@ -409,18 +412,18 @@
     "home_win_rate": 0.525
    },
    "asof_status_counts": {
-    "neutral": 752,
-    "home": 143,
-    "away": 143
+    "neutral": 678,
+    "home": 180,
+    "away": 180
    },
-   "asof_full_agreement": 0.803
+   "asof_full_agreement": 0.786
   },
   "bpl": {
    "n_matches": 469,
    "asof": {
-    "n_decisive": 12,
-    "home_wins": 5,
-    "home_win_rate": 0.417
+    "n_decisive": 22,
+    "home_wins": 10,
+    "home_win_rate": 0.455
    },
    "full": {
     "n_decisive": 20,
@@ -428,18 +431,18 @@
     "home_win_rate": 0.35
    },
    "asof_status_counts": {
-    "neutral": 914,
-    "home": 12,
-    "away": 12
+    "neutral": 894,
+    "home": 22,
+    "away": 22
    },
-   "asof_full_agreement": 0.953
+   "asof_full_agreement": 0.94
   },
   "cpl": {
    "n_matches": 445,
    "asof": {
-    "n_decisive": 245,
-    "home_wins": 137,
-    "home_win_rate": 0.559
+    "n_decisive": 268,
+    "home_wins": 147,
+    "home_win_rate": 0.549
    },
    "full": {
     "n_decisive": 282,
@@ -447,18 +450,18 @@
     "home_win_rate": 0.543
    },
    "asof_status_counts": {
-    "neutral": 388,
-    "home": 251,
-    "away": 251
+    "neutral": 342,
+    "home": 274,
+    "away": 274
    },
-   "asof_full_agreement": 0.876
+   "asof_full_agreement": 0.915
   },
   "psl": {
    "n_matches": 357,
    "asof": {
-    "n_decisive": 51,
-    "home_wins": 29,
-    "home_win_rate": 0.569
+    "n_decisive": 69,
+    "home_wins": 40,
+    "home_win_rate": 0.58
    },
    "full": {
     "n_decisive": 61,
@@ -466,18 +469,18 @@
     "home_win_rate": 0.574
    },
    "asof_status_counts": {
-    "neutral": 610,
-    "home": 52,
-    "away": 52
+    "neutral": 574,
+    "home": 70,
+    "away": 70
    },
-   "asof_full_agreement": 0.874
+   "asof_full_agreement": 0.896
   },
   "plunket_shield": {
    "n_matches": 343,
    "asof": {
-    "n_decisive": 171,
-    "home_wins": 104,
-    "home_win_rate": 0.608
+    "n_decisive": 194,
+    "home_wins": 117,
+    "home_win_rate": 0.603
    },
    "full": {
     "n_decisive": 195,
@@ -485,18 +488,18 @@
     "home_win_rate": 0.605
    },
    "asof_status_counts": {
-    "home": 232,
-    "away": 232,
-    "neutral": 222
+    "home": 269,
+    "away": 269,
+    "neutral": 148
    },
-   "asof_full_agreement": 0.778
+   "asof_full_agreement": 0.81
   },
   "csa_t20": {
    "n_matches": 320,
    "asof": {
-    "n_decisive": 140,
-    "home_wins": 76,
-    "home_win_rate": 0.543
+    "n_decisive": 168,
+    "home_wins": 96,
+    "home_win_rate": 0.571
    },
    "full": {
     "n_decisive": 169,
@@ -504,18 +507,18 @@
     "home_win_rate": 0.538
    },
    "asof_status_counts": {
-    "neutral": 336,
-    "away": 152,
-    "home": 152
+    "neutral": 274,
+    "away": 183,
+    "home": 183
    },
-   "asof_full_agreement": 0.731
+   "asof_full_agreement": 0.728
   },
   "eng_women_one_day": {
    "n_matches": 319,
    "asof": {
-    "n_decisive": 161,
-    "home_wins": 83,
-    "home_win_rate": 0.516
+    "n_decisive": 180,
+    "home_wins": 92,
+    "home_win_rate": 0.511
    },
    "full": {
     "n_decisive": 239,
@@ -523,37 +526,37 @@
     "home_win_rate": 0.515
    },
    "asof_status_counts": {
-    "neutral": 300,
-    "home": 169,
-    "away": 169
+    "neutral": 260,
+    "away": 189,
+    "home": 189
    },
-   "asof_full_agreement": 0.705
+   "asof_full_agreement": 0.749
   },
   "super_smash": {
    "n_matches": 270,
    "asof": {
-    "n_decisive": 201,
-    "home_wins": 97,
-    "home_win_rate": 0.483
+    "n_decisive": 221,
+    "home_wins": 109,
+    "home_win_rate": 0.493
    },
    "full": {
-    "n_decisive": 227,
-    "home_wins": 111,
-    "home_win_rate": 0.489
+    "n_decisive": 230,
+    "home_wins": 114,
+    "home_win_rate": 0.496
    },
    "asof_status_counts": {
-    "home": 214,
-    "away": 214,
-    "neutral": 112
+    "home": 237,
+    "away": 237,
+    "neutral": 66
    },
-   "asof_full_agreement": 0.859
+   "asof_full_agreement": 0.911
   },
   "sheffield_shield": {
    "n_matches": 212,
    "asof": {
-    "n_decisive": 108,
-    "home_wins": 55,
-    "home_win_rate": 0.509
+    "n_decisive": 113,
+    "home_wins": 56,
+    "home_win_rate": 0.496
    },
    "full": {
     "n_decisive": 123,
@@ -561,18 +564,18 @@
     "home_win_rate": 0.496
    },
    "asof_status_counts": {
-    "away": 146,
-    "home": 146,
-    "neutral": 132
+    "away": 155,
+    "home": 155,
+    "neutral": 114
    },
-   "asof_full_agreement": 0.783
+   "asof_full_agreement": 0.825
   },
   "hundred_m": {
    "n_matches": 201,
    "asof": {
-    "n_decisive": 166,
+    "n_decisive": 167,
     "home_wins": 91,
-    "home_win_rate": 0.548
+    "home_win_rate": 0.545
    },
    "full": {
     "n_decisive": 182,
@@ -580,18 +583,18 @@
     "home_win_rate": 0.56
    },
    "asof_status_counts": {
-    "away": 172,
-    "home": 172,
-    "neutral": 58
+    "away": 173,
+    "home": 173,
+    "neutral": 56
    },
-   "asof_full_agreement": 0.915
+   "asof_full_agreement": 0.92
   },
   "super_smash_w": {
    "n_matches": 197,
    "asof": {
-    "n_decisive": 142,
-    "home_wins": 77,
-    "home_win_rate": 0.542
+    "n_decisive": 151,
+    "home_wins": 82,
+    "home_win_rate": 0.543
    },
    "full": {
     "n_decisive": 171,
@@ -599,18 +602,18 @@
     "home_win_rate": 0.52
    },
    "asof_status_counts": {
-    "away": 150,
-    "home": 150,
-    "neutral": 94
+    "away": 159,
+    "home": 159,
+    "neutral": 76
    },
-   "asof_full_agreement": 0.812
+   "asof_full_agreement": 0.858
   },
   "hundred_w": {
    "n_matches": 188,
    "asof": {
-    "n_decisive": 159,
+    "n_decisive": 160,
     "home_wins": 76,
-    "home_win_rate": 0.478
+    "home_win_rate": 0.475
    },
    "full": {
     "n_decisive": 176,
@@ -618,18 +621,18 @@
     "home_win_rate": 0.472
    },
    "asof_status_counts": {
-    "away": 163,
-    "home": 163,
-    "neutral": 50
+    "home": 164,
+    "away": 164,
+    "neutral": 48
    },
-   "asof_full_agreement": 0.91
+   "asof_full_agreement": 0.915
   },
   "slc_major_clubs_odm": {
    "n_matches": 160,
    "asof": {
-    "n_decisive": 72,
-    "home_wins": 38,
-    "home_win_rate": 0.528
+    "n_decisive": 84,
+    "home_wins": 46,
+    "home_win_rate": 0.548
    },
    "full": {
     "n_decisive": 108,
@@ -637,11 +640,11 @@
     "home_win_rate": 0.509
    },
    "asof_status_counts": {
-    "neutral": 168,
-    "away": 76,
-    "home": 76
+    "neutral": 140,
+    "home": 90,
+    "away": 90
    },
-   "asof_full_agreement": 0.688
+   "asof_full_agreement": 0.762
   },
   "lpl": {
    "n_matches": 143,
@@ -665,9 +668,9 @@
   "slc_major_league": {
    "n_matches": 134,
    "asof": {
-    "n_decisive": 9,
-    "home_wins": 5,
-    "home_win_rate": 0.556
+    "n_decisive": 20,
+    "home_wins": 9,
+    "home_win_rate": 0.45
    },
    "full": {
     "n_decisive": 28,
@@ -675,18 +678,18 @@
     "home_win_rate": 0.429
    },
    "asof_status_counts": {
-    "neutral": 238,
-    "away": 15,
-    "home": 15
+    "neutral": 188,
+    "home": 40,
+    "away": 40
    },
-   "asof_full_agreement": 0.687
+   "asof_full_agreement": 0.873
   },
   "ilt20": {
    "n_matches": 134,
    "asof": {
-    "n_decisive": 20,
-    "home_wins": 5,
-    "home_win_rate": 0.25
+    "n_decisive": 23,
+    "home_wins": 8,
+    "home_win_rate": 0.348
    },
    "full": {
     "n_decisive": 19,
@@ -694,18 +697,18 @@
     "home_win_rate": 0.263
    },
    "asof_status_counts": {
-    "neutral": 228,
-    "home": 20,
-    "away": 20
+    "neutral": 222,
+    "home": 23,
+    "away": 23
    },
-   "asof_full_agreement": 0.91
+   "asof_full_agreement": 0.888
   },
   "sa20": {
    "n_matches": 130,
    "asof": {
-    "n_decisive": 96,
-    "home_wins": 52,
-    "home_win_rate": 0.542
+    "n_decisive": 97,
+    "home_wins": 53,
+    "home_win_rate": 0.546
    },
    "full": {
     "n_decisive": 109,
@@ -713,18 +716,18 @@
     "home_win_rate": 0.569
    },
    "asof_status_counts": {
-    "home": 104,
-    "away": 104,
-    "neutral": 52
+    "away": 105,
+    "home": 105,
+    "neutral": 50
    },
-   "asof_full_agreement": 0.9
+   "asof_full_agreement": 0.908
   },
   "charlotte_edwards_cup": {
    "n_matches": 124,
    "asof": {
-    "n_decisive": 30,
-    "home_wins": 14,
-    "home_win_rate": 0.467
+    "n_decisive": 53,
+    "home_wins": 23,
+    "home_win_rate": 0.434
    },
    "full": {
     "n_decisive": 61,
@@ -732,18 +735,18 @@
     "home_win_rate": 0.508
    },
    "asof_status_counts": {
-    "neutral": 188,
-    "home": 30,
-    "away": 30
+    "neutral": 142,
+    "away": 53,
+    "home": 53
    },
-   "asof_full_agreement": 0.677
+   "asof_full_agreement": 0.685
   },
   "slc_major_clubs_t20": {
    "n_matches": 121,
    "asof": {
-    "n_decisive": 1,
+    "n_decisive": 3,
     "home_wins": 1,
-    "home_win_rate": 1.0
+    "home_win_rate": 0.333
    },
    "full": {
     "n_decisive": 8,
@@ -751,18 +754,18 @@
     "home_win_rate": 0.125
    },
    "asof_status_counts": {
-    "neutral": 238,
-    "home": 2,
-    "away": 2
+    "neutral": 234,
+    "home": 4,
+    "away": 4
    },
    "asof_full_agreement": 0.909
   },
   "aus_one_day_cup": {
    "n_matches": 121,
    "asof": {
-    "n_decisive": 63,
-    "home_wins": 33,
-    "home_win_rate": 0.524
+    "n_decisive": 76,
+    "home_wins": 41,
+    "home_win_rate": 0.539
    },
    "full": {
     "n_decisive": 82,
@@ -770,18 +773,18 @@
     "home_win_rate": 0.524
    },
    "asof_status_counts": {
-    "neutral": 114,
-    "home": 64,
-    "away": 64
+    "neutral": 88,
+    "home": 77,
+    "away": 77
    },
-   "asof_full_agreement": 0.744
+   "asof_full_agreement": 0.818
   },
   "blast_w": {
    "n_matches": 112,
    "asof": {
-    "n_decisive": 78,
-    "home_wins": 42,
-    "home_win_rate": 0.538
+    "n_decisive": 92,
+    "home_wins": 47,
+    "home_win_rate": 0.511
    },
    "full": {
     "n_decisive": 97,
@@ -789,18 +792,18 @@
     "home_win_rate": 0.505
    },
    "asof_status_counts": {
-    "away": 82,
-    "home": 82,
-    "neutral": 60
+    "home": 98,
+    "away": 98,
+    "neutral": 28
    },
-   "asof_full_agreement": 0.812
+   "asof_full_agreement": 0.938
   },
   "ire_ip_t20": {
    "n_matches": 111,
    "asof": {
-    "n_decisive": 6,
-    "home_wins": 2,
-    "home_win_rate": 0.333
+    "n_decisive": 27,
+    "home_wins": 15,
+    "home_win_rate": 0.556
    },
    "full": {
     "n_decisive": 9,
@@ -808,16 +811,16 @@
     "home_win_rate": 0.333
    },
    "asof_status_counts": {
-    "neutral": 210,
-    "away": 6,
-    "home": 6
+    "neutral": 164,
+    "away": 29,
+    "home": 29
    },
-   "asof_full_agreement": 0.865
+   "asof_full_agreement": 0.739
   },
   "mlc": {
    "n_matches": 109,
    "asof": {
-    "n_decisive": 2,
+    "n_decisive": 3,
     "home_wins": 0,
     "home_win_rate": 0.0
    },
@@ -827,18 +830,18 @@
     "home_win_rate": null
    },
    "asof_status_counts": {
-    "neutral": 214,
-    "home": 2,
-    "away": 2
+    "neutral": 212,
+    "home": 3,
+    "away": 3
    },
-   "asof_full_agreement": 0.982
+   "asof_full_agreement": 0.972
   },
   "wcsl": {
    "n_matches": 95,
    "asof": {
-    "n_decisive": 40,
-    "home_wins": 21,
-    "home_win_rate": 0.525
+    "n_decisive": 41,
+    "home_wins": 22,
+    "home_win_rate": 0.537
    },
    "full": {
     "n_decisive": 57,
@@ -846,18 +849,18 @@
     "home_win_rate": 0.561
    },
    "asof_status_counts": {
-    "neutral": 110,
-    "away": 40,
-    "home": 40
+    "neutral": 108,
+    "away": 41,
+    "home": 41
    },
-   "asof_full_agreement": 0.737
+   "asof_full_agreement": 0.747
   },
   "ire_ip_odm": {
    "n_matches": 90,
    "asof": {
-    "n_decisive": 34,
-    "home_wins": 14,
-    "home_win_rate": 0.412
+    "n_decisive": 39,
+    "home_wins": 19,
+    "home_win_rate": 0.487
    },
    "full": {
     "n_decisive": 46,
@@ -865,18 +868,18 @@
     "home_win_rate": 0.478
    },
    "asof_status_counts": {
-    "neutral": 102,
-    "away": 39,
-    "home": 39
+    "neutral": 90,
+    "away": 45,
+    "home": 45
    },
-   "asof_full_agreement": 0.789
+   "asof_full_agreement": 0.811
   },
   "wpl": {
    "n_matches": 88,
    "asof": {
-    "n_decisive": 2,
+    "n_decisive": 3,
     "home_wins": 2,
-    "home_win_rate": 1.0
+    "home_win_rate": 0.667
    },
    "full": {
     "n_decisive": 7,
@@ -884,11 +887,11 @@
     "home_win_rate": 0.571
    },
    "asof_status_counts": {
-    "neutral": 172,
-    "home": 2,
-    "away": 2
+    "neutral": 170,
+    "away": 3,
+    "home": 3
    },
-   "asof_full_agreement": 0.943
+   "asof_full_agreement": 0.932
   },
   "npl": {
    "n_matches": 64,
@@ -910,9 +913,9 @@
   "msl": {
    "n_matches": 56,
    "asof": {
-    "n_decisive": 39,
-    "home_wins": 18,
-    "home_win_rate": 0.462
+    "n_decisive": 41,
+    "home_wins": 19,
+    "home_win_rate": 0.463
    },
    "full": {
     "n_decisive": 53,
@@ -920,31 +923,31 @@
     "home_win_rate": 0.472
    },
    "asof_status_counts": {
-    "home": 42,
-    "away": 42,
-    "neutral": 28
+    "away": 44,
+    "home": 44,
+    "neutral": 24
    },
-   "asof_full_agreement": 0.75
+   "asof_full_agreement": 0.786
   }
  },
  "club_home_win_pooled": {
   "domestic_major": {
    "asof": {
-    "n_decisive": 4051,
-    "home_wins": 2175,
-    "home_win_rate": 0.537
+    "n_decisive": 4374,
+    "home_wins": 2337,
+    "home_win_rate": 0.534
    },
    "full": {
-    "n_decisive": 4580,
-    "home_wins": 2438,
-    "home_win_rate": 0.532
+    "n_decisive": 4583,
+    "home_wins": 2441,
+    "home_win_rate": 0.533
    }
   },
   "domestic_minor": {
    "asof": {
-    "n_decisive": 40,
-    "home_wins": 16,
-    "home_win_rate": 0.4
+    "n_decisive": 66,
+    "home_wins": 34,
+    "home_win_rate": 0.515
    },
    "full": {
     "n_decisive": 55,
@@ -954,15 +957,251 @@
   },
   "franchise_major": {
    "asof": {
-    "n_decisive": 2307,
-    "home_wins": 1222,
-    "home_win_rate": 0.53
+    "n_decisive": 2460,
+    "home_wins": 1306,
+    "home_win_rate": 0.531
    },
    "full": {
     "n_decisive": 2619,
     "home_wins": 1391,
     "home_win_rate": 0.531
    }
+  },
+  "all": {
+   "asof": {
+    "n_decisive": 6900,
+    "home_wins": 3677,
+    "home_win_rate": 0.533
+   },
+   "full": {
+    "n_decisive": 7257,
+    "home_wins": 3857,
+    "home_win_rate": 0.531
+   }
+  }
+ },
+ "asof_vs_full": {
+  "all": {
+   "n_matches": 12360,
+   "agreement": 0.9057,
+   "coverage_asof": 0.633,
+   "coverage_full": 0.665,
+   "by_kind": {
+    "agree": 11195,
+    "asof_neutral_full_home": 779,
+    "asof_home_full_neutral": 380,
+    "flipped": 6
+   },
+   "asof_neutral_full_home_by_source": {
+    "season/season": 445,
+    "none/none": 133,
+    "prev/prev": 57,
+    "season_neutral/season_neutral": 32,
+    "season/none": 19,
+    "none/prev": 17,
+    "none/season": 15,
+    "other/other": 12,
+    "none/other": 11,
+    "prev/season": 8,
+    "season/prev": 8,
+    "other/none": 7,
+    "prev/none": 7,
+    "prev/other": 3,
+    "other/season": 2,
+    "other/prev": 2,
+    "season/other": 1
+   },
+   "asof_home_full_neutral_by_source": {
+    "season/season": 268,
+    "prev/prev": 62,
+    "prev/none": 10,
+    "other/other": 10,
+    "season/prev": 9,
+    "prev/season": 7,
+    "none/season": 6,
+    "season/none": 3,
+    "none/prev": 3,
+    "prev/other": 1,
+    "other/prev": 1
+   },
+   "home_win_agree": {
+    "n_decisive": 6544,
+    "home_wins": 3493,
+    "home_win_rate": 0.534
+   },
+   "home_win_asof_only": {
+    "n_decisive": 350,
+    "home_wins": 182,
+    "home_win_rate": 0.52
+   },
+   "home_win_full_only": {
+    "n_decisive": 707,
+    "home_wins": 360,
+    "home_win_rate": 0.509
+   }
+  },
+  "domestic_major": {
+   "n_matches": 7140,
+   "agreement": 0.9073,
+   "coverage_asof": 0.733,
+   "coverage_full": 0.767,
+   "by_kind": {
+    "agree": 6478,
+    "asof_neutral_full_home": 454,
+    "asof_home_full_neutral": 206,
+    "flipped": 2
+   },
+   "asof_neutral_full_home_by_source": {
+    "season/season": 259,
+    "none/none": 73,
+    "prev/prev": 34,
+    "season_neutral/season_neutral": 13,
+    "other/other": 12,
+    "season/none": 12,
+    "none/season": 11,
+    "none/other": 9,
+    "none/prev": 9,
+    "other/none": 6,
+    "season/prev": 5,
+    "prev/season": 3,
+    "other/season": 2,
+    "prev/none": 2,
+    "other/prev": 2,
+    "prev/other": 1,
+    "season/other": 1
+   },
+   "asof_home_full_neutral_by_source": {
+    "season/season": 144,
+    "prev/prev": 38,
+    "prev/season": 6,
+    "other/other": 6,
+    "season/prev": 4,
+    "prev/none": 4,
+    "season/none": 1,
+    "prev/other": 1,
+    "none/season": 1,
+    "none/prev": 1
+   },
+   "home_win_agree": {
+    "n_decisive": 4190,
+    "home_wins": 2248,
+    "home_win_rate": 0.537
+   },
+   "home_win_asof_only": {
+    "n_decisive": 182,
+    "home_wins": 88,
+    "home_win_rate": 0.484
+   },
+   "home_win_full_only": {
+    "n_decisive": 391,
+    "home_wins": 192,
+    "home_win_rate": 0.491
+   }
+  },
+  "domestic_minor": {
+   "n_matches": 348,
+   "agreement": 0.8678,
+   "coverage_asof": 0.213,
+   "coverage_full": 0.181,
+   "by_kind": {
+    "agree": 302,
+    "asof_home_full_neutral": 28,
+    "asof_neutral_full_home": 17,
+    "flipped": 1
+   },
+   "asof_neutral_full_home_by_source": {
+    "season/season": 7,
+    "none/none": 2,
+    "none/other": 2,
+    "prev/other": 2,
+    "prev/prev": 2,
+    "other/none": 1,
+    "prev/season": 1
+   },
+   "asof_home_full_neutral_by_source": {
+    "season/season": 19,
+    "other/other": 4,
+    "prev/prev": 3,
+    "none/season": 1,
+    "other/prev": 1
+   },
+   "home_win_agree": {
+    "n_decisive": 39,
+    "home_wins": 17,
+    "home_win_rate": 0.436
+   },
+   "home_win_asof_only": {
+    "n_decisive": 26,
+    "home_wins": 17,
+    "home_win_rate": 0.654
+   },
+   "home_win_full_only": {
+    "n_decisive": 15,
+    "home_wins": 7,
+    "home_win_rate": 0.467
+   }
+  },
+  "franchise_major": {
+   "n_matches": 4872,
+   "agreement": 0.9062,
+   "coverage_asof": 0.517,
+   "coverage_full": 0.551,
+   "by_kind": {
+    "agree": 4415,
+    "asof_neutral_full_home": 308,
+    "asof_home_full_neutral": 146,
+    "flipped": 3
+   },
+   "asof_neutral_full_home_by_source": {
+    "season/season": 179,
+    "none/none": 58,
+    "prev/prev": 21,
+    "season_neutral/season_neutral": 19,
+    "none/prev": 8,
+    "season/none": 7,
+    "prev/none": 5,
+    "prev/season": 4,
+    "none/season": 4,
+    "season/prev": 3
+   },
+   "asof_home_full_neutral_by_source": {
+    "season/season": 105,
+    "prev/prev": 21,
+    "prev/none": 6,
+    "season/prev": 5,
+    "none/season": 4,
+    "none/prev": 2,
+    "season/none": 2,
+    "prev/season": 1
+   },
+   "home_win_agree": {
+    "n_decisive": 2315,
+    "home_wins": 1228,
+    "home_win_rate": 0.53
+   },
+   "home_win_asof_only": {
+    "n_decisive": 142,
+    "home_wins": 77,
+    "home_win_rate": 0.542
+   },
+   "home_win_full_only": {
+    "n_decisive": 301,
+    "home_wins": 161,
+    "home_win_rate": 0.535
+   }
+  }
+ },
+ "asof_examples": {
+  "1354937": {
+   "note": "PSL 2022/23 at Karachi, which hosted 8 of the season's first 13 games and 9 of 34",
+   "team1_id": "karachi_kings_m",
+   "team2_id": "multan_sultans_m",
+   "venue_id": "national_stadium_karachi",
+   "home_status1": "home",
+   "home_status2": "away",
+   "home_source1": "season",
+   "home_status1_full": "home",
+   "home_status2_full": "away"
   }
  },
  "home_venues": {
@@ -1053,11 +1292,12 @@
    "wpl:2025/26"
   ],
   "asof_sources": {
-   "season": 12279,
-   "prev": 6172,
-   "none": 3029,
-   "season_neutral": 2622,
-   "abroad": 618
+   "season": 17156,
+   "prev": 3251,
+   "season_neutral": 1878,
+   "none": 1507,
+   "abroad": 618,
+   "other": 310
   }
  },
  "start_slot": {

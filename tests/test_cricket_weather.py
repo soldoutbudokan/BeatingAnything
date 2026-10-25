@@ -142,6 +142,16 @@ class IsdDayTests(unittest.TestCase):
         self.assertTrue(np.isnan(d.loc["2023-06-03", "rh_mean"]))
         self.assertFalse(d.loc["2023-06-04", "bad"])
 
+    def test_failed_hygrometer_day_loses_dew_point_only(self):
+        over = {(3, h): dict(td=-200) for h in range(24)}  # 30 C below the month's median dew point
+        over |= {(4, h): dict(td=-100) for h in range(24)}  # 20 C below: kept (real dry spells)
+        d = W.isd_days(hourly_fixture(over, days=10), 0.0, "none")
+        self.assertTrue(d.loc["2023-06-04", "bad_dewpt"])
+        self.assertTrue(d.loc["2023-06-04", ["dewpt_c_mean", "rh_mean", "dew_depression_evening"]].isna().all())
+        self.assertAlmostEqual(d.loc["2023-06-04", "temp_c_mean"], 20.0)
+        self.assertFalse(d.loc["2023-06-05", "bad_dewpt"])
+        self.assertAlmostEqual(d.loc["2023-06-05", "dewpt_c_mean"], -10.0)
+
 
 class GsodTests(unittest.TestCase):
     def test_read_gsod_flags_and_units(self):
@@ -277,30 +287,111 @@ class MatchTests(unittest.TestCase):
         self.assertEqual(o.scheduled.tolist(), [True, False])
         self.assertEqual(o.played.tolist(), [True, True])
 
-    def test_family(self):
-        self.assertEqual(W.family("T20", 5), "HUNDRED")
-        self.assertEqual(W.family("IT20", 6), "T20")
-        self.assertEqual(W.family("MDM", 6), "TEST")
+
+def day_rows(venue, dates, **cols) -> pd.DataFrame:
+    n = len(dates)
+    base = dict(match_id=np.arange(n), venue_id=venue, date=pd.to_datetime(dates), scheduled=True, source="isd_lite",
+                precip_source="gsod", temp_c_mean=20.0, rh_mean=60.0, dewpt_c_mean=12.0, dew_depression_evening=5.0,
+                cloud_oktas_mean=4.0, wind_ms_mean=3.0, precip_mm_day=0.0, wet_day=0.0, rain_flag=0.0)
+    base.update(cols)
+    return pd.DataFrame(base)
 
 
-class OutputTests(unittest.TestCase):
-    def test_climatology_and_json(self):
-        dates = pd.to_datetime(["2023-01-05", "2023-01-06", "2023-01-07", "2023-07-01"])
-        vd = pd.DataFrame(dict(venue_id="v", date=dates, temp_c_mean=[10.0, 12.0, np.nan, 25.0],
-                               rh_mean=[80.0, 70.0, np.nan, 50.0], dew_depression_evening=[2.0, 3.0, np.nan, 8.0],
-                               cloud_oktas_mean=[6.0, np.nan, np.nan, 2.0], wet_day=[1.0, 0.0, 1.0, 0.0],
-                               precip_mm_day=[5.0, 0.4, np.nan, 0.0]))
-        c = W.climatology(vd).set_index("month")
+VENUES = pd.DataFrame(dict(venue_id=["a", "b", "c", "d", "e"], name=list("ABCDE"),
+                           region=["r1", "r1", "r1", "r1", "r2"], cricket_country=["X", "X", "X", "Y", "Z"]))
+
+
+class ClimatologyTests(unittest.TestCase):
+    def test_raw_means_counts_and_cutoff(self):
+        vd = day_rows("a", ["2023-01-05", "2023-01-06", "2023-01-07", "2023-07-01"],
+                      temp_c_mean=[10.0, 12.0, np.nan, 25.0],
+                      rh_mean=[80.0, 70.0, np.nan, 50.0], cloud_oktas_mean=[6.0, np.nan, np.nan, 2.0],
+                      wet_day=[1.0, 0.0, 1.0, 0.0], precip_mm_day=[5.0, 0.4, np.nan, 0.0])
+        vd.loc[2, "source"] = "none"  # precipitation known from the rain flag only
+        c = W.climatology(None, vd, VENUES, fill=False).set_index("month")
         self.assertAlmostEqual(c.loc[1, "temp_c"], 11.0)
         self.assertAlmostEqual(c.loc[1, "rain_day_freq"], 2 / 3)
         self.assertAlmostEqual(c.loc[1, "precip_mm_rain_day"], 5.0)
-        self.assertEqual((c.loc[1, "n"], c.loc[1, "n_precip"]), (2, 3))
-        self.assertEqual(len(W.climatology(vd, before="2023-02-01")), 1)
-        venues = pd.DataFrame(dict(venue_id=["v"], name=["V"], region=["other"]))
-        j = W.climate_json(W.climatology(vd), venues, dict(version=1))
-        self.assertEqual(len(j["venues"]["v"]["temp_c"]), 12)
-        self.assertIsNone(j["venues"]["v"]["temp_c"][1])
-        self.assertEqual(j["venues"]["v"]["n"][0], 2)
+        self.assertEqual((c.loc[1, "n"], c.loc[1, "n_precip"], c.loc[1, "n_cloud"]), (2, 3, 1))
+        self.assertEqual(len(W.climatology("2023-02-01", vd, VENUES, fill=False)), 1)
+        self.assertEqual(len(W.climatology("2023-01-05", vd, VENUES, fill=False)), 0)  # strictly before
+
+    def test_no_leakage_after_cutoff(self):
+        vd = pd.concat([day_rows("a", pd.date_range("2022-01-01", periods=40, freq="7D"), temp_c_mean=15.0),
+                        day_rows("b", pd.date_range("2022-03-01", periods=30, freq="5D"), temp_c_mean=25.0)])
+        c1 = W.climatology("2022-06-01", vd, VENUES)
+        later = vd.date >= "2022-06-01"
+        vd2 = vd.copy()
+        vd2.loc[later, ["temp_c_mean", "rh_mean", "wet_day", "precip_mm_day"]] = [99.0, 1.0, 1.0, 80.0]
+        vd2 = pd.concat([vd2, day_rows("c", ["2022-06-01", "2023-01-01"], temp_c_mean=-5.0)])
+        pd.testing.assert_frame_equal(c1, W.climatology("2022-06-01", vd2, VENUES))
+        self.assertNotEqual(c1.temp_c.sum(), W.climatology(None, vd2, VENUES).temp_c.sum())
+
+    def test_double_header_counts_once(self):
+        vd = pd.concat([day_rows("a", ["2023-01-05"], temp_c_mean=10.0),
+                        day_rows("a", ["2023-01-05"], temp_c_mean=10.0),
+                        day_rows("a", ["2023-01-06"], temp_c_mean=20.0, scheduled=False)])
+        c = W.climatology(None, vd, VENUES, fill=False)
+        self.assertEqual(c.n.tolist(), [1])
+
+    def test_hierarchy_and_levels(self):
+        jan, jul = pd.date_range("2020-01-01", periods=60, freq="D"), pd.date_range("2020-07-01", periods=25, freq="D")
+        vd = pd.concat([day_rows("a", jan.append(jul), temp_c_mean=[10.0] * 31 + [11.0] * 29 + [20.0] * 25),
+                        day_rows("b", jan[:31], temp_c_mean=15.0)])
+        c = W.climatology(None, vd, VENUES).set_index(["venue_id", "month"])
+        self.assertEqual(len(c), 5 * 12)
+        lv = c.clim_level
+        self.assertEqual((lv["a", 1], lv["a", 3], lv["b", 7], lv["c", 7], lv["d", 7], lv["e", 7]),
+                         ("venue_month", "venue", "venue", "country", "region", "global"))
+        self.assertGreater(c.loc[("b", 7), "temp_c"], c.loc[("a", 7), "temp_c"])  # warm offset carried to July
+        self.assertGreater(c.loc[("a", 7), "temp_c"], c.loc[("a", 1), "temp_c"])  # country seasonality
+        self.assertEqual(c.loc[("a", 7), "n"], 25)
+        raw = W.climatology(None, vd, VENUES, k=1e-9).set_index(["venue_id", "month"])
+        self.assertAlmostEqual(raw.loc[("a", 7), "temp_c"], 20.0, places=5)
+        self.assertTrue(c.rain_day_freq.between(0, 1).all() and c.rh.between(0, 100).all())
+        empty = W.climatology("2000-01-01", vd, VENUES)
+        self.assertTrue(empty.temp_c.isna().all() and empty.clim_level.eq("none").all())
+
+    def test_unseen_months_follow_own_season(self):
+        days = pd.date_range("2021-04-01", "2021-10-31", freq="D")
+        temp = 12 + 8 * np.cos(2 * np.pi * (days.month - 7) / 12)  # July 20 C, January 4 C, Apr-Oct only
+        vd = pd.concat([day_rows("a", days, temp_c_mean=temp),
+                        day_rows("e", pd.date_range("2021-01-01", periods=60, freq="D"), temp_c_mean=30.0)])
+        c = W.climatology(None, vd, VENUES).set_index(["venue_id", "month"]).temp_c
+        self.assertLess(abs(c["a", 1] - 4.0), 2.0)  # extrapolated, not the other hemisphere's 30 C January
+        self.assertLess(abs(c["a", 7] - 20.0), 0.5)
+        self.assertLess(c["b", 1], 9.0)  # same country, no data of its own: still its winter
+        self.assertAlmostEqual(W.seasonal_prior(pd.DataFrame({"f": [1.0]}, pd.MultiIndex.from_tuples([("g", 1)])),
+                                                pd.DataFrame({"f": [1.0]}, pd.MultiIndex.from_tuples([("g", 1)])),
+                                                pd.DataFrame({"f": np.arange(12.0)}, pd.MultiIndex.from_product(
+                                                    [["g"], range(1, 13)]))).f.iloc[5], 5.0)  # too few months
+
+    def test_impute_and_json(self):
+        vd = day_rows("a", pd.date_range("2020-01-01", periods=20, freq="D"), temp_c_mean=10.0)
+        c = W.climatology(None, vd, VENUES)
+        f = pd.DataFrame(dict(venue_id=["a", "a"], date=pd.to_datetime(["2024-01-03", "2024-01-04"]),
+                              temp_c_mean=[np.nan, 30.0], rh_mean=[50.0, np.nan]))
+        g = W.impute(f, c)
+        self.assertAlmostEqual(g.temp_c_mean[0], 10.0)
+        self.assertEqual((g.temp_c_mean[1], g.temp_c_mean_missing.tolist(), g.rh_mean_missing.tolist()),
+                         (30.0, [1, 0], [0, 1]))
+        j = W.climate_json(c, VENUES, dict(version=2))
+        self.assertEqual(len(j["venues"]["a"]["temp_c"]), 12)
+        self.assertEqual((j["venues"]["a"]["n"][0], j["venues"]["a"]["n"][1]), (20, 0))
+        self.assertEqual(j["venues"]["a"]["level"][:2], ["venue_month", "venue"])
+        self.assertEqual(j["venues"]["e"]["level"][0], "global")
+
+
+class OutputTests(unittest.TestCase):
+    def test_load_matches(self):
+        m = pd.DataFrame(dict(match_id=[1, 2], file_stem=["1", "2"], start_date=["2023-01-01", "2023-02-01"],
+                              dates_played=['["2023-01-01", "2023-01-02"]', '["2023-02-01"]'], venue_id="v",
+                              match_type="ODI", scheduled_days=[1, 1]))
+        out = W.load_matches(m)
+        self.assertEqual(out.dates[0], ["2023-01-01", "2023-01-02"])
+        self.assertEqual(out.scheduled_source.tolist(), ["given", "given"])
+        m = m.drop(columns="scheduled_days")
+        self.assertEqual(W.load_matches(m).scheduled_days.tolist(), [1, 1])  # limited overs: no zip read
 
     def test_match_summary_uses_scheduled_days(self):
         rows = pd.DataFrame(dict(match_id=[1, 1, 1], scheduled=[True, True, False], source="isd_lite",
@@ -308,14 +399,44 @@ class OutputTests(unittest.TestCase):
                                  rh_mean=60.0, dewpt_c_mean=10.0, dew_depression_evening=5.0, cloud_oktas_mean=4.0,
                                  precip_mm_day=[0.0, 3.0, 50.0], precip_hours=np.nan, wind_ms_mean=3.0,
                                  pressure_hpa_mean=1010.0, wet_day=[0.0, 1.0, 1.0], rain_flag=[0.0, 1.0, 1.0],
-                                 thunder_flag=0.0))
+                                 thunder_flag=0.0, elevation_m=140.0))
         m = pd.DataFrame([dict(match_id=1, start_date="2023-01-01", venue_id="v", match_type="Test", gender="male",
-                               scheduled_days=2)])
-        s = W.match_summary(rows, m).iloc[0]
+                               scheduled_days=2), dict(match_id=2, start_date="2026-01-01", venue_id="v",
+                                                       match_type="Test", gender="male", scheduled_days=5)])
+        out = W.match_summary(rows, m)
+        s = out.iloc[0]
         self.assertAlmostEqual(s.temp_c_mean, 21.0)
         self.assertAlmostEqual(s.precip_mm_total, 3.0)
-        self.assertEqual((s.wet_days, s.days_with_weather), (1, 2))
+        self.assertEqual((s.wet_days, s.days_with_weather, s.elevation_m), (1, 2, 140.0))
         self.assertEqual(s.source, "isd_lite")
+        self.assertEqual((out.source[1], out.days_with_weather[1]), ("none", 0))  # no rows: after the data end
+
+    def test_sanity_and_coverage(self):
+        rng = np.random.default_rng(1)
+        n = 60
+        res = ["no_result"] * 8 + ["win"] * 52
+        meth = [None] * 8 + ["D/L"] * 8 + [None] * 44
+        p = np.r_[rng.uniform(8, 30, 16), rng.exponential(0.5, 44)]
+        dates = pd.date_range("2024-01-01", periods=n, freq="5D")
+        rows = day_rows("a", dates, match_id=np.arange(n), precip_mm_day=p, wet_day=(p >= 1).astype(float),
+                        precip_hours=np.nan, rain_flag=(p >= 1).astype(float), thunder_flag=0.0, station="S",
+                        distance_km=4.0, n_obs=13.0, pressure_hpa_mean=1010.0, played=True, station_rank=1.0,
+                        cloud_station="S", elevation_m=10.0)
+        rows.loc[rows.date > "2024-08-24", ["source", "precip_source"]] = "none"
+        rows.loc[rows.date > "2024-08-24", W.CORE + ["precip_mm_day", "wet_day", "rain_flag"]] = np.nan
+        m = pd.DataFrame(dict(match_id=np.arange(n), start_date=dates.strftime("%Y-%m-%d"), venue_id="a", fam="T20",
+                              match_type="T20", gender="male", scheduled_days=1, result=res, method=meth,
+                              scheduled_source="limited_overs"))
+        summ = W.match_summary(rows, m)
+        san = W.sanity_checks(summ, m, rows, VENUES)
+        self.assertTrue(san["limited_overs"]["passed"])
+        self.assertGreater(san["limited_overs"]["no_result"]["precip_mm_mean"],
+                           san["limited_overs"]["completed"]["precip_mm_mean"])
+        self.assertEqual(san["rain_flag_vs_amount"]["flag_given_ge1mm"], 1.0)
+        cov = W.coverage_report(m, rows, summ, VENUES.assign(utc_offset_hours=0.0), pd.Timestamp("2024-08-24"))
+        self.assertEqual(cov["after_data_end"]["n_with_weather"], 0)
+        self.assertEqual(cov["after_data_end"]["n_matches"], int((dates > "2024-08-24").sum()))
+        self.assertEqual(cov["match_share_with_weather"]["to_data_end"], 1.0)
 
     def test_clean_json(self):
         self.assertEqual(W.clean_json({"a": [np.nan, np.int64(2), 1.5]}), {"a": [None, 2, 1.5]})

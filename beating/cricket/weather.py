@@ -1,22 +1,29 @@
 """NOAA ISD-lite / GSOD weather for Cricsheet matches: acquisition, per match-day features, venue climatology.
 
-Stations. Every venue-year (a venue with a match day in that year, plus every year from 2015 to the NOAA
-data end for venues with a match since 2015, for climatology) gets up to four candidate stations from
-`venues.station_candidates` ranked on that year's days (distance plus the data-cover, ICAO and height
-penalties of `venues.py`), keeping only stations with an ISD-lite file that year in the bucket listing.
-Files are fetched in rounds: the first candidate for every venue-year, then the next candidate only where a
-needed day still lacks a field (any match day; more than 10% of the days of a climatology-only year).
-Fields fall back independently, in candidate order: the temperature block (temperature, dew point, RH,
-evening dew depression, wind), pressure, cloud, precipitation and the GSOD rain/thunder flags, so Lord's
-takes temperature from London City and cloud from Heathrow. `station`/`distance_km` name the station
-of the temperature block, `cloud_station` and `precip_station` the others.
+Matches. `load_matches` takes the ingest `matches` table (match_id, file_stem, dates_played, venue_id,
+fam, result, method); scheduled days come from the rules timeline (`rules_for_match` on the match's info
+block, read from the zip for Test/MDM only), never from len(dates). Match days are every scheduled day
+from the start date plus played dates outside them (reserve days); summaries use scheduled days only.
+
+Stations. Every venue-year with a match day gets up to four candidate stations from
+`venues.station_candidates` ranked on that year's days (the `stations_on` ranking: distance plus the
+data-cover, ICAO and height penalties of `venues.py`), keeping only stations with an ISD-lite file that
+year in the bucket listing. Optionally (`climate_venues`) whole years are assembled too; the default
+climatology does not use them. Files are fetched in rounds: the first candidate for every venue-year,
+then the next candidate only where a needed day still lacks a field (any match day; more than 10% of the
+days of a whole year). Fields fall back independently, in candidate order: the temperature block
+(temperature, dew point, RH, evening dew depression, wind), pressure, cloud, precipitation and the GSOD
+rain/thunder flags, so Lord's mostly takes temperature from St James's Park, cloud from Northolt and
+precipitation from either. `station`/`distance_km` name the station of the temperature block,
+`cloud_station` and `precip_station` the others.
 
 Local time. Hourly UTC observations go to the venue clock with `utc_offset_hours` plus
-`venues.dst_shift(dst_region, date)` looked up on the standard-time local date, so a changeover day takes
-the new offset all day (changes happen at night, outside every window used). Half-hour offsets put
-observations at :30 local. Day window 10:00-22:00 and evening window 18:00-23:00 are inclusive on that
-clock; each station's years are concatenated before conversion, so evenings that cross the UTC year are
-whole when both files are present (match days fetch the adjacent year when the local day spans it).
+`venues.dst_shift(dst_region, date)` (together `venues.utc_offset_on`) looked up on the standard-time
+local date, so a changeover day takes the new offset all day (changes happen at night, outside every
+window used). Half-hour offsets put observations at :30 local. Day window 10:00-22:00 and evening window
+18:00-23:00 are inclusive on that clock; each station's years are concatenated before conversion, so
+evenings that cross the UTC year are whole when both files are present (match days fetch the adjacent
+year when the local day spans it).
 
 Fields (per local day). `temp_c_mean`, `dewpt_c_mean`, `rh_mean` (mean of hourly Magnus RH, a=17.625,
 b=243.04, over hours with both values), `wind_ms_mean`, `pressure_hpa_mean` (sea level) and
@@ -42,18 +49,41 @@ values between 10:00 and 22:00 and exists only where 9 of those 12 hours have a 
 and some UK/airport METARs). `rain_flag`/`thunder_flag` are GSOD's FRSHTT digits for the UTC day (a
 station-year with no rain flag despite five days of 1 mm or more has none); `wet_day` is precipitation
 >= 1 mm when the amount is known, else the rain flag. When no ISD-lite station has the temperature block
-the GSOD daily means (UTC day, all hours) fill it with `source = 'gsod'`.
+the GSOD daily means (UTC day, all hours) fill it with `source = 'gsod'`. `elevation_m` is the venue's
+(curated or best-station) height from `config/cricket-venues.csv`, `utc_offset` the local offset used.
+
+Climatology. `climatology(cutoff_date)` uses only scheduled match days dated strictly before the cutoff
+(one row per venue-date, so double-headers count once). Each venue x calendar-month mean is shrunk with K
+pseudo-days toward a prior built top-down from the same days, each level shrunk to the one above with K
+pseudo-days: all-days mean -> calendar month -> region x month -> (region, country) x month -> that plus
+the venue's offset (its mean residual over all its days, shrunk with K). At the region, country and venue
+levels the prior is first smoothed into a day-weighted annual harmonic (mean, cosine, sine) whose seasonal
+terms are ridge-penalised with 30 days toward the parent's shape, wherever the group has data in at least
+four months, so months without cricket are extrapolated from the group's own season (Lord's in January
+about 5 C, not the global January) instead of borrowed from another hemisphere's. K is per field
+(`CLIM_K`: 5 for temperature and dew point, 10 for RH, cloud and wind, 20 for evening dew depression, 100
+for the precipitation fields), chosen on the 2023 validation window only (cutoff 2023-01-01, scored on
+2023 match days). `clim_level` says what the venue-month rests on (venue_month, venue, country, region,
+global). Match days are the right base rate for the simulator (it is conditioned on a match being on
+Cricsheet, which omits most matches abandoned without a ball) but they under-sample off-season months and
+sunny days, so the extrapolated months run warm (MCG in July about 17 C). rain_day_freq is per match day.
+`impute` fills a frame's missing fields from a climatology and adds `*_missing` flags.
 
 Quality. Hourly values outside gross limits (temperature -40..60 C, dew point above temperature by more
 than 1 C, pressure 900..1080 hPa, wind over 60 m/s) are dropped; a station-day whose mean temperature is
-outside -10..50 C or mean RH above 100.5% is flagged and dropped whole (RH is then capped at 100).
+outside -10..50 C or mean RH above 100.5% is flagged and dropped whole (RH is then capped at 100), and one
+whose mean dew point is more than 25 C below the station's median for that calendar month (a failed
+hygrometer: Pershore read -30 C in September 2023) loses its dew point, RH and dew depression (`bad_dewpt`;
+real dry spells at Windhoek, the Highveld and Karachi sit within 23 C).
 
-Limits. The NOAA mirror ends on `venues.isd_data_end()` (2025-08-24): later matches have `source =
-'none'` and must use climatology. ISD-lite has no present weather, so outside hourly-precipitation
-stations rain intensity within the day is unknown and `wet_day` from flags counts drizzle days. GSOD
-means and flags are UTC days, a good proxy for 10:00-22:00 local only between about UTC-5 and UTC+13.
-Station data are airport or synoptic sites up to 60 km from the ground; sea breezes, altitude and urban
-heat make them a proxy for the ground, not a measurement at it.
+Limits. The NOAA AWS mirror ends on `venues.isd_data_end()` (2025-08-24; the 2026 prefixes are empty):
+later matches (2,988 of 23,132) have `source = 'none'` and must use climatology. Some grounds have no
+station with data for years (Seddon Park, Hamilton, before 2021). ISD-lite has no present weather, so
+outside hourly-precipitation stations rain intensity within the day is unknown and `wet_day` from flags
+counts drizzle days. GSOD means and flags are UTC days, a good proxy for 10:00-22:00 local only between
+about UTC-5 and UTC+13. Station data are airport or synoptic sites up to 60 km from the ground; sea
+breezes, altitude and urban heat make them a proxy for the ground, not a measurement at it. Cloud is
+missing at most New Zealand and many English stations (METARs that report layers only).
 """
 from __future__ import annotations
 
@@ -97,7 +127,7 @@ CLIMATE_FROM = 2015
 CLIMATE_GAP_SHARE = 0.10
 WET_MM = 1.0
 MAGNUS_A, MAGNUS_B = 17.625, 243.04
-TEMP_OK, RH_MAX = (-10.0, 50.0), 100.5
+TEMP_OK, RH_MAX, DEWPT_LOW_ANOM = (-10.0, 50.0), 100.5, 25.0
 CLOUD_MIN_NONZERO, CLOUD_MIN_VALID = 0.05, 100
 LAG_MIN_N, LAG_MIN_GAIN = 60, 0.05
 SKY_OKTAS = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, np.nan, np.nan, 4, 4, 4, 7, 7, 7, 8, 8, 8])
@@ -107,14 +137,24 @@ TRANSIENT_HTTP = {408, 425, 429, 500, 502, 503, 504}
 CORE = ["temp_c_mean", "dewpt_c_mean", "rh_mean", "n_obs", "dew_depression_evening", "n_obs_evening",
         "wind_ms_mean"]
 ISD_COLS = CORE + ["cloud_oktas_mean", "n_cloud", "pressure_hpa_mean", "isd_precip_mm", "isd_precip_cover",
-                   "precip_hours", "bad"]
+                   "precip_hours", "bad", "bad_dewpt"]
 GSOD_COLS = ["g_temp", "g_dewp", "g_n", "g_slp", "g_wind", "g_prcp", "g_flag", "rain_flag", "thunder_flag", "g_bad"]
 DAY_COLS = ["station", "station_rank", "distance_km", "source", "n_obs", "temp_c_mean", "rh_mean", "dewpt_c_mean",
             "dew_depression_evening", "n_obs_evening", "cloud_oktas_mean", "cloud_station", "precip_mm_day",
             "precip_source", "precip_station", "precip_hours", "rain_flag", "thunder_flag", "wet_day",
-            "wind_ms_mean", "pressure_hpa_mean", "utc_offset"]
-CLIMATE_FIELDS = {"temp_c": "temp_c_mean", "rh": "rh_mean", "dew_depression_evening": "dew_depression_evening",
-                  "cloud_oktas": "cloud_oktas_mean"}
+            "wind_ms_mean", "pressure_hpa_mean", "elevation_m", "utc_offset"]
+CLIMATE_FIELDS = {"temp_c": "temp_c_mean", "rh": "rh_mean", "dewpt_c": "dewpt_c_mean",
+                  "dew_depression_evening": "dew_depression_evening", "cloud_oktas": "cloud_oktas_mean",
+                  "wind_ms": "wind_ms_mean", "precip_mm": "precip_mm_day", "rain_day_freq": "wet_day",
+                  "precip_mm_rain_day": "rain_mm"}
+CLIMATE_RANGE = {"rh": (0, 100), "cloud_oktas": (0, 8), "rain_day_freq": (0, 1), "precip_mm": (0, None),
+                 "precip_mm_rain_day": (WET_MM, None), "wind_ms": (0, None), "dew_depression_evening": (0, None)}
+HARM_MIN_MONTHS, HARM_RIDGE = 4, 30.0
+CLIM_K = {"temp_c": 5.0, "rh": 10.0, "dewpt_c": 5.0, "dew_depression_evening": 20.0, "cloud_oktas": 10.0,
+          "wind_ms": 10.0, "precip_mm": 100.0, "rain_day_freq": 100.0, "precip_mm_rain_day": 100.0}
+MATCH_COLS = ["match_id", "file_stem", "start_date", "dates_played", "venue_id", "fam", "gender", "match_type",
+              "team_type", "result", "method"]
+MATCH_KEYS = ["start_date", "venue_id", "fam", "match_type", "gender", "scheduled_days"]
 
 
 # ---------------------------------------------------------------- matches
@@ -127,26 +167,6 @@ def _info(b: bytes) -> dict:
         except (ValueError, KeyError):
             pass
     return json.loads(b)["info"]
-
-
-def match_id_of(stem: str) -> int:
-    """Integer match_id from the file stem, as `ingest.match_id_of` ('wi_201706' -> 90,000,000 + number)."""
-    try:
-        from beating.cricket.ingest import match_id_of as ingest_id
-        return ingest_id(stem)
-    except ImportError:
-        if stem.isdigit():
-            return int(stem)
-        prefix, _, num = stem.rpartition("_")
-        if prefix == "wi" and num.isdigit():
-            return 90_000_000 + int(num)
-        raise
-
-
-def family(match_type: str, balls_per_over) -> str:
-    if balls_per_over == 5:
-        return "HUNDRED"
-    return {"T20": "T20", "IT20": "T20", "ODI": "ODI", "ODM": "ODI", "Test": "TEST", "MDM": "TEST"}.get(match_type, "")
 
 
 def _overrides() -> dict:
@@ -163,7 +183,8 @@ def scheduled_days(info: dict, match_id: str, overrides: dict | None = None) -> 
         return 1, "limited_overs"
     try:
         from beating.cricket.rules import rules_for_match
-        d = rules_for_match(info, match_id=match_id).get("test_days")
+        r = rules_for_match(info, match_id=match_id)
+        d = r.get("scheduled_days") or r.get("test_days")
         if d:
             return int(d), "rules"
     except Exception:  # the timeline is optional here; fall back below
@@ -174,27 +195,29 @@ def scheduled_days(info: dict, match_id: str, overrides: dict | None = None) -> 
     return (5 if info["match_type"] == "Test" and info.get("gender") == "male" else 4), "default"
 
 
-def scan_matches(zip_path: Path | str = V.CRICSHEET_ZIP, limit: int | None = None) -> pd.DataFrame:
-    """One row per Cricsheet match with what weather needs: dates, venue_id, format, outcome."""
-    rows, ov = [], _overrides()
-    with zipfile.ZipFile(zip_path) as z:
-        names = sorted((i for i in z.namelist() if i.endswith(".json")), key=lambda n: match_id_of(Path(n).stem))
-        for name in names[:limit]:
-            info, mid = _info(z.read(name)), match_id_of(Path(name).stem)
-            try:
-                vid = V.venue_id_for(info.get("venue"), info.get("city"))
-            except KeyError:
-                vid = None
-            sched, how = scheduled_days(info, mid, ov)
-            out = info.get("outcome", {})
-            rows.append(dict(match_id=mid, start_date=info["dates"][0], dates=list(info["dates"]),
-                             venue_raw=info.get("venue"), city_raw=info.get("city"), venue_id=vid,
-                             match_type=info.get("match_type"), gender=info.get("gender"),
-                             team_type=info.get("team_type"),
-                             fam=family(info.get("match_type"), info.get("balls_per_over", 6)),
-                             scheduled_days=sched, scheduled_source=how, result=out.get("result", "win"),
-                             method=out.get("method")))
-    return pd.DataFrame(rows)
+def load_matches(matches: pd.DataFrame | None = None, zip_path: Path | str = V.CRICSHEET_ZIP) -> pd.DataFrame:
+    """Ingest matches with `dates` (list), `start_date` (str) and rules-timeline `scheduled_days` /
+    `scheduled_source`; a `scheduled_days` column already present is kept (fixtures)."""
+    if matches is None:
+        from beating.cricket.ingest import read_table
+        matches = read_table("matches", columns=MATCH_COLS)
+    m = matches.reset_index(drop=True).copy()
+    m["dates"] = [json.loads(d) if isinstance(d, str) else list(d) for d in m.dates_played]
+    m["start_date"] = m.start_date.astype(str).str[:10]
+    if "scheduled_days" in m:
+        m["scheduled_source"] = m.get("scheduled_source", "given")
+        return m
+    sched, how = np.ones(len(m), dtype=int), np.full(len(m), "limited_overs", dtype=object)
+    multi = np.flatnonzero(m.match_type.isin(["Test", "MDM"]).to_numpy())
+    if len(multi):
+        ov = _overrides()
+        with zipfile.ZipFile(zip_path) as z:
+            names = {Path(n).stem: n for n in z.namelist() if n.endswith(".json")}
+            for i in multi:
+                info = _info(z.read(names[str(m.file_stem.iat[i])]))
+                sched[i], how[i] = scheduled_days(info, int(m.match_id.iat[i]), ov)
+    m["scheduled_days"], m["scheduled_source"] = sched, how
+    return m
 
 
 def match_days(matches: pd.DataFrame) -> pd.DataFrame:
@@ -456,7 +479,10 @@ def isd_days(a: np.ndarray, offset: float, dst_region: str = "none") -> pd.DataF
     df.loc[n_slp < MIN_AUX_OBS, "pressure_hpa_mean"] = np.nan
     df["n_obs"], df["n_obs_evening"], df["n_cloud"] = n_obs, n_eve, n_cloud
     df["bad"] = impossible(df.temp_c_mean, df.rh_mean)
-    df.loc[df.bad, [c for c in cols if c != "bad"]] = np.nan
+    med = df.dewpt_c_mean.where(~df.bad).groupby(df.index.month).transform("median")
+    df["bad_dewpt"] = (df.dewpt_c_mean < med - DEWPT_LOW_ANOM).to_numpy() & ~df.bad.to_numpy()
+    df.loc[df.bad_dewpt, ["dewpt_c_mean", "rh_mean", "dew_depression_evening"]] = np.nan
+    df.loc[df.bad, [c for c in cols if c not in ("bad", "bad_dewpt")]] = np.nan
     df["rh_mean"] = df.rh_mean.clip(upper=100.0)
     keep = (n_obs > 0) | (cover > 0) | (n_cloud > 0) | (n_slp > 0) | df.bad.to_numpy()
     return df.loc[keep, cols]
@@ -613,7 +639,8 @@ def assemble(days: pd.DatetimeIndex, cands: list[tuple[str, float]], isd: list, 
         if g is None:
             continue
         need = out.source.eq("none").to_numpy() & g.g_temp.notna().to_numpy() & (g.g_n.to_numpy(float) >= 4)
-        _fill(out, need, g, ["temp_c_mean", "dewpt_c_mean", "wind_ms_mean", "n_obs"], ["g_temp", "g_dewp", "g_wind", "g_n"])
+        _fill(out, need, g, ["temp_c_mean", "dewpt_c_mean", "wind_ms_mean", "n_obs"],
+              ["g_temp", "g_dewp", "g_wind", "g_n"])
         out.loc[need, "rh_mean"] = np.minimum(magnus_rh(out.temp_c_mean[need], out.dewpt_c_mean[need]), 100.0)
         out.loc[need, ["station", "source"]] = [st, "gsod"]
         out.loc[need, ["station_rank", "distance_km"]] = [k + 1, dist]
@@ -680,7 +707,8 @@ def venue_year_frame(p: dict, store: StationStore, k_isd: int = N_CANDIDATES, k_
     return assemble(p["days"], p["cands"], isd, gsod)
 
 
-def round_jobs(plan: dict, store: StationStore, kind: str, k: int, pending: set, listed: set | None) -> tuple[list, set]:
+def round_jobs(plan: dict, store: StationStore, kind: str, k: int, pending: set,
+               listed: set | None) -> tuple[list, set]:
     """Jobs for candidate k of every pending venue-year: in ISD-lite rounds the first candidate always, later
     ones when the frame from candidates < k lacks a TRIGGER_ISD field; in GSOD rounds when the frame from
     all ISD-lite candidates plus GSOD < k lacks a TRIGGER_GSOD field. Returns (jobs, still pending)."""
@@ -713,7 +741,7 @@ def venue_days(plan: dict, store: StationStore) -> pd.DataFrame:
         f.insert(0, "venue_id", v)
         f["climate_year"] = p["climate"]
         frames.append(f)
-    out = pd.concat(frames, ignore_index=True).drop(columns="utc_offset")
+    out = pd.concat(frames, ignore_index=True).drop(columns=["utc_offset", "elevation_m"])
     return out.drop_duplicates(["venue_id", "date"], keep="first")
 
 
@@ -728,43 +756,166 @@ def match_day_rows(days: pd.DataFrame, vdays: pd.DataFrame, venues: pd.DataFrame
         if v in vt.index:
             off[(v, d)] = float(vt.at[v, "utc_offset_hours"]) + V.dst_shift(vt.at[v, "dst_region"], d)
     out["utc_offset"] = [off.get(k, np.nan) for k in zip(out.venue_id, out.date)]
+    out["elevation_m"] = out.venue_id.map(vt.elevation_m).astype(float)
     return out
+
+
+def load_match_days(path: Path | str = MATCH_DAY_PATH) -> pd.DataFrame:
+    d = pd.read_parquet(path)
+    d["date"] = pd.to_datetime(d.date)
+    return d
 
 
 # ---------------------------------------------------------------- outputs
 
-def climatology(venue_days: pd.DataFrame, venue_ids=None, before=None, start=None) -> pd.DataFrame:
-    """Per venue_id x calendar month from venue-days (optionally only dates in [start, before)): means of
-    temperature, RH, evening dew depression and cloud, rain-day frequency (wet_day), mean precipitation on
-    days with >= 1 mm, day counts."""
-    d = venue_days
-    if venue_ids is not None:
-        d = d[d.venue_id.isin(set(venue_ids))]
-    if before is not None:
-        d = d[d.date < pd.Timestamp(before)]
-    if start is not None:
-        d = d[d.date >= pd.Timestamp(start)]
-    d = d.assign(month=d.date.dt.month, rain_mm=d.precip_mm_day.where(d.precip_mm_day >= WET_MM))
-    agg = {k: (v, "mean") for k, v in CLIMATE_FIELDS.items()}
-    agg |= dict(rain_day_freq=("wet_day", "mean"), precip_mm_rain_day=("rain_mm", "mean"),
-                n=("temp_c_mean", "count"), n_precip=("wet_day", "count"))
-    return d.groupby(["venue_id", "month"]).agg(**agg).reset_index()
+def climate_days(rows: pd.DataFrame, cutoff_date=None) -> pd.DataFrame:
+    """Distinct (venue_id, date) scheduled match days with any observed field, dated strictly before the
+    cutoff (all when None), with the CLIMATE_FIELDS source columns and `month`."""
+    d = rows[rows.scheduled.astype(bool) & rows.venue_id.notna()]
+    d = d.assign(date=pd.to_datetime(d.date))
+    if cutoff_date is not None:
+        d = d[d.date < pd.Timestamp(cutoff_date)]
+    d = d[d.source.ne("none") | d.precip_mm_day.notna() | d.wet_day.notna()]
+    d = d.sort_values(["venue_id", "date", "match_id"]).drop_duplicates(["venue_id", "date"])
+    return d.assign(month=d.date.dt.month, rain_mm=d.precip_mm_day.where(d.precip_mm_day >= WET_MM))
+
+
+def _sums(x: pd.DataFrame, keys: list[str], fields: list[str]) -> tuple[pd.DataFrame, pd.DataFrame]:
+    g = x.groupby(keys)[fields]
+    return g.sum(), g.count()
+
+
+def _shrink(s: pd.DataFrame, n: pd.DataFrame, prior: pd.DataFrame, k: pd.Series) -> pd.DataFrame:
+    s, n = s.reindex(prior.index).fillna(0.0), n.reindex(prior.index).fillna(0.0)
+    return (s + k * prior) / (n + k)
+
+
+_HX = np.c_[np.ones(12), np.cos(np.arange(1, 13) * np.pi / 6), np.sin(np.arange(1, 13) * np.pi / 6)]
+
+
+def seasonal_prior(s: pd.DataFrame, n: pd.DataFrame, parent: pd.DataFrame, lam: float = HARM_RIDGE,
+                   min_months: int = HARM_MIN_MONTHS) -> pd.DataFrame:
+    """Per group (first index level; 12 months each, in order) and field: the day-weighted first annual
+    harmonic of the group's month means, its cosine and sine terms ridge-penalised with `lam` days toward
+    those of the parent's curve (the parent's seasonal shape unless the group's data say otherwise), where
+    the group has data in at least `min_months` months; elsewhere the parent's values."""
+    s, n = s.reindex(parent.index).fillna(0.0), n.reindex(parent.index).fillna(0.0)
+    G = len(parent) // 12
+    S, N, out = (a.to_numpy(float).reshape(G, 12, -1) for a in (s, n, parent.copy()))
+    pen = np.diag([0.0, lam, lam])
+    for g in range(G):
+        for j in range(S.shape[2]):
+            w = N[g, :, j]
+            ok = w > 0
+            if ok.sum() < min_months or np.isnan(out[g, :, j]).any():
+                continue
+            X, wy = _HX[ok], S[g, ok, j]
+            shape = np.linalg.lstsq(_HX, out[g, :, j], rcond=None)[0]
+            beta = np.linalg.solve(X.T @ (X * w[ok, None]) + pen, X.T @ wy + pen @ shape)
+            out[g, :, j] = _HX @ beta
+    return pd.DataFrame(out.reshape(G * 12, -1), parent.index, parent.columns)
+
+
+def climatology(cutoff_date=None, rows: pd.DataFrame | None = None, venues: pd.DataFrame | None = None,
+                k: float | dict | None = None, fill: bool = True) -> pd.DataFrame:
+    """Venue x calendar-month climatology from scheduled match days strictly before `cutoff_date` (None =
+    all days), the only data it touches, so it is leakage-free for matches on or after the cutoff.
+    fill=True: every venue in `venues` x 12 months, fields shrunk through the hierarchy in the module
+    docstring, `clim_level` the lowest level with data and `n`, `n_precip`, `n_cloud` the venue-month's own
+    day counts. fill=False: only observed venue-months, raw means. `rows` defaults to the match-day table."""
+    rows = load_match_days() if rows is None else rows
+    venues = V.load_venues() if venues is None else venues
+    d = climate_days(rows, cutoff_date)
+    vt = venues.set_index("venue_id")
+    fields = list(CLIMATE_FIELDS)
+    k = pd.Series(CLIM_K if k is None else k if isinstance(k, dict) else dict.fromkeys(fields, float(k)))[fields]
+    x = pd.DataFrame({f: d[c].to_numpy(float) for f, c in CLIMATE_FIELDS.items()}, index=d.index)
+    x["venue_id"], x["month"] = d.venue_id.to_numpy(), d.month.to_numpy()
+    region, country = vt.region.fillna("other"), vt.cricket_country.fillna("")
+    x["region"] = x.venue_id.map(region).fillna("other").to_numpy()
+    x["country"] = (x.region + "|" + x.venue_id.map(country).fillna("")).to_numpy()
+    if not fill:
+        s, n = _sums(x, ["venue_id", "month"], fields)
+        out = (s / n.where(n > 0)).assign(n=n.temp_c, n_precip=n.rain_day_freq, n_cloud=n.cloud_oktas)
+        return _clip(out).reset_index()
+    months = pd.Index(range(1, 13), name="month")
+    ids = pd.Index(venues.venue_id, name="venue_id")
+    reg = pd.Series(sorted(set(region) | set(x.region)))
+    cty = pd.Series(sorted(set(region + "|" + country) | set(x.country)))
+    grid = lambda keys, name: pd.MultiIndex.from_product([keys, months], names=[name, "month"])
+    up = lambda prior, parent, idx: prior.reindex(pd.MultiIndex.from_arrays([parent, idx.get_level_values(1)]))
+    tot_n = x[fields].count()
+    glob = (x[fields].sum() / tot_n.where(tot_n > 0)).to_numpy()[None, :]
+    gm = _shrink(*_sums(x, ["month"], fields), pd.DataFrame(np.repeat(glob, 12, 0), months, fields), k)
+    ri = grid(reg, "region")
+    sr, nr = _sums(x, ["region", "month"], fields)
+    rm = _shrink(sr, nr, seasonal_prior(sr, nr, gm.reindex(ri.get_level_values(1)).set_axis(ri)), k)
+    ci = grid(cty, "country")
+    cparent = ci.get_level_values(0).str.split("|").str[0]
+    sc, nc = _sums(x, ["country", "month"], fields)
+    cm = _shrink(sc, nc, seasonal_prior(sc, nc, up(rm, cparent, ci).set_axis(ci)), k)
+    base = cm.reindex(pd.MultiIndex.from_arrays([x.country, x.month])).set_axis(x.index)
+    resid = x[fields] - base
+    offset = resid.groupby(x.venue_id).sum().reindex(ids).fillna(0.0) / \
+        (resid.groupby(x.venue_id).count().reindex(ids).fillna(0.0) + k)
+    vi = grid(ids, "venue_id")
+    vid = vi.get_level_values(0)
+    vprior = up(cm, vid.map(region + "|" + country), vi).set_axis(vi) + offset.reindex(vid).set_axis(vi)
+    s, n = _sums(x, ["venue_id", "month"], fields)
+    out = _clip(_shrink(s, n, seasonal_prior(s, n, vprior), k))
+    n = n.reindex(vi).fillna(0).astype(int)
+    out["n"], out["n_precip"], out["n_cloud"] = n.temp_c, n.rain_day_freq, n.cloud_oktas
+    has = lambda key, by: np.asarray(pd.Series(key).map(x.groupby(by).size()).fillna(0) > 0)
+    out["clim_level"] = np.select(
+        [out.n.gt(0) | out.n_precip.gt(0), has(vid, "venue_id"), has(vid.map(region + "|" + country), "country"),
+         has(vid.map(region), "region"), np.full(len(vi), len(x) > 0)],
+        ["venue_month", "venue", "country", "region", "global"], "none")
+    return out.reset_index()
+
+
+def _clip(c: pd.DataFrame) -> pd.DataFrame:
+    for f, (lo, hi) in CLIMATE_RANGE.items():
+        if f in c:
+            c[f] = c[f].clip(lo, hi)
+    return c
+
+
+DAY_TO_CLIMATE = {c: f for f, c in CLIMATE_FIELDS.items() if c != "rain_mm"}
+
+
+def impute(frame: pd.DataFrame, clim: pd.DataFrame, cols=None) -> pd.DataFrame:
+    """Fill missing day/match fields (temp_c_mean, rh_mean, ...) from a filled climatology by venue_id and
+    the month of `date` (or `start_date`), adding `<col>_missing` 0/1 flags."""
+    cols = [c for c in (cols or DAY_TO_CLIMATE) if c in frame]
+    month = pd.to_datetime(frame["date"] if "date" in frame else frame["start_date"]).dt.month
+    c = clim.set_index(["venue_id", "month"])
+    look = c.reindex(pd.MultiIndex.from_arrays([frame.venue_id, month]))
+    out = frame.copy()
+    for col in cols:
+        miss = out[col].isna().to_numpy()
+        out[f"{col}_missing"] = miss.astype("int8")
+        out.loc[miss, col] = look[DAY_TO_CLIMATE[col]].to_numpy(float)[miss]
+    return out
 
 
 def climate_json(clim: pd.DataFrame, venues: pd.DataFrame, meta: dict) -> dict:
-    """Compact page file: per venue, 12-value arrays (January first; null where no data)."""
+    """Compact page file: per venue, 12-value arrays (January first; null where no value) and the level."""
     st = venues.set_index("venue_id")
-    fields = list(CLIMATE_FIELDS) + ["rain_day_freq", "precip_mm_rain_day", "n", "n_precip"]
-    nd = {"temp_c": 1, "rh": 0, "dew_depression_evening": 1, "cloud_oktas": 1, "rain_day_freq": 3,
-          "precip_mm_rain_day": 1}
+    fields = list(CLIMATE_FIELDS) + ["n", "n_precip", "n_cloud"]
+    nd = {"temp_c": 1, "rh": 0, "dewpt_c": 1, "dew_depression_evening": 1, "cloud_oktas": 1, "wind_ms": 1,
+          "precip_mm": 1, "rain_day_freq": 3, "precip_mm_rain_day": 1}
     out = {}
     for vid, g in clim.groupby("venue_id"):
         g = g.set_index("month").reindex(range(1, 13))
         row = {"name": st.at[vid, "name"], "region": st.at[vid, "region"]}
         for f in fields:
+            if f not in g:
+                continue
             vals = g[f].to_numpy(float)
-            row[f] = [None if np.isnan(x) else (int(x) if f in ("n", "n_precip") else round(float(x), nd[f]))
+            row[f] = [None if np.isnan(x) else (int(x) if f.startswith("n") and f not in nd else round(float(x), nd[f]))
                       for x in vals]
+        if "clim_level" in g:
+            row["level"] = [None if pd.isna(x) else x for x in g.clim_level]
         out[vid] = row
     return dict(meta, venues=out)
 
@@ -789,10 +940,12 @@ def match_summary(day_rows: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFrame
     out["days_with_precip"] = g.precip_mm_day.count()
     out["station"] = g.station.agg(lambda x: x.mode().iloc[0] if x.notna().any() else None)
     out["distance_km"] = g.distance_km.mean()
+    if "elevation_m" in s:
+        out["elevation_m"] = g.elevation_m.first()
     src = s.groupby("match_id").source.agg(lambda x: "isd_lite" if (x == "isd_lite").any()
                                            else ("gsod" if (x == "gsod").any() else "none"))
     out["source"] = src
-    m = matches.set_index("match_id")[["start_date", "venue_id", "match_type", "gender", "scheduled_days"]]
+    m = matches.set_index("match_id")[[c for c in MATCH_KEYS if c in matches]]
     out = m.join(out, how="left")
     out["source"] = out.source.fillna("none")
     out["days_with_weather"] = out.days_with_weather.fillna(0).astype(int)
@@ -833,54 +986,72 @@ def _diff(a: pd.Series, b: pd.Series) -> dict:
     return dict(diff=round(float(d), 3), se=round(float(se), 3), z=round(float(d / se), 1) if se > 0 else None)
 
 
-def sanity_checks(summary: pd.DataFrame, matches: pd.DataFrame, clim: pd.DataFrame, venues: pd.DataFrame) -> dict:
-    """Precipitation by outcome (no result and D/L/VJD vs completed limited-overs matches; Test draws vs
-    results) and monthly climatology at reference venues, Indian monsoon and English summer."""
-    m = matches.merge(summary.drop(columns=["start_date", "venue_id", "match_type", "gender", "scheduled_days"]),
-                      on="match_id")
+def _by_month(d: pd.DataFrame) -> dict:
+    g = d.groupby("month")
+    f = lambda s: [None if pd.isna(y) else round(float(y), 2) for y in s.reindex(range(1, 13))]
+    return dict(temp_c=f(g.temp_c_mean.mean()), rh=f(g.rh_mean.mean()), rain_day_freq=f(g.wet_day.mean()),
+                precip_mm=f(g.precip_mm_day.mean()), cloud_oktas=f(g.cloud_oktas_mean.mean()),
+                n=[int(x) for x in g.temp_c_mean.count().reindex(range(1, 13)).fillna(0)])
+
+
+def _mean(x: pd.Series, nd: int = 3):
+    return round(float(x.mean()), nd) if x.notna().any() else None
+
+
+def sanity_checks(summary: pd.DataFrame, matches: pd.DataFrame, rows: pd.DataFrame, venues: pd.DataFrame) -> dict:
+    """Precipitation by outcome (no result and D/L/VJD vs completed limited-overs matches: both must be
+    wetter, z > 2, for `passed`; Test draws vs results), rain flag vs amount agreement, and match-day
+    monthly means at reference venues, Indian venues (monsoon) and English venues (summer)."""
+    m = matches.merge(summary.drop(columns=[c for c in MATCH_KEYS if c in summary]), on="match_id")
     m = m[m.source.ne("none") | m.days_with_precip.gt(0)]
     m = m.assign(wet_day=m.wet_day_share, rain_flag=m.rain_flag_share)
     lo = m[m.fam.isin(["T20", "HUNDRED", "ODI"])]
-    grp = np.where(lo.result.eq("no result"), "no_result",
+    grp = np.where(lo.result.isin(["no_result", "no result"]), "no_result",
                    np.where(lo.method.isin(RAIN_METHODS), "dl_vjd", np.where(lo.method.isna(), "completed", "other")))
     out = dict(limited_overs={k: _group_stats(lo[grp == k]) for k in ("no_result", "dl_vjd", "completed", "other")})
+    ok = []
     for k in ("no_result", "dl_vjd"):
-        out["limited_overs"][f"{k}_minus_completed_precip_mm"] = _diff(lo.precip_mm_day[grp == k],
-                                                                       lo.precip_mm_day[grp == "completed"])
-        out["limited_overs"][f"{k}_minus_completed_wet_day"] = _diff(lo.wet_day[grp == k].clip(upper=1),
-                                                                     lo.wet_day[grp == "completed"].clip(upper=1))
+        for f, col in (("precip_mm", "precip_mm_day"), ("wet_day", "wet_day")):
+            d = _diff(lo[col][grp == k].clip(upper=1 if f == "wet_day" else None), lo[col][grp == "completed"]
+                      .clip(upper=1 if f == "wet_day" else None))
+            out["limited_overs"][f"{k}_minus_completed_{f}"] = d
+            ok.append(bool(d) and d["diff"] > 0 and (d["z"] or 0) > 2)
+    out["limited_overs"]["passed"] = all(ok)
     tw = m[m.fam.eq("TEST")]
     out["tests"] = {k: _group_stats(tw[tw.result.eq("draw") == (k == "draw")]) for k in ("draw", "result")}
     out["tests"]["draw_minus_result_precip_mm"] = _diff(tw.precip_mm_day[tw.result.eq("draw")],
                                                         tw.precip_mm_day[tw.result.ne("draw")])
-    c = clim.merge(venues[["venue_id", "cricket_country", "region"]], on="venue_id")
-    ref = {}
-    for v in CHECK_VENUES:
-        x = c[c.venue_id.eq(v)].set_index("month").reindex(range(1, 13))
-        if x.n.notna().any():
-            ref[v] = {f: [None if pd.isna(y) else round(float(y), 2) for y in x[f]]
-                      for f in ("temp_c", "rh", "rain_day_freq", "precip_mm_rain_day", "cloud_oktas", "n")}
-    out["reference_venues_by_month"] = ref
-    india = c[c.cricket_country.eq("India")]
+    d = climate_days(rows)
+    both = d[d.precip_source.ne("none") & d.rain_flag.notna()]
+    out["rain_flag_vs_amount"] = dict(
+        n_days=int(len(both)), flag_given_ge1mm=_mean(both.rain_flag[both.precip_mm_day >= WET_MM]),
+        flag_given_0mm=_mean(both.rain_flag[both.precip_mm_day == 0]),
+        ge1mm_given_flag=_mean((both.precip_mm_day[both.rain_flag == 1] >= WET_MM).astype(float)))
+    vt = venues.set_index("venue_id")
+    d = d.assign(country=d.venue_id.map(vt.cricket_country))
+    out["reference_venues_by_month"] = {v: _by_month(d[d.venue_id.eq(v)]) for v in CHECK_VENUES
+                                        if d.venue_id.eq(v).any()}
+    india = d[d.country.eq("India")]
     wet, dry = india[india.month.between(6, 9)], india[india.month.isin([11, 12, 1, 2, 3])]
-    out["india_monsoon"] = dict(
-        jun_sep_rain_day_freq=round(float(wet.rain_day_freq.mean()), 3),
-        nov_mar_rain_day_freq=round(float(dry.rain_day_freq.mean()), 3),
-        jun_sep_rh=round(float(wet.rh.mean()), 1), nov_mar_rh=round(float(dry.rh.mean()), 1),
-        n_venues=int(india.venue_id.nunique()))
-    out["india_monsoon"]["plausible"] = bool(out["india_monsoon"]["jun_sep_rain_day_freq"]
-                                             > 2 * out["india_monsoon"]["nov_mar_rain_day_freq"])
-    eng = c[c.region.eq("sena_eng") & c.cricket_country.eq("England")]
+    out["india_monsoon"] = dict(jun_sep_days=int(len(wet)), nov_mar_days=int(len(dry)),
+                                jun_sep_rain_day_freq=_mean(wet.wet_day), nov_mar_rain_day_freq=_mean(dry.wet_day),
+                                jun_sep_rh=_mean(wet.rh_mean, 1), nov_mar_rh=_mean(dry.rh_mean, 1),
+                                n_venues=int(india.venue_id.nunique()))
+    im = out["india_monsoon"]
+    im["plausible"] = None if min(len(wet), len(dry)) < 20 or None in (im["jun_sep_rain_day_freq"],
+                                                                     im["nov_mar_rain_day_freq"]) else \
+        bool(im["jun_sep_rain_day_freq"] > 2 * im["nov_mar_rain_day_freq"] and im["jun_sep_rh"] > im["nov_mar_rh"])
+    eng = d[d.country.eq("England")]
     summer = eng[eng.month.between(5, 9)]
-    out["english_summer"] = dict(may_sep_temp_c=round(float(summer.temp_c.mean()), 1),
-                                 may_sep_rh=round(float(summer.rh.mean()), 1),
-                                 may_sep_rain_day_freq=round(float(summer.rain_day_freq.mean()), 3),
-                                 may_sep_cloud_oktas=round(float(summer.cloud_oktas.mean()), 2),
-                                 jul_temp_c=round(float(eng[eng.month.eq(7)].temp_c.mean()), 1),
-                                 jan_temp_c=round(float(eng[eng.month.eq(1)].temp_c.mean()), 1),
+    out["english_summer"] = dict(may_sep_days=int(len(summer)), may_sep_temp_c=_mean(summer.temp_c_mean, 1),
+                                 may_sep_rh=_mean(summer.rh_mean, 1), may_sep_rain_day_freq=_mean(summer.wet_day),
+                                 may_sep_cloud_oktas=_mean(summer.cloud_oktas_mean, 2),
+                                 jul_temp_c=_mean(eng.temp_c_mean[eng.month.eq(7)], 1),
+                                 apr_temp_c=_mean(eng.temp_c_mean[eng.month.eq(4)], 1),
                                  n_venues=int(eng.venue_id.nunique()))
-    out["english_summer"]["plausible"] = bool(13 <= out["english_summer"]["may_sep_temp_c"] <= 22
-                                              and 0.25 <= out["english_summer"]["may_sep_rain_day_freq"] <= 0.6)
+    es = out["english_summer"]
+    es["plausible"] = None if not len(summer) else bool(13 <= es["may_sep_temp_c"] <= 22
+                                                        and 0.2 <= es["may_sep_rain_day_freq"] <= 0.6)
     return out
 
 
@@ -905,6 +1076,11 @@ def coverage_report(matches: pd.DataFrame, rows: pd.DataFrame, summary: pd.DataF
     dist = w.distance_km
     return dict(
         isd_data_end=str(end.date()), n_matches=int(len(m)), n_matches_to_data_end=int(upto.sum()),
+        after_data_end=dict(
+            n_matches=int((~upto).sum()), n_with_weather=int(m.has_weather[~upto].sum()),
+            first=min(m.start_date[~upto], default=None), last=max(m.start_date[~upto], default=None),
+            note=f"NOAA's AWS ISD-lite and GSOD buckets end on {end.date()} (the 2026 prefixes are empty): later "
+                 "match days have source 'none' and no observed weather; models and the page use climatology."),
         n_unmapped_venue=int(m.venue_id.isna().sum()),
         n_scheduled_match_days=int(len(s)), n_scheduled_match_days_to_data_end=int(len(sd)),
         match_share_with_weather=dict(all=round(float(m.has_weather.mean()), 4),

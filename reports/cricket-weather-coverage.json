@@ -1,0 +1,1785 @@
+{
+ "isd_data_end": "2025-08-24",
+ "n_matches": 23132,
+ "n_matches_to_data_end": 20144,
+ "after_data_end": {
+  "n_matches": 2988,
+  "n_with_weather": 0,
+  "first": "2025-08-25",
+  "last": "2026-10-14",
+  "note": "NOAA's AWS ISD-lite and GSOD buckets end on 2025-08-24 (the 2026 prefixes are empty): later match days have source 'none' and no observed weather; models and the page use climatology."
+ },
+ "n_unmapped_venue": 0,
+ "n_scheduled_match_days": 33369,
+ "n_scheduled_match_days_to_data_end": 29471,
+ "match_share_with_weather": {
+  "all": 0.8531,
+  "to_data_end": 0.9797,
+  "precip_to_data_end": 0.9776,
+  "cloud_to_data_end": 0.7483
+ },
+ "by_year": {
+  "2001": {
+   "n": 1,
+   "weather": 1.0,
+   "precip": 1.0,
+   "cloud": 1.0
+  },
+  "2002": {
+   "n": 5,
+   "weather": 1.0,
+   "precip": 1.0,
+   "cloud": 0.8
+  },
+  "2003": {
+   "n": 140,
+   "weather": 0.9643,
+   "precip": 0.9643,
+   "cloud": 0.9429
+  },
+  "2004": {
+   "n": 96,
+   "weather": 0.9479,
+   "precip": 0.9375,
+   "cloud": 0.8854
+  },
+  "2005": {
+   "n": 95,
+   "weather": 0.9579,
+   "precip": 0.9579,
+   "cloud": 0.9158
+  },
+  "2006": {
+   "n": 168,
+   "weather": 1.0,
+   "precip": 1.0,
+   "cloud": 0.9583
+  },
+  "2007": {
+   "n": 222,
+   "weather": 0.9324,
+   "precip": 0.9324,
+   "cloud": 0.9189
+  },
+  "2008": {
+   "n": 221,
+   "weather": 0.9638,
+   "precip": 0.9683,
+   "cloud": 0.9412
+  },
+  "2009": {
+   "n": 271,
+   "weather": 0.952,
+   "precip": 0.9594,
+   "cloud": 0.9299
+  },
+  "2010": {
+   "n": 288,
+   "weather": 0.9653,
+   "precip": 0.9549,
+   "cloud": 0.9375
+  },
+  "2011": {
+   "n": 292,
+   "weather": 0.976,
+   "precip": 0.9623,
+   "cloud": 0.9555
+  },
+  "2012": {
+   "n": 431,
+   "weather": 0.9791,
+   "precip": 0.9791,
+   "cloud": 0.9374
+  },
+  "2013": {
+   "n": 526,
+   "weather": 0.9601,
+   "precip": 0.9468,
+   "cloud": 0.865
+  },
+  "2014": {
+   "n": 863,
+   "weather": 0.9838,
+   "precip": 0.9838,
+   "cloud": 0.657
+  },
+  "2015": {
+   "n": 883,
+   "weather": 0.9887,
+   "precip": 0.9841,
+   "cloud": 0.6149
+  },
+  "2016": {
+   "n": 1032,
+   "weather": 0.9806,
+   "precip": 0.9816,
+   "cloud": 0.6628
+  },
+  "2017": {
+   "n": 1075,
+   "weather": 0.9842,
+   "precip": 0.974,
+   "cloud": 0.6493
+  },
+  "2018": {
+   "n": 1310,
+   "weather": 0.9847,
+   "precip": 0.9824,
+   "cloud": 0.7031
+  },
+  "2019": {
+   "n": 1652,
+   "weather": 0.9843,
+   "precip": 0.9812,
+   "cloud": 0.7228
+  },
+  "2020": {
+   "n": 728,
+   "weather": 0.9863,
+   "precip": 0.9849,
+   "cloud": 0.5659
+  },
+  "2021": {
+   "n": 1640,
+   "weather": 0.9762,
+   "precip": 0.9738,
+   "cloud": 0.5787
+  },
+  "2022": {
+   "n": 2012,
+   "weather": 0.9856,
+   "precip": 0.9806,
+   "cloud": 0.7535
+  },
+  "2023": {
+   "n": 2009,
+   "weather": 0.9886,
+   "precip": 0.9881,
+   "cloud": 0.8064
+  },
+  "2024": {
+   "n": 2441,
+   "weather": 0.9656,
+   "precip": 0.9685,
+   "cloud": 0.8111
+  },
+  "2025": {
+   "n": 2546,
+   "weather": 0.6767,
+   "precip": 0.6767,
+   "cloud": 0.5683
+  },
+  "2026": {
+   "n": 2185,
+   "weather": 0.0,
+   "precip": 0.0,
+   "cloud": 0.0
+  }
+ },
+ "by_format": {
+  "HUNDRED|female": {
+   "n": 188,
+   "weather": 0.7872,
+   "precip": 0.7926,
+   "cloud": 0.6809
+  },
+  "HUNDRED|male": {
+   "n": 201,
+   "weather": 0.796,
+   "precip": 0.801,
+   "cloud": 0.6766
+  },
+  "ODI|female": {
+   "n": 974,
+   "weather": 0.7967,
+   "precip": 0.7844,
+   "cloud": 0.5626
+  },
+  "ODI|male": {
+   "n": 4316,
+   "weather": 0.9013,
+   "precip": 0.9013,
+   "cloud": 0.7196
+  },
+  "T20|female": {
+   "n": 3500,
+   "weather": 0.7814,
+   "precip": 0.7797,
+   "cloud": 0.5806
+  },
+  "T20|male": {
+   "n": 10797,
+   "weather": 0.8555,
+   "precip": 0.853,
+   "cloud": 0.6769
+  },
+  "TEST|female": {
+   "n": 24,
+   "weather": 0.9167,
+   "precip": 0.9167,
+   "cloud": 0.8333
+  },
+  "TEST|male": {
+   "n": 3132,
+   "weather": 0.8835,
+   "precip": 0.8835,
+   "cloud": 0.5728
+  }
+ },
+ "by_match_type": {
+  "IT20": {
+   "n": 320,
+   "weather": 1.0,
+   "precip": 1.0,
+   "cloud": 0.8844
+  },
+  "MDM": {
+   "n": 2236,
+   "weather": 0.8649,
+   "precip": 0.8649,
+   "cloud": 0.4665
+  },
+  "ODI": {
+   "n": 3213,
+   "weather": 0.8973,
+   "precip": 0.8942,
+   "cloud": 0.7267
+  },
+  "ODM": {
+   "n": 2077,
+   "weather": 0.8584,
+   "precip": 0.8575,
+   "cloud": 0.6351
+  },
+  "T20": {
+   "n": 14366,
+   "weather": 0.8325,
+   "precip": 0.8304,
+   "cloud": 0.6489
+  },
+  "Test": {
+   "n": 920,
+   "weather": 0.9293,
+   "precip": 0.9293,
+   "cloud": 0.838
+  }
+ },
+ "by_region": {
+  "other": {
+   "n": 3330,
+   "weather": 0.9775,
+   "precip": 0.9757,
+   "cloud": 0.8228
+  },
+  "sena_aus": {
+   "n": 1941,
+   "weather": 0.9969,
+   "precip": 0.9969,
+   "cloud": 0.883
+  },
+  "sena_eng": {
+   "n": 5732,
+   "weather": 0.9988,
+   "precip": 0.9997,
+   "cloud": 0.6404
+  },
+  "sena_nz": {
+   "n": 1199,
+   "weather": 0.9124,
+   "precip": 0.9108,
+   "cloud": 0.0692
+  },
+  "sena_sa": {
+   "n": 1139,
+   "weather": 0.9833,
+   "precip": 0.9535,
+   "cloud": 0.8288
+  },
+  "subcontinent": {
+   "n": 4626,
+   "weather": 0.9637,
+   "precip": 0.9626,
+   "cloud": 0.8993
+  },
+  "uae_gulf": {
+   "n": 1196,
+   "weather": 0.99,
+   "precip": 0.99,
+   "cloud": 0.7207
+  },
+  "west_indies": {
+   "n": 981,
+   "weather": 0.9827,
+   "precip": 0.9817,
+   "cloud": 0.9164
+  }
+ },
+ "day_source": {
+  "isd_lite": 28487,
+  "none": 670,
+  "gsod": 314
+ },
+ "precip_source": {
+  "gsod": 17480,
+  "none": 6385,
+  "isd_lite": 5606
+ },
+ "station_rank": {
+  "1": 28089,
+  "2": 569,
+  "3": 131,
+  "4": 12
+ },
+ "station_distance_km": {
+  "quantiles": {
+   "0.1": 2.3,
+   "0.25": 4.8,
+   "0.5": 9.2,
+   "0.75": 15.2,
+   "0.9": 22.5,
+   "0.99": 40.0
+  },
+  "bins": {
+   "0-5": 7245,
+   "5-10": 7777,
+   "10-20": 10414,
+   "20-30": 2688,
+   "30-45": 468,
+   "45-60.01": 209
+  }
+ },
+ "cloud_from_other_station": 0.2684,
+ "field_missing_share": {
+  "all_days_to_data_end": {
+   "temp_c_mean": 0.0227,
+   "rh_mean": 0.0243,
+   "dewpt_c_mean": 0.0243,
+   "dew_depression_evening": 0.0515,
+   "cloud_oktas_mean": 0.293,
+   "precip_mm_day": 0.2167,
+   "precip_hours": 0.8802,
+   "wet_day": 0.0242,
+   "rain_flag": 0.1021,
+   "wind_ms_mean": 0.057,
+   "pressure_hpa_mean": 0.1229
+  },
+  "days_with_weather": {
+   "temp_c_mean": 0.0,
+   "rh_mean": 0.0016,
+   "dewpt_c_mean": 0.0016,
+   "dew_depression_evening": 0.0294,
+   "cloud_oktas_mean": 0.2784,
+   "precip_mm_day": 0.1993,
+   "precip_hours": 0.8774,
+   "wet_day": 0.0023,
+   "rain_flag": 0.0812,
+   "wind_ms_mean": 0.035,
+   "pressure_hpa_mean": 0.1035
+  }
+ },
+ "scheduled_days_source": {
+  "limited_overs": 19976,
+  "rules": 3156
+ },
+ "generated": "2026-10-25 02:04",
+ "slice": {
+  "every": 1,
+  "limit": null
+ },
+ "venue_years": 2985,
+ "whole_year_venue_years": 0,
+ "venue_years_without_candidate": 35,
+ "files_on_disk": {
+  "isd_lite": 4505,
+  "gsod": 4001,
+  "isd_lite_404": 0,
+  "gsod_404": 341
+ },
+ "downloads": {
+  "isd_lite_round1": {
+   "venue_years": 2950,
+   "jobs": 2328
+  },
+  "isd_lite_round2": {
+   "venue_years": 1437,
+   "jobs": 1095
+  },
+  "isd_lite_round3": {
+   "venue_years": 1030,
+   "jobs": 834
+  },
+  "isd_lite_round4": {
+   "venue_years": 664,
+   "jobs": 562
+  },
+  "gsod_round1": {
+   "venue_years": 2644,
+   "jobs": 2107
+  },
+  "gsod_round2": {
+   "venue_years": 1438,
+   "jobs": 1121
+  },
+  "gsod_round3": {
+   "venue_years": 823,
+   "jobs": 683
+  },
+  "gsod_round4": {
+   "venue_years": 443,
+   "jobs": 396
+  }
+ },
+ "quality": {
+  "isd_station_days": 1501546,
+  "isd_station_days_flagged_dropped": 201,
+  "isd_station_days_dewpoint_dropped": 59,
+  "gsod_station_days_flagged_dropped": 165,
+  "rule": "station-day mean temperature outside -10..50 C or mean RH > 100.5% (hourly gross limits first: T -40..60 C, Td <= T + 1 C, SLP 900..1080 hPa, wind <= 60 m/s); dew point, RH and dew depression dropped when the day's mean dew point is > 25 C below the station-month median"
+ },
+ "gsod_lag": {
+  "stations": 563,
+  "lag1": 173,
+  "lag1_by_country": {
+   "UK": 52,
+   "IN": 38,
+   "CE": 12,
+   "PK": 7,
+   "NL": 6,
+   "AE": 4,
+   "AS": 4,
+   "GB": 3,
+   "WA": 3,
+   "MY": 3,
+   "TD": 2,
+   "CS": 2,
+   "GY": 2,
+   "QA": 2,
+   "RP": 2,
+   "SF": 2,
+   "DA": 2,
+   "US": 2,
+   "FJ": 1,
+   "NO": 1,
+   "IT": 1,
+   "BC": 1,
+   "WS": 1,
+   "RI": 1,
+   "GR": 1,
+   "CY": 1,
+   "SP": 1,
+   "RO": 1,
+   "MT": 1,
+   "JA": 1,
+   "BU": 1,
+   "BE": 1,
+   "NI": 1,
+   "MI": 1,
+   "SC": 1,
+   "EZ": 1,
+   "SN": 1,
+   "BR": 1,
+   "PP": 1,
+   "RW": 1,
+   "HK": 1,
+   "NH": 1,
+   "KS": 1
+  },
+  "lag0_with_g_reports": 180
+ },
+ "venue_climate": {
+  "venues": 555,
+  "levels": {
+   "venue": 4291,
+   "venue_month": 1973,
+   "country": 348,
+   "region": 48
+  },
+  "venue_month_days": 26220,
+  "shrinkage_days": {
+   "temp_c": 5.0,
+   "rh": 10.0,
+   "dewpt_c": 5.0,
+   "dew_depression_evening": 20.0,
+   "cloud_oktas": 10.0,
+   "wind_ms": 10.0,
+   "precip_mm": 100.0,
+   "rain_day_freq": 100.0,
+   "precip_mm_rain_day": 100.0
+  },
+  "harmonic": {
+   "min_months": 4,
+   "ridge_days": 30.0
+  },
+  "k_chosen_on": "2023 validation window only (cutoff 2023-01-01, scored on 2023 match days)"
+ },
+ "climatology_by_cutoff": {
+  "2023-01-01": {
+   "train_days": 19246,
+   "train_max_date": "2022-12-31",
+   "test_days": 2324,
+   "brier_wet_day": 0.1763,
+   "brier_wet_day_constant": 0.183,
+   "temp_c_rmse": 3.15,
+   "temp_c_corr": 0.875,
+   "rh_rmse": 12.97,
+   "rh_corr": 0.662,
+   "dew_depression_evening_rmse": 4.01,
+   "dew_depression_evening_corr": 0.606,
+   "levels": {
+    "venue_month": 1993,
+    "venue": 212,
+    "country": 81,
+    "region": 38
+   }
+  },
+  "2024-01-01": {
+   "train_days": 21570,
+   "train_max_date": "2023-12-31",
+   "test_days": 1279,
+   "brier_wet_day": 0.17,
+   "brier_wet_day_constant": 0.1832,
+   "temp_c_rmse": 3.1,
+   "temp_c_corr": 0.905,
+   "rh_rmse": 11.74,
+   "rh_corr": 0.664,
+   "dew_depression_evening_rmse": 3.54,
+   "dew_depression_evening_corr": 0.626,
+   "levels": {
+    "venue_month": 1048,
+    "venue": 133,
+    "country": 75,
+    "region": 23
+   }
+  },
+  "2024-07-01": {
+   "train_days": 22849,
+   "train_max_date": "2024-06-30",
+   "test_days": 1404,
+   "brier_wet_day": 0.1735,
+   "brier_wet_day_constant": 0.1821,
+   "temp_c_rmse": 3.14,
+   "temp_c_corr": 0.856,
+   "rh_rmse": 11.4,
+   "rh_corr": 0.696,
+   "dew_depression_evening_rmse": 3.3,
+   "dew_depression_evening_corr": 0.734,
+   "levels": {
+    "venue_month": 1131,
+    "venue": 218,
+    "country": 31,
+    "region": 24
+   }
+  },
+  "2025-01-01": {
+   "train_days": 24253,
+   "train_max_date": "2024-12-31",
+   "test_days": 1475,
+   "brier_wet_day": 0.1531,
+   "brier_wet_day_constant": 0.1616,
+   "temp_c_rmse": 3.45,
+   "temp_c_corr": 0.879,
+   "rh_rmse": 13.19,
+   "rh_corr": 0.562,
+   "dew_depression_evening_rmse": 3.84,
+   "dew_depression_evening_corr": 0.574,
+   "levels": {
+    "venue_month": 1104,
+    "venue": 287,
+    "country": 72,
+    "region": 12
+   }
+  },
+  "2025-07-01": {
+   "train_days": 25728,
+   "train_max_date": "2025-06-30",
+   "test_days": 515,
+   "brier_wet_day": 0.1612,
+   "brier_wet_day_constant": 0.1614,
+   "temp_c_rmse": 3.03,
+   "temp_c_corr": 0.807,
+   "rh_rmse": 11.71,
+   "rh_corr": 0.631,
+   "dew_depression_evening_rmse": 3.63,
+   "dew_depression_evening_corr": 0.543,
+   "levels": {
+    "venue_month": 429,
+    "venue": 79,
+    "country": 7
+   }
+  },
+  "2026-01-01": {
+   "train_days": 26243,
+   "train_max_date": "2025-08-24",
+   "test_days": 0,
+   "levels": {}
+  },
+  "2026-07-01": {
+   "train_days": 26243,
+   "train_max_date": "2025-08-24",
+   "test_days": 0,
+   "levels": {}
+  }
+ },
+ "sanity": {
+  "limited_overs": {
+   "no_result": {
+    "n": 426,
+    "n_precip": 409,
+    "precip_mm_mean": 9.53,
+    "precip_mm_median": 5.8,
+    "wet_day_share": 0.828,
+    "rain_flag_share": 0.919,
+    "precip_hours_mean": 4.42
+   },
+   "dl_vjd": {
+    "n": 888,
+    "n_precip": 831,
+    "precip_mm_mean": 6.26,
+    "precip_mm_median": 2.03,
+    "wet_day_share": 0.646,
+    "rain_flag_share": 0.856,
+    "precip_hours_mean": 2.62
+   },
+   "completed": {
+    "n": 15642,
+    "n_precip": 11146,
+    "precip_mm_mean": 1.81,
+    "precip_mm_median": 0.0,
+    "wet_day_share": 0.169,
+    "rain_flag_share": 0.271,
+    "precip_hours_mean": 0.35
+   },
+   "other": {
+    "n": 4,
+    "n_precip": 3,
+    "precip_mm_mean": 0.68,
+    "precip_mm_median": 0.0,
+    "wet_day_share": 0.5,
+    "rain_flag_share": 0.75,
+    "precip_hours_mean": null
+   },
+   "no_result_minus_completed_precip_mm": {
+    "diff": 7.725,
+    "se": 0.6,
+    "z": 12.9
+   },
+   "no_result_minus_completed_wet_day": {
+    "diff": 0.659,
+    "se": 0.019,
+    "z": 35.5
+   },
+   "dl_vjd_minus_completed_precip_mm": {
+    "diff": 4.452,
+    "se": 0.569,
+    "z": 7.8
+   },
+   "dl_vjd_minus_completed_wet_day": {
+    "diff": 0.478,
+    "se": 0.016,
+    "z": 29.2
+   },
+   "passed": true
+  },
+  "tests": {
+   "draw": {
+    "n": 899,
+    "n_precip": 869,
+    "precip_mm_mean": 3.3,
+    "precip_mm_median": 1.4,
+    "wet_day_share": 0.354,
+    "rain_flag_share": 0.534,
+    "precip_hours_mean": 1.1
+   },
+   "result": {
+    "n": 1890,
+    "n_precip": 1773,
+    "precip_mm_mean": 1.68,
+    "precip_mm_median": 0.45,
+    "wet_day_share": 0.223,
+    "rain_flag_share": 0.383,
+    "precip_hours_mean": 0.72
+   },
+   "draw_minus_result_precip_mm": {
+    "diff": 1.621,
+    "se": 0.267,
+    "z": 6.1
+   }
+  },
+  "rain_flag_vs_amount": {
+   "n_days": 19111,
+   "flag_given_ge1mm": 0.838,
+   "flag_given_0mm": 0.21,
+   "ge1mm_given_flag": 0.522
+  },
+  "reference_venues_by_month": {
+   "wankhede_stadium": {
+    "temp_c": [
+     27.9,
+     28.87,
+     31.25,
+     31.88,
+     31.9,
+     null,
+     null,
+     null,
+     null,
+     31.92,
+     30.82,
+     29.65
+    ],
+    "rh": [
+     49.72,
+     45.11,
+     55.56,
+     60.57,
+     65.55,
+     null,
+     null,
+     null,
+     null,
+     55.94,
+     50.38,
+     51.06
+    ],
+    "rain_day_freq": [
+     0.0,
+     0.0,
+     0.0,
+     0.03,
+     0.05,
+     null,
+     null,
+     null,
+     null,
+     0.0,
+     0.05,
+     0.05
+    ],
+    "precip_mm": [
+     null,
+     null,
+     0.0,
+     0.0,
+     3.37,
+     null,
+     null,
+     null,
+     null,
+     0.76,
+     7.94,
+     2.03
+    ],
+    "cloud_oktas": [
+     0.5,
+     0.51,
+     0.46,
+     1.29,
+     2.91,
+     null,
+     null,
+     null,
+     null,
+     2.1,
+     1.5,
+     1.56
+    ],
+    "n": [
+     12,
+     4,
+     10,
+     65,
+     57,
+     0,
+     0,
+     0,
+     0,
+     6,
+     37,
+     22
+    ]
+   },
+   "eden_gardens": {
+    "temp_c": [
+     22.77,
+     25.06,
+     30.19,
+     33.16,
+     32.66,
+     null,
+     null,
+     null,
+     30.93,
+     29.79,
+     26.71,
+     23.96
+    ],
+    "rh": [
+     56.76,
+     61.58,
+     58.64,
+     58.26,
+     64.02,
+     null,
+     null,
+     null,
+     73.64,
+     66.15,
+     66.23,
+     52.13
+    ],
+    "rain_day_freq": [
+     0.0,
+     0.22,
+     0.17,
+     0.13,
+     0.22,
+     null,
+     null,
+     null,
+     0.0,
+     0.22,
+     0.06,
+     0.0
+    ],
+    "precip_mm": [
+     0.0,
+     5.03,
+     1.52,
+     4.68,
+     3.16,
+     null,
+     null,
+     null,
+     0.13,
+     1.52,
+     1.85,
+     0.0
+    ],
+    "cloud_oktas": [
+     0.6,
+     2.73,
+     2.52,
+     2.88,
+     3.97,
+     null,
+     null,
+     null,
+     4.62,
+     3.02,
+     2.05,
+     1.25
+    ],
+    "n": [
+     14,
+     9,
+     12,
+     54,
+     41,
+     0,
+     0,
+     0,
+     2,
+     9,
+     33,
+     12
+    ]
+   },
+   "chepauk": {
+    "temp_c": [
+     27.96,
+     28.04,
+     31.46,
+     32.68,
+     34.65,
+     33.66,
+     32.18,
+     null,
+     31.85,
+     29.32,
+     29.82,
+     27.68
+    ],
+    "rh": [
+     68.54,
+     58.18,
+     63.52,
+     62.76,
+     56.49,
+     60.83,
+     68.76,
+     null,
+     66.95,
+     75.75,
+     64.64,
+     70.33
+    ],
+    "rain_day_freq": [
+     0.0,
+     0.0,
+     0.0,
+     0.04,
+     0.0,
+     0.2,
+     0.25,
+     null,
+     0.43,
+     0.4,
+     0.0,
+     0.0
+    ],
+    "precip_mm": [
+     null,
+     0.0,
+     0.0,
+     3.0,
+     0.0,
+     1.02,
+     10.79,
+     null,
+     6.68,
+     10.5,
+     null,
+     0.06
+    ],
+    "cloud_oktas": [
+     5.0,
+     2.62,
+     2.75,
+     3.66,
+     4.55,
+     5.75,
+     6.75,
+     null,
+     6.32,
+     5.8,
+     5.75,
+     4.49
+    ],
+    "n": [
+     2,
+     16,
+     23,
+     51,
+     30,
+     5,
+     4,
+     0,
+     7,
+     10,
+     1,
+     14
+    ]
+   },
+   "chinnaswamy_stadium": {
+    "temp_c": [
+     26.25,
+     28.88,
+     30.36,
+     30.82,
+     29.45,
+     27.5,
+     26.88,
+     23.75,
+     25.1,
+     25.41,
+     22.54,
+     22.9
+    ],
+    "rh": [
+     51.84,
+     39.03,
+     35.25,
+     42.16,
+     52.76,
+     63.26,
+     60.84,
+     75.14,
+     72.31,
+     68.19,
+     78.82,
+     68.03
+    ],
+    "rain_day_freq": [
+     0.0,
+     0.0,
+     0.09,
+     0.08,
+     0.37,
+     0.33,
+     0.0,
+     1.0,
+     0.29,
+     0.29,
+     0.6,
+     0.06
+    ],
+    "precip_mm": [
+     null,
+     null,
+     9.65,
+     1.67,
+     6.27,
+     0.61,
+     0.0,
+     2.03,
+     4.36,
+     8.93,
+     5.53,
+     0.79
+    ],
+    "cloud_oktas": [
+     3.75,
+     1.93,
+     3.02,
+     3.96,
+     4.96,
+     5.29,
+     5.75,
+     6.75,
+     6.54,
+     5.93,
+     6.92,
+     5.99
+    ],
+    "n": [
+     1,
+     17,
+     32,
+     50,
+     41,
+     6,
+     2,
+     1,
+     7,
+     17,
+     10,
+     17
+    ]
+   },
+   "arun_jaitley_stadium": {
+    "temp_c": [
+     17.58,
+     24.92,
+     27.56,
+     34.25,
+     36.24,
+     41.17,
+     null,
+     null,
+     null,
+     29.13,
+     24.61,
+     20.87
+    ],
+    "rh": [
+     58.21,
+     54.86,
+     41.89,
+     31.98,
+     35.89,
+     24.69,
+     null,
+     null,
+     null,
+     51.93,
+     56.48,
+     58.79
+    ],
+    "rain_day_freq": [
+     0.11,
+     0.14,
+     0.03,
+     0.02,
+     0.14,
+     0.0,
+     null,
+     null,
+     null,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "precip_mm": [
+     null,
+     2.03,
+     5.42,
+     0.51,
+     4.26,
+     null,
+     null,
+     null,
+     null,
+     0.51,
+     0.0,
+     0.0
+    ],
+    "cloud_oktas": [
+     0.22,
+     2.29,
+     2.24,
+     2.03,
+     2.69,
+     1.12,
+     null,
+     null,
+     null,
+     0.53,
+     0.95,
+     2.05
+    ],
+    "n": [
+     9,
+     7,
+     32,
+     50,
+     42,
+     1,
+     0,
+     0,
+     0,
+     11,
+     24,
+     11
+    ]
+   },
+   "premadasa_stadium": {
+    "temp_c": [
+     29.11,
+     27.91,
+     29.39,
+     30.37,
+     30.64,
+     28.97,
+     28.83,
+     29.02,
+     28.55,
+     28.66,
+     27.36,
+     29.0
+    ],
+    "rh": [
+     67.26,
+     64.47,
+     70.15,
+     70.89,
+     72.17,
+     80.21,
+     75.63,
+     75.39,
+     78.16,
+     75.99,
+     83.4,
+     73.21
+    ],
+    "rain_day_freq": [
+     0.57,
+     0.0,
+     0.3,
+     0.0,
+     0.38,
+     0.25,
+     0.3,
+     0.1,
+     0.39,
+     0.25,
+     0.92,
+     0.32
+    ],
+    "precip_mm": [
+     2.84,
+     0.0,
+     2.86,
+     0.0,
+     2.19,
+     5.21,
+     5.92,
+     1.03,
+     8.0,
+     0.15,
+     26.23,
+     6.66
+    ],
+    "cloud_oktas": [
+     5.19,
+     3.11,
+     4.75,
+     5.79,
+     5.81,
+     5.99,
+     5.57,
+     5.33,
+     5.71,
+     4.62,
+     7.04,
+     5.48
+    ],
+    "n": [
+     7,
+     8,
+     27,
+     4,
+     8,
+     8,
+     40,
+     29,
+     33,
+     8,
+     12,
+     19
+    ]
+   },
+   "lords": {
+    "temp_c": [
+     null,
+     null,
+     null,
+     12.47,
+     16.01,
+     19.92,
+     21.79,
+     20.47,
+     17.66,
+     14.62,
+     null,
+     null
+    ],
+    "rh": [
+     null,
+     null,
+     null,
+     57.21,
+     61.44,
+     58.62,
+     56.26,
+     62.43,
+     67.36,
+     80.11,
+     null,
+     null
+    ],
+    "rain_day_freq": [
+     null,
+     null,
+     null,
+     0.21,
+     0.28,
+     0.28,
+     0.3,
+     0.27,
+     0.3,
+     1.0,
+     null,
+     null
+    ],
+    "precip_mm": [
+     null,
+     null,
+     null,
+     0.71,
+     1.43,
+     1.76,
+     2.18,
+     2.2,
+     2.27,
+     5.59,
+     null,
+     null
+    ],
+    "cloud_oktas": [
+     null,
+     null,
+     null,
+     5.19,
+     5.48,
+     5.35,
+     4.83,
+     5.14,
+     5.44,
+     5.88,
+     null,
+     null
+    ],
+    "n": [
+     0,
+     0,
+     0,
+     71,
+     115,
+     97,
+     132,
+     94,
+     91,
+     2,
+     0,
+     0
+    ]
+   },
+   "old_trafford": {
+    "temp_c": [
+     null,
+     null,
+     null,
+     11.3,
+     15.2,
+     18.48,
+     19.02,
+     18.16,
+     15.96,
+     null,
+     null,
+     null
+    ],
+    "rh": [
+     null,
+     null,
+     null,
+     60.75,
+     63.02,
+     63.9,
+     67.62,
+     68.37,
+     75.14,
+     null,
+     null,
+     null
+    ],
+    "rain_day_freq": [
+     null,
+     null,
+     null,
+     0.31,
+     0.26,
+     0.31,
+     0.4,
+     0.38,
+     0.41,
+     null,
+     null,
+     null
+    ],
+    "precip_mm": [
+     null,
+     null,
+     null,
+     1.15,
+     1.48,
+     1.26,
+     2.33,
+     2.4,
+     2.34,
+     null,
+     null,
+     null
+    ],
+    "cloud_oktas": [
+     null,
+     null,
+     null,
+     6.86,
+     6.08,
+     5.17,
+     6.07,
+     6.16,
+     6.79,
+     null,
+     null,
+     null
+    ],
+    "n": [
+     0,
+     0,
+     0,
+     59,
+     95,
+     74,
+     104,
+     93,
+     75,
+     0,
+     0,
+     0
+    ]
+   },
+   "headingley": {
+    "temp_c": [
+     null,
+     null,
+     null,
+     10.15,
+     12.45,
+     15.73,
+     17.68,
+     17.17,
+     14.32,
+     null,
+     null,
+     null
+    ],
+    "rh": [
+     null,
+     null,
+     null,
+     66.38,
+     71.77,
+     69.91,
+     69.94,
+     71.31,
+     77.68,
+     null,
+     null,
+     null
+    ],
+    "rain_day_freq": [
+     null,
+     null,
+     null,
+     0.36,
+     0.41,
+     0.27,
+     0.37,
+     0.31,
+     0.4,
+     null,
+     null,
+     null
+    ],
+    "precip_mm": [
+     null,
+     null,
+     null,
+     1.72,
+     2.04,
+     2.87,
+     1.8,
+     1.49,
+     2.41,
+     null,
+     null,
+     null
+    ],
+    "cloud_oktas": [
+     null,
+     null,
+     null,
+     4.15,
+     5.29,
+     5.5,
+     5.13,
+     4.65,
+     5.13,
+     null,
+     null,
+     null
+    ],
+    "n": [
+     0,
+     0,
+     0,
+     50,
+     95,
+     84,
+     76,
+     89,
+     81,
+     0,
+     0,
+     0
+    ]
+   },
+   "edgbaston": {
+    "temp_c": [
+     null,
+     null,
+     null,
+     11.29,
+     15.07,
+     17.79,
+     19.65,
+     19.34,
+     16.55,
+     11.34,
+     null,
+     null
+    ],
+    "rh": [
+     null,
+     null,
+     null,
+     62.68,
+     60.94,
+     64.32,
+     61.05,
+     62.99,
+     70.98,
+     91.45,
+     null,
+     null
+    ],
+    "rain_day_freq": [
+     null,
+     null,
+     null,
+     0.31,
+     0.24,
+     0.25,
+     0.26,
+     0.26,
+     0.34,
+     1.0,
+     null,
+     null
+    ],
+    "precip_mm": [
+     null,
+     null,
+     null,
+     1.25,
+     1.13,
+     1.54,
+     1.27,
+     1.12,
+     1.77,
+     17.02,
+     null,
+     null
+    ],
+    "cloud_oktas": [
+     null,
+     null,
+     null,
+     5.76,
+     4.84,
+     5.66,
+     5.64,
+     5.27,
+     5.54,
+     null,
+     null,
+     null
+    ],
+    "n": [
+     0,
+     0,
+     0,
+     78,
+     92,
+     107,
+     121,
+     124,
+     104,
+     2,
+     0,
+     0
+    ]
+   },
+   "mcg": {
+    "temp_c": [
+     23.49,
+     23.0,
+     19.77,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     17.9,
+     19.45,
+     22.32
+    ],
+    "rh": [
+     54.53,
+     54.93,
+     55.68,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     62.53,
+     57.96,
+     54.26
+    ],
+    "rain_day_freq": [
+     0.14,
+     0.15,
+     0.25,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     0.1,
+     0.31,
+     0.15
+    ],
+    "precip_mm": [
+     1.02,
+     1.57,
+     0.8,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     0.94,
+     1.98,
+     0.61
+    ],
+    "cloud_oktas": [
+     4.63,
+     5.26,
+     6.49,
+     null,
+     null,
+     null,
+     null,
+     null,
+     null,
+     6.34,
+     6.26,
+     5.63
+    ],
+    "n": [
+     80,
+     33,
+     12,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     10,
+     32,
+     123
+    ]
+   },
+   "kensington_oval": {
+    "temp_c": [
+     26.77,
+     26.86,
+     26.82,
+     28.28,
+     28.74,
+     28.41,
+     28.36,
+     29.23,
+     29.05,
+     null,
+     28.61,
+     27.29
+    ],
+    "rh": [
+     67.72,
+     70.69,
+     73.04,
+     74.75,
+     71.7,
+     77.91,
+     77.81,
+     74.27,
+     75.64,
+     null,
+     82.67,
+     74.22
+    ],
+    "rain_day_freq": [
+     0.5,
+     0.8,
+     0.15,
+     0.21,
+     0.38,
+     0.59,
+     0.47,
+     0.46,
+     0.47,
+     null,
+     0.67,
+     0.83
+    ],
+    "precip_mm": [
+     1.37,
+     1.08,
+     0.63,
+     3.61,
+     5.43,
+     8.31,
+     4.04,
+     2.13,
+     2.01,
+     null,
+     19.3,
+     4.62
+    ],
+    "cloud_oktas": [
+     null,
+     5.91,
+     5.53,
+     5.2,
+     3.49,
+     5.55,
+     6.61,
+     4.67,
+     4.65,
+     null,
+     6.62,
+     5.04
+    ],
+    "n": [
+     12,
+     5,
+     20,
+     19,
+     16,
+     46,
+     15,
+     13,
+     19,
+     0,
+     3,
+     6
+    ]
+   }
+  },
+  "india_monsoon": {
+   "jun_sep_days": 56,
+   "nov_mar_days": 1168,
+   "jun_sep_rain_day_freq": 0.304,
+   "nov_mar_rain_day_freq": 0.056,
+   "jun_sep_rh": 67.2,
+   "nov_mar_rh": 52.1,
+   "n_venues": 70,
+   "plausible": true
+  },
+  "english_summer": {
+   "may_sep_days": 8427,
+   "may_sep_temp_c": 17.7,
+   "may_sep_rh": 67.2,
+   "may_sep_rain_day_freq": 0.294,
+   "may_sep_cloud_oktas": 5.29,
+   "jul_temp_c": 19.7,
+   "apr_temp_c": 11.4,
+   "n_venues": 76,
+   "plausible": true
+  }
+ },
+ "timing_s": {
+  "23132 matches, 33422 match days, data end 2025-08-24": 5.3,
+  "2985 venue-years (0 whole years), candidates {2: 438, 3: 502, 4: 1534, 1: 476, 0: 35}": 31.7,
+  "ISD-lite round 1: {'venue_years': 2950, 'jobs': 2328}": 31.9,
+  "ISD-lite round 2: {'venue_years': 1437, 'jobs': 1095}": 106.1,
+  "ISD-lite round 3: {'venue_years': 1030, 'jobs': 834}": 138.9,
+  "ISD-lite round 4: {'venue_years': 664, 'jobs': 562}": 161.3,
+  "GSOD round 1: {'venue_years': 2644, 'jobs': 2107}": 224.5,
+  "GSOD round 2: {'venue_years': 1438, 'jobs': 1121}": 320.3,
+  "GSOD round 3: {'venue_years': 823, 'jobs': 683}": 370.0,
+  "GSOD round 4: {'venue_years': 443, 'jobs': 396}": 394.3,
+  "26889 venue-days, 33422 match-day rows": 501.1,
+  "climatology: 555 venues, 523 kB": 502.9,
+  "climatology at evaluation cutoffs": 505.9
+ }
+}

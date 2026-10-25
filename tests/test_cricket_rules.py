@@ -8,7 +8,8 @@ import zipfile
 from pathlib import Path
 
 from beating.cricket.competitions import CLUB, competition_for, competition_meta, scan_events, season_key
-from beating.cricket.rules import (FIELDS, check_drs, check_follow_on, check_free_hit, check_powerplays,
+from beating.cricket.rules import (DERIVED, FIELDS, LEGACY_ALIASES, check_drs, check_follow_on, check_free_hit,
+                                   check_powerplays,
                                    check_replacements, check_review_limits, check_super_overs, is_knockout,
                                    load_config, rules_for, rules_for_match, scan_match, validate, _annotate)
 
@@ -140,7 +141,7 @@ class RulesTests(unittest.TestCase):
             for date in ("2004-01-01", "2012-06-01", "2018-06-01", "2026-06-01"):
                 r = rules_for(cid, meta["fmt"], meta["gender"], date)
                 self.assertTrue(set(FIELDS) <= set(r), cid)
-                self.assertEqual(set(r["_layers"]), set(FIELDS))
+                self.assertEqual(set(r["_layers"]), set(FIELDS) | set(DERIVED) | set(LEGACY_ALIASES))
 
     def test_config_layers_valid(self):
         cfg = load_config()

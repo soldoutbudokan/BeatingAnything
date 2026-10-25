@@ -19,19 +19,22 @@ event that matches nothing falls back to ``other_<fmt>_<m|w>`` with
 
 Series. :func:`series_key` (plan 4.2) groups matches by competition id (which
 fixes format and gender), normalised event name and season. Bilateral events
-(``event_id`` bilateral, unnamed or unrecognised) are further split by team pair,
-and a pair's matches chain into one series while consecutive matches are at most
-60 days apart, so the CWC Super League or a multi-format tour yields one key per
-three-match series and format. The plan's per-match ``drs_available`` uses it:
-rules allow DRS AND (a review in the match OR in the same series) AND reviews are
-not missing (``beating.cricket.rules.match_drs_available``).
+(``event_id`` bilateral, unnamed or unrecognised), the ICC Women's Championship and
+England's home 'NatWest Series' from 2006 (one name for each summer's separate
+bilateral series) are further split by team pair; within a group, matches chain into
+one series while consecutive matches are at most 60 days apart, so the CWC Super
+League or a multi-format tour yields one key per series and format.
+:func:`drs_available_for_matches` applies plan section 5 per match: rules allow DRS
+AND (a review in the match OR in the same series) AND reviews are not missing (null
+when missing). :func:`competitions_for_matches` maps an ingest ``matches`` table.
 
 Limits. Mapping is by name, so a new sponsor name for a known competition maps to
 the generic id until an alias is added. 'One-Day Cup' without a country is taken
 to be England's (it is in Cricsheet 2023-2026). Full membership is by team name,
 so A sides, Lions and development XIs appearing as 'international' would count as
-associates. Bilateral versus multi-nation is guessed from the event name, and a
-series key cannot see a series whose matches carry different event names.
+associates. Bilateral versus multi-nation is guessed from the event name; a series
+key cannot see a series whose matches carry different event names, nor separate
+series sharing a multi-nation name other than those in :data:`PAIR_SERIES_NAMES`.
 """
 from __future__ import annotations
 
@@ -42,6 +45,8 @@ import re
 
 SERIES_GAP_DAYS = 60
 BILATERAL_EVENT_IDS = {"bilateral", "intl_unnamed", "intl_other"}
+PAIR_SERIES_EVENT_IDS = BILATERAL_EVENT_IDS | {"icc_womens_championship"}
+PAIR_SERIES_NAMES = {"natwest series": "2006-01-01"}  # event name -> first date it names bilateral series
 FMT_FAMILY = {"Test": "TEST", "MDM": "TEST", "ODI": "ODI", "ODM": "ODI", "T20": "T20", "IT20": "T20"}
 OFFICIAL_TYPES = {"Test", "ODI", "T20"}
 TIERS = ("intl_full", "intl_assoc", "franchise_major", "domestic_major", "domestic_minor")
@@ -328,47 +333,120 @@ def scan_events(zip_path) -> "pd.DataFrame":
             .reset_index().sort_values("n_matches", ascending=False, ignore_index=True))
 
 
+def _pair_series(r: dict, event: str) -> bool:
+    since = PAIR_SERIES_NAMES.get(event)
+    return r.get("event_id") in PAIR_SERIES_EVENT_IDS or (since is not None and str(r["date"])[:10] >= since)
+
+
 def assign_series_keys(records) -> list[str]:
     """Series keys for dicts with competition_id, event_id, event_name, season, date and teams.
 
-    Key: ``competition_id|event|season``, plus ``|A v B|first date`` for bilateral events,
-    where a new series starts after a gap of more than :data:`SERIES_GAP_DAYS` days."""
+    Key: ``competition_id|event|season``, plus ``|A v B`` for events split by team pair
+    (:data:`PAIR_SERIES_EVENT_IDS`, :data:`PAIR_SERIES_NAMES`). A new series starts after a gap
+    of more than :data:`SERIES_GAP_DAYS` days; pair keys always end in ``|first date``, other
+    keys only when their group splits."""
     records = list(records)
     keys, chains = [None] * len(records), defaultdict(list)
     for i, r in enumerate(records):
-        base = f"{r['competition_id']}|{normalise_name(r.get('event_name')) or 'unnamed'}|{r['season']}"
-        if r.get("event_id") in BILATERAL_EVENT_IDS:
-            chains[base + "|" + " v ".join(sorted(map(str, r["teams"])))].append(i)
-        else:
-            keys[i] = base
-    for base, idx in chains.items():
+        event = normalise_name(r.get("event_name")) or "unnamed"
+        base = f"{r['competition_id']}|{event}|{r['season']}"
+        pair = _pair_series(r, event)
+        chains[(base + "|" + " v ".join(sorted(map(str, r["teams"]))) if pair else base, pair)].append(i)
+    for (base, pair), idx in chains.items():
         idx.sort(key=lambda i: str(records[i]["date"])[:10])
         prev = start = None
+        runs = []
         for i in idx:
             d = _date.fromisoformat(str(records[i]["date"])[:10])
             if prev is None or (d - prev).days > SERIES_GAP_DAYS:
                 start = d
+                runs.append([])
+            runs[-1].append(i)
             keys[i], prev = f"{base}|{start.isoformat()}", d
+        if not pair and len(runs) == 1:
+            for i in idx:
+                keys[i] = base
     return keys
+
+
+def competitions_for_matches(matches: "pd.DataFrame") -> "pd.DataFrame":
+    """:class:`Competition` fields for each row of an ingest ``matches`` table (or any frame with
+    ``event_name``, ``gender``, ``team_type``, ``match_type``, ``start_date`` and ``team1_raw``/``team2_raw``
+    or ``team1``/``team2``; ``balls_per_over`` optional), aligned to its index."""
+    import pandas as pd
+
+    df = matches
+    t1, t2 = ("team1_raw", "team2_raw") if "team1_raw" in df else ("team1", "team2")
+    bpo = df["balls_per_over"] if "balls_per_over" in df else [None] * len(df)
+    rows = []
+    for ev, g, tt, mt, d, a, b, k in zip(df["event_name"], df["gender"], df["team_type"], df["match_type"],
+                                          df["start_date"], df[t1], df[t2], bpo):
+        info = dict(event={"name": None if pd.isna(ev) else ev}, gender=g, team_type=tt, match_type=mt,
+                    dates=[str(d)[:10]], teams=[a, b], balls_per_over=None if pd.isna(k) else int(k))
+        rows.append(competition_for(info).as_dict())
+    return pd.DataFrame(rows, index=df.index)
 
 
 def series_key(matches: "pd.DataFrame") -> "pd.Series":
     """Plan 4.2 ``series_key`` for a matches table, aligned to its index.
 
-    Needs ``competition_id``, ``event_name``, ``season``, ``start_date`` (or ``date``) and
-    ``team1``/``team2`` (or ``teams``); ``event_id`` is derived from the event name for
-    internationals (``team_type`` or an ``intl_`` competition id) when absent."""
+    Needs ``event_name``, ``season``, ``start_date`` (or ``date``) and ``team1``/``team2``,
+    ``team1_raw``/``team2_raw`` or ``teams``; ``competition_id`` and ``event_id`` are taken from
+    the frame when present, else from :func:`competitions_for_matches`."""
     import pandas as pd
 
     df = matches
     dates = df["start_date"] if "start_date" in df else df["date"]
-    teams = df["teams"] if "teams" in df else list(zip(df["team1"], df["team2"]))
-    if "event_id" in df:
-        event_ids = df["event_id"]
+    if "teams" in df:
+        teams = df["teams"]
     else:
-        intl = (df["team_type"] == "international") if "team_type" in df else df["competition_id"].str.startswith("intl_")
+        t1, t2 = ("team1", "team2") if "team1" in df else ("team1_raw", "team2_raw")
+        teams = list(zip(df[t1], df[t2]))
+    if "competition_id" in df and "event_id" in df:
+        cids, event_ids = df["competition_id"], df["event_id"]
+    elif "competition_id" in df:
+        cids = df["competition_id"]
+        intl = (df["team_type"] == "international") if "team_type" in df else cids.str.startswith("intl_")
         event_ids = [intl_event_id(None if pd.isna(e) else e)[0] if i else c
-                     for e, i, c in zip(df["event_name"], intl, df["competition_id"])]
+                     for e, i, c in zip(df["event_name"], intl, cids)]
+    else:
+        comp = competitions_for_matches(df)
+        cids, event_ids = comp["competition_id"], comp["event_id"]
     recs = [dict(competition_id=c, event_id=e, event_name=None if pd.isna(n) else n, season=str(s), date=d, teams=t)
-            for c, e, n, s, d, t in zip(df["competition_id"], event_ids, df["event_name"], df["season"], dates, teams)]
+            for c, e, n, s, d, t in zip(cids, event_ids, df["event_name"], df["season"], dates, teams)]
     return pd.Series(assign_series_keys(recs), index=df.index, name="series_key")
+
+
+def drs_available_for_matches(matches: "pd.DataFrame", reviews_by_match) -> "pd.DataFrame":
+    """Plan section 5 ``drs_available`` (True/False/None) and ``drs_source`` per match.
+
+    ``reviews_by_match`` maps ``match_id`` to the number of reviews recorded in the match's
+    main innings (a dict or Series; absent ids count 0). ``matches`` needs ``match_id`` and
+    ``reviews_missing``; ``series_key`` and ``drs_allowed`` are computed when absent (the
+    latter from :func:`beating.cricket.rules.rules_for` with the match's competition, date,
+    teams, stage and ``file_stem``/``match_id`` overrides). The value is drs_allowed AND (a
+    review in the match OR in the same series) AND reviews not missing; ``drs_source`` is
+    ``match``, ``series``, ``rules`` (forbidden) or ``unknown`` (reviews missing, value null)."""
+    import pandas as pd
+
+    from beating.cricket.rules import match_drs_available, rules_for
+
+    df = matches
+    counts = reviews_by_match if isinstance(reviews_by_match, pd.Series) else pd.Series(reviews_by_match, dtype=float)
+    has_review = df["match_id"].map(counts).fillna(0).astype(float) > 0
+    missing = df["reviews_missing"].fillna(False).astype(bool) if "reviews_missing" in df else False
+    work = pd.DataFrame({"has_review": has_review.values, "reviews_missing": missing}, index=df.index)
+    work["series_key"] = df["series_key"] if "series_key" in df else series_key(df)
+    if "drs_allowed" in df:
+        work["drs_allowed"] = df["drs_allowed"].fillna(False).astype(bool)
+    else:
+        comp = competitions_for_matches(df)
+        stages = df["event_stage"] if "event_stage" in df else [None] * len(df)
+        ids = df["file_stem"] if "file_stem" in df else df["match_id"]
+        t1, t2 = ("team1_raw", "team2_raw") if "team1_raw" in df else ("team1", "team2")
+        work["drs_allowed"] = [
+            rules_for(c.competition_id, c.fmt, c.gender, d, event_id=c.event_id, teams=[a, b],
+                      official=c.official or c.team_type != "international", assoc_match=c.assoc_match,
+                      stage=None if pd.isna(st) else st, match_id=str(m))["drs_allowed"]
+            for c, d, a, b, st, m in zip(comp.itertuples(), df["start_date"], df[t1], df[t2], stages, ids)]
+    return match_drs_available(work)

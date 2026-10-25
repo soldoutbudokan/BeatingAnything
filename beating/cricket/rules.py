@@ -13,9 +13,10 @@ quotas and powerplay windows for every innings length N (``bowler_quota_reduced`
 and ``pp_windows_reduced``, keyed by ``str(N)``). The engine applies those with the
 N known at the time: an innings cut after its powerplay keeps the powerplay it
 had, and a bowler already past a new quota bowls no more. Field names follow plan
-section 5; the earlier names are returned too as deprecated aliases
-(:data:`LEGACY_ALIASES`). Every returned dict carries ``_layers``, the layer or
-table that set each field.
+section 5 (:data:`PLAN_FIELDS`, all returned); the earlier names are returned too as
+deprecated aliases (:data:`LEGACY_ALIASES`; ``super_over``/``super_over_this_match`` keep
+the old values ``single``/``repeat`` for ``so_boundary_count``/``so_repeat``). Every
+returned dict carries ``_layers``, the layer or table that set each field.
 
 Validation. :func:`validate` streams the Cricsheet zip once and checks every
 data-testable field against what the timeline says for each match: DRS observed
@@ -32,7 +33,9 @@ Limits. Where Cricsheet cannot see a rule (two new balls, stop clock, fielders
 outside the circle beyond powerplays, the umpire's-call zone) the value is from
 memory and marked so. Whether a match had DRS is series-specific;
 ``drs_available`` is the competition default and ``drs_scope='selected'`` marks
-partial coverage, so models fitted on history should use :func:`match_drs_available`.
+partial coverage (set by team, since the venue is not an input), so models fitted on
+history should use :func:`match_drs_available` or
+:func:`beating.cricket.competitions.drs_available_for_matches`.
 Umpire's-call flags are only recorded from late 2017, so earlier counts treat every
 failed review as lost. Reduced tables are keyed by whole overs and cover only the
 first (and, for men's ODIs, all three) mandatory powerplays.
@@ -66,6 +69,11 @@ LEGACY_ALIASES = {"noball_extra_runs": "noball_penalty_runs", "test_days": "sche
                   "powerplay_overs": "pp_windows", "fielders_outside": "field_restr",
                   "bowler_quota_overs": "bowler_quota", "balls_in_use": "two_new_balls",
                   "super_over": "tie_break_rule", "super_over_this_match": "tie_break"}
+PLAN_FIELDS = ("overs_per_innings", "balls_per_over", "bowler_quota", "pp_windows", "field_restr", "free_hit",
+               "p_free_hit_given_nb", "noball_penalty_runs", "caught_crossing_counts", "drs_allowed",
+               "reviews_per_innings", "umpires_call_retains_review", "review_topup_after_80", "ucall_zone_era",
+               "test_overs_per_day", "scheduled_days", "follow_on_lead", "new_ball_after_overs", "two_new_balls",
+               "impact_player", "tie_break", "min_overs_for_result")  # plan section 5, in its order
 TIE_BREAKS = ("none", "bowl_out", "so_boundary_count", "so_repeat")
 LEGACY_TIE_BREAK = {"so_boundary_count": "single", "so_repeat": "repeat"}
 QUOTA_RULES = ("fifth_min2", "hundred_balls")
@@ -147,7 +155,7 @@ def reduced_powerplay(rule: str, n: int, bpo: int, field_restr: list) -> dict:
         wins = [[a + 1, b] for a, b in zip(bounds, bounds[1:]) if b > a]
         return {"mandatory": wins, "field_restr": [w + [lim] for w, lim in zip(wins, lims) if w[1] >= w[0]]}
     p1 = {"t20_overs": bpo * ((3 * n + 5) // 10), "t20_balls": (3 * balls + 5) // 10,
-          "t20_surge": bpo * ((n + 4) // 5), "odi_p1_round": bpo * ((2 * n + 5) // 10),
+          "t20_surge": bpo * max(2, (n + 4) // 5), "odi_p1_round": bpo * ((2 * n + 5) // 10),
           "hundred_quarter": (balls + 2) // 4}[rule]
     p1 = max(1, min(p1, balls))
     restr = [[1, p1, field_restr[0][2]]] + ([[p1 + 1, balls, tail]] if p1 < balls else [])
@@ -424,7 +432,10 @@ def check_drs(summaries: list[dict]) -> list[dict]:
     """(a) Share of matches with any recorded review vs the rules' drs_available.
 
     Club matches group by competition season; internationals by competition, event id,
-    year and associate/full, so a series-level difference is not hidden by pooling."""
+    year and associate/full, so a series-level difference is not hidden by pooling. Reviews
+    where the default is off are 'partial_selected' when they all fall in matches whose
+    rules allow DRS in some series (``drs_scope`` selected or knockouts), a conflict when
+    two or more fall in matches with ``drs_scope='none'``."""
     groups = defaultdict(lambda: Counter())
     for s in summaries:
         intl = s["comp"]["team_type"] == "international"
@@ -440,7 +451,7 @@ def check_drs(summaries: list[dict]) -> list[dict]:
         g["exp_true"] += exp
         g["obs_true"] += obs and exp
         g["obs_false"] += obs and not exp
-        g["selected"] += s["rules"]["drs_scope"] in ("selected", "knockouts") and not exp
+        g["obs_false_none"] += obs and not exp and s["rules"]["drs_scope"] == "none"
     rows = []
     for (cid, event_id, period, seg), g in sorted(groups.items()):
         n_false = g["n"] - g["missing"] - g["exp_true"]
@@ -450,13 +461,13 @@ def check_drs(summaries: list[dict]) -> list[dict]:
         if g["exp_true"] >= 5 and sh_t < 0.4:
             status = "conflict_rules_on_data_off"
         elif n_false >= 5 and sh_f > 0.2:
-            status = "partial_selected" if g["selected"] == n_false else "conflict_rules_off_data_on"
+            status = "partial_selected" if g["obs_false_none"] <= 1 else "conflict_rules_off_data_on"
         if (sh_t or 0) + (sh_f or 0) > 0 or g["exp_true"]:
             rows.append(dict(competition_id=cid, event_id=event_id, period=period, segment=seg, n=g["n"],
                              reviews_missing=g["missing"],
                              n_rules_on=g["exp_true"], share_obs_when_on=None if sh_t is None else round(sh_t, 3),
                              n_rules_off=n_false, share_obs_when_off=None if sh_f is None else round(sh_f, 3),
-                             status=status))
+                             reviews_where_scope_none=g["obs_false_none"], status=status))
     return rows
 
 
@@ -666,7 +677,7 @@ def _poisson_cdf(k: int, mu: float) -> float:
     return sum(math.exp(-mu) * mu**i / math.factorial(i) for i in range(k + 1))
 
 
-FREE_HIT_PRIOR = 10.0
+FREE_HIT_PRIOR, FREE_HIT_MIN_EXPECTED = 10.0, 20.0
 
 
 def check_free_hit(summaries: list[dict], config_path: str | None = None) -> list[dict]:
@@ -678,8 +689,11 @@ def check_free_hit(summaries: list[dict], config_path: str | None = None) -> lis
     'front_foot' when significantly above 0.6 of it (or zero with 15+ expected), and
     'all_noballs' when more than one in 500 free-hit balls ends in a protected dismissal.
     For front_foot cells, ``p_estimate`` = 1 - ratio_by_over shrunk to the pooled
-    front-foot ratio with a Gamma prior worth :data:`FREE_HIT_PRIOR` expected dismissals;
-    the row conflicts when the config's ``p_free_hit_given_nb`` is more than 0.05 away."""
+    front-foot ratio with a Gamma prior worth :data:`FREE_HIT_PRIOR` expected dismissals.
+    Cells with at least :data:`FREE_HIT_MIN_EXPECTED` expected dismissals get their own
+    value and conflict when the config's ``p_free_hit_given_nb`` is more than 0.05 away;
+    smaller cells use the pooled default and conflict only when their count is outside
+    the central 98% of a Poisson at the pooled ratio."""
     cfg = load_config(config_path).get("p_free_hit_given_nb", {})
     groups = defaultdict(lambda: dict(c=Counter(), leg=Counter(), prot=Counter(), fh=Counter(), viol=Counter()))
     for s in summaries:
@@ -727,7 +741,14 @@ def check_free_hit(summaries: list[dict], config_path: str | None = None) -> lis
         shrunk = (r["protected_dismissals"] + FREE_HIT_PRIOR * pooled) / (r["expected_by_over"] + FREE_HIT_PRIOR)
         r["p_estimate"] = round(min(1.0, max(0.0, 1 - shrunk)), 2)
         r["p_config"] = cfg.get("by_competition", {}).get(r["competition_id"], cfg.get("default"))
-        if r["p_config"] is None or abs(r["p_config"] - r["p_estimate"]) > 0.05:
+        r["own_estimate"] = r["expected_by_over"] >= FREE_HIT_MIN_EXPECTED
+        if r["own_estimate"]:
+            bad = r["p_config"] is None or abs(r["p_config"] - r["p_estimate"]) > 0.05
+        else:
+            mu0, k = pooled * r["expected_by_over"], r["protected_dismissals"]
+            bad = (r["competition_id"] in cfg.get("by_competition", {}) or _poisson_cdf(k, mu0) < 0.01
+                   or (k > 0 and 1 - _poisson_cdf(k - 1, mu0) < 0.01))
+        if bad:
             r["status"] = "conflict"
     if ff:
         rows.append(dict(competition_id="_pooled_front_foot", rule="front_foot", ratio_by_over=round(pooled, 3),
@@ -881,8 +902,11 @@ def _reduced_innings(s: dict):
     N is the second innings' revised target overs; the first innings counts when it ran
     exactly N overs. ``timing`` comes from the recorded first powerplay: ``pre`` when it
     ends where the reduced table says (the cut came before it ended), ``mid`` when it
-    has its full length (the cut came later), ``both`` when the two coincide, ``other``
-    or ``unknown`` (no powerplay recorded)."""
+    has its full length (the cut came later), ``both`` when the two coincide, ``during``
+    when it ends strictly between the two (the cut came during the powerplay, or a
+    later second cut), ``other`` when it fits no cut timing, ``unknown`` when none is
+    recorded or the record cannot be scored (the innings ended inside the powerplay, or
+    the recorded end is past the full-length powerplay)."""
     r, inns = s["rules"], s["main_innings"]
     sched, bpo = r["overs_per_innings"], r["balls_per_over"]
     if not sched or s["comp"]["fmt"] == "TEST" or len(inns) < 2 or not r["pp_windows"]:
@@ -898,42 +922,53 @@ def _reduced_innings(s: dict):
             continue
         rec = [b for t_, a, b in inn["pp_legal"] if t_ == "mandatory"]
         want = table["mandatory"][0][1] if table else None
-        if not rec or rec[0] is None:
+        if not rec or rec[0] is None or rec[0] >= inn["legal"] or rec[0] > full:
             timing = "unknown"
         elif rec[0] == want:
             timing = "both" if want == full else "pre"
+        elif rec[0] == full:
+            timing = "mid"
         else:
-            timing = "mid" if rec[0] == full else "other"
+            timing = "during" if want is not None and min(want, full) < rec[0] < max(want, full) else "other"
         yield k + 1, n, inn, timing, rec, table
 
 
 def check_reduced_powerplays(summaries: list[dict]) -> list[dict]:
     """Reduced innings: recorded first powerplay (in legal balls) vs pp_windows_reduced.
 
-    Innings whose powerplay kept its full length were cut after it and are reported but
-    not scored; a season conflicts when fewer than 75% of the rest match the table (5+
-    innings). For the men's three-powerplay table the end of P2 is compared too."""
+    Innings whose powerplay kept its full length (cut after it) or ended between the
+    table and full length (cut during it) are consistent with the table applied with
+    the N known at the time, and are reported but not scored. A season conflicts when
+    fewer than 75% of the scored innings match (5+ innings), a rule's pooled row
+    (``competition_id`` '_all') when fewer than 85% do. For the men's three-powerplay
+    table the end of P2 is compared too."""
     groups = defaultdict(lambda: dict(c=Counter(), rule=Counter(), p2=Counter(), ex=[]))
     for s in summaries:
         for k, n, inn, timing, rec, table in _reduced_innings(s):
-            g = groups[(_key(s), s["season"])]
-            g["c"][timing] += 1
-            g["rule"][s["rules"]["pp_reduced_rule"]] += 1
-            if timing in ("pre", "both") and table and len(table["mandatory"]) > 1:
-                g["p2"]["n"] += 1
-                g["p2"]["match"] += len(rec) > 1 and rec[1] == table["mandatory"][1][1]
-            if timing == "other" and len(g["ex"]) < 5:
-                g["ex"].append(f"{s['match_id']}:{k}:N={n}:recorded={rec[0]}:table={table and table['mandatory'][0][1]}")
+            rule = s["rules"]["pp_reduced_rule"]
+            for key in ((_key(s), s["season"]), ("_all", rule)):
+                g = groups[key]
+                g["c"][timing] += 1
+                g["rule"][rule] += 1
+                if timing in ("pre", "both") and table and len(table["mandatory"]) > 1:
+                    g["p2"]["n"] += 1
+                    g["p2"]["match"] += len(rec) > 1 and rec[1] == table["mandatory"][1][1]
+                if timing == "other" and len(g["ex"]) < 5:
+                    tab = table and table["mandatory"][0][1]
+                    g["ex"].append(f"{s['match_id']}:{k}:N={n}:recorded={rec[0]}:table={tab}")
     rows = []
-    for (cid, season), g in sorted(groups.items()):
+    for (cid, season), g in sorted(groups.items(), key=lambda kv: (kv[0][0] == "_all", kv[0])):
         c = g["c"]
         scored = c["pre"] + c["both"] + c["other"]
         share = (c["pre"] + c["both"]) / scored if scored else None
-        rows.append(dict(competition_id=cid, season=season, rule=g["rule"].most_common(1)[0][0], innings=sum(c.values()),
-                         matching=c["pre"] + c["both"], cut_after_powerplay=c["mid"], other=c["other"],
-                         no_powerplay_recorded=c["unknown"], share_matching=None if share is None else round(share, 3),
+        floor = 0.85 if cid == "_all" else 0.75
+        rows.append(dict(competition_id=cid, season=None if cid == "_all" else season,
+                         rule=g["rule"].most_common(1)[0][0], innings=sum(c.values()),
+                         matching=c["pre"] + c["both"], cut_after_powerplay=c["mid"], cut_during_powerplay=c["during"],
+                         other=c["other"], no_powerplay_recorded=c["unknown"],
+                         share_matching=None if share is None else round(share, 3),
                          p2_end_matching=f"{g['p2']['match']}/{g['p2']['n']}" if g["p2"]["n"] else None,
-                         examples=g["ex"], status="ok" if scored < 5 or share >= 0.75 else "conflict"))
+                         examples=g["ex"], status="ok" if scored < 5 or share >= floor else "conflict"))
     return rows
 
 
@@ -966,19 +1001,19 @@ def check_reduced_quotas(summaries: list[dict]) -> list[dict]:
     for (fmt, cid), g in sorted(groups.items()):
         c = g["c"]
         row = dict(fmt=fmt, competition_id=cid)
-        for t in ("pre", "mid", "other", "unknown"):
+        for t in ("pre", "during", "mid", "other", "unknown"):
             row[t] = f"{c[t + '_ok']}/{c[t]}"
         row["examples"] = dict(g["ex"])
         row["status"] = "conflict" if c["pre"] >= 10 and c["pre_ok"] / c["pre"] < 0.9 else "ok"
         rows.append(row)
     tot = Counter()
     for (fmt, _), g in groups.items():
-        for t in ("pre", "mid", "other", "unknown"):
+        for t in ("pre", "during", "mid", "other", "unknown"):
             tot[(fmt, t)] += g["c"][t]
             tot[(fmt, t + "_ok")] += g["c"][t + "_ok"]
     for fmt in sorted({f for f, _ in groups}):
         row = dict(fmt=fmt, competition_id="_all")
-        for t in ("pre", "mid", "other", "unknown"):
+        for t in ("pre", "during", "mid", "other", "unknown"):
             row[t] = f"{tot[(fmt, t + '_ok')]}/{tot[(fmt, t)]}"
         row["status"] = "conflict" if tot[(fmt, "pre")] >= 10 and tot[(fmt, "pre_ok")] / tot[(fmt, "pre")] < 0.95 else "ok"
         rows.append(row)
@@ -1104,8 +1139,7 @@ def validate(summaries: list[dict], config_path: str | None = None) -> dict:
         status[name] = dict(Counter(r["status"] for r in flat))
     ff = [r for r in sections["free_hit"] if r["rule"] == "front_foot" and "p_estimate" in r]
     estimate = dict(default=next((r["p_estimate"] for r in ff if r["competition_id"] == "_pooled_front_foot"), None),
-                    by_competition={r["competition_id"]: r["p_estimate"] for r in ff
-                                    if r["competition_id"] != "_pooled_front_foot"})
+                    by_competition={r["competition_id"]: r["p_estimate"] for r in ff if r.get("own_estimate")})
     src = Counter(s["drs_source"] for s in summaries)
     report = dict(generated_by="beating.cricket.rules.validate", config_version=load_config(config_path)["version"],
                   competitions=comps, status_counts=status, p_free_hit_given_nb_estimate=estimate,
