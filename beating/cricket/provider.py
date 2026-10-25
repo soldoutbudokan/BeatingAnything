@@ -12,9 +12,15 @@ Conventions shared by both engines:
 
 - ``dtype_eta`` returns 3 log-odds (legal, wide, noball; legal is 0 by convention but need not be);
   ``outcome_eta`` returns 9 (classes of :data:`OUTCOMES`), unmasked: the engine adds
-  ``glm.MASK_OFFSET`` (-30) to class 6 on no-balls and free hits. ``outcome_eta`` must be affine in
-  ``view["latent"]`` with slopes ``latent_directions(view)``; the engine's in-play Newton update
-  (plan 9.3) relies on it. ``wk_eta`` returns 5 (classes of :data:`KINDS`).
+  ``glm.MASK_OFFSET`` (-30) to class 6 on no-balls and free hits. ``wk_eta`` returns 5 (classes of
+  :data:`KINDS`). The engine converts log-odds and weights to draws itself (plan 9.5).
+- The in-play latent update (plan 9.3) is the engine's Newton loop; per ball it asks
+  ``latent_loglik(view, cls, idx, offset)`` for the log-likelihood, gradient and Hessian along the
+  latents ``idx`` at ``view["latent"]``. :func:`affine_latent_loglik` implements it for any provider
+  whose ``outcome_eta`` is affine in the latents with slopes ``latent_directions(view)``.
+- Bowler choice: ``bowler_utility(view, cand)`` is called for each eligible candidate in bowling-option
+  order with the view at the over end (``bowler`` None, the next over's striker and non-striker).
+
 - Empirical tables return non-negative weights (they need not sum to one); the engine draws from them
   with the categorical rule of plan 9.5 applied to running sums of the weights.
 - Form shifts in the view are in player-SD units (slider + standard normal draw); the provider scales
@@ -87,9 +93,10 @@ VIEW_KEYS = {
     "unavailable": "wickets plus batters unavailable (absent, retired hurt)",
     "target": "runs needed to win in total (chases) or None",
     "runs_required": "target - runs or None",
-    "striker": "striker id",
+    "striker": "striker id (None = an average batter, super-over bowler selection only)",
     "nonstriker": "non-striker id",
-    "bowler": "bowler id (None between overs)",
+    "bowler": "bowler id (None between overs, and = an average bowler in super-over batter selection)",
+
     "striker_runs": "int", "striker_balls": "legal balls + no-balls faced",
     "nonstriker_runs": "int", "nonstriker_balls": "int",
     "striker_arrival": "rank of arrival 1..11", "nonstriker_arrival": "int",
@@ -141,6 +148,9 @@ RULE_KEYS = {
     "follow_on_lead": "[[min_days_remaining, lead], ...] descending, or None",
     "new_ball_after_overs": "int or None",
     "balls_in_use": "one | two_new_balls | two_balls_until_34",
+    "quota_rule": "fifth_min2 | fifth: bowler quota of an n-over innings (rules.reduced_quota)",
+    "pp_reduced": "{str(n_overs): {mandatory: [[a, b]], field_restr: [[a, b, max]]}} in 1-based inclusive "
+                  "legal balls (rules pp_windows_reduced), or None (scale the scheduled windows)",
 }
 
 
@@ -158,7 +168,16 @@ class Provider(Protocol):
         "innings": [{"name", "sd"}...] (at most 2)}. Order defines view["latent"]."""
 
     def latent_directions(self, view: dict) -> Sequence[Sequence[float]]:
-        """d x 9 slopes of outcome_eta with respect to each latent of view["latent"] at this ball."""
+        """d x 9 slopes of outcome_eta with respect to each latent of view["latent"] at this ball
+        (d = number of match plus innings latents; documentation and the affine helper only)."""
+
+    def latent_loglik(self, view: dict, cls: int, idx: Sequence[int], offset: Sequence[float]
+                      ) -> tuple[float, list[float], list[list[float]]]:
+        """In-play latent update (plan 9.3). Log-likelihood of on-field outcome class `cls` at
+        view["latent"], with the engine's mask offsets `offset` (9 floats) added to outcome_eta, and
+        its gradient (len(idx)) and Hessian (len(idx) x len(idx)) with respect to the latents
+        view["latent"][j] for j in idx. Providers whose outcome_eta is affine in the latents use
+        affine_latent_loglik(self, ...)."""
 
     def toss_bat_prob(self, view: dict) -> float:
         """P(toss winner view["toss_winner"] bats first)."""
@@ -236,6 +255,39 @@ class Provider(Protocol):
         """Limited overs: G = Z(N_sched, 0) in runs (for revised targets above the first-innings resource)."""
 
 
+def affine_latent_loglik(P, view: dict, cls: int, idx, offset):
+    """latent_loglik for an outcome_eta affine in the latents with slopes latent_directions. Sums run
+    over classes 0..8 in order, as in engine.js: p = softmax(eta), m_i = sum_k p_k d_ik,
+    g_i = d_i,cls - m_i, H_ij = -(sum_k p_k d_ik d_jk - m_i m_j)."""
+    eta = [e + o for e, o in zip(P.outcome_eta(view), offset)]
+    D = P.latent_directions(view)
+    mx = max(eta)
+    ex = [math.exp(e - mx) for e in eta]
+    s = 0.0
+    for x in ex:
+        s += x
+    p = [x / s for x in ex]
+    ll = eta[cls] - mx - math.log(s)
+    rows = [D[j] for j in idx]
+    md = []
+    for r in rows:
+        a = 0.0
+        for k in range(9):
+            a += p[k] * r[k]
+        md.append(a)
+    g = [r[cls] - m for r, m in zip(rows, md)]
+    h = []
+    for i, ri in enumerate(rows):
+        hr = []
+        for j, rj in enumerate(rows):
+            a = 0.0
+            for k in range(9):
+                a += p[k] * ri[k] * rj[k]
+            hr.append(-(a - md[i] * md[j]))
+        h.append(hr)
+    return ll, g, h
+
+
 # ---------------------------------------------------------------- rules
 
 def default_rules(fam: str, gender: str = "male", date: str = "2025-06-01") -> dict:
@@ -246,7 +298,8 @@ def default_rules(fam: str, gender: str = "male", date: str = "2025-06-01") -> d
          "drs_enabled": date >= "2008-07-01", "reviews_per_innings": 2,
          "umpires_call_retains": date >= "2017-10-01", "review_topup_after_80": False, "tie_break": "none",
          "fielders_outside": None, "pp_mandatory": None, "test_days": None, "test_overs_per_day": None,
-         "follow_on_lead": None, "new_ball_after_overs": None, "balls_in_use": "one"}
+         "follow_on_lead": None, "new_ball_after_overs": None, "balls_in_use": "one", "quota_rule": "fifth_min2",
+         "pp_reduced": None}
     if fam in ("T20", "ODI"):
         r["free_hit"] = "all_noballs" if date >= "2015-07-05" else "front_foot"
         r["p_free_hit_given_nb"] = 1.0 if date >= "2015-07-05" else 0.75
@@ -272,30 +325,34 @@ def default_rules(fam: str, gender: str = "male", date: str = "2025-06-01") -> d
     return r
 
 
-_TIE_BREAK = {"none": "none", "bowl_out": "bowl_out", "single": "so_boundary_count", "repeat": "so_repeat",
-              "knockout_only": "none"}
-
-
 def engine_rules(raw: dict, fam: str) -> dict:
-    """Map a ``rules.rules_for`` result to the engine rules dict."""
+    """Map a ``rules.rules_for`` result (plan section 5 names) to the engine rules dict. DRS is on when
+    the rules allow it (``drs_allowed``); the scenario's drs settings override it."""
     r = default_rules(fam)
-    pp = raw.get("powerplay_overs")
+    pp = raw.get("pp_windows")
+    fo = raw.get("follow_on_lead_by_days")
+    two, until = raw.get("two_new_balls"), raw.get("two_new_balls_until_over")
+    fh = raw.get("free_hit") or "none"
+    pfh = raw.get("p_free_hit_given_nb")
     r.update(balls_per_over=raw.get("balls_per_over") or 6, max_balls=raw.get("balls_per_innings"),
-             min_balls_for_result=raw.get("min_balls_for_result"), free_hit=raw.get("free_hit") or "none",
-             noball_runs=raw.get("noball_extra_runs") or 1,
+             min_balls_for_result=raw.get("min_balls_for_result"), free_hit=fh,
+             p_free_hit_given_nb=float(pfh) if pfh is not None else (0.0 if fh == "none" else 1.0),
+             noball_runs=raw.get("noball_penalty_runs") or 1,
              caught_crossing_counts=bool(raw.get("caught_crossing_counts")),
-             drs_enabled=bool(raw.get("drs_available")), reviews_per_innings=raw.get("reviews_per_innings") or 0,
+             drs_enabled=bool(raw.get("drs_allowed")), reviews_per_innings=raw.get("reviews_per_innings") or 0,
              umpires_call_retains=bool(raw.get("umpires_call_retains_review")),
              review_topup_after_80=bool(raw.get("review_topup_after_80")),
-             tie_break=_TIE_BREAK.get(raw.get("super_over_this_match", raw.get("super_over")) or "none", "none"),
-             fielders_outside=raw.get("fielders_outside"),
+             tie_break=raw.get("tie_break") or "none", fielders_outside=raw.get("field_restr"),
              pp_mandatory=pp.get("mandatory") if isinstance(pp, dict) else None,
-             test_days=raw.get("test_days"), test_overs_per_day=raw.get("test_overs_per_day"),
-             follow_on_lead=copy.deepcopy(FOLLOW_ON_TABLE) if raw.get("follow_on_lead") else None,
-             new_ball_after_overs=raw.get("new_ball_after_overs"), balls_in_use=raw.get("balls_in_use") or "one")
+             test_days=raw.get("scheduled_days"), test_overs_per_day=raw.get("test_overs_per_day"),
+             follow_on_lead=sorted(([int(d), int(x)] for d, x in fo.items()), reverse=True) if fo else None,
+             new_ball_after_overs=raw.get("new_ball_after_overs"),
+             balls_in_use="two_balls_until_34" if two and until else "two_new_balls" if two else "one",
+             quota_rule=raw.get("reduced_quota_rule") or "fifth_min2", pp_reduced=raw.get("pp_windows_reduced"))
     if fam == "TEST":
         r["max_balls"] = r["min_balls_for_result"] = None
     return r
+
 
 
 # ---------------------------------------------------------------- stub provider
@@ -325,6 +382,8 @@ _CROSSED = {"T20": 0.47, "ODI": 0.27, "TEST": 0.06}
 _RAIN = {"T20": 0.06, "ODI": 0.12, "TEST": 0.25}
 _RES = {"T20": (330.0, 0.040), "ODI": (300.0, 0.030)}
 _NEW_ON_STRIKE = ((0.40, 0.85, 0.45), (0.55, 0.27, 0.50))
+_CAL = {"T20": (0.16, 0.0), "ODI": (0.22, -0.2), "TEST": (0.0, -0.47)}
+
 
 
 class StubProvider:
@@ -384,6 +443,10 @@ class StubProvider:
             rows.append(tuple(w * x for x in WICKET))
         return [list(r) for r in rows + [SCORING, WICKET]]
 
+    def latent_loglik(self, v: dict, cls: int, idx, offset):
+        return affine_latent_loglik(self, v, cls, idx, offset)
+
+
     def _phase(self, v) -> str:
         fam = v["fam"]
         if fam == "TEST":
@@ -416,7 +479,9 @@ class StubProvider:
         nm = prep["n_match"]
         sp = prep["spin"].get(bw, 0) if bw is not None else 0
         pr, pw = _POS.get(prep["pos"].get(st, 11), (0, 0))
-        a_runs, a_wkt = pr + lat[0] + lat[nm], pw + lat[1] + sp * lat[2] + lat[nm + 1]
+        cr, cw = _CAL[fam]
+        a_runs, a_wkt = cr + pr + lat[0] + lat[nm], cw + pw + lat[1] + sp * lat[2] + lat[nm + 1]
+
         sb = v["striker_balls"]
         if fam == "TEST":
             a_runs, a_wkt = (a_runs - 0.3, a_wkt + 0.3) if sb < 10 else (a_runs - 0.1, a_wkt + 0.1) if sb < 30 else \
@@ -545,7 +610,8 @@ class StubProvider:
             return _sigmoid(0.03 * (lead - need) + (0.3 if v["last_over_wkt"] else 0.0))
         if lead < 250:
             return 0.0
-        return _sigmoid(-12 + 0.018 * v["runs"] + 0.4 * v["wkts"] - 0.01 * max(0.0, left - 300))
+        return _sigmoid(-14 + 0.018 * v["runs"] + 0.3 * v["wkts"] - 0.01 * max(0.0, left - 300))
+
 
     def follow_on_prob(self, v: dict) -> float:
         bowled = v["prev_innings"][-1][3] / 6 if v["prev_innings"] else 0.0
@@ -575,7 +641,7 @@ class StubProvider:
         r = self.rules(sc)
         w = sc.get("weather") or {}
         risk = w.get("rain_risk")
-        return 6 * r["test_overs_per_day"], 0.75 if risk is None else 1.0 - risk
+        return 6 * r["test_overs_per_day"], 0.8 if risk is None else 1.0 - risk
 
     def day_availability(self, sc: dict, day: int, u: float) -> int:
         full, p_full = self._day(sc)
@@ -639,10 +705,10 @@ def validate_scenario(sc: dict) -> dict:
             errs.append(f"team {t}: absent ids not in batting_order: {sorted(bad)}")
         if team.get("bowlers") is not None and not team["bowlers"]:
             errs.append(f"team {t}: bowlers list is empty")
-    toss = sc.get("toss")
+    toss = sc.setdefault("toss", None)
     if toss is not None and (toss.get("winner") not in (0, 1) or toss.get("decision") not in ("bat", "field")):
         errs.append("toss must be null or {winner: 0|1, decision: bat|field}")
-    um = sc.get("umpires")
+    um = sc.setdefault("umpires", None)
     if um is not None and len(um) != 2:
         errs.append("umpires must be null or two ids")
     drs = dict(sc.get("drs") or {})

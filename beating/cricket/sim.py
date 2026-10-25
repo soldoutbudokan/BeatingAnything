@@ -1,81 +1,121 @@
 """Scalar reference engine for the ball-by-ball cricket Monte Carlo (plan sections 7 and 9).
 
-Method. One simulation at a time, in float64, with the shared xoshiro128** streams of rng.py. The engine
-owns match flow and the rules; every probability comes from a provider (provider.py). It simulates T20,
-ODI and Test cricket, men and women: toss, innings order (follow-on [A, B, B, A]), batting order and
-arrivals, bowler choice under the eligibility and feasibility filter of 7.1, the delivery transition of
-9.2 in its exact order, the DRS layer of 9.4, free-hit carry-over, run-out and crossing placement, chase
-completion crediting, all-out with unavailable batters, the Test clock, declarations, follow-on,
-innings victories, limited-overs interruptions with integer DLS-style targets (7.6), no result, ties and
-tie-breaks (7.7), match/innings latents and player form, the in-play canonical state (9.3) with its
-latent update, and the outputs of 9.7. ``docs/cricket/engine.js`` is the fast twin and must reproduce
-this file's decisions, slots and arithmetic exactly.
+Method. One simulation at a time, in float64, on the shared xoshiro128** streams of rng.py. The engine
+owns match flow, the rules and random-number consumption; every probability comes from a provider
+(provider.py, interface ``Provider``). It simulates T20, ODI and Test cricket, men and women: the toss
+(drawn or given), innings order ([A, B, A, B], or [A, B, B, A] after a follow-on), batting order and
+arrivals, bowler choice under the eligibility and feasibility filter of 7.1 (reduced-match bonuses,
+re-checked after every revision), the delivery transition of 9.2 in its exact order, the DRS layer of
+9.4, free-hit carry-over, run-out and crossing placement, chase-completion crediting, all-out with
+unavailable batters, the Test clock (used = match legal balls + 12 per innings changeover, per-day
+availability from the provider), declarations, follow-on, innings victories, Test ties and draws,
+limited-overs interruptions through ``apply_interruption`` with the integer targets of 7.6, par results
+and no results, tie-breaks (7.7), match and innings latents and player form, the in-play canonical
+state (9.3) with its 10-step Newton latent update, and the outputs of 9.7 with sensitivity reruns on
+common random numbers. ``docs/cricket/engine.js`` is the fast twin and must reproduce this file's
+decisions, slots and arithmetic exactly; tests/data/cricket_parity/{transitions,trajectories}.jsonl
+(tools/make_cricket_parity_vectors.py) pin both.
 
 Random numbers (plan 9.5). Five streams per (seed, sim): 0 ball, 1 over, 2 innings, 3 match, 4 player.
 Every event takes a fixed block from its stream whether or not it needs each uniform; slot i is the
 i-th uniform of the block. Conversions: categorical = first k with u * cum[-1] < cum[k] over running
-float64 sums of exp(eta - max) (eta) or of the weights themselves (tables), falling back to the last
+float64 sums of exp(eta - max) (cat_eta) or of non-negative weights (cat_w), falling back to the last
 class; Bernoulli = u < p; normal = Box-Muller with log(1 - u), pair (u1, u2) -> (r cos 2 pi u2,
-r sin 2 pi u2).
+r sin 2 pi u2), r = sqrt(-2 log(1 - u1)).
 
-  ball, 12 per delivery (every delivery, super overs included)
-    0  dtype: categorical over dtype_eta (legal, wide, noball)
-    1  outcome class: categorical over outcome_eta, class 6 + MASK_OFFSET on no-balls and free hits
-    2  exact runs: wide k = 1 + categorical(wide_runs(view, wide wicket)); four: 5 if u < p5 else 4;
-       six: 7 if u < p7 else 6; byes 1 + categorical(bye_runs); run-out runs completed
-       categorical(runout_runs) over 0..3
-    3  legal class 6: kind = categorical(wk_eta); wide: wide wicket = categorical(wide_wkt) over
-       none/stumped/run_out with stumped weight 0 on a free hit; no-ball under front_foot rules:
-       free hit next if u < p_free_hit_given_nb
-    4  run-out victim: the striker if u < runout_who(view, runs)
-    5  run-out: new batter on strike if u < runout_new_on_strike(view, who, min(runs, 2)); caught when
-       caught_crossing_counts: new batter to the non-striker's end if u < p_crossed
-    6  batting review: u < q_bat (on-field caught or lbw, DRS on, reviews left, not a free hit)
-    7  overturned: u < min(1, p_overturn_bat * accuracy_mult) -> the ball becomes a dot
-    8  umpire's call (lbw only): u < min(1, p_ucall_bat * ucall_mult)
+  ball, 12 per delivery (main innings and super overs)
+    0  dtype: cat_eta(dtype_eta) over legal, wide, noball
+    1  outcome class (legal and no-ball): cat_eta(outcome_eta + mask), mask = MASK_OFFSET on class 6 on
+       no-balls and free hits
+    2  exact runs: wide k = 1 + cat_w(wide_runs(view, wide wicket)); four 5 if u < p5 else 4; six 7 if
+       u < p7 else 6 (runs5_7); byes 1 + cat_w(bye_runs); run-out runs completed cat_w(runout_runs) 0..3
+    3  legal class 6: kind = cat_eta(wk_eta); wide: wide wicket = cat_w(wide_wkt) over none, stumped,
+       run_out with the stumped weight set to 0 on a free hit; no-ball under front_foot rules: free hit
+       next iff u < p_free_hit_given_nb
+    4  run-out victim (legal, no-ball or wide): the striker iff u < runout_who(view, runs)
+    5  run-out with a batter left: new batter on strike iff u < runout_new_on_strike(view, who,
+       min(runs, 2)); caught with a batter left and caught_crossing_counts: new batter to the
+       non-striker's end iff u < p_crossed
+    6  batting review (legal on-field caught or lbw, DRS on, batting side has a review): u < q_bat
+    7  overturned: u < min(1, p_overturn_bat * accuracy_mult); the ball becomes a dot
+    8  umpire's call (lbw review not overturned): u < min(1, p_ucall_bat * ucall_mult)
     9  missed out on a legal dot or bye that is not a free hit: u < min(1, lambda_field * accuracy_mult);
-       it becomes a successful fielding review when DRS is on and the fielding side has a review,
-       otherwise it is counted as a missed out standing
-    10 kind of a reviewed missed out: lbw if u < lbw share else caught
-    11 speculative fielding review on a legal non-wicket ball or a wicketless wide (DRS on, fielding
-       review left, not a free hit): failed review if u < r_spec, umpire's call if u < r_spec * share
+       a successful fielding review when DRS is on and the fielding side has a review (out, runs 0),
+       otherwise counted as a missed out standing
+    10 kind of a reviewed missed out: lbw iff u < lbw share (drs_field) else caught
+    11 speculative fielding review (DRS on, fielding review left, not a free hit) on a legal non-wicket
+       ball other than a run-out, or a wicketless wide: failed iff u < r_spec, umpire's call iff
+       u < r_spec * ucall share
   over, 4 per over-end event
-    0 interruption (reserved; the schedule is pre-drawn from the match stream)
-    1 declaration (Tests, innings 1-2, or 3 with lead > 0): u < declare_hazard
-    2 next bowler: categorical over bowler_utility of the eligible bowlers, in bowling-option order
-    3 new ball (Tests, ball age >= new_ball_after_overs): u < new_ball_prob
+    0  interruption (unused: the schedule is drawn from the match stream)
+    1  declaration (Tests; innings 1-2, or 3 with lead > 0; innings continuing): u < declare_hazard
+    2  next bowler: cat_eta of bowler_utility over the eligible bowlers in bowling-option order
+    3  new ball (Tests, ball age >= new_ball_after_overs, after the bowler): u < new_ball_prob
   innings, 4 per innings-start event (main innings, super-over innings, in-play resume)
-    0 follow-on (start of Test innings 3 when the lead reaches the threshold): u < follow_on_prob
-    1 umpire end: offset 0 if u < 0.5 else 1; bowler's-end umpire = umpires[(over + offset) % 2]
-    2 opening bowler (resume: the next over's bowler when no over is in progress)
-    3 spare
+    0  follow-on (start of Test innings 3 when lead >= threshold): u < follow_on_prob
+    1  umpire end: offset 0 iff u < 0.5 else 1; bowler's-end umpire = umpires[(over + offset) % 2]
+       (resume: only when the state has no offset)
+    2  opening bowler of a main innings (resume: the next bowler when no over is in progress); super
+       overs choose deterministically
+    3  spare
   match, 64 at match start or in-play resume
-    0 toss winner team 0 if u < 0.5        1 bat first if u < toss_bat_prob
-    2-5 match latent normals: pairs (2,3), (4,5) -> z for match latents 0..3
-    6-13 innings latent normals: pair (6+2k, 7+2k) -> z for main innings k = 0..3 (runs, wicket)
-    14-21 Test day availability: day d = 1..8 uses slot 13 + d
-    22-37 interruption schedule: the 16 uniforms passed to the provider
-    38 tie-break coin: team 0 if u < 0.5 (bowl-out, or after the last super over)
+    0  toss winner: team 0 iff u < 0.5      1  winner bats iff u < toss_bat_prob (both pre-toss only)
+    2-5  match latent normals: pairs (2, 3), (4, 5) -> z for match latents 0..3
+    6-13 innings latent normals: pair (6 + 2k, 7 + 2k) -> z for main innings k = 0..3 (latents 0, 1)
+    14-21 Test day availability: day d = 1..8 uses slot 13 + d (resume: only days the state leaves null)
+    22-37 interruption schedule: the 16 uniforms passed to interruption_schedule
+    38 tie-break coin: team 0 iff u < 0.5 (bowl-out, or after the last super over)
     39-63 spare
-  player, 4 per player slot (team 0's batting order, then its bowling XI and options not in it, then
-  team 1 the same): pair (0,1) -> batting (runs, wicket) z, pair (2,3) -> bowling (runs, wicket) z
+  player, 4 per player slot; slots: team 0's batting order, then its bowling XI and bowling options not
+  already listed, then team 1 the same: pair (0, 1) -> batting (runs, wicket) z, pair (2, 3) ->
+  bowling (runs, wicket) z; form = slider + z (slider only when draw_player_uncertainty is false)
 
-Events fire as follows. The match-start event (or the resume event of an in-play state) runs once. An
-innings-start event opens every main and super-over innings. An over-end event fires after a delivery
-that completes an over or ends an innings while the match is undecided and more main-innings
-deliveries can follow (never in super overs); in order it applies due interruptions, then (innings
-continuing) the declaration, the next bowler and the new ball.
+Latents: match latent j = slider_j * sd_j (pitch known) or slider_j * sd_j + sd_j * z_j; innings latent
+of main innings k = sd * z. With an in-play ball list they are mode + L^-T z from the Laplace posterior
+(same z slots). Super overs use the match latents and the batting side's first main-innings latents;
+their batter and bowler selection uses zero latents and zero form.
 
-Rules resolved here (see also the module report): interruption starts are measured in match legal balls
-bowled; a mid-innings-1 reduction cuts both innings to old - lost, closing innings 1 if it has already
-passed that length; a reduction at the innings break or in innings 2 changes innings 2 only; resources
-lost = P(u_before, w) - P(u_after, w); par ties stand without a tie-break; at most 6 super overs (one
-plus five repeats) and then the coin. Super overs use the match latent and the batting side's
-main-innings latent; their selections use zero latents and zero form. Run-out runs are bat runs.
+Events, in order. The match event (or the resume event of an in-play state) runs once: toss, forms,
+latents, the Test clock or the interruption schedule, then pre-play interruptions (start 0). An innings
+event opens every main and super-over innings. A ball event is one delivery (9.2 steps 1-11 and 13).
+An over event fires after a main-innings delivery that completes an over or ends an innings while the
+match is undecided: it applies the interruptions due (start <= match legal balls bowled), then, if the
+innings continues, the declaration, the next bowler and the new ball.
 
-Limits. Pure Python: roughly 50-70k deliveries per second on this machine; bulk evaluation belongs to
-docs/cricket/cli.js. No retirements, nightwatchmen or multi-bowler overs (deviations D2, D3, D7); the
-Hundred is not simulated (D1); in-play states must be inside a main innings.
+Scripted-draw mode (Match(script=[...]), apply_script): every random decision is forced by the next
+event dict, {"e": "match" | "resume" | "innings" | "ball" | "over", ...}, with the keys this module reads
+through _need: match toss_winner, toss_bat (pre-toss), avail (Tests), interruptions, coin; innings
+follow_on, umpire_offset, bowler; ball dtype, cls, runs, kind, wide_wkt, free_hit, bat_review,
+overturned, ucall, missed, missed_lbw, spec, spec_ucall, ro_striker, ro_new_on_strike, crossed; over
+declare, bowler, new_ball; resume umpire_offset, bowler, coin. bat_review, missed, spec and declare
+default to false; a key the event does not use, or an impossible value, raises ScriptError; scripts end
+before a delivery and never inside a super over.
+
+Rules resolved here (plan ambiguities): the wide wicket is drawn before the wide runs, which are
+conditional on it (a stumping is one wide); run-out runs completed are bat runs (wides on a wide);
+boundaries for chase crediting are bat 4-7 from the four and six classes, 4-5 byes and 5 wides;
+interruption starts are match legal balls bowled; a mid-innings-1 reduction cuts both innings to
+old - lost, closing innings 1 if it has passed that length, R1 losing P(u_before, w) - P(u_after, w);
+a reduction at the innings break or in innings 2 changes innings 2 only (R2 loses the same difference
+mid-innings); a revised innings 2 no longer than the balls faced is cut and decided on par = T - 1
+(par ties stand); a pre-match reduction keeps target timing "original"; quotas follow rules
+quota_rule (fifth_min2: floor(n / 5), n mod 5 one-over bonuses, at least 2 overs below 10) and
+reduced powerplays the rules table (else the scheduled windows scaled half up); bowling options
+default to the bowling XI minus the keeper, last batter first; infeasible options get part-timers
+from the batting order; super overs: at most 6 (one plus five repeats) then the coin, the side that
+batted second in the previous one bats first, batters = three highest expected bat runs per legal ball
+(death context, average bowler), bowler = lowest expected bat runs from the bowling XI minus the
+keeper, reviews 1 each; the follow-on threshold uses the scheduled days left when play starts (days
+with zero availability before the first ball are not counted); Test expected overs left = (realized
+availability through the current day + expected later days - used) / 6; batting review counters
+count failed non-umpire's-call reviews; player outputs count main innings only; P(50+) and P(3+) use
+the best innings of the match; "other" dismissals are credited to the bowler.
+
+Limits. Pure Python: about 25-30k deliveries per second on this machine with the StubProvider; bulk
+evaluation belongs to docs/cricket/cli.js. No retirements, nightwatchmen or multi-bowler overs
+(deviations D2, D3, D7); the Hundred is not simulated (D1); in-play states must be inside a main
+innings; the canonical state keeps only totals for completed innings, so in-play player outputs, runs by
+over and the worm cover the current and later innings.
 """
 from __future__ import annotations
 
@@ -92,7 +132,7 @@ LEGAL, WIDE, NOBALL = 0, 1, 2
 DOT, ONE, TWO, THREE, FOUR, SIX, OUT, RUN_OUT, BYES = range(9)
 CAUGHT, BOWLED, LBW, STUMPED, OTHER, RO = range(6)
 KIND_ALL = KINDS + ("run_out",)
-NOMINAL_RUNS = (0, 1, 2, 3, 4, 6, 0, 0, 1)
+NOMINAL_RUNS = (0, 1, 2, 3, 4, 6, 0, 0, 0)
 M_TOSS, M_TOSS_BAT, M_LAT, M_INN_LAT, M_DAYS, M_RAIN, M_COIN = 0, 1, 2, 6, 14, 22, 38
 MAX_DAYS, MAX_SUPER_OVERS = 8, 6
 END_REASONS = ("all_out", "balls", "target", "declared", "clock", "cut", "no_result")
@@ -101,6 +141,9 @@ _DT = {k: i for i, k in enumerate(DTYPES)}
 _WW = {k: i for i, k in enumerate(WIDE_WKTS)}
 _KI = {k: i for i, k in enumerate(KIND_ALL)}
 VIEW_ORDER = tuple(VIEW_KEYS)
+VIEW_STATIC = ("fam", "gender", "competition_id", "date", "venue_id", "neutral", "start_slot", "weather", "umpires",
+               "rules", "drs_enabled", "sched_balls", "scheduled_days", "teams", "home", "prep", "latent")
+
 
 
 class ScriptError(ValueError):
@@ -154,45 +197,60 @@ def softmax(eta) -> list[float]:
 
 # ---------------------------------------------------------------- rules helpers
 
-def eligible_bowlers(opts, overs: dict, last, n_overs: int | None, done: int) -> list:
-    """Plan 7.1: bowlers who may take the next over. `overs` maps id -> completed overs, `n_overs` is
-    the innings length in overs (None: no quota), `done` the overs completed. The quota is n // 5 with
-    n % 5 one-over bonuses; after giving i the over, the remaining R' overs must be coverable:
-    sum_j min(q_j, cap_j) + bonuses >= R', cap_j = R' // 2 for j = i and ceil(R' / 2) otherwise, with
-    the unclaimed bonuses added greedily to bowlers whose quota is below their cap."""
+def quota(n_overs: int, rule: str = "fifth_min2") -> tuple[int, int]:
+    """(max overs per bowler, bowlers allowed one more) for an innings of `n_overs` overs, as
+    rules.reduced_quota: n // 5 with n % 5 one-over bonuses; under "fifth_min2" innings shorter than
+    10 overs allow min(2, n) overs each and no bonus."""
+    if rule == "fifth_min2" and n_overs < 10:
+        return min(2, n_overs), 0
+    return n_overs // 5, n_overs % 5
+
+
+def eligible_bowlers(opts, overs: dict, last, n_overs: int | None, done: int, rule: str = "fifth_min2") -> list:
+    """Plan 7.1: bowlers of `opts` (in order) who may take the next over. `overs` maps id -> completed
+    overs, `n_overs` is the current innings length in overs (None: Tests, no quota), `done` the overs
+    completed. A bowler needs to differ from `last`, have quota left (base quota, or an unclaimed
+    one-over bonus once at base), and leave the remaining R' = n_overs - done - 1 overs coverable:
+    sum_j min(q_j, cap_j) + min(free bonuses, #{j: q_j < cap_j, j not yet past base}) >= R', with
+    q_j the base quota left after this over, cap_j = R' // 2 for the candidate and ceil(R' / 2) for
+    the others (bonuses added greedily, one per bowler)."""
     if n_overs is None:
         return [i for i in opts if i != last]
-    base, bonus = divmod(n_overs, 5)
+    base, bonus = quota(n_overs, rule)
     free = bonus - sum(1 for o in overs.values() if o > base)
     r2 = n_overs - done - 1
+    ci, co = r2 // 2, (r2 + 1) // 2
+    tot = nb = 0
+    for j in opts:
+        o = overs.get(j, 0)
+        if o <= base:
+            tot += min(base - o, co)
+            nb += base - o < co
     out = []
     for i in opts:
-        oi = overs.get(i, 0)
-        if i == last or oi > base or (oi == base and free <= 0):
+        o = overs.get(i, 0)
+        if i == last or o > base or (o == base and free <= 0):
             continue
-        fi = free - (1 if oi == base else 0)
-        tot = nb = 0
-        for j in opts:
-            oj = overs.get(j, 0) + (1 if j == i else 0)
-            cap = r2 // 2 if j == i else (r2 + 1) // 2
-            if oj > base:
-                tot += min(max(0, base + 1 - oj), cap)
-            else:
-                q = base - oj
-                tot += min(q, cap)
-                nb += q < cap
-        if tot + min(max(fi, 0), nb) >= r2:
+        t, n = tot - min(base - o, co), nb - (base - o < co)
+        if o < base:
+            t += min(base - o - 1, ci)
+            n += base - o - 1 < ci
+            fi = free
+        else:
+            fi = free - 1
+        if t + min(max(fi, 0), n) >= r2:
             out.append(i)
     return out
 
 
-def quota_left(overs: dict, b, n_overs: int | None):
+def quota_left(overs: dict, b, n_overs: int | None, rule: str = "fifth_min2"):
+    """Overs `b` may still bowl (base quota left, plus one if a bonus is unclaimed); None in Tests."""
     if n_overs is None:
         return None
-    base, bonus = divmod(n_overs, 5)
+    base, bonus = quota(n_overs, rule)
     o = overs.get(b, 0)
     if o > base:
-        return max(0, base + 1 - o)
+        return 0
     free = bonus - sum(1 for x in overs.values() if x > base)
     return base - o + (1 if free > 0 else 0)
 
@@ -248,6 +306,7 @@ class Prepared:
         if r["balls_per_over"] != 6:
             raise ValueError("only 6-ball overs are simulated (deviation D1)")
         self.rules, self.bpo = r, 6
+        self.qrule = r.get("quota_rule") or "fifth_min2"
         self.acc, self.ucm = d["accuracy_mult"], d["ucall_mult"]
         self.rpi = int(r["reviews_per_innings"] or 0) if r["drs_enabled"] else 0
         self.prep = P.prepare(sc)
@@ -256,7 +315,8 @@ class Prepared:
         if len(self.lat_m) > 4 or len(self.lat_i) > 2:
             raise ValueError("at most 4 match and 2 innings latents")
         self.G = P.resource_G(sc) if self.limited else None
-        self._res = {}
+        self._res, self._post = {}, None
+
         self.orders, self.absent, self.keeper, self.opts, self.part_timers, self.xi = [], [], [], [], [], []
         self.pos, self.slots = {}, []
         for t, team in enumerate(sc["teams"]):
@@ -273,7 +333,7 @@ class Prepared:
             if self.limited:
                 n = r["max_balls"] // 6
                 extra = [p for p in order if p not in opts and p != team["keeper"] and p not in team["absent"]]
-                while not eligible_bowlers(opts, {}, None, n, 0) and extra:
+                while not eligible_bowlers(opts, {}, None, n, 0, self.qrule) and extra:
                     p = extra.pop(0)
                     opts.append(p)
                     added.append(p)
@@ -297,6 +357,39 @@ class Prepared:
                           teams=tuple(t["name"] for t in sc["teams"]), home=tuple(home), prep=self.prep,
                           super_over=0, so_innings=0, followed_on=False, prev_innings=())
 
+    def posterior(self) -> dict:
+        """Laplace posterior of the in-play latents (computed once per scenario from state["balls"]):
+        {"free": latent indices updated, "mode", "chol"}. Known pitch: only the innings latents are
+        free. The likelihood uses the scenario's mean form (slider values, no draws)."""
+        if self._post is None:
+            sc, pitch, nm, ni = self.sc, self.sc["pitch"], len(self.lat_m), len(self.lat_i)
+            st = sc["state"]
+            known = bool(pitch["known"])
+            free = ([] if known else list(range(nm))) + [nm + j for j in range(ni)]
+            mu = [float(pitch.get(s["pitch"], 0.0) or 0.0) * s["sd"] for s in self.lat_m] + [0.0] * ni
+            sd = [s["sd"] for s in self.lat_m] + [s["sd"] for s in self.lat_i]
+            fixed = [mu[j] if known and j < nm else 0.0 for j in range(nm + ni)]
+            pf = sc["player_form"]
+
+            def form(p, a, b):
+                f = pf.get(p) or {}
+                return float(f.get(a, 0.0) or 0.0), float(f.get(b, 0.0) or 0.0)
+            recs = []
+            for r in st["balls"]:
+                v = dict(r["view"])
+                for key, pid in (("striker_form", "striker"), ("nonstriker_form", "nonstriker")):
+                    if v.get(pid) is not None:
+                        v[key] = form(v[pid], "bat_runs_sd", "bat_wkt_sd")
+                if v.get("bowler") is not None:
+                    v["bowler_form"] = form(v["bowler"], "bowl_runs_sd", "bowl_wkt_sd")
+                recs.append({"inn": r["inn"], "cls": r["cls"], "view": v})
+            base = dict(self.view0)
+            base["toss_winner"] = (st.get("toss") or {}).get("winner")
+            mode, chol = latent_posterior(self.P, base, recs, st["cur"]["number"], free, [mu[j] for j in free],
+                                          [sd[j] for j in free], fixed, nm)
+            self._post = {"free": free, "mode": mode, "chol": chol}
+        return self._post
+
     def res(self, balls_remaining: int, wkts: int) -> int:
         key = (balls_remaining, wkts)
         v = self._res.get(key)
@@ -305,9 +398,16 @@ class Prepared:
         return v
 
     def windows(self, max_balls):
+        """(field-restriction windows [(lo, hi, max_outside)], powerplay windows [(lo, hi, name)]) in
+        half-open legal-ball ranges for an innings of `max_balls`: the rules' reduced table for
+        max_balls // 6 overs when it has one, else the scheduled windows scaled half up."""
         r = self.rules
         if not self.limited:
             return [], []
+        red = (r.get("pp_reduced") or {}).get(str(max_balls // 6))
+        if red is not None:
+            return ([(a - 1, b, m) for a, b, m in red.get("field_restr") or []],
+                    [(a - 1, b, f"pp{i + 1}") for i, (a, b) in enumerate(red.get("mandatory") or [])])
         n = r["max_balls"]
         fo = [(scale_ball((a - 1) * 6, max_balls, n), scale_ball(b * 6, max_balls, n), m)
               for a, b, m in r["fielders_outside"] or []]
@@ -324,13 +424,15 @@ class Innings:
                  "n_arrived", "bowl", "over_bowlers", "bowler", "last_bowler", "spell", "ball_in_over",
                  "free_hit", "reviews", "fail_reviews", "umpire_offset", "p_runs", "p_balls", "ball_age",
                  "second_new_ball", "over_runs", "wkt_this_over", "last_over_runs", "last_over_wkt",
-                 "over_scores", "end", "windows", "agg_bat", "agg_opp", "closed", "extras")
+                 "over_scores", "end", "windows", "agg_bat", "agg_opp", "closed", "extras", "byes")
 
     def __init__(self):
         self.so = self.so_inn = 0
         self.runs = self.wkts = self.legal = self.ball_in_over = self.n_arrived = 0
         self.max_wkts = 10
         self.target = self.timing = self.bowler = self.last_bowler = self.umpire_offset = self.end = None
+        self.max_balls = self.number = self.team = self.opp = None
+        self.order = ()
         self.striker = self.nonstriker = None
         self.bat, self.bowl = {}, {}
         self.out, self.over_bowlers, self.over_scores, self.to_come = [], [], [], []
@@ -339,6 +441,7 @@ class Innings:
         self.free_hit = self.second_new_ball = self.wkt_this_over = self.last_over_wkt = self.closed = False
         self.reviews, self.fail_reviews = [0, 0], [0, 0]
         self.p_runs = self.p_balls = self.ball_age = self.over_runs = self.last_over_runs = self.extras = 0
+        self.byes = 0
         self.windows = ([], [])
         self.agg_bat = self.agg_opp = 0
 
@@ -351,7 +454,7 @@ class Match:
     in-play canonical state (plan 9.3) to resume from."""
 
     def __init__(self, pr: Prepared, sim: int = 0, seed: int = 0, *, script=None, log=None, state=None,
-                 views=None):
+                 views=None, stop_at=None):
         self.pr, self.P, self.rules, self.sc = pr, pr.P, pr.rules, pr.sc
         self.sim, self.seed = sim, seed
         self.script = None if script is None else list(script)
@@ -374,6 +477,8 @@ class Match:
         self.stats = Counter()
         self.deliveries = 0
         self.state0 = state
+        self.stop_at = None if stop_at is None else tuple(stop_at)
+        self.stopped = False
 
     # --- script plumbing
     def _next(self, ev: str):
@@ -384,13 +489,21 @@ class Match:
         f = self.script.pop(0)
         if f.get("e") != ev:
             raise ScriptError(f"script has {f.get('e')!r} where the engine expects a {ev!r} event")
-        return f
+        return dict(f)
 
     @staticmethod
     def _need(F, key):
         if key not in F:
             raise ScriptError(f"scripted {F.get('e')} event needs {key!r}")
-        return F[key]
+        return F.pop(key)
+
+    # bat_review, missed, spec and declare (rare-event Bernoulli decisions) default to False in scripts.
+
+    @staticmethod
+    def _done(F):
+        """Every forced value of a scripted event must have been used by that event."""
+        if F is not None and set(F) - {"e"}:
+            raise ScriptError(f"scripted {F['e']} event has unused decisions {sorted(set(F) - {'e'})}")
 
     # --- driver
     def play(self) -> "Match":
@@ -406,6 +519,9 @@ class Match:
                     else:
                         self._start_innings()
                     continue
+                if self.stop_at is not None and self.cur.so == 0 and (self.cur.number, self.cur.legal) >= self.stop_at:
+                    self.stopped = True
+                    break
                 over_done = self._delivery()
                 c = self.cur
                 if c.end is not None:
@@ -500,10 +616,11 @@ class Match:
         else:
             n = self.rules["max_balls"]
             self.lengths, self.R = [n, n], [pr.res(n, 0), None]
-            self.pending = [dict(x) for x in (F.get("interruptions", []) if F is not None else
+            self.pending = [dict(x) for x in (F.pop("interruptions", []) if F is not None else
                                               P.interruption_schedule(sc, 0, um[M_RAIN:M_RAIN + 16]))]
         self.coin_u = um[M_COIN] if um is not None else None
-        self.coin_forced = F.get("coin") if F is not None else None
+        self.coin_forced = F.pop("coin", None) if F is not None else None
+        self._done(F)
         if rec is not None:
             rec.update(toss_winner=winner, toss_bat=bat, bat_first=first)
             if F is None:
@@ -537,7 +654,8 @@ class Match:
             if k == 2:
                 self.R[1] = pr.res(c.max_balls, 0)
                 c.target = revised_target(self.done[0].runs, self.R[0], self.R[1], pr.G)
-                c.timing = "pre_inn2" if self.revised_pre else "original"
+                c.timing = "pre_inn2" if self.revised_pre and self.R[1] != self.R[0] else "original"
+
         elif k == 4:
             c.target = c.agg_opp - c.agg_bat + 1
             c.timing = "original"
@@ -574,6 +692,7 @@ class Match:
         if k > 1:
             self.changeovers += 1
         if pr.fam == "TEST" and self._used() >= self.A_total:
+            self._done(F)
             if rec is not None:
                 self.log.append(rec)
             self._set_result("draw")
@@ -601,6 +720,7 @@ class Match:
         self._innings_view(c)
         self._refresh()
         self._choose_bowler(None if u is None else u[2], F, rec)
+        self._done(F)
         if rec is not None:
             rec.update(team=team, umpire_offset=c.umpire_offset)
             self.log.append(rec)
@@ -659,37 +779,46 @@ class Match:
         eb = [(self._expected_runs(None, p), i, p) for i, p in enumerate(cands)]
         c.bowler = sorted(eb)[0][2]
         c.bowl[c.bowler] = [0, 0, 0, 0]
+        self._done(F)
         if self.log is not None:
             self.log.append({"e": "innings", "n": 0, "so": c.so, "team": team, "umpire_offset": c.umpire_offset,
                              "batters": top, "bowler": c.bowler})
 
     # --- bowler choice
-    def _cand(self, b, n_overs) -> dict:
+    def _cands(self, elig, n_overs, overs) -> list[dict]:
+        """Provider.bowler_utility candidate dicts for the eligible bowlers, in order."""
         c, pr = self.cur, self.pr
-        s = c.bowl.get(b, (0, 0, 0, 0))
-        overs = {x: y[3] for x, y in c.bowl.items()}
-        return {"id": b, "option": pr.opts[c.opp].index(b) if b in pr.opts[c.opp] else len(pr.opts[c.opp]),
-                "overs": s[3], "balls": s[0], "runs": s[1], "wkts": s[2], "spell": spell_overs(c.over_bowlers, b),
-                "quota_left": quota_left(overs, b, n_overs),
-                "overs_left": None if n_overs is None else n_overs - len(c.over_bowlers),
-                "part_timer": b in pr.part_timers[c.opp], "opened": b in c.over_bowlers[:2]}
+        opts, pt, ob = pr.opts[c.opp], pr.part_timers[c.opp], c.over_bowlers
+        if n_overs is not None:
+            base, bonus = quota(n_overs, pr.qrule)
+            free = bonus - sum(1 for o in overs.values() if o > base)
+        out = []
+        for b in elig:
+            s = c.bowl.get(b) or (0, 0, 0, 0)
+            ql = None if n_overs is None else 0 if s[3] > base else base - s[3] + (1 if free > 0 else 0)
+            out.append({"id": b, "option": opts.index(b) if b in opts else len(opts), "overs": s[3], "balls": s[0],
+                        "runs": s[1], "wkts": s[2], "spell": spell_overs(ob, b), "quota_left": ql,
+                        "overs_left": None if n_overs is None else n_overs - len(ob), "part_timer": b in pt,
+                        "opened": b in ob[:2]})
+        return out
 
     def _choose_bowler(self, u, F, rec):
         c, pr, P, v = self.cur, self.pr, self.P, self.view
         opts = pr.opts[c.opp]
         n_overs = c.max_balls // 6 if pr.limited else None
         overs = {x: y[3] for x, y in c.bowl.items()}
-        elig = eligible_bowlers(opts, overs, c.last_bowler, n_overs, len(c.over_bowlers))
+        elig = eligible_bowlers(opts, overs, c.last_bowler, n_overs, len(c.over_bowlers), pr.qrule)
         if not elig:
             self.stats["bowler_fallback"] += 1
-            elig = [b for b in opts if b != c.last_bowler and (quota_left(overs, b, n_overs) or 0) > 0] or \
-                [b for b in opts if b != c.last_bowler] or list(opts)
+            elig = [b for b in opts if b != c.last_bowler and (quota_left(overs, b, n_overs, pr.qrule) or 0) > 0] \
+                or [b for b in opts if b != c.last_bowler] or list(opts)
         if F is not None:
             b = self._need(F, "bowler")
             if b not in elig:
                 raise ScriptError(f"forced bowler {b!r} is not eligible; eligible: {elig}")
         else:
-            ut = [P.bowler_utility(v, self._cand(x, n_overs)) for x in elig]
+            ut = [P.bowler_utility(v, cd) for cd in self._cands(elig, n_overs, overs)]
+
             b = elig[cat_eta(u, ut)]
         c.bowler = b
         c.spell = spell_overs(c.over_bowlers, b)
@@ -780,6 +909,7 @@ class Match:
             rec["dtype"] = DTYPES[d]
         bat = byes = wides = pen = 0
         cls, kind, victim, boundary, fh_new = -1, -1, None, False, False
+        cls_on = -1
         ro_runs = 0
         if d == WIDE:                                           # 3. wide
             v["dtype"] = "wide"
@@ -807,6 +937,9 @@ class Match:
             cls = self._need(F, "cls") if F is not None else cat_eta(u[1], eta)
             if F is not None and cls == OUT and (d == NOBALL or fh):
                 raise ScriptError("a bowler-credited out is masked on no-balls and free hits")
+            if F is not None and not 0 <= cls <= 8:
+                raise ScriptError(f"outcome class {cls!r} out of range")
+            cls_on = cls
             if rec is not None:
                 rec["cls"] = cls
             if d == NOBALL:                                     # 4. no-ball
@@ -823,7 +956,7 @@ class Match:
                     rec["kind"] = KIND_ALL[kind]
                 if drs and kind in (CAUGHT, LBW) and c.reviews[0] > 0:
                     q, po, pu = P.drs_bat(v, kind)
-                    rv = self._need(F, "bat_review") if F is not None else u[6] < q
+                    rv = F.pop("bat_review", False) if F is not None else u[6] < q
                     if rec is not None:
                         rec["bat_review"] = bool(rv)
                     if rv:
@@ -851,7 +984,7 @@ class Match:
                 spec_ok = drs and c.reviews[1] > 0
                 if cls in (DOT, BYES):
                     lam, lbw_share, _, _ = P.drs_field(v, cls)
-                    ms = self._need(F, "missed") if F is not None else u[9] < min(1.0, lam * pr.acc)
+                    ms = F.pop("missed", False) if F is not None else u[9] < min(1.0, lam * pr.acc)
                     if rec is not None:
                         rec["missed"] = bool(ms)
                     if ms and drs and c.reviews[1] > 0:
@@ -908,6 +1041,8 @@ class Match:
         bb[1] += bat + wides + pen
         c.runs += total
         c.extras += byes + wides + pen
+        c.byes += byes
+
         c.p_runs += total
         c.over_runs += total
         if d == LEGAL:
@@ -980,11 +1115,11 @@ class Match:
                 c.last_bowler, c.bowler = bw, None
         # 13. free hit for the next delivery
         c.free_hit = False if d == LEGAL else (fh or fh_new)
-        if self.views is not None and d != WIDE and cls >= 0:
-            snap = {k: x for k, x in v.items() if k not in ("prep", "rules", "latent")}
+        if self.views is not None and cls_on >= 0 and c.so == 0:
+            snap = {k: x for k, x in v.items() if k not in VIEW_STATIC}
             snap["dtype"] = DTYPES[d]
-            self.views.append({"inn": c.number, "so": c.so, "view": snap, "cls": cls,
-                               "latent": list(v["latent"])})
+            self.views.append({"inn": c.number, "cls": cls_on, "view": snap})
+        self._done(F)
         if rec is not None:
             rec["post"] = [c.runs, c.wkts, c.legal, c.striker, c.nonstriker, c.free_hit]
             self.log.append(rec)
@@ -994,7 +1129,7 @@ class Match:
         _, _, rs, share = self.P.drs_field(self.view, cls)
         c = self.cur
         if F is not None:
-            sp = self._need(F, "spec")
+            sp = F.pop("spec", False)
             uc = self._need(F, "spec_ucall") if sp else False
         else:
             sp, uc = u[11] < rs, u[11] < rs * share
@@ -1028,7 +1163,7 @@ class Match:
         if self.result is None and c.end is None:
             self._refresh()
             if pr.fam == "TEST" and (c.number < 3 or (c.number == 3 and v["lead"] > 0)):
-                dec = self._need(F, "declare") if F is not None else u[1] < P.declare_hazard(v)
+                dec = F.pop("declare", False) if F is not None else u[1] < P.declare_hazard(v)
                 if rec is not None:
                     rec["declare"] = bool(dec)
                 if dec:
@@ -1043,6 +1178,7 @@ class Match:
                         rec["new_ball"] = bool(take)
                     if take:
                         c.ball_age, c.second_new_ball = 0, True
+        self._done(F)
         if rec is not None:
             self.log.append(rec)
 
@@ -1146,6 +1282,7 @@ class Match:
             x.number, x.team, x.opp = i + 1, d["team"], 1 - d["team"]
             x.runs, x.wkts, x.legal, x.max_balls = d["runs"], d["wkts"], d["legal_balls"], d["max_balls"]
             x.target, x.end, x.closed = d["target"], d["end"], True
+            x.over_scores = None                            # the state keeps totals only: no worm for x
             self.done.append(x)
         c = _innings_from_state(st["cur"], pr, self)
         self.cur = c
@@ -1169,6 +1306,7 @@ class Match:
                       rs[1] if rs[1] is not None else (pr.res(c.max_balls, 0) if c.number == 2 else None)]
             if c.number == 2 and c.target is None:
                 c.target = revised_target(self.done[0].runs, self.R[0], self.R[1], pr.G)
+                c.timing = "original" if self.R[1] == self.R[0] else "pre_inn2"
             self.revised_pre = bool(st.get("revised_pre", self.lengths[1] != n))
             pend = st.get("pending_interruptions")
             if pend is None:
@@ -1176,15 +1314,15 @@ class Match:
             self.pending = [dict(x) for x in pend]
         c.agg_bat, c.agg_opp = self._agg(c.team), self._agg(c.opp)
         if c.number == 4 and c.target is None:
-            c.target = c.agg_opp - c.agg_bat + 1
+            c.target, c.timing = c.agg_opp - c.agg_bat + 1, "original"
+
         self._prior_latents(um)
         self._innings_view(c)
-        recs = st.get("balls")
-        if recs and self.script is None:
-            self._posterior_latents(recs, um)
+        if st.get("balls"):
+            self._posterior_latents(um)
             self._innings_view(c)
         self.coin_u = um[M_COIN] if um is not None else None
-        self.coin_forced = F.get("coin") if F is not None else None
+        self.coin_forced = F.pop("coin", None) if F is not None else None
         ui = self.s_inn.uniforms(4) if F is None else None
         if c.umpire_offset is None:
             c.umpire_offset = self._need(F, "umpire_offset") if F is not None else (0 if ui[1] < 0.5 else 1)
@@ -1194,33 +1332,32 @@ class Match:
         self._refresh()
         if c.bowler is None:
             self._choose_bowler(None if ui is None else ui[2], F, rec)
+        self._done(F)
         if rec is not None:
+
             if F is None:
                 rec["latent"] = [*self.lat_m, *[x for row in self.lat_i for x in row]]
             self.log.append(rec)
 
-    def _posterior_latents(self, recs, um):
-        """Plan 9.3: Laplace posterior of the match and current-innings latents, drawn per sim."""
-        pr, c, pitch = self.pr, self.cur, self.sc["pitch"]
-        known = bool(pitch["known"])
-        nm, ni = len(pr.lat_m), len(pr.lat_i)
-        free = ([] if known else list(range(nm))) + [nm + j for j in range(ni)]
-        mu_full = [float(pitch.get(s["pitch"], 0.0) or 0.0) * s["sd"] for s in pr.lat_m] + [0.0] * ni
-        sd_full = [s["sd"] for s in pr.lat_m] + [s["sd"] for s in pr.lat_i]
-        fixed = [mu_full[j] if known and j < nm else 0.0 for j in range(nm + ni)]
-        mode, chol = latent_posterior(self.P, self.view, recs, c.number, free, [mu_full[j] for j in free],
-                                      [sd_full[j] for j in free], fixed, nm)
-        zm = [*normal_pair(um[M_LAT], um[M_LAT + 1]), *normal_pair(um[M_LAT + 2], um[M_LAT + 3])]
+    def _posterior_latents(self, um):
+        """Plan 9.3: this sim's draw mode + L^-T z from the scenario's Laplace posterior, z from the
+        match-latent normals and the current innings' latent normals."""
+        pr, c = self.pr, self.cur
+        post = pr.posterior()
+        nm, free, mode, chol = len(pr.lat_m), post["free"], post["mode"], post["chol"]
         k = c.number - 1
-        zi = normal_pair(um[M_INN_LAT + 2 * k], um[M_INN_LAT + 2 * k + 1])
-        x = _back_solve_t(chol, [zm[j] if j < nm else zi[j - nm] for j in free])
+        if um is None:
+            x = [0.0] * len(free)
+        else:
+            zm = [*normal_pair(um[M_LAT], um[M_LAT + 1]), *normal_pair(um[M_LAT + 2], um[M_LAT + 3])]
+            zi = normal_pair(um[M_INN_LAT + 2 * k], um[M_INN_LAT + 2 * k + 1])
+            x = _back_solve_t(chol, [zm[j] if j < nm else zi[j - nm] for j in free])
         for t, j in enumerate(free):
             if j < nm:
                 self.lat_m[j] = mode[t] + x[t]
             else:
                 self.lat_i[k][j - nm] = mode[t] + x[t]
         self.stats["latent_updates"] += 1
-        self.posterior = {"mode": mode, "free": free, "chol": chol}
 
     # --- state
     def to_state(self) -> dict:
@@ -1243,7 +1380,7 @@ class Match:
                "partnership": [c.p_runs, c.p_balls], "ball_age_overs": c.ball_age,
                "second_new_ball": c.second_new_ball, "last_over_runs": c.last_over_runs,
                "last_over_wkt": c.last_over_wkt, "over_runs": c.over_runs, "wkt_this_over": c.wkt_this_over,
-               "over_scores": list(c.over_scores), "extras": c.extras}
+               "over_scores": list(c.over_scores), "extras": c.extras, "byes": c.byes}
         st = {"innings_team": list(self.inn_team), "toss": copy.deepcopy(self.toss), "followed_on": self.followed_on,
               "done": [{"team": x.team, "runs": x.runs, "wkts": x.wkts, "legal_balls": x.legal,
                         "max_balls": x.max_balls, "target": x.target, "end": x.end} for x in self.done],
@@ -1274,9 +1411,11 @@ class Match:
                 s[5] += b[0]
                 s[6] += b[1]
                 s[7] += b[2]
+                s[8] = max(s[8], b[2])
         return {"sim": self.sim, "code": code, "result": res,
                 "innings": [(c.number, c.team, c.runs, c.wkts, c.legal, c.end) for c in self.done],
-                "overs": [list(c.over_scores) for c in self.done], "players": players, "stats": dict(self.stats),
+                "overs": [None if c.over_scores is None else list(c.over_scores) for c in self.done],
+                "players": players, "stats": dict(self.stats),
                 "deliveries": self.deliveries}
 
 
@@ -1309,7 +1448,7 @@ def _innings_from_state(cs: dict, pr: Prepared, m: Match) -> Innings:
     c.last_over_runs, c.last_over_wkt = cs["last_over_runs"], bool(cs["last_over_wkt"])
     c.over_runs, c.wkt_this_over = cs["over_runs"], bool(cs["wkt_this_over"])
     c.over_scores = list(cs["over_scores"])
-    c.extras = cs.get("extras", 0)
+    c.extras, c.byes = cs.get("extras", 0), cs.get("byes", 0)
     c.windows = pr.windows(c.max_balls)
     return c
 
@@ -1355,7 +1494,8 @@ def apply_interruption(m: Match, lost: int) -> None:
         c.timing = "revised"
         m.view["target_timing"] = "revised"
         if new <= c.legal:
-            c.max_balls = c.legal
+            c.max_balls = m.lengths[1] = c.legal
+
             if c.legal < minb:
                 c.end = "no_result"
                 m._set_result("no_result")
@@ -1410,38 +1550,42 @@ def _back_solve_t(L, y):
 
 def latent_posterior(P, base_view: dict, recs, cur_number: int, free, mu, sd, fixed, n_match: int,
                      iters: int = 10):
-    """Newton iterations from 0 (exactly `iters`, no line search) for the latents with indices `free`
-    in the full latent vector (match latents 0..n_match-1, then the current innings'), on the outcome
-    log-likelihood of the recorded balls `recs` (dicts with inn, view, cls; view holds pre-ball view
-    keys, dtype legal or noball) plus the Gaussian prior N(mu, sd^2); `fixed` is the full latent vector
-    at which eta0 is evaluated (free entries 0). Balls of other innings inform only the match latents.
-    Returns (mode, L), L the Cholesky factor of the posterior precision at the mode; a draw is
-    mode + L^-T z. Sums run over balls in list order, classes 0..8, then latent indices."""
+    """Plan 9.3: exactly `iters` Newton steps from 0, no line search, for the latents with indices
+    `free` of the full latent vector (match latents 0..n_match-1, then the current innings'), on the
+    outcome log-likelihood of the balls `recs` plus the prior N(mu, sd^2). A ball record is
+    {"inn": main innings number, "cls": on-field outcome class, "view": pre-ball view keys (dtype
+    legal or noball)}, overlaid on `base_view`. At each step the full vector is `fixed` with the free
+    entries replaced by theta (for balls of another innings the innings entries are 0 and only match
+    latents are free); the provider's latent_loglik gives each ball's gradient and Hessian along its
+    free indices. Accumulation order: prior, then balls in list order. Returns (mode, L) with L the
+    Cholesky factor of the posterior precision at the mode; a draw is mode + L^-T z."""
     nf = len(free)
     pre = []
     for r in recs:
         vb = dict(base_view)
         vb.update(r["view"])
-        vb["latent"] = tuple(fixed)
-        eta0 = list(P.outcome_eta(vb))
+        off = [0.0] * 9
         if vb.get("dtype") == "noball" or vb.get("free_hit"):
-            eta0[OUT] += MASK_OFFSET
-        D = P.latent_directions(vb)
-        rows = [[0.0] * 9 if j >= n_match and r["inn"] != cur_number else list(D[j]) for j in free]
-        pre.append((eta0, rows, r["cls"]))
+            off[OUT] = MASK_OFFSET
+        own = r["inn"] == cur_number
+        loc = [t for t, j in enumerate(free) if j < n_match or own]
+        pre.append((vb, int(r["cls"]), loc, [free[t] for t in loc], own, off))
     var = [s * s for s in sd]
 
     def grad_prec(th):
         g = [-(th[j] - mu[j]) / var[j] for j in range(nf)]
         h = [[(1.0 / var[i] if i == j else 0.0) for j in range(nf)] for i in range(nf)]
-        for eta0, rows, cls in pre:
-            eta = [e + sum(th[j] * rows[j][k] for j in range(nf)) for k, e in enumerate(eta0)]
-            p = softmax(eta)
-            md = [sum(pk * rk for pk, rk in zip(p, rows[j])) for j in range(nf)]
-            for i in range(nf):
-                g[i] += rows[i][cls] - md[i]
-                for j in range(nf):
-                    h[i][j] += sum(pk * ri * rj for pk, ri, rj in zip(p, rows[i], rows[j])) - md[i] * md[j]
+        full = list(fixed)
+        for t, j in enumerate(free):
+            full[j] = th[t]
+        other = [x if j < n_match else 0.0 for j, x in enumerate(full)]
+        for vb, cls, loc, idx, own, off in pre:
+            vb["latent"] = tuple(full if own else other)
+            _, gb, hb = P.latent_loglik(vb, cls, idx, off)
+            for a, ta in enumerate(loc):
+                g[ta] += gb[a]
+                for b, tb in enumerate(loc):
+                    h[ta][tb] -= hb[a][b]
         return g, h
 
     th = [0.0] * nf
@@ -1556,7 +1700,8 @@ def impute_state(partial: dict, scenario: dict, provider=None) -> dict:
         ob, overs = [], {}
         for k in range(L // 6 + (1 if L % 6 else 0)):
             last = ob[-1] if ob else None
-            el = eligible_bowlers(opts, overs, last, n_overs, k) or [x for x in opts if x != last]
+            el = eligible_bowlers(opts, overs, last, n_overs, k, pr.qrule) or [x for x in opts if x != last]
+
             b = el[0]
             ob.append(b)
             overs[b] = overs.get(b, 0) + 1
@@ -1639,7 +1784,7 @@ class Acc:
         cn["tie_before"] += res["tie_before"]
         cn["method", res["method"]] += 1
         cn["super_overs", res["super_overs"]] += 1
-        if res["result"] == "win":
+        if res["margin_kind"] is not None:
             cn["margin", res["winner"], res["margin_kind"], res["margin"]] += 1
         for (k, team, runs, wkts, legal, end), ov in zip(rec["innings"], rec["overs"]):
             d = self.inn.setdefault(k, {"n": 0, "runs": Counter(), "runs2": 0, "wkts": Counter(),
@@ -1650,6 +1795,8 @@ class Acc:
             d["wkts"][wkts] += 1
             d["balls"] += legal
             d["end"][end] += 1
+            if ov is None:                                  # completed innings of an in-play state
+                continue
             po, wm = self.over_runs.setdefault(k, []), self.worm.setdefault(k, [])
             prev = 0
             length = max(len(ov), self.n_overs or 0) if self.n_overs else len(ov)
@@ -1675,7 +1822,8 @@ class Acc:
             a[8] += s[5]
             a[9] += s[6]
             a[10] += s[7]
-            a[11] += s[7] >= 3
+            a[11] += s[8] >= 3
+
         self.stats.update(rec["stats"])
         self.deliveries += rec["deliveries"]
 
@@ -1853,6 +2001,8 @@ def apply_script(scenario: dict, script: list, state: dict | None = None, provid
     post-state (None when the match ended), the result and the event log."""
     pr = Prepared(scenario, provider)
     m = Match(pr, script=script, log=[], state=state).play()
+    if m.result is None and m.cur.so:
+        raise ScriptError("a script must not end inside a super over")
     return {"state": None if m.result is not None else m.to_state(), "result": m.result, "events": m.log}
 
 

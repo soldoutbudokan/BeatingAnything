@@ -148,5 +148,20 @@ class Stream:
         return out
 
     def uniforms(self, k: int) -> list[float]:
-        """k uniforms u = x * 2**-32, exactly as rng.js."""
-        return [x * _INV32 for x in self.next_block(k)]
+        """k uniforms u = x * 2**-32, exactly as rng.js (next_block inlined for speed)."""
+        s0, s1, s2, s3 = self.s
+        out = []
+        ap = out.append
+        for _ in range(k):
+            x = s1 * 5 & _M
+            ap(((x << 7 & _M | x >> 25) * 9 & _M) * _INV32)
+            t = s1 << 9 & _M
+            s2 ^= s0
+            s3 ^= s1
+            s1 ^= s2
+            s0 ^= s3
+            s2 ^= t
+            s3 = s3 << 11 & _M | s3 >> 21
+        self.s = [s0, s1, s2, s3]
+        return out
+
