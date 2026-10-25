@@ -1,0 +1,776 @@
+{
+ "failures": {
+  "n": 0,
+  "examples": []
+ },
+ "parse_stats": {
+  "season_int": 1685,
+  "unknown_name": 2,
+  "runs_batter_gt7": 1,
+  "playeer_out": 1
+ },
+ "1_innings_totals": {
+  "deliveries_equal": {
+   "agree": 50968,
+   "n": 50968,
+   "examples": []
+  },
+  "legal_equal": {
+   "agree": 50968,
+   "n": 50968,
+   "examples": []
+  },
+  "runs_sum_equal": {
+   "agree": 50968,
+   "n": 50968,
+   "examples": []
+  },
+  "state_total_equal": {
+   "agree": 50968,
+   "n": 50968,
+   "examples": []
+  },
+  "state_runs_equal": {
+   "agree": 50968,
+   "n": 50968,
+   "examples": []
+  },
+  "wickets_state_equal": {
+   "agree": 50968,
+   "n": 50968,
+   "examples": []
+  },
+  "wickets_from_ball_rows_equal": {
+   "agree": 50968,
+   "n": 50968,
+   "examples": []
+  },
+  "innings1_total_plus1_equals_stored_target": {
+   "agree": 16904,
+   "n": 16907,
+   "note": "limited overs, no D/L/VJD method, target length = scheduled",
+   "examples": [
+    [
+     1318395,
+     63.0,
+     63.0
+    ],
+    [
+     1457218,
+     166.0,
+     169.0
+    ],
+    [
+     1494140,
+     143.0,
+     143.0
+    ]
+   ]
+  },
+  "win_by_runs_margin": {
+   "agree": 8722,
+   "n": 8726,
+   "examples": [
+    [
+     1318396,
+     103.0,
+     102.0
+    ],
+    [
+     1495657,
+     45.0,
+     46.0
+    ],
+    [
+     1506668,
+     11.0,
+     12.0
+    ],
+    [
+     1536405,
+     84.0,
+     83.0
+    ]
+   ]
+  },
+  "win_by_wickets_margin": {
+   "agree": 9533,
+   "agree_after_absent_and_retired": 9535,
+   "n": 9536,
+   "examples": [
+    1491604
+   ]
+  }
+ },
+ "2_outcome_classes": {
+  "outcome_class": {
+   "T20|male": {
+    "one": 0.3765,
+    "dot": 0.3186,
+    "four": 0.1078,
+    "two": 0.0691,
+    "out": 0.0523,
+    "six": 0.0485,
+    "byes": 0.019,
+    "run_out": 0.0041,
+    "three": 0.0041
+   },
+   "T20|female": {
+    "dot": 0.4087,
+    "one": 0.3378,
+    "four": 0.0986,
+    "two": 0.0688,
+    "out": 0.0484,
+    "byes": 0.0152,
+    "six": 0.0111,
+    "run_out": 0.0072,
+    "three": 0.0042
+   },
+   "HUNDRED|male": {
+    "one": 0.3819,
+    "dot": 0.2725,
+    "four": 0.1218,
+    "two": 0.0748,
+    "six": 0.0604,
+    "out": 0.0595,
+    "byes": 0.022,
+    "three": 0.0036,
+    "run_out": 0.0035
+   },
+   "HUNDRED|female": {
+    "one": 0.3827,
+    "dot": 0.312,
+    "four": 0.1406,
+    "two": 0.0661,
+    "out": 0.0546,
+    "six": 0.0184,
+    "byes": 0.0165,
+    "run_out": 0.0062,
+    "three": 0.003
+   },
+   "ODI|male": {
+    "dot": 0.5061,
+    "one": 0.306,
+    "four": 0.0762,
+    "two": 0.0504,
+    "out": 0.0267,
+    "six": 0.0152,
+    "byes": 0.0118,
+    "three": 0.0058,
+    "run_out": 0.0019
+   },
+   "ODI|female": {
+    "dot": 0.5424,
+    "one": 0.2857,
+    "four": 0.0776,
+    "two": 0.0465,
+    "out": 0.0263,
+    "byes": 0.0103,
+    "six": 0.0048,
+    "three": 0.004,
+    "run_out": 0.0024
+   },
+   "TEST|male": {
+    "dot": 0.7172,
+    "one": 0.1437,
+    "four": 0.0641,
+    "two": 0.0344,
+    "out": 0.0171,
+    "byes": 0.0101,
+    "three": 0.0088,
+    "six": 0.0043,
+    "run_out": 0.0003
+   },
+   "TEST|female": {
+    "dot": 0.7556,
+    "one": 0.1234,
+    "four": 0.0573,
+    "two": 0.0325,
+    "out": 0.0152,
+    "byes": 0.0098,
+    "three": 0.0045,
+    "six": 0.0012,
+    "run_out": 0.0007
+   }
+  },
+  "onfield_class": {
+   "T20|male": {
+    "one": 0.3765,
+    "dot": 0.3186,
+    "four": 0.1078,
+    "two": 0.0691,
+    "out": 0.0522,
+    "six": 0.0485,
+    "byes": 0.019,
+    "run_out": 0.0041,
+    "three": 0.0041
+   },
+   "T20|female": {
+    "dot": 0.4087,
+    "one": 0.3378,
+    "four": 0.0986,
+    "two": 0.0688,
+    "out": 0.0484,
+    "byes": 0.0152,
+    "six": 0.0111,
+    "run_out": 0.0072,
+    "three": 0.0042
+   },
+   "HUNDRED|male": {
+    "one": 0.3819,
+    "dot": 0.2725,
+    "four": 0.1218,
+    "two": 0.0748,
+    "six": 0.0604,
+    "out": 0.0595,
+    "byes": 0.022,
+    "three": 0.0036,
+    "run_out": 0.0035
+   },
+   "HUNDRED|female": {
+    "one": 0.3827,
+    "dot": 0.3124,
+    "four": 0.1406,
+    "two": 0.0661,
+    "out": 0.0542,
+    "six": 0.0184,
+    "byes": 0.0165,
+    "run_out": 0.0062,
+    "three": 0.003
+   },
+   "ODI|male": {
+    "dot": 0.5061,
+    "one": 0.306,
+    "four": 0.0762,
+    "two": 0.0504,
+    "out": 0.0268,
+    "six": 0.0152,
+    "byes": 0.0118,
+    "three": 0.0058,
+    "run_out": 0.0019
+   },
+   "ODI|female": {
+    "dot": 0.5424,
+    "one": 0.2857,
+    "four": 0.0776,
+    "two": 0.0465,
+    "out": 0.0263,
+    "byes": 0.0103,
+    "six": 0.0048,
+    "three": 0.004,
+    "run_out": 0.0024
+   },
+   "TEST|male": {
+    "dot": 0.7171,
+    "one": 0.1437,
+    "four": 0.0641,
+    "two": 0.0344,
+    "out": 0.0172,
+    "byes": 0.0101,
+    "three": 0.0088,
+    "six": 0.0043,
+    "run_out": 0.0003
+   },
+   "TEST|female": {
+    "dot": 0.7553,
+    "one": 0.1234,
+    "four": 0.0573,
+    "two": 0.0325,
+    "out": 0.0154,
+    "byes": 0.0098,
+    "three": 0.0045,
+    "six": 0.0012,
+    "run_out": 0.0007
+   }
+  },
+  "n_rows_legal_or_noball": {
+   "T20|male": 2387755,
+   "T20|female": 758141,
+   "HUNDRED|male": 37546,
+   "HUNDRED|female": 35796,
+   "ODI|male": 2207388,
+   "ODI|female": 494668,
+   "TEST|male": 5515675,
+   "TEST|female": 46654
+  },
+  "dtype_share": {
+   "T20|male": {
+    "legal": 0.9621,
+    "wide": 0.0336,
+    "noball": 0.0043
+   },
+   "T20|female": {
+    "legal": 0.9427,
+    "wide": 0.0501,
+    "noball": 0.0072
+   },
+   "HUNDRED|male": {
+    "legal": 0.9615,
+    "wide": 0.0317,
+    "noball": 0.0068
+   },
+   "HUNDRED|female": {
+    "legal": 0.9662,
+    "wide": 0.0286,
+    "noball": 0.0052
+   },
+   "ODI|male": {
+    "legal": 0.9736,
+    "wide": 0.0228,
+    "noball": 0.0036
+   },
+   "ODI|female": {
+    "legal": 0.9658,
+    "wide": 0.0316,
+    "noball": 0.0027
+   },
+   "TEST|male": {
+    "legal": 0.9922,
+    "noball": 0.0058,
+    "wide": 0.002
+   },
+   "TEST|female": {
+    "legal": 0.9947,
+    "noball": 0.0032,
+    "wide": 0.0021
+   }
+  }
+ },
+ "3_reviews": {
+  "raw_categories_main_and_super_overs": {
+   "bowl|struck_down|no_wicket": 7846,
+   "bat|struck_down|wicket": 4589,
+   "bat|upheld|no_wicket": 2500,
+   "bowl|upheld|wicket": 2203,
+   "bowl|struck_down|wicket": 12,
+   "bat|upheld|wicket": 1,
+   "bowl|technical|no_wicket": 1,
+   "bat|technical|wicket": 1
+  },
+  "audit_table": {
+   "bat|struck_down|wicket": {
+    "audit": 4589,
+    "here": 4589
+   },
+   "bat|upheld|no_wicket": {
+    "audit": 2500,
+    "here": 2500
+   },
+   "bowl|upheld|wicket": {
+    "audit": 2203,
+    "here": 2203
+   },
+   "bowl|struck_down|no_wicket": {
+    "audit": 7846,
+    "here": 7846
+   }
+  },
+  "n_reviews_total": 17153,
+  "n_reviews_main": 17148,
+  "recon_case_counts": {
+   "none": 11670758,
+   "bowl_struck_down": 7691,
+   "bat_struck_down": 4580,
+   "bat_upheld": 2467,
+   "bowl_upheld": 2189,
+   "ignored_extra": 183,
+   "ignored_other": 36,
+   "technical": 2
+  },
+  "recon_case_by_dtype": {
+   "bat_struck_down|legal": 4580,
+   "bat_upheld|legal": 2467,
+   "bowl_upheld|legal": 2189,
+   "bowl_struck_down|legal": 7691,
+   "technical|legal": 2,
+   "ignored_extra|wide": 163,
+   "ignored_extra|noball": 20,
+   "ignored_other|legal": 36
+  },
+  "review_about_wicket_false": 31,
+  "review_umpire_missing": 300,
+  "umpires_call_true": 2094,
+  "umpires_call_null": 3506,
+  "bat_upheld_runs_total_zero": 2457,
+  "bowl_upheld_runs_total_zero": 2189,
+  "kind_imputation": {
+   "family_lbw_share": {
+    "ODI": 0.935349322210636,
+    "T20": 0.9139225880993646,
+    "TEST": 0.8807631160572337
+   },
+   "n_imputed": 2467,
+   "imputed_lbw": 2242,
+   "shrink_pseudo_reviews": 20.0
+  },
+  "onfield_wk_on_bat_upheld": {
+   "lbw": 2242,
+   "caught": 225,
+   "bowled": 0,
+   "stumped": 0,
+   "run_out": 0,
+   "other": 0
+  }
+ },
+ "4_arrival_vs_listed_order": {
+  "by_family": {
+   "HUNDRED": {
+    "share_exact": 0.9961,
+    "innings": 772
+   },
+   "ODI": {
+    "share_exact": 0.994,
+    "innings": 10444
+   },
+   "T20": {
+    "share_exact": 0.9782,
+    "innings": 28384
+   },
+   "TEST": {
+    "share_exact": 0.7657,
+    "innings": 11354
+   }
+  },
+  "by_family_era": {
+   "HUNDRED|2018+": {
+    "share_exact": 0.9961,
+    "innings": 772
+   },
+   "ODI|2010_17": {
+    "share_exact": 0.9975,
+    "innings": 3166
+   },
+   "ODI|2018+": {
+    "share_exact": 0.9912,
+    "innings": 5773
+   },
+   "ODI|pre2010": {
+    "share_exact": 0.9973,
+    "innings": 1505
+   },
+   "T20|2010_17": {
+    "share_exact": 0.9858,
+    "innings": 5487
+   },
+   "T20|2018+": {
+    "share_exact": 0.9759,
+    "innings": 22439
+   },
+   "T20|pre2010": {
+    "share_exact": 1.0,
+    "innings": 458
+   },
+   "TEST|2010_17": {
+    "share_exact": 0.7702,
+    "innings": 3712
+   },
+   "TEST|2018+": {
+    "share_exact": 0.7654,
+    "innings": 6812
+   },
+   "TEST|pre2010": {
+    "share_exact": 0.7482,
+    "innings": 830
+   }
+  },
+  "audit": {
+   "T20|2018+": 0.976,
+   "ODI|all": 0.991,
+   "HUNDRED|all": 0.996,
+   "TEST|all": 0.766
+  }
+ },
+ "5_umpire_end_identified": {
+  "definition": "known = p <= 0.02 or p >= 0.98 (one or more agreeing named votes); exact01 = p exactly 0 or 1 after float32 rounding (four or more votes); half = no or conflicting votes",
+  "overall": {
+   "known": 0.1786,
+   "exact01": 0.0178,
+   "half": 0.8214
+  },
+  "by_segment_all_years": {
+   "HUNDRED|club": {
+    "known": 0.4669,
+    "exact01": 0.0007,
+    "half": 0.5331,
+    "balls": 75627
+   },
+   "IT20|international": {
+    "known": 0.0019,
+    "exact01": 0.0,
+    "half": 0.9981,
+    "balls": 70908
+   },
+   "MDM|club": {
+    "known": 0.0002,
+    "exact01": 0.0,
+    "half": 0.9998,
+    "balls": 3771966
+   },
+   "MDM|international": {
+    "known": 0.0,
+    "exact01": 0.0,
+    "half": 1.0,
+    "balls": 30052
+   },
+   "ODI|international": {
+    "known": 0.3064,
+    "exact01": 0.0047,
+    "half": 0.6936,
+    "balls": 1700243
+   },
+   "ODM|club": {
+    "known": 0.0,
+    "exact01": 0.0,
+    "half": 1.0,
+    "balls": 822953
+   },
+   "ODM|international": {
+    "known": 0.0023,
+    "exact01": 0.0,
+    "half": 0.9977,
+    "balls": 246484
+   },
+   "T20|club": {
+    "known": 0.1755,
+    "exact01": 0.0005,
+    "half": 0.8245,
+    "balls": 1885879
+   },
+   "T20|international": {
+    "known": 0.1023,
+    "exact01": 0.0006,
+    "half": 0.8977,
+    "balls": 1312187
+   },
+   "Test|international": {
+    "known": 0.6012,
+    "exact01": 0.1122,
+    "half": 0.3988,
+    "balls": 1771607
+   }
+  },
+  "by_segment_2019_plus": {
+   "HUNDRED|club": {
+    "known": 0.4669,
+    "exact01": 0.0007,
+    "half": 0.5331,
+    "balls": 75627
+   },
+   "IT20|international": {
+    "known": 0.0,
+    "exact01": 0.0,
+    "half": 1.0,
+    "balls": 218
+   },
+   "MDM|club": {
+    "known": 0.0003,
+    "exact01": 0.0,
+    "half": 0.9997,
+    "balls": 2383788
+   },
+   "ODI|international": {
+    "known": 0.427,
+    "exact01": 0.0104,
+    "half": 0.573,
+    "balls": 678084
+   },
+   "ODM|club": {
+    "known": 0.0,
+    "exact01": 0.0,
+    "half": 1.0,
+    "balls": 625228
+   },
+   "ODM|international": {
+    "known": 0.0,
+    "exact01": 0.0,
+    "half": 1.0,
+    "balls": 77197
+   },
+   "T20|club": {
+    "known": 0.2483,
+    "exact01": 0.0008,
+    "half": 0.7517,
+    "balls": 1276476
+   },
+   "T20|international": {
+    "known": 0.1166,
+    "exact01": 0.0007,
+    "half": 0.8834,
+    "balls": 1107632
+   },
+   "Test|international": {
+    "known": 0.8931,
+    "exact01": 0.2295,
+    "half": 0.1069,
+    "balls": 534719
+   }
+  },
+  "audit_2019_plus_identified": {
+   "Test|international": 0.894,
+   "ODI|international": 0.385,
+   "HUNDRED|club": 0.449,
+   "T20|club": 0.25,
+   "T20|international": 0.117,
+   "MDM|club": 0.0,
+   "ODM|club": 0.0
+  },
+  "innings_with_conflicting_votes": 102,
+  "matches_with_more_than_two_umpires": 18
+ },
+ "6_target_timing": {
+  "matches_by_family": {
+   "HUNDRED": {
+    "original": 371,
+    "pre_inn2": 8,
+    "unknown": 4
+   },
+   "ODI": {
+    "original": 4406,
+    "unknown": 414,
+    "pre_inn2": 334
+   },
+   "T20": {
+    "original": 13252,
+    "pre_inn2": 438,
+    "unknown": 397
+   }
+  },
+  "innings2_balls_by_family": {
+   "T20": {
+    "original": 1470784,
+    "pre_inn2": 31270,
+    "unknown": 27527
+   },
+   "HUNDRED": {
+    "original": 35341,
+    "pre_inn2": 385,
+    "unknown": 269
+   },
+   "ODI": {
+    "original": 1116384,
+    "pre_inn2": 61353,
+    "unknown": 79774
+   }
+  },
+  "target_absent_innings2": {
+   "IT20": 16,
+   "ODI": 7,
+   "ODM": 299,
+   "T20": 853
+  },
+  "target_length_differs": {
+   "IT20": 19,
+   "ODI": 379,
+   "ODM": 328,
+   "T20": 814
+  },
+  "target_known_false_innings2_balls": 9393
+ },
+ "audit_regressions": {
+  "matches": 23132,
+  "deliveries_main": 11687906,
+  "deliveries_super_over": 1264,
+  "deliveries_total_audit_11689170": 11689170,
+  "hundred_matches_audit_389": 389,
+  "scheduled_overs_fixes_audit_19": {
+   "50->20": 19
+  },
+  "season_int_audit_1685": 1685,
+  "toss_uncontested_audit_263": 263,
+  "forfeited_innings_audit_14": 14,
+  "absent_hurt_innings_audit_311": 311,
+  "double_wicket_deliveries_audit_17": 17,
+  "playeer_out_audit_1": 1,
+  "non_boundary_audit_1319": 1317,
+  "runs5_audit_1548": 1548,
+  "runs7_audit_13": 13,
+  "retired_hurt_audit_466": 466,
+  "retired_not_out_audit_45": 45,
+  "retired_out_audit_127": 127,
+  "temporary_retirements_audit_335": 335,
+  "resumptions": 335,
+  "unexplained_departures": 0,
+  "bowler_change_mid_over_entries": 1202,
+  "follow_ons": 353,
+  "team_sheets_over_11": {
+   "ODI|12": 127,
+   "T20|12": 1021,
+   "T20|13": 9,
+   "TEST|12": 204,
+   "TEST|13": 15,
+   "TEST|14": 1
+  },
+  "team_sheets_under_11": {
+   "ODI|9": 1,
+   "T20|10": 5
+  },
+  "events": {
+   "declaration": 1740,
+   "interruption_inferred": 1632,
+   "replacement": 1379,
+   "bowler_change_mid_over": 1202,
+   "miscounted_over": 640,
+   "retired_hurt": 466,
+   "follow_on": 353,
+   "temporary_retirement": 335,
+   "resumption": 335,
+   "role_replacement": 335,
+   "absent_hurt": 321,
+   "retired_out": 127,
+   "retired_not_out": 45,
+   "penalty_runs": 29,
+   "forfeiture": 14,
+   "timed_out": 2,
+   "second_ball_wicket": 1
+  },
+  "venue_id_missing": 0,
+  "unknown_person_names": 2
+ },
+ "build": {
+  "timing": {
+   "people_s": 7.8,
+   "parse_s": 70.0,
+   "enrich_s": 12.5,
+   "write_s": 18.1,
+   "validate_s": 11.7,
+   "total_s": 120.0
+  },
+  "memory": {
+   "main_peak_mb": 2875.4,
+   "worker_peak_mb": 346.1
+  },
+  "tables": {
+   "balls": {
+    "rows": 11687906,
+    "mb": 145.2
+   },
+   "matches": {
+    "rows": 23132,
+    "mb": 3.6
+   },
+   "innings": {
+    "rows": 50968,
+    "mb": 0.7
+   },
+   "events": {
+    "rows": 8956,
+    "mb": 0.1
+   },
+   "super_overs": {
+    "rows": 1264,
+    "mb": 0.0
+   },
+   "player_innings": {
+    "rows": 740755,
+    "mb": 3.6
+   },
+   "people_index": {
+    "rows": 15273,
+    "mb": 0.9
+   }
+  },
+  "workers": 3,
+  "limit": null,
+  "balls_in_memory_mb": 1594.0
+ }
+}

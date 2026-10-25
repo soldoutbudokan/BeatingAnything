@@ -92,6 +92,9 @@
   "free_hit": {
    "ok": 58
   },
+  "caught_crossing": {
+   "ok": 76
+  },
   "noball_runs": {
    "ok": 413
   },
@@ -2222,6 +2225,7 @@
     ],
     "n_at_limit": 27,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2237,6 +2241,7 @@
     ],
     "n_at_limit": 13,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2252,6 +2257,7 @@
     ],
     "n_at_limit": 24,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2267,6 +2273,7 @@
     ],
     "n_at_limit": 28,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2282,6 +2289,7 @@
     ],
     "n_at_limit": 22,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2297,6 +2305,7 @@
     ],
     "n_at_limit": 14,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2312,6 +2321,7 @@
     ],
     "n_at_limit": 23,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2327,6 +2337,7 @@
     ],
     "n_at_limit": 23,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2342,6 +2353,7 @@
     ],
     "n_at_limit": 24,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2357,6 +2369,7 @@
     ],
     "n_at_limit": 27,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2372,6 +2385,7 @@
     ],
     "n_at_limit": 22,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2387,6 +2401,7 @@
     ],
     "n_at_limit": 23,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2402,6 +2417,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2417,6 +2433,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2433,6 +2450,7 @@
     ],
     "n_at_limit": 19,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2449,6 +2467,7 @@
     ],
     "n_at_limit": 18,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2465,6 +2484,7 @@
     ],
     "n_at_limit": 28,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2481,6 +2501,7 @@
     ],
     "n_at_limit": 28,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2496,6 +2517,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2511,6 +2533,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2526,6 +2549,7 @@
     ],
     "n_at_limit": 77,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2541,6 +2565,7 @@
     ],
     "n_at_limit": 121,
     "n_violations": 1,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [
      "1168827:Quetta Gladiators:2"
     ],
@@ -2559,6 +2584,7 @@
     ],
     "n_at_limit": 78,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2575,6 +2601,7 @@
     ],
     "n_at_limit": 55,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2591,6 +2618,7 @@
     ],
     "n_at_limit": 42,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2607,6 +2635,7 @@
     ],
     "n_at_limit": 83,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2623,6 +2652,7 @@
     ],
     "n_at_limit": 90,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2639,6 +2669,7 @@
     ],
     "n_at_limit": 88,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2655,6 +2686,7 @@
     ],
     "n_at_limit": 62,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2671,6 +2703,7 @@
     ],
     "n_at_limit": 64,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2686,6 +2719,7 @@
     ],
     "n_at_limit": 58,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2701,6 +2735,7 @@
     ],
     "n_at_limit": 102,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2716,6 +2751,7 @@
     ],
     "n_at_limit": 61,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2731,6 +2767,7 @@
     ],
     "n_at_limit": 114,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2744,8 +2781,9 @@
     "rules_reviews": [
      1
     ],
-    "n_at_limit": 106,
+    "n_at_limit": 110,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2759,8 +2797,9 @@
     "rules_reviews": [
      1
     ],
-    "n_at_limit": 118,
+    "n_at_limit": 119,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2776,6 +2815,7 @@
     ],
     "n_at_limit": 78,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2791,6 +2831,7 @@
     ],
     "n_at_limit": 99,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2807,6 +2848,7 @@
     ],
     "n_at_limit": 26,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2820,8 +2862,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 14,
+    "n_at_limit": 16,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2835,8 +2878,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 26,
+    "n_at_limit": 30,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2850,8 +2894,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 37,
+    "n_at_limit": 44,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2867,6 +2912,7 @@
     ],
     "n_at_limit": 15,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2882,6 +2928,7 @@
     ],
     "n_at_limit": 27,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2897,6 +2944,7 @@
     ],
     "n_at_limit": 14,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2912,6 +2960,7 @@
     ],
     "n_at_limit": 10,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2927,6 +2976,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2942,6 +2992,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2957,6 +3008,7 @@
     ],
     "n_at_limit": 12,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2972,6 +3024,7 @@
     ],
     "n_at_limit": 6,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -2987,6 +3040,7 @@
     ],
     "n_at_limit": 12,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3002,6 +3056,7 @@
     ],
     "n_at_limit": 20,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3017,6 +3072,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3032,6 +3088,7 @@
     ],
     "n_at_limit": 6,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3047,6 +3104,7 @@
     ],
     "n_at_limit": 38,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3062,6 +3120,7 @@
     ],
     "n_at_limit": 37,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3078,6 +3137,7 @@
     ],
     "n_at_limit": 22,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3093,6 +3153,7 @@
     ],
     "n_at_limit": 13,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3108,6 +3169,7 @@
     ],
     "n_at_limit": 19,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3123,6 +3185,7 @@
     ],
     "n_at_limit": 8,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3138,6 +3201,7 @@
     ],
     "n_at_limit": 22,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3151,8 +3215,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 12,
+    "n_at_limit": 13,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3168,6 +3233,7 @@
     ],
     "n_at_limit": 9,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3183,6 +3249,7 @@
     ],
     "n_at_limit": 19,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3198,6 +3265,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3214,6 +3282,7 @@
     ],
     "n_at_limit": 18,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3229,6 +3298,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3242,8 +3312,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 3,
+    "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3259,6 +3330,7 @@
     ],
     "n_at_limit": 9,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3274,6 +3346,7 @@
     ],
     "n_at_limit": 7,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3289,6 +3362,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3304,6 +3378,7 @@
     ],
     "n_at_limit": 4,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3319,6 +3394,7 @@
     ],
     "n_at_limit": 6,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3334,6 +3410,7 @@
     ],
     "n_at_limit": 31,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3349,6 +3426,7 @@
     ],
     "n_at_limit": 38,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3364,6 +3442,7 @@
     ],
     "n_at_limit": 29,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3379,6 +3458,7 @@
     ],
     "n_at_limit": 60,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3394,6 +3474,7 @@
     ],
     "n_at_limit": 48,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3409,6 +3490,7 @@
     ],
     "n_at_limit": 56,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3424,6 +3506,7 @@
     ],
     "n_at_limit": 62,
     "n_violations": 1,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [
      "892517:Australia:3"
     ],
@@ -3442,6 +3525,7 @@
     ],
     "n_at_limit": 75,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3457,6 +3541,7 @@
     ],
     "n_at_limit": 71,
     "n_violations": 1,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [
      "1104284:Australia:3"
     ],
@@ -3475,6 +3560,7 @@
     ],
     "n_at_limit": 80,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3490,6 +3576,7 @@
     ],
     "n_at_limit": 39,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3506,6 +3593,7 @@
     ],
     "n_at_limit": 18,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3521,6 +3609,7 @@
     ],
     "n_at_limit": 21,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3536,6 +3625,7 @@
     ],
     "n_at_limit": 30,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3551,6 +3641,7 @@
     ],
     "n_at_limit": 17,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3566,6 +3657,7 @@
     ],
     "n_at_limit": 27,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3581,6 +3673,7 @@
     ],
     "n_at_limit": 17,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3596,6 +3689,7 @@
     ],
     "n_at_limit": 8,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3611,6 +3705,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3626,6 +3721,7 @@
     ],
     "n_at_limit": 0,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3641,6 +3737,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3656,6 +3753,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3671,6 +3769,7 @@
     ],
     "n_at_limit": 0,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3686,6 +3785,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    }
@@ -3703,6 +3803,7 @@
     ],
     "n_at_limit": 16,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3718,6 +3819,7 @@
     ],
     "n_at_limit": 24,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3733,6 +3835,7 @@
     ],
     "n_at_limit": 25,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3748,6 +3851,7 @@
     ],
     "n_at_limit": 33,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3763,6 +3867,7 @@
     ],
     "n_at_limit": 20,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3778,6 +3883,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3793,6 +3899,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3808,6 +3915,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3823,6 +3931,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3838,6 +3947,7 @@
     ],
     "n_at_limit": 52,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3853,6 +3963,7 @@
     ],
     "n_at_limit": 11,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3868,6 +3979,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3883,6 +3995,7 @@
     ],
     "n_at_limit": 16,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3898,6 +4011,7 @@
     ],
     "n_at_limit": 7,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3913,6 +4027,7 @@
     ],
     "n_at_limit": 9,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3928,6 +4043,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3943,6 +4059,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3958,6 +4075,7 @@
     ],
     "n_at_limit": 4,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3973,6 +4091,7 @@
     ],
     "n_at_limit": 7,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -3988,6 +4107,7 @@
     ],
     "n_at_limit": 9,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4003,6 +4123,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4018,6 +4139,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4033,6 +4155,7 @@
     ],
     "n_at_limit": 6,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4048,6 +4171,7 @@
     ],
     "n_at_limit": 23,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4063,6 +4187,7 @@
     ],
     "n_at_limit": 23,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4078,6 +4203,7 @@
     ],
     "n_at_limit": 24,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4093,6 +4219,7 @@
     ],
     "n_at_limit": 27,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4108,6 +4235,7 @@
     ],
     "n_at_limit": 22,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4123,6 +4251,7 @@
     ],
     "n_at_limit": 23,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4138,6 +4267,7 @@
     ],
     "n_at_limit": 27,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4153,6 +4283,7 @@
     ],
     "n_at_limit": 13,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4168,6 +4299,7 @@
     ],
     "n_at_limit": 24,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4183,6 +4315,7 @@
     ],
     "n_at_limit": 28,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4198,6 +4331,7 @@
     ],
     "n_at_limit": 22,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4213,6 +4347,7 @@
     ],
     "n_at_limit": 14,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4228,6 +4363,7 @@
     ],
     "n_at_limit": 4,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4243,6 +4379,7 @@
     ],
     "n_at_limit": 4,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4258,6 +4395,7 @@
     ],
     "n_at_limit": 11,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4273,6 +4411,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4289,6 +4428,7 @@
     ],
     "n_at_limit": 64,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4304,6 +4444,7 @@
     ],
     "n_at_limit": 58,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4319,6 +4460,7 @@
     ],
     "n_at_limit": 102,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4334,6 +4476,7 @@
     ],
     "n_at_limit": 61,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4349,6 +4492,7 @@
     ],
     "n_at_limit": 114,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4362,8 +4506,9 @@
     "rules_reviews": [
      1
     ],
-    "n_at_limit": 106,
+    "n_at_limit": 110,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4377,8 +4522,9 @@
     "rules_reviews": [
      1
     ],
-    "n_at_limit": 118,
+    "n_at_limit": 119,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4394,6 +4540,7 @@
     ],
     "n_at_limit": 78,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4409,6 +4556,7 @@
     ],
     "n_at_limit": 99,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4425,6 +4573,7 @@
     ],
     "n_at_limit": 26,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4438,8 +4587,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 14,
+    "n_at_limit": 16,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4453,8 +4603,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 26,
+    "n_at_limit": 30,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4468,8 +4619,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 37,
+    "n_at_limit": 44,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4485,6 +4637,7 @@
     ],
     "n_at_limit": 15,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4500,6 +4653,7 @@
     ],
     "n_at_limit": 27,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4515,6 +4669,7 @@
     ],
     "n_at_limit": 14,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4530,6 +4685,7 @@
     ],
     "n_at_limit": 10,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4545,6 +4701,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4560,6 +4717,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4575,6 +4733,7 @@
     ],
     "n_at_limit": 12,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4590,6 +4749,7 @@
     ],
     "n_at_limit": 6,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4605,6 +4765,7 @@
     ],
     "n_at_limit": 12,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4620,6 +4781,7 @@
     ],
     "n_at_limit": 20,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4635,6 +4797,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4650,6 +4813,7 @@
     ],
     "n_at_limit": 6,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4665,6 +4829,7 @@
     ],
     "n_at_limit": 38,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4680,6 +4845,7 @@
     ],
     "n_at_limit": 37,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4696,6 +4862,7 @@
     ],
     "n_at_limit": 22,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4711,6 +4878,7 @@
     ],
     "n_at_limit": 13,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4726,6 +4894,7 @@
     ],
     "n_at_limit": 19,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4741,6 +4910,7 @@
     ],
     "n_at_limit": 8,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4756,6 +4926,7 @@
     ],
     "n_at_limit": 22,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4769,8 +4940,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 12,
+    "n_at_limit": 13,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4786,6 +4958,7 @@
     ],
     "n_at_limit": 9,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4801,6 +4974,7 @@
     ],
     "n_at_limit": 19,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4816,6 +4990,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4832,6 +5007,7 @@
     ],
     "n_at_limit": 18,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4847,6 +5023,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4860,8 +5037,9 @@
     "rules_reviews": [
      2
     ],
-    "n_at_limit": 3,
+    "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4877,6 +5055,7 @@
     ],
     "n_at_limit": 9,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4892,6 +5071,7 @@
     ],
     "n_at_limit": 7,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4907,6 +5087,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4922,6 +5103,7 @@
     ],
     "n_at_limit": 4,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4937,6 +5119,7 @@
     ],
     "n_at_limit": 6,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4952,6 +5135,7 @@
     ],
     "n_at_limit": 31,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4967,6 +5151,7 @@
     ],
     "n_at_limit": 38,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4982,6 +5167,7 @@
     ],
     "n_at_limit": 29,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -4997,6 +5183,7 @@
     ],
     "n_at_limit": 60,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5012,6 +5199,7 @@
     ],
     "n_at_limit": 48,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5027,6 +5215,7 @@
     ],
     "n_at_limit": 56,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5042,6 +5231,7 @@
     ],
     "n_at_limit": 62,
     "n_violations": 1,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [
      "892517:Australia:3"
     ],
@@ -5060,6 +5250,7 @@
     ],
     "n_at_limit": 75,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5075,6 +5266,7 @@
     ],
     "n_at_limit": 71,
     "n_violations": 1,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [
      "1104284:Australia:3"
     ],
@@ -5093,6 +5285,7 @@
     ],
     "n_at_limit": 80,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5108,6 +5301,7 @@
     ],
     "n_at_limit": 39,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5124,6 +5318,7 @@
     ],
     "n_at_limit": 18,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5139,6 +5334,7 @@
     ],
     "n_at_limit": 21,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5154,6 +5350,7 @@
     ],
     "n_at_limit": 30,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5169,6 +5366,7 @@
     ],
     "n_at_limit": 17,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5184,6 +5382,7 @@
     ],
     "n_at_limit": 27,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5199,6 +5398,7 @@
     ],
     "n_at_limit": 17,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5214,6 +5414,7 @@
     ],
     "n_at_limit": 8,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5229,6 +5430,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5244,6 +5446,7 @@
     ],
     "n_at_limit": 0,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5259,6 +5462,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5274,6 +5478,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5289,6 +5494,7 @@
     ],
     "n_at_limit": 0,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5304,6 +5510,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5319,6 +5526,7 @@
     ],
     "n_at_limit": 39,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5334,6 +5542,7 @@
     ],
     "n_at_limit": 39,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5349,6 +5558,7 @@
     ],
     "n_at_limit": 35,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5364,6 +5574,7 @@
     ],
     "n_at_limit": 42,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5379,6 +5590,7 @@
     ],
     "n_at_limit": 6,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5394,6 +5606,7 @@
     ],
     "n_at_limit": 8,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5409,6 +5622,7 @@
     ],
     "n_at_limit": 14,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5424,6 +5638,7 @@
     ],
     "n_at_limit": 11,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5439,6 +5654,7 @@
     ],
     "n_at_limit": 8,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5454,6 +5670,7 @@
     ],
     "n_at_limit": 13,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5469,6 +5686,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5484,6 +5702,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5499,6 +5718,7 @@
     ],
     "n_at_limit": 7,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5514,6 +5734,7 @@
     ],
     "n_at_limit": 6,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5529,6 +5750,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5544,6 +5766,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "limit_not_reached"
    },
@@ -5559,6 +5782,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5574,6 +5798,7 @@
     ],
     "n_at_limit": 4,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5589,6 +5814,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5604,6 +5830,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5619,6 +5846,7 @@
     ],
     "n_at_limit": 35,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5634,6 +5862,7 @@
     ],
     "n_at_limit": 30,
     "n_violations": 1,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [
      "1168827:Quetta Gladiators:2"
     ],
@@ -5652,6 +5881,7 @@
     ],
     "n_at_limit": 19,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5667,6 +5897,7 @@
     ],
     "n_at_limit": 10,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5682,6 +5913,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5697,6 +5929,7 @@
     ],
     "n_at_limit": 9,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5712,6 +5945,7 @@
     ],
     "n_at_limit": 7,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5727,6 +5961,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5742,6 +5977,7 @@
     ],
     "n_at_limit": 8,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5757,6 +5993,7 @@
     ],
     "n_at_limit": 4,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5772,6 +6009,7 @@
     ],
     "n_at_limit": 4,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5787,6 +6025,7 @@
     ],
     "n_at_limit": 7,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5802,6 +6041,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5817,6 +6057,7 @@
     ],
     "n_at_limit": 1,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5832,6 +6073,7 @@
     ],
     "n_at_limit": 12,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5847,6 +6089,7 @@
     ],
     "n_at_limit": 15,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5862,6 +6105,7 @@
     ],
     "n_at_limit": 14,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5877,6 +6121,7 @@
     ],
     "n_at_limit": 23,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5892,6 +6137,7 @@
     ],
     "n_at_limit": 25,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5907,6 +6153,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5922,6 +6169,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5937,6 +6185,7 @@
     ],
     "n_at_limit": 0,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5952,6 +6201,7 @@
     ],
     "n_at_limit": 0,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5967,6 +6217,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5982,6 +6233,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -5997,6 +6249,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -6012,6 +6265,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -6027,6 +6281,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -6042,6 +6297,7 @@
     ],
     "n_at_limit": 5,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -6057,6 +6313,7 @@
     ],
     "n_at_limit": 2,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    },
@@ -6072,6 +6329,7 @@
     ],
     "n_at_limit": 3,
     "n_violations": 0,
+    "n_failed_without_drs_in_rules": 0,
     "examples": [],
     "status": "ok"
    }
@@ -17603,6 +17861,920 @@
    "base_rate": 0.05,
    "expected_if_no_free_hit": 3.55,
    "ratio": 0.0,
+   "status": "ok"
+  }
+ ],
+ "caught_crossing": [
+  {
+   "competition_id": "aus_one_day_cup",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 826,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "aus_one_day_cup",
+   "rule": true,
+   "years": [
+    2021,
+    2022
+   ],
+   "catches_mid_over": 249,
+   "old_non_striker_on_strike": 80,
+   "share": 0.321,
+   "status": "ok"
+  },
+  {
+   "competition_id": "bbl",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 1457,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "bbl",
+   "rule": true,
+   "years": [
+    2011,
+    2022
+   ],
+   "catches_mid_over": 3247,
+   "old_non_striker_on_strike": 1774,
+   "share": 0.546,
+   "status": "ok"
+  },
+  {
+   "competition_id": "blast",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 4859,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "blast",
+   "rule": true,
+   "years": [
+    2014,
+    2021
+   ],
+   "catches_mid_over": 6364,
+   "old_non_striker_on_strike": 3538,
+   "share": 0.556,
+   "status": "ok"
+  },
+  {
+   "competition_id": "blast_w",
+   "rule": false,
+   "years": [
+    2025,
+    2026
+   ],
+   "catches_mid_over": 616,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "bpl",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 1197,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "bpl",
+   "rule": true,
+   "years": [
+    2012,
+    2022
+   ],
+   "catches_mid_over": 1887,
+   "old_non_striker_on_strike": 879,
+   "share": 0.466,
+   "status": "ok"
+  },
+  {
+   "competition_id": "charlotte_edwards_cup",
+   "rule": false,
+   "years": [
+    2022,
+    2024
+   ],
+   "catches_mid_over": 527,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "charlotte_edwards_cup",
+   "rule": true,
+   "years": [
+    2021,
+    2021
+   ],
+   "catches_mid_over": 139,
+   "old_non_striker_on_strike": 70,
+   "share": 0.504,
+   "status": "ok"
+  },
+  {
+   "competition_id": "county_championship",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 8441,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "county_championship",
+   "rule": true,
+   "years": [
+    2014,
+    2021
+   ],
+   "catches_mid_over": 11789,
+   "old_non_striker_on_strike": 649,
+   "share": 0.055,
+   "status": "ok"
+  },
+  {
+   "competition_id": "cpl",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 910,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "cpl",
+   "rule": true,
+   "years": [
+    2013,
+    2022
+   ],
+   "catches_mid_over": 2060,
+   "old_non_striker_on_strike": 984,
+   "share": 0.478,
+   "status": "ok"
+  },
+  {
+   "competition_id": "csa_t20",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 432,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "csa_t20",
+   "rule": true,
+   "years": [
+    2012,
+    2022
+   ],
+   "catches_mid_over": 1507,
+   "old_non_striker_on_strike": 800,
+   "share": 0.531,
+   "status": "ok"
+  },
+  {
+   "competition_id": "eng_one_day_cup",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 3002,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "eng_one_day_cup",
+   "rule": true,
+   "years": [
+    2014,
+    2021
+   ],
+   "catches_mid_over": 3680,
+   "old_non_striker_on_strike": 1191,
+   "share": 0.324,
+   "status": "ok"
+  },
+  {
+   "competition_id": "eng_women_one_day",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 1638,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "eng_women_one_day",
+   "rule": true,
+   "years": [
+    2020,
+    2021
+   ],
+   "catches_mid_over": 314,
+   "old_non_striker_on_strike": 107,
+   "share": 0.341,
+   "status": "ok"
+  },
+  {
+   "competition_id": "etpl",
+   "rule": false,
+   "years": [
+    2026,
+    2026
+   ],
+   "catches_mid_over": 215,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "fairbreak",
+   "rule": false,
+   "years": [
+    2023,
+    2023
+   ],
+   "catches_mid_over": 142,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "fairbreak",
+   "rule": true,
+   "years": [
+    2022,
+    2022
+   ],
+   "catches_mid_over": 70,
+   "old_non_striker_on_strike": 34,
+   "share": 0.486,
+   "status": "ok"
+  },
+  {
+   "competition_id": "hundred_m",
+   "rule": false,
+   "years": [
+    2021,
+    2026
+   ],
+   "catches_mid_over": 1324,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "hundred_w",
+   "rule": false,
+   "years": [
+    2021,
+    2026
+   ],
+   "catches_mid_over": 999,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "ilt20",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 930,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_odi_m",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 4349,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_odi_m",
+   "rule": true,
+   "years": [
+    2002,
+    2022
+   ],
+   "catches_mid_over": 17293,
+   "old_non_striker_on_strike": 4698,
+   "share": 0.272,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_odi_w",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 1665,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_odi_w",
+   "rule": true,
+   "years": [
+    2007,
+    2022
+   ],
+   "catches_mid_over": 2311,
+   "old_non_striker_on_strike": 603,
+   "share": 0.261,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_t20_m",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 13763,
+   "old_non_striker_on_strike": 4,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_t20_m",
+   "rule": true,
+   "years": [
+    2005,
+    2022
+   ],
+   "catches_mid_over": 10498,
+   "old_non_striker_on_strike": 5081,
+   "share": 0.484,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_t20_w",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 6243,
+   "old_non_striker_on_strike": 13,
+   "share": 0.002,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_t20_w",
+   "rule": true,
+   "years": [
+    2009,
+    2022
+   ],
+   "catches_mid_over": 3494,
+   "old_non_striker_on_strike": 1483,
+   "share": 0.424,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_test_m",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 2423,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_test_m",
+   "rule": true,
+   "years": [
+    2001,
+    2022
+   ],
+   "catches_mid_over": 11347,
+   "old_non_striker_on_strike": 773,
+   "share": 0.068,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_test_w",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 105,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "intl_test_w",
+   "rule": true,
+   "years": [
+    2003,
+    2022
+   ],
+   "catches_mid_over": 145,
+   "old_non_striker_on_strike": 13,
+   "share": 0.09,
+   "status": "ok"
+  },
+  {
+   "competition_id": "ipl",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 2677,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "ipl",
+   "rule": true,
+   "years": [
+    2008,
+    2021
+   ],
+   "catches_mid_over": 5396,
+   "old_non_striker_on_strike": 2528,
+   "share": 0.468,
+   "status": "ok"
+  },
+  {
+   "competition_id": "ire_ip_odm",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 318,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "ire_ip_odm",
+   "rule": true,
+   "years": [
+    2016,
+    2022
+   ],
+   "catches_mid_over": 341,
+   "old_non_striker_on_strike": 110,
+   "share": 0.323,
+   "status": "ok"
+  },
+  {
+   "competition_id": "ire_ip_t20",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 382,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "ire_ip_t20",
+   "rule": true,
+   "years": [
+    2016,
+    2022
+   ],
+   "catches_mid_over": 394,
+   "old_non_striker_on_strike": 195,
+   "share": 0.495,
+   "status": "ok"
+  },
+  {
+   "competition_id": "lpl",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 666,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "lpl",
+   "rule": true,
+   "years": [
+    2020,
+    2021
+   ],
+   "catches_mid_over": 345,
+   "old_non_striker_on_strike": 144,
+   "share": 0.417,
+   "status": "ok"
+  },
+  {
+   "competition_id": "mlc",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 807,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "msl",
+   "rule": true,
+   "years": [
+    2018,
+    2019
+   ],
+   "catches_mid_over": 352,
+   "old_non_striker_on_strike": 183,
+   "share": 0.52,
+   "status": "ok"
+  },
+  {
+   "competition_id": "npl",
+   "rule": false,
+   "years": [
+    2024,
+    2025
+   ],
+   "catches_mid_over": 421,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "plunket_shield",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 1573,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "plunket_shield",
+   "rule": true,
+   "years": [
+    2012,
+    2022
+   ],
+   "catches_mid_over": 3731,
+   "old_non_striker_on_strike": 338,
+   "share": 0.091,
+   "status": "ok"
+  },
+  {
+   "competition_id": "psl",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 1012,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "psl",
+   "rule": true,
+   "years": [
+    2016,
+    2022
+   ],
+   "catches_mid_over": 1393,
+   "old_non_striker_on_strike": 639,
+   "share": 0.459,
+   "status": "ok"
+  },
+  {
+   "competition_id": "sa20",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 868,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "sheffield_shield",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 2217,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "sheffield_shield",
+   "rule": true,
+   "years": [
+    2017,
+    2022
+   ],
+   "catches_mid_over": 1340,
+   "old_non_striker_on_strike": 77,
+   "share": 0.057,
+   "status": "ok"
+  },
+  {
+   "competition_id": "slc_major_clubs_odm",
+   "rule": false,
+   "years": [
+    2024,
+    2026
+   ],
+   "catches_mid_over": 1063,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "slc_major_clubs_t20",
+   "rule": false,
+   "years": [
+    2024,
+    2026
+   ],
+   "catches_mid_over": 799,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "slc_major_league",
+   "rule": false,
+   "years": [
+    2024,
+    2026
+   ],
+   "catches_mid_over": 1608,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "smat",
+   "rule": false,
+   "years": [
+    2022,
+    2024
+   ],
+   "catches_mid_over": 594,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "smat",
+   "rule": true,
+   "years": [
+    2016,
+    2021
+   ],
+   "catches_mid_over": 3786,
+   "old_non_striker_on_strike": 1649,
+   "share": 0.436,
+   "status": "ok"
+  },
+  {
+   "competition_id": "super_smash",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 873,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "super_smash",
+   "rule": true,
+   "years": [
+    2013,
+    2022
+   ],
+   "catches_mid_over": 1173,
+   "old_non_striker_on_strike": 613,
+   "share": 0.523,
+   "status": "ok"
+  },
+  {
+   "competition_id": "super_smash_w",
+   "rule": false,
+   "years": [
+    2022,
+    2026
+   ],
+   "catches_mid_over": 687,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "super_smash_w",
+   "rule": true,
+   "years": [
+    2020,
+    2022
+   ],
+   "catches_mid_over": 397,
+   "old_non_striker_on_strike": 207,
+   "share": 0.521,
+   "status": "ok"
+  },
+  {
+   "competition_id": "wbbl",
+   "rule": false,
+   "years": [
+    2022,
+    2025
+   ],
+   "catches_mid_over": 1266,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "wbbl",
+   "rule": true,
+   "years": [
+    2015,
+    2021
+   ],
+   "catches_mid_over": 1694,
+   "old_non_striker_on_strike": 843,
+   "share": 0.498,
+   "status": "ok"
+  },
+  {
+   "competition_id": "wcpl",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 152,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "wcpl",
+   "rule": true,
+   "years": [
+    2022,
+    2022
+   ],
+   "catches_mid_over": 26,
+   "old_non_striker_on_strike": 10,
+   "share": 0.385,
+   "status": "ok"
+  },
+  {
+   "competition_id": "wcsl",
+   "rule": true,
+   "years": [
+    2016,
+    2019
+   ],
+   "catches_mid_over": 478,
+   "old_non_striker_on_strike": 248,
+   "share": 0.519,
+   "status": "ok"
+  },
+  {
+   "competition_id": "wi_women_super50",
+   "rule": true,
+   "years": [
+    2022,
+    2022
+   ],
+   "catches_mid_over": 34,
+   "old_non_striker_on_strike": 4,
+   "share": 0.118,
+   "status": "ok"
+  },
+  {
+   "competition_id": "wi_women_t20",
+   "rule": true,
+   "years": [
+    2019,
+    2022
+   ],
+   "catches_mid_over": 69,
+   "old_non_striker_on_strike": 15,
+   "share": 0.217,
+   "status": "ok"
+  },
+  {
+   "competition_id": "womens_t20_challenge",
+   "rule": false,
+   "years": [
+    2022,
+    2022
+   ],
+   "catches_mid_over": 27,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
+   "status": "ok"
+  },
+  {
+   "competition_id": "womens_t20_challenge",
+   "rule": true,
+   "years": [
+    2018,
+    2020
+   ],
+   "catches_mid_over": 49,
+   "old_non_striker_on_strike": 22,
+   "share": 0.449,
+   "status": "ok"
+  },
+  {
+   "competition_id": "wpl",
+   "rule": false,
+   "years": [
+    2023,
+    2026
+   ],
+   "catches_mid_over": 504,
+   "old_non_striker_on_strike": 0,
+   "share": 0.0,
    "status": "ok"
   }
  ],

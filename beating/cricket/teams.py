@@ -25,9 +25,10 @@ a second extension, secondary grounds where it played at least two matches and 7
 matches (Guwahati, Dharamsala, Cheltenham). Only league-stage matches define home venues (knockout
 pairings depend on results and are often at neutral grounds); every match is labelled.
 `home_status_table` labels each match twice: `full` uses the whole season's league stage (fixtures are
-public before a season), `asof` only matches before the match day; until the season has 8 matches and
+public before a season), `asof` only matches before the match day: until the season has 8 matches and
 the team 4, the team's latest earlier season of the competition with a home venue (at most three back)
-stands in, and a forecast season uses the previous season.
+stands in, after that the season so far plus that season's grounds no other team has taken this season;
+a forecast season uses the previous season.
 
 Start slots. `config/cricket-day-night.csv` lists every match a rule covers with its `start_slot`
 (`day`, `day_night`, `night`, or `unknown` where a rule finds the slot ambiguous), `source` and
@@ -36,7 +37,8 @@ international Tests are day; the curated pink-ball Test list (matched on date, g
 day_night. League defaults (IPL, WPL, PSL, LPL, ILT20, BPL, CPL, MLC, SA20, BBL) give the earlier match
 of a double-header by `match_number` the afternoon slot and the last the evening one, with the earlier
 match unknown when a later one that day is 1.5+ hours further west (BBL games in Perth); IPL 2009's
-evening games in South Africa started near dusk (day_night). A women's match sharing a ground and day
+evening games in South Africa started near dusk (day_night), and IPL 2021's last two league games were
+played at the same time (both night). A women's match sharing a ground and day
 with a men's match is the earlier game (the Hundred, Super Smash, internationals; WBBL curtain raisers),
 and Hundred men's games after one are day_night. Full-member ODIs in India (2005+), Australia (not the
 winter-tropics grounds), the UAE, Pakistan (2019+) and at Sri Lanka's floodlit grounds are day_night;
@@ -51,6 +53,7 @@ grounds are inferred from where teams played: a club's single match at an outgro
 clubs sharing a ground both lose it. BPL and LPL franchises churn nearly every edition, so their
 `team_id`s are short-lived and `lineage_id` is the useful key there.
 
+Matches are keyed by ingest's integer `match_id` (the file stem; `wi_` stems map to 90M + number).
 Run `python -m beating.cricket.teams` (about 30 s) to rebuild both config files, the home-venue table
 `data/derived/cricket/team-home-venues.csv`, `data/processed/cricket/match_teams.parquet` and
 `reports/cricket-teams-validation.json` from the Cricsheet zip.
@@ -197,6 +200,7 @@ LEAGUE_SLOTS = {
     "sa20": ("day_night", "day", "day_night", "medium"), "bpl": ("unknown", "day", "night", "medium"),
     "cpl": ("unknown", "day", "night", "medium"), "mlc": ("unknown", "day", "night", "medium"),
 }
+SIMULTANEOUS_DAYS = [("ipl", "2021-10-08")]   # IPL 2021's last two league games, both 19:30 IST
 FIRST_CLASS_DAY = {"county_championship", "sheffield_shield", "plunket_shield", "ranji_trophy", "csa_4day",
                    "quaid_e_azam", "slc_major_league", "ire_ip_fc"}
 ONE_DAY_DAY = {"vijay_hazare": None, "eng_one_day_cup": "2020-01-01", "eng_women_one_day": None}
@@ -484,7 +488,10 @@ class HomeVenues:
         for t in (a, b):
             if s is not None and t in s.tv and (full or (s.n >= ASOF_MIN_SEASON
                                                          and sum(s.tv[t].values()) >= ASOF_MIN_TEAM)):
-                homes.append(self.home_set(comp, season, t))
+                h = self.home_set(comp, season, t)
+                if not full:   # keep earlier seasons' grounds no other team has taken (festival outgrounds)
+                    h = h | {v for v in self.previous(comp, season, day, t)[0] if self.owner(comp, s, v)[0] in (None, t)}
+                homes.append(h)
                 srcs.append("season")
             else:
                 h, src = self.previous(comp, season, day, t)
@@ -657,6 +664,8 @@ def start_slots(m: pd.DataFrame, venues: pd.DataFrame | None = None) -> pd.DataF
     # IPL 2009 in South Africa kept Indian broadcast times: the evening game started about 16:30 local
     put(comp.eq("ipl") & country.eq("South Africa") & out.start_slot.eq("night"), "day_night",
         "ipl_2009_south_africa", "medium")
+    for cid, day in SIMULTANEOUS_DAYS:   # two evening games at once, not an afternoon-evening pair
+        put(comp.eq(cid) & d.eq(day), "night", "simultaneous_league_games", "high")
     # women's match before the men's at the same ground on the same day
     limited = ~m.match_type.isin(["Test", "MDM"])
     pairs = m[limited].groupby(["start_date", "venue_id"]).gender.agg(set)
@@ -801,6 +810,10 @@ def validate(m: pd.DataFrame, teams: pd.DataFrame, slots: pd.DataFrame, homes: H
         rep["club_home_win"][cid] = dict(n_matches=len(c), asof=_win_rate(c, "home_status1", "home_status2"),
                                          full=_win_rate(c, "home_status1_full", "home_status2_full"),
                                          asof_status_counts=st, asof_full_agreement=round(agree, 3))
+    tier = club.competition_id.map(lambda c: competition_meta(c)["tier"])
+    rep["club_home_win_pooled"] = {t: dict(asof=_win_rate(club[tier.eq(t)], "home_status1", "home_status2"),
+                                           full=_win_rate(club[tier.eq(t)], "home_status1_full", "home_status2_full"))
+                                   for t in sorted(tier.unique())}
     ht = homes.table()
     nv = homes.neutral_venues()
     rep["home_venues"] = dict(
@@ -818,6 +831,7 @@ def validate(m: pd.DataFrame, teams: pd.DataFrame, slots: pd.DataFrame, homes: H
     by_slot = s.groupby(["competition_id", "start_slot"]).size().unstack(fill_value=0)
     rep["start_slot"] = dict(
         overall_known_share=round(float(s.start_slot.ne("unknown").mean()), 3),
+        invalid_slots=int((~s.start_slot.isin(SLOTS)).sum()),
         by_slot=s.start_slot.value_counts().to_dict(), by_source=s.source.value_counts().to_dict(),
         coverage_by_competition={k: dict(n=int(r.n), known_share=float(r.known_share),
                                          **{c: int(by_slot.at[k, c]) for c in by_slot.columns})

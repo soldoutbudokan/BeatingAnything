@@ -40,10 +40,23 @@ and 1 for a draw, opd 98 when the rules timeline schedules four days and 90 othe
 (`striker_exp`, `bowler_exp`: prior balls faced / legal balls bowled; `striker_role_pos`: median arrival
 over the previous 10 innings) uses strictly earlier dates in the same fitting family and gender.
 
+Tables (data/processed/cricket/*.parquet; `tools/build_cricket_tables.py` runs the build): `balls` (one row
+per main-innings delivery), `matches`, `innings` (JSON totals next to the state machine's, targets, umpire
+votes), `events` (retirements, timed out, absent hurt, temporary retirement / resumption, replacements,
+mid-over bowler changes, a second ball-wicket on one delivery, declarations, forfeitures, follow-ons,
+penalty runs, miscounted overs, interruptions inferred from targets), `super_overs`, `player_innings`
+(arrival, balls faced, balls bowled per player and innings) and `people_index`. In memory, missing ints
+are -1 (-32768 for `lead` and `runs_required`) and categoricals are int8 codes; on disk they are real
+nulls and dictionary columns, and :func:`read_table` returns pandas nullable dtypes only for columns that
+hold nulls. `prev_free_hit_chain` is the number of no-balls in the unbroken run of wides and no-balls just
+before the delivery, so the enrichment step can apply any free-hit rule. Non-numeric file stems
+('wi_201706') get match_id 90,000,000 + number.
+
 Limits. Only the final revised target is stored by Cricsheet, so revisions during innings 2 are
 `unknown`. The timed-out and retired-out entries are non-ball events (the delivery is coded from its own
 outcome). Absent-hurt batters count as unavailable from the first ball. Hundred spells and bowler ends
-are approximate. Overturned-kind imputation is a mix-preserving rule, not an observation. Columns that
+are approximate, and with three or four listed umpires only the first two are used for ends.
+Overturned-kind imputation is a mix-preserving rule, not an observation. Columns that
 need the competition, rules, teams or weather modules (competition_id, scheduled_days, home status,
 start_slot, drs_available, free_hit, pp windows from rules, overseas flags) are left to the enrichment
 step; this module only adds `venue_id`.
@@ -571,7 +584,9 @@ def parse_match(d: dict, match_id: int, pid_of: dict, file_stem: str | None = No
                             events.append((match_id, k, seq, kr.replace(" ", "_"), pid(name), NA, ti, None,
                                            json.dumps({"at": "striker" if name == bat else
                                                        ("non_striker" if name == ns else "neither")})))
-                        elif ball_w is None:
+                        elif ball_w is not None:
+                            events.append((match_id, k, seq, "second_ball_wicket", pid(name), NA, ti, kr, None))
+                        else:
                             ball_w = w
                             kind, wk, po = KIND_CODE.get(kr, NA), WK_OF.get(kr, 5), pid(name)
                             if kr not in KIND_CODE:
@@ -1021,7 +1036,7 @@ def validate(t: dict) -> dict:
                       "last_inn_runs": balls.inn_runs.to_numpy()[ends - 1],
                       "last_runs": balls.runs_total.to_numpy()[ends - 1]},
                      index=pd.MultiIndex.from_arrays([mid[starts], inn[starts]], names=["match_id", "innings"]))
-    ev = events[events.event.isin(["retired_out", "timed_out"])].groupby(["match_id", "innings"]).size()
+    ev = events[events.event.isin(["retired_out", "timed_out", "second_ball_wicket"])].groupby(["match_id", "innings"]).size()
     x = inns.merge(g, left_on=["match_id", "innings"], right_index=True, how="left")
     x = x.join(ev.rename("event_wkts"), on=["match_id", "innings"]).fillna(
         {"n": 0, "runs": 0, "legal": 0, "ball_wkts": 0, "last_inn_runs": 0, "last_runs": 0, "event_wkts": 0})
@@ -1252,20 +1267,63 @@ def read_table(name_or_path, columns: list[str] | None = None) -> pd.DataFrame:
     path = Path(name_or_path)
     if not path.suffix:
         path = OUT_DIR / f"{name_or_path}.parquet"
-    t = pq.read_table(path, columns=columns)
+    pf = pq.ParquetFile(path)
     nullable = {pa.int8(): pd.Int8Dtype(), pa.int16(): pd.Int16Dtype(), pa.int32(): pd.Int32Dtype(),
                 pa.int64(): pd.Int64Dtype(), pa.bool_(): pd.BooleanDtype()}
     out = {}
-    for name in t.column_names:
-        col = t[name]
-        if col.null_count and col.type in nullable:
-            out[name] = col.to_pandas(types_mapper=nullable.get)
-        else:
-            out[name] = col.to_pandas()
-    return pd.DataFrame(out)
+    for name in columns or pf.schema_arrow.names:  # one column at a time keeps the peak near the frame size
+        col = pf.read(columns=[name]).column(0)
+        out[name] = col.to_pandas(types_mapper=nullable.get) if col.null_count and col.type in nullable else col.to_pandas()
+        del col
+    return pd.DataFrame(out, copy=False)
+
+
+AUX_DTYPES = {
+    "matches": {"match_id": "int32", "match_type_number": "Int32", "event_match_number": "Int16", "win_by_runs": "Int16",
+                "win_by_wickets": "Int16", "scheduled_overs": "Int16", "scheduled_overs_raw": "Int16",
+                "scheduled_balls": "Int16", "balls_per_over": "int8", "umpire1_id": "Int32", "umpire2_id": "Int32",
+                "tv_umpire_id": "Int32", "referee_id": "Int32", "reserve_umpire_id": "Int32", "n_umpires_listed": "int8",
+                "n_listed_team1": "int8", "n_listed_team2": "int8", "n_innings": "int8", "n_super_over_innings": "int8",
+                "n_balls": "int32", "est_opd": "Int16", "n_dates": "int8", "target_runs_raw": "Int16",
+                "target_balls": "Int16", "target_runs": "Int16", "inn1_effective_balls": "Int16",
+                "target_overs_raw": "float32", "est_rate": "float32"},
+    "innings": {"match_id": "int32", "innings": "int8", "team_idx": "int8", "target_runs": "Int16",
+                "max_balls_known_before": "Int16", "order_matches_listed": "Int8", "umpire_p_even": "float32"},
+    "events": {"match_id": "int32", "innings": "int8", "ball_seq": "Int16", "player_id": "Int32", "other_id": "Int32",
+               "team_idx": "int8"},
+    "super_overs": {"match_id": "int32", "so_index": "int8", "bat_team_idx": "int8", "ball_seq": "int16",
+                    "over": "int16", "ball_in_over": "int8", "batter_id": "Int32", "non_striker_id": "Int32",
+                    "bowler_id": "Int32", "player_out_id": "Int32", "review_umpire_id": "Int32"},
+    "player_innings": {"match_id": "int32", "innings": "int8", "team_idx": "int8", "player_id": "Int32",
+                       "arrival": "Int8", "balls_faced": "int16", "bat_runs": "int16", "balls_bowled": "int16",
+                       "runs_conceded": "int16"},
+}
+
+
+def tidy(name: str, df: pd.DataFrame) -> pd.DataFrame:
+    """Copy of a small table with -1 id / count sentinels as nulls and compact dtypes."""
+    df = df.copy()
+    for c, typ in AUX_DTYPES.get(name, {}).items():
+        if c not in df:
+            continue
+        v = df[c]
+        if typ[0].isupper():
+            v = pd.to_numeric(v, errors="coerce")
+            v = v.where(v >= 0) if c.endswith("_id") or c in ("ball_seq", "arrival", "order_matches_listed") else v
+        df[c] = v.astype(typ)
+    return df
 
 
 # ---------------------------------------------------------------- build
+
+def _trim() -> None:
+    """Hand freed heap pages back to the OS (many small chunk arrays fragment the heap)."""
+    try:
+        import ctypes
+        ctypes.CDLL("libc.so.6").malloc_trim(0)
+    except (OSError, AttributeError):
+        pass
+
 
 def _rss_mb() -> dict:
     self_ = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
@@ -1307,6 +1365,7 @@ def _collect(results, people: pd.DataFrame) -> dict:
         parts = cols.pop(name)
         arrays[name] = np.concatenate(parts) if parts else np.array([])
         del parts
+        _trim()
     balls = to_frame(arrays)
     del arrays
     matches = pd.DataFrame(matches)
@@ -1324,6 +1383,7 @@ def enrich(t: dict) -> dict:
     attach_player_context(balls, ctx)
     t["kind_imputation"] = impute_overturned_kind(balls, matches)
     del balls["bat_team_idx"]
+    _trim()
     t["ball_columns"] = [c for c, _, _ in ROW_COLS + DERIVED_COLS if c in balls.columns]
     return t
 
@@ -1334,6 +1394,8 @@ def write_all(t: dict, out_dir: Path | str = OUT_DIR) -> dict:
     for name, spec in (("balls", BALL_SPEC), ("matches", None), ("innings", None), ("events", None),
                        ("super_overs", None), ("player_innings", None), ("people_index", None)):
         df = t["people"] if name == "people_index" else t[name]
+        if name != "balls":
+            df = tidy(name, df)
         path = out_dir / f"{name}.parquet"
         write_table(df, path, spec, columns=t.get("ball_columns") if name == "balls" else None)
         sizes[name] = {"rows": int(len(df)), "mb": round(path.stat().st_size / 2 ** 20, 1)}

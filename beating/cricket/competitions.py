@@ -17,17 +17,31 @@ Smash, Ram Slam -> CSA T20 Challenge, Royal London -> One-Day Cup, ...). A club
 event that matches nothing falls back to ``other_<fmt>_<m|w>`` with
 ``generic=True`` so every match maps; :func:`scan_events` reports those counts.
 
+Series. :func:`series_key` (plan 4.2) groups matches by competition id (which
+fixes format and gender), normalised event name and season. Bilateral events
+(``event_id`` bilateral, unnamed or unrecognised) are further split by team pair,
+and a pair's matches chain into one series while consecutive matches are at most
+60 days apart, so the CWC Super League or a multi-format tour yields one key per
+three-match series and format. The plan's per-match ``drs_available`` uses it:
+rules allow DRS AND (a review in the match OR in the same series) AND reviews are
+not missing (``beating.cricket.rules.match_drs_available``).
+
 Limits. Mapping is by name, so a new sponsor name for a known competition maps to
 the generic id until an alias is added. 'One-Day Cup' without a country is taken
 to be England's (it is in Cricsheet 2023-2026). Full membership is by team name,
 so A sides, Lions and development XIs appearing as 'international' would count as
-associates. Bilateral versus multi-nation is guessed from the event name.
+associates. Bilateral versus multi-nation is guessed from the event name, and a
+series key cannot see a series whose matches carry different event names.
 """
 from __future__ import annotations
 
+from collections import defaultdict
 from dataclasses import asdict, dataclass
+from datetime import date as _date
 import re
 
+SERIES_GAP_DAYS = 60
+BILATERAL_EVENT_IDS = {"bilateral", "intl_unnamed", "intl_other"}
 FMT_FAMILY = {"Test": "TEST", "MDM": "TEST", "ODI": "ODI", "ODM": "ODI", "T20": "T20", "IT20": "T20"}
 OFFICIAL_TYPES = {"Test", "ODI", "T20"}
 TIERS = ("intl_full", "intl_assoc", "franchise_major", "domestic_major", "domestic_minor")
@@ -114,7 +128,7 @@ CLUB_ALIASES = [
     (r"^women'?s premier league", "wpl"),
     (r"^(kia )?women'?s cricket super league|^kia super league", "wcsl"),
     (r"^(natwest |vitality |friends provident |friends life )?(t20 blast|blast) women", "blast_w"),
-    (r"^(natwest |vitality |friends provident |friends life )?(t20 blast|blast|t20)( men)?$|^twenty20 cup$", "blast"),
+    (r"^(natwest |vitality )?(t20 blast|blast)( men)?$|^(friends provident|friends life) t20$|^twenty20 cup$", "blast"),
     (r"^charlotte edwards cup", "charlotte_edwards_cup"),
     (r"^((lv=?|specsavers|rothesay|liverpool victoria) )?county championship|^bob willis trophy",
      "county_championship"),
@@ -156,7 +170,7 @@ _CLUB_RE = [(re.compile(p), cid) for p, cid in CLUB_ALIASES]
 BILATERAL_TROPHIES = (
     "the ashes", "women's ashes", "border-gavaskar", "chappell-hadlee", "frank worrell", "wisden trophy",
     "pataudi trophy", "basil d'oliveira", "warne-muralitharan", "sobers/tissera", "clive lloyd trophy",
-    "freedom trophy", "trans-tasman", "rose bowl", "sir vivian richards", "natwest challenge", "stan nagaiah",
+    "freedom trophy", "trans-tasman trophy", "rose bowl", "sir vivian richards", "natwest challenge", "stan nagaiah",
     "saudari cup", "inter-insular", "mcc spirit of cricket", "anthony de mello", "sir frank worrell",
 )
 # Ordered (pattern, event_id) for international events; first match wins.
@@ -170,6 +184,7 @@ INTL_EVENTS = [
     (r"world twenty20|t20 world cup|world t20", "icc_t20wc"),
     (r"world cup", "icc_cwc"),
     (r"^icc women's championship", "icc_womens_championship"),
+    (r"rising stars|emerging", "multi_nation"),
     (r"^(men's |women's |asian cricket council women's )?(t20 |twenty20 )?asia cup", "asia_cup"),
     (r"asian games|commonwealth games|sea games|south asian games|african games|pacific games", "multisport"),
     (r"tri-|\btri |triangular|quadrangular|pentangular", "multi_nation"),
@@ -311,3 +326,49 @@ def scan_events(zip_path) -> "pd.DataFrame":
             .groupby(keys).agg(n_matches=("date", "size"), first=("date", "min"), last=("date", "max"),
                                n_assoc=("assoc_match", "sum"))
             .reset_index().sort_values("n_matches", ascending=False, ignore_index=True))
+
+
+def assign_series_keys(records) -> list[str]:
+    """Series keys for dicts with competition_id, event_id, event_name, season, date and teams.
+
+    Key: ``competition_id|event|season``, plus ``|A v B|first date`` for bilateral events,
+    where a new series starts after a gap of more than :data:`SERIES_GAP_DAYS` days."""
+    records = list(records)
+    keys, chains = [None] * len(records), defaultdict(list)
+    for i, r in enumerate(records):
+        base = f"{r['competition_id']}|{normalise_name(r.get('event_name')) or 'unnamed'}|{r['season']}"
+        if r.get("event_id") in BILATERAL_EVENT_IDS:
+            chains[base + "|" + " v ".join(sorted(map(str, r["teams"])))].append(i)
+        else:
+            keys[i] = base
+    for base, idx in chains.items():
+        idx.sort(key=lambda i: str(records[i]["date"])[:10])
+        prev = start = None
+        for i in idx:
+            d = _date.fromisoformat(str(records[i]["date"])[:10])
+            if prev is None or (d - prev).days > SERIES_GAP_DAYS:
+                start = d
+            keys[i], prev = f"{base}|{start.isoformat()}", d
+    return keys
+
+
+def series_key(matches: "pd.DataFrame") -> "pd.Series":
+    """Plan 4.2 ``series_key`` for a matches table, aligned to its index.
+
+    Needs ``competition_id``, ``event_name``, ``season``, ``start_date`` (or ``date``) and
+    ``team1``/``team2`` (or ``teams``); ``event_id`` is derived from the event name for
+    internationals (``team_type`` or an ``intl_`` competition id) when absent."""
+    import pandas as pd
+
+    df = matches
+    dates = df["start_date"] if "start_date" in df else df["date"]
+    teams = df["teams"] if "teams" in df else list(zip(df["team1"], df["team2"]))
+    if "event_id" in df:
+        event_ids = df["event_id"]
+    else:
+        intl = (df["team_type"] == "international") if "team_type" in df else df["competition_id"].str.startswith("intl_")
+        event_ids = [intl_event_id(None if pd.isna(e) else e)[0] if i else c
+                     for e, i, c in zip(df["event_name"], intl, df["competition_id"])]
+    recs = [dict(competition_id=c, event_id=e, event_name=None if pd.isna(n) else n, season=str(s), date=d, teams=t)
+            for c, e, n, s, d, t in zip(df["competition_id"], event_ids, df["event_name"], df["season"], dates, teams)]
+    return pd.Series(assign_series_keys(recs), index=df.index, name="series_key")

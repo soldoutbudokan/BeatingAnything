@@ -436,6 +436,17 @@ class ParseOther(unittest.TestCase):
         ev = [e[3] for e in p["events"]]
         self.assertEqual(ev, ["retired_out", "timed_out"])
 
+    def test_two_ball_wickets_on_one_delivery(self):
+        d = match([{"team": "A", "overs": [{"over": 0, "deliveries": [
+            dl("a1", "a2", "b1", 0, wickets=[{"kind": "bowled", "player_out": "a1"},
+                                             {"kind": "run out", "player_out": "a2", "fielders": [{"name": "b2"}]}]),
+            dl("a3", "a4", "b1", 0)]}]}])
+        p, pid = parse(d)
+        b = rows_frame(p)
+        self.assertEqual((b.wk[0], b.player_out_id[0], b.inn_wkts[1]), ("bowled", pid["a1"], 2))
+        self.assertEqual([(e[3], e[4], e[7]) for e in p["events"]], [("second_ball_wicket", pid["a2"], "run out")])
+        self.assertEqual(list(b.striker_arrival), [1, 3])
+
 
 class WholeTable(unittest.TestCase):
     def test_player_context_strictly_earlier(self):
@@ -500,6 +511,14 @@ class WholeTable(unittest.TestCase):
             self.assertTrue(back.review_umpires_call.isna().any())
             self.assertEqual(int(back.inn_runs.sum()), int(t["balls"].inn_runs.sum()))
             self.assertEqual(len(ig.read_table(Path(tmp) / "out" / "people_index.parquet")), len(people))
+            ev = ig.read_table(Path(tmp) / "out" / "events.parquet")
+            self.assertTrue(ev.ball_seq.isna().any())          # innings-level events (follow-on) have no delivery
+            self.assertEqual(str(ev.player_id.dtype), "Int32")
+            m = ig.read_table(Path(tmp) / "out" / "matches.parquet")
+            self.assertEqual(m.umpire1_id.notna().all(), True)
+            self.assertEqual(str(m.match_id.dtype), "int32")
+            two = ig.read_table(Path(tmp) / "out" / "balls.parquet", columns=["match_id", "wk"])
+            self.assertEqual(list(two.columns), ["match_id", "wk"])
 
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ Written October 24, 2026, for the ball-by-ball model in `CRICKET-MODEL-PLAN.md` 
 | `reports/cricket-rules-validation.json` | every data check, row by row, with a status |
 | `data/derived/cricket/competition-events.csv` | all 1,445 distinct (event name, match type, gender, team type) rows with their mapping, counts and first/last dates |
 | `tests/test_cricket_rules.py` | 23 unit tests on small hand-built fixtures, no network and no zip |
+| `tests/test_cricket_rules_verify.py` | 6 regression tests for the fixes from the independent verification (`drs_allowed`, associate DRS, caught crossing, Hundred detection) |
 
 Rebuild the report and event list (about 1 CPU-minute, 2 workers):
 
@@ -30,7 +31,7 @@ rules_for("intl_test_m", "TEST", "male", "2021-02-05", teams=["India", "England"
 rules_for("blast", "T20", "male", "2023-07-15", stage="Final")
 ```
 
-`rules_for(competition_id, fmt, gender, date, *, event_id, teams, official, assoc_match, knockout, stage, scheduled_days, match_id)` returns every section-5 field plus `_layers` (which layer set each field). The derived fields are `super_over_this_match` (`knockout_only` turned into `none`, `single` or `repeat` for this match) and `min_balls_for_result`. `str(comp)` is the `competition_id`, so the returned object can stand in for the id string.
+`rules_for(competition_id, fmt, gender, date, *, event_id, teams, official, assoc_match, knockout, stage, scheduled_days, match_id)` returns the section-5 fields listed under Deviations plus `_layers` (which layer set each field). The derived fields are `super_over_this_match` (`knockout_only` turned into `none`, `single` or `repeat` for this match), `min_balls_for_result` and `drs_allowed`. `drs_allowed` is the plan's "rules allow DRS": true when `drs_available` is true or `drs_scope` is `selected`. Use it, not `drs_available` (the competition default), in the plan's per-match `drs_available` formula; otherwise the 172 `selected`-scope matches with recorded reviews would be dropped from DRS fits. `str(comp)` is the `competition_id`, so the returned object can stand in for the id string.
 
 ## Competitions
 
@@ -40,7 +41,7 @@ A club match maps by its normalised event name through an ordered alias table. T
 
 Tiers: `franchise_major` covers IPL, BBL, PSL, CPL, SA20, ILT20, MLC, BPL, LPL, Mzansi Super League, both Hundreds, WPL, WBBL, WCPL and the Women's Cricket Super League. `domestic_major` covers the national first-class, one-day and T20 championships of full members, including the Blast. `domestic_minor` covers the Irish Inter-Provincials, Women's T20 Challenge, FairBreak, Nepal Premier League, European T20 Premier League and the generic ids.
 
-**Coverage (all 23,132 matches).** There are 1,117 distinct event names (plus matches with none) and 1,445 (name, match type, gender, team type) rows. They map to 46 competition ids: intl_full 5,306 matches, intl_assoc 5,466, franchise_major 4,872, domestic_major 7,140, domestic_minor 348. All 89 matches without an event name are internationals. They map to their `intl_*` id with `event_id = intl_unnamed`, which is the only generic mapping in this build. No club match falls back to a generic id. Cricsheet match ids are not all integers: 26 files are named `wi_2017xx` / `wi_21xxxx`, and both modules key them as strings.
+**Coverage (all 23,132 matches).** There are 1,117 distinct event names (plus matches with none) and 1,445 (name, match type, gender, team type) rows. They map to 46 competition ids: intl_full 5,306 matches, intl_assoc 5,466, franchise_major 4,872, domestic_major 7,140, domestic_minor 348. All 89 matches without an event name are internationals. They map to their `intl_*` id with `event_id = intl_unnamed`, which is the only generic mapping in this build. No club match falls back to a generic id. Cricsheet match ids are not all integers: 25 files are named `wi_2017xx` / `wi_21xxxx`, and both modules key them as strings.
 
 ## The rules timeline
 
@@ -61,6 +62,7 @@ Main eras (`d` = the value comes from Cricsheet data, `m` = from memory):
 | Minimum overs for a result | - | 20 (d); English domestic 10 (d) | 5 (d) | Hundred 25 balls (m) |
 | Tactical subs | - | supersub Jul 2005 to Mar 2006 (d) | supersub 2005 (d) | BBL X-factor 2020-22 (d); impact player IPL 2023+, ILT20 2023/24+, SMAT 2022-24, LPL 2026 (d) |
 | Two new balls | - | Oct 2011 (m); two balls until over 34 from Jul 2025 (m) | - | Oct 2011 (m) |
+| Caught: crossing counts | to 2022-09 (m+d) | to 2022-09 (m+d) | to 2022-09 (m+d) | ECB domestic and IPL to 2021, Australian domestic to Aug 2022, the Hundred never (d) |
 | New ball available | after 80 overs (m) | - | - | after 80 overs (m) |
 | Informational | stop clock from Jun 2025 (m) | stop clock from Jun 2024 (m) | slow-over-rate fielding penalty from Jan 2022; stop clock Jun 2024 (m) | slow-over-rate penalty in the Hundred and in IPL from 2023 (m); concussion substitutes in internationals from Aug 2019 (d) |
 
@@ -73,12 +75,13 @@ The Hundred is encoded as Cricsheet stores it: 20 "overs" of 5 balls. The quota 
 | Check | Rows | Result |
 | --- | --- | --- |
 | (a) DRS observed (any review; matches whose `info.missing` lists reviews are excluded) | 175 competition-seasons | 167 ok, 8 partial (women's internationals in some years, WBBL 2022-24, 2011 Tests where India's England series used DRS) |
-| (b) most unsuccessful reviews by one team in an innings | 255 competition-years and families, 9,474 team-innings | all ok; one "limit not reached" (MLC 2023, one innings at 2); 3 single-innings anomalies |
+| (b) most unsuccessful reviews by one team in an innings | 255 competition-years and families, 9,474 team-innings | all ok; one "limit not reached" (MLC 2023, one innings at 2); 3 single-innings anomalies; no failed review in a match whose rules have no DRS (`n_failed_without_drs_in_rules`, 54 team-innings in 34 matches before the associate layers of conflict 19 were added) |
 | (c) powerplay windows from `innings.powerplays` | 413 competition-seasons, 23,338 full-length innings | all ok (mandatory windows match in at least 80% of innings, optional blocks sit inside the rules' windows) |
 | (d) overs per innings, balls per over, bowler quotas | 46 competitions | all ok; `info.overs` is 50 in 19 T20Is, and 8 innings credit one bowler with one over too many |
 | (e) follow-ons | 6 competitions, 353 follow-ons | min leads: Tests 180 (day-1 washout, explained), women's Tests 165, county 150, Plunket 153, Shield 170, SLC 150. Enforcement rate when allowed: Tests 51%, county 75%, Shield 15% |
 | (f) impact player and other tactical replacements | 16 competition-seasons | ok; one explained WBBL record |
 | free hit (protected dismissals on balls after a no-ball) | 58 competition-rule cells | all ok |
+| caught crossing (old non-striker on strike after a mid-over catch) | 76 competition-rule cells | all ok: 27-55% (white ball) and 5-7% (first-class) while crossing counts, 17 of 28,548 international catches after October 2022 |
 | no-ball penalty (1 vs 2 extras) | 413 competition-years | all ok |
 | super overs in ties | 47 cells | all ok; 4 explained single ties |
 | minimum overs in D/L results | 32 competitions | ok; one explained 19.5-over target |
@@ -108,6 +111,8 @@ Data wins wherever it can see the rule. Each conflict is also noted on its layer
 16. **Sri Lanka Major League length.** The expectation was a four-day first-class competition. 83 of 84 draws span three dates, with overs per day at p90 88. The 2025 final spans four dates. **Choice:** 3 days and 90 overs, finals 4 days.
 17. **Intercontinental Cup overs per day.** There is no firm memory. Its three drawn matches reach 93 overs per day, above any five-day Test draw (maximum 90.0). **Choice:** 96 (low confidence).
 18. **The Hundred's DRS in 2021.** There was no firm memory either way. Reviews appear in 72-84% of 2021 matches, with at most one failure per team-innings. **Choice:** DRS from 2021 with one review.
+19. **Associates against full members.** The first version set `drs_scope = none` for every associate match outside ICC events. Data shows reviews in 34 such matches: the Netherlands' CWC Super League ODIs (2021-2023), Ireland v South Africa and Australia (2016) and in England (2017), Barbados at the 2022 Commonwealth Games, Bangladesh v Netherlands T20Is (2025) and the Super Six of the 2023 World Cup Qualifier. **Choice:** `selected` for associate v full-member internationals (men from 2016, women from November 2018) and for associate matches of the 2023 Qualifier.
+20. **Caught: does crossing count?** The plan gives 2022-10-01 internationally and IPL 2022. Data agrees and adds that ECB domestic competitions (County Championship, Blast, One-Day Cup, Charlotte Edwards Cup, Rachael Heyhoe Flint) switched for the 2022 season, the Marsh Cup from September 2022, and the Hundred never let crossing count. **Choice:** data.
 
 The data agrees with memory on these points: the 2008 Test trial with 3 reviews; the official Test start in November 2009; India's refusal of DRS until November 2016; the Test top-up after 80 overs from October 2013 to September 2017; umpire's-call retention from 2017-09-28; T20I DRS from October 2017; IPL DRS from 2018 with 2 reviews from 2022; IPL impact player from 2023 (291 of 293 matches); ILT20 impact player from 2023/24; SMAT dropping the impact player in 2024/25; ODI supersubs from July 2005 to March 2006; the BBL X-factor in 2020-22; the ODI powerplay eras of 2005, 2008, 2011, 2012 and 2015; the 6-over T20 and 25-ball Hundred powerplays; 20-ball Hundred quotas with 5- or 10-ball ends; 90 overs a day and a 200-run follow-on in five-day Tests; 100 overs a day in women's Tests; and a 150-run follow-on in four-day cricket.
 
@@ -137,5 +142,7 @@ The data agrees with memory on these points: the 2008 Test trial with 3 reviews;
 - `rules_for` takes extra keyword arguments (`event_id`, `teams`, `official`, `assoc_match`, `knockout`, `stage`, `scheduled_days`, `match_id`), because DRS, super overs and Test length depend on the event, the teams and the stage. It returns these fields beyond section 5: `balls_per_innings`, `bowler_quota_balls`, `fielders_outside`, `drs_scope`, `balls_in_use`, `tactical_sub`, `super_over_this_match`, `min_balls_for_result`, `max_consecutive_balls_per_end`, and informational `slow_over_rate_fielding_penalty`, `stop_clock` and `concussion_substitutes`.
 - `powerplay_overs` uses 1-based over numbers in units of `balls_per_over`. For the Hundred that means 5-ball sets, so the 25-ball powerplay is sets 1-5.
 - The plan's section 5 statement that T20 review limits went from 1 to 2 in 2019 is corrected by conflict 4 above.
-- Cricsheet match ids are not all integers: 26 files start `wi_`. That matters for `matches.match_id` in plan 4.1.
+- Cricsheet match ids are not all integers: 25 files start `wi_`. That matters for `matches.match_id` in plan 4.1.
 - An extra derived file, `data/derived/cricket/competition-events.csv`, holds the full event list.
+- Several section-5 fields use other names: `noball_extra_runs` (plan `noball_penalty_runs`), `test_days` (`scheduled_days`), `powerplay_overs` (`pp_windows`), `fielders_outside` (`field_restr`), `bowler_quota_overs` / `bowler_quota_balls` (`bowler_quota`), `balls_in_use` (`two_new_balls`) and `super_over` / `super_over_this_match` with values `none`, `bowl_out`, `single`, `repeat`, `knockout_only` (`tie_break` with `none`, `bowl_out`, `so_boundary_count`, `so_repeat`; `single` means one super over, then the boundary count where the event used it).
+- Section-5 items not provided yet: `p_free_hit_given_nb` for front-foot eras (the free-hit check's ratios, 0.15-0.46, are the evidence), `ucall_zone_era`, `follow_on_lead` by days remaining (one static threshold per match), reduced-match quota and powerplay tables, and the series key of plan 4.2 (`competitions.py` has `season_key` only).

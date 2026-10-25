@@ -4,9 +4,10 @@
 flock <scratchpad>/cricket-heavy.lock .venv/bin/python tools/build_cricket_tables.py [--workers 3] [--limit N]
 Reads data/raw/cricsheet/all_json.zip (streamed) and people.csv. Writes data/processed/cricket/{balls,
 matches,innings,events,super_overs,player_innings,people_index}.parquet and
-reports/cricket-ingest-validation.json. The full build takes a few minutes with 3 workers and peaks at
-about 4 GB in the main process, so it runs under the shared heavy-job lock. Competition, rules, team,
-home and weather columns are added later by the enrichment step (see beating/cricket/ingest.py).
+reports/cricket-ingest-validation.json. The full build takes about 2 minutes with 3 workers and peaks at
+about 2.9 GB in the main process (workers about 350 MB each), so it runs under the shared heavy-job lock.
+Competition, rules, team, home and weather columns are added later by the enrichment step (see
+beating/cricket/ingest.py).
 """
 # %% setup
 import argparse

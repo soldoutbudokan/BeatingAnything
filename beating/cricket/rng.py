@@ -98,3 +98,55 @@ def known_answers() -> dict:
                       "outputs": outs.astype(np.int64).tolist()})
     return {"fmix32": {str(x): int(fmix32(x)) for x in (0, 1, 0x243F6A88, 0xDEADBEEF, 0xFFFFFFFF)},
             "cases": cases}
+
+
+_M = 0xFFFFFFFF
+_INV32 = 2.0**-32
+
+
+def fmix32_int(x: int) -> int:
+    """Scalar murmur3 finalizer on a Python int (same output as fmix32)."""
+    x &= _M
+    x ^= x >> 16
+    x = (x * 0x85EBCA6B) & _M
+    x ^= x >> 13
+    x = (x * 0xC2B2AE35) & _M
+    return x ^ (x >> 16)
+
+
+class Stream:
+    """Scalar twin of ``Stream`` in rng.js: one (seed, sim, stream) generator on Python ints."""
+    __slots__ = ("s",)
+
+    def __init__(self, seed: int, sim: int, stream: int):
+        key = (fmix32_int(fmix32_int((seed ^ 0x243F6A88) & _M) ^ stream) ^ sim) & _M
+        s = []
+        for _ in range(4):
+            key = (key + 0x9E3779B9) & _M
+            s.append(fmix32_int(key))
+        if not any(s):
+            s[0] = 1
+        self.s = s
+
+    def next_u32(self) -> int:
+        return self.next_block(1)[0]
+
+    def next_block(self, k: int) -> list[int]:
+        s0, s1, s2, s3 = self.s
+        out = []
+        for _ in range(k):
+            x = (s1 * 5) & _M
+            out.append(((((x << 7) | (x >> 25)) & _M) * 9) & _M)
+            t = (s1 << 9) & _M
+            s2 ^= s0
+            s3 ^= s1
+            s1 ^= s2
+            s0 ^= s3
+            s2 ^= t
+            s3 = ((s3 << 11) | (s3 >> 21)) & _M
+        self.s = [s0, s1, s2, s3]
+        return out
+
+    def uniforms(self, k: int) -> list[float]:
+        """k uniforms u = x * 2**-32, exactly as rng.js."""
+        return [x * _INV32 for x in self.next_block(k)]
