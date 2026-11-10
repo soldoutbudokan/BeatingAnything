@@ -57,3 +57,22 @@ If Pinnacle moves toward FanDuel's entry number, the flag was noise in a thin re
 - Same-game rows are correlated: six Cavaliers–Hornets flags are one opinion, not six.
 - theScore Bet was not reachable from this cloud session. The October 8 redundant-leg SGP check still needs the Ontario browser session.
 - No wager was placed and no schedule installed.
+
+## First-night closing-line result
+
+Only 2 of the 19 November 9 flags were graded at close, and both went against the screen. The two scheduled checks were delivered late: the first 48 minutes after its time, the second 11 hours after, when every game had finished.
+
+| Flag | Entry | Pinnacle at flag → at grade | Time to start | Worst-case CLV |
+|---|---|---|---:|---:|
+| Garand Over 24.5 saves (Rangers–Oilers) | 2.00 | 1.80 / 1.95 → 1.90 / 1.83 | 26 min | −2.0% |
+| Louisiana Tech 1H +17.5 (at LSU) | 1.893 | 1.77 / 2.07 → 1.87 / 1.97 | 16 min | −2.9% |
+
+Mean −2.4%, none positive. Graded rows are in [clv.jsonl](clv.jsonl).
+
+The two Saturday NCAAF flags are not closed yet. Re-priced at 13:01 UTC on November 10, four days before kickoff, they sit at +0.1% (SMU Under 30.5) and −0.9% (Northwestern Over 17.5), down from +2.2% and +4.1%.
+
+Not graded: all six Cavaliers–Hornets period totals (in play when the first check ran) and the 11 flags from the 02:00–03:10 UTC starts. That includes every NBA period-total flag, the largest group.
+
+In all four re-priced flags Pinnacle moved to FanDuel's number; FanDuel did not move to Pinnacle's. Four rows from four games is too few to settle it, but the direction says the gap came from a soft Pinnacle price on a low-limit market, not a slow FanDuel one. The screen is not shown to be an edge, and the NBA period-total disagreement remains untested.
+
+A session wake-up is too unreliable for this check. The next attempt should flag and grade from one process that stays running (`--loop`, not yet built) or from a scheduler on a machine that is always on.
