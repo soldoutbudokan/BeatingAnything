@@ -21,7 +21,8 @@ def main(n=15):
                          balls24=ob.get("balls"), osr=ob.get("sr"), rae=ob.get("rae100"),
                          econ=w.get("all", {}).get("econ"), wkt=w.get("all", {}).get("wkt_pct"), pp_e=w.get("pp", {}).get("econ"),
                          de_e=w.get("death", {}).get("econ"), sd_e=(w.get("sd") or {}).get("econ"), wballs24=ow.get("balls"),
-                         oecon=ow.get("econ"), saved=ow.get("runs_saved")))
+                         oecon=ow.get("econ"), saved=ow.get("runs_saved"),
+                         mix_pp=(w.get("phase_mix") or [0, 0, 0])[0], mix_de=(w.get("phase_mix") or [0, 0, 0])[2]))
     d = pd.DataFrame(rows)
     pd.set_option("display.width", 250)
     r = lambda x: x.round(2)
@@ -30,10 +31,10 @@ def main(n=15):
     print("\nTOP BOWLERS by bowl VARP (runs/4 overs)")
     print(r(d.sort_values("bowl_varp", ascending=False).head(n)[["name", "team", "bowl_varp", "econ", "wkt", "pp_e", "de_e", "sd_e", "wballs24", "oecon", "saved"]]).to_string(index=False))
     dd = d[d["wballs24"].fillna(0) >= 200]
-    print("\nBEST DEATH ECONOMY (>=200 balls since 2024)")
-    print(r(dd.sort_values("de_e").head(10)[["name", "team", "de_e", "econ", "wkt", "oecon"]]).to_string(index=False))
-    print("\nBEST POWERPLAY ECONOMY")
-    print(r(dd.sort_values("pp_e").head(10)[["name", "team", "pp_e", "econ", "wkt"]]).to_string(index=False))
+    print("\nBEST DEATH ECONOMY (>=200 balls since 2024, >=30% of balls at the death)")
+    print(r(dd[dd["mix_de"] >= 0.3].sort_values("de_e").head(10)[["name", "team", "de_e", "econ", "wkt", "oecon"]]).to_string(index=False))
+    print("\nBEST POWERPLAY ECONOMY (>=40% of balls in the powerplay)")
+    print(r(dd[dd["mix_pp"] >= 0.4].sort_values("pp_e").head(10)[["name", "team", "pp_e", "econ", "wkt"]]).to_string(index=False))
     db = d[d["balls24"].fillna(0) >= 200]
     print("\nBEST DEATH SR (batters >=200 balls since 2024)")
     print(r(db.sort_values("d_sr", ascending=False).head(10)[["name", "team", "d_sr", "sr", "avg", "osr"]]).to_string(index=False))

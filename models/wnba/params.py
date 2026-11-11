@@ -131,6 +131,33 @@ def usage_strength(players, poss):
         del ok
 
 
+def late_foul_table(poss):
+    """Empirical P(defence fouls intentionally) by offence lead (1..15) and seconds left (bins edged at
+    15/30/45/60/90) in the 4th quarter / OT. A foul possession = no FGA, no TOV, FTs, <= 8 s. The background
+    rate of such possessions when the offence is not leading (ordinary bonus fouls, already in the player
+    rates) is removed; cells are shrunk toward their lead-neighbours with 15 pseudo-possessions."""
+    p = poss[(poss.period >= 4)].copy()
+    pend = np.where(p.period == 4, 2400, 2400 + 300 * (p.period - 4))
+    p["rem"] = pend - p.t_start
+    q = p[p.rem <= 90].copy()
+    q["foul"] = ((q.fga == 0) & (q.fta > 0) & (q.tov == 0) & (q.dur <= 8)).astype(float)
+    bg = float(q[q.margin <= 0].foul.mean())
+    edges = [0, 15, 30, 45, 60, 90]
+    q["rb"] = np.digitize(q.rem, edges[1:-1], right=True)
+    tab = np.zeros((15, 5))
+    cnt = np.zeros((15, 5))
+    for L in range(1, 16):
+        for b in range(5):
+            d = q[(q.margin.clip(upper=15) == L) & (q.rb == b)]
+            tab[L - 1, b], cnt[L - 1, b] = (d.foul.mean() if len(d) else 0.0), len(d)
+    sm = tab.copy()
+    for L in range(15):
+        nb = tab[max(L - 1, 0):L + 2].mean(0)
+        sm[L] = (cnt[L] * tab[L] + 15 * nb) / (cnt[L] + 15)
+    pint = np.clip((sm - bg) / (1 - bg), 0, 0.97)
+    return dict(rem_edges=edges[1:], lead_max=15, p=pint.round(4).tolist(), background=bg)
+
+
 def main(force=False):
     out = PROC / "sim_params.json"
     if out.exists() and not force:
@@ -233,6 +260,7 @@ def main(force=False):
                     alt_color=t.team_alternate_color, logo=t.team_logo) for t in teams.itertuples()],
     )
     params["pace"]["steal_factor"] = 0.8
+    params["sim"]["late_foul_table"] = late_foul_table(poss)
     # calibrate the league first-play time so simulated possessions match the 2026 league rate
     from models.wnba.sim import simulate
     ids = [t["id"] for t in params["teams"]]

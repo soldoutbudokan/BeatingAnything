@@ -62,6 +62,15 @@
     return { u: u, normal: normal, gamma: gamma };
   }
 
+  function lateFoul(sim, period, rem, lead, r) {
+    var tab = sim.late_foul_table;
+    if (!tab || period < 4 || lead < 1 || lead > tab.lead_max) return false;
+    var e = tab.rem_edges, b = 0;
+    if (rem > e[e.length - 1]) return false;
+    while (b < e.length - 1 && rem > e[b]) b++;
+    return r < tab.p[Math.min(Math.floor(lead), tab.lead_max) - 1][b];
+  }
+
   function catSample(w, n, r) {
     var tot = 0, i;
     for (i = 0; i < n; i++) tot += w[i];
@@ -89,27 +98,28 @@
 
   function reallocate(minutes, posGroup, out, fixed, cap, total) {
     cap = cap || 38; total = total || 200;
-    var n = minutes.length, m = minutes.slice(), i, p;
+    var n = minutes.length, m = minutes.slice(), i, p, it;
     fixed = fixed || new Array(n).fill(false);
+    var ceil = minutes.map(function (x) { return Math.max(x + Math.min(cap - x, 1 + 8 * Math.max(0, 1 - x / 38)), x); });
     for (p = 0; p < n; p++) {
       if (!out[p]) continue;
       var R = m[p]; m[p] = 0;
-      if (R <= 0) continue;
-      var rec = [], nrec = 0;
-      for (i = 0; i < n; i++) { rec[i] = !out[i] && m[i] > 0 && !fixed[i]; if (rec[i]) nrec++; }
-      if (nrec === 0) { for (i = 0; i < n; i++) { rec[i] = !out[i] && !fixed[i]; if (rec[i]) nrec++; } }
-      if (nrec === 0) continue;
-      var w = [], ws = 0;
-      for (i = 0; i < n; i++) { w[i] = rec[i] ? Math.max(m[i], 0.5) * (posGroup[i] === posGroup[p] ? 1.5 : 1.0) : 0; ws += w[i]; }
-      for (i = 0; i < n; i++) m[i] += R * w[i] / ws;
-      for (var it = 0; it < 10; it++) {
-        var ex = 0, any = false;
-        for (i = 0; i < n; i++) if (rec[i] && m[i] > cap) { ex += m[i] - cap; m[i] = cap; any = true; }
-        if (!any) break;
-        var w2s = 0;
-        for (i = 0; i < n; i++) if (rec[i] && m[i] < cap) w2s += w[i];
-        if (w2s === 0) break;
-        for (i = 0; i < n; i++) if (rec[i] && m[i] < cap) m[i] += ex * w[i] / w2s;
+      for (it = 0; it < 30 && R > 1e-9; it++) {
+        var head = [], w = [], ws = 0;
+        for (i = 0; i < n; i++) {
+          var rec = !out[i] && !fixed[i];
+          head[i] = rec ? Math.max(ceil[i] - m[i], 0) : 0;
+          w[i] = head[i] * (posGroup[i] === posGroup[p] ? 3 : 1); ws += w[i];
+        }
+        if (ws <= 1e-12) break;
+        var given = 0;
+        for (i = 0; i < n; i++) { var g = Math.min(R * w[i] / ws, head[i]); m[i] += g; given += g; }
+        R -= given;
+      }
+      if (R > 1e-9) {
+        var w2 = [], w2s = 0;
+        for (i = 0; i < n; i++) { w2[i] = (!out[i] && !fixed[i]) ? Math.max(40 - m[i], 0) : 0; w2s += w2[i]; }
+        if (w2s > 0) for (i = 0; i < n; i++) m[i] += Math.min(R * w2[i] / w2s, w2[i]);
       }
     }
     var fx = [];
@@ -368,7 +378,7 @@
           if (stealFlag) mu *= (prm.pace.steal_factor || 0.8);
           if (late && lead > 0 && rem > 24) mu = 21;
           if (late && lead < 0) mu = 9;
-          var foul = period >= 4 && rem <= sim.late_foul_sec && lead >= 1 && lead <= sim.late_foul_max_lead;
+          var foul = lateFoul(sim, period, rem, lead, rng.u());
           var dur = rng.gamma(gsh, mu / gsh);
           if (foul) dur = 2 + rng.gamma(2, 1);
           dur = Math.min(dur, rem);

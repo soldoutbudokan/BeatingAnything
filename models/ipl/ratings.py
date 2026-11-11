@@ -67,7 +67,8 @@ def folded_players(M, cov, styles):
     rb = cb["role_bat"].map({r: i for i, r in enumerate(ROLES_BAT)}).fillna(3).astype(int).to_numpy()
     tb = cb[["bat_tier_" + t for t in TIERS]].fillna(0).to_numpy()
     eb = cb["exp_bat"].fillna(0).astype(int).to_numpy()
-    prior_b = bat_role[rb] + tb[:, 1:] @ bat_tier[1:] + M.blk("bat_exp")[eb]
+    ne = len(M.blocks["bat_exp"][1]) // len(ROLES_BAT)
+    prior_b = bat_role[rb] + tb[:, 1:] @ bat_tier[1:] + M.blk("bat_exp")[rb * ne + eb]
     BAT = {"b": M.blk("bat") + prior_b, "pp": M.blk("bat_pp"), "de": M.blk("bat_death"),
            "sp": M.blk("bat_spin"), "ea": M.blk("bat_early"), "prior": prior_b,
            "sd_b": M.blk("bat", True), "sd_pp": M.blk("bat_pp", True), "sd_de": M.blk("bat_death", True),
@@ -76,7 +77,7 @@ def folded_players(M, cov, styles):
     rw = cw["role_bowl"].map({r: i for i, r in enumerate(ROLES_BOWL)}).fillna(0).astype(int).to_numpy()
     tw = cw[["bowl_tier_" + t for t in TIERS]].fillna(0).to_numpy()
     ew = cw["exp_bowl"].fillna(0).astype(int).to_numpy()
-    prior_w = bowl_role[rw] + tw[:, 1:] @ bowl_tier[1:] + M.blk("bowl_exp")[ew]
+    prior_w = bowl_role[rw] + tw[:, 1:] @ bowl_tier[1:] + M.blk("bowl_exp")[rw * ne + ew]
     BOWL = {"b": M.blk("bowl") + prior_w, "pp": M.blk("bowl_pp"), "de": M.blk("bowl_death"),
             "lh": M.blk("bowl_lhb"), "prior": prior_w,
             "sd_b": M.blk("bowl", True), "sd_pp": M.blk("bowl_pp", True), "sd_de": M.blk("bowl_death", True),
@@ -86,8 +87,8 @@ def folded_players(M, cov, styles):
     BOWL["spin"] = st["bowl_group"].eq("spin").to_numpy()
     BAT["lhb"] = styles.reindex(M.players_bat)["bat_hand"].eq("L").to_numpy()
     # priors for players the model has never seen: role mean, IPL tier, least-experienced bucket
-    priors_bat = {r: bat_role[i] + M.blk("bat_exp")[0] for i, r in enumerate(ROLES_BAT)}
-    priors_bowl = {r: bowl_role[i] + M.blk("bowl_exp")[0] for i, r in enumerate(ROLES_BOWL)}
+    priors_bat = {r: bat_role[i] + M.blk("bat_exp")[i * ne] for i, r in enumerate(ROLES_BAT)}
+    priors_bowl = {r: bowl_role[i] + M.blk("bowl_exp")[i * ne] for i, r in enumerate(ROLES_BOWL)}
     return BAT, BOWL, priors_bat, priors_bowl
 
 

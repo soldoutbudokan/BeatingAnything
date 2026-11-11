@@ -67,35 +67,34 @@ def scale_fill(m, fixed, total, cap):
 
 
 def reallocate(minutes, pos_group, out, fixed=None, cap=38.0, total=200.0):
-    """Remove 'out' players and hand their minutes to teammates: weight = minutes x 1.5 for the same
-    position group; overflow above cap re-distributed; finally non-fixed minutes rescaled to total."""
+    """Remove 'out' players and hand their minutes to teammates who can absorb them. Each player can add at
+    most min(cap - m, 1 + 8*(1 - m/38)) minutes: a 34-min star ~2, a 10-min backup ~7, deep bench 9. Minutes are
+    water-filled in proportion to remaining headroom x 3 for the same position group; anything left
+    (everyone at their ceiling) goes pro rata up to 40. Non-fixed minutes are finally rescaled to total."""
     m = np.asarray(minutes, float).copy()
     out = np.asarray(out, bool)
     fixed = np.zeros(len(m), bool) if fixed is None else np.asarray(fixed, bool)
     pg = np.asarray(pos_group)
+    m0 = np.asarray(minutes, float)
+    ceil = np.maximum(m0 + np.minimum(cap - m0, 1.0 + 8.0 * np.maximum(0.0, 1.0 - m0 / 38.0)), m0)
     for p in np.nonzero(out)[0]:
         R = m[p]
         m[p] = 0.0
-        if R <= 0:
-            continue
-        rec = (~out) & (m > 0) & ~fixed
-        if rec.sum() == 0:
-            rec = (~out) & ~fixed
-        if rec.sum() == 0:
-            continue
-        w = np.where(rec, np.maximum(m, 0.5) * np.where(pg == pg[p], 1.5, 1.0), 0.0)
-        m = m + R * w / w.sum()
-        for _ in range(10):
-            over = rec & (m > cap)
-            if not over.any():
+        rec = (~out) & ~fixed
+        for _ in range(30):
+            if R <= 1e-9:
                 break
-            ex = (m[over] - cap).sum()
-            m[over] = cap
-            r2 = rec & (m < cap)
-            if r2.sum() == 0:
+            head = np.where(rec, np.maximum(ceil - m, 0.0), 0.0)
+            w = head * np.where(pg == pg[p], 3.0, 1.0)
+            if w.sum() <= 1e-12:
                 break
-            w2 = np.where(r2, w, 0.0)
-            m = m + ex * w2 / w2.sum()
+            give = np.minimum(R * w / w.sum(), head)
+            m = m + give
+            R -= give.sum()
+        if R > 1e-9:
+            w = np.where(rec, np.maximum(40.0 - m, 0.0), 0.0)
+            if w.sum() > 0:
+                m = m + np.minimum(R * w / w.sum(), w)
     m[out] = 0.0
     return scale_fill(m, fixed | out, total, 40.0)
 
@@ -230,6 +229,20 @@ def choose_lineups(T, M, played, consec, seg, nseg_reg, margin, period, rem_reg_
     return out, picked
 
 
+def late_foul(sim, period, rem, lead, r):
+    """Intentional foul by the trailing defence: probability from the empirical lead x time table."""
+    tab = sim.get("late_foul_table")
+    if tab is None or period < 4:
+        return np.zeros(len(rem), bool)
+    P = np.array(tab["p"])
+    edges = np.array(tab["rem_edges"])
+    b = np.searchsorted(edges, rem, side="left")  # bin index: rem <= 15 -> 0, ..., <= 90 -> 4
+    L = np.clip(lead.astype(int), 1, tab["lead_max"])
+    ok = (lead >= 1) & (lead <= tab["lead_max"]) & (rem <= edges[-1])
+    p = np.where(ok, P[L - 1, np.minimum(b, len(edges) - 1)], 0.0)
+    return r < p
+
+
 def cat_sample(w, r):
     """w: (n,k) probabilities (rows sum to ~1), r: (n,) uniforms -> index."""
     c = np.cumsum(w, 1)
@@ -354,7 +367,7 @@ def simulate(prm, home, away, n_sims=10000, seed=1, opts=None, keep_games=False)
             mu = np.where(steal_flag[gs], mu * prm["pace"].get("steal_factor", 0.8), mu)
             mu = np.where(late & (lead > 0) & (rem > 24), 21.0, mu)
             mu = np.where(late & (lead < 0), 9.0, mu)
-            foul = (period >= 4) & (rem <= sim["late_foul_sec"]) & (lead >= 1) & (lead <= sim["late_foul_max_lead"])
+            foul = late_foul(sim, period, rem, lead, rng.random(len(j)))
             dur = rng.gamma(prm["pace"]["gamma_shape"], mu / prm["pace"]["gamma_shape"])
             dur = np.where(foul, 2.0 + rng.gamma(2.0, 1.0, len(j)), dur)
             dur = np.minimum(dur, rem)

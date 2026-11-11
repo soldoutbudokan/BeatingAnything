@@ -63,7 +63,9 @@ garbage time (|margin| ≥ 20 in Q4/OT) gets half weight.
 
 ## 4. Skill projections (`skills.py`) — DARKO-style
 For every rate the simulator needs (`players.json → rates`; list in `schema.md`):
-`p = (Σ w·num + k·p0) / (Σ w·den + k)`, with exponential decay `w = 0.5^(Δt/H)`, a position-group prior
+`p = (Σ w·num + k·p0) / (Σ w·den + k)`, with exponential decay `w = 0.5^(Δt/H)`, a group prior (position,
+or position × role tier <12 / 12–24 / 24+ minutes per game — chosen per rate by the holdout; role tiers won
+only for turnovers, fouls, short-mid and long-mid shot share and long-mid FG%)
 `p0` (recency-weighted G/F/C mean before the cut-off) and an **age adjustment** in logit space from a
 delta-method age curve (season-over-season changes of players with known birth dates, linear in age,
 capped at ±0.4 logit and scaled by the data share of the estimate). H and k are tuned separately for each
@@ -104,12 +106,17 @@ rate (≥ 1 guard, ≤ 2 centres). Game-to-game minute SD from the player's hist
   split equally between the two teams' offensive targets.
 
 ## 7. Simulator (`sim.py`, `sim.js` — identical algorithm)
-* **Minutes per sim**: target ~ N(projection, sd) truncated to [0, 40], rescaled to 200.
+* **Minutes per sim**: target = projection × a mean-preserving log-normal factor (SD = the player's
+  game-to-game SD, limited near the 40-minute ceiling), rescaled to 200. Round 2 fixed a bias here: the old
+  truncated-normal draw plus an indiscriminate fatigue rule and aggressive bench-emptying cost 36-minute
+  players ~2.5 minutes a game and gave deep-bench players ~1 extra; realised minutes now match targets
+  within ~0.5 min at every level (calibration slope 1.01).
 * **Rotation**: game split into 2-minute segments (OT: 2 × 2.5 min). At each segment start each coach
   picks five by "need to play" (remaining target minutes / remaining time), with starters forced at the
   start of each half, top-minute closers in a close game's last 4 minutes and in OT, a fatigue penalty
-  after three straight segments, ≤ 2 centres and ≥ 1 guard, and bench-emptying in blowouts (Q4: 20+ with
-  6 min left, or 15+ with 3 min left).
+  after three straight segments (scaled down for high-minute players: zero at 40 target minutes),
+  ≤ 2 centres and ≥ 1 guard, and bench-emptying in blowouts (Q4: 22+ with 5 min left, or 17+ with 2.5 min
+  left; projected minutes already include real blowouts, so this is deliberately mild).
 * **Lineup calibration (impact anchoring)**: for each offence five vs defence five the target points per
   possession is `(lg + ΣO − ΣD + context)/100`. Turnover and FT-trip probabilities start from the
   offensive players' projected rates and are moved by the **defenders' four-factor RAPM** (forced
@@ -125,13 +132,30 @@ rate (≥ 1 guard, ≤ 2 centres). Game-to-game minute SD from the player's hist
   rebound → new play (~6 s). Steals by defenders' steal rates; possessions after steals are faster.
   Technical FTs at the league rate.
 * **Late game**: last 2 minutes of Q4/OT — the leader milks the clock (~21 s), the trailer hurries (~9 s)
-  and shoots more threes when down 3+; in the last 45 s a team trailing by 1–9 fouls (2 FTs, shooter
-  weighted toward good FT shooters). OT: 5-minute periods until decided (max 6).
-* **Score effect**: every make probability is multiplied by `1 − 0.0025 × lead` (offence's lead, capped
-  at ±25). Independent possessions give a within-game margin SD of ~15–16 points, far above what real
+  and shoots more threes when down 3+. **Intentional fouls** come from an empirical table
+  (`sim.late_foul_table`): the probability that the trailing defence fouls at the start of a possession, by
+  the offence's lead (1–15) and seconds left (≤15, 30, 45, 60, 90), measured on 2017–26 play-by-play as
+  quick FT-only possessions minus the background rate of such possessions when the offence is not ahead,
+  smoothed across neighbouring leads. E.g. up 4 with ≤15 s ≈ 92%, up 1 with 30–45 s ≈ 1%, up 10 with 15–30 s
+  ≈ 24%, up 13+ ≈ 0. Fouls give 2 FTs to an offensive player weighted by usage × FT%. This replaced a hard
+  "trailing by 1–9 in the last 45 s" rule that put artificial mass on 10-point margins. OT: 5-minute periods
+  until decided (max 6).
+* **Shared game-level shocks** (same draw for both teams in a simulated game), sized from data
+  (`game_effects.py`, `diagnostics.game_effects`): re-simulating 2026 games with the shocks off, the two
+  teams' residual points per possession (real − simulated mean) still covary more in real games
+  (cov 0.0033 vs 0.0020 within simulations, corr 0.21): officiating, conditions, shooting nights. The
+  excess sets an efficiency shock with SD ≈ 3.6 per 100 possessions added to both offensive targets.
+  The FTA residuals covary the same way, giving a "whistle" shock (SD ≈ 0.15 on the log FT-trip rate,
+  composition only — the efficiency solve keeps points per possession on target). A shared pace shock
+  was estimated too, but real possession residuals are *less* variable than the simulator's own
+  within-game possession variance, so its SD is 0.
+* **Score effect**: every make probability is multiplied by `1 − 0.0025 × (lead − expected lead)`
+  (capped at ±25), where the expected lead is the analytic expected final margin × elapsed time / 40 min. Independent possessions give a within-game margin SD of ~15–16 points, far above what real
   games show (the residual SD of a team-strength model is 11.8); real games mean-revert (leaders relax,
   trailers press). The coefficient was tuned so re-simulated 2026 games reproduce the real margin SD.
   It cannot be estimated directly from possession data because leading teams are also better teams.
+  Pulling toward the expected trajectory (not toward a tie) keeps expected margins intact: the round-1
+  version pulled toward 0 and compressed projected margins (out-of-sample margin slope 1.12 → 0.98 now).
 * **Outputs**: win probability, margin and total (mean, SD, quantiles, full histogram), team points,
   quarter and half lines, and per-player minutes, points, rebounds, assists, threes, steals, blocks,
   turnovers, PRA/PR/PA (mean, SD, quantiles, P(over) ladders, double-double probability). All player
@@ -144,6 +168,11 @@ rate (≥ 1 guard, ≤ 2 centres). Game-to-game minute SD from the player's hist
   (outside ~11 per team). `varp100 = O + D − replacement`.
 * Season value: `varp_pts = varp100/100 × on-court possessions` (projected minutes, 44 games);
   `varp_wins = varp_pts / points-per-win` (slope of team wins on season point differential, 2017–26).
+* Minutes re-allocation (`reallocate`, identical in sim.js): each teammate can absorb at most
+  `min(38 − m, 1 + 8·(1 − m/38))` extra minutes (a 34-minute star ~2, a 10-minute backup ~7, deep bench ~9),
+  water-filled in proportion to that headroom ×3 for the same position group. Round 1 handed minutes out
+  pro rata to minutes (mostly to stars), which made removing some positive players *improve* their team.
+  No fatigue cost for the extra minutes is modelled.
 * Game impact: remove the player, re-allocate minutes, recompute the team's ratings; `winp_delta` uses a
   normal approximation with the simulator's margin SD vs a league-average opponent on a neutral floor.
 
@@ -169,9 +198,16 @@ See `schema.md` for every field. Key ones: `impact.O/D/total` (per 100, prior-in
   make-probability shift; defensive four-factor RAPM moves turnovers and FT trips, but zone-specific
   defence (e.g. rim protection lowering rim FG% specifically) is not modelled separately.
 * **Score effect is a tuned fudge**, not a structural model of end-game behaviour.
-* **High-usage stars score ~5–8% below their 2026 output** when 2025–26 games are re-simulated with their
-  actual minutes (mostly fewer FT trips and slightly fewer shots: rates are regressed toward position
-  priors and the usage model spreads plays). See `diagnostics.star_scoring_by_player`.
+* **Player projections are still slightly compressed**: in re-simulated games with actual minutes, actual
+  points on simulated points has slope ≈ 1.07–1.09 (in-sample and out-of-sample). Stars land within ~2–5%,
+  but low-minute players are over-projected (bottom deciles 20–40%, small in absolute points). Checked and
+  ruled out: shooting-foul shrinkage, technical/and-one/bonus FT assignment, and the lineup make-shift (simulated
+  efficiency within ±1% of projection at every usage level). Skill projections are tuned rate by rate on
+  binomial deviance, which is dominated by high-volume players. See `player_calibration_*`.
+* **Scoring environment**: forward projections assume the **2026 league environment** (110.0 points per 100
+  possessions, 78.8 possessions per team, 2026 FT rate, ~173.5 total points per game). 2026 scored ~10
+  points a game more than 2017–25; to project another environment, scale `league.ortg`/pace accordingly.
+  The 2025 rows in the diagnostics are simulated in the 2026 environment; use `season_2026` as the headline.
 * **Context effects** (rest, travel) are small, estimated with large standard errors, and shrunk.
 * **Age curves** come from players with known birth dates (survivor bias) and are applied only in
   proportion to the data share of each estimate.

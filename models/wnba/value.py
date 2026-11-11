@@ -38,7 +38,7 @@ def analytic_pace(prm, T):
     fd = prm["pace"]["first_play_sec"] + float((w * T.pace_d).sum()) + prm["pace"]["team_def"].get(tid, 0)
     orb = prm["league"]["orb_rate"] * 0.55  # ~ORB plays per possession
     sec = 0.5 * (fp + fd) + orb * prm["pace"]["orb_play_sec"]
-    return 2400.0 / sec / 2 * 2  # possessions per team per 40
+    return 2400.0 / sec / 2.0  # possessions per team per 40 minutes (the two teams alternate)
 
 
 def pts_per_win():

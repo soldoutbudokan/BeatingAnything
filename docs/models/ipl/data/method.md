@@ -36,12 +36,12 @@ regression on ~2.3 million deliveries:
 | innings x over, innings x phase x wickets, innings x over x wickets | match situation: the intent/risk profile at every point of an innings (cell terms are shrunk toward the additive ones) |
 | phase x balls-faced bucket | the global **settling curve**: new batters score slower and get out more |
 | phase x required-rate bucket (2nd innings) | **chase pressure** |
-| bowler subtype; bowler subtype x left-handed batter | pace vs spin and the hand matchup (e.g. off-spin to left-handers) |
+| bowler subtype; subtype x phase; subtype x left-handed batter | pace vs spin overall and by phase (spin is hit harder at the death), and the hand matchup (e.g. off-spin to left-handers) |
 | competition; competition x season | **league environment** and season run environment (e.g. the post-2023 IPL Impact Player scoring surge) |
 | venue; venue x 2nd innings; venue x spin | ground effects, chasing/dew, and spin-friendliness |
 | batter: overall, powerplay, death, vs spin, first 10 balls | batter skill and its splits |
 | bowler: overall, powerplay, death, vs left-handers | bowler skill and its splits |
-| batter role and league mix; bowler role and league mix | the **informed prior** that small samples shrink toward |
+| batter role, league mix, role x experience; bowler role, league mix, role x experience | the **informed prior** that small samples shrink toward |
 
 Because batter, bowler, venue, league and season terms are fitted at the same time, each is measured net of
 the others: a batter's rating is adjusted for the bowlers he faced, the grounds, the league and the era; a
@@ -49,7 +49,11 @@ bowler's for the batters he bowled to; and so on. This is how a run in the Syed 
 in the IPL end up on one scale: players who appear in both connect the leagues.
 
 **Shrinkage.** Every term has a Gaussian (ridge) penalty: a player with few balls is pulled toward the
-average of players like him (same batting role or bowling role, same mix of leagues). Splits (phase,
+average of players like him: same batting role (career batting position) or bowling role (pace/spin x
+workload), same mix of leagues, and same experience bucket within that role (career deliveries <60, 60-199,
+200-599, 600-1499, 1500-3999, 4000+). The experience term matters: players who have had few chances are, on
+average, weaker than established ones, so a 20-ball newcomer regresses toward "a typical newcomer in that
+role", not toward an established average. Splits (phase,
 pace/spin, hand, settling) are shrunk much harder toward zero, i.e. toward the player's own overall rating.
 
 **Recency.** Each delivery is weighted by 0.5^(age / half-life). The half-life and the penalty strengths were
@@ -174,3 +178,8 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
 * League connectivity: leagues with few shared players (some domestic and associate competitions) have less
   reliable strength estimates.
 * The super over is simplified.
+* Prior covariates (career batting position, workload, league mix, experience bucket) are computed from each
+  player's whole record. In the forward-holdout tuning this is a mild look-ahead for players who debuted
+  shortly before the cut-off; it does not affect the final ratings.
+* Indian domestic cricket other than the Syed Mushtaq Ali Trophy (and SMAT seasons cricsheet lacks) is not in
+  the data, so uncapped Indian players often have very small samples and lean heavily on the prior.

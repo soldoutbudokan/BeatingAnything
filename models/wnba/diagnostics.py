@@ -19,7 +19,7 @@ import time
 import numpy as np
 import pandas as pd
 
-from models.wnba.common import EXPORT, PROC, write_json
+from models.wnba.common import EXPORT, PROC, RAW, write_json
 from models.wnba.sim import SI, Team, load_params, simulate
 
 
@@ -42,7 +42,7 @@ def sim_history(prm, n_sims=300, seasons=(2025, 2026)):
     games = games[games.season.isin(seasons)].dropna(subset=["home_pts"])
     pg = pd.read_parquet(PROC / "player_games.parquet")
     pg = pg[pg.game_id.isin(games.game_id)]
-    rows, prow = [], []
+    rows, prow, means = [], [], []
     t0 = time.time()
     for k, g in enumerate(games.itertuples()):
         sp = game_specs(prm, pg, g.game_id, g.home, g.away)
@@ -51,11 +51,22 @@ def sim_history(prm, n_sims=300, seasons=(2025, 2026)):
         r = simulate(prm, sp[0], sp[1], n_sims=n_sims, seed=int(g.game_id) % 100000,
                      opts={"neutral": bool(g.neutral_site) if pd.notna(g.neutral_site) else False})
         sc = r["score"]
+        q = r["quarters"]
         rows.append(pd.DataFrame({"game_id": g.game_id, "h": sc[:, 0], "a": sc[:, 1],
-                                  "ot": (r["quarters"][:, 4:].sum((1, 2)) > 0), "poss": r["n_poss"] / 2}))
+                                  "ot": (q[:, 4:].sum((1, 2)) > 0), "poss": r["n_poss"] / 2,
+                                  "q1h": q[:, 0, 0], "q1a": q[:, 0, 1], "h1h": q[:, :2, 0].sum(1), "h1a": q[:, :2, 1].sum(1)}))
         for side, T in ((0, r["home"]), (1, r["away"])):
             off = 0 if side == 0 else r["home"].n
             for i in range(T.n):
+                bb = r["box"]
+                kk = off + i
+                means.append(dict(game_id=g.game_id, season=g.season, pid=int(T.ids[i]), team=T.tid, spec_min=float(T.minutes[i]),
+                                  sim_pts=bb[SI["pts"], :, kk].mean(), sim_reb=(bb[SI["orb"], :, kk] + bb[SI["drb"], :, kk]).mean(),
+                                  sim_ast=bb[SI["ast"], :, kk].mean(), sim_fg3m=bb[SI["fg3m"], :, kk].mean(), sim_fta=bb[SI["fta"], :, kk].mean(),
+                                  sim_fga=bb[SI["fga"], :, kk].mean(), sim_tov=bb[SI["tov"], :, kk].mean(), sim_stl=bb[SI["stl"], :, kk].mean(),
+                                  sim_blk=bb[SI["blk"], :, kk].mean(), sim_min=bb[SI["sec"], :, kk].mean() / 60,
+                                  sim_pts_sd=bb[SI["pts"], :, kk].std(), sim_p20=(bb[SI["pts"], :, kk] >= 20).mean(),
+                                  sim_p30=(bb[SI["pts"], :, kk] >= 30).mean()))
                 prow.append(pd.DataFrame({"game_id": g.game_id, "pid": int(T.ids[i]), "team": T.tid, "sim": np.arange(n_sims),
                                           "pts": r["box"][SI["pts"], :, off + i].astype(np.int16),
                                           "reb": (r["box"][SI["orb"], :, off + i] + r["box"][SI["drb"], :, off + i]).astype(np.int16),
@@ -63,7 +74,11 @@ def sim_history(prm, n_sims=300, seasons=(2025, 2026)):
                                           "min": (r["box"][SI["sec"], :, off + i] / 60).astype(np.float32)}))
     S = pd.concat(rows)
     PS = pd.concat(prow)
-    return games, S, PS, time.time() - t0
+    from models.wnba.calib import CAL_STATS
+    PM = pd.DataFrame(means)
+    act = pg[["game_id", "pid"] + list(CAL_STATS.values())].rename(columns={v: f"act_{k}" for k, v in CAL_STATS.items()})
+    PM = PM.merge(act, on=["game_id", "pid"], how="left")
+    return games, S, PS, time.time() - t0, PM
 
 
 def corr_pairs(df, val="pts", min_n=15):
@@ -86,7 +101,7 @@ def main(force=False, n_sims=300):
         print("diagnostics: cached")
         return
     prm = load_params()
-    games, S, PS, secs = sim_history(prm, n_sims=n_sims)
+    games, S, PS, secs, PM = sim_history(prm, n_sims=n_sims)
     S.to_parquet(PROC / "diag_sims.parquet")
     used = games[games.game_id.isin(S.game_id.unique())]
     real_tot = used.home_pts + used.away_pts
@@ -172,11 +187,98 @@ def main(force=False, n_sims=300):
     D["shot_model"] = json.loads((PROC / "shot_model.json").read_text())
     D["lineup_reconstruction"] = json.loads((PROC / "recon.json").read_text())
     D["sim_seconds"] = secs
+    extra_round2(D, prm, games, S, PM)
     write_json(out, D, digits=4)
     a = D["aggregate"]
     print(f"diagnostics: {a['n_games']} games; total {a['total_mean'][0]:.1f}/{a['total_mean'][1]:.1f} sd {a['total_sd'][0]:.1f}/{a['total_sd'][1]:.1f}; "
           f"margin sd {a['margin_sd'][0]:.1f}/{a['margin_sd'][1]:.1f}; home win {a['home_win'][0]:.3f}/{a['home_win'][1]:.3f}; "
           f"OT {a['ot_rate'][0]:.3f}/{a['ot_rate'][1]:.3f}; poss {a['poss_per_team'][0]:.1f}/{a['poss_per_team'][1]:.1f}")
+
+
+def season_block(r, s, poss_real):
+    """[real, sim] summary for a set of real games r and their sims s."""
+    rt, rm = r.home_pts + r.away_pts, r.home_pts - r.away_pts
+    st, sm = s.h + s.a, s.h - s.a
+    return dict(n_games=int(len(r)), total_mean=[float(rt.mean()), float(st.mean())], total_sd=[float(rt.std()), float(st.std())],
+                margin_mean=[float(rm.mean()), float(sm.mean())], margin_sd=[float(rm.std()), float(sm.std())],
+                team_pts_sd=[float(pd.concat([r.home_pts, r.away_pts]).std()), float(pd.concat([s.h, s.a]).std())],
+                home_win=[float((rm > 0).mean()), float((sm > 0).mean())], ot_rate=[float((r.nper > 4).mean()), float(s.ot.mean())],
+                poss_per_team=[float(poss_real.reindex(r.game_id).mean()), float(s.poss.mean())],
+                one_to_three_pt_games=[float(rm.abs().between(1, 3).mean()), float(sm.abs().between(1, 3).mean())])
+
+
+def real_period_scores(games):
+    out = []
+    for y in sorted(games.season.unique()):
+        p = pd.read_parquet(RAW / f"play_by_play_{y}.parquet", columns=["game_id", "period_number", "home_score", "away_score"])
+        p = p[p.game_id.isin(games.game_id)]
+        e = p.groupby(["game_id", "period_number"])[["home_score", "away_score"]].max().unstack()
+        h, a = e["home_score"].ffill(axis=1), e["away_score"].ffill(axis=1)
+        out.append(pd.DataFrame({"q1h": h[1], "q1a": a[1], "h1h": h[2], "h1a": a[2]}))
+    return pd.concat(out)
+
+
+def extra_round2(D, prm, games, S, PM):
+    """Round-2 keys: 2026 headline, period SDs, margin pmf, player calibration (in-sample and out-of-sample),
+    win-probability reliability (out-of-sample), shared game effects."""
+    from models.wnba.calib import oos_params, player_calibration, resim
+    poss = pd.read_parquet(PROC / "possessions.parquet")
+    rp = poss[~poss.is_empty].groupby("game_id").size() / 2
+    used = games[games.game_id.isin(S.game_id.unique())]
+    for y in (2026, 2025):
+        r = used[used.season == y]
+        s = S[S.game_id.isin(r.game_id)]
+        D[f"season_{y}"] = season_block(r, s, rp)
+    D["season_2026"]["label"] = "HEADLINE: 2026 games re-simulated with end-of-2026 parameters (2026 scoring environment)"
+    D["season_2025"]["label"] = ("2025 games re-simulated with 2026 parameters - totals run high because 2026 scored ~10 points "
+                                 "per game more; shown for shape, not level")
+    D["aggregate"]["note"] += " | pooled 2025+2026; see season_2026 for the headline (2025 uses the 2026 scoring environment)"
+    # period SDs, 2026
+    rq = real_period_scores(used[used.season == 2026])
+    s26 = S[S.game_id.isin(rq.index)]
+    D["period_sd_2026"] = dict(q1_total_sd=[float((rq.q1h + rq.q1a).std()), float((s26.q1h + s26.q1a).std())],
+                               q1_margin_sd=[float((rq.q1h - rq.q1a).std()), float((s26.q1h - s26.q1a).std())],
+                               h1_total_sd=[float((rq.h1h + rq.h1a).std()), float((s26.h1h + s26.h1a).std())],
+                               h1_margin_sd=[float((rq.h1h - rq.h1a).std()), float((s26.h1h - s26.h1a).std())],
+                               note="[real, sim]")
+    # margin pmf: real (all seasons 2017-26) vs sim (2025-26 re-sim), |margin| 1..25, in %
+    allg = pd.read_parquet(PROC / "games.parquet").dropna(subset=["home_pts"])
+    ma = (allg.home_pts - allg.away_pts).abs().astype(int)
+    ms = (S.h - S.a).abs().astype(int)
+    D["abs_margin_pmf_pct"] = dict(margin=list(range(1, 26)), real_2017_2026=[float((ma == k).mean() * 100) for k in range(1, 26)],
+                                   sim=[float((ms == k).mean() * 100) for k in range(1, 26)], n_real_games=int(len(ma)))
+    usg = {p["id"]: p["usg"] for p in prm["players"]}
+    D["player_calibration_insample"] = player_calibration(PM[PM.act_min.notna()], usg)
+    D["player_calibration_insample"]["note"] = ("2025-26 player-games re-simulated with actual minutes/starters and end-of-2026 "
+                                                "projections (in-sample): bins by simulated mean; ratio = actual/sim")
+    # out-of-sample: projections and ratings from data before the 2026 season, all 2026 games
+    p2 = oos_params(prm, 2026 * 1.25, age_shift=0.9)
+    g26 = games[games.season == 2026].dropna(subset=["home_pts"])
+    P2, G2 = resim(p2, g26, n_sims=200, keep_draws=False)
+    D["player_calibration_oos"] = player_calibration(P2[P2.act_min.notna()], {p["id"]: p["usg"] for p in p2["players"]})
+    D["player_calibration_oos"]["note"] = ("2026 player-games, skills projected and RAPM fitted on data before 2026 only, actual "
+                                           "minutes/starters given")
+    rows = []
+    gi = g26.set_index("game_id")
+    for x in G2:
+        m = x["h"].astype(float) - x["a"]
+        rows.append(dict(game_id=x["game_id"], wp=float((m > 0).mean()), mm=float(m.mean())))
+    W = pd.DataFrame(rows).set_index("game_id")
+    W["y"] = (gi.home_pts > gi.away_pts).reindex(W.index).astype(float)
+    W["am"] = (gi.home_pts - gi.away_pts).reindex(W.index)
+    p = W.wp.clip(0.01, 0.99)
+    W["dec"] = pd.qcut(W.wp, 10, labels=False, duplicates="drop")
+    rel = W.groupby("dec").agg(pred=("wp", "mean"), actual=("y", "mean"), n=("y", "size")).reset_index()
+    D["winprob_reliability_oos"] = dict(
+        n_games=int(len(W)), logloss=float(-(W.y * np.log(p) + (1 - W.y) * np.log(1 - p)).mean()),
+        brier=float(((p - W.y) ** 2).mean()), logloss_coinflip=float(np.log(2)),
+        logloss_home_rate=float(-(W.y * np.log(W.y.mean()) + (1 - W.y) * np.log(1 - W.y.mean())).mean()),
+        margin_slope=float(np.polyfit(W.mm, W.am, 1)[0]), deciles=rel.round(4).to_dict("list"),
+        rating_draws_added=False,
+        note="2026 games; ratings fit on 2017-25, skills projected before 2026; not overconfident, so no rating draws")
+    ge = PROC / "game_effects.json"
+    if ge.exists():
+        D["game_effects"] = json.loads(ge.read_text())
 
 
 def team_oos(prm):

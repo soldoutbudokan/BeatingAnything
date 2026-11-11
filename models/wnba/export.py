@@ -67,6 +67,37 @@ def trim_game(g):
 
 
 # %% matchups (cached: the slow part)
+PMF_STATS = ["min", "pts", "reb", "ast", "fg3m", "stl", "blk", "tov", "pra", "pr", "pa"]
+
+
+def pmf(x, tail=0.0005):
+    """Integer pmf [lo, [p...]] with each tail trimmed below `tail` cumulative probability."""
+    v = np.round(np.asarray(x)).astype(int)
+    lo = v.min()
+    c = np.bincount(v - lo) / len(v)
+    cs = np.cumsum(c)
+    a = int(np.searchsorted(cs, tail))
+    b = int(len(c) - np.searchsorted(np.cumsum(c[::-1]), tail))
+    b = max(b, a + 1)
+    return [int(lo + a), [round(float(q), 4) for q in c[a:b]]]
+
+
+def player_pmfs(r, side):
+    from models.wnba.sim import SI
+    T = r["home"] if side == 0 else r["away"]
+    off = 0 if side == 0 else r["home"].n
+    b = r["box"]
+    out = {}
+    for i in range(T.n):
+        k = off + i
+        d = dict(min=b[SI["sec"], :, k] / 60, pts=b[SI["pts"], :, k], reb=b[SI["orb"], :, k] + b[SI["drb"], :, k],
+                 ast=b[SI["ast"], :, k], fg3m=b[SI["fg3m"], :, k], stl=b[SI["stl"], :, k], blk=b[SI["blk"], :, k],
+                 tov=b[SI["tov"], :, k])
+        d["pra"], d["pr"], d["pa"] = d["pts"] + d["reb"] + d["ast"], d["pts"] + d["reb"], d["pts"] + d["ast"]
+        out[int(T.ids[i])] = {s: pmf(d[s]) for s in PMF_STATS}
+    return out
+
+
 def run_matchups(prm, force=False):
     path = PROC / "matchups_raw.json"
     if path.exists() and not force:
@@ -83,7 +114,13 @@ def run_matchups(prm, force=False):
             g = game_summary(r)
             hp = [trim_player(p) for p in player_summary(r, 0) if p["proj_min"] >= 1.0]
             ap = [trim_player(p) for p in player_summary(r, 1) if p["proj_min"] >= 1.0]
-            out[f"{h}_{a}"] = dict(home=h, away=a, game=trim_game(g), home_players=hp, away_players=ap)
+            gm = trim_game(g)
+            gm["home_pts_hist"] = pmf(r["score"][:, 0], 0.0)
+            gm["away_pts_hist"] = pmf(r["score"][:, 1], 0.0)
+            pm = {**player_pmfs(r, 0), **player_pmfs(r, 1)}
+            for p in hp + ap:
+                p["pmf"] = pm[p["id"]]
+            out[f"{h}_{a}"] = dict(home=h, away=a, game=gm, home_players=hp, away_players=ap)
     secs = time.time() - t0
     out = dict(n_sims=N_SIMS, seconds=secs, pairs=out)
     path.write_text(json.dumps(out))
@@ -141,6 +178,18 @@ def main(force=False):
         min_tot=("minutes", "sum"))
     car = pg[pg.minutes.fillna(0) > 0].groupby("pid").agg(career_gp=("minutes", "size"), career_poss=("off_poss", "sum"))
     cen = prm["centre"]
+    # 2026 actual per-game line (regular season + playoffs, games played) and projected per-game line at
+    # default minutes (mean over the player's 28 home/away matchups in matchups.json)
+    a = pg[(pg.season == 2026) & (pg.minutes.fillna(0) > 0)]
+    act26 = a.groupby("pid").agg(games=("minutes", "size"), min=("minutes", "mean"), pts=("points", "mean"), reb=("rebounds", "mean"),
+                                 ast=("assists", "mean"), fg3m=("three_point_field_goals_made", "mean"), stl=("steals", "mean"),
+                                 blk=("blocks", "mean"), tov=("turnovers", "mean"))
+    acc = {}
+    for v in M["pairs"].values():
+        for p in v["home_players"] + v["away_players"]:
+            acc.setdefault(p["id"], []).append([p[k][0] for k in ["min", "pts", "reb", "ast", "fg3m", "stl", "blk", "tov", "pra"]])
+    proj_pg = {i: dict(zip(["min", "pts", "reb", "ast", "fg3m", "stl", "blk", "tov", "pra"], np.round(np.mean(v, 0), 2).tolist()))
+               for i, v in acc.items()}
     abbr = {t["id"]: t["abbr"] for t in prm["teams"]}
     ff_names = ["tov", "orb", "ftr", "efg", "xpts", "moe"]
     rows = []
@@ -185,6 +234,10 @@ def main(force=False):
                               role_min=float(ro.role_min) if ro is not None else 0.0, avail=float(ro.avail) if ro is not None else 0.0)
         v = values[i]
         rec["value"] = {k: v.get(k) for k in ["varp100", "varp_pts", "varp_wins", "off_delta", "def_delta", "net_delta", "winp_delta"]}
+        a26 = act26.loc[i] if i in act26.index else None
+        rec["actual_2026"] = ({k: round(float(a26[k]), 2) for k in ["min", "pts", "reb", "ast", "fg3m", "stl", "blk", "tov"]} | {"games": int(a26.games)}
+                              if a26 is not None else {"games": 0})
+        rec["proj_per_game"] = proj_pg.get(i)
         rows.append(rec)
     # percentiles among rotation players (on a roster, proj >= 10 min)
     qual = pd.Series([r["team"] is not None and r["minutes"]["proj"] >= 10 for r in rows])
@@ -234,7 +287,19 @@ def main(force=False):
     sp = {k: prm[k] for k in ["version", "league", "context", "pace", "sim", "teams"]}
     sp["players"] = [{k: p[k] for k in SIM_KEYS} for p in prm["players"]]
     write_json(EXPORT / "sim_params.json", sp, digits=5)
-    write_json(EXPORT / "matchups.json", dict(n_sims=M["n_sims"], pairs=pairs,
+    # per-home-team files carry everything (incl. player pmfs); the single file keeps the round-1 shape
+    # (+ team score histograms) without the bulky pmfs
+    import copy
+    slim = copy.deepcopy(pairs)
+    for v in slim.values():
+        for p in v["home_players"] + v["away_players"]:
+            p.pop("pmf", None)
+    for t in prm["teams"]:
+        sub = {k: v for k, v in pairs.items() if v["home"] == t["id"]}
+        write_json(EXPORT / "matchups" / f"{t['id']}.json", dict(n_sims=M["n_sims"], home=t["id"], pairs=sub,
+                                                                 player_fields=["mean", "sd", "q10_25_50_75_90", "first_line", "p_over_5_lines"],
+                                                                 pmf_fields=PMF_STATS), digits=4)
+    write_json(EXPORT / "matchups.json", dict(n_sims=M["n_sims"], pairs=slim,
                                               player_fields=["mean", "sd", "q10_25_50_75_90", "first_line", "p_over_5_lines"],
                                               line_step=dict(min=2, pts=2, reb=1, ast=1, fg3m=1, stl=1, blk=1, tov=1, pra=2, pr=2, pa=2)), digits=4)
     # meta
