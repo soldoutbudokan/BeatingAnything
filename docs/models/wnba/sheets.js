@@ -37,7 +37,9 @@ const PCOLS = [
   { key: 'o', label: 'O', group: 'Impact', get: get('impact.O'), fmt: 'signed:1', heat: { center: 0, domain: [-4, 4] }, desc: 'Offensive impact. ' + PER100 + ' Prior-informed RAPM. + = better offence.' },
   { key: 'd', label: 'D', group: 'Impact', get: get('impact.D'), fmt: 'signed:1', heat: { center: 0, domain: [-4, 4] }, desc: 'Defensive impact. ' + PER100 + ' + = better defence (fewer points allowed).' },
   { key: 'tot', label: 'Total', group: 'Impact', get: get('impact.total'), fmt: 'signed:1', heat: { center: 0, domain: [-6, 6] }, desc: 'O + D, per 100 possessions vs league average.' },
-  { key: 'tsd', label: '± SD', group: 'Impact', get: get('impact.total_sd'), fmt: 'num:1', desc: 'Posterior SD of Total (independence of O and D assumed). Typical regular ≈ ±1.9.' },
+  { key: 'tlo', label: '90% low', group: 'Impact', get: r => r.impact && isNum(r.impact.total) && isNum(r.impact.total_sd) ? r.impact.total - 1.645 * r.impact.total_sd : null, fmt: 'signed:1', desc: 'Lower end of the 90% interval for Total (Total − 1.645 × posterior SD). A conservative rating: high only if she is good AND well measured. The SD itself (≈1.9 for most regulars) is on the player card.' },
+  { key: 'thi', label: '90% high', group: 'Impact', get: r => r.impact && isNum(r.impact.total) && isNum(r.impact.total_sd) ? r.impact.total + 1.645 * r.impact.total_sd : null, fmt: 'signed:1', desc: 'Upper end of the 90% interval for Total.' },
+  { key: 'pab', label: 'P(> avg)', group: 'Impact', get: r => r.impact && isNum(r.impact.total) && r.impact.total_sd > 0 ? W.Phi(r.impact.total / r.impact.total_sd) : null, fmt: 'pct:0', desc: 'Posterior probability her Total impact is above league average (0), normal approximation.' },
   { key: 'pt', label: 'Pctile', group: 'Impact', get: get('pct.total'), fmt: 'int', desc: 'Percentile of Total among qualified players (on a roster, ≥10 projected min).' },
   { key: 'po', label: 'O pct', group: 'Impact', get: get('pct.O'), fmt: 'int', hidden: false, desc: 'Percentile of O among qualified players.' },
   { key: 'pd', label: 'D pct', group: 'Impact', get: get('pct.D'), fmt: 'int', desc: 'Percentile of D among qualified players.' },
@@ -109,7 +111,7 @@ W.playerCard = (p, nav) => {
         { label: 'Impact', value: F.signed(im.total, 1), sub: `±${F.num(im.total_sd, 1)} · ${p._rank ? '#' + p._rank + ' of ' + D.nQualified : 'unranked'}` },
         { label: 'Offence', value: F.signed(im.O, 1), sub: isNum(pct.O) ? pct.O + 'th pct' : '± ' + F.num(im.O_sd, 1) },
         { label: 'Defence', value: F.signed(im.D, 1), sub: isNum(pct.D) ? pct.D + 'th pct' : '± ' + F.num(im.D_sd, 1) },
-        { label: 'Season WAR', value: F.signed(v.varp_wins, 1), sub: F.signed(v.varp100, 1) + ' /100 vs repl.' },
+        { label: 'Season WAR', value: F.signed(v.varp_wins, 1), sub: F.signed(v.varp100, 1) + ' per 100' },
         { label: 'Minutes', value: F.num(mn.proj, 1), sub: mn.starter ? 'starter' : 'bench' },
         { label: 'If out', value: isNum(v.winp_delta) ? F.spct(v.winp_delta, 1) : '–', sub: isNum(v.net_delta) ? F.signed(v.net_delta, 1) + ' net / 100' : 'not in rotation' },
       ]));
@@ -248,7 +250,7 @@ async function teams(panel, sheet) {
       { label: 'Net', value: F.signed(t.net, 1), sub: `rank ${rk} of ${D.teams.length}` },
       { label: 'ORtg', value: F.num(t.ortg, 1), sub: F.signed(t.ortg - D.lgORtg, 1) + ' vs lg' },
       { label: 'DRtg', value: F.num(t.drtg, 1), sub: F.signed(D.lgORtg - t.drtg, 1) + ' better than lg' },
-      { label: 'Pace', value: F.num(t.pace_sim, 1), sub: 'sim poss / team' },
+      { label: 'Pace', value: F.num(t.pace_sim, 1), sub: isNum(t.pace_analytic) && t.pace_analytic < 110 ? `sim · analytic ${F.num(t.pace_analytic, 1)}` : 'sim poss / team' },
       { label: 'Mean win%', value: F.pct(t.sim_avg_win_prob ?? t.proj_win_pct_vs_league, 1), sub: '28 matchups' },
       { label: 'Pts for / against', value: `${F.num(t.sim_pts_for, 1)}`, sub: `against ${F.num(t.sim_pts_against, 1)}` },
     ]));
@@ -276,7 +278,7 @@ async function teams(panel, sheet) {
     const lt = h('div'); c3.append(lt);
     S.table(lt, [{ key: 'names', label: 'Lineup', render: v => esc((v || []).map(n => n.split(' ').slice(-1)[0]).join(', ')) }, { key: 'poss', label: 'Poss', fmt: 'int' }, { key: 'net100', label: 'Net/100', fmt: 'signed:1' }], t.top_lineups_2026 || []);
     const c4 = W.card(cols2, 'Pace and context', 'Team (coach/system) residuals in seconds per first play, shrunk. + = slower.');
-    c4.append(S.kv([['Sim possessions / team', F.num(t.pace_sim, 1)], ['Offence pace residual', F.signed(t.pace_team_residual && t.pace_team_residual.off, 2) + ' s'], ['Defence pace residual', F.signed(t.pace_team_residual && t.pace_team_residual.deff, 2) + ' s'], ['Roster size', String((t.roster || []).length)]]));
+    c4.append(S.kv([['Sim possessions / team', F.num(t.pace_sim, 1)], ['Analytic pace (per 40, avg opp.)', isNum(t.pace_analytic) && t.pace_analytic < 110 ? F.num(t.pace_analytic, 1) : '–'], ['Offence pace residual', F.signed(t.pace_team_residual && t.pace_team_residual.off, 2) + ' s'], ['Defence pace residual', F.signed(t.pace_team_residual && t.pace_team_residual.deff, 2) + ' s'], ['Roster size', String((t.roster || []).length)]]));
     c4.append(h('div', { class: 'sh-note wn-links' }, h('a', { href: W.hashFor('game', { h: t.id, a: D.teams.find(x => x.id !== t.id).id }), text: 'Open a game' }), ' · ', h('a', { href: W.hashFor('sim', { h: t.id, a: D.teams.find(x => x.id !== t.id).id }), text: 'Simulator' })));
   };
   panel.append(body); draw();
@@ -326,23 +328,26 @@ async function matchups(panel, sheet) {
 
 /* ───────── Game ───────── */
 async function game(panel, sheet) {
-  await W.loadCore(); await W.loadMatchups();
+  await W.loadCore();
   const ctl = h('div'), body = h('div', { class: 'sh-section wn-gap' }); panel.append(ctl, body);
-  const draw = () => {
+  let token = 0;
+  const draw = async () => {
+    const my = ++token;
     const pk = matchupPicker(sheet, (hh, aa) => { sheet.set({ h: hh, a: aa, sl: null, tl: null, hl: null, al: null }); draw(); });
     ctl.innerHTML = ''; ctl.append(h('div', { class: 'wn-ctlbar' }, pk.el, h('span', { class: 'sh-note wn-links' }, h('a', { href: W.hashFor('props', { h: pk.hId, a: pk.aId }), text: 'Player props' }), ' · ', h('a', { href: W.hashFor('sim', { h: pk.hId, a: pk.aId }), text: 'Change it in the simulator' }))));
-    const G = W.game(pk.hId, pk.aId);
+    const G = await S.into(body, W.gameFull(pk.hId, pk.aId), { label: 'Loading game…' });
+    if (my !== token) return;
     if (!G) { body.innerHTML = ''; body.append(S.errorEl(new Error('No precomputed matchup for this pair.'))); return; }
     const L = k => { const v = parseFloat(sheet.get(k)); return isFinite(v) ? v : null; };
     W.renderGame(body, G, { lines: { sl: L('sl'), tl: L('tl'), hl: L('hl'), al: L('al') }, onLines: o => sheet.set(o) });
   };
-  draw();
+  await draw();
   sheet.onState(draw);
 }
 
 /* ───────── Player props ───────── */
 async function props(panel, sheet) {
-  await W.loadCore(); await W.loadMatchups();
+  await W.loadCore();
   const ctl = h('div'), pricer = W.card(null, null, null, 'wn-pricer'), gwrap = h('div', { class: 'sh-section' });
   panel.append(ctl, pricer, gwrap);
   let grid = null, G = null, rows = [];
@@ -379,10 +384,12 @@ async function props(panel, sheet) {
     const ln = parseFloat(sheet.get('ln'));
     W.statPanel(sp, row.p.stats[key], { key, line: isFinite(ln) ? ln : null, onLine: L => sheet.set({ ln: L }) });
   };
-  const draw = () => {
+  let token = 0;
+  const draw = async () => {
+    const my = ++token;
     const pk = matchupPicker(sheet, (hh, aa) => { sheet.set({ h: hh, a: aa, p: null, ln: null }); draw(); });
     ctl.innerHTML = ''; ctl.append(h('div', { class: 'wn-ctlbar' }, pk.el, h('span', { class: 'sh-note wn-links' }, h('a', { href: W.hashFor('game', { h: pk.hId, a: pk.aId }), text: 'Game sheet' }))));
-    G = W.game(pk.hId, pk.aId); if (!G) return;
+    const G2 = await W.gameFull(pk.hId, pk.aId); if (my !== token || !G2) return; G = G2;
     rows = [...G.home.map((p, i) => ({ p, i, side: 'home', team: W.abbr(G.hId) })), ...G.away.map((p, i) => ({ p, i, side: 'away', team: W.abbr(G.aId) }))].filter(r => r.p.stats.min && r.p.stats.min.mean >= 0.05);
     drawPricer();
     if (!grid) {
@@ -392,7 +399,7 @@ async function props(panel, sheet) {
       W.odds.bind(gwrap, () => grid.refresh());
     } else grid.setRows(rows);
   };
-  draw();
+  await draw();
   sheet.onState(() => draw());
 }
 
@@ -558,16 +565,20 @@ async function injury(panel, sheet) {
 }
 
 /* ───────── Diagnostics ───────── */
-const KNOWN_DIAG = ['aggregate', 'by_season', 'total_hist', 'margin_hist', 'star_scoring', 'star_scoring_by_player', 'teammate_pts_corr', 'skills_holdout', 'rapm_holdout', 'team_ratings_oos_2026', 'shot_model', 'lineup_reconstruction', 'sim_seconds'];
+const KNOWN_DIAG = ['season_2026', 'season_2025', 'period_sd_2026', 'abs_margin_pmf_pct', 'player_calibration_insample', 'player_calibration_oos', 'winprob_reliability_oos', 'game_effects', 'aggregate', 'by_season', 'total_hist', 'margin_hist', 'star_scoring', 'star_scoring_by_player', 'teammate_pts_corr', 'skills_holdout', 'rapm_holdout', 'team_ratings_oos_2026', 'shot_model', 'lineup_reconstruction', 'sim_seconds'];
 const pair = x => Array.isArray(x) && x.length === 2 && isNum(x[0]) ? x : null;
 async function diagnostics(panel) {
   await W.loadCore();
   const Dg = await W.loadDiag();
   const ag = Dg.aggregate || {};
-  const cols = h('div', { class: 'sh-cols' }); panel.append(cols);
+  const sec = (title, note) => { panel.append(h('div', { class: 'wn-sec' }, h('div', { class: 'sh-h wn-sech', text: title }), note ? h('div', { class: 'sh-note', text: note }) : null)); const c = h('div', { class: 'sh-cols' }); panel.append(c); return c; };
+  const cols1 = sec('2026 season: does the simulator reproduce real games?', 'Every 2026 game re-simulated with the players, minutes and starters who actually played, using end-of-2026 parameters. Real first, simulated second throughout.');
+  const colsO = sec('Out of sample', 'Fitted only on data before the games being predicted. These are the honest checks; none uses market prices.');
+  diag2026(cols1, Dg, colsO);
+  const colsP = sec('2025–26 pooled re-simulation and data quality', 'In-sample checks on both seasons together, plus how well the play-by-play was reconstructed.');
   if (ag.total_mean) {
     const dT = ag.total_mean[1] - ag.total_mean[0];
-    const c = W.card(cols, 'Re-simulated 2025–26 games', `${F.int(ag.n_games)} real games re-simulated ${F.int(ag.n_sims_per_game)} times each with the players, minutes and starters who actually played. Simulated totals average ${F.num(ag.total_mean[1], 1)} vs ${F.num(ag.total_mean[0], 1)} real (${F.signed(dT, 1)} pts), and the margin spread is close (${F.num(ag.margin_sd[1], 1)} vs ${F.num(ag.margin_sd[0], 1)}). In-sample: the ratings were fitted on these games.`);
+    const c = W.card(colsP, 'Re-simulated 2025–26 games', `${F.int(ag.n_games)} real games re-simulated ${F.int(ag.n_sims_per_game)} times each with the players, minutes and starters who actually played. Simulated totals average ${F.num(ag.total_mean[1], 1)} vs ${F.num(ag.total_mean[0], 1)} real (${F.signed(dT, 1)} pts), and the margin spread is close (${F.num(ag.margin_sd[1], 1)} vs ${F.num(ag.margin_sd[0], 1)}). In-sample: the ratings were fitted on these games.`);
     const lab = { total_mean: 'Total, mean', total_sd: 'Total, SD', margin_mean: 'Margin, mean (home)', margin_sd: 'Margin, SD', abs_margin_mean: '|Margin|, mean', home_win: 'Home win rate', ot_rate: 'OT rate', poss_per_team: 'Possessions / team' };
     const rows = Object.keys(lab).filter(k => pair(ag[k])).map(k => ({ k: lab[k], real: ag[k][0], sim: ag[k][1], pct: k === 'home_win' || k === 'ot_rate' }));
     S.table(c.appendChild(h('div')), [{ key: 'k', label: 'Measure' }, { key: 'real', label: 'Real', render: (v, r) => r.pct ? F.pct(v, 1) : F.num(v, 2) }, { key: 'sim', label: 'Simulated', render: (v, r) => r.pct ? F.pct(v, 1) : F.num(v, 2) }, { key: 'd', label: 'Sim − real', render: (v, r) => r.pct ? F.spct(r.sim - r.real, 1) : F.signed(r.sim - r.real, 2) }], rows);
@@ -575,65 +586,150 @@ async function diagnostics(panel) {
   if (Dg.by_season) {
     const bs = Object.entries(Dg.by_season);
     const worst = bs.map(([s, v]) => [s, v.total_mean ? v.total_mean[1] - v.total_mean[0] : 0]).sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]))[0];
-    const c = W.card(cols, 'By season', `The totals gap is a season effect: simulated totals are ${F.signed(worst[1], 1)} pts off in ${worst[0]}, because every game is played at 2026 league scoring levels. Columns: real, then simulated.`);
+    const c = W.card(colsP, 'By season', `The totals gap is a season effect: simulated totals are ${F.signed(worst[1], 1)} pts off in ${worst[0]}, because every game is played at 2026 league scoring levels. Columns: real, then simulated.`);
     S.table(c.appendChild(h('div')), [{ key: 's', label: 'Season' }, { key: 'tr', label: 'Total', fmt: 'num:1', desc: 'real mean total' }, { key: 'ts', label: 'Sim', fmt: 'num:1', desc: 'simulated mean total' }, { key: 'sr', label: 'SD', fmt: 'num:1', desc: 'real total SD' }, { key: 'ss', label: 'Sim', fmt: 'num:1', desc: 'simulated total SD' }, { key: 'mr', label: 'Mgn SD', fmt: 'num:1', desc: 'real margin SD' }, { key: 'ms', label: 'Sim', fmt: 'num:1', desc: 'simulated margin SD' }],
       bs.map(([s, v]) => ({ s, tr: (v.total_mean || [])[0], ts: (v.total_mean || [])[1], sr: (v.total_sd || [])[0], ss: (v.total_sd || [])[1], mr: (v.margin_sd || [])[0], ms: (v.margin_sd || [])[1] })));
   }
   const histCard = (key, title, note, xl) => {
     const hh = Dg[key]; if (!hh || !hh.edges) return;
-    const c = W.card(cols, title, note);
+    const c = W.card(colsP, title, note);
     const mid = hh.edges.slice(0, -1).map((e, i) => (e + hh.edges[i + 1]) / 2);
     S.line(c.appendChild(h('div')), { series: [{ name: 'Real', points: mid.map((x, i) => [x, hh.real[i] * (hh.edges[1] - hh.edges[0])]) }, { name: 'Simulated', points: mid.map((x, i) => [x, hh.sim[i] * (hh.edges[1] - hh.edges[0])]) }], xLabel: xl, yFmt: 'pct:0', height: 170 });
   };
-  histCard('total_hist', 'Total points: real vs simulated', 'Share of games per 5-point bin. The simulated curve sits slightly right of the real one: the totals bias above.', 'total');
+  histCard('total_hist', 'Total points: real vs simulated', 'Share of games per 5-point bin, 2025 and 2026 pooled. The simulated curve sits right of the real one because 2025 games are played at 2026 scoring levels (see the 2025 card above).', 'total');
   histCard('margin_hist', 'Margin: real vs simulated', 'Share of games per 5-point bin of home margin. The simulated spread of outcomes matches the real one closely.', 'home margin');
   const ss = Dg.star_scoring;
   if (ss) {
-    const c = W.card(cols, 'Star scoring', `High-usage players (projected usage ≥ 24%) in games with ≥ 25 minutes, ${F.int(ss.n_player_games)} player-games: simulated stars score ${F.num(ss.mean_pts[1], 1)} vs ${F.num(ss.mean_pts[0], 1)} real, and reach 20+ less often. Star overs are priced low by this model.`);
+    const c = W.card(colsP, 'Star scoring', `High-usage players (projected usage ≥ 24%) in games with ≥ 25 minutes, ${F.int(ss.n_player_games)} player-games: simulated stars score ${F.num(ss.mean_pts[1], 1)} vs ${F.num(ss.mean_pts[0], 1)} real; 20+ in ${F.pct(ss.share_20plus[1], 0)} vs ${F.pct(ss.share_20plus[0], 0)} of games, 30+ in ${F.pct(ss.share_30plus[1], 1)} vs ${F.pct(ss.share_30plus[0], 1)}${Math.abs(ss.mean_pts[1] - ss.mean_pts[0]) < 0.4 ? ' — the level is right; the simulated spread is a little wider than real' : ss.mean_pts[1] < ss.mean_pts[0] ? '. Star overs are priced low' : '. Star overs are priced high'}.`);
     S.table(c.appendChild(h('div')), [{ key: 'k', label: 'Measure' }, { key: 'r', label: 'Real' }, { key: 's', label: 'Simulated' }],
       [['Mean points', 'mean_pts', 1], ['SD points', 'sd_pts', 1], ['Share 20+', 'share_20plus', 0], ['Share 30+', 'share_30plus', 0], ['Share under 10', 'share_10minus', 0]].filter(x => pair(ss[x[1]])).map(([k, f, dp]) => ({ k, r: dp ? F.num(ss[f][0], 1) : F.pct(ss[f][0], 1), s: dp ? F.num(ss[f][1], 1) : F.pct(ss[f][1], 1) })));
   }
   if (Array.isArray(Dg.star_scoring_by_player)) {
     const L = Dg.star_scoring_by_player;
     const below = L.filter(x => x.sim < x.real).length;
-    const c = W.card(cols, 'Star scoring by player', `${below} of ${L.length} stars score less in the re-simulation than they did (points below the diagonal). Hover for each player.`);
+    const c = W.card(colsP, 'Star scoring by player', `${below} of ${L.length} stars score less in the re-simulation than they did (points below the diagonal), ${L.length - below} more. Hover for each player.`);
     S.scatter(c.appendChild(h('div')), { points: L.map(x => ({ x: x.real, y: x.sim, label: x.name, id: x.pid, desc: `${x.games} games` })), xLabel: 'real ppg', yLabel: 'simulated ppg', diag: true, labels: 5, height: 240, onClick: pt => { const p = W.player(pt.id); if (p) W.playerCard(p, { prev: () => {}, next: () => {} }); } });
   }
   const oos = Dg.team_ratings_oos_2026;
   if (oos) {
-    const c = W.card(cols, 'Out of sample: 2026 team ratings', `Ratings fitted on 2017–25 only, predicting 2026 margins from each game's actual minutes. RMSE ${F.num(oos.rmse_model, 2)} vs ${F.num(oos.rmse_prev_season_diff, 2)} for last season's point differential and ${F.num(oos.rmse_hca_only, 2)} for home court alone. No market comparison.`);
+    const c = W.card(colsO, 'Out of sample: 2026 team ratings', `Ratings fitted on 2017–25 only, predicting 2026 margins from each game's actual minutes. RMSE ${F.num(oos.rmse_model, 2)} vs ${F.num(oos.rmse_prev_season_diff, 2)} for last season's point differential and ${F.num(oos.rmse_hca_only, 2)} for home court alone. No market comparison.`);
     c.append(S.tiles([{ label: 'RMSE', value: F.num(oos.rmse_model, 2), sub: F.int(oos.n_games) + ' games' }, { label: 'Corr.', value: F.num(oos.corr_model, 3) }, { label: 'Winner', value: F.pct(oos.win_acc_model, 1), sub: 'picked right' }, { label: 'Slope', value: F.num(oos.calibration_slope, 3), sub: '1 = well scaled' }]));
   }
   const rh = Dg.rapm_holdout;
   if (rh) {
-    const c = W.card(cols, 'Out of sample: RAPM', 'Forward holdouts (train on seasons before S, score every possession of S, 2024–26). The prior-informed version beats plain RAPM; gains are small because single possessions are mostly noise.');
+    const c = W.card(colsO, 'Out of sample: RAPM', 'Forward holdouts (train on seasons before S, score every possession of S, 2024–26). The prior-informed version beats plain RAPM; gains are small because single possessions are mostly noise.');
     S.table(c.appendChild(h('div')), [{ key: 'k', label: 'Model' }, { key: 'mse', label: 'MSE', fmt: 'num:1' }, { key: 'g', label: 'Gain vs const', fmt: 'num:1' }, { key: 'p', label: 'Params' }],
       [{ k: 'Constant', mse: rh.mse_const, g: 0, p: '' }, rh.best_plain && { k: 'Plain RAPM', mse: rh.best_plain.mse, g: rh.best_plain.gain_vs_const, p: `H ${rh.best_plain.H}, λ ${rh.best_plain.lam}` }, rh.best_prior && { k: 'Prior-informed', mse: rh.best_prior.mse, g: rh.best_prior.gain_vs_const, p: `H ${rh.best_prior.H}, λ ${rh.best_prior.lam}` }].filter(Boolean));
     if (rh.spm_r2_weighted) c.append(h('div', { class: 'sh-note', text: `Box-score prior weighted R²: O ${F.num(rh.spm_r2_weighted.O, 2)}, D ${F.num(rh.spm_r2_weighted.D, 2)} (defence is the noisier half).` }));
   }
   if (Dg.skills_holdout) {
     const sk = Object.entries(Dg.skills_holdout).map(([k, v]) => ({ label: k.replace(/_/g, ' '), value: v.deviance_gain_vs_position_prior_pct, desc: `half-life ${v.H} seasons, prior strength k = ${v.k}` }));
-    const c = W.card(cols, 'Out of sample: skill projections', 'Binomial deviance gain (%) over a position-group prior on forward holdouts, per projected rate. Shot mix and passing carry the most player signal; FG% by zone the least.');
+    const c = W.card(colsO, 'Out of sample: skill projections', 'Binomial deviance gain (%) over a position-group prior on forward holdouts, per projected rate. Shot mix and passing carry the most player signal; FG% by zone the least.');
     S.bar(c.appendChild(h('div')), { data: sk, sort: 'desc', fmt: 'num:1', diverging: false, barHeight: 10, rowGap: 4 });
   }
   const sm = Dg.shot_model;
   if (sm && sm.calib) {
-    const c = W.card(cols, 'Shot model calibration', `Cross-fitted xFG on ${F.int(sm.n)} shots: log-loss ${F.num(sm.logloss, 4)} vs ${F.num(sm.logloss_zone, 4)} zone-only and ${F.num(sm.logloss_const, 4)} constant. Predicted and actual FG% agree in every bin.`);
+    const c = W.card(colsO, 'Shot model calibration', `Cross-fitted xFG on ${F.int(sm.n)} shots: log-loss ${F.num(sm.logloss, 4)} vs ${F.num(sm.logloss_zone, 4)} zone-only and ${F.num(sm.logloss_const, 4)} constant. Predicted and actual FG% agree in every bin.`);
     S.scatter(c.appendChild(h('div')), { points: sm.calib.xfg.map((x, i) => ({ x, y: sm.calib.fg[i], label: F.int(sm.calib.n[i]) + ' shots', desc: `predicted ${F.pct(x, 1)}, actual ${F.pct(sm.calib.fg[i], 1)}` })), diag: true, xFmt: 'pct:0', yFmt: 'pct:0', xLabel: 'predicted FG%', yLabel: 'actual FG%', labels: false, height: 200 });
   }
   const tc = Dg.teammate_pts_corr;
   if (tc) {
-    const c = W.card(cols, 'Teammate scoring correlation', 'Correlation of two teammates\' points (both ≥ 20 min). Real games show a slight negative correlation (one player\'s points come out of the other\'s), and the simulation reproduces it; same-game parlays need this.');
+    const c = W.card(colsP, 'Teammate scoring correlation', 'Correlation of two teammates\' points (both ≥ 20 min). Real games show a slight negative correlation (one player\'s points come out of the other\'s), and the simulation reproduces it; same-game parlays need this.');
     c.append(S.kv([['Real, across games', F.num(tc.real_across_games, 3) + ` (${F.int(tc.n_real_pairs)} pairs)`], ['Simulated, across games', F.num(tc.sim_across_games, 3) + ` (${F.int(tc.n_sim_pairs)} pairs)`], ['Simulated, within one matchup', F.num(tc.sim_within_game, 3)]]));
   }
   if (Dg.lineup_reconstruction) {
-    const c = W.card(cols, 'Lineup reconstruction', 'Who was on the floor, rebuilt from play-by-play substitutions and checked against box-score minutes. 2018–19 are the weakest seasons.');
+    const c = W.card(colsP, 'Lineup reconstruction', 'Who was on the floor, rebuilt from play-by-play substitutions and checked against box-score minutes. 2018–19 are the weakest seasons.');
     S.table(c.appendChild(h('div')), [{ key: 's', label: 'Season' }, { key: 'games', label: 'Games', fmt: 'int' }, { key: 'poss_lineup_ok', label: '5v5 known', fmt: 'pct:1' }, { key: 'min_within_1', label: 'Min ±1', fmt: 'pct:1' }, { key: 'min_mae', label: 'Min MAE', fmt: 'num:2' }, { key: 'phantom_fix', label: 'Fixes', fmt: 'int', desc: 'players inserted because they acted while not on court' }],
       Object.entries(Dg.lineup_reconstruction).map(([s, v]) => Object.assign({ s }, v)));
   }
   // anything a later export adds (player calibration tables, win-probability reliability, …)
-  Object.keys(Dg).filter(k => !KNOWN_DIAG.includes(k)).forEach(k => genericDiag(cols, k, Dg[k]));
+  Object.keys(Dg).filter(k => !KNOWN_DIAG.includes(k)).forEach(k => genericDiag(colsP, k, Dg[k]));
 }
+const fmtRS = (k, v) => /home_win|ot_rate|one_to_three/.test(k) ? F.pct(v, 1) : F.num(v, 1);
+const SEASON_LAB = { total_mean: 'Total, mean', total_sd: 'Total, SD', margin_mean: 'Home margin, mean', margin_sd: 'Margin, SD', team_pts_sd: 'Team points, SD', home_win: 'Home win rate', ot_rate: 'Overtime rate', poss_per_team: 'Possessions / team', one_to_three_pt_games: 'Games decided by 1–3' };
+function seasonTable(el, o) {
+  const rows = Object.keys(SEASON_LAB).filter(k => pair(o[k])).map(k => ({ k, l: SEASON_LAB[k], r: o[k][0], s: o[k][1] }));
+  S.table(el, [{ key: 'l', label: 'Measure' }, { key: 'r', label: 'Real', render: (v, r) => fmtRS(r.k, v) }, { key: 's', label: 'Simulated', render: (v, r) => fmtRS(r.k, v) }, { key: 'd', label: 'Sim − real', render: (v, r) => /home_win|ot_rate|one_to_three/.test(r.k) ? F.spct(r.s - r.r, 1) : F.signed(r.s - r.r, 1) }], rows);
+}
+function diag2026(cols, Dg, colsO) {
+  const s6 = Dg.season_2026;
+  if (s6) {
+    const v = k => pair(s6[k]) || [NaN, NaN];
+    const c = W.card(cols, '2026 season, re-simulated', `${F.int(s6.n_games)} games. Levels are right: totals ${F.num(v('total_mean')[1], 1)} simulated vs ${F.num(v('total_mean')[0], 1)} real, margin SD ${F.num(v('margin_sd')[1], 1)} vs ${F.num(v('margin_sd')[0], 1)}. Where it misses: totals are a little too tightly spread (SD ${F.num(v('total_sd')[1], 1)} vs ${F.num(v('total_sd')[0], 1)}) and overtime is too rare (${F.pct(v('ot_rate')[1], 1)} vs ${F.pct(v('ot_rate')[0], 1)}), so OT-dependent lines and the widest totals are priced a bit short.`);
+    seasonTable(c.appendChild(h('div')), s6);
+  }
+  const wr = Dg.winprob_reliability_oos;
+  if (wr && wr.deciles) {
+    const d = wr.deciles;
+    const c = W.card(colsO, 'Win probability, out of sample', `${F.int(wr.n_games)} 2026 games with everything fitted before 2026. Each dot is a tenth of the games (about ${Math.round(wr.n_games / 10)} each), so the dots wander about ±8 points around the diagonal by chance alone. Log-loss ${F.num(wr.logloss, 3)} against ${F.num(wr.logloss_coinflip, 3)} for a coin flip and ${F.num(wr.logloss_home_rate, 3)} for "home team at the league home rate".`);
+    S.scatter(c.appendChild(h('div')), { points: d.pred.map((x, i) => ({ x, y: d.actual[i], label: `decile ${d.dec[i] + 1}`, desc: `${d.n[i]} games: predicted ${F.pct(x, 1)}, won ${F.pct(d.actual[i], 1)}` })), diag: true, xDomain: [0, 1], yDomain: [0, 1], xFmt: 'pct:0', yFmt: 'pct:0', xLabel: 'predicted home win %', yLabel: 'actual home win %', labels: false, height: 220 });
+    c.append(S.tiles([{ label: 'Log-loss', value: F.num(wr.logloss, 3), sub: 'coin flip ' + F.num(wr.logloss_coinflip, 3) }, { label: 'Brier', value: F.num(wr.brier, 3) }, { label: 'Margin slope', value: F.num(wr.margin_slope, 2), sub: '1 = margins well scaled' }]));
+    const tb = h('div', { style: { marginTop: '8px' } }); c.append(tb);
+    S.table(tb, [{ key: 'dec', label: 'Decile', get: (r) => r.dec + 1, fmt: 'int' }, { key: 'pred', label: 'Predicted', fmt: 'pct:1' }, { key: 'actual', label: 'Actual', fmt: 'pct:1' }, { key: 'n', label: 'Games', fmt: 'int' }], d.dec.map((x, i) => ({ dec: x, pred: d.pred[i], actual: d.actual[i], n: d.n[i] })));
+  }
+  if (Dg.player_calibration_oos || Dg.player_calibration_insample) playerCalib(colsO, Dg);
+  const am = Dg.abs_margin_pmf_pct;
+  if (am && am.margin) {
+    const c = W.card(cols, 'How close games finish', `Share of games decided by exactly k points (either side), real 2017–26 (${F.int(am.n_real_games)} games) against simulated. The simulator has too many one-point games (${F.num(am.sim[0], 1)}% vs ${F.num(am.real_2017_2026[0], 1)}%) and too few 5–10-point finishes; that matters for spreads near the key numbers.`);
+    S.line(c.appendChild(h('div')), { series: [{ name: 'Real', points: am.margin.map((m, i) => [m, am.real_2017_2026[i] / 100]) }, { name: 'Simulated', points: am.margin.map((m, i) => [m, am.sim[i] / 100]) }], xLabel: 'final margin (points)', yFmt: 'pct:0', height: 180 });
+  }
+  const ps = Dg.period_sd_2026;
+  if (ps) {
+    const lab = { q1_total_sd: '1st quarter total', q1_margin_sd: '1st quarter margin', h1_total_sd: '1st half total', h1_margin_sd: '1st half margin' };
+    const rows = Object.keys(lab).filter(k => pair(ps[k])).map(k => ({ l: lab[k], r: ps[k][0], s: ps[k][1] }));
+    const c = W.card(cols, 'Period spreads, 2026', 'Standard deviations of quarter and half results. Simulated period totals vary slightly more than real ones and period margins slightly less.');
+    S.table(c.appendChild(h('div')), [{ key: 'l', label: 'SD of' }, { key: 'r', label: 'Real', fmt: 'num:2' }, { key: 's', label: 'Simulated', fmt: 'num:2' }, { key: 'd', label: 'Sim − real', get: r => r.s - r.r, fmt: 'signed:2' }], rows);
+  }
+  const ge = Dg.game_effects;
+  if (ge) {
+    const c = W.card(cols, 'Shared game shocks', `Real games share swings that hit both teams: a hot or cold shooting night and a tight or loose whistle. The simulator adds a shared efficiency shock (SD ${F.num(ge.eff_shock_sd_per100, 1)} points per 100) and a shared free-throw-rate shock (SD ${F.num(ge.whistle_sd, 2)} on the log scale) sized from these covariances; this is what widens the totals distribution.`);
+    c.append(S.kv([['Real corr. of the two teams\' pts/poss residuals', F.num(ge.ppp_resid_corr_real, 3)], ['Real / simulated within-game pts/poss covariance', `${F.num(ge.ppp_resid_cov_real, 4)} / ${F.num(ge.ppp_within_cov_sim, 4)}`], ['Real FTA residual covariance', F.num(ge.fta_resid_cov_real, 2) + ` (mean FTA ${F.num(ge.mean_team_fta, 1)})`], ['Possession variance real / sim', `${F.num(ge.poss_resid_var_real, 1)} / ${F.num(ge.poss_within_var_sim, 1)}`], ['Pace shock SD', F.num(ge.pace_shock_sd, 3)], ['Games / sims used', `${F.int(ge.n_games)} / ${F.int(ge.n_sims)}`]]));
+  }
+  const s5 = Dg.season_2025;
+  if (s5) {
+    const c = W.card(cols, '2025 season (shape only)', `2025 games re-simulated in the 2026 scoring environment. 2025 scored about ${F.num(Math.abs(s5.total_mean[0] - (Dg.season_2026 ? Dg.season_2026.total_mean[0] : s5.total_mean[0])), 0)} points a game less than 2026, so simulated totals run ${F.signed(s5.total_mean[1] - s5.total_mean[0], 0)} high here by construction; read the spreads and rates, not the totals level.`);
+    seasonTable(c.appendChild(h('div')), s5);
+  }
+}
+const CAL_STATS = ['pts', 'reb', 'ast', 'fg3m', 'stl', 'blk', 'tov', 'fga', 'fta', 'min'];
+const CAL_LABEL = { pts: 'Points', reb: 'Rebounds', ast: 'Assists', fg3m: 'Threes made', stl: 'Steals', blk: 'Blocks', tov: 'Turnovers', fga: 'FGA', fta: 'FTA', min: 'Minutes' };
+function playerCalib(cols, Dg) {
+  const IS = Dg.player_calibration_insample || {}, OS = Dg.player_calibration_oos || {};
+  const stats = CAL_STATS.filter(k => IS[k] || OS[k]);
+  const p0 = OS.pts || IS.pts;
+  const lowR = p0 && p0.deciles ? p0.deciles.ratio[0] : null;
+  const c = W.card(cols, 'Player stat calibration', `Actual against simulated per player-game, given the minutes she actually played. A slope above 1 means the simulated spread between players is too narrow. Points: slope ${F.num((IS.pts || {}).slope, 2)} in-sample, ${F.num((OS.pts || {}).slope, 2)} out of sample, driven by low-minute players, who score ${lowR != null ? F.pct(1 - lowR, 0) : 'well'} less than simulated in the bottom decile; the top deciles score slightly more than simulated.`);
+  c.classList.add('wn-wide');
+  const ctl = h('div'), chart = h('div'), tabs = h('div', { class: 'wn-two' });
+  let cur = 'pts';
+  const draw = () => {
+    const pts = [];
+    [['Out of sample', OS], ['In-sample', IS]].forEach(([g, src]) => { const d = src[cur] && src[cur].deciles; if (d) d.sim.forEach((x, i) => pts.push({ x, y: d.act[i], group: g, label: `decile ${d.dec[i] + 1}`, desc: `${F.int(d.n[i])} player-games, actual/sim ${F.num(d.ratio[i], 2)}` })); });
+    chart.innerHTML = '';
+    S.scatter(chart, { title: `${CAL_LABEL[cur]}: actual vs simulated, by decile of simulated mean`, points: pts, groups: ['Out of sample', 'In-sample'], diag: true, labels: false, xLabel: 'simulated mean', yLabel: 'actual mean', height: 230 });
+    tabs.innerHTML = '';
+    const ut = h('div'), dt = h('div'); tabs.append(dt, ut);
+    const o = OS[cur] || IS[cur];
+    if (o && o.deciles) S.table(dt, [{ key: 'dec', label: 'Decile', get: r => r.dec + 1, fmt: 'int' }, { key: 'sim', label: 'Sim', fmt: 'num:2' }, { key: 'act', label: 'Actual', fmt: 'num:2' }, { key: 'ratio', label: 'Act/sim', fmt: 'num:2' }, { key: 'n', label: 'n', fmt: 'int' }], o.deciles.dec.map((x, i) => ({ dec: x, sim: o.deciles.sim[i], act: o.deciles.act[i], ratio: o.deciles.ratio[i], n: o.deciles.n[i] })));
+    if (o && o.usage_tiers) S.table(ut, [{ key: 'tier', label: 'Usage tier' }, { key: 'sim', label: 'Sim', fmt: 'num:2' }, { key: 'act', label: 'Actual', fmt: 'num:2' }, { key: 'ratio', label: 'Act/sim', fmt: 'num:2' }, { key: 'n', label: 'n', fmt: 'int' }], o.usage_tiers.tier.map((t, i) => ({ tier: t, sim: o.usage_tiers.sim[i], act: o.usage_tiers.act[i], ratio: o.usage_tiers.ratio[i], n: o.usage_tiers.n[i] })));
+    dt.prepend(h('div', { class: 'wn-sub', text: (OS[cur] ? 'Out of sample' : 'In-sample') + ', by decile' })); ut.prepend(h('div', { class: 'wn-sub', text: 'By projected usage' }));
+  };
+  ctl.append(S.ui.segmented({ label: 'Stat', options: stats.map(k => ({ value: k, label: CAL_LABEL[k] })), value: cur, onChange: v => { cur = v; draw(); } }));
+  const st = h('div', { class: 'wn-sub', text: 'Slope of actual on simulated (1 = right scale) and means' });
+  const tb = h('div');
+  S.table(tb, [{ key: 'l', label: 'Stat' }, { key: 'is', label: 'Slope in-sample', fmt: 'num:2' }, { key: 'os', label: 'Slope OOS', fmt: 'num:2' }, { key: 'ms', label: 'Sim mean OOS', fmt: 'num:2' }, { key: 'ma', label: 'Actual mean OOS', fmt: 'num:2' }],
+    stats.map(k => ({ l: CAL_LABEL[k], is: (IS[k] || {}).slope, os: (OS[k] || {}).slope, ms: (OS[k] || {}).mean_sim, ma: (OS[k] || {}).mean_act })));
+  const cols2 = h('div', { class: 'wn-two' });
+  const left = h('div'); left.append(ctl, chart);
+  const right = h('div'); right.append(st, tb);
+  const pt = OS.pts_tails_25min || IS.pts_tails_25min;
+  if (pt) right.append(h('div', { class: 'wn-sub', text: `Point tails, player-games with ≥25 minutes (n ${F.int(pt.n)})` }), S.kv([['Share 20+ real / sim', `${F.pct(pt.share20[0], 1)} / ${F.pct(pt.share20[1], 1)}`], ['Share 30+ real / sim', `${F.pct(pt.share30[0], 1)} / ${F.pct(pt.share30[1], 1)}`], ['Residual SD real / sim', `${F.num(pt.act_sd_resid, 2)} / ${F.num(pt.sim_sd_mean, 2)}`]]));
+  if (OS.note) right.append(h('div', { class: 'sh-note', text: 'Out of sample: ' + OS.note + '.' }));
+  cols2.append(left, right);
+  c.append(cols2, tabs);
+  draw();
+}
+
 const titleCase = k => k.replace(/_/g, ' ').replace(/^\w/, c => c.toUpperCase());
 function findXY(o) {
   const keys = Object.keys(o).filter(k => Array.isArray(o[k]) && o[k].length > 1 && o[k].every(v => v == null || isNum(v)));

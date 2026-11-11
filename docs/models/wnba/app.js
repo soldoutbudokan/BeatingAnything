@@ -162,16 +162,22 @@ function mixDist(st) {
   for (const c of comps) { const p = anchoredPmf(c.mean, c.sd, c.lines || [], c.po || []); for (let k = 0; k < p.length; k++) acc[k] = (acc[k] || 0) + c.w * p[k]; }
   return S.dist.fromPmf(acc.map((p, k) => [k, p || 0]));
 }
-function mkStat(mean, sd, q, comps) {
-  const st = { mean, sd, q: qPairs(q), comps: comps || [] };
+function mkStat(mean, sd, q, comps, pmf) {
+  const st = { mean, sd, q: qPairs(q), comps: comps || [], exact: false };
   let d = null;
+  const ex = pmf ? histOf(pmf) : null;
+  if (ex) {
+    // exact simulated pmf (per-home-team files): quantiles and every line come straight from it
+    st.exact = true; d = ex;
+    st.q = [0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95].map(p => [p, ex.quantile(p)]);
+  }
   Object.defineProperty(st, 'dist', { get() { return d || (d = mixDist(st)); } });
   st.median = W.qAt(st, 0.5);
   st.exactLines = [...new Set(st.comps.flatMap(c => c.lines || []))].sort((a, b) => a - b);
   return st;
 }
 /** stat from matchups.json (compact [mean, sd, q5, first_line, p_over[]] or schema [mean, sd, q7, lines[], p_over[]]) or a sim.js object */
-function statFrom(x, key) {
+function statFrom(x, key, pmf) {
   if (x == null) return null;
   if (typeof x === 'number') return mkStat(x, null, [], []);
   if (Array.isArray(x)) {
@@ -179,7 +185,7 @@ function statFrom(x, key) {
     let lines = [];
     if (Array.isArray(a3)) lines = a3;
     else if (isNum(a3)) { const step = (D.lineStep && D.lineStep[key]) || DEFAULT_STEP[key] || 1; lines = (po || []).map((_, i) => +(a3 + i * step).toFixed(4)); }
-    return mkStat(mean, sd, q, [{ w: 1, mean, sd, lines, po: po || [] }]);
+    return mkStat(mean, sd, q, [{ w: 1, mean, sd, lines, po: po || [] }], pmf);
   }
   return mkStat(x.mean, x.sd, x.q, x.comps || [{ w: 1, mean: x.mean, sd: x.sd, lines: x.lines || [], po: x.p_over || [] }]);
 }
@@ -204,7 +210,7 @@ function periodOf(x) {
 }
 function canonPlayer(x) {
   const p = D.pById.get(x.id), st = {};
-  W.STATS.forEach(k => { if (x[k] != null) st[k] = statFrom(x[k], k); });
+  W.STATS.forEach(k => { if (x[k] != null) st[k] = statFrom(x[k], k, x.pmf && x.pmf[k]); });
   return { id: x.id, name: x.name || (p && p.name) || String(x.id), pos: p ? p.pos_group : '', projMin: x.min_proj ?? x.proj_min, out: !!x.out, stats: st, fga: x.fga, fg3a: x.fg3a, fta: x.fta, pDD: x.p_dd };
 }
 /** canonical game object from matchups.json `game` or sim.js `game` (+ player arrays) */
@@ -218,6 +224,8 @@ W.canonGame = (g, homePl, awayPl, hId, aId) => {
   };
   G.marginDist = histOf(g.margin_hist) || W.normalDist(G.margin.mean, G.margin.sd, -60, 60);
   G.totalDist = histOf(g.total_hist) || W.normalDist(G.total.mean, G.total.sd);
+  G.homePtsDist = histOf(g.home_pts_hist); G.awayPtsDist = histOf(g.away_pts_hist);
+  G.playerPmf = [...G.home, ...G.away].some(p => p.stats.pts && p.stats.pts.exact);
   return G;
 };
 W.game = (hId, aId) => {
@@ -227,6 +235,19 @@ W.game = (hId, aId) => {
   const G = W.canonGame(mu.game, mu.home_players, mu.away_players, mu.home ?? hId, mu.away ?? aId);
   G.source = 'matchups.json';
   D.games.set(key, G); return G;
+};
+/** the same game with exact player pmfs from data/matchups/<homeId>.json (lazy, one file per home team); falls back to matchups.json */
+W.gameFull = async (hId, aId) => {
+  const key = hId + '_' + aId;
+  D.full = D.full || new Map();
+  if (D.full.has(key)) return D.full.get(key);
+  const f = await S.load.optional('data/matchups/' + hId + '.json').catch(() => null);
+  const mu = f && f.pairs && f.pairs[key];
+  let G;
+  if (mu) { G = W.canonGame(mu.game, mu.home_players, mu.away_players, mu.home ?? hId, mu.away ?? aId); G.n = G.n || f.n_sims; G.source = 'matchups/' + hId + '.json'; }
+  else { await W.loadMatchups(); G = W.game(hId, aId); if (G) G.pmfMissing = true; }
+  if (G) D.full.set(key, G);
+  return G;
 };
 /** pool sim.js results from several chunks (same rosters) into one sim.js-shaped result */
 W.mergeRuns = parts => {
@@ -490,12 +511,14 @@ W.renderGame = (el, G, o = {}) => {
 
   // team totals + periods
   const cols2 = h('div', { class: 'sh-cols' }); el.append(cols2);
-  const c3 = W.card(cols2, 'Team totals', 'Normal approximation to each team\'s simulated points (mean and SD from the sims; the export does not carry the full team-score distribution).');
+  const exactTT = !!(G.homePtsDist && G.awayPtsDist);
+  const c3 = W.card(cols2, 'Team totals', exactTT ? 'Each team\'s simulated final score (incl. OT). Type a line to price over/under.' : 'Normal approximation to each team\'s simulated points (mean and SD; this run does not carry the full team-score distribution).');
   const tt = h('div', { class: 'wn-two' }); c3.append(tt);
-  [[ha, G.homePts, 'hl'], [aa, G.awayPts, 'al']].forEach(([ab, st, key]) => {
+  [[ha, G.homePts, 'hl', G.homePtsDist], [aa, G.awayPts, 'al', G.awayPtsDist]].forEach(([ab, st, key, exd]) => {
     const box = h('div'); tt.append(box);
-    const d = W.normalDist(st.mean, st.sd);
-    W.linePricer(box, { dist: d, line: isNum(lines[key]) ? lines[key] : W.halfLine(st.mean), step: 1, rows: 3, label: ab, inputLabel: ab + ' line', ladderNote: false, compact: true, onLine: L => setLine(key, L === W.halfLine(st.mean) ? null : L) });
+    const d = exd || W.normalDist(st.mean, st.sd);
+    const L0 = W.fairLine(d, st.mean);
+    W.linePricer(box, { dist: d, line: isNum(lines[key]) ? lines[key] : L0, step: 1, rows: 3, label: ab, inputLabel: ab + ' line', ladderNote: false, compact: true, onLine: L => setLine(key, L === L0 ? null : L) });
   });
   const c4 = W.card(cols2, 'Quarters and halves', `Simulated period scoring. 2nd half includes OT. "Fair 2-way" prices ${ha} with ties void.`);
   const per = []; G.quarters.forEach((q, i) => per.push(Object.assign({ p: 'Q' + (i + 1) }, q))); G.halves.forEach((q, i) => per.push(Object.assign({ p: i ? '2nd half' : '1st half' }, q)));
@@ -534,11 +557,13 @@ W.renderGame = (el, G, o = {}) => {
 
 /* ════════ player prop card (drawer) ════════ */
 W.defaultPropLine = st => {
+  if (st.exact) return Math.max(0.5, W.fairLine(st.dist, st.mean));
   const c = st.comps && st.comps[0];
   if (c && c.lines && c.lines.length) { let best = c.lines[0], bd = 9; c.lines.forEach((l, i) => { const v = Math.abs(c.po[i] - 0.5); if (v < bd) { bd = v; best = l; } }); return best; }
   return Math.max(0.5, Math.floor(st.mean) + 0.5);
 };
 W.propNote = st => {
+  if (st.exact) return `Exact simulated distribution: simulated mean ${F.num(st.mean, 2)}, SD ${F.num(st.sd, 2)}; every line and quantile is read from the simulated pmf (tails below 0.05% trimmed).`;
   const ex = st.exactLines.filter(isNum);
   return `Simulated mean ${F.num(st.mean, 2)}, SD ${F.num(st.sd, 2)}. P(over) is exact from the simulation at ${ex.length ? ex.map(W.fmtLine).join(', ') : 'no lines'}${st.comps.length > 1 ? ' (per run, pooled)' : ''}; other lines are interpolated on a negative-binomial shape fitted to the mean and SD.`;
 };

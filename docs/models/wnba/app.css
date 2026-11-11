@@ -57,3 +57,7 @@
 .wn-schema .sh-md{margin-top:8px}
 .wn-statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:12px 24px;align-items:start;min-width:0}
 .wn-two>*,.wn-statgrid>*,.sh-cols>*{min-width:0}
+.wn-sec{margin-top:6px}
+.wn-sec .wn-sech{font-size:15.5px}
+.sh-cols>.wn-wide{grid-column:1/-1}
+#sheet-players .sg{position:relative}#sheet-players .sg::after{content:'';position:absolute;top:0;right:0;bottom:0;width:22px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--surface) 85%)}
