@@ -199,8 +199,9 @@ See `schema.md` for every field. Key ones: `impact.O/D/total` (per 100, prior-in
   defence (e.g. rim protection lowering rim FG% specifically) is not modelled separately.
 * **Score effect is a tuned fudge**, not a structural model of end-game behaviour.
 * **Player projections are still slightly compressed**: in re-simulated games with actual minutes, actual
-  points on simulated points has slope ≈ 1.07–1.09 (in-sample and out-of-sample). Stars land within ~2–5%,
-  but low-minute players are over-projected (bottom deciles 20–40%, small in absolute points). Checked and
+  points on simulated points has slope ≈ 1.06 in-sample and ≈ 1.10 out-of-sample. The upper half of
+  the projection deciles is within ~1–5%, but low-minute players are over-projected (bottom deciles 10–40%,
+  under 1–2 points in absolute terms). Out-of-sample FTA is the worst stat (slope 1.17). Checked and
   ruled out: shooting-foul shrinkage, technical/and-one/bonus FT assignment, and the lineup make-shift (simulated
   efficiency within ±1% of projection at every usage level). Skill projections are tuned rate by rate on
   binomial deviance, which is dominated by high-volume players. See `player_calibration_*`.
