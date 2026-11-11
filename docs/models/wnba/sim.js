@@ -173,7 +173,7 @@
       porb: 0, porbft: 0, blkf: 0, stlp: 0, mu: 0, shift: 0, target: 0 };
   }
 
-  function calibrate(prm, To, Td, L, M, ctx, paceOff, paceDef, out) {
+  function calibrate(prm, To, Td, L, M, ctx, paceOff, paceDef, out, whistle) {
     var lg = prm.league, sim = prm.sim, i, z, k;
     out = out || newCal();
     var w = out.w, t = out.t, f = out.f, g = out.g, us = 0;
@@ -188,7 +188,7 @@
     }
     dT = dT / 100 * sim.ff_def_weight; dF = dF / 100 * sim.ff_def_weight;
     var sT = Math.log(clip((lg.tov_per_poss + dT) / lg.tov_per_poss, 0.5, 1.6));
-    var sF = Math.log(clip((lg.ft_trips_per_poss + dF) / lg.ft_trips_per_poss, 0.5, 1.6));
+    var sF = Math.log(clip((lg.ft_trips_per_poss + dF) / lg.ft_trips_per_poss, 0.5, 1.6)) + (whistle || 0);
     for (i = 0; i < 5; i++) {
       var p = L[i];
       w[i] = To.usg_w[p] / us;
@@ -247,7 +247,7 @@
         p = need;
         if (seg === 0 || seg === (nsegReg >> 1)) p += 2 * (T.starter[i] ? 1 : 0);
         if (seg >= nsegReg - 2 && Math.abs(margin) <= 10) p += 0.6 * M[i] / 40;
-        if (consec[i] >= 3) p -= 0.25 * (consec[i] - 2);
+        if (consec[i] >= 3) p -= 0.25 * (consec[i] - 2) * clip(2 * (1 - M[i] / 40), 0, 1);
         if (blow) p = M[i] > 0 ? 100 - M[i] : -50;
       }
       if (!(M[i] > 0)) p = -100;
@@ -308,16 +308,31 @@
     function periodEnd(p) { return p <= 4 ? 600 * p : 2400 + 300 * (p - 4); }
 
     var MsBuf = TM.map(function (T) { return new Float64Array(T.n); });
+    var beta = sim.min_boost || 0;
+    var baseMin = TM.map(function (T) {
+      var b = T.minutes.map(function (m) { return m > 0 ? m * Math.pow(Math.max(m, 0.1) / 20, beta) : 0; });
+      var tot = b.reduce(function (x, y) { return x + y; }, 0);
+      return b.map(function (x) { return x * 200 / Math.max(tot, 1e-9); });
+    });
+    // expected home margin (analytic) - anchor for the score effect
+    var Pg = lg.poss_per_team_game, netH = 0, netA = 0, ii;
+    for (ii = 0; ii < H.n; ii++) netH += H.minutes[ii] / 40 * (H.O[ii] + H.D[ii]);
+    for (ii = 0; ii < A.n; ii++) netA += A.minutes[ii] / 40 * (A.O[ii] + A.D[ii]);
+    var mExp = (netH - netA + ctx[0] - ctx[1]) * Pg / 100;
+    var effSd = sim.eff_shock_sd || 0, whSd = sim.whistle_sd || 0, paceSd = sim.pace_shock_sd || 0;
     var playedBuf = TM.map(function (T) { return new Float64Array(T.n); });
     var consecBuf = TM.map(function (T) { return new Float64Array(T.n); });
     for (var s = 0; s < S; s++) {
       // minutes targets
+      // minutes targets: mean-preserving log-normal noise around m*(m/20)^beta (rescaled to 200)
       var Ms = TM.map(function (T, ti) {
-        var M = MsBuf[ti], i;
+        var M = MsBuf[ti], i, base = baseMin[ti];
         for (i = 0; i < T.n; i++) {
-          var sd = Math.min(T.min_sd[i], 0.5 * T.minutes[i] + 2);
+          var m = T.minutes[i];
+          var sd = Math.min(Math.min(T.min_sd[i], 0.5 * m + 2), 0.6 * Math.max(40 - m, 0) + 1);
+          var sr = Math.min(sd / Math.max(m, 1), 0.6);
           var z = rng.normal();
-          M[i] = T.minutes[i] > 0 ? clip(T.minutes[i] + sd * z, 0, sim.min_cap) : 0;
+          M[i] = m > 0 ? base[i] * Math.exp(sr * z - 0.5 * sr * sr) : 0;
         }
         for (var it = 0; it < 3; it++) {
           var tot = 0; for (i = 0; i < T.n; i++) tot += M[i];
@@ -329,6 +344,8 @@
       var played = playedBuf, consec = consecBuf;
       played[0].fill(0); played[1].fill(0); consec[0].fill(0); consec[1].fill(0);
       var score = [0, 0], qsum = [0, 0], clock = 0, stealFlag = false, nposs = 0;
+      // shared game-level shocks (both teams): efficiency, whistle, pace
+      var eps = effSd * rng.normal(), whis = whSd * rng.normal(), pmul = Math.exp(paceSd * rng.normal() - 0.5 * paceSd * paceSd);
       var possTeam = rng.u() < 0.5 ? 1 : 0, firstTeam = possTeam;
       var otPlayed = 0;
 
@@ -338,15 +355,16 @@
         chooseLineup(A, Ms[1], played[1], consec[1], seg, nsegReg, -marginH, period, remReg, prm, ot, Ltmp[1]);
         var Lh = Ltmp[0], La = Ltmp[1];
         var cal = calBuf;
-        calibrate(prm, H, A, Lh, La, ctx[0], paceOff[0], paceDef[1], cal[0]);
-        calibrate(prm, A, H, La, Lh, ctx[1], paceOff[1], paceDef[0], cal[1]);
+        calibrate(prm, H, A, Lh, La, ctx[0] + eps, paceOff[0], paceDef[1], cal[0], whis);
+        calibrate(prm, A, H, La, Lh, ctx[1] + eps, paceOff[1], paceDef[0], cal[1], whis);
         var lus = Ltmp, offBase = offBaseArr;
         var pend = periodEnd(period), t = Math.max(clock, t0);
         while (t < t1 - 1e-9 && t < pend - 1e-9) {
           var o = possTeam, dd = 1 - o, C = cal[o], To = TM[o], Td = TM[dd], offL = lus[o], defL = lus[dd];
           var ob = offBase[o], db = offBase[dd];
           var rem = pend - t, lead = score[o] - score[dd], late = period >= 4 && rem <= 120;
-          var mu = C.mu;
+          var leadAdj = lead - (o === 0 ? 1 : -1) * mExp * Math.min(t / 2400, 1);
+          var mu = C.mu * pmul;
           if (stealFlag) mu *= (prm.pace.steal_factor || 0.8);
           if (late && lead > 0 && rem > 24) mu = 21;
           if (late && lead < 0) mu = 9;
@@ -392,7 +410,7 @@
               for (i = 0; i < 5; i++) zw[i] = mx[i] * (trail3 && i >= 3 ? 1.8 : 1);
               var z = catSample(zw, 5, rng.u()), three = z >= 3;
               add(gpid, FGA, s, 1); if (three) add(gpid, FG3A, s, 1);
-              if (rng.u() < C.Q[u][z] * clip(1 - (sim.score_effect || 0) * clip(lead, -25, 25), 0.5, 1.5)) {
+              if (rng.u() < C.Q[u][z] * clip(1 - (sim.score_effect || 0) * clip(leadAdj, -25, 25), 0.5, 1.5)) {
                 var v = three ? 3 : 2;
                 add(gpid, FGM, s, 1); if (three) add(gpid, FG3M, s, 1); add(gpid, PTS, s, v); score[o] += v;
                 if (rng.u() < To.and1[pl]) {
