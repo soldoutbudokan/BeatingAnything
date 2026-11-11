@@ -1370,7 +1370,7 @@ function heatmap(el, opts) {
     const isDiv = o.center != null;
     let lo, hi; if (o.domain) [lo, hi] = o.domain; else [lo, hi] = stats.extent(all);
     const dev = isDiv ? Math.max(Math.abs(lo - o.center), Math.abs(hi - o.center)) || 1 : 0;
-    const labW = Math.min(W * 0.3, Math.max(...R.map(r => textW(r, 11))) + 10);
+    const labW = Math.min(W * 0.3, Math.max(...R.map(r => textW(r, 12.5))) + 14);
     const cw = clamp((W - labW - 4) / Math.max(1, C.length), 18, o.maxCell || 64);
     const rot = C.some(c => textW(c, 10.5) > cw - 4);
     const headH = rot ? Math.min(90, Math.max(...C.map(c => textW(c, 10.5))) * 0.75 + 12) : 18;
@@ -1601,7 +1601,7 @@ function fmtStampDate(s) {
 function stampFromMeta(m) {
   if (!m) return '';
   const cut = m.data_through || m.data_cutoff || m.cutoff || m.through || m.as_of;
-  const built = m.built_utc || m.generated_utc || m.build_utc || m.built_at || m.generated_at || m.built || m.generated;
+  const built = m.built_utc || m.generated_utc || m.build_utc || m.built_at || m.generated_at || m.built || m.generated || m.build_date || m.built_date;
   const ver = m.version || m.model_version || (m.commit || m.git_sha || m.sha ? String(m.commit || m.git_sha || m.sha).slice(0, 7) : null);
   return [cut && 'Data to ' + fmtStampDate(cut), built && 'Built ' + fmtStampDate(built), ver && (String(ver).match(/^\d/) ? 'v' + ver : ver)].filter(Boolean).join(' · ');
 }

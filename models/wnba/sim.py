@@ -140,7 +140,7 @@ class Team:
 
 
 # %% calibration of a lineup matchup (vectorised over sims)
-def calibrate(prm, Toff, Tdef, L, M, ctx_pts100, team_off_pace, team_def_pace, trail3=None):
+def calibrate(prm, Toff, Tdef, L, M, ctx_pts100, team_off_pace, team_def_pace, trail3=None, whistle=0.0):
     """L, M: (S,5) indices into Toff/Tdef. Returns dict of per-sim arrays."""
     lg = prm["league"]
     u = Toff.usg_w[L]
@@ -148,7 +148,7 @@ def calibrate(prm, Toff, Tdef, L, M, ctx_pts100, team_off_pace, team_def_pace, t
     dT = -Tdef.ff_tov_D[M].sum(1) / 100.0 * prm["sim"]["ff_def_weight"]
     dF = -Tdef.ff_ftr_D[M].sum(1) / 100.0 * prm["sim"]["ff_def_weight"]
     sT = np.log(np.clip((lg["tov_per_poss"] + dT) / lg["tov_per_poss"], 0.5, 1.6))
-    sF = np.log(np.clip((lg["ft_trips_per_poss"] + dF) / lg["ft_trips_per_poss"], 0.5, 1.6))
+    sF = np.log(np.clip((lg["ft_trips_per_poss"] + dF) / lg["ft_trips_per_poss"], 0.5, 1.6)) + whistle
     t = expit(logit(Toff.tov[L]) + sT[:, None])
     f = expit(logit(Toff.sfd[L]) + sF[:, None])
     tf = t + f
@@ -202,7 +202,7 @@ def choose_lineups(T, M, played, consec, seg, nseg_reg, margin, period, rem_reg_
         close = (np.abs(margin) <= 10)[:, None]
         if seg >= nseg_reg - 2:
             pri = pri + np.where(close, 0.6 * M / 40.0, 0.0)
-        pri = pri - np.where(consec >= 3, 0.25 * (consec - 2), 0.0)
+        pri = pri - np.where(consec >= 3, 0.25 * (consec - 2) * np.clip(2.0 * (1.0 - M / 40.0), 0.0, 1.0), 0.0)
         # blowout: 4th quarter
         blow = np.zeros(S, bool)
         if period == 4:
@@ -263,14 +263,30 @@ def simulate(prm, home, away, n_sims=10000, seed=1, opts=None, keep_games=False)
     sim = prm["sim"]
     lg = prm["league"]
     ctx = context_pts100(prm, opts)
+    # shared game-level shocks (same draw for both teams): efficiency (per 100) and whistle (log FT-trip rate)
+    eps = rng.normal(0.0, sim.get("eff_shock_sd", 0.0), S)
+    whis = rng.normal(0.0, sim.get("whistle_sd", 0.0), S)
+    psd = sim.get("pace_shock_sd", 0.0)
+    pmul = np.exp(rng.normal(0.0, psd, S) - 0.5 * psd ** 2)
+    # expected home margin (analytic, from the ratings and context): the score effect pulls toward the
+    # expected trajectory M * t / 2400 rather than toward a tie, so it does not compress expected margins
+    Pg = lg["poss_per_team_game"]
+    m_exp = (float((H.minutes / 40 * (H.O + H.D)).sum()) - float((A.minutes / 40 * (A.O + A.D)).sum()) + ctx[0] - ctx[1]) * Pg / 100
     pace_off = [prm["pace"]["team_off"].get(str(T.tid), 0.0) if T.tid is not None else 0.0 for T in TM]
     pace_def = [prm["pace"]["team_def"].get(str(T.tid), 0.0) if T.tid is not None else 0.0 for T in TM]
-    # minutes targets
+    # minutes targets: mean-preserving log-normal noise around a "boosted" base (m * (m/20)^beta, rescaled
+    # to 200) - the boost offsets blowout benching / rotation-grid losses so realised minutes match m.
     Ms = []
+    beta = sim.get("min_boost", 0.0)
     for T in TM:
-        sd = np.minimum(T.min_sd, 0.5 * T.minutes + 2.0)
-        Mt = np.clip(T.minutes[None, :] + sd[None, :] * rng.standard_normal((S, T.n)), 0, sim["min_cap"])
-        Mt = np.where(T.minutes[None, :] > 0, Mt, 0.0)
+        m = T.minutes
+        base = np.where(m > 0, m * (np.maximum(m, 0.1) / 20.0) ** beta, 0.0)
+        base = base * (200.0 / max(base.sum(), 1e-9))
+        sd = np.minimum(np.minimum(T.min_sd, 0.5 * m + 2.0), 0.6 * np.maximum(40.0 - m, 0.0) + 1.0)
+        sr = np.minimum(sd / np.maximum(m, 1.0), 0.6)
+        z = rng.standard_normal((S, T.n))
+        Mt = base[None, :] * np.exp(sr[None, :] * z - 0.5 * sr[None, :] ** 2)
+        Mt = np.where(m[None, :] > 0, Mt, 0.0)
         for _ in range(3):
             Mt = np.minimum(Mt * (200.0 / np.maximum(Mt.sum(1, keepdims=True), 1e-9)), sim["min_cap"])
         Ms.append(Mt)
@@ -307,8 +323,8 @@ def simulate(prm, home, away, n_sims=10000, seed=1, opts=None, keep_games=False)
             picks.append(pk)
         if keep_games:
             lineup_log.append((idx, t0, t1, lus[0].copy(), lus[1].copy()))
-        cal = [calibrate(prm, TM[0], TM[1], lus[0], lus[1], ctx[0], pace_off[0], pace_def[1]),
-               calibrate(prm, TM[1], TM[0], lus[1], lus[0], ctx[1], pace_off[1], pace_def[0])]
+        cal = [calibrate(prm, TM[0], TM[1], lus[0], lus[1], ctx[0] + eps[idx], pace_off[0], pace_def[1], whistle=whis[idx]),
+               calibrate(prm, TM[1], TM[0], lus[1], lus[0], ctx[1] + eps[idx], pace_off[1], pace_def[0], whistle=whis[idx])]
         pend = period_end(period)
         t = np.maximum(clock[idx], t0)
         live = (t < t1 - 1e-9) & (t < pend - 1e-9)
@@ -332,7 +348,9 @@ def simulate(prm, home, away, n_sims=10000, seed=1, opts=None, keep_games=False)
             so = score[gs, o]
             sd_ = score[gs, d_]
             lead = so - sd_
+            lead_adj = lead - np.where(o == 0, 1.0, -1.0) * m_exp * np.minimum(t[j] / 2400.0, 1.0)
             late = (period >= 4) & (rem <= 120)
+            mu = mu * pmul[gs]
             mu = np.where(steal_flag[gs], mu * prm["pace"].get("steal_factor", 0.8), mu)
             mu = np.where(late & (lead > 0) & (rem > 24), 21.0, mu)
             mu = np.where(late & (lead < 0), 9.0, mu)
@@ -420,7 +438,7 @@ def simulate(prm, home, away, n_sims=10000, seed=1, opts=None, keep_games=False)
                     if trail3[k[m]].any():
                         mx = np.where(trail3[k[m]][:, None], mx * np.array([1, 1, 1, 1.8, 1.8]), mx)
                     z = cat_sample(mx, r[m, 2])
-                    qz = Q[k[m], u[m], z] * np.clip(1.0 - sim.get("score_effect", 0.0) * np.clip(lead[k[m]], -25, 25), 0.5, 1.5)
+                    qz = Q[k[m], u[m], z] * np.clip(1.0 - sim.get("score_effect", 0.0) * np.clip(lead_adj[k[m]], -25, 25), 0.5, 1.5)
                     made = r[m, 3] < qz
                     three = z >= 3
                     box[SI["fga"], gk[m], pid[m]] += 1

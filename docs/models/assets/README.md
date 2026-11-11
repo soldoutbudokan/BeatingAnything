@@ -106,7 +106,7 @@ wb.activate('teams');  wb.sheet('teams');  wb.setStamp('…');  wb.meta /* loade
 
 Each sheet remembers its own state while you switch tabs. With two grids on one sheet, give each one a `stateKey` (for example `'b'`) so their keys don't collide (`b.sort=…`).
 
-`Sheets.stampFromMeta(meta)` is schema-tolerant. It looks for `data_through | data_cutoff | cutoff | through | as_of`, then `built_utc | generated_utc | build_utc | built_at | generated_at | built | generated`, then `version | model_version | commit | git_sha | sha`. The result looks like `Data to 2026-11-01 · Built 2026-11-10 14:02 UTC · v1.2`.
+`Sheets.stampFromMeta(meta)` is schema-tolerant. It looks for `data_through | data_cutoff | cutoff | through | as_of`, then `built_utc | generated_utc | build_utc | built_at | generated_at | built | generated | build_date | built_date`, then `version | model_version | commit | git_sha | sha`. The result looks like `Data to 2026-11-01 · Built 2026-11-10 14:02 UTC · v1.2`.
 
 ## 3. Grid
 

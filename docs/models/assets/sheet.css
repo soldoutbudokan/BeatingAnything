@@ -127,7 +127,8 @@ body.sh-app{height:100vh;height:100dvh;overflow:hidden}
 .sg thead tr.sg-gh th{top:0;height:22px;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-align:left;
   border-bottom:1px solid var(--rule);border-left:1px solid var(--rule);padding-left:8px}
 .sg thead tr.sg-gh th.sg-g0{border-left:0}
-.sg thead tr.sg-gh th span{position:sticky;left:calc(var(--fw,0px) + 8px)}
+/* group label sits at the start of its group (a sticky span inside the sticky th was offset by --fw instead of sticking) */
+.sg thead tr.sg-gh th span{position:static}
 .sg thead tr.sg-gh th.fz span{position:static}
 .sg thead tr.sg-ch th{top:var(--gh,22px);height:30px;font-size:11.5px;border-bottom:1px solid var(--base);cursor:pointer;position:sticky}
 .sg thead tr.sg-ch th .sg-hl{display:inline-flex;align-items:center;gap:3px;max-width:100%;vertical-align:middle}

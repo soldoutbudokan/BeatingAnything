@@ -8,7 +8,7 @@ import importlib
 import sys
 import time
 
-STEPS = ["download", "parse_pbp", "shot_model", "rosters", "rapm", "skills", "minutes", "context", "params",
+STEPS = ["download", "parse_pbp", "shot_model", "rosters", "rapm", "skills", "minutes", "context", "params", "game_effects",
          "export", "diagnostics", "parity"]
 
 
