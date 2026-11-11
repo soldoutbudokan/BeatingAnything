@@ -1,0 +1,41 @@
+cricsheet_id,name,bat_hand,bowl_type,confidence,note
+64839cb3,M Pathirana,,RF,high,cricketdata RM stale; Cricinfo now right-arm fast
+b1ad996b,MP Yadav,,RF,high,Mayank Yadav 150kph; cricketdata RFM
+83c3e8e3,SH Johnson,,LF,high,Spencer Johnson left-arm fast
+cb9b8664,W O'Rourke,,RF,medium,Will O'Rourke right-arm fast
+a2f46292,KK Ahmed,,LFM,high,Khaleel Ahmed left-arm fast-medium
+12314277,Arshad Khan,,LFM,medium,left-arm medium-fast
+4b31f3a3,Yash Thakur,,RFM,medium,right-arm fast-medium
+c3c92b42,RS Hangargekar,,RFM,medium,right-arm fast-medium
+77b1aa15,Harshit Rana,,RF,medium,Cricinfo right-arm fast
+107c26fb,KT Maphaka,,LF,high,Kwena Maphaka left-arm fast
+50c6bc2b,LS Livingstone,,LB,medium,bowls both leg- and off-spin; legbreak primary
+04a418e8,R Parag,,OB,medium,bowls mostly off-spin in recent IPL seasons (also legbreak)
+1f84183a,Nikhil Chaudhary,,LB,high,"leg-spinner (BBL Hobart); one source said googly, other offbreak"
+fb2d1dda,N Rana,,OB,high,"Nitish Rana bowls right-arm off-break, not medium"
+46a9bea1,TU Deshpande,,RFM,medium,right-arm medium-fast
+2e81a32d,B Kumar,,RFM,medium,Bhuvneshwar right-arm medium-fast
+fcc21ace,A Kamboj,,RFM,medium,Anshul Kamboj right-arm medium-fast
+b8527c3d,Rasikh Salam,,RFM,medium,right-arm medium-fast
+280fff14,Sakib Hussain,,RFM,medium,right-arm fast-medium
+798cc28e,KM Asif,,RFM,medium,right-arm medium-fast
+dcf81436,S Kaul,,RFM,medium,Siddarth Kaul right-arm medium-fast
+765a4731,Mukesh Choudhary,,LFM,medium,left-arm medium-fast
+ce794613,T Natarajan,,LFM,medium,left-arm medium-fast
+d45c29b1,Ashwani Kumar,,LFM,medium,left-arm medium-fast
+7b679de5,Kartik Sharma,R,none,medium,CSK wicketkeeper-batter (2026)
+50c09020,Ashok Sharma,R,RFM,low,Rajasthan right-arm fast bowler
+ece7b6b3,PP Hinge,,RFM,low,"Praful Hinge, Vidarbha right-arm pacer"
+cc61ee8f,Gurjapneet Singh,,LFM,medium,Tamil Nadu left-arm fast bowler
+82c10dac,Abhinandan Singh,,RFM,low,right-arm pacer (RCB)
+7b44eb3e,Shivang Kumar,,SLW,low,MP left-arm wrist spinner
+c1e53c3f,R Smaran,L,,medium,Ravichandran Smaran left-hand batter
+26a8b2fe,Hassan Nawaz,R,none,medium,Pakistan top-order batter; cricketdata row had mismatched cricinfo id
+09a9d073,J Charles,R,none,high,"Johnson Charles, WI opener/keeper, barely bowls"
+961b8ff1,TP Alsop,,none,medium,Tom Alsop wicketkeeper-batter
+bbff906c,CAK Walton,,none,high,Chadwick Walton wicketkeeper
+6d9560f3,Maaz Sadaqat,L,SLA,medium,"Pakistan left-hand bat, left-arm orthodox"
+4b51bd51,Mahmudul Hasan Joy,,OB,low,occasional off-spin
+33609a8c,Saim Ayub,,OB,high,cricketdata says RFM; Saim Ayub bowls right-arm off-break
+a8e54ef4,Aamer Jamal,,RFM,medium,right-arm fast-medium
+1747ea18,DS Airee,,OB,medium,bowls mostly off-spin in T20Is (also medium)
