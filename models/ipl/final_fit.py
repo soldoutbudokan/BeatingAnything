@@ -15,16 +15,16 @@ def best_hyper():
     if not p.exists():
         return 2.5, DEFAULT_LAM, None
     res = [r for r in json.loads(p.read_text()) if r["lam"]["bat"] < 1e8]
-    r = min(res, key=lambda r: r["ll_all"])
+    r = min(res, key=lambda r: r["ll_ipl"] + r["ll_all"])  # IPL holdout and all-T20 holdout weighted equally
     return r["half_life"], r["lam"], r
 
 
 # %% fit
-def main(maxiter=600):
+def main(maxiter=1000):
     f, cov = load()
     H, lam, r = best_hyper()
     ref = f["date"].max()
-    fitr, D, idx = fit_model(f, cov, lam, H, ref, maxiter=maxiter)
+    fitr, D, idx = fit_model(f, cov, lam, H, ref, maxiter=maxiter, tol=1e-10)
     hd = fitr.hessian_diag()
     sd = 1.0 / np.sqrt(hd)
     out = dict(W=fitr.W, sd=sd, blocks=D.blocks, p=D.p, half_life=H, lam=lam, ref_date=str(ref.date()),

@@ -8,6 +8,13 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+try:  # shared 4-core box: cap BLAS/OpenMP threads (spin contention makes oversubscription very slow)
+    from threadpoolctl import threadpool_limits
+
+    threadpool_limits(limits=2)
+except Exception:  # pragma: no cover
+    pass
+
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw" / "wnba"
 PROC = ROOT / "data" / "processed" / "wnba"

@@ -11,6 +11,8 @@ RRR_EDGES = [-1e9, 6, 7.5, 9, 10.5, 12, 14, 17, 1e9]
 RRR_LABELS = ["<6", "6-7.5", "7.5-9", "9-10.5", "10.5-12", "12-14", "14-17", "17+"]
 SUBTYPES = ["pace_R", "pace_L", "OB", "LB", "SLA", "SLW", "pace_U", "spin_U"]
 EARLY_BF = 10  # settling split: first 10 balls of an innings
+EXP_EDGES = [0, 60, 200, 600, 1500, 4000]  # career deliveries buckets for the experience prior
+EXP_LABELS = ["<60", "60-199", "200-599", "600-1499", "1500-3999", "4000+"]
 
 
 def subtype_of(bowl_type, group):
@@ -155,6 +157,13 @@ def player_covariates(b, st):
     cov["bat_pos_med"] = pos.reindex(allp)
     cov["role_bowl"] = role_bowl.reindex(allp).fillna("pace_part")
     cov["overs_per_match"] = ov.reindex(allp)
+    # experience (career deliveries) -> low-sample players regress toward the weaker mean of low-sample players
+    nb = b[b["cls"] != "wide"].groupby("batter").size().reindex(allp).fillna(0)
+    nw = b[b["legal"]].groupby("bowler").size().reindex(allp).fillna(0)
+    cov["exp_bat"] = np.searchsorted(EXP_EDGES, nb.to_numpy(), side="right") - 1
+    cov["exp_bowl"] = np.searchsorted(EXP_EDGES, nw.to_numpy(), side="right") - 1
+    cov["career_balls_faced"] = nb.astype(int)
+    cov["career_balls_bowled"] = nw.astype(int)
     for t in TIERS:
         cov["bat_tier_" + t] = tb[t].reindex(allp).fillna(0)
         cov["bowl_tier_" + t] = tw[t].reindex(allp).fillna(0)

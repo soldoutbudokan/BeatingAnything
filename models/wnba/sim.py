@@ -116,7 +116,7 @@ class Team:
         self.names = [r["name"] for r in rows]
         self.tid = tid
         g = lambda k: np.array([float(r[k]) for r in rows])  # noqa: E731
-        for k in ["O", "D", "usg", "tov", "sfd", "trip3", "and1", "ftp", "ast", "astd", "orb", "drb", "stl", "blk",
+        for k in ["O", "D", "usg", "usg_w", "tov", "sfd", "trip3", "and1", "ftp", "ast", "astd", "orb", "drb", "stl", "blk",
                   "pace_o", "pace_d", "ff_tov_D", "ff_ftr_D", "min_sd"]:
             setattr(self, k, g(k))
         from models.wnba.common import ZONES
@@ -131,7 +131,8 @@ class Team:
         self.minutes = reallocate(m, self.posg, out, fixed=fixed, cap=params["sim"]["realloc_cap"])
         self.starter = np.zeros(len(rows), bool)
         # starters: flagged starters still active, topped up by minutes
-        flag = np.array([bool(r["starter"]) for r in rows]) & ~out
+        flag = np.array([bool(x["starter"]) if x.get("starter") is not None else bool(r["starter"])
+                         for x, r in zip(plist, rows)]) & ~out
         order = np.lexsort((-self.minutes, -flag.astype(int)))
         self.starter[order[:5]] = True
         self.out = out
@@ -142,7 +143,7 @@ class Team:
 def calibrate(prm, Toff, Tdef, L, M, ctx_pts100, team_off_pace, team_def_pace, trail3=None):
     """L, M: (S,5) indices into Toff/Tdef. Returns dict of per-sim arrays."""
     lg = prm["league"]
-    u = Toff.usg[L]
+    u = Toff.usg_w[L]
     w = u / u.sum(1, keepdims=True)
     dT = -Tdef.ff_tov_D[M].sum(1) / 100.0 * prm["sim"]["ff_def_weight"]
     dF = -Tdef.ff_ftr_D[M].sum(1) / 100.0 * prm["sim"]["ff_def_weight"]
@@ -332,7 +333,7 @@ def simulate(prm, home, away, n_sims=10000, seed=1, opts=None, keep_games=False)
             sd_ = score[gs, d_]
             lead = so - sd_
             late = (period >= 4) & (rem <= 120)
-            mu = np.where(steal_flag[gs], mu * 0.7, mu)
+            mu = np.where(steal_flag[gs], mu * prm["pace"].get("steal_factor", 0.8), mu)
             mu = np.where(late & (lead > 0) & (rem > 24), 21.0, mu)
             mu = np.where(late & (lead < 0), 9.0, mu)
             foul = (period >= 4) & (rem <= sim["late_foul_sec"]) & (lead >= 1) & (lead <= sim["late_foul_max_lead"])
@@ -419,7 +420,7 @@ def simulate(prm, home, away, n_sims=10000, seed=1, opts=None, keep_games=False)
                     if trail3[k[m]].any():
                         mx = np.where(trail3[k[m]][:, None], mx * np.array([1, 1, 1, 1.8, 1.8]), mx)
                     z = cat_sample(mx, r[m, 2])
-                    qz = Q[k[m], u[m], z]
+                    qz = Q[k[m], u[m], z] * np.clip(1.0 - sim.get("score_effect", 0.0) * np.clip(lead[k[m]], -25, 25), 0.5, 1.5)
                     made = r[m, 3] < qz
                     three = z >= 3
                     box[SI["fga"], gk[m], pid[m]] += 1

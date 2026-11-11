@@ -9,7 +9,7 @@ import sys
 import time
 
 STEPS = ["download", "parse_pbp", "shot_model", "rosters", "rapm", "skills", "minutes", "context", "params",
-         "export", "diagnostics"]
+         "export", "diagnostics", "parity"]
 
 
 def main(argv):
@@ -25,6 +25,13 @@ def main(argv):
         t = time.time()
         if step == "download":
             mod.main(refresh="--refresh" in argv)
+        elif step == "parity":
+            import shutil
+            import subprocess
+            mod.main()
+            if shutil.which("node"):
+                from models.wnba.common import ROOT
+                subprocess.run(["node", str(ROOT / "models/wnba/parity_check.js")], check=False)
         else:
             mod.main(force=force or (start is not None and on))
         print(f"  [{step}] {time.time() - t:.1f}s")

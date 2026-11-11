@@ -88,6 +88,49 @@ def pace_model(poss, pidx, bounds):
                 team_off=team_off, team_def=team_def)
 
 
+def usage_strength(players, poss):
+    """Context-free usage strength. Observed usage is measured alongside real teammates, so a plain
+    u_i / sum(u) share double-penalises players who share the floor with other high-usage players.
+    Fit a_i so that, over the actual 2025-26 lineups (recency weighted), sum_poss plays_p * exp(a_i) /
+    sum_lineup exp(a_j) reproduces each player's projected usage x on-court possessions (fixed point)."""
+    q = poss[poss.season >= CUR - 1]
+    L = q[[f"o{k}" for k in range(5)]].values
+    plays = (q.fga + q.ft_trips - 0 + q.tov.clip(upper=1)).values.astype(float)
+    plays = np.where(plays > 0, plays, 1.0)
+    w = np.where(q.season.values == CUR, 1.0, 0.4)
+    ids = np.unique(L)
+    pos = {p: i for i, p in enumerate(ids)}
+    Li = np.vectorize(pos.get)(L)
+    n_on = np.bincount(Li.ravel(), weights=np.repeat(w, 5), minlength=len(ids))
+    U = {p["id"]: p["usg"] for p in players}
+    # league usage per possession for unknown ids (players not exported): position-free mean
+    u_mean = float(np.mean(list(U.values())))
+    u = np.array([U.get(int(p), u_mean) for p in ids])
+    # scale target so totals match observed plays
+    target = u * n_on
+    target *= (plays * w).sum() / target.sum()
+    a = np.log(u)
+    for _ in range(60):
+        e = np.exp(a)[Li]
+        sh = e / e.sum(1, keepdims=True)
+        pred = np.bincount(Li.ravel(), weights=(sh * (plays * w)[:, None]).ravel(), minlength=len(ids))
+        a += 0.8 * np.log(np.maximum(target, 1e-9) / np.maximum(pred, 1e-9))
+        a -= a.mean()
+    A = dict(zip(ids.astype(int), a))
+    have = [(A[p["id"]], np.log(p["usg"])) for p in players if p["id"] in A and n_on[pos[p["id"]]] > 200]
+    off = float(np.mean([x - y for x, y in have])) if have else 0.0
+    for p in players:
+        ok = p["id"] in A and n_on[pos[p["id"]]] > 200
+        # blend with log(u) by sample size (200 weighted possessions ~ half weight)
+        if p["id"] in A:
+            nn = n_on[pos[p["id"]]]
+            lam = nn / (nn + 200.0)
+            p["usg_w"] = float(np.exp(lam * A[p["id"]] + (1 - lam) * (np.log(p["usg"]) + off)))
+        else:
+            p["usg_w"] = float(np.exp(np.log(p["usg"]) + off))
+        del ok
+
+
 def main(force=False):
     out = PROC / "sim_params.json"
     if out.exists() and not force:
@@ -164,8 +207,14 @@ def main(force=False):
         rec["starter"] = bool(ro.starter) if ro is not None else False
         players.append(rec)
 
+    usage_strength(players, poss)
+
     teams = pd.read_parquet(PROC / "teams.parquet")
-    hca = ctx["hca"]["coef"]
+    # home court: the possession-level RAPM home coefficient (controls for the ten players on court) x league
+    # pace. The game-level ridge (context.py) gives 1.53 +- 0.27 but its team-season ridge absorbs part of it;
+    # raw 2017-26 home margin is 2.03. Re-simulating 2025-26 with 1.53 under-shot the real home win rate.
+    rm = json.loads((PROC / "rapm_meta.json").read_text())
+    hca = rm["home_coef_per100"] * L["poss_per_team_game"] / 100.0
     params = dict(
         version=1,
         league=L,
@@ -178,11 +227,21 @@ def main(force=False):
                   team_def={str(int(k)): float(v) for k, v in pace["team_def"].items()}),
         sim=dict(segment_sec=120.0, ot_segment_sec=150.0, min_cap=40.0, realloc_cap=38.0, max_c=2,
                  ff_def_weight=1.0, late_foul_sec=45.0, late_foul_max_lead=9, blowout=[[20, 360], [15, 180]],
-                 newton_iter=4, max_ot=6),
+                 newton_iter=4, max_ot=6, score_effect=0.0025),
         players=players,
         teams=[dict(id=int(t.team_id), abbr=t.abbr, name=t.team_display_name, color=t.team_color,
                     alt_color=t.team_alternate_color, logo=t.team_logo) for t in teams.itertuples()],
     )
+    params["pace"]["steal_factor"] = 0.8
+    # calibrate the league first-play time so simulated possessions match the 2026 league rate
+    from models.wnba.sim import simulate
+    ids = [t["id"] for t in params["teams"]]
+    rng = np.random.default_rng(0)
+    pairs = [tuple(rng.choice(ids, 2, replace=False)) for _ in range(14)]
+    for it in range(3):
+        n = np.mean([simulate(params, int(h), int(a), n_sims=1000, seed=it * 10 + k)["n_poss"].mean() / 2 for k, (h, a) in enumerate(pairs)])
+        params["pace"]["first_play_sec"] *= (n / L["poss_per_team_game"]) ** 1.2
+    params["pace"]["calibrated_poss"] = float(n)
     out.write_text(json.dumps(params))
     print(f"params: {len(players)} players, lg ortg {L['ortg']:.1f}, poss/g {L['poss_per_team_game']:.1f}, "
           f"first play {params['pace']['first_play_sec']:.1f}s, centre O {mo:.2f} D {md:.2f}")

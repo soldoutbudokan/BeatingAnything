@@ -128,12 +128,15 @@
     if (!plist) plist = params.players.filter(function (p) { return p.team === spec.team; }).map(function (p) { return { id: p.id }; });
     var rows = plist.map(function (x) { var r = params._byId[x.id]; if (!r) throw new Error('unknown player ' + x.id); return r; });
     var n = rows.length, T = { n: n, tid: spec.team, ids: [], names: [] };
-    var keys = ['O', 'D', 'usg', 'tov', 'sfd', 'trip3', 'and1', 'ftp', 'ast', 'astd', 'orb', 'drb', 'stl', 'blk',
+    var keys = ['O', 'D', 'usg', 'usg_w', 'tov', 'sfd', 'trip3', 'and1', 'ftp', 'ast', 'astd', 'orb', 'drb', 'stl', 'blk',
       'pace_o', 'pace_d', 'ff_tov_D', 'ff_ftr_D', 'min_sd'];
     keys.forEach(function (k) { T[k] = rows.map(function (r) { return +r[k]; }); });
     T.mix = rows.map(function (r) { return ZONES.map(function (z) { return r['mix_' + z]; }); });
     T.lfg = rows.map(function (r) { return ZONES.map(function (z) { return logit(r['fg_' + z]); }); });
+    T.efg = T.lfg.map(function (a) { return a.map(Math.exp); });
     T.posg = rows.map(function (r) { return POSG[r.pos_group] !== undefined ? POSG[r.pos_group] : 1; });
+    var zo = params.league.astd_zone_offset;
+    T.pastd = rows.map(function (r) { return zo.map(function (o) { return expit(logit(r.astd) + o); }); });
     T.ids = rows.map(function (r) { return r.id; });
     T.names = rows.map(function (r) { return r.name; });
     var fixed = plist.map(function (x) { return x.min !== undefined && x.min !== null; });
@@ -141,7 +144,10 @@
     var m = plist.map(function (x, i) { return fixed[i] ? +x.min : rows[i].min; });
     T.minutes = reallocate(m, T.posg, out, fixed, params.sim.realloc_cap, 200);
     T.out = out;
-    var flag = rows.map(function (r, i) { return !!r.starter && !out[i]; });
+    var flag = rows.map(function (r, i) {
+      var st = (plist[i].starter !== undefined && plist[i].starter !== null) ? plist[i].starter : r.starter;
+      return !!st && !out[i];
+    });
     var order = []; for (var i = 0; i < n; i++) order.push(i);
     order.sort(function (a, b) { return (flag[b] - flag[a]) || (T.minutes[b] - T.minutes[a]) || (a - b); });
     T.starter = new Array(n).fill(false);
@@ -161,10 +167,17 @@
   }
 
   // ---------------------------------------------------------------- calibration of a matchup
-  function calibrate(prm, To, Td, L, M, ctx, paceOff, paceDef) {
+  function newCal() {
+    var Q = []; for (var i = 0; i < 5; i++) Q.push(new Float64Array(5));
+    return { w: new Float64Array(5), t: new Float64Array(5), f: new Float64Array(5), g: new Float64Array(5), Q: Q,
+      porb: 0, porbft: 0, blkf: 0, stlp: 0, mu: 0, shift: 0, target: 0 };
+  }
+
+  function calibrate(prm, To, Td, L, M, ctx, paceOff, paceDef, out) {
     var lg = prm.league, sim = prm.sim, i, z, k;
-    var w = [], t = [], f = [], g = [], us = 0;
-    for (i = 0; i < 5; i++) us += To.usg[L[i]];
+    out = out || newCal();
+    var w = out.w, t = out.t, f = out.f, g = out.g, us = 0;
+    for (i = 0; i < 5; i++) us += To.usg_w[L[i]];
     var dT = 0, dF = 0, A = 0, B = 0, Os = 0, Ds = 0, blk = 0, stl = 0, po = 0, pd = 0;
     for (i = 0; i < 5; i++) {
       dT -= Td.ff_tov_D[M[i]]; dF -= Td.ff_ftr_D[M[i]];
@@ -178,7 +191,7 @@
     var sF = Math.log(clip((lg.ft_trips_per_poss + dF) / lg.ft_trips_per_poss, 0.5, 1.6));
     for (i = 0; i < 5; i++) {
       var p = L[i];
-      w[i] = To.usg[p] / us;
+      w[i] = To.usg_w[p] / us;
       var ti = expit(logit(To.tov[p]) + sT), fi = expit(logit(To.sfd[p]) + sF);
       var tf = ti + fi, sc = tf > 0.9 ? 0.9 / tf : 1;
       t[i] = ti * sc; f[i] = fi * sc; g[i] = 1 - t[i] - f[i];
@@ -195,32 +208,34 @@
     fixedC *= porbft;
     var d = 0;
     for (k = 0; k < sim.newton_iter; k++) {
-      var E = fixedPts, C = fixedC, Ep = 0, Cp = 0;
+      var E = fixedPts, C = fixedC, Ep = 0, Cp = 0, ed = Math.exp(d);
       for (i = 0; i < 5; i++) {
-        var q2 = L[i], a1f = To.and1[q2] * To.ftp[q2], se = 0, sc2 = 0, sep = 0, scp = 0;
+        var q2 = L[i], a1f = To.and1[q2] * To.ftp[q2], se = 0, sc2 = 0, sep = 0, scp = 0, ef = To.efg[q2], mxr = To.mix[q2];
         for (z = 0; z < 5; z++) {
-          var q = expit(To.lfg[q2][z] + d), mx = To.mix[q2][z], dq = q * (1 - q), val = ZV[z] + a1f;
+          var x = ef[z] * ed, q = x / (1 + x), mx = mxr[z], dq = q * (1 - q), val = ZV[z] + a1f;
           se += mx * q * val; sc2 += mx * (1 - q); sep += mx * dq * val; scp += mx * dq;
         }
-        E += w[i] * g[i] * se; C += w[i] * g[i] * sc2 * porb; Ep += w[i] * g[i] * sep; Cp -= w[i] * g[i] * scp * porb;
+        var wg = w[i] * g[i];
+        E += wg * se; C += wg * sc2 * porb; Ep += wg * sep; Cp -= wg * scp * porb;
       }
       var ppp = E / (1 - C), dppp = (Ep * (1 - C) + E * Cp) / ((1 - C) * (1 - C));
       d = clip(d - (ppp - target) / dppp, -1.5, 1.5);
     }
-    var Q = [];
-    for (i = 0; i < 5; i++) { Q[i] = []; for (z = 0; z < 5; z++) Q[i][z] = expit(To.lfg[L[i]][z] + d); }
-    var mu = prm.pace.first_play_sec + po + pd + paceOff + paceDef;
-    return {
-      w: w, t: t, f: f, Q: Q, porb: porb, porbft: porbft,
-      blkf: blk / (5 * lg.lg_player_blk),
-      stlp: clip(lg.steal_share_of_tov * stl / (5 * lg.lg_player_stl), 0, 0.95),
-      mu: clip(mu, 8, 22), shift: d, target: target
-    };
+    var edf = Math.exp(d);
+    for (i = 0; i < 5; i++) { var row = out.Q[i], eff = To.efg[L[i]]; for (z = 0; z < 5; z++) { var xx = eff[z] * edf; row[z] = xx / (1 + xx); } }
+    out.porb = porb; out.porbft = porbft;
+    out.blkf = blk / (5 * lg.lg_player_blk);
+    out.stlp = clip(lg.steal_share_of_tov * stl / (5 * lg.lg_player_stl), 0, 0.95);
+    out.mu = clip(prm.pace.first_play_sec + po + pd + paceOff + paceDef, 8, 22);
+    out.shift = d; out.target = target;
+    return out;
   }
 
   // ---------------------------------------------------------------- lineup choice (one sim)
   function chooseLineup(T, M, played, consec, seg, nsegReg, margin, period, remRegSec, prm, ot, outL) {
-    var n = T.n, i, k, pri = new Float64Array(n), remMin = Math.max(remRegSec / 60, 2);
+    var n = T.n, i, k, remMin = Math.max(remRegSec / 60, 2);
+    if (!T._pri) { T._pri = new Float64Array(n); T._picked = new Uint8Array(n); }
+    var pri = T._pri;
     var blow = false;
     if (!ot && period === 4) {
       prm.sim.blowout.forEach(function (b) { if (Math.abs(margin) >= b[0] && remRegSec <= b[1]) blow = true; });
@@ -239,7 +254,8 @@
       if (T.out[i]) p = -1e9;
       pri[i] = p;
     }
-    var picked = new Uint8Array(n), nC = 0, hasG = false;
+    var picked = T._picked, nC = 0, hasG = false;
+    picked.fill(0);
     for (k = 0; k < 5; k++) {
       var best = -1, bv = -Infinity;
       for (i = 0; i < n; i++) {
@@ -272,16 +288,32 @@
     for (var pq = 0; pq < maxP; pq++) { qsH.push(new Float64Array(S)); qsA.push(new Float64Array(S)); }
     var segLen = sim.segment_sec, nsegReg = Math.round(2400 / segLen), zoff = lg.astd_zone_offset, bz = lg.blk_given_miss_zone;
     var gsh = prm.pace.gamma_shape, orbSec = prm.pace.orb_play_sec;
-    var Ltmp = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
+    var Ltmp = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], offBaseArr = [0, H.n];
     var wtmp = new Float64Array(5);
 
     function add(g, stat, s, v) { box[g * NST + stat][s] += v; }
+    function rebound(off, To, Td, offL, defL, ob, db, s) {
+      var j;
+      if (off) {
+        if (rng.u() < lg.orb_player_credit) {
+          for (j = 0; j < 5; j++) wtmp[j] = To.orb[offL[j]];
+          add(ob + offL[catSample(wtmp, 5, rng.u())], ORB, s, 1);
+        }
+      } else if (rng.u() < lg.drb_player_credit) {
+        for (j = 0; j < 5; j++) wtmp[j] = Td.drb[defL[j]];
+        add(db + defL[catSample(wtmp, 5, rng.u())], DRB, s, 1);
+      }
+    }
+    var calBuf = [newCal(), newCal()];
     function periodEnd(p) { return p <= 4 ? 600 * p : 2400 + 300 * (p - 4); }
 
+    var MsBuf = TM.map(function (T) { return new Float64Array(T.n); });
+    var playedBuf = TM.map(function (T) { return new Float64Array(T.n); });
+    var consecBuf = TM.map(function (T) { return new Float64Array(T.n); });
     for (var s = 0; s < S; s++) {
       // minutes targets
-      var Ms = TM.map(function (T) {
-        var M = new Float64Array(T.n), i;
+      var Ms = TM.map(function (T, ti) {
+        var M = MsBuf[ti], i;
         for (i = 0; i < T.n; i++) {
           var sd = Math.min(T.min_sd[i], 0.5 * T.minutes[i] + 2);
           var z = rng.normal();
@@ -294,8 +326,8 @@
         }
         return M;
       });
-      var played = TM.map(function (T) { return new Float64Array(T.n); });
-      var consec = TM.map(function (T) { return new Float64Array(T.n); });
+      var played = playedBuf, consec = consecBuf;
+      played[0].fill(0); played[1].fill(0); consec[0].fill(0); consec[1].fill(0);
       var score = [0, 0], qsum = [0, 0], clock = 0, stealFlag = false, nposs = 0;
       var possTeam = rng.u() < 0.5 ? 1 : 0, firstTeam = possTeam;
       var otPlayed = 0;
@@ -304,17 +336,18 @@
         var marginH = score[0] - score[1], remReg = Math.max(2400 - t0, 0);
         chooseLineup(H, Ms[0], played[0], consec[0], seg, nsegReg, marginH, period, remReg, prm, ot, Ltmp[0]);
         chooseLineup(A, Ms[1], played[1], consec[1], seg, nsegReg, -marginH, period, remReg, prm, ot, Ltmp[1]);
-        var Lh = Ltmp[0].slice(), La = Ltmp[1].slice();
-        var cal = [calibrate(prm, H, A, Lh, La, ctx[0], paceOff[0], paceDef[1]),
-          calibrate(prm, A, H, La, Lh, ctx[1], paceOff[1], paceDef[0])];
-        var lus = [Lh, La], offBase = [0, H.n];
+        var Lh = Ltmp[0], La = Ltmp[1];
+        var cal = calBuf;
+        calibrate(prm, H, A, Lh, La, ctx[0], paceOff[0], paceDef[1], cal[0]);
+        calibrate(prm, A, H, La, Lh, ctx[1], paceOff[1], paceDef[0], cal[1]);
+        var lus = Ltmp, offBase = offBaseArr;
         var pend = periodEnd(period), t = Math.max(clock, t0);
         while (t < t1 - 1e-9 && t < pend - 1e-9) {
           var o = possTeam, dd = 1 - o, C = cal[o], To = TM[o], Td = TM[dd], offL = lus[o], defL = lus[dd];
           var ob = offBase[o], db = offBase[dd];
           var rem = pend - t, lead = score[o] - score[dd], late = period >= 4 && rem <= 120;
           var mu = C.mu;
-          if (stealFlag) mu *= 0.7;
+          if (stealFlag) mu *= (prm.pace.steal_factor || 0.8);
           if (late && lead > 0 && rem > 24) mu = 21;
           if (late && lead < 0) mu = 9;
           var foul = period >= 4 && rem <= sim.late_foul_sec && lead >= 1 && lead <= sim.late_foul_max_lead;
@@ -352,21 +385,21 @@
               for (k = 0; k < nft; k++) { last = rng.u() < ftp; if (last) made++; }
               add(gpid, PTS, s, made); add(gpid, FTA, s, nft); add(gpid, FTM, s, made); score[o] += made;
               if (!last) {
-                if (rng.u() < C.porbft) { cont = true; rebound(true); } else rebound(false);
+                if (rng.u() < C.porbft) { cont = true; rebound(true, To, Td, offL, defL, ob, db, s); } else rebound(false, To, Td, offL, defL, ob, db, s);
               }
             } else {                                        // field goal attempt
               var mx = To.mix[pl], zw = wtmp;
               for (i = 0; i < 5; i++) zw[i] = mx[i] * (trail3 && i >= 3 ? 1.8 : 1);
               var z = catSample(zw, 5, rng.u()), three = z >= 3;
               add(gpid, FGA, s, 1); if (three) add(gpid, FG3A, s, 1);
-              if (rng.u() < C.Q[u][z]) {
+              if (rng.u() < C.Q[u][z] * clip(1 - (sim.score_effect || 0) * clip(lead, -25, 25), 0.5, 1.5)) {
                 var v = three ? 3 : 2;
                 add(gpid, FGM, s, 1); if (three) add(gpid, FG3M, s, 1); add(gpid, PTS, s, v); score[o] += v;
                 if (rng.u() < To.and1[pl]) {
                   var fm = rng.u() < ftp ? 1 : 0;
                   add(gpid, FTA, s, 1); add(gpid, FTM, s, fm); add(gpid, PTS, s, fm); score[o] += fm;
                 }
-                if (rng.u() < expit(logit(To.astd[pl]) + zoff[z])) {
+                if (rng.u() < To.pastd[pl][z]) {
                   for (i = 0; i < 5; i++) wtmp[i] = i === u ? 0 : To.ast[offL[i]];
                   add(ob + offL[catSample(wtmp, 5, rng.u())], AST, s, 1);
                 }
@@ -375,7 +408,7 @@
                   for (i = 0; i < 5; i++) wtmp[i] = Td.blk[defL[i]];
                   add(db + defL[catSample(wtmp, 5, rng.u())], BLK, s, 1);
                 }
-                if (rng.u() < C.porb) { cont = true; rebound(true); } else rebound(false);
+                if (rng.u() < C.porb) { cont = true; rebound(true, To, Td, offL, defL, ob, db, s); } else rebound(false, To, Td, offL, defL, ob, db, s);
               }
             }
             first = false;
@@ -391,19 +424,6 @@
             add(H.n + La[k], SEC, s, elapsed); played[1][La[k]] += elapsed;
           }
           possTeam = 1 - possTeam;
-
-          function rebound(off) {
-            var j;
-            if (off) {
-              if (rng.u() < lg.orb_player_credit) {
-                for (j = 0; j < 5; j++) wtmp[j] = To.orb[offL[j]];
-                add(ob + offL[catSample(wtmp, 5, rng.u())], ORB, s, 1);
-              }
-            } else if (rng.u() < lg.drb_player_credit) {
-              for (j = 0; j < 5; j++) wtmp[j] = Td.drb[defL[j]];
-              add(db + defL[catSample(wtmp, 5, rng.u())], DRB, s, 1);
-            }
-          }
         }
         clock = t;
       };
@@ -437,7 +457,7 @@
   }
 
   // ---------------------------------------------------------------- summaries
-  function sorted(x) { var a = Array.prototype.slice.call(x); a.sort(function (p, q) { return p - q; }); return a; }
+  function sorted(x) { return Float64Array.from(x).sort(); }
   function quantiles(x) {
     var a = sorted(x), n = a.length;
     return QS.map(function (q) { var h = (n - 1) * q, lo = Math.floor(h), hi = Math.ceil(h); return a[lo] + (a[hi] - a[lo]) * (h - lo); });

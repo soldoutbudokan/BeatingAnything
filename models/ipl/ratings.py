@@ -66,7 +66,8 @@ def folded_players(M, cov, styles):
     cb = cov.reindex(M.players_bat)
     rb = cb["role_bat"].map({r: i for i, r in enumerate(ROLES_BAT)}).fillna(3).astype(int).to_numpy()
     tb = cb[["bat_tier_" + t for t in TIERS]].fillna(0).to_numpy()
-    prior_b = bat_role[rb] + tb[:, 1:] @ bat_tier[1:]
+    eb = cb["exp_bat"].fillna(0).astype(int).to_numpy()
+    prior_b = bat_role[rb] + tb[:, 1:] @ bat_tier[1:] + M.blk("bat_exp")[eb]
     BAT = {"b": M.blk("bat") + prior_b, "pp": M.blk("bat_pp"), "de": M.blk("bat_death"),
            "sp": M.blk("bat_spin"), "ea": M.blk("bat_early"), "prior": prior_b,
            "sd_b": M.blk("bat", True), "sd_pp": M.blk("bat_pp", True), "sd_de": M.blk("bat_death", True),
@@ -74,7 +75,8 @@ def folded_players(M, cov, styles):
     cw = cov.reindex(M.players_bowl)
     rw = cw["role_bowl"].map({r: i for i, r in enumerate(ROLES_BOWL)}).fillna(0).astype(int).to_numpy()
     tw = cw[["bowl_tier_" + t for t in TIERS]].fillna(0).to_numpy()
-    prior_w = bowl_role[rw] + tw[:, 1:] @ bowl_tier[1:]
+    ew = cw["exp_bowl"].fillna(0).astype(int).to_numpy()
+    prior_w = bowl_role[rw] + tw[:, 1:] @ bowl_tier[1:] + M.blk("bowl_exp")[ew]
     BOWL = {"b": M.blk("bowl") + prior_w, "pp": M.blk("bowl_pp"), "de": M.blk("bowl_death"),
             "lh": M.blk("bowl_lhb"), "prior": prior_w,
             "sd_b": M.blk("bowl", True), "sd_pp": M.blk("bowl_pp", True), "sd_de": M.blk("bowl_death", True),
@@ -83,8 +85,9 @@ def folded_players(M, cov, styles):
     BOWL["sub"] = st["bowl_subtype"].fillna("pace_U").map({s: i for i, s in enumerate(SUBTYPES)}).to_numpy()
     BOWL["spin"] = st["bowl_group"].eq("spin").to_numpy()
     BAT["lhb"] = styles.reindex(M.players_bat)["bat_hand"].eq("L").to_numpy()
-    priors_bat = {r: bat_role[i] for i, r in enumerate(ROLES_BAT)}
-    priors_bowl = {r: bowl_role[i] for i, r in enumerate(ROLES_BOWL)}
+    # priors for players the model has never seen: role mean, IPL tier, least-experienced bucket
+    priors_bat = {r: bat_role[i] + M.blk("bat_exp")[0] for i, r in enumerate(ROLES_BAT)}
+    priors_bowl = {r: bowl_role[i] + M.blk("bowl_exp")[0] for i, r in enumerate(ROLES_BOWL)}
     return BAT, BOWL, priors_bat, priors_bowl
 
 
@@ -109,6 +112,7 @@ class RefSample:
         self.vi = f["venue"].astype(str).map(M.venue_pos).fillna(-1).astype(int).to_numpy()
         self.SUBL = M.blk("sub_lhb")
         self.SUB = M.blk("sub")
+        self.SUBPH = np.vstack([M.blk("sub_ph"), np.zeros((1, K))])  # last row = middle overs (reference)
         self.VSP = M.blk("venue_spin")
         self.bterm_actual = self._bterm_rows(self.bi, self.lhb)
         self.wterm_actual = self._wterm_rows(self.wi, self.sub, self.spin)
@@ -125,6 +129,9 @@ class RefSample:
         lterm = self.SUBL[self.sub] + np.where((self.wi >= 0)[:, None], self.BOWL["lh"][wi], 0)
         return z + lhb[:, None] * lterm
 
+    def _subph(self, sub, ph):
+        return self.SUBPH[np.where(ph == 1, len(self.SUBPH) - 1, sub * 3 + ph)]
+
     def _wterm_rows(self, wi, sub, spin, W=None):
         W = W or self.BOWL
         z = np.zeros((len(self.ph), K))
@@ -132,7 +139,7 @@ class RefSample:
         w = wi[ok]
         z[ok] = (W["b"][w] + W["pp"][w] * (self.ph[ok] == 0)[:, None] + W["de"][w] * (self.ph[ok] == 2)[:, None]
                  + W["lh"][w] * self.lhb[ok][:, None])
-        z += self.SUB[sub] + self.SUBL[sub] * self.lhb[:, None]
+        z += self.SUB[sub] + self.SUBL[sub] * self.lhb[:, None] + self._subph(sub, self.ph)
         bi = np.maximum(self.bi, 0)
         spterm = np.where((self.bi >= 0)[:, None], self.BAT["sp"][bi], 0) + np.where((self.vi >= 0)[:, None], self.VSP[np.maximum(self.vi, 0)], 0)
         return z + spin[:, None] * spterm
@@ -151,7 +158,7 @@ class RefSample:
         r = slice(None) if rows is None else rows
         ph, lhb = self.ph[r], self.lhb[r]
         t = (vecs["b"] + vecs["pp"] * (ph == 0)[:, None] + vecs["de"] * (ph == 2)[:, None]
-             + vecs["lh"] * lhb[:, None]) + self.SUB[sub] + self.SUBL[sub] * lhb[:, None]
+             + vecs["lh"] * lhb[:, None]) + self.SUB[sub] + self.SUBL[sub] * lhb[:, None] + self._subph(np.full(len(ph), sub), ph)
         bi = np.maximum(self.bi[r], 0)
         spterm = np.where((self.bi[r] >= 0)[:, None], self.BAT["sp"][bi], 0) + np.where((self.vi[r] >= 0)[:, None], self.VSP[np.maximum(self.vi[r], 0)], 0)
         t = t + float(spin) * spterm
@@ -396,8 +403,10 @@ def main():
             for s, mask in strata_bat.items():
                 w = row_weights(mix, mask) if s in ("all", "pace", "spin") else mask.astype(float)
                 st = bat_stats(P, w, exs, wv)
+                av = bat_stats(P_act, w, exs, wv)  # average IPL batter in exactly the same deliveries
                 for k, v in st.items():
                     rec_[f"{s}_{k}"] = float(v)
+                    rec_[f"{s}_avg_{k}"] = float(av[k])
             # posterior uncertainty: draw the player's own coefficients
             nd = 30
             dr = {k: vec[k][None] + rng.standard_normal((nd, K)) * BAT["sd_" + k][i][None] * (np.arange(K) != REF)
@@ -429,8 +438,10 @@ def main():
             for s, mask in strata_bowl.items():
                 w = row_weights(mix, mask) if s in ("all", "rhb", "lhb") else mask.astype(float)
                 st = bowl_stats(P, w, exs, wv)
+                av = bowl_stats(P_act, w, exs, wv)
                 for k, v in st.items():
                     rec_[f"{s}_{k}"] = float(v)
+                    rec_[f"{s}_avg_{k}"] = float(av[k])
             nd = 30
             dr = {k: vec[k][None] + rng.standard_normal((nd, K)) * BOWL["sd_" + k][j][None] * (np.arange(K) != REF)
                   for k in vec}
@@ -455,7 +466,7 @@ def main():
     leagues = league_strength(M, f, cov, BAT, BOWL, R, P_act, exs, wv)
     venues = venue_table(M, f, R, exs, wv)
 
-    out = dict(bat=bat_df, bowl=bowl_df, settle=settle, settle_avg=settle_avg, avg_bat=AVG_BAT, avg_bowl=AVG_BOWL,
+    out = dict(bat=bat_df, bowl=bowl_df, mix_bat=mix_bat, settle=settle, settle_avg=settle_avg, avg_bat=AVG_BAT, avg_bowl=AVG_BOWL,
                obs=obs, leagues=leagues, venues=venues, ER=ER, WV=WV, er_scale=er_scale, ex=ex, exs=exs, pool=pool,
                names=names)
     with open(PROC / "ratings.pkl", "wb") as fh:
@@ -535,8 +546,12 @@ def league_strength(M, f, cov, BAT, BOWL, R, P_act, exs, wv):
                          bowl_econ=float(sw["econ"]), bowl_wkt_pct=float(sw["wkt_pct"]), bowl_runs_vs_ipl=bowl_idx,
                          strength_vs_ipl=bat_idx + bowl_idx,
                          env_runs_per_over=float(se["econ"]), env_wkt_pct=float(se["wkt_pct"])))
-    df = pd.DataFrame(rows).sort_values("strength_vs_ipl", ascending=False)
-    return df
+    df = pd.DataFrame(rows)
+    ipl = df[df["comp"] == "IPL"].iloc[0]
+    for c in ("bat_runs_vs_ipl", "bowl_runs_vs_ipl"):  # IPL 2023-26 participants = 0 by construction
+        df[c] = df[c] - ipl[c]
+    df["strength_vs_ipl"] = df["bat_runs_vs_ipl"] + df["bowl_runs_vs_ipl"]
+    return df.sort_values("strength_vs_ipl", ascending=False)
 
 
 def venue_terms(M):
@@ -632,6 +647,8 @@ def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names
         "rrr_labels": RRR_LABELS,
         "sub": {s: r3(M.blk("sub")[i]) for i, s in enumerate(SUBTYPES)},
         "sub_lhb": {s: r3(M.blk("sub_lhb")[i]) for i, s in enumerate(SUBTYPES)},
+        "sub_phase": {s: [r3(M.blk("sub_ph")[i * 3 + 0]), [0.0] * K, r3(M.blk("sub_ph")[i * 3 + 2])]
+                      for i, s in enumerate(SUBTYPES)},
         "env": env, "default_env": "IPL|2026",
         "venues": ven, "venue_neutral": {"base": z, "i2": z, "spin": z},
         "batters": bats, "bowlers": bowls,

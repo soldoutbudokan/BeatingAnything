@@ -29,6 +29,7 @@ class Params:
         self.early_bf = raw["early_bf"]
         self.sub = {k: np.asarray(v, float) for k, v in raw["sub"].items()}
         self.sub_lhb = {k: np.asarray(v, float) for k, v in raw["sub_lhb"].items()}
+        self.sub_phase = {k: np.asarray(v, float) for k, v in raw["sub_phase"].items()}
         self.env = {k: np.asarray(v, float) for k, v in raw["env"].items()}
         self.ex = raw["extras"]
 
@@ -166,7 +167,7 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
     wides = np.zeros(n, int)
     extras = np.zeros(n, int)
     ar = np.arange(n)
-    tgt = target
+    tgt = None if target is None else np.broadcast_to(np.asarray(target), (n,))
     for o in range(max_overs):
         ph = PHASE_OF[o] if max_overs == 20 else 2
         bid = sched[o]
@@ -174,7 +175,7 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
         j = bix[bid]
         spin = 1.0 if bw.get("spin") else 0.0
         const = (env + np.asarray(V["base"]) + (np.asarray(V["i2"]) if inn == 2 else 0) + spin * np.asarray(V["spin"])
-                 + P.sub[bw["sub"]] + np.asarray(bw["b"]) + (np.asarray(bw["pp"]) if ph == 0 else 0)
+                 + P.sub[bw["sub"]] + P.sub_phase[bw["sub"]][ph] + np.asarray(bw["b"]) + (np.asarray(bw["pp"]) if ph == 0 else 0)
                  + (np.asarray(bw["de"]) if ph == 2 else 0))
         lhb_o = P.sub_lhb[bw["sub"]] + np.asarray(bw["lh"])
         M = const[None, :] + BB + BPH[ph] + spin * BSP + LHB[:, None] * lhb_o[None, :]
@@ -193,8 +194,8 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
             lg += P.bf[ph, bfb]
             if tgt is not None:
                 bl = np.maximum(max_overs * 6 - legal[idx], 1)
-                rrr = (tgt - score[idx]) * 6.0 / bl
-                rb = np.searchsorted(P.rrr_edges, rrr, side="right") - 1
+                rrr = (tgt[idx] - score[idx]) * 6.0 / bl
+                rb = np.searchsorted(P.rrr_edges, rrr, side="right")
                 lg += P.chase[ph, np.clip(rb, 0, 7)]
             fh = free[idx]
             lg[fh, C["wicket"]] = -50
@@ -281,7 +282,7 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
                 nxt[wi] += 1
                 done[wi] |= (wk[wi] >= min(max_wkts, nbat - 1))
             if tgt is not None:
-                done[idx] |= score[idx] >= tgt
+                done[idx] |= score[idx] >= tgt[idx]
         if o == 5:
             pp_score[:] = score
         # end of over: swap strike
@@ -321,7 +322,7 @@ def sim_match(P, A, B, venue_id, n=10000, seed=0, bat_first=None, env_key=None):
         r1 = sim_match(P, A, B, venue_id, h, seed * 2 + 1, "A", env_key)
         r2 = sim_match(P, A, B, venue_id, n - h, seed * 2 + 2, "B", env_key)
         return _concat(r1, r2)
-    first, second = (("A", oa, sa, "B", ob, sb) if bat_first == "A" else ("B", ob, sb, "A", oa, sa))
+    first, second = ((("A", oa, sa), ("B", ob, sb)) if bat_first == "A" else (("B", ob, sb), ("A", oa, sa)))
     i1 = sim_innings(P, rng, n, first[1], second[2], V, env, 1)
     i2 = sim_innings(P, rng, n, second[1], first[2], V, env, 2, target=i1["score"] + 1)
     s1, s2 = i1["score"], i2["score"]

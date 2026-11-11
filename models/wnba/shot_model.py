@@ -45,12 +45,14 @@ def main(force=False):
     fold_of = dict(zip(games, rng.integers(0, 5, len(games))))
     fold = s.game_id.map(fold_of).values
     xfg = np.zeros(len(s))
+    from threadpoolctl import threadpool_limits
     for k in range(5):
         tr, te = fold != k, fold == k
         m = HistGradientBoostingClassifier(max_iter=300, learning_rate=0.06, max_leaf_nodes=31, min_samples_leaf=80,
                                            categorical_features=[5], l2_regularization=1.0, random_state=k)
-        m.fit(X[tr], y[tr])
-        xfg[te] = m.predict_proba(X[te])[:, 1]
+        with threadpool_limits(limits=2):  # OpenMP spin-contention on a shared box makes 4 threads ~10x slower
+            m.fit(X[tr], y[tr])
+            xfg[te] = m.predict_proba(X[te])[:, 1]
     s["xfg"] = xfg
     s["xpts"] = xfg * np.where(s.pts3 == 1, 3, 2)
     s["pts"] = s.made * np.where(s.pts3 == 1, 3, 2)

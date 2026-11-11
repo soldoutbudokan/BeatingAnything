@@ -14,7 +14,7 @@ import scipy.sparse as sp
 from scipy.optimize import minimize
 
 from models.ipl.config import CLASSES, K, PROC, REF, TIERS
-from models.ipl.prep import SUBTYPES, EARLY_BF
+from models.ipl.prep import SUBTYPES, EARLY_BF, EXP_LABELS
 
 KM = K - 1
 FREE = [k for k in range(K) if k != REF]
@@ -142,6 +142,8 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons)
     put("sub", sub)
     D.add("sub_lhb", [s + "_vsLHB" for s in SUBTYPES], "l0")
     put("sub_lhb", sub, mask=lhb)
+    D.add("sub_ph", [f"{s}_p{p}" for s in SUBTYPES for p in range(3)], "cov")
+    put("sub_ph", np.where(ph != 1, sub * 3 + ph, -1))  # middle overs are the reference phase
     cmap = {c: i for i, c in enumerate(comps)}
     D.add("comp", comps, "comp")
     put("comp", f["comp"].astype(str).map(cmap).fillna(-1).to_numpy().astype(np.int64))
@@ -167,6 +169,10 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons)
     put("bat_role", rb)
     D.add("bowl_role", roles_bowl, "cov")
     put("bowl_role", rw)
+    D.add("bat_exp", EXP_LABELS, "cov")
+    put("bat_exp", cov["exp_bat"].reindex(bat_ids).fillna(0).to_numpy().astype(np.int64))
+    D.add("bowl_exp", EXP_LABELS, "cov")
+    put("bowl_exp", cov["exp_bowl"].reindex(bowl_ids).fillna(0).to_numpy().astype(np.int64))
     D.add("bat_tier", TIERS, "cov")
     D.add("bowl_tier", TIERS, "cov")
     tb = cov[["bat_tier_" + t for t in TIERS]].reindex(bat_ids).fillna(0).to_numpy()
@@ -289,11 +295,11 @@ def weights(dates, ref_date, half_life_years):
     return np.power(0.5, np.clip(age, 0, None) / half_life_years)
 
 
-DEFAULT_LAM = dict(l0=1.0, cov=5.0, cell=30.0, comp=20.0, cs=200.0, venue=300.0, venue2=600.0,
+DEFAULT_LAM = dict(l0=1.0, cov=2.0, cell=30.0, comp=2.0, cs=200.0, venue=300.0, venue2=600.0,
                    bat=150.0, bat_split=400.0, bowl=150.0, bowl_split=400.0)
 
 
-def fit_model(f, cov, lam, half_life, ref_date, maxiter=400, idx=None, verbose=False):
+def fit_model(f, cov, lam, half_life, ref_date, maxiter=400, idx=None, verbose=False, tol=1e-7):
     idx = idx or indices(f)
     w = weights(f["date"], ref_date, half_life)
     keep = w > 0.01
@@ -301,7 +307,7 @@ def fit_model(f, cov, lam, half_life, ref_date, maxiter=400, idx=None, verbose=F
     D, X = build_design(fk, cov, *idx)
     fitr = Fitter(X, fk["y"].to_numpy(), w[keep], D, lam)
     t = time.time()
-    fitr.fit(maxiter=maxiter)
+    fitr.fit(maxiter=maxiter, tol=tol)
     if verbose:
         print(f"fit n={len(fk):,} p={D.p:,} iters={fitr.res.nit} {time.time()-t:.0f}s loss={fitr.res.fun:.1f}")
     return fitr, D, idx

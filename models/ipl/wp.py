@@ -35,6 +35,7 @@ def fit(f):
     par = par_table(f)
     ok = (f["winner"].astype(str) != "") & f["tier"].isin(["ipl", "intl", "top_fr", "fr2", "dom", "india_dom"])
     d = f[ok & (f["date"] >= "2015-01-01")]
+    d = d.sample(n=min(len(d), 700000), random_state=0)
     s = states(d)
     s["par"] = d["comp_season"].map(par).astype(float).to_numpy()
     y = (d["winner"].astype(str) == d["bat_team"].astype(str)).to_numpy()
@@ -66,7 +67,7 @@ def wpa(f, models, par):
     s["par"] = f["comp_season"].map(par).astype(float).fillna(par.mean()).to_numpy()
     wp0 = predict(models, s)  # P(batting side wins) before the ball
     key = f["match_id"].astype(str) + "_" + f["innings"].astype(str)
-    nxt = pd.Series(wp0).groupby(key.to_numpy()).shift(-1).to_numpy()
+    nxt = pd.Series(wp0).groupby(key.to_numpy()).shift(-1).to_numpy().copy()
     last = pd.isna(nxt)
     # end of innings 1: WP of batting side = 1 - P(chaser wins at the start of the chase)
     i1_tot = f[f["innings"] == 1].groupby("match_id")["runs_total"].sum()
@@ -88,7 +89,15 @@ def wpa(f, models, par):
 def main():
     f = pd.read_parquet(PROC / "frame.parquet")
     f = f[~f["reduced"]].reset_index(drop=True)
-    models, par = fit(f)
+    cache = PROC / "wp_model.pkl"
+    if cache.exists():
+        with open(cache, "rb") as fh:
+            c = pickle.load(fh)
+        models, par = c["models"], c["par"]
+    else:
+        models, par = fit(f)
+        with open(cache, "wb") as fh:
+            pickle.dump(dict(models=models, par=par), fh)
     rec = f[f["date"] >= "2024-01-01"].reset_index(drop=True)
     d = wpa(rec, models, par)
     cls = rec["cls"].astype(str).to_numpy()
@@ -103,8 +112,6 @@ def main():
         out[scope] = (b, w)
     with open(PROC / "wpa.pkl", "wb") as fh:
         pickle.dump(dict(out=out, par=par), fh)
-    with open(PROC / "wp_model.pkl", "wb") as fh:
-        pickle.dump(dict(models=models, par=par), fh)
     print("wpa done")
 
 

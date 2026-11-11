@@ -59,12 +59,17 @@ def integer_plan(q):
     share = np.array([np.array(q[i]) / max(sum(q[i]), 1e-9) for i in ids])
     want = np.minimum(tot, 4.0)
     t = np.zeros(len(ids), int)
-    for _ in range(20):  # hand out overs to whoever is furthest below his usual workload
+    left = 20
+    for k in np.argsort(-want, kind="stable"):  # main bowlers get their usual quota first
+        t[k] = min(int(np.round(want[k])), left)
+        left -= t[k]
+    while left > 0:  # any shortfall goes to whoever has the largest usual workload below 4
         ok = t < 4
         if not ok.any():
             break
-        gap = np.where(ok, want - t + 0.01 * want, -1e9)
-        t[int(np.argmax(gap))] += 1
+        k = int(np.argmax(np.where(ok, want - t, -1e9)))
+        t[k] += 1
+        left -= 1
     alloc = np.zeros((len(ids), 3), int)
     for ph in (2, 0, 1):
         for _ in range(PHASE_TARGET[ph]):
