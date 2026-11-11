@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sheets demo workbook</title>
+<link rel="stylesheet" href="sheet.css">
+<script src="sheet.js"></script>
+</head>
+<body>
+<script>
+/* Reference example for page builders. Everything here uses synthetic data from a seeded RNG.
+   A real sport page lives at docs/models/<sport>/index.html and loads ../assets/sheet.css + ../assets/sheet.js. */
+const S = Sheets, R = S.rng(42);
+
+/* ---------- synthetic data ---------- */
+const TEAMS = ['Arrows', 'Bears', 'Comets', 'Dragons', 'Eagles', 'Falcons', 'Giants', 'Hawks', 'Ibis', 'Jets'];
+const ROLES = ['Batter', 'Bowler', 'All-rounder', 'Keeper'];
+const FIRST = ['Arjun', 'Ben', 'Chris', 'Dev', 'Eli', 'Faf', 'Glenn', 'Hari', 'Ishan', 'Jos', 'Kane', 'Liam', 'Mitch', 'Nitish', 'Ollie', 'Pat', 'Quinn', 'Rohit', 'Sam', 'Tim', 'Umar', 'Virat', 'Will', 'Yash', 'Zak'];
+const LAST = ['Agarwal', 'Brook', 'Cummins', 'Dhawan', 'Evans', 'Finch', 'Gill', 'Head', 'Iyer', 'Jordan', 'Khan', 'Lynn', 'Marsh', 'Nortje', 'Overton', 'Pant', 'Rana', 'Salt', 'Tilak', 'Unadkat', 'Varma', 'Wood', 'Yadav', 'Zampa', 'Bairstow', 'Chahar', 'Short', 'Pooran'];
+const N = 3000, cl = (v, a, b) => Math.max(a, Math.min(b, v)), r1 = v => Math.round(v * 10) / 10;
+const players = [];
+for (let i = 0; i < N; i++) {
+  const role = ROLES[R.weighted([0.38, 0.72, 0.92, 1])];
+  const bat = R.normal(role === 'Bowler' ? -1.2 : 0.4, 1), bowl = R.normal(role === 'Batter' ? -1.4 : role === 'Keeper' ? -2 : 0.3, 1);
+  const value = 0.6 * Math.max(bat, -1) + 0.5 * Math.max(bowl, -1) + R.normal(0, 0.4);
+  const runsPer = cl(18 + 9 * bat + R.normal(0, 3), 2, 60), sr = cl(128 + 14 * bat + R.normal(0, 8), 70, 210), econ = cl(8.6 - 0.7 * bowl + R.normal(0, 0.4), 5.2, 13);
+  const wpi = role === 'Batter' ? NaN : cl(0.9 + 0.35 * bowl + R.normal(0, 0.15), 0.05, 2.6);
+  const trend = []; let t = value - R.normal(0, 0.6); for (let k = 0; k < 12; k++) { t += R.normal((value - t) * 0.25, 0.25); trend.push(r1(t)); }
+  const form = Array.from({ length: 10 }, () => r1(R.normal(bowl * 0.5, 1)));
+  const p25 = cl(1 / (1 + Math.exp(-(runsPer - 24) / 7)), 0.01, 0.97), p50 = cl(p25 * p25 * 0.55, 0.002, 0.8);
+  const fair = S.odds.american(p50), price = Math.round(fair * (1 + R.normal(0, 0.08)) / 5) * 5;
+  const pi = S.odds.fromAmerican(price < 100 && price > -100 ? 100 : price);
+  players.push({
+    id: i + 1, name: FIRST[R.int(FIRST.length)] + ' ' + LAST[R.int(LAST.length)] + (R() < 0.15 ? ' Jr' : ''),
+    team: TEAMS[R.int(TEAMS.length)], role, age: 19 + R.int(18), hand: R() < 0.72 ? 'R' : 'L', matches: R.int(140),
+    value, bat, bowl, field: R.normal(0, 0.6), unc: Math.abs(R.normal(0.6, 0.25)), trend, d30: R.normal(0, 0.35), pct: value,
+    inns: R.int(120), rpi: runsPer, sr, avg: runsPer * cl(1.25 + R.normal(0, 0.2), 0.8, 2), bpb: cl(7.5 - 0.9 * bat + R.normal(0, 0.8), 3, 20),
+    p4: cl(0.11 + 0.02 * bat + R.normal(0, 0.01), 0.03, 0.25), p6: cl(0.045 + 0.02 * bat + R.normal(0, 0.01), 0, 0.15), dot: cl(0.36 - 0.03 * bat + R.normal(0, 0.03), 0.15, 0.6),
+    ppsr: sr * (1 + R.normal(0.02, 0.05)), midsr: sr * (1 + R.normal(-0.06, 0.05)), dsr: sr * (1 + R.normal(0.2, 0.08)), vpace: sr * (1 + R.normal(0.03, 0.05)), vspin: sr * (1 + R.normal(-0.04, 0.06)), outpb: cl(0.05 - 0.008 * bat + R.normal(0, 0.006), 0.01, 0.12),
+    overs: role === 'Batter' ? 0 : R.int(400), econ: role === 'Batter' ? NaN : econ, wpi, bsr: role === 'Batter' ? NaN : cl(22 - 3 * bowl + R.normal(0, 3), 10, 60), bavg: role === 'Batter' ? NaN : econ * cl(22 - 3 * bowl, 10, 60) / 6,
+    bdot: role === 'Batter' ? NaN : cl(0.36 + 0.03 * bowl + R.normal(0, 0.03), 0.2, 0.55), ppe: econ * (1 + R.normal(-0.03, 0.05)), mide: econ * (1 + R.normal(-0.08, 0.05)), dthe: econ * (1 + R.normal(0.22, 0.07)),
+    wides: cl(0.035 + R.normal(0, 0.012), 0, 0.1), bndp: cl(0.15 - 0.015 * bowl + R.normal(0, 0.02), 0.05, 0.3), vrhb: econ * (1 + R.normal(0, 0.04)), vlhb: econ * (1 + R.normal(0.02, 0.05)), form: role === 'Batter' ? null : form,
+    cpi: cl(0.35 + R.normal(0, 0.12), 0, 1.2), ro: R.int(12), drop: cl(0.12 + R.normal(0, 0.05), 0, 0.5), frs: R.normal(0, 3),
+    xruns: runsPer * 0.95, p25, p50, xw: isNaN(wpi) ? NaN : wpi * 0.9, p2w: isNaN(wpi) ? NaN : cl(0.12 * wpi * wpi + 0.05, 0.01, 0.8), p3w: isNaN(wpi) ? NaN : cl(0.04 * wpi * wpi, 0.002, 0.5),
+    fant: cl(22 + 9 * value + R.normal(0, 4), 0, 90), selp: cl(1 / (1 + Math.exp(-(value * 1.6))), 0.01, 0.99), ceil: runsPer * 2.6 + R.normal(0, 4),
+    price, implied: pi, edge: p50 - pi,
+  });
+}
+players.sort((a, b) => b.value - a.value).forEach((p, i) => p.rank = i + 1);
+const nan = v => isNaN(v) ? null : v;
+
+/* ---------- column definitions: 60 columns in 8 groups ---------- */
+const columns = [
+  { key: 'rank', label: '#', fmt: 'int', frozen: true, width: 46, agg: null, filter: false, desc: 'Rank by Value.' },
+  { key: 'name', label: 'Player', frozen: true, width: 150, desc: 'Synthetic player name.' },
+  { key: 'team', label: 'Team', group: 'Profile', type: 'cat' },
+  { key: 'role', label: 'Role', group: 'Profile', type: 'cat' },
+  { key: 'age', label: 'Age', group: 'Profile', fmt: 'int' },
+  { key: 'hand', label: 'Hand', group: 'Profile', type: 'cat', desc: 'Batting hand.' },
+  { key: 'matches', label: 'M', group: 'Profile', fmt: 'int', desc: 'Matches in the training window.', agg: 'sum' },
+  { key: 'value', label: 'Value', group: 'Rating', fmt: 'signed:2', heat: { center: 0 }, desc: 'Runs above replacement per match (batting + bowling + fielding). Diverging heat centred on 0.' },
+  { key: 'bat', label: 'Bat', group: 'Rating', fmt: 'signed:2', desc: 'Batting component of Value.' },
+  { key: 'bowl', label: 'Bowl', group: 'Rating', fmt: 'signed:2', desc: 'Bowling component of Value.' },
+  { key: 'field', label: 'Field', group: 'Rating', fmt: 'signed:2' },
+  { key: 'unc', label: 'Uncert', group: 'Rating', fmt: 'num:2', desc: 'Posterior standard deviation of Value.' },
+  { key: 'trend', label: 'Trend', group: 'Rating', spark: { w: 64, h: 16 }, desc: 'Value over the last 12 matches.', copyText: v => v.join(' ') },
+  { key: 'd30', label: 'Δ 30d', group: 'Rating', fmt: 'signed:2', heat: { center: 0, domain: [-1, 1] }, desc: 'Change in Value over 30 days.' },
+  { key: 'pct', label: 'Pctile', group: 'Rating', fmt: 'num:2', pctile: true, desc: 'Value again, shaded by percentile rank instead of magnitude.' },
+  { key: 'inns', label: 'Inns', group: 'Batting', fmt: 'int', agg: 'sum' },
+  { key: 'rpi', label: 'R/inn', group: 'Batting', fmt: 'num:1', bar: true, desc: 'Runs per innings (data bar).' },
+  { key: 'sr', label: 'SR', group: 'Batting', fmt: 'num:1', heat: { type: 'seq' }, desc: 'Strike rate: runs per 100 balls. Sequential heat.' },
+  { key: 'avg', label: 'Avg', group: 'Batting', fmt: 'num:1' },
+  { key: 'bpb', label: 'B/bdry', group: 'Batting', fmt: 'num:1', desc: 'Balls per boundary.' },
+  { key: 'p4', label: '4s %', group: 'Batting', fmt: 'pct:1' },
+  { key: 'p6', label: '6s %', group: 'Batting', fmt: 'pct:1' },
+  { key: 'dot', label: 'Dot %', group: 'Batting', fmt: 'pct:1' },
+  { key: 'ppsr', label: 'PP SR', group: 'Batting', fmt: 'num:1', desc: 'Powerplay strike rate.' },
+  { key: 'midsr', label: 'Mid SR', group: 'Batting', fmt: 'num:1' },
+  { key: 'dsr', label: 'Death SR', group: 'Batting', fmt: 'num:1' },
+  { key: 'vpace', label: 'v Pace', group: 'Batting', fmt: 'num:1' },
+  { key: 'vspin', label: 'v Spin', group: 'Batting', fmt: 'num:1' },
+  { key: 'outpb', label: 'Out/ball', group: 'Batting', fmt: 'pct:2' },
+  { key: 'overs', label: 'Overs', group: 'Bowling', fmt: 'int', agg: 'sum' },
+  { key: 'econ', label: 'Econ', get: r => nan(r.econ), group: 'Bowling', fmt: 'num:2', heat: { center: 8.6, reverse: true }, desc: 'Runs conceded per over. Lower is better, so the diverging scale is reversed.' },
+  { key: 'wpi', label: 'W/inn', get: r => nan(r.wpi), group: 'Bowling', fmt: 'num:2' },
+  { key: 'bsr', label: 'Bowl SR', get: r => nan(r.bsr), group: 'Bowling', fmt: 'num:1' },
+  { key: 'bavg', label: 'Bowl avg', get: r => nan(r.bavg), group: 'Bowling', fmt: 'num:1' },
+  { key: 'bdot', label: 'Dot %', get: r => nan(r.bdot), group: 'Bowling', fmt: 'pct:1' },
+  { key: 'ppe', label: 'PP econ', get: r => nan(r.ppe), group: 'Bowling', fmt: 'num:2' },
+  { key: 'mide', label: 'Mid econ', get: r => nan(r.mide), group: 'Bowling', fmt: 'num:2' },
+  { key: 'dthe', label: 'Death econ', get: r => nan(r.dthe), group: 'Bowling', fmt: 'num:2' },
+  { key: 'wides', label: 'Wides %', group: 'Bowling', fmt: 'pct:1' },
+  { key: 'bndp', label: 'Bdry %', group: 'Bowling', fmt: 'pct:1' },
+  { key: 'vrhb', label: 'v RHB', get: r => nan(r.vrhb), group: 'Bowling', fmt: 'num:2' },
+  { key: 'vlhb', label: 'v LHB', get: r => nan(r.vlhb), group: 'Bowling', fmt: 'num:2' },
+  { key: 'form', label: 'Form', group: 'Bowling', spark: { w: 56, h: 16, kind: 'bar', ref: 0 }, desc: 'Wickets above expectation, last 10 matches.' },
+  { key: 'cpi', label: 'Ct/inn', group: 'Fielding', fmt: 'num:2' },
+  { key: 'ro', label: 'Run-outs', group: 'Fielding', fmt: 'int', agg: 'sum' },
+  { key: 'drop', label: 'Drop %', group: 'Fielding', fmt: 'pct:1' },
+  { key: 'frs', label: 'Runs saved', group: 'Fielding', fmt: 'signed:1', bar: true, desc: 'Fielding runs saved per season (diverging data bar).' },
+  { key: 'xruns', label: 'xRuns', group: 'Projection', fmt: 'num:1', desc: 'Projected runs next match.' },
+  { key: 'p25', label: 'P(25+)', group: 'Projection', fmt: 'pct:1' },
+  { key: 'p50', label: 'P(50+)', group: 'Projection', fmt: 'pct:1' },
+  { key: 'p50o', label: '50+ fair', get: r => r.p50, group: 'Projection', fmt: 'american', agg: null, desc: 'Fair American price for 50+ runs (from P(50+)).' },
+  { key: 'xw', label: 'xWkts', get: r => nan(r.xw), group: 'Projection', fmt: 'num:2' },
+  { key: 'p2w', label: 'P(2+ w)', get: r => nan(r.p2w), group: 'Projection', fmt: 'pct:1' },
+  { key: 'p3w', label: '3+ w dec', get: r => nan(r.p3w), group: 'Projection', fmt: 'dec:2', agg: null, desc: 'Fair decimal price for 3+ wickets.' },
+  { key: 'fant', label: 'Fantasy', group: 'Projection', fmt: 'num:1', bar: { domain: [0, 90] } },
+  { key: 'selp', label: 'Sel %', group: 'Projection', fmt: 'pct:0', desc: 'Probability of selection in the XI.' },
+  { key: 'ceil', label: 'Ceiling', group: 'Projection', fmt: 'num:0', desc: '90th percentile runs.' },
+  { key: 'price', label: '50+ price', group: 'Market', fmt: 'odds', agg: null, desc: 'Synthetic book price for 50+ runs (American).' },
+  { key: 'implied', label: 'Implied', group: 'Market', fmt: 'pct:1', desc: 'Implied probability of the book price.' },
+  { key: 'edge', label: 'Edge', group: 'Market', fmt: 'spct:1', heat: { center: 0, domain: [-0.05, 0.05] }, desc: 'Model P(50+) minus implied probability.' },
+];
+
+/* ---------- player card ---------- */
+let playerGrid;
+function playerCard(p) {
+  const rr = S.rng(p.id), m = p.xruns;
+  const runDist = S.dist.fromSamples(Array.from({ length: 4000 }, () => Math.max(0, Math.round(-Math.log(1 - rr()) * m * (0.6 + 0.8 * rr())))));
+  S.drawer.open({
+    title: p.name, sub: `${p.team} · ${p.role} · age ${p.age} · rank ${p.rank}`,
+    nav: { prev: () => playerGrid.step(-1), next: () => playerGrid.step(1) }, keepScroll: true,
+    body: el => {
+      el.append(S.tiles([
+        { label: 'Value', value: S.fmt.signed(p.value, 2), sub: '± ' + S.fmt.num(p.unc, 2) },
+        { label: 'xRuns', value: S.fmt.num(p.xruns, 1), sub: 'SR ' + S.fmt.num(p.sr, 0) },
+        { label: 'P(50+)', value: S.fmt.pct(p.p50, 1), sub: 'fair ' + S.fmt.american(p.p50) },
+        { label: 'Edge', value: S.fmt.spct(p.edge, 1), sub: 'book ' + S.fmt.odds(p.price) },
+      ]));
+      const t = S.h('div', { class: 'sh-section' }); el.append(t);
+      S.line(t, { title: 'Value, last 12 matches', series: [{ name: 'Value', values: p.trend }], x: p.trend.map((_, i) => i - 11), xFmt: v => (v === 0 ? 'now' : String(v)), yFmt: 'signed:1', height: 120, hlines: [{ y: 0 }] });
+      const hd = S.h('div'); el.append(hd);
+      S.histogram(hd, { title: 'Runs, simulated', dist: runDist, markers: [{ x: 24.5, label: 'O/U 24.5', strong: true }, { x: runDist.mean, label: 'mean' }], height: 120, xLabel: 'runs', split: 24.5 });
+      const ld = S.h('div'); el.append(ld);
+      S.ladder(ld, { title: 'Runs ladder', dist: runDist, lines: [9.5, 14.5, 19.5, 24.5, 29.5, 39.5, 49.5], label: 'Runs', prices: { 24.5: { over: -115, under: -105 }, 49.5: { over: p.price, under: -Math.round(p.price * 0.8) } } });
+      el.append(S.h('div', { class: 'sh-h', text: 'Profile' }), S.kv([['Matches', p.matches], ['Innings', p.inns], ['Strike rate', S.fmt.num(p.sr, 1)], ['Balls per boundary', S.fmt.num(p.bpb, 1)], ['Economy', S.fmt.num(nan(p.econ), 2) || '–'], ['Wickets per innings', S.fmt.num(nan(p.wpi), 2) || '–'], ['Fielding runs saved', S.fmt.signed(p.frs, 1)], ['Selection probability', S.fmt.pct(p.selp, 0)]], { cols: 2 }));
+    },
+  });
+}
+
+/* ---------- team data ---------- */
+const teamRating = TEAMS.map(() => R.normal(0, 0.8));
+const winP = TEAMS.map((a, i) => TEAMS.map((b, j) => i === j ? null : 1 / (1 + Math.exp(-(teamRating[i] - teamRating[j]) * 0.9))));
+
+/* ---------- workbook ---------- */
+const wb = S.workbook({
+  title: 'Sheets demo', subtitle: 'Synthetic data, every component', hub: '../',
+  meta: { data_through: '2026-11-01', built_utc: new Date().toISOString().slice(0, 16) + 'Z', version: 'demo' },
+  sheets: [
+    { id: 'players', name: 'Players', fill: true, render(panel, sheet) {
+      playerGrid = sheet.grid(panel, { columns, rows: players, sort: '-value', onRowClick: playerCard, searchPlaceholder: 'Search player, team, role', label: 'Players' });
+    } },
+    { id: 'teams', name: 'Teams', render(panel) {
+      const cols = S.h('div', { class: 'sh-cols' }); panel.append(cols);
+      const c1 = S.h('div', { class: 'sh-card' }), c2 = S.h('div', { class: 'sh-card' }); cols.append(c1, c2);
+      S.heatmap(c1, { title: 'Head to head', subtitle: 'P(row team beats column team), neutral venue', rows: TEAMS, cols: TEAMS.map(t => t.slice(0, 3).toUpperCase()), values: winP, center: 0.5, fmt: 'pct:0', valueLabel: 'win probability', domain: [0.2, 0.8] });
+      const c2a = S.h('div'), c2b = S.h('div', { style: { marginTop: '16px' } }); c2.append(c2a, c2b);
+      S.bar(c2a, { title: 'Team rating', subtitle: 'Runs per match above an average team', data: TEAMS.map((t, i) => ({ label: t, value: teamRating[i] })), sort: 'desc', fmt: 'signed:2', diverging: false, domain: [Math.min(0, ...teamRating), Math.max(...teamRating)] });
+      S.bar(c2b, { title: 'Change since last season', data: TEAMS.map(t => ({ label: t, value: R.normal(0, 0.6) })), sort: 'desc', fmt: 'signed:2' });
+      const c3 = S.h('div', { class: 'sh-card' }); panel.append(c3);
+      c3.append(S.h('div', { class: 'sh-h', text: 'Team summary' }), S.h('div', { class: 'sh-note', text: 'Sheets.table() for small static tables, with sparklines rendered by Sheets.spark().' }));
+      const tb = S.h('div', { style: { marginTop: '6px' } }); c3.append(tb);
+      S.table(tb, [{ key: 'team', label: 'Team' }, { key: 'rating', label: 'Rating', fmt: 'signed:2' }, { key: 'pw', label: 'Mean P(win)', fmt: 'pct:1' }, { key: 'odds', label: 'Title fair', fmt: 'american' }, { key: 'trend', label: 'Last 10', render: v => S.spark(v, { w: 80, h: 16, ref: 0 }) }],
+        TEAMS.map((t, i) => ({ team: t, rating: teamRating[i], pw: S.stats.mean(winP[i]), odds: Math.exp(teamRating[i]) / TEAMS.reduce((a, _, k) => a + Math.exp(teamRating[k]), 0), trend: Array.from({ length: 10 }, () => R.normal(teamRating[i], 0.5)) })).sort((a, b) => b.rating - a.rating),
+        { highlight: r => r.team === 'Comets' });
+    } },
+    { id: 'charts', name: 'Charts', render(panel) {
+      const g = S.h('div', { class: 'sh-cols' }); panel.append(g);
+      const card = () => { const c = S.h('div', { class: 'sh-card' }); g.append(c); return c; };
+      const totals = Array.from({ length: 20000 }, () => Math.round(R.normal(168, 22)));
+      const td = S.dist.fromSamples(totals);
+      S.histogram(card(), { title: 'First-innings total', subtitle: 'Probability mass with market line, mean and cumulative panel', dist: td, markers: [{ x: 170.5, label: 'Line 170.5', strong: true }, { x: td.mean, label: 'Mean ' + td.mean.toFixed(1) }], cumulative: 'over', xLabel: 'runs', height: 170 });
+      const wk = { 0: 0.02, 1: 0.05, 2: 0.09, 3: 0.13, 4: 0.16, 5: 0.17, 6: 0.15, 7: 0.11, 8: 0.07, 9: 0.03, 10: 0.02 };
+      S.histogram(card(), { title: 'Wickets lost', subtitle: 'Discrete pmf, bars above the 5.5 line emphasised', pmf: wk, split: 5.5, markers: [{ x: 5.5, label: 'O/U 5.5', strong: true }], xLabel: 'wickets', height: 170 });
+      const overs = Array.from({ length: 20 }, (_, i) => i + 1);
+      const mk = (base, sd) => { let c = 0; return overs.map(o => { c += base + R.normal(0, 0.6) + (o > 15 ? 3 : 0); return [o, +c.toFixed(1)]; }); };
+      const a = mk(7.6), b = mk(8.3), c = mk(7.1);
+      S.line(card(), { title: 'Cumulative runs by over', subtitle: 'Three projections; shaded band is the 80% interval for the first', series: [{ name: 'Arrows', points: a, band: a.map(([o, v]) => [o, v - 2 * Math.sqrt(o), v + 2 * Math.sqrt(o)]) }, { name: 'Bears', points: b }, { name: 'Comets', points: c }], xLabel: 'over', yFmt: 'num:0', markers: [{ x: 6, label: 'end of powerplay' }], height: 220 });
+      const sp = players.slice(0, 240).map(p => ({ x: p.bat, y: p.bowl, label: p.name, group: p.role === 'Bowler' ? 'Bowler' : p.role === 'Batter' ? 'Batter' : 'All-round / keeper', id: p.id }));
+      S.scatter(card(), { title: 'Batting vs bowling rating', subtitle: 'Top 240 by Value; the six most extreme are labelled, hover for any point', points: sp, groups: ['Batter', 'Bowler', 'All-round / keeper'], xLabel: 'batting', yLabel: 'bowling', xFmt: 'signed:1', yFmt: 'signed:1', refX: 0, refY: 0, height: 260, onClick: p => playerCard(players.find(q => q.id === p.id)) });
+      const lc = card(); lc.style.gridColumn = 'span 2';
+      S.ladder(lc, { title: 'Total runs ladder', dist: td, lines: [150.5, 155.5, 160.5, 165.5, 170.5, 175.5, 180.5, 185.5], label: 'Total', prices: { 165.5: { over: -120, under: 100 }, 170.5: { over: -105, under: -115 }, 175.5: { over: 115, under: -135 } } });
+      const sc = card();
+      sc.append(S.h('div', { class: 'sh-h', text: 'Sparklines' }), S.h('div', { class: 'sh-note', text: 'Sheets.spark(values, {kind, ref}) returns an SVG string for use in cells and text.' }));
+      const sl = S.h('div', { style: { display: 'grid', gridTemplateColumns: 'auto auto 1fr', gap: '6px 14px', alignItems: 'center', fontSize: '12.5px', marginTop: '8px' } });
+      players.slice(0, 6).forEach(p => { sl.append(S.h('span', { text: p.name }), S.h('span', { html: S.spark(p.trend, { w: 96, h: 18, ref: 0 }) + ' ' + S.spark(p.form || p.trend, { w: 70, h: 18, kind: 'bar', ref: 0 }) }), S.h('span', { class: 'num ink2', text: S.fmt.signed(p.value, 2) })); });
+      sc.append(sl);
+    } },
+    { id: 'sim', name: 'Simulator', render(panel, sheet) {
+      const g = S.h('div', { class: 'sh-row', style: { alignItems: 'stretch' } }); panel.append(g);
+      const left = S.h('div', { class: 'sh-card', style: { flex: '1 1 300px', maxWidth: '380px', display: 'flex', flexDirection: 'column', gap: '12px' } });
+      const right = S.h('div', { class: 'sh-card', style: { flex: '1 1 420px', display: 'flex', flexDirection: 'column', gap: '12px' } });
+      g.append(left, right);
+      const xi = players.filter(p => p.team === 'Comets').slice(0, 11);
+      const venue = S.ui.select({ label: 'Venue', options: [{ value: 1.06, label: 'Wankhede (high scoring)' }, { value: 1, label: 'Neutral' }, { value: 0.93, label: 'Chepauk (slow)' }], value: +(sheet.get('venue') || 1), onChange: v => sheet.set({ venue: v }) });
+      const pitch = S.ui.segmented({ label: 'Pitch', options: [{ value: 'flat', label: 'Flat' }, { value: 'normal', label: 'Normal' }, { value: 'green', label: 'Green' }], value: sheet.get('pitch') || 'normal', onChange: v => sheet.set({ pitch: v }) });
+      const sims = S.ui.stepper({ label: 'Simulations', min: 10000, max: 2000000, step: 10000, value: 400000 });
+      const workers = S.ui.segmented({ label: 'Workers', options: [1, 2, 4], value: 4 });
+      const agg = S.ui.slider({ label: 'Aggression', min: 0.8, max: 1.25, step: 0.01, value: 1, fmt: 'num:2' });
+      const order = S.ui.dragList({ label: 'Batting order (drag, or Alt+arrow)', items: xi.map(p => ({ id: p.id, label: p.name, sub: S.fmt.signed(p.bat, 2) })) });
+      const avail = S.ui.toggleList({ label: 'Available', items: xi.slice(0, 5).map(p => ({ id: p.id, label: p.name, sub: p.role, on: true })) });
+      const autoRun = S.ui.toggle({ label: 'Re-run on change', value: false });
+      const runBtn = S.ui.button({ label: 'Run simulation', primary: true, onClick: () => go() });
+      const prog = S.ui.progress(), status = S.h('span', { class: 'sh-note num', text: 'Not run yet.' });
+      left.append(S.ui.row(venue, pitch), S.ui.row(sims, workers), agg, order, avail, S.ui.row(runBtn, autoRun));
+      const tl = S.h('div'), hist = S.h('div'), lad = S.h('div');
+      right.append(S.ui.row(prog, status), tl, hist, lad);
+      [venue, pitch, agg, order, avail].forEach(c => c.addEventListener('change', () => { if (autoRun.value) go(); }));
+      let job = null, histChart = null;
+      const draw = (counts, n, final) => {
+        const pmf = {}; counts.forEach((c, x) => { if (c) pmf[x] = c; });
+        const d = S.dist.fromCounts(pmf);
+        if (!histChart) histChart = S.histogram(hist, { title: 'Innings total', dist: d, markers: [{ x: 170.5, label: 'Line 170.5', strong: true }], xLabel: 'runs', height: 180, split: 170.5, xDomain: [60, 260] });
+        else histChart.update({ dist: d });
+        if (final) {
+          tl.innerHTML = ''; tl.append(S.tiles([{ label: 'Mean', value: S.fmt.num(d.mean, 1) }, { label: 'SD', value: S.fmt.num(d.sd, 1) }, { label: 'P(over 170.5)', value: S.fmt.pct(d.pOver(170.5), 1), sub: 'fair ' + S.fmt.american(d.pOver(170.5)) }, { label: 'Sims', value: S.fmt.compact(n, 1) }]));
+          S.ladder(lad, { title: 'Ladder', dist: d, lines: [150.5, 160.5, 170.5, 180.5, 190.5], label: 'Total', prices: { 170.5: { over: -110, under: -110 } } });
+        }
+      };
+      function go() {
+        if (job) job.cancel();
+        const on = new Set(avail.value), byId = new Map(xi.map(p => [p.id, p]));
+        const params = { sims: sims.value, aggression: agg.value, pitch: venue.value * ({ flat: 1.05, normal: 1, green: 0.94 })[pitch.value], order: order.value.map(id => byId.get(id)).map(p => on.has(p.id) || !avail.value.length ? p.bat : p.bat - 1) };
+        const partials = [];
+        runBtn.disabled = true; status.textContent = 'Running…'; prog.set(0);
+        let lastDraw = 0;
+        job = S.simulate({ module: 'demo-sim.js', params, workers: workers.value, seed: 7,
+          onProgress(f, part, k) { prog.set(f); if (part) partials[k] = part; const t = performance.now(); if (t - lastDraw > 120 && partials.length) { lastDraw = t; const sum = new Array(321).fill(0); let n = 0; partials.forEach(p => { if (p) { p.counts.forEach((c, i) => sum[i] += c); n += p.n; } }); if (n) draw(sum, n, false); } } });
+        job.then(r => { runBtn.disabled = false; prog.set(1); status.textContent = `${S.fmt.int(r.n)} innings in ${S.fmt.int(job.elapsed)} ms on ${workers.value} worker${workers.value > 1 ? 's' : ''}`; draw(r.counts, r.n, true); })
+          .catch(e => { runBtn.disabled = false; if (!e.cancelled) { status.textContent = ''; right.prepend(S.errorEl(e, 'Simulation failed')); } });
+      }
+      go();
+    } },
+    { id: 'method', name: 'Method', render(panel) { const d = S.h('div'); panel.append(d); return S.loadMarkdown(d, 'demo-method.md'); } },
+    { id: 'states', name: 'Loading & errors', render(panel) {
+      panel.append(S.h('div', { class: 'sh-h', text: 'Loader states' }), S.h('div', { class: 'sh-note', text: 'Sheets.into(el, promise) shows a loading state, then the content or a readable error. Below: a missing JSON file, invalid JSON, and a slow load.' }));
+      const a = S.h('div'), b = S.h('div'), c = S.h('div'); panel.append(a, b, c);
+      S.into(a, S.load('data/does-not-exist.json'));
+      S.into(b, S.load('demo-method.md', { type: 'json' }));
+      S.into(c, new Promise(res => setTimeout(res, 1800)), { label: 'Loading slow resource…' }).then(() => { c.innerHTML = '<div class="sh-note">Slow load finished after 1.8 s.</div>'; });
+    } },
+  ],
+});
+</script>
+</body>
+</html>

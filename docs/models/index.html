@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projection models</title>
+<link rel="stylesheet" href="assets/sheet.css">
+<script src="assets/sheet.js"></script>
+</head>
+<body>
+<main class="hub">
+  <div class="hub-top">
+    <div>
+      <h1>Projection models</h1>
+      <p class="hub-lede">Each model rates every player from the bottom up, using ball-by-ball or possession-level outcomes shrunk towards a role prior. A Monte Carlo game simulator then plays those ratings out thousands of times. Team totals, player lines and fair odds all come from the same simulated games. Each workbook opens like a spreadsheet: ratings tables, charts, a simulator you can rerun with your own lineups, and the method.</p>
+    </div>
+    <div style="display:flex;gap:8px"><a class="sh-pill" href="../">Scanner</a><span id="theme"></span></div>
+  </div>
+  <div class="hub-cards">
+    <a class="hub-card" href="ipl/" data-meta="ipl/data/meta.json">
+      <h2>IPL cricket <span>Open workbook →</span></h2>
+      <p>Batter and bowler ratings by phase, venue effects, and a ball-by-ball T20 simulator for match totals, wickets and player markets.</p>
+      <dl class="sh-kv"><dt>Build</dt><dd>Checking…</dd></dl>
+    </a>
+    <a class="hub-card" href="wnba/" data-meta="wnba/data/meta.json">
+      <h2>WNBA <span>Open workbook →</span></h2>
+      <p>Player impact ratings, rotation and minutes projections, and a possession-level game simulator for spreads, totals and player props.</p>
+      <dl class="sh-kv"><dt>Build</dt><dd>Checking…</dd></dl>
+    </a>
+  </div>
+  <p class="hub-foot">Research, not advice. The <a href="assets/demo.html">framework demo</a> shows every component on synthetic data; its API is documented in <code>docs/models/assets/README.md</code>.</p>
+</main>
+<script>
+document.getElementById('theme').replaceWith(Sheets.theme.button());
+const FIELDS = [
+  ['Data to', m => m.data_through || m.data_cutoff || m.cutoff || m.through || m.as_of],
+  ['Built', m => m.built_utc || m.generated_utc || m.build_utc || m.built_at || m.generated_at || m.built || m.generated],
+  ['Season', m => m.season],
+  ['Version', m => m.version || m.model_version || (m.commit || m.git_sha ? String(m.commit || m.git_sha).slice(0, 7) : null)],
+  ['Players', m => m.n_players ?? m.players],
+  ['Simulations', m => m.n_sims ?? m.sims],
+];
+document.querySelectorAll('[data-meta]').forEach(card => {
+  const dl = card.querySelector('dl');
+  Sheets.load.optional(card.dataset.meta).then(m => {
+    if (!m) { dl.replaceWith(Sheets.kv([['Build', 'Not published yet']])); return; }
+    const rows = FIELDS.map(([k, f]) => [k, f(m)]).filter(([, v]) => v != null && v !== '').map(([k, v]) => [k, typeof v === 'number' && k !== 'Season' ? Sheets.fmt.int(v) : String(v).replace('T', ' ').replace(/:\d\d(\.\d+)?Z$/, ' UTC')]);
+    dl.replaceWith(Sheets.kv(rows.length ? rows : [['Build', 'Published']]));
+  }).catch(() => dl.replaceWith(Sheets.kv([['Build', 'meta.json unreadable']])));
+});
+</script>
+</body>
+</html>
