@@ -6,9 +6,9 @@ import pickle
 import numpy as np
 import pandas as pd
 
-from models.ipl.config import CLASSES, COMP_NAMES, EXPORT, K, PEOPLE, PROC, REF, TIERS
+from models.ipl.config import CLASSES, COMP_NAMES, EXPORT, K, PEOPLE, PROC, PROJ_DATE, REF, TIERS
 from models.ipl.fit import build_design, predict_eta, probs_from_eta
-from models.ipl.prep import BF_EDGES, BF_LABELS, EARLY_BF, RRR_EDGES, RRR_LABELS, SUBTYPES
+from models.ipl.prep import AGE_LABELS, BF_EDGES, BF_LABELS, EARLY_BF, RRR_EDGES, RRR_LABELS, SUBTYPES, age_bucket
 
 C = {c: i for i, c in enumerate(CLASSES)}
 ROLES_BAT = ["open", "top", "middle", "lower"]
@@ -22,8 +22,8 @@ IPL_RECENT = ("2024", "2025", "2026")
 
 
 class Model:
-    def __init__(self):
-        with open(PROC / "model.pkl", "rb") as fh:
+    def __init__(self, path=None):
+        with open(path or (PROC / "model.pkl"), "rb") as fh:
             m = pickle.load(fh)
         self.m = m
         self.W = np.insert(m["W"], REF, 0.0, axis=1)        # p x 11
@@ -58,37 +58,74 @@ def load_people():
 # %% folded player vectors
 
 
-def folded_players(M, cov, styles):
-    """Batter / bowler logit vectors with the hierarchical prior mean folded in."""
+INACTIVE_GRACE, INACTIVE_TAU = 1.0, 2.0  # years: deviations decay as exp(-(gap - grace)/tau) after a top-league gap
+
+
+def last_top_league(f):
+    top = f[f["tier"].astype(str).isin(["ipl", "intl", "top_fr", "fr2"])]
+    return pd.concat([top.groupby("batter")["date"].max(), top.groupby("bowler")["date"].max()]).groupby(level=0).max()
+
+
+def folded_players(M, cov, styles, last_top=None, ref_date=None, proj_date=PROJ_DATE):
+    """Batter / bowler logit vectors for projection: individual deviation (decayed after long top-league
+    inactivity) + hierarchical prior mean (role, league mix, current experience) + age term at the projection
+    date. Also returns per-player pieces needed to rebuild the *row-specific* terms of real deliveries."""
     bat_role, bat_tier = M.blk("bat_role"), M.blk("bat_tier")
     bowl_role, bowl_tier = M.blk("bowl_role"), M.blk("bowl_tier")
-    nbt = len(M.players_bat)
+    na = len(AGE_LABELS)
+    has_age = "bat_age" in M.blocks
+    pdate = pd.Timestamp(proj_date)
+    ref_date = pd.Timestamp(ref_date) if ref_date is not None else pd.Timestamp(M.m["ref_date"])
+    def inact(ids):
+        if last_top is None:
+            return np.ones(len(ids))
+        gap = (ref_date - last_top.reindex(ids)).dt.days.to_numpy() / 365.25
+        gap = np.nan_to_num(gap, nan=10.0)
+        return np.exp(-np.clip(gap - INACTIVE_GRACE, 0, None) / INACTIVE_TAU)
     cb = cov.reindex(M.players_bat)
     rb = cb["role_bat"].map({r: i for i, r in enumerate(ROLES_BAT)}).fillna(3).astype(int).to_numpy()
     tb = cb[["bat_tier_" + t for t in TIERS]].fillna(0).to_numpy()
     eb = cb["exp_bat"].fillna(0).astype(int).to_numpy()
     ne = len(M.blocks["bat_exp"][1]) // len(ROLES_BAT)
-    prior_b = bat_role[rb] + tb[:, 1:] @ bat_tier[1:] + M.blk("bat_exp")[rb * ne + eb]
-    BAT = {"b": M.blk("bat") + prior_b, "pp": M.blk("bat_pp"), "de": M.blk("bat_death"),
-           "sp": M.blk("bat_spin"), "ea": M.blk("bat_early"), "prior": prior_b,
+    exp_b = M.blk("bat_exp")[rb * ne + eb]
+    base_prior_b = bat_role[rb] + tb[:, 1:] @ bat_tier[1:]
+    dob_b = cb["dob"] if "dob" in cb else pd.Series(pd.NaT, index=cb.index)
+    age_b = age_bucket(((pdate - pd.to_datetime(dob_b)).dt.days / 365.25).to_numpy())
+    age_proj_b = M.blk("bat_age")[age_b] if has_age else np.zeros((len(rb), K))
+    fb = inact(M.players_bat)[:, None]
+    prior_b = base_prior_b + exp_b + age_proj_b
+    BAT = {"b": M.blk("bat") * fb + prior_b, "pp": M.blk("bat_pp") * fb, "de": M.blk("bat_death") * fb,
+           "sp": M.blk("bat_spin") * fb, "ea": M.blk("bat_early") * fb, "prior": prior_b, "inactive_factor": fb[:, 0],
+           "role_i": rb, "exp_cur": exp_b, "age_proj": age_proj_b, "age_bucket_proj": age_b,
            "sd_b": M.blk("bat", True), "sd_pp": M.blk("bat_pp", True), "sd_de": M.blk("bat_death", True),
            "sd_sp": M.blk("bat_spin", True), "sd_ea": M.blk("bat_early", True)}
     cw = cov.reindex(M.players_bowl)
     rw = cw["role_bowl"].map({r: i for i, r in enumerate(ROLES_BOWL)}).fillna(0).astype(int).to_numpy()
     tw = cw[["bowl_tier_" + t for t in TIERS]].fillna(0).to_numpy()
     ew = cw["exp_bowl"].fillna(0).astype(int).to_numpy()
-    prior_w = bowl_role[rw] + tw[:, 1:] @ bowl_tier[1:] + M.blk("bowl_exp")[rw * ne + ew]
-    BOWL = {"b": M.blk("bowl") + prior_w, "pp": M.blk("bowl_pp"), "de": M.blk("bowl_death"),
-            "lh": M.blk("bowl_lhb"), "prior": prior_w,
+    exp_w = M.blk("bowl_exp")[rw * ne + ew]
+    st = styles.reindex(M.players_bowl)
+    spin = st["bowl_group"].eq("spin").to_numpy()
+    dob_w = cw["dob"] if "dob" in cw else pd.Series(pd.NaT, index=cw.index)
+    age_w = age_bucket(((pdate - pd.to_datetime(dob_w)).dt.days / 365.25).to_numpy())
+    age_proj_w = M.blk("bowl_age")[spin.astype(int) * na + age_w] if has_age else np.zeros((len(rw), K))
+    fw = inact(M.players_bowl)[:, None]
+    prior_w = bowl_role[rw] + tw[:, 1:] @ bowl_tier[1:] + exp_w + age_proj_w
+    BOWL = {"b": M.blk("bowl") * fw + prior_w, "pp": M.blk("bowl_pp") * fw, "de": M.blk("bowl_death") * fw,
+            "lh": M.blk("bowl_lhb") * fw, "prior": prior_w, "inactive_factor": fw[:, 0],
+            "role_i": rw, "exp_cur": exp_w, "age_proj": age_proj_w, "age_bucket_proj": age_w,
             "sd_b": M.blk("bowl", True), "sd_pp": M.blk("bowl_pp", True), "sd_de": M.blk("bowl_death", True),
             "sd_lh": M.blk("bowl_lhb", True)}
-    st = styles.reindex(M.players_bowl)
     BOWL["sub"] = st["bowl_subtype"].fillna("pace_U").map({s: i for i, s in enumerate(SUBTYPES)}).to_numpy()
-    BOWL["spin"] = st["bowl_group"].eq("spin").to_numpy()
+    BOWL["spin"] = spin
     BAT["lhb"] = styles.reindex(M.players_bat)["bat_hand"].eq("L").to_numpy()
-    # priors for players the model has never seen: role mean, IPL tier, least-experienced bucket
-    priors_bat = {r: bat_role[i] + M.blk("bat_exp")[i * ne] for i, r in enumerate(ROLES_BAT)}
-    priors_bowl = {r: bowl_role[i] + M.blk("bowl_exp")[i * ne] for i, r in enumerate(ROLES_BOWL)}
+    # priors for players the model has never seen: role mean, IPL tier, least-experienced bucket, unknown age
+    au = na - 1
+    ab = M.blk("bat_age")[au] if has_age else 0
+    priors_bat = {r: bat_role[i] + M.blk("bat_exp")[i * ne] + ab for i, r in enumerate(ROLES_BAT)}
+    priors_bowl = {r: bowl_role[i] + M.blk("bowl_exp")[i * ne]
+                      + (M.blk("bowl_age")[int(r.startswith("spin")) * na + au] if has_age else 0)
+                   for i, r in enumerate(ROLES_BOWL)}
     return BAT, BOWL, priors_bat, priors_bowl
 
 
@@ -115,8 +152,8 @@ class RefSample:
         self.SUB = M.blk("sub")
         self.SUBPH = np.vstack([M.blk("sub_ph"), np.zeros((1, K))])  # last row = middle overs (reference)
         self.VSP = M.blk("venue_spin")
-        self.bterm_actual = self._bterm_rows(self.bi, self.lhb)
-        self.wterm_actual = self._wterm_rows(self.wi, self.sub, self.spin)
+        self.bterm_actual = self._bterm_rows(self.bi, self.lhb) + self._row_corr_bat(M, f)
+        self.wterm_actual = self._wterm_rows(self.wi, self.sub, self.spin) + self._row_corr_bowl(M, f)
 
     def _bterm_rows(self, bi, lhb, B=None):
         """Batter-dependent logit terms for each row (vectorised over rows)."""
@@ -129,6 +166,43 @@ class RefSample:
         wi = np.maximum(self.wi, 0)
         lterm = self.SUBL[self.sub] + np.where((self.wi >= 0)[:, None], self.BOWL["lh"][wi], 0)
         return z + lhb[:, None] * lterm
+
+    def _row_corr_bat(self, M, f):
+        """The fit used experience and age *at the delivery*; projection vectors use current experience,
+        projection-date age and inactivity decay. Convert back to the row's own terms."""
+        B = self.BAT
+        z = np.zeros((len(self.ph), K))
+        ok = self.bi >= 0
+        b = self.bi[ok]
+        ne = len(M.blocks["bat_exp"][1]) // len(ROLES_BAT)
+        row_exp = M.blk("bat_exp")[B["role_i"][b] * ne + f["exp_bat_row"].to_numpy()[ok].astype(int)]
+        z[ok] = row_exp - B["exp_cur"][b] - B["age_proj"][b]
+        if "bat_age" in M.blocks:
+            z[ok] += M.blk("bat_age")[f["age_bat_b"].to_numpy()[ok].astype(int)]
+        fb = B["inactive_factor"][b][:, None]
+        ph, sp, ea = self.ph[ok], self.spin[ok], self.early[ok]
+        dev = (M.blk("bat")[b] + M.blk("bat_pp")[b] * (ph == 0)[:, None] + M.blk("bat_death")[b] * (ph == 2)[:, None]
+               + M.blk("bat_spin")[b] * sp[:, None] + M.blk("bat_early")[b] * ea[:, None])
+        z[ok] += dev * (1 - fb)
+        return z
+
+    def _row_corr_bowl(self, M, f):
+        W = self.BOWL
+        z = np.zeros((len(self.ph), K))
+        ok = self.wi >= 0
+        w = self.wi[ok]
+        ne = len(M.blocks["bowl_exp"][1]) // len(ROLES_BOWL)
+        row_exp = M.blk("bowl_exp")[W["role_i"][w] * ne + f["exp_bowl_row"].to_numpy()[ok].astype(int)]
+        z[ok] = row_exp - W["exp_cur"][w] - W["age_proj"][w]
+        if "bowl_age" in M.blocks:
+            na = len(AGE_LABELS)
+            z[ok] += M.blk("bowl_age")[self.spin[ok].astype(int) * na + f["age_bowl_b"].to_numpy()[ok].astype(int)]
+        fw = W["inactive_factor"][w][:, None]
+        ph, lhb = self.ph[ok], self.lhb[ok]
+        dev = (M.blk("bowl")[w] + M.blk("bowl_pp")[w] * (ph == 0)[:, None] + M.blk("bowl_death")[w] * (ph == 2)[:, None]
+               + M.blk("bowl_lhb")[w] * lhb[:, None])
+        z[ok] += dev * (1 - fw)
+        return z
 
     def _subph(self, sub, ph):
         return self.SUBPH[np.where(ph == 1, len(self.SUBPH) - 1, sub * 3 + ph)]
@@ -337,7 +411,8 @@ def main():
     cov = pd.read_parquet(PROC / "covariates.parquet")
     styles = pd.read_parquet(PROC / "styles.parquet")
     names = load_people()
-    BAT, BOWL, pri_b, pri_w = folded_players(M, cov, styles)
+    last_top = last_top_league(f)
+    BAT, BOWL, pri_b, pri_w = folded_players(M, cov, styles, last_top=last_top)
     ex, exs = extras_dists(f)
     ER, WV, er_scale = resources_table(f)
 
@@ -472,7 +547,12 @@ def main():
                names=names)
     with open(PROC / "ratings.pkl", "wb") as fh:
         pickle.dump(out, fh)
-    write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names)
+    shock = estimate_match_shock(M, f, cov, BAT, BOWL, exs)
+    out["match_shock"] = shock
+    with open(PROC / "ratings.pkl", "wb") as fh:
+        pickle.dump(out, fh)
+    write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names,
+                     match_shock={"sd": round(shock["sd"], 4), "dir": shock["dir"]})
     print(f"ratings: pool={len(pool)} batters={len(bat_df)} bowlers={len(bowl_df)} venues={len(venues)}")
 
 
@@ -555,6 +635,46 @@ def league_strength(M, f, cov, BAT, BOWL, R, P_act, exs, wv):
     return df.sort_values("strength_vs_ipl", ascending=False)
 
 
+# current display names for grounds whose cricsheet spelling is old or inconsistent (ids stay stable)
+VENUE_DISPLAY = {
+    "arun jaitley stadium": "Arun Jaitley Stadium, Delhi",
+    "narendra modi stadium": "Narendra Modi Stadium, Ahmedabad",
+    "punjab cricket association stadium": "Punjab Cricket Association IS Bindra Stadium, Mohali",
+    "zayed cricket stadium": "Zayed Cricket Stadium, Abu Dhabi",
+    "maharashtra cricket association stadium": "Maharashtra Cricket Association Stadium, Pune",
+    "dy patil stadium": "Dr DY Patil Sports Academy, Navi Mumbai",
+    "m chinnaswamy stadium": "M Chinnaswamy Stadium, Bengaluru",
+    "ma chidambaram stadium": "MA Chidambaram Stadium, Chennai",
+    "rajiv gandhi international stadium": "Rajiv Gandhi International Stadium, Hyderabad",
+    "ekana cricket stadium": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
+    "aca-vdca stadium": "Dr YS Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam",
+    "mullanpur stadium": "Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh",
+    "hpca stadium": "Himachal Pradesh Cricket Association Stadium, Dharamsala",
+    "barsapara stadium": "Barsapara Cricket Stadium, Guwahati",
+    "sns stadium raipur": "Shaheed Veer Narayan Singh International Stadium, Raipur",
+    "wankhede stadium": "Wankhede Stadium, Mumbai",
+    "eden gardens": "Eden Gardens, Kolkata",
+    "sawai mansingh stadium": "Sawai Mansingh Stadium, Jaipur",
+    "brabourne stadium": "Brabourne Stadium, Mumbai",
+    "dubai international cricket stadium": "Dubai International Cricket Stadium",
+    "sharjah cricket stadium": "Sharjah Cricket Stadium",
+    "holkar stadium": "Holkar Cricket Stadium, Indore",
+    "st georges park": "St George's Park, Gqeberha",
+    "supersport park": "SuperSport Park, Centurion",
+    "the wanderers stadium": "Wanderers Stadium, Johannesburg",
+    "kennington oval": "Kennington Oval, London",
+    "rose bowl": "The Rose Bowl, Southampton",
+    "shere bangla national stadium": "Shere Bangla National Stadium, Mirpur",
+    "zahur ahmed chowdhury stadium": "Zahur Ahmed Chowdhury Stadium, Chattogram",
+    "daren sammy stadium": "Daren Sammy National Cricket Stadium, Gros Islet",
+    "darren sammy national cricket stadium": "Daren Sammy National Cricket Stadium, Gros Islet",
+    "docklands stadium": "Docklands Stadium (Marvel Stadium), Melbourne",
+    "perth stadium": "Perth Stadium (Optus Stadium), Perth",
+    "bellerive oval": "Bellerive Oval, Hobart",
+    "brisbane cricket ground": "Brisbane Cricket Ground (Gabba)",
+}
+
+
 def venue_terms(M):
     return M.blk("venue"), M.blk("venue_i2"), M.blk("venue_spin"), M.blk("venue", True), M.blk("venue_i2", True), M.blk("venue_spin", True)
 
@@ -579,7 +699,9 @@ def venue_table(M, f, R, exs, wv):
     cnt = mm.groupby("venue").agg(matches=("match_id", "size"), last=("date", "max"),
                                   ipl=("comp", lambda s: int((s == "IPL").sum())))
     rec_cnt = mm[mm["date"] >= "2021-01-01"].groupby("venue").size()
-    disp = mm.groupby("venue")["venue_raw"].agg(lambda s: s.value_counts().index[0])
+    disp_modal = mm.groupby("venue")["venue_raw"].agg(lambda s: s.value_counts().index[0])
+    latest = mm.sort_values("date").groupby("venue")["venue_raw"].last()
+    disp = {v: VENUE_DISPLAY.get(v, latest.get(v, v)) for v in latest.index}
     city = mm.groupby("venue")["city"].agg(lambda s: s.value_counts().index[0] if len(s.dropna()) else "")
     rng = np.random.default_rng(1)
     sub = rng.choice(len(R.ph), size=min(6000, len(R.ph)), replace=False)
@@ -589,7 +711,7 @@ def venue_table(M, f, R, exs, wv):
             continue
         e = eta0 + VB[i] + VI[i] * inn2[:, None] + VS[i] * R.spin[:, None]
         P = softmax(e)
-        r = dict(venue=v, name=disp.get(v, v), city=city.get(v, ""), matches=int(cnt.loc[v, "matches"]),
+        r = dict(venue=v, name=disp.get(v, v), name_raw=disp_modal.get(v, v), city=city.get(v, ""), matches=int(cnt.loc[v, "matches"]),
                  matches_since_2021=int(rec_cnt.get(v, 0)), ipl_matches=int(cnt.loc[v, "ipl"]),
                  last_match=str(cnt.loc[v, "last"].date()))
         for k, m in masks.items():
@@ -610,19 +732,58 @@ def venue_table(M, f, R, exs, wv):
     return df
 
 
+# %% match-level shock (shared pitch/day conditions)
+
+
+def estimate_match_shock(M, f, cov, BAT, BOWL, exs):
+    """Both innings of a match share conditions the per-ball model cannot see. Measure it as the covariance
+    between the two innings' residual scoring rates (actual minus model-expected runs per delivery) in IPL
+    2022-26, and express it as a match-level normal shock z*dir on the logits, where dir is the
+    2021->2026 IPL scoring-environment direction (more boundaries, fewer dots). Returns {sd, dir, ...}."""
+    r = f[(f["comp"].astype(str) == "IPL") & (f["date"] >= "2022-01-01")].reset_index(drop=True)
+    Q = RefSample(M, r, cov, BAT, BOWL)
+    P = softmax(Q.eta)
+    x = conceded_per_row(P, exs) + P[:, C["byes"]] * exs["bye_mean"]
+    d = pd.DataFrame({"m": r["match_id"], "i": r["innings"], "x": x, "a": r["runs_total"], "n": 1})
+    g = d.groupby(["m", "i"]).sum()
+    g["res"] = (g["a"] - g["x"]) / g["n"]
+    w = g["res"].unstack().dropna()
+    c = float(np.cov(w[1], w[2])[0, 1])
+    cs_lab = M.blocks["cs"][1]
+    cs = M.blk("cs")
+    dvec = cs[cs_lab.index("IPL|2026")] - cs[cs_lab.index("IPL|2021")]
+    dvec = dvec / np.sqrt(np.sum(dvec ** 2))
+    h = 0.05
+    d1 = float(np.mean(conceded_per_row(softmax(Q.eta + h * dvec), exs) - conceded_per_row(P, exs)) / h)
+    sd = float(np.sqrt(max(c, 0.0)) / d1) if d1 > 0 else 0.0
+    return {"sd": sd, "dir": r3(dvec, 4), "residual_cov": c, "residual_corr": float(np.corrcoef(w[1], w[2])[0, 1]),
+            "runs_per_ball_per_unit": d1, "n_matches": int(len(w))}
+
+
 # %% sim params export
 
 
-def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names):
+def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names, path=None, env_alias=None,
+                     default_env="IPL|2026", match_shock=None):
     base = M.base_table()
     cs_lab = M.blocks["cs"][1]
     cs = M.blk("cs")
-    env = {}
+    csp = M.blk("cs_ph") if "cs_ph" in M.blocks else None
+    env, env_phase = {}, {}
+    z = [0.0] * K
     for lab in cs_lab:
         if lab.startswith("IPL|"):
-            env[lab] = r3(cs[cs_lab.index(lab)])
+            k = cs_lab.index(lab)
+            env[lab] = r3(cs[k])
+            env_phase[lab] = [r3(csp[2 * k]), z, r3(csp[2 * k + 1])] if csp is not None else [z, z, z]
     recent = [l for l in cs_lab if l.startswith("IPL|") and l.split("|")[1] in IPL_RECENT]
-    env["IPL|2024-26"] = r3(np.mean([cs[cs_lab.index(l)] for l in recent], axis=0))
+    if recent:
+        ks = [cs_lab.index(l) for l in recent]
+        env["IPL|2024-26"] = r3(np.mean([cs[k] for k in ks], axis=0))
+        env_phase["IPL|2024-26"] = ([r3(np.mean([csp[2 * k] for k in ks], axis=0)), z,
+                                     r3(np.mean([csp[2 * k + 1] for k in ks], axis=0))] if csp is not None else [z, z, z])
+    for a, b in (env_alias or {}).items():   # e.g. holdout model: unseen IPL|2026 -> IPL|2025
+        env[a], env_phase[a] = env[b], env_phase[b]
     bats, bowls = {}, {}
     for pid in pool:
         if pid in M.bat_pos:
@@ -635,10 +796,11 @@ def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names
                           "lh": r3(BOWL["lh"][j]), "sub": SUBTYPES[int(BOWL["sub"][j])], "spin": int(bool(BOWL["spin"][j]))}
     VB, VI, VS = M.blk("venue"), M.blk("venue_i2"), M.blk("venue_spin")
     ven = {}
-    for v in venues["venue"]:
+    for v in (venues["venue"] if hasattr(venues, "columns") else venues):
+        if v not in M.venue_pos:
+            continue
         i = M.venue_pos[v]
         ven[v] = {"base": r3(VB[i]), "i2": r3(VI[i]), "spin": r3(VS[i])}
-    z = [0.0] * K
     params = {
         "version": 1, "classes": CLASSES, "ref_class": REF,
         "base": r3(base.ravel()), "base_shape": [2, 20, 8, K],
@@ -650,7 +812,8 @@ def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names
         "sub_lhb": {s: r3(M.blk("sub_lhb")[i]) for i, s in enumerate(SUBTYPES)},
         "sub_phase": {s: [r3(M.blk("sub_ph")[i * 3 + 0]), [0.0] * K, r3(M.blk("sub_ph")[i * 3 + 2])]
                       for i, s in enumerate(SUBTYPES)},
-        "env": env, "default_env": "IPL|2026",
+        "env": env, "default_env": default_env, "env_phase": env_phase,
+        "match_shock": match_shock or {"sd": 0.0, "dir": [0.0] * K},
         "venues": ven, "venue_neutral": {"base": z, "i2": z, "spin": z},
         "batters": bats, "bowlers": bowls,
         "batter_priors": {r: {"b": r3(v), "pp": z, "de": z, "sp": z, "ea": z, "hand": "R"} for r, v in pri_b.items()},
@@ -658,7 +821,8 @@ def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names
                               "spin": int(r.startswith("spin"))} for r, v in pri_w.items()},
         "extras": ex,
     }
-    (EXPORT / "sim_params.json").write_text(json.dumps(params, separators=(",", ":")))
+    (path or (EXPORT / "sim_params.json")).write_text(json.dumps(params, separators=(",", ":")))
+    return params
 
 
 if __name__ == "__main__":

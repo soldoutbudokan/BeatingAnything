@@ -11,7 +11,9 @@ from models.ipl.fit import DEFAULT_LAM, build_design, fit_model, indices, load, 
 
 
 def best_hyper():
-    p = PROC / "tuning.json"
+    p = PROC / "tuning_r2.json"  # round-2 search on the current design takes precedence
+    if not p.exists():
+        p = PROC / "tuning.json"
     if not p.exists():
         return 2.5, DEFAULT_LAM, None
     res = [r for r in json.loads(p.read_text()) if r["lam"]["bat"] < 1e8]

@@ -14,7 +14,7 @@ import scipy.sparse as sp
 from scipy.optimize import minimize
 
 from models.ipl.config import CLASSES, K, PROC, REF, TIERS
-from models.ipl.prep import SUBTYPES, EARLY_BF, EXP_LABELS
+from models.ipl.prep import AGE_LABELS, SUBTYPES, EARLY_BF, EXP_LABELS
 
 KM = K - 1
 FREE = [k for k in range(K) if k != REF]
@@ -149,7 +149,14 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons)
     put("comp", f["comp"].astype(str).map(cmap).fillna(-1).to_numpy().astype(np.int64))
     csmap = {c: i for i, c in enumerate(comp_seasons)}
     D.add("cs", comp_seasons, "cs")
-    put("cs", f["comp_season"].astype(str).map(csmap).fillna(-1).to_numpy().astype(np.int64))
+    csi = f["comp_season"].astype(str).map(csmap).fillna(-1).to_numpy().astype(np.int64)
+    put("cs", csi)
+    # phase-specific league and league-season environment (e.g. the post-2023 IPL powerplay surge)
+    ci = f["comp"].astype(str).map(cmap).fillna(-1).to_numpy().astype(np.int64)
+    D.add("comp_ph", [f"{c}_p{p}" for c in comps for p in (0, 2)], "comp")
+    put("comp_ph", np.where((ci >= 0) & (ph != 1), ci * 2 + (ph == 2), -1))
+    D.add("cs_ph", [f"{c}_p{p}" for c in comp_seasons for p in (0, 2)], "cs")
+    put("cs_ph", np.where((csi >= 0) & (ph != 1), csi * 2 + (ph == 2), -1))
     vmap = {v: i for i, v in enumerate(venues)}
     vi = f["venue"].astype(str).map(vmap).fillna(-1).to_numpy().astype(np.int64)
     D.add("venue", venues, "venue")
@@ -177,6 +184,13 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons)
     put("bat_exp", rb * ne + eb)
     D.add("bowl_exp", [f"{r}_{e}" for r in roles_bowl for e in EXP_LABELS], "cov")
     put("bowl_exp", rw * ne + ew)
+    # age curves (age at the delivery): batting; bowling separately for pace and spin
+    na = len(AGE_LABELS)
+    D.add("bat_age", AGE_LABELS, "cov")
+    put("bat_age", f["age_bat_b"].to_numpy().astype(np.int64))
+    spin_row = f["bowl_spin"].to_numpy().astype(np.int64)
+    D.add("bowl_age", [f"{g}_{a}" for g in ("pace", "spin") for a in AGE_LABELS], "cov")
+    put("bowl_age", spin_row * na + f["age_bowl_b"].to_numpy().astype(np.int64))
     D.add("bat_tier", TIERS, "cov")
     D.add("bowl_tier", TIERS, "cov")
     tb = cov[["bat_tier_" + t for t in TIERS]].reindex(bat_ids).fillna(0).to_numpy()
@@ -220,9 +234,16 @@ class Fitter:
         self.w = w.astype(np.float64)
         self.D = D
         self.n, self.p = X.shape
-        pen = np.zeros(self.p)
+        pen = np.zeros((self.p, KM))
         for name, (o, labels, key) in D.blocks.items():
             pen[o:o + len(labels)] = lam[key]
+        # optional extra shrinkage of batters' dismissal coefficients (wicket, run out classes)
+        mult = lam.get("bat_wkt_mult", 1.0)
+        if mult != 1.0:
+            cols = [FREE.index(CLASSES.index("wicket")), FREE.index(CLASSES.index("runout"))]
+            for name in ("bat", "bat_pp", "bat_death", "bat_spin", "bat_early"):
+                o, labels, _ = D.blocks[name]
+                pen[o:o + len(labels), cols] *= mult
         self.pen = pen
         self.eta = np.zeros((self.n, KM))
         self.G = np.zeros((self.n, KM))
@@ -237,8 +258,8 @@ class Fitter:
         loss = _softmax_grad(self.eta, self.y, self.w, REF, self.G, self.Hb, False)
         Xc = self.Xc
         _xtg(Xc.indptr, Xc.indices, Xc.data, self.G, self.gW)
-        loss += 0.5 * np.sum(self.pen[:, None] * W * W)
-        g = self.gW + self.pen[:, None] * W
+        loss += 0.5 * np.sum(self.pen * W * W)
+        g = self.gW + self.pen * W
         self.nit += 1
         return loss, g.ravel()
 
@@ -260,7 +281,7 @@ class Fitter:
         Xc.data = Xc.data ** 2
         hd = np.zeros((self.p, KM))
         _xtg(Xc.indptr, Xc.indices, Xc.data, H, hd)
-        return hd + self.pen[:, None]
+        return hd + self.pen
 
 
 def predict_eta(X, W):

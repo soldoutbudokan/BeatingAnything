@@ -30,8 +30,8 @@ def rnd(x, d=3):
     return x
 
 
-def dump(name, obj):
-    (EXPORT / name).write_text(json.dumps(rnd(obj), separators=(",", ":"), allow_nan=False))
+def dump(name, obj, d=3):
+    (EXPORT / name).write_text(json.dumps(rnd(obj, d), separators=(",", ":"), allow_nan=False))
 
 
 # %% player value (VARP)
@@ -48,7 +48,7 @@ def slot_balls(f):
     return bp, mix
 
 
-def player_value(R, cov, f, teams_pos):
+def player_value(R, cov, f, teams_pos, plan_overs=None):
     bat, bowl = R["bat"], R["bowl"]
     bp, mix = slot_balls(f)
     ipl = f[(f["comp"].astype(str) == "IPL") & f["season"].astype(str).isin(IPL_RECENT)]
@@ -101,7 +101,20 @@ def player_value(R, cov, f, teams_pos):
     out_w = pd.DataFrame(index=bowl.index)
     out_w["bowl_rv_over_mix"] = rvw
     out_w["bowl_rep_rv_over"] = rvr
-    exp_ov = cov["overs_per_match"].reindex(bowl.index).fillna(0).clip(0, 4).to_numpy()
+    # projected overs in the current role: the team bowling plan for squad players; otherwise overs per match
+    # in matches played since 2024 (all T20s); players who have not bowled since 2024 project to zero
+    rec = f[f["date"] >= "2024-01-01"]
+    apps = pd.concat([rec[["match_id", "batter"]].rename(columns={"batter": "id"}),
+                      rec[["match_id", "non_striker"]].rename(columns={"non_striker": "id"}),
+                      rec[["match_id", "bowler"]].rename(columns={"bowler": "id"})]).drop_duplicates()
+    n_apps = apps.groupby("id").size()
+    ov_rec = rec[rec["legal"]].groupby("bowler").size() / 6
+    usage = (ov_rec.reindex(bowl.index).fillna(0) / n_apps.reindex(bowl.index).clip(lower=1)).fillna(0).clip(0, 4)
+    if plan_overs:
+        for pid, ov in plan_overs.items():
+            if pid in usage.index:
+                usage[pid] = ov
+    exp_ov = usage.to_numpy()
     out_w["exp_overs"] = exp_ov
     out_w["bowl_varp_4ov"] = (rvr - rvw) * 4.0   # per 4 overs
     out_w["bowl_varp"] = (rvr - rvw) * exp_ov   # per match at his usual workload
@@ -115,7 +128,48 @@ def team_spec(t):
     return {"name": t["name"], "order": t["order"], "plan": t["plan"]}
 
 
-def run_matchups(P, teams):
+def pmf(x, trim=5e-4):
+    """Exact sim distribution of an integer quantity as {o: first value, p: [probabilities]} with the tails
+    (leading/trailing values below `trim`) dropped; `t` = probability mass trimmed."""
+    x = np.asarray(x, int)
+    lo = int(x.min())
+    c = np.bincount(x - lo) / len(x)
+    keep = np.flatnonzero(c >= trim)
+    if len(keep) == 0:
+        return {"o": lo, "p": [1.0], "t": 0.0}
+    a, b = keep[0], keep[-1] + 1
+    return {"o": lo + int(a), "p": [round(float(v), 4) for v in c[a:b]], "t": round(float(1 - c[a:b].sum()), 4)}
+
+
+def condition_pmfs(part, A, B):
+    """PMFs for one batting-first condition (part = one sim_match(bat_first=...) output)."""
+    first = part["first"][0]
+    out = {"bat_first": A["name"] if first == "A" else B["name"], "n": int(len(part["winA"])),
+           "p_win_A": float(part["winA"].mean()), "p_tie": float(part["tie"].mean())}
+    i1 = part[first]
+    i2 = part["B" if first == "A" else "A"]
+    out["first_innings_total"] = pmf(i1["score"])
+    out["match_total"] = pmf(i1["score"] + i2["score"])
+    for side, team in (("A", A), ("B", B)):
+        r = part[side]
+        tm = {"total": pmf(r["score"]), "pp": pmf(r["pp"]), "sixes": pmf(r["sixes"]), "fours": pmf(r["fours"]),
+              "wkts": pmf(r["wk"]), "players": {}}
+        for k, pid in enumerate(team["order"][:11]):
+            tm["players"][pid] = {"runs": pmf(r["bat_runs"][:, k]), "balls": pmf(r["bat_balls"][:, k]),
+                                  "fours": pmf(r["bat_4"][:, k]), "sixes": pmf(r["bat_6"][:, k])}
+        o = part["B" if side == "A" else "A"]
+        for j, pid in enumerate(o["bowl_ids"]):
+            d = tm["players"].setdefault(pid, {})
+            d["wkts"] = pmf(o["bowl_wkts"][:, j])
+            d["conceded"] = pmf(o["bowl_runs"][:, j])
+        out[side] = tm
+    return out
+
+
+def run_matchups(P, teams, n_each=N_SIMS):
+    """Every pair at each side's home venue: n_each sims with A batting first and n_each with B batting
+    first. The summary (matchups.json) pools both (= a 50/50 toss); pmfs are kept per condition."""
+    from models.ipl.sim import _concat
     names = sorted(teams)
     res = []
     t0 = time.time()
@@ -124,9 +178,12 @@ def run_matchups(P, teams):
             A, B = teams[names[a]], teams[names[b]]
             for host in (A, B):
                 v = host["home_venue"]
-                raw = sim_match(P, team_spec(A), team_spec(B), v, n=N_SIMS, seed=len(res) + 1)
-                s = summarize(raw, team_spec(A), team_spec(B))
-                res.append(dict(A=A["name"], B=B["name"], venue=v, home=host["name"], summary=s))
+                k = len(res)
+                rA = sim_match(P, team_spec(A), team_spec(B), v, n=n_each, seed=4 * k + 1, bat_first="A")
+                rB = sim_match(P, team_spec(A), team_spec(B), v, n=n_each, seed=4 * k + 2, bat_first="B")
+                s = summarize(_concat(rA, rB), team_spec(A), team_spec(B))
+                res.append(dict(A=A["name"], B=B["name"], venue=v, home=host["name"], summary=s,
+                                pmfs=[condition_pmfs(rA, A, B), condition_pmfs(rB, A, B)]))
     secs = time.time() - t0
     neutral = []
     for a in range(len(names)):
@@ -136,7 +193,7 @@ def run_matchups(P, teams):
             s = summarize(raw, team_spec(A), team_spec(B))
             neutral.append(dict(A=A["name"], B=B["name"], p_win_A=s["p_win_A"], runs_A=s["A"]["total_mean"],
                                 runs_B=s["B"]["total_mean"]))
-    return res, neutral, secs / max(len(res), 1)
+    return res, neutral, secs / max(2 * len(res), 1)
 
 
 # %% main
@@ -165,7 +222,13 @@ def main():
     for t in teams.values():
         for k, pid in enumerate(t["order"]):
             teams_pos[pid] = k + 1
-    vb, vw, rep_b, rep_w, slot_bp, slot_mix = player_value(R, cov, f, teams_pos)
+    plan_overs = {}
+    for t in teams.values():
+        for p in t["plan"]:
+            plan_overs[p["id"]] = p["pp"] + p["mid"] + p["death"]
+        for pid in t["xii"]:
+            plan_overs.setdefault(pid, 0.0)   # in the default 12 but not in the plan: does not bowl
+    vb, vw, rep_b, rep_w, slot_bp, slot_mix = player_value(R, cov, f, teams_pos, plan_overs)
 
     # ---------------- matchups
     res, neutral, sec_per = run_matchups(P, teams)
@@ -207,6 +270,13 @@ def main():
                                                                     wkts=("wkt", "sum"), inns=("m", "nunique"))
         return b, w
     rc_b, rc_w = raw_counts(f[f["date"] >= "2024-01-01"])
+    s26_b, s26_w = raw_counts(ipl_f[ipl_f["date"].dt.year == int(next(iter(teams.values()))["season"])])
+    # projected per-match line at the default role: mean over that team's 18 home/away matchups
+    proj = {}
+    for m in res:
+        for side in ("A", "B"):
+            for pid, d in m["summary"][side]["players"].items():
+                proj.setdefault(pid, []).append(d)
     ic_b, ic_w = raw_counts(ipl_f)
     pct_base_b = bat.index.intersection(obs_ipl_b.index[obs_ipl_b["balls"] >= 100].union(rc_b.index[rc_b["balls"] >= 300]))
     pct_base_w = bowl.index.intersection(obs_ipl_w.index[obs_ipl_w["balls"] >= 100].union(rc_w.index[rc_w["balls"] >= 300]))
@@ -297,6 +367,31 @@ def main():
                 o = ic_w.loc[pid]
                 d["bowl"]["ipl_career"] = {"inns": int(o["inns"]), "balls": int(o["balls"]), "conc": int(o["conc"]),
                                            "wkts": int(o["wkts"]), "econ": 6 * o["conc"] / max(o["balls"], 1)}
+        season_ = int(next(iter(teams.values()))["season"])
+        line = {"season": season_}
+        if pid in s26_b.index:
+            o = s26_b.loc[pid]
+            line.update(bat_inns=int(o["inns"]), runs=int(o["runs"]), balls=int(o["balls"]), outs=int(o["outs"]),
+                        sr=100 * o["runs"] / o["balls"] if o["balls"] else None,
+                        avg=o["runs"] / o["outs"] if o["outs"] else None)
+        if pid in s26_w.index:
+            o = s26_w.loc[pid]
+            line.update(bowl_inns=int(o["inns"]), wkts=int(o["wkts"]), overs=float(o["balls"]) / 6, conceded=int(o["conc"]),
+                        econ=6 * o["conc"] / o["balls"] if o["balls"] else None)
+        apps26 = sum(1 for t in teams.values() for _, r in t["squad"].iterrows() if r["id"] == pid)
+        line["matches"] = int(next((r["apps"] for t in teams.values() for _, r in t["squad"].iterrows() if r["id"] == pid), 0)) if apps26 else 0
+        d["ipl_last_season"] = line if (pid in s26_b.index or pid in s26_w.index) else None
+        if pid in proj:
+            L = proj[pid]
+            g = lambda k: float(np.mean([x[k] for x in L if x.get(k) is not None])) if any(x.get(k) is not None for x in L) else None
+            d["proj_match"] = {"matchups": len(L), "bat_pos": g("bat_pos"), "runs": g("runs_mean"), "balls": g("balls_mean"),
+                               "fours": g("fours_mean"), "sixes": g("sixes_mean"),
+                               "p30": float(np.mean([x["p_runs"]["30"] for x in L if "p_runs" in x])) if any("p_runs" in x for x in L) else None,
+                               "p50": float(np.mean([x["p_runs"]["50"] for x in L if "p_runs" in x])) if any("p_runs" in x for x in L) else None,
+                               "overs": g("overs_mean"), "wkts": g("wkts_mean"), "conceded": g("conceded_mean"),
+                               "econ": g("econ")}
+        else:
+            d["proj_match"] = None
         bv = d.get("bat", {}).get("value", {}).get("varp_runs", 0) or 0
         wv = d.get("bowl", {}).get("value", {}).get("varp_runs", 0) or 0
         d["varp_runs"] = bv + wv
@@ -349,7 +444,20 @@ def main():
         s = m["summary"]
         mrows.append({"A": m["A"], "B": m["B"], "venue": m["venue"], "home": m["home"], "n": s["n"],
                       "p_win_A": s["p_win_A"], "p_tie": s["p_tie"], "A_stats": s["A"], "B_stats": s["B"]})
-    dump("matchups.json", {"n_sims": N_SIMS, "toss": "half the sims with each side batting first", "env": P.raw["default_env"],
+    # ---------------- exact distributions: one file per home team (its 9 home matchups)
+    mdir = EXPORT / "matchups"
+    mdir.mkdir(exist_ok=True)
+    index = []
+    for t in sorted(teams.values(), key=lambda x: x["name"]):
+        rows = [{"A": m["A"], "B": m["B"], "venue": m["venue"], "home": m["home"], "conditions": m["pmfs"]}
+                for m in res if m["home"] == t["name"]]
+        fn = f"{t['short']}.json"
+        dump(f"matchups/{fn}", {"home": t["name"], "venue": t["home_venue"], "n_sims_per_condition": N_SIMS,
+                                "trim": 5e-4, "matchups": rows}, d=4)
+        index.append({"file": f"matchups/{fn}", "home": t["name"], "venue": t["home_venue"],
+                      "pairs": [[r["A"], r["B"]] for r in rows]})
+    dump("matchups/index.json", {"files": index})
+    dump("matchups.json", {"n_sims": 2 * N_SIMS, "toss": "half the sims with each side batting first (n_sims/2 each); per-condition pmfs in matchups/<home>.json", "env": P.raw["default_env"],
                            "matchups": mrows, "neutral": neutral})
 
     # ---------------- venues.json / leagues.json

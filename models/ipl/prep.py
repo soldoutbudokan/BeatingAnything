@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 
-from models.ipl.config import CLASSES, PEOPLE, PROC, STYLES, TIER_OF, TIERS
+from models.ipl.config import CLASSES, DOB, PEOPLE, PROC, STYLES, TIER_OF, TIERS
 
 BF_EDGES = [0, 1, 3, 6, 10, 15, 20, 30, 45, 10**6]   # balls-faced buckets: 0,1-2,3-5,6-9,10-14,15-19,20-29,30-44,45+
 BF_LABELS = ["0", "1-2", "3-5", "6-9", "10-14", "15-19", "20-29", "30-44", "45+"]
@@ -13,6 +13,22 @@ SUBTYPES = ["pace_R", "pace_L", "OB", "LB", "SLA", "SLW", "pace_U", "spin_U"]
 EARLY_BF = 10  # settling split: first 10 balls of an innings
 EXP_EDGES = [0, 60, 200, 600, 1500, 4000]  # career deliveries buckets for the experience prior
 EXP_LABELS = ["<60", "60-199", "200-599", "600-1499", "1500-3999", "4000+"]
+AGE_EDGES = [0, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38]   # age buckets; index len(AGE_EDGES) = unknown DOB
+AGE_LABELS = ["<20", "20-21", "22-23", "24-25", "26-27", "28-29", "30-31", "32-33", "34-35", "36-37", "38+", "unknown"]
+
+
+def load_dob():
+    if not DOB.exists():
+        return pd.Series(dtype="datetime64[ns]")
+    m = pd.read_csv(DOB, dtype={"cricsheet_id": str}).dropna(subset=["cricsheet_id", "dob"])
+    m = m.drop_duplicates("cricsheet_id")
+    return pd.Series(pd.to_datetime(m["dob"].astype(float), unit="D").to_numpy(), index=m["cricsheet_id"].to_numpy())
+
+
+def age_bucket(age):
+    a = np.asarray(age, float)
+    b = np.searchsorted(AGE_EDGES, np.nan_to_num(a, nan=-1), side="right") - 1
+    return np.where(np.isnan(a) | (b < 0), len(AGE_EDGES), b).astype(np.int8)
 
 
 def subtype_of(bowl_type, group):
@@ -127,15 +143,22 @@ def build():
     lg = b["legal"].astype(np.int32)
     cum_w = lg.groupby(b["bowler"]).cumsum() - lg
     b["exp_bowl_row"] = (np.searchsorted(EXP_EDGES, cum_w.to_numpy(), side="right") - 1).astype(np.int8)
+    # age at the time of each delivery (years); unknown DOB -> own bucket
+    dob = load_dob()
+    for who, col in (("batter", "age_bat_b"), ("bowler", "age_bowl_b")):
+        d = b[who].map(dob)
+        age = (b["date"] - d).dt.days / 365.25
+        b[col] = age_bucket(age.to_numpy())
     # player covariates (career, unweighted)
     cov = player_covariates(b, st)
+    cov["dob"] = cov.index.map(dob)
     cols = ["match_id", "comp", "comp_season", "season", "date", "venue", "innings", "over", "phase",
             "legal_before", "wk_b", "bf_b", "bf_before", "rrr_b", "rrr", "batter", "non_striker", "bowler",
             "bat_hand", "bowl_subtype", "bowl_spin", "y", "cls", "legal", "runs_bat", "runs_extras",
             "runs_total", "wides", "noballs", "byes", "wicket_kind", "player_out", "wkts_before",
             "score_before", "target", "bat_pos", "bat_team", "bowl_team", "reduced", "tier",
             "brun_before", "winner", "toss_winner", "toss_decision", "non_boundary", "ns_bf_before",
-            "exp_bat_row", "exp_bowl_row"]
+            "exp_bat_row", "exp_bowl_row", "age_bat_b", "age_bowl_b"]
     b = b[cols].reset_index(drop=True)
     for c in ["comp", "comp_season", "season", "venue", "bat_hand", "bowl_subtype", "cls", "tier"]:
         b[c] = b[c].astype("category")

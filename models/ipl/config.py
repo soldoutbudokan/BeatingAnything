@@ -12,6 +12,9 @@ for p in (RAW, PROC, EXPORT, STATIC):
 ALL_ZIP = RAW / "all_male_json.zip"
 PEOPLE = RAW / "people.csv"
 STYLES = STATIC / "player_styles.csv"
+# dates of birth: cricketdata::player_meta (github.com/robjhyndman/cricketdata), as fetched by the styles builder
+DOB = ROOT / "data" / "raw" / "cricket_styles" / "gh" / "cricketdata_player_meta.csv"
+PROJ_DATE = "2027-04-15"  # age reference date for 2027 projections
 
 # Outcome classes (order is part of the export contract)
 CLASSES = ["wide", "noball", "byes", "wicket", "runout", "r0", "r1", "r2", "r3", "r4", "r6"]
