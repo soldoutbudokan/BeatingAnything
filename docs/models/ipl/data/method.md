@@ -71,7 +71,8 @@ than a year ago has his individual deviation decayed by exp(-(gap - 1)/2) (gap i
 The covariance between the two innings' residual scoring rates (actual minus expected runs per delivery, IPL
 2022-26) sizes a match-level normal shock that the simulator adds to every delivery's logits in both innings,
 along the 2021-to-2026 IPL scoring direction (more boundaries, fewer dots). It widens total-score tails and
-tempers win probabilities.
+tempers win probabilities. On top of the shared shock each innings draws its own innings-level shock, sized from
+the residual variance of a single innings that is neither shared with the other innings nor sampling noise.
 
 **Recency.** Each delivery is weighted by 0.5^(age / half-life). The half-life and the penalty strengths were
 chosen by fitting on data before 1 June 2025 and scoring the log loss on everything after (IPL 2026 included),
@@ -105,8 +106,9 @@ dew setting (`none`, `normal`, `heavy`). Mapping (estimated from the data, see `
 `flat` = +1 SD of the match-conditions shock on every ball; `slow_low` = -1 SD plus, on spin balls, the gap
 between the spin terms of the most spin-friendly fifth of grounds (by spin wickets) and the average ground;
 `seaming` = -0.5 SD plus, on pace balls, the venue-term gap of the fifth of grounds where pace takes most
-wickets; `heavy` / `none` dew = on 2nd-innings balls, the 2nd-innings venue-term gap of the fifth of grounds
-with the largest / smallest 2nd-vs-1st innings scoring ratio. `normal` adds nothing. These are scenario
+wickets; `heavy` / `none` dew = on 2nd-innings balls, a shift along the scoring direction equal to the 90th / 10th
+percentile of the match-level chase residual (2nd-innings minus 1st-innings residual scoring rate per IPL
+2022-26 match, with the sampling noise of each innings removed from its variance). `normal` adds nothing. These are scenario
 dials, not fitted parameters of a specific match.
 
 ## 4. Player ratings ("true" stats)
@@ -158,7 +160,7 @@ IPL fan knows.
 * Batting order: recency-weighted mean batting position. The 12th man — the Impact Player — is taken to be the
   lowest-ordered frontline bowler, who bowls but does not bat.
 * Bowling plan: each bowler's overs per phase (powerplay 1-6, middle 7-15, death 16-20) are his historical
-  per-match workload this season, turned into whole overs that fill 6/9/5 with at most 4 overs each.
+  per-match workload this season (overs per match he played, recency-weighted), turned into whole overs that fill 6/9/5 with at most 4 overs each.
   The simulator's "captain" then assigns overs one by one: each over goes to the bowler with the most planned
   overs left in that phase, never the previous over's bowler, never more than 4, and only if the remaining
   overs can still be bowled without anyone bowling consecutive overs.

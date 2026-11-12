@@ -39,6 +39,7 @@ class Params:
         self.cond_tbl = raw.get("conditions", {})
         ms = raw.get("match_shock") or {"sd": 0.0, "dir": [0.0] * NC}
         self.shock_sd, self.shock_dir = float(ms["sd"]), np.asarray(ms["dir"], float)
+        self.shock_inn_sd = float(ms.get("innings_sd", 0.0))
         self.ex = raw["extras"]
 
     @classmethod
@@ -326,6 +327,14 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
     return res
 
 
+def innings_shocks(P, rng, n, shock):
+    """Shared match shock plus an independent innings-level shock (both along match_shock.dir)."""
+    if P.shock_inn_sd <= 0:
+        return shock, shock
+    base = shock if shock is not None else np.zeros(n)
+    return base + rng.standard_normal(n) * P.shock_inn_sd, base + rng.standard_normal(n) * P.shock_inn_sd
+
+
 # %% user conditions
 
 
@@ -370,9 +379,10 @@ def sim_match(P, A, B, venue_id, n=10000, seed=0, bat_first=None, env_key=None, 
         return _concat(r1, r2)
     first, second = ((("A", oa, sa), ("B", ob, sb)) if bat_first == "A" else (("B", ob, sb), ("A", oa, sa)))
     shock = rng.standard_normal(n) * P.shock_sd if P.shock_sd > 0 else None
+    sh1, sh2 = innings_shocks(P, rng, n, shock)
     cond = condition_terms(P, conditions)
-    i1 = sim_innings(P, rng, n, first[1], second[2], V, env, 1, env_ph=eph, shock=shock, cond=cond)
-    i2 = sim_innings(P, rng, n, second[1], first[2], V, env, 2, target=i1["score"] + 1, env_ph=eph, shock=shock,
+    i1 = sim_innings(P, rng, n, first[1], second[2], V, env, 1, env_ph=eph, shock=sh1, cond=cond)
+    i2 = sim_innings(P, rng, n, second[1], first[2], V, env, 2, target=i1["score"] + 1, env_ph=eph, shock=sh2,
                      cond=cond)
     s1, s2 = i1["score"], i2["score"]
     first_wins = (s1 > s2).astype(float)

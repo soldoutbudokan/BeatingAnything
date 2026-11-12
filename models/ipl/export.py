@@ -113,9 +113,13 @@ def player_value(R, cov, f, teams_pos, plan_overs=None):
     in_plan = pd.Series(False, index=bowl.index)
     if plan_overs:
         for pid, ov in plan_overs.items():
-            if pid in in_plan.index and ov > 0:
+            if pid in in_plan.index and ov > 0.05:
                 in_plan[pid] = True
     is_bowler = in_plan | ((ov_rec.reindex(bowl.index).fillna(0) * 6 >= 60) & (usage >= 0.5))
+    if plan_overs:  # default-12 players: the current team role decides
+        for pid, ov in plan_overs.items():
+            if pid in is_bowler.index:
+                is_bowler[pid] = ov > 0.05
     usage = usage.where(is_bowler, 0.0)
     if plan_overs:
         for pid, ov in plan_overs.items():
@@ -136,17 +140,24 @@ def team_spec(t):
     return {"name": t["name"], "order": t["order"], "plan": t["plan"]}
 
 
-def pmf(x, trim=5e-4):
-    """Exact sim distribution of an integer quantity as {o: first value, p: [probabilities]} with the tails
-    (leading/trailing values below `trim`) dropped; `t` = probability mass trimmed."""
+def pmf(x, tail=1e-4):
+    """Exact sim distribution of an integer quantity, full mass kept: {o, p, t, tl, th}.
+    p[i] = P(value = o + i) for interior values; each tail with cumulative probability <= `tail` is cut and
+    folded into the end bucket, so p[0] = P(value <= o) and p[-1] = P(value >= o + len(p) - 1);
+    tl / th = mass folded into the first / last bucket; t = tl + th (sum(p) == 1)."""
     x = np.asarray(x, int)
     lo = int(x.min())
     c = np.bincount(x - lo) / len(x)
-    keep = np.flatnonzero(c >= trim)
-    if len(keep) == 0:
-        return {"o": lo, "p": [1.0], "t": 0.0}
-    a, b = keep[0], keep[-1] + 1
-    return {"o": lo + int(a), "p": [round(float(v), 4) for v in c[a:b]], "t": round(float(1 - c[a:b].sum()), 4)}
+    cl, ch = np.cumsum(c), np.cumsum(c[::-1])[::-1]
+    a = int(np.searchsorted(cl, tail, side="right"))          # first index whose cumulative mass > tail
+    b = len(c) - int(np.searchsorted(np.cumsum(c[::-1]), tail, side="right"))  # one past the last kept index
+    a, b = min(a, len(c) - 1), max(b, a + 1)
+    p = c[a:b].copy()
+    tl, th = float(c[:a].sum()), float(c[b:].sum())
+    p[0] += tl
+    p[-1] += th
+    return {"o": lo + a, "p": [round(float(v), 5) for v in p], "t": round(tl + th, 6), "tl": round(tl, 6),
+            "th": round(th, 6)}
 
 
 def condition_pmfs(part, A, B):
@@ -158,6 +169,17 @@ def condition_pmfs(part, A, B):
     i2 = part["B" if first == "A" else "A"]
     out["first_innings_total_pmf"] = pmf(i1["score"])
     out["match_total_pmf"] = pmf(i1["score"] + i2["score"])
+    out["match_fours_pmf"] = pmf(i1["fours"] + i2["fours"])
+    out["match_sixes_pmf"] = pmf(i1["sixes"] + i2["sixes"])
+    # result margins (conditional on that result; ties excluded): side batting first wins by runs,
+    # chaser wins by wickets in hand and by balls to spare
+    w1 = i1["score"] > i2["score"]
+    w2 = i2["score"] > i1["score"]
+    out["p_bat1_win_in_20"] = float(w1.mean())
+    out["p_bat2_win_in_20"] = float(w2.mean())
+    out["bat1_win_runs_pmf"] = pmf(i1["score"][w1] - i2["score"][w1]) if w1.any() else None
+    out["bat2_win_wkts_pmf"] = pmf(10 - i2["wk"][w2]) if w2.any() else None
+    out["bat2_win_balls_pmf"] = pmf(120 - i2["legal"][w2]) if w2.any() else None
     for side, team in (("A", A), ("B", B)):
         r = part[side]
         tm = {"total_pmf": pmf(r["score"]), "pp_pmf": pmf(r["pp"]), "sixes_pmf": pmf(r["sixes"]),
@@ -165,11 +187,25 @@ def condition_pmfs(part, A, B):
         for k, pid in enumerate(team["order"][:11]):
             tm["players"][pid] = {"runs_pmf": pmf(r["bat_runs"][:, k]), "balls_pmf": pmf(r["bat_balls"][:, k]),
                                   "fours_pmf": pmf(r["bat_4"][:, k]), "sixes_pmf": pmf(r["bat_6"][:, k])}
+        br, bt = r["bat_runs"], r["batted"]
+        top = (br == br.max(1, keepdims=True)) & bt
+        topshare = top / np.maximum(top.sum(1, keepdims=True), 1)
+        for k, pid in enumerate(team["order"][:11]):
+            tm["players"][pid]["mean"] = {"runs": float(br[:, k].mean()), "balls": float(r["bat_balls"][:, k].mean()),
+                                          "fours": float(r["bat_4"][:, k].mean()), "sixes": float(r["bat_6"][:, k].mean()),
+                                          "p_bat": float(bt[:, k].mean()), "p_out": float(r["bat_out"][:, k].mean()),
+                                          "p_top_bat": float(topshare[:, k].mean())}
         o = part["B" if side == "A" else "A"]
+        key = o["bowl_wkts"] * 1000 - o["bowl_runs"]
+        tb = key == key.max(1, keepdims=True)
+        tshare = tb / tb.sum(1, keepdims=True)
         for j, pid in enumerate(o["bowl_ids"]):
             d = tm["players"].setdefault(pid, {})
             d["wkts_pmf"] = pmf(o["bowl_wkts"][:, j])
             d["conceded_pmf"] = pmf(o["bowl_runs"][:, j])
+            m_ = d.setdefault("mean", {})
+            m_.update({"wkts": float(o["bowl_wkts"][:, j].mean()), "conceded": float(o["bowl_runs"][:, j].mean()),
+                       "overs": float(o["bowl_balls"][:, j].mean() / 6), "p_top_bowl": float(tshare[:, j].mean())})
         out[side] = tm
     return out
 
@@ -257,12 +293,24 @@ def main():
     for t in teams.values():
         for k, pid in enumerate(t["order"]):
             teams_pos[pid] = k + 1
+    # projected overs per match for the default 12: last season's recency-weighted overs per match *played*,
+    # scaled so the 12 share exactly 20 overs (each capped at 4); squad players outside the 12 keep their usage
     plan_overs = {}
     for t in teams.values():
-        for p in t["plan"]:
-            plan_overs[p["id"]] = p["pp"] + p["mid"] + p["death"]
-        for pid in t["xii"]:
-            plan_overs.setdefault(pid, 0.0)   # in the default 12 but not in the plan: does not bowl
+        sq = t["squad"].set_index("id")
+        u = sq.loc[t["xii"], "overs_pm"].clip(0, 4)
+        tot = float(u.sum())
+        if tot > 0:
+            u = u * (20.0 / tot)
+            for _ in range(5):  # re-cap and redistribute
+                over = (u - 4).clip(lower=0).sum()
+                u = u.clip(upper=4)
+                room = (u < 4) & (u > 0)
+                if over <= 1e-9 or not room.any():
+                    break
+                u[room] += over * u[room] / u[room].sum()
+        for pid, v in u.items():
+            plan_overs[pid] = float(v)
     vb, vw, rep_b, rep_w, slot_bp, slot_mix = player_value(R, cov, f, teams_pos, plan_overs)
 
     # ---------------- matchups
@@ -513,7 +561,7 @@ def main():
                 for m in res if m["home"] == t["name"]]
         fn = f"{t['short']}.json"
         dump(f"matchups/{fn}", {"home": t["name"], "venue": t["home_venue"], "n_sims_per_condition": N_SIMS,
-                                "trim": 5e-4, "matchups": rows}, d=4)
+                                "trim": 1e-4, "tail_fold": 1e-4, "matchups": rows}, d=5)
         index.append({"file": f"matchups/{fn}", "home": t["name"], "venue": t["home_venue"],
                       "pairs": [[r["A"], r["B"]] for r in rows]})
     dump("matchups/index.json", {"files": index})

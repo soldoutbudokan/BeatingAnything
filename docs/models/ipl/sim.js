@@ -61,7 +61,7 @@
     });
     P.qRoStriker = raw.extras.runout_striker;
     var ms = raw.match_shock || { sd: 0, dir: new Array(NC).fill(0) };
-    P.shockSd = ms.sd; P.shockDir = ms.dir;
+    P.shockSd = ms.sd; P.shockDir = ms.dir; P.shockInnSd = ms.innings_sd || 0;
     return P;
   }
 
@@ -303,10 +303,16 @@
     var S = first === "A" ? { k: "B", o: ob, s: sb } : { k: "A", o: oa, s: sa };
     var shock = null, i;
     if (P.shockSd > 0) { shock = new Float64Array(n); for (i = 0; i < n; i++) shock[i] = gauss(rng) * P.shockSd; }
-    var i1 = simInnings(P, rng, n, F.o, S.s, V, env, 1, null, 10, 20, true, envPh, shock, cond);
+    var sh1 = shock, sh2 = shock;
+    if (P.shockInnSd > 0) {  // independent innings-level component on top of the shared match shock
+      sh1 = new Float64Array(n); sh2 = new Float64Array(n);
+      for (i = 0; i < n; i++) sh1[i] = (shock ? shock[i] : 0) + gauss(rng) * P.shockInnSd;
+      for (i = 0; i < n; i++) sh2[i] = (shock ? shock[i] : 0) + gauss(rng) * P.shockInnSd;
+    }
+    var i1 = simInnings(P, rng, n, F.o, S.s, V, env, 1, null, 10, 20, true, envPh, sh1, cond);
     var tg = new Int32Array(n);
     for (i = 0; i < n; i++) tg[i] = i1.score[i] + 1;
-    var i2 = simInnings(P, rng, n, S.o, F.s, V, env, 2, tg, 10, 20, true, envPh, shock, cond);
+    var i2 = simInnings(P, rng, n, S.o, F.s, V, env, 2, tg, 10, 20, true, envPh, sh2, cond);
     var firstWins = new Float64Array(n), tie = new Uint8Array(n), tied = [];
     for (i = 0; i < n; i++) {
       if (i1.score[i] > i2.score[i]) firstWins[i] = 1;
@@ -471,9 +477,14 @@
              batted: 0, out: 0, duck: 0, top_bat: 0, top_bowl: 0, n_bat: 0, n_bowl: 0 };
   }
 
-  function rawFromParts(parts, A, B) {
-    var raw = { version: 1, n: 0, ties: 0, first_innings_total: [], match_total: [], A: newTeamRaw(), B: newTeamRaw(),
-                names: { A: A.name, B: B.name } };
+  function rawFromParts(parts, A, B, nested) {
+    var raw = { version: 2, n: 0, ties: 0, first_innings_total: [], match_total: [], match_fours: [], match_sixes: [],
+                bat1_win_runs: [], bat2_win_wkts: [], bat2_win_balls: [], bat1_wins_in_20: 0, bat2_wins_in_20: 0,
+                A: newTeamRaw(), B: newTeamRaw(), names: { A: A.name, B: B.name } };
+    if (!nested) {
+      raw.by_bat_first = {};
+      parts.forEach(function (p) { raw.by_bat_first[p.first] = rawFromParts([p], A, B, true); });
+    }
     parts.forEach(function (p) {
       var first = p.first, second = first === "A" ? "B" : "A";
       raw.n += p.n;
@@ -482,6 +493,12 @@
         var s1 = p[first].score[i], s2 = p[second].score[i];
         hadd(raw.first_innings_total, s1);
         hadd(raw.match_total, s1 + s2);
+        hadd(raw.match_fours, p[first].fours[i] + p[second].fours[i]);
+        hadd(raw.match_sixes, p[first].sixes[i] + p[second].sixes[i]);
+        if (s1 > s2) { raw.bat1_wins_in_20++; hadd(raw.bat1_win_runs, s1 - s2); }
+        else if (s2 > s1) {
+          raw.bat2_wins_in_20++; hadd(raw.bat2_win_wkts, 10 - p[second].wk[i]); hadd(raw.bat2_win_balls, 120 - p[second].legal[i]);
+        }
       }
       [["A", A], ["B", B]].forEach(function (pair) {
         var side = pair[0], team = pair[1], other = side === "A" ? "B" : "A", T = raw[side], r = p[side], i, k;
@@ -535,7 +552,7 @@
       var h = Math.floor(n / 2);
       parts = [simOneWay(P, A, B, V, env, h, rng, "A", envPh, cond), simOneWay(P, A, B, V, env, n - h, rng, "B", envPh, cond)];
     }
-    return rawFromParts(parts, A, B);
+    return rawFromParts(parts, A, B, false);
   }
 
   function mergeTeam(a, b) {
@@ -556,9 +573,20 @@
 
   /** Pool two raw results of the same matchup (e.g. from two workers with different seeds). */
   function mergeRaw(a, b) {
-    return { version: 1, n: a.n + b.n, ties: a.ties + b.ties, names: a.names,
-             first_innings_total: hmerge(a.first_innings_total, b.first_innings_total),
-             match_total: hmerge(a.match_total, b.match_total), A: mergeTeam(a.A, b.A), B: mergeTeam(a.B, b.B) };
+    var o = { version: a.version, n: a.n + b.n, ties: a.ties + b.ties, names: a.names,
+              A: mergeTeam(a.A, b.A), B: mergeTeam(a.B, b.B),
+              bat1_wins_in_20: (a.bat1_wins_in_20 || 0) + (b.bat1_wins_in_20 || 0),
+              bat2_wins_in_20: (a.bat2_wins_in_20 || 0) + (b.bat2_wins_in_20 || 0) };
+    ["first_innings_total", "match_total", "match_fours", "match_sixes", "bat1_win_runs", "bat2_win_wkts",
+     "bat2_win_balls"].forEach(function (k) { o[k] = hmerge(a[k] || [], b[k] || []); });
+    if (a.by_bat_first || b.by_bat_first) {
+      o.by_bat_first = {};
+      ["A", "B"].forEach(function (k) {
+        var x = (a.by_bat_first || {})[k], y = (b.by_bat_first || {})[k];
+        if (x && y) o.by_bat_first[k] = mergeRaw(x, y); else if (x || y) o.by_bat_first[k] = x || y;
+      });
+    }
+    return o;
   }
 
   function hstats(h) {
