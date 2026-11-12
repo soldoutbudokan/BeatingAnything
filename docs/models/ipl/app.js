@@ -411,6 +411,7 @@ I.exactMatch = async (a, b, vk, bf) => {
       if (bf) {
         // per-toss means and probabilities (round-3 files carry them per condition)
         ['runs', 'balls', 'fours', 'sixes'].forEach(k => { const v = mean(k); if (p[k] && isNum(v)) p[k].mean = v; });
+        if (isNum(mean('p_duck'))) { p.pDuck = mean('p_duck'); p.duckPerToss = true; }
         if (isNum(mean('p_bat'))) p.pBat = mean('p_bat'); if (isNum(mean('p_out'))) p.pOut = mean('p_out'); if (isNum(mean('p_top_bat'))) p.pTop = mean('p_top_bat');
         if (p.runs && p.runs.exact) [10, 20, 30, 40, 50, 75, 100].forEach(t => { p.pRuns[t] = p.runs.dist.pOver(t - 0.5); });
         if (p.runs && p.runs.exact && isNum(p.pDuck)) p.perTossDuck = false;
@@ -438,7 +439,8 @@ I.exactMatch = async (a, b, vk, bf) => {
   if (bf) {
     const c = bf === 'A' ? ca : cb, pA = r.A === a.name ? c.p_win_A : 1 - c.p_win_A;
     const perToss = Object.values((side(c, 'A') || {}).players || {}).some(x => x.mean);
-    Object.assign(M, { pWinA: pA, pTie: c.p_tie, n: c.n, batFirst: bf, tossNote: perToss ? 'Player means, P(bat), P(out) and top scorer/bowler are for this toss; P(duck) and the batting-first table are pooled over both tosses.' : 'P(bat), P(out), top scorer/bowler and the batting-first table are pooled over both tosses (the export keeps only distributions per toss).' });
+    const duck = M.A.players.concat(M.B.players).some(x => x.duckPerToss);
+    Object.assign(M, { pWinA: pA, pTie: c.p_tie, n: c.n, batFirst: bf, tossNote: perToss ? `Player means, P(bat), P(out)${duck ? ', P(duck)' : ''} and top scorer/bowler are for this toss; ${duck ? '' : 'P(duck) and '}the batting-first table ${duck ? 'is' : 'are'} pooled over both tosses.` : 'P(bat), P(out), top scorer/bowler and the batting-first table are pooled over both tosses (the export keeps only distributions per toss).' });
   } else M.n = 2 * nPer;
   M.exact = true; M.source = file; M.distSource = file;
   return M;
@@ -865,7 +867,7 @@ I.marginCard = (el, M) => {
   });
   const drawT = () => tbls.forEach(([t, rows]) => S.table(t, [{ key: 'k', label: 'Outcome', render: (v, r) => r.strong ? `<b>${esc(v.trim())}</b>` : `<span class="${r.alt ? 'muted' : ''}">&nbsp;&nbsp;${esc(v.trim())}</span>` }, { key: 'p', label: 'P', fmt: 'pct:1' }, { key: 'f', label: 'Fair', fmt: v => v ?? '', get: r => I.fp(r.p) }], rows));
   drawT(); I.odds.bind(g, drawT);
-  c.append(h('div', { class: 'sh-note', text: 'Wickets-left and balls-to-spare rows are two ways of splitting the same chasing wins (each set sums to the chase line).' }));
+  c.append(h('div', { class: 'sh-note ip-links' }, 'Wickets-left and balls-to-spare rows are two ways of splitting the same chasing wins (each set sums to the chase line). How well simulated margins match real ones: ', h('a', { href: I.hashFor('diag', { s: 'margins' }), text: 'Diagnostics, winning margins' }), '.'));
   // conditional distributions
   const opts = [];
   ['A', 'B'].forEach(sd => { const m = G[sd]; if (!m) return; if (m.first && m.first.w && m.first.runs) opts.push({ value: sd + '|runs', label: `${ab[sd]} by runs`, d: m.first.runs, x: 'runs', what: `${ab[sd]}'s margin in runs, given ${ab[sd]} bats first and wins` }); if (m.chase && m.chase.w && m.chase.wkts) opts.push({ value: sd + '|wkts', label: `${ab[sd]} by wkts`, d: m.chase.wkts, x: 'wickets in hand', what: `wickets in hand, given ${ab[sd]} chases and wins` }); if (m.chase && m.chase.w && m.chase.balls) opts.push({ value: sd + '|balls', label: `${ab[sd]} balls left`, d: m.chase.balls, x: 'balls to spare', what: `balls to spare, given ${ab[sd]} chases and wins` }); });
