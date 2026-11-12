@@ -362,7 +362,19 @@ I.preMatch = (a, b, vk) => {
 };
 
 /* exact pmfs from data/matchups/<HOST>.json: {o, p, t} per stat, one condition per batting-first side */
-const mixPmf = parts => { const acc = {}; let any = false, trim = 0; parts.forEach(([w, pm]) => { if (!w || !pm || !Array.isArray(pm.p)) return; any = true; trim += w * (pm.t || 0); const o = pm.o || 0; pm.p.forEach((q, i) => { if (q > 0) acc[o + i] = (acc[o + i] || 0) + w * q; }); }); if (!any) return null; const d = S.dist.fromPmf(acc); d.trim = trim; return d; };
+/* {o, p, t, tl, th} pmfs (full mass since round 3: p[0] = P(X <= o), p[last] = P(X >= o + len - 1); older files were trimmed) */
+const mixPmf = parts => {
+  const acc = {}; let any = false, trim = 0, tl = 0, th = 0, folded = false, lo = Infinity, hi = -Infinity;
+  parts.forEach(([w, pm]) => {
+    if (!w || !pm || !Array.isArray(pm.p)) return; any = true;
+    const o = pm.o || 0, n = pm.p.length, s = pm.p.reduce((x, y) => x + y, 0);
+    if ('tl' in pm || 'th' in pm) { folded = true; tl += w * (pm.tl || 0); th += w * (pm.th || 0); } else trim += w * (pm.t || 0);
+    lo = Math.min(lo, o); hi = Math.max(hi, o + n - 1);
+    pm.p.forEach((q, k) => { if (q > 0) acc[o + k] = (acc[o + k] || 0) + w * q / (folded && s > 0 ? s : 1); });
+  });
+  if (!any) return null;
+  const d = S.dist.fromPmf(acc); Object.assign(d, { trim, tl, th, folded, lo, hi }); return d;
+};
 I.pmfFiles = async () => { const m = await I.loadMeta().catch(() => null); const f = (m && m.matchups && m.matchups.files) || Object.keys((m && m.files_bytes) || {}); return f.filter(x => /^matchups\/(?!index)/.test(x)); };
 I.loadPmfRow = async (a, b, vk) => {
   if (vk === 'n') return null;
@@ -381,27 +393,52 @@ I.exactMatch = async (a, b, vk, bf) => {
   if (!ca || !cb) return M;
   const W = bf === 'A' ? [[1, ca], [0, cb]] : bf === 'B' ? [[0, ca], [1, cb]] : [[0.5, ca], [0.5, cb]];
   const side = (c, k) => c[r.A === a.name ? k : (k === 'A' ? 'B' : 'A')];
-  const mk = get => { const d = mixPmf(W.map(([w, c]) => [w, get(c)])); return d; };
+  const mk = get => mixPmf(W.map(([w, c]) => [w, get(c)]));
+  const wmean = get => { let s = 0, ws = 0; W.forEach(([w, c]) => { const v = get(c); if (w && isNum(v)) { s += w * v; ws += w; } }); return ws ? s / ws : null; };
   const nPer = J.n_sims_per_condition || ca.n;
   const put = (st, d) => { if (!st || !d) return; st.dist = d; st.exact = true; st.src = 'export'; st.note = ''; st.file = file; st.nCond = nPer; if (bf) { st.mean = d.mean; st.sd = d.sd; st.q = {}; [0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95].forEach(p => { st.q[p] = d.quantile(p); }); } };
-  M.total = M.total; put(M.total, mk(c => c.match_total_pmf)); put(M.inn1, mk(c => c.first_innings_total_pmf));
+  const fresh = d => d ? Object.assign(statFromDist(d, 'export'), { file, nCond: nPer }) : null;
+  put(M.total, mk(c => c.match_total_pmf)); put(M.inn1, mk(c => c.first_innings_total_pmf));
+  M.fours = fresh(mk(c => c.match_fours_pmf)); M.sixes = fresh(mk(c => c.match_sixes_pmf));
   ['A', 'B'].forEach(sd => {
     const T = M[sd], g = k => c => (side(c, sd) || {})[k];
     put(T.total, mk(g('total_pmf'))); put(T.pp, mk(g('pp_pmf'))); put(T.fow1, mk(g('fow1_pmf'))); put(T.fours, mk(g('fours_pmf'))); put(T.sixes, mk(g('sixes_pmf')));
-    const wk = mk(g('wkts_pmf')); if (wk) T.wkts = Object.assign(statFromDist(wk, 'export'), bf ? {} : { mean: T.wkts.mean });
+    const wk = mk(g('wkts_pmf')); if (wk) T.wkts = Object.assign(fresh(wk), bf ? {} : { mean: T.wkts.mean });
     T.players.forEach(p => {
       const pp = k => c => (((side(c, sd) || {}).players || {})[p.id] || {})[k];
+      const mean = k => wmean(c => { const x = pp('mean')(c); return x ? x[k] : null; });
       ['runs', 'balls', 'fours', 'sixes'].forEach(k => { if (p[k]) put(p[k], mk(pp(k + '_pmf'))); });
-      if (p.runs && p.runs.exact && bf) [10, 20, 30, 40, 50, 75, 100].forEach(t => { p.pRuns[t] = p.runs.dist.pOver(t - 0.5); });
+      if (bf) {
+        // per-toss means and probabilities (round-3 files carry them per condition)
+        ['runs', 'balls', 'fours', 'sixes'].forEach(k => { const v = mean(k); if (p[k] && isNum(v)) p[k].mean = v; });
+        if (isNum(mean('p_bat'))) p.pBat = mean('p_bat'); if (isNum(mean('p_out'))) p.pOut = mean('p_out'); if (isNum(mean('p_top_bat'))) p.pTop = mean('p_top_bat');
+        if (p.runs && p.runs.exact) [10, 20, 30, 40, 50, 75, 100].forEach(t => { p.pRuns[t] = p.runs.dist.pOver(t - 0.5); });
+        if (p.runs && p.runs.exact && isNum(p.pDuck)) p.perTossDuck = false;
+      }
       if (p.bowl) {
-        const w = mk(pp('wkts_pmf')); if (w) { const keep = p.bowl.wkts.mean; p.bowl.wkts = Object.assign(statFromDist(w, 'export'), { file, nCond: nPer }, bf ? {} : { mean: keep }); if (bf) [1, 2, 3, 4, 5].forEach(t => { p.bowl.pW[t] = w.pOver(t - 0.5); }); }
+        const w = mk(pp('wkts_pmf')); if (w) { const keep = p.bowl.wkts.mean; p.bowl.wkts = Object.assign(fresh(w), bf ? {} : { mean: keep }); if (bf) [1, 2, 3, 4, 5].forEach(t => { p.bowl.pW[t] = w.pOver(t - 0.5); }); }
         put(p.bowl.conceded, mk(pp('conceded_pmf')));
+        if (bf) {
+          if (isNum(mean('wkts'))) p.bowl.wkts.mean = mean('wkts'); if (isNum(mean('conceded'))) p.bowl.conceded.mean = mean('conceded');
+          if (isNum(mean('overs'))) { p.bowl.overs = mean('overs'); if (isNum(mean('conceded')) && p.bowl.overs) p.bowl.econ = mean('conceded') / p.bowl.overs; }
+          if (isNum(mean('p_top_bowl'))) p.bowl.pTop = mean('p_top_bowl');
+        }
       }
     });
   });
+  // winning margins: per team, batting first (runs) and chasing (wickets, balls to spare)
+  const mg = {};
+  [['A', a, ca, cb, bf === 'A' ? 1 : bf === 'B' ? 0 : 0.5], ['B', b, cb, ca, bf === 'B' ? 1 : bf === 'A' ? 0 : 0.5]].forEach(([sd, t, own, oth, w]) => {
+    mg[sd] = {
+      first: { w, p: own.p_bat1_win_in_20, runs: own.bat1_win_runs_pmf ? mixPmf([[1, own.bat1_win_runs_pmf]]) : null },
+      chase: { w: 1 - w, p: oth.p_bat2_win_in_20, wkts: oth.bat2_win_wkts_pmf ? mixPmf([[1, oth.bat2_win_wkts_pmf]]) : null, balls: oth.bat2_win_balls_pmf ? mixPmf([[1, oth.bat2_win_balls_pmf]]) : null },
+    };
+  });
+  if (isNum(ca.p_bat1_win_in_20)) M.margin = mg;
   if (bf) {
     const c = bf === 'A' ? ca : cb, pA = r.A === a.name ? c.p_win_A : 1 - c.p_win_A;
-    Object.assign(M, { pWinA: pA, pTie: c.p_tie, n: c.n, batFirst: bf, tossNote: 'P(bat), P(out), top scorer/bowler and the batting-first table are pooled over both tosses (the export keeps only distributions per toss).' });
+    const perToss = Object.values((side(c, 'A') || {}).players || {}).some(x => x.mean);
+    Object.assign(M, { pWinA: pA, pTie: c.p_tie, n: c.n, batFirst: bf, tossNote: perToss ? 'Player means, P(bat), P(out) and top scorer/bowler are for this toss; P(duck) and the batting-first table are pooled over both tosses.' : 'P(bat), P(out), top scorer/bowler and the batting-first table are pooled over both tosses (the export keeps only distributions per toss).' });
   } else M.n = 2 * nPer;
   M.exact = true; M.source = file; M.distSource = file;
   return M;
@@ -439,6 +476,14 @@ I.fromRaw = (raw, a, b, o = {}) => {
   const M = { a, b, venue: o.venue || null, vk: o.vk, n: N, pWinA: raw.A.wins / N, pTie: raw.ties / N, source: o.source || 'in-browser simulation', batFirst: o.batFirst || null, conditions: o.conditions || null, exact: true };
   M.A = rawSide(raw.A, a, o.orders && o.orders.A); M.B = rawSide(raw.B, b, o.orders && o.orders.B);
   M.total = hstat(raw.match_total); M.inn1 = hstat(raw.first_innings_total);
+  if (raw.match_fours) M.fours = hstat(raw.match_fours); if (raw.match_sixes) M.sixes = hstat(raw.match_sixes);
+  const by = raw.by_bat_first;
+  if (by && (by.A || by.B)) {
+    const nA = by.A ? by.A.n : 0, nB = by.B ? by.B.n : 0, tot = nA + nB || 1, hd = h => h && h.some(x => x > 0) ? pmfDist(h) : null;
+    const first = (c, w) => c && c.n ? { w, p: c.bat1_wins_in_20 / c.n, runs: hd(c.bat1_win_runs) } : { w: 0, p: null };
+    const chase = (c, w) => c && c.n ? { w, p: c.bat2_wins_in_20 / c.n, wkts: hd(c.bat2_win_wkts), balls: hd(c.bat2_win_balls) } : { w: 0, p: null };
+    M.margin = { A: { first: first(by.A, nA / tot), chase: chase(by.B, nB / tot) }, B: { first: first(by.B, nB / tot), chase: chase(by.A, nA / tot) } };
+  }
   return M;
 };
 /** replace approximate distributions in M (precomputed) with the exact ones from X (same lineups, in-browser) */
@@ -650,7 +695,7 @@ I.distBox = (el, st, o = {}) => {
 I.markers = (d, L) => { const span = Math.max(1, d.quantile(0.998) - d.quantile(0.002)), m = [{ x: L, label: 'O/U ' + I.fmtLine(L), strong: true }]; if (Math.abs(d.mean - L) / span > 0.12) m.push({ x: d.mean, label: 'mean' }); return m; };
 I.srcNote = st => {
   if (!st) return '';
-  if (st.src === 'export') { const t = st.dist && st.dist.trim; return `Exact simulated distribution from data/${st.file || 'the model export'}${st.nCond ? ` (${F.int(st.nCond)} sims with each side batting first)` : ''}; values rarer than 0.05% each are left out of the file${isNum(t) && t > 0 ? ` (${F.pct(t, 1)} of the probability in all), so far-tail lines are slightly off` : ''}.`; }
+  if (st.src === 'export') { const d = st.dist || {}; return `Exact simulated distribution from data/${st.file || 'the model export'}${st.nCond ? ` (${F.int(st.nCond)} sims with each side batting first)` : ''}.` + (d.folded ? ` The end values are open-ended: ${F.int(d.lo)} means ≤${F.int(d.lo)} and ${F.int(d.hi)} means ≥${F.int(d.hi)} (${F.pct((d.tl || 0) + (d.th || 0), 2)} folded in).` : isNum(d.trim) && d.trim > 0 ? ` Values rarer than 0.05% each are left out (${F.pct(d.trim, 1)} in all), so far-tail lines are slightly off.` : ''); }
   if (st.src === 'sim' && isNum(st.simMean)) return `Distribution: ${F.int(st.simN)} in-browser simulations of the same XIs (seed ${I.SIM_SEED}); mean ${F.num(st.simMean, 1)} there vs ${F.num(st.mean, 1)} precomputed, the gap is Monte Carlo noise.`;
   if (st.src === 'sim') return 'Exact simulated distribution.';
   if (st.src === 'p_wkts') return st.note || 'From the simulated P(wickets ≥ k).';
@@ -735,8 +780,10 @@ I.renderMatch = (el, M, o = {}) => {
   lineCard(c2, 'Powerplay runs', 'Runs in overs 1–6 (whole innings if it ends sooner).', [[a, M.A.pp, 'pa', 'runs'], [b, M.B.pp, 'pb', 'runs']]);
   lineCard(c2, 'Fall of first wicket', 'Team score when the first wicket falls (the whole total if no wicket falls). Opening-partnership markets.', [[a, M.A.fow1, 'fa', 'runs'], [b, M.B.fow1, 'fb', 'runs']]);
   const c3 = h('div', { class: 'sh-cols' }); el.append(c3);
-  lineCard(c3, 'Sixes', 'Sixes hit by each batting side in its innings.', [[a, M.A.sixes, 'sa', 'sixes'], [b, M.B.sixes, 'sb', 'sixes']].concat(M.sixes ? [['Match', M.sixes, 'sm', 'sixes']] : []));
-  lineCard(c3, 'Fours', 'Fours hit by each batting side in its innings.', [[a, M.A.fours, 'xa', 'fours'], [b, M.B.fours, 'xb', 'fours']].concat(M.fours ? [['Match', M.fours, 'xm', 'fours']] : []));
+  lineCard(c3, 'Sixes', 'Sixes hit by each batting side in its innings' + (M.sixes ? ', and in the whole match.' : '.'), [[a, M.A.sixes, 'sa', 'sixes'], [b, M.B.sixes, 'sb', 'sixes']].concat(M.sixes ? [['Match', M.sixes, 'sm', 'sixes']] : []));
+  lineCard(c3, 'Fours', 'Fours hit by each batting side in its innings' + (M.fours ? ', and in the whole match.' : '.'), [[a, M.A.fours, 'xa', 'fours'], [b, M.B.fours, 'xb', 'fours']].concat(M.fours ? [['Match', M.fours, 'xm', 'fours']] : []));
+
+  if (M.margin) I.marginCard(el, M);
 
   // top batter / bowler
   const c4 = h('div', { class: 'sh-cols' }); el.append(c4);
@@ -786,6 +833,56 @@ I.renderMatch = (el, M, o = {}) => {
     I.clickRows(t2, bowl, p => I.openProp(M, sd, p.id, 'wkts'));
   });
   return el;
+};
+
+/* ════════ winning margin ════════ */
+const BANDS = {
+  runs: [[1, 9], [10, 19], [20, 29], [30, 49], [50, 999]],
+  wkts: [[1, 3], [4, 6], [7, 10]],
+  balls: [[1, 6], [7, 12], [13, 24], [25, 999]],
+};
+const bandLab = ([lo, hi], unit) => hi >= 999 ? `${lo}+ ${unit}` : `${lo}–${hi} ${unit}`;
+const pBand = (d, [lo, hi]) => d ? Math.max(0, d.pAtMost(hi) - d.pAtMost(lo - 1)) : null;
+I.marginCard = (el, M) => {
+  const G = M.margin, ab = { A: M.a.short, B: M.b.short };
+  const tossTxt = M.batFirst ? `${ab[M.batFirst]} bats first in this view.` : 'Toss unknown: each side bats first in half the simulations, so every probability below already includes the 50% chance of that innings order.';
+  const c = I.card(el, 'Winning margin', `How each side wins inside the 20 overs: batting first by runs, or chasing with wickets in hand and balls to spare. Probabilities are unconditional (they include the chance of winning that way at all), with no-vig fair prices. The rest of the probability is the other side winning, or a tie settled by the super over. ${tossTxt}`);
+  c.classList.add('ip-wide');
+  const g = h('div', { class: 'ip-two ip-two-wide' }); c.append(g);
+  const tbls = [];
+  ['A', 'B'].forEach(sd => {
+    const m = G[sd]; if (!m) return;
+    const box = h('div'); g.append(box);
+    const rows = [];
+    const pf = m.first && m.first.w ? m.first.w * (m.first.p || 0) : 0, pc = m.chase && m.chase.w ? m.chase.w * (m.chase.p || 0) : 0;
+    if (m.first && m.first.w) { rows.push({ k: `Bat first, win by runs`, p: pf, strong: true }); BANDS.runs.forEach(bd => rows.push({ k: '  by ' + bandLab(bd, 'runs'), p: pf * pBand(m.first.runs, bd) })); }
+    if (m.chase && m.chase.w) {
+      rows.push({ k: `Chase, win by wickets`, p: pc, strong: true }); BANDS.wkts.forEach(bd => rows.push({ k: '  with ' + bandLab(bd, 'wkts') + ' left', p: pc * pBand(m.chase.wkts, bd) }));
+      if (m.chase.balls) BANDS.balls.forEach(bd => rows.push({ k: '  with ' + bandLab(bd, 'balls') + ' to spare', p: pc * pBand(m.chase.balls, bd), alt: true }));
+    }
+    box.append(h('div', { class: 'ip-sub', text: `${ab[sd]} wins` }));
+    const t = h('div'); box.append(t); tbls.push([t, rows]);
+  });
+  const drawT = () => tbls.forEach(([t, rows]) => S.table(t, [{ key: 'k', label: 'Outcome', render: (v, r) => r.strong ? `<b>${esc(v.trim())}</b>` : `<span class="${r.alt ? 'muted' : ''}">&nbsp;&nbsp;${esc(v.trim())}</span>` }, { key: 'p', label: 'P', fmt: 'pct:1' }, { key: 'f', label: 'Fair', fmt: v => v ?? '', get: r => I.fp(r.p) }], rows));
+  drawT(); I.odds.bind(g, drawT);
+  c.append(h('div', { class: 'sh-note', text: 'Wickets-left and balls-to-spare rows are two ways of splitting the same chasing wins (each set sums to the chase line).' }));
+  // conditional distributions
+  const opts = [];
+  ['A', 'B'].forEach(sd => { const m = G[sd]; if (!m) return; if (m.first && m.first.w && m.first.runs) opts.push({ value: sd + '|runs', label: `${ab[sd]} by runs`, d: m.first.runs, x: 'runs', what: `${ab[sd]}'s margin in runs, given ${ab[sd]} bats first and wins` }); if (m.chase && m.chase.w && m.chase.wkts) opts.push({ value: sd + '|wkts', label: `${ab[sd]} by wkts`, d: m.chase.wkts, x: 'wickets in hand', what: `wickets in hand, given ${ab[sd]} chases and wins` }); if (m.chase && m.chase.w && m.chase.balls) opts.push({ value: sd + '|balls', label: `${ab[sd]} balls left`, d: m.chase.balls, x: 'balls to spare', what: `balls to spare, given ${ab[sd]} chases and wins` }); });
+  if (!opts.length) return;
+  const box = h('div', { class: 'sh-section' }); c.append(box);
+  let cur = opts[0].value;
+  const draw = () => {
+    box.innerHTML = '';
+    const o = opts.find(x => x.value === cur) || opts[0];
+    box.append(S.ui.segmented({ label: 'Margin given the win', options: opts.map(x => ({ value: x.value, label: x.label })), value: o.value, onChange: v => { cur = v; draw(); } }));
+    box.append(h('div', { class: 'sh-note', text: `Distribution of ${o.what} (conditional, so it sums to 100%). Use it for winning-margin lines quoted "if ${o.label.split(' ')[0]} wins".` }));
+    const inner = h('div', { class: 'ip-two ip-two-wide' }); box.append(inner);
+    const l = h('div'), r = h('div'); inner.append(l, r);
+    I.distBox(l, Object.assign(statFromDist(o.d, M.source === 'in-browser simulation' ? 'sim' : 'export'), { file: M.source, nCond: null }), { label: o.label, xLabel: o.x, height: 110 });
+    S.table(r, [{ key: 'q', label: 'Quantile' }, { key: 'v', label: o.x, fmt: 'num:0' }], [0.1, 0.25, 0.5, 0.75, 0.9].map(p => ({ q: (p * 100) + '%', v: o.d.quantile(p) })));
+  };
+  draw();
 };
 
 /* ════════ prop drawer ════════ */
