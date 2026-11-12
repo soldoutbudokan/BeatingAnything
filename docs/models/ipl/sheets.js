@@ -22,8 +22,15 @@ const mixCols = [
   { key: 'mx_int', label: 'Intl %', group: 'Sample', get: get('league_mix.intl'), fmt: 'pct:0', desc: 'Share in full-member T20 internationals.' },
   { key: 'mx_fr', label: 'Fran %', group: 'Sample', get: r => r.league_mix ? (r.league_mix.top_fr || 0) + (r.league_mix.fr2 || 0) : null, fmt: 'pct:0', desc: 'Share in overseas franchise leagues (BBL, PSL, CPL, SA20, ILT20, MLC, BPL, LPL, Blast…).' },
   { key: 'mx_dom', label: 'Dom %', group: 'Sample', get: r => r.league_mix ? (r.league_mix.india_dom || 0) + (r.league_mix.dom || 0) + (r.league_mix.assoc || 0) : null, fmt: 'pct:0', desc: 'Share in domestic T20 (Syed Mushtaq Ali and others) and associate T20Is: the most heavily discounted leagues (see Leagues).' },
-  { key: 'last', label: 'Last played', group: 'Sample', type: 'text', get: r => r._last, width: 92, desc: 'Last IPL appearance in 2026 (squad players), else last IPL season.' },
+  { key: 'last', label: 'Last played', group: 'Sample', type: 'text', get: r => r._last, width: 92, desc: 'Date of his most recent T20 match in the data (any competition).' },
+  { key: 'lastipl', label: 'Last IPL', group: 'Sample', type: 'text', get: r => r.last_played_ipl || '', width: 92, desc: 'Date of his most recent IPL match.' },
 ];
+const TYPES = [['pace_R', 'R pace', 'right-arm pace'], ['pace_L', 'L pace', 'left-arm pace'], ['OB', 'Off-spin', 'off-spin'], ['LB', 'Leg-spin', 'leg-spin'], ['SLA', 'SLA', 'left-arm orthodox spin'], ['SLW', 'L wrist', 'left-arm wrist spin']];
+const byTypeCols = () => TYPES.flatMap(([k, l, d]) => [
+  { key: 'ty_' + k, label: 'SR ' + l, group: 'vs bowl type', get: get('bat.by_type.' + k + '.sr'), fmt: 'num:1', desc: `True strike rate against ${d} (deliveries of that type only; blank = under 200 reference deliveries).` },
+  { key: 'tyd_' + k, label: 'Δ ' + l, group: 'vs bowl type', get: get('bat.by_type.' + k + '.vs_avg.sr'), fmt: 'signed:1', heat: { center: 0 }, desc: `Strike rate against ${d} minus the average IPL batter on the same deliveries.` },
+  { key: 'tyo_' + k, label: 'Out ' + l, group: 'vs bowl type', get: get('bat.by_type.' + k + '.out_pct'), fmt: 'num:2', heat: { type: 'seq' }, hidden: true, desc: `Dismissals per 100 balls against ${d}. Lower is better.` },
+]);
 const projCol = (key, label, f, desc, extra) => Object.assign({ key, label, group: 'Projection', get: r => { const p = I.proj(r.id); return p ? f(p) : null; }, fmt: 'num:1', desc: desc + ' Mean over his team\'s 18 precomputed matchups (default XI, home and away). Fills in once matchups.json has loaded.' }, extra);
 const actCol = (key, label, f, desc) => ({ key, label, group: 'IPL 2026', get: r => r._act ? f(r._act) : null, fmt: 'num:1', desc: desc + ' Actual IPL 2026 per match, when the export carries it.' });
 
@@ -33,7 +40,7 @@ function batCols() {
   return [
     nameCol, teamCol,
     { key: 'role', label: 'Role', group: 'Profile', type: 'cat', get: r => ({ open: 'Open', top: 'Top', middle: 'Middle', lower: 'Lower' })[r.role_bat] || '', width: 62, desc: 'Prior group by career median batting position: Open (1–2), Top (3–4), Middle (5–7), Lower (8–11).' },
-    { key: 'hand', label: 'Hand', group: 'Profile', type: 'cat', get: r => r.bat_hand ? r.bat_hand + 'HB' : '', width: 52, desc: 'Batting hand.' },
+    { key: 'hand', label: 'Hand', group: 'Profile', type: 'cat', get: r => r.bat_hand ? r.bat_hand + 'HB' : (r.bat_hand_used || r.style_defaulted && r.style_defaulted.bat_hand ? (r.bat_hand_used || 'R') + 'HB*' : ''), cls: (v, r) => r.style_defaulted && r.style_defaulted.bat_hand ? 'muted' : '', width: 58, desc: 'Batting hand. * (grey) = hand unknown; the simulator assumes right-handed.' },
     { key: 'os', label: 'OS', group: 'Profile', type: 'cat', get: r => r.overseas ? 'OS' : '', width: 42, desc: 'Overseas player (played T20Is for a country other than India).' },
     { key: 'slot', label: 'Slot', group: 'Profile', get: get('bat.value.slot'), fmt: 'int', width: 46, desc: 'Batting slot used for his value: default team order, else his IPL median position.' },
     { key: 'iplb', label: 'IPL balls', group: 'Sample', get: get('bat.obs_ipl_2024.balls'), fmt: 'int', desc: 'Balls faced in the IPL since 2024.' },
@@ -78,21 +85,22 @@ function batCols() {
     projCol('p30', 'P(30+)', p => p.pRuns && p.pRuns['30'], 'Probability of 30 or more.', { fmt: 'pct:0' }),
     projCol('p6', '6s', p => p.sixes_mean, 'Projected sixes per innings.', { fmt: 'num:2' }),
     projCol('ppos', 'Pos', p => p.pos, 'Batting position in the default XI.', { fmt: 'int' }),
-    actCol('ar', 'Runs/m', l => l.runs, 'Runs per match.'), actCol('asr', 'SR', l => l.sr ?? (isNum(l.runs) && isNum(l.balls) && l.balls ? l.runs / l.balls * 100 : null), 'Strike rate.'), actCol('am', 'Inns', l => l.m, 'Innings / matches.'),
-    { key: 'dpr', label: 'Proj − act', group: 'IPL 2026', get: r => { const p = I.proj(r.id); return p && r._act && isNum(r._act.runs) ? p.runs_mean - r._act.runs : null; }, fmt: 'signed:1', heat: { center: 0 }, desc: 'Projected minus actual 2026 runs per match. Regression to the prior and batting-slot changes both feed this.' },
+    actCol('am', 'M', l => l.m, 'Matches.'), actCol('ai', 'Inns', l => l.bat_inns, 'Batting innings.'), actCol('ar', 'Runs/m', l => l.runs, 'Runs per match.'), actCol('asr', 'SR', l => l.sr, 'Strike rate.'), actCol('aavg', 'Avg', l => l.avg, 'Batting average.'),
+    { key: 'dpr', label: 'Proj − act', group: 'IPL 2026', get: r => { const p = I.proj(r.id); return p && isNum(p.runs_mean) && r._act && isNum(r._act.runs) ? p.runs_mean - r._act.runs : null; }, fmt: 'signed:1', heat: { center: 0 }, desc: 'Projected runs per match (default role) minus actual IPL 2026 runs per match. Regression toward the prior and batting-slot changes both feed this.' },
+    ...byTypeCols(),
     { key: 'ci', label: 'Inns', group: 'IPL career', get: get('bat.ipl_career.inns'), fmt: 'int', desc: 'IPL career innings.' },
     { key: 'cr', label: 'Runs', group: 'IPL career', get: get('bat.ipl_career.runs'), fmt: 'int', desc: 'IPL career runs.' },
     { key: 'csr', label: 'SR', group: 'IPL career', get: get('bat.ipl_career.sr'), fmt: 'num:1', desc: 'IPL career strike rate (raw).' },
   ];
 }
-const BAT_GROUPS = ['Profile', 'Sample', 'Value', 'True rates', 'vs expected', 'Phases', 'Pace / spin', 'Settling', 'Projection', 'IPL 2026', 'IPL career'];
+const BAT_GROUPS = ['Profile', 'Sample', 'Value', 'True rates', 'vs expected', 'Phases', 'Pace / spin', 'Settling', 'Projection', 'IPL 2026', 'vs bowl type', 'IPL career'];
 
 /* ───────── Bowlers grid ───────── */
 function bowlCols() {
   const A = D.avgBowl || {}, a = s => (A[s] || {});
   return [
     nameCol, teamCol,
-    { key: 'type', label: 'Type', group: 'Profile', type: 'cat', get: r => r.bowl_type || r.bowl_subtype || '', width: 66, desc: 'Bowling type: RF/RFM/RM/LF/LFM/LM pace; OB off-spin, LB leg-spin, SLA left-arm orthodox, SLW left-arm wrist.' },
+    { key: 'type', label: 'Type', group: 'Profile', type: 'cat', get: r => (r.bowl_type && r.bowl_type !== 'none' ? r.bowl_type : r.bowl_subtype || '') + (r.style_defaulted && r.style_defaulted.bowl_type ? '*' : ''), cls: (v, r) => r.style_defaulted && r.style_defaulted.bowl_type ? 'muted' : '', width: 66, desc: 'Bowling type: RF/RFM/RM/LF/LFM/LM pace; OB off-spin, LB leg-spin, SLA left-arm orthodox, SLW left-arm wrist. * (grey) = type unknown, the simulator uses the generic pace/spin subtype.' },
     { key: 'grp', label: 'Group', group: 'Profile', type: 'cat', get: r => r.bowl_group || '', width: 56, desc: 'Pace or spin.' },
     { key: 'inf', label: 'Inferred', group: 'Profile', type: 'cat', get: r => r.style_inferred ? 'inferred' : '', width: 64, desc: 'Pace/spin label came from a classifier, not the styles file.' },
     { key: 'rb', label: 'Workload', group: 'Profile', type: 'cat', get: r => ({ part: 'Part-time', reg: 'Regular', front: 'Frontline' })[(r.role_bowl || '').split('_')[1]] || '', width: 74, desc: 'Prior group by career overs per match: part-time (<1.5), regular (1.5–2.75), frontline (>2.75).' },
@@ -100,10 +108,10 @@ function bowlCols() {
     { key: 'iplb', label: 'IPL balls', group: 'Sample', get: get('bowl.obs_ipl_2024.balls'), fmt: 'int', desc: 'Legal balls bowled in the IPL since 2024.' },
     { key: 'allb', label: 'All balls', group: 'Sample', get: get('bowl.obs_2024.balls'), fmt: 'int', desc: 'Legal balls bowled in all T20 since 2024.' },
     ...mixCols,
-    { key: 'vr', label: 'Runs/m', group: 'Value', get: get('bowl.value.varp_runs'), fmt: 'signed:1', heat: { center: 0 }, desc: 'Bowling value above replacement, runs per match at his usual workload: (replacement run value − his) per over × usual overs (career, ≤4).' },
+    { key: 'vr', label: 'Runs/m', group: 'Value', get: get('bowl.value.varp_runs'), fmt: 'signed:1', heat: { center: 0 }, desc: 'Bowling value above replacement, runs per match: (replacement run value − his) per over × his projected overs in his current role.' },
     { key: 'v4', label: 'Per 4 ov', group: 'Value', get: get('bowl.value.varp_4ov'), fmt: 'signed:1', heat: { center: 0 }, desc: 'Value per 4 overs: compares specialists regardless of workload.' },
     { key: 'vw', label: 'Win%/m', group: 'Value', get: get('bowl.value.varp_wp'), fmt: 'spct:1', heat: { center: 0 }, desc: 'Value in win probability per match.' },
-    { key: 'eo', label: 'Usual ov', group: 'Value', get: get('bowl.value.exp_overs'), fmt: 'num:1', desc: 'Usual overs per match (career, capped at 4).' },
+    { key: 'eo', label: 'Proj ov', group: 'Value', get: get('bowl.value.exp_overs'), fmt: 'num:1', desc: 'Projected overs per match in his current role: his default team plan for squad players, else overs per match played since 2024.' },
     { key: 'rvo', label: 'RV/over', group: 'Value', get: get('bowl.all.rv_over'), fmt: 'num:2', heat: { center: a('all').rv_over ?? 7, reverse: true }, desc: 'Run value per over: runs conceded minus wickets × wicket value. Lower is better (blue = better).' },
     { key: 'vpct', label: 'Pctile', group: 'Value', get: get('bowl.pct.bowl_varp'), fmt: 'int', desc: 'Percentile of bowling value among pool bowlers (higher = better).' },
     { key: 'econ', label: 'Econ', group: 'True rates', get: get('bowl.all.econ'), fmt: 'num:2', heat: { center: a('all').econ ?? 9.4, reverse: true }, desc: 'True economy: runs per 6 legal balls incl. wides and no-balls, in his phase mix. Lower is better (blue). ' + IPLC },
@@ -137,7 +145,8 @@ function bowlCols() {
     projCol('pc', 'Conc', p => p.conceded_mean, 'Projected runs conceded per match.'),
     projCol('pe', 'Econ', p => p.overs_mean ? p.conceded_mean / p.overs_mean : null, 'Projected economy.', { fmt: 'num:2' }),
     projCol('p2', 'P(2+)', p => p.pWkts && p.pWkts['2'], 'Probability of 2 or more wickets.', { fmt: 'pct:0' }),
-    actCol('aw', 'Wkts/m', l => l.wkts, 'Wickets per match.'), actCol('ae', 'Econ', l => l.econ ?? (isNum(l.conc) && isNum(l.overs) && l.overs ? l.conc / l.overs : null), 'Economy.'), actCol('am', 'M', l => l.m, 'Matches.'),
+    actCol('am', 'M', l => l.m, 'Matches.'), actCol('aov', 'Overs/m', l => l.overs, 'Overs per match.'), actCol('aw', 'Wkts/m', l => l.wkts, 'Wickets per match.'), actCol('ae', 'Econ', l => l.econ, 'Economy.'),
+    { key: 'dwk', label: 'Proj − act wk', group: 'IPL 2026', get: r => { const p = I.proj(r.id); return p && isNum(p.wkts_mean) && r._act && isNum(r._act.wkts) ? p.wkts_mean - r._act.wkts : null; }, fmt: 'signed:2', heat: { center: 0 }, desc: 'Projected minus actual IPL 2026 wickets per match.' },
     { key: 'ci', label: 'Inns', group: 'IPL career', get: get('bowl.ipl_career.inns'), fmt: 'int', desc: 'IPL career innings bowled.' },
     { key: 'cw', label: 'Wkts', group: 'IPL career', get: get('bowl.ipl_career.wkts'), fmt: 'int', desc: 'IPL career wickets.' },
     { key: 'ce', label: 'Econ', group: 'IPL career', get: get('bowl.ipl_career.econ'), fmt: 'num:2', desc: 'IPL career economy (raw).' },
@@ -153,8 +162,10 @@ I.playerCard = async (id, o = {}) => {
   if (!p) return;
   I.loadMatchups().catch(() => null);
   const t = p._team;
-  const focus = o.focus || (p.bowl && (!p.bat || (p.bowl.value.varp_runs || -9) > (p.bat.value.varp_runs || -9)) ? 'bowl' : 'bat');
-  const style = [p.bat_hand ? p.bat_hand + 'HB' : null, p.bowl_type && p.bowl_group !== 'none' ? p.bowl_type + (p.style_inferred ? ' (inferred)' : '') : null].filter(Boolean).join(', ');
+  const bowls = p.bowl && p.bowl.is_bowler !== false;
+  const focus = o.focus === 'bowl' && !bowls ? 'bat' : o.focus || (bowls && (!p.bat || (p.bowl.value.varp_runs || -9) > (p.bat.value.varp_runs || -9)) ? 'bowl' : 'bat');
+  const sdf = p.style_defaulted || {};
+  const style = [p.bat_hand ? p.bat_hand + 'HB' : sdf.bat_hand ? (p.bat_hand_used || 'R') + 'HB (assumed)' : null, p.bowl_type && p.bowl_group !== 'none' ? p.bowl_type + (p.style_inferred ? ' (inferred)' : '') : sdf.bowl_type && bowls ? (p.bowl_group || '') + ' (type unknown)' : null].filter(Boolean).join(', ');
   S.drawer.open({
     title: p.name,
     sub: `${t ? t.name : 'Not in a 2026 IPL squad'} · ${I.ROLE_LABEL[p.role_bat] || ''}${style ? ' · ' + style : ''}${p.overseas ? ' · overseas' : ''}${p.country ? ' · ' + p.country : ''}${p._last ? ' · last ' + p._last : ''}`,
@@ -163,8 +174,9 @@ I.playerCard = async (id, o = {}) => {
       el.append(S.tiles([
         { label: 'Value / match', value: F.signed(p.varp_runs, 1) + ' runs', sub: `${F.spct(p.varp_wp, 1)} win · #${p._rk_all || '–'} of ${D.nAll}` },
         p.bat ? { label: 'Batting', value: F.signed(p.bat.value.varp_runs, 1), sub: `runs/m · #${p._rk_bat || '–'} of ${D.nBat}` } : null,
-        p.bowl ? { label: 'Bowling', value: F.signed(p.bowl.value.varp_runs, 1), sub: `runs/m · #${p._rk_bowl || '–'} of ${D.nBowl}` } : null,
+        bowls ? { label: 'Bowling', value: F.signed(p.bowl.value.varp_runs, 1), sub: `runs/m · #${p._rk_bowl || '–'} of ${D.nBowl}` } : null,
       ].filter(Boolean)));
+      actualVsProj(el, p, bowls);
       const secs = focus === 'bowl' ? [bowlSection, batSection] : [batSection, bowlSection];
       for (const f of secs) await f(el, p);
       el.append(h('div', { class: 'sh-h', text: 'Where his sample comes from' }), h('div', { class: 'sh-note', text: 'Share of his recency-weighted deliveries by league tier. Non-IPL form is put on the IPL scale by the league terms (see Leagues).' }));
@@ -213,17 +225,28 @@ function simInHash(p) {
   if (plan.some(x => x.id === out)) o.ap = planStr(plan.map(x => x.id === out ? Object.assign(x, { id: p.id }) : x));
   return o;
 }
+function actualVsProj(el, p, bowls) {
+  const pr = I.proj(p.id), ac = p._act;
+  if (!pr && !ac) return;
+  const rows = [];
+  const add = (k, a, b, dp = 1) => { if (isNum(a) || isNum(b)) rows.push({ k, a, b, dp }); };
+  if (p.bat) { add('Runs', ac && ac.runs, pr && pr.runs_mean); add('Balls faced', ac && ac.balls, pr && pr.balls_mean); add('Strike rate', ac && ac.sr, pr && isNum(pr.runs_mean) && pr.balls_mean ? pr.runs_mean / pr.balls_mean * 100 : null); add('P(30+)', null, pr && pr.pRuns && pr.pRuns['30'], 3); }
+  if (bowls) { add('Overs', ac && ac.overs, pr && pr.overs_mean); add('Wickets', ac && ac.wkts, pr && pr.wkts_mean, 2); add('Runs conceded', ac && ac.conc, pr && pr.conceded_mean); add('Economy', ac && ac.econ, pr && (pr.econ ?? (pr.overs_mean ? pr.conceded_mean / pr.overs_mean : null)), 2); }
+  if (!rows.length) return;
+  el.append(h('div', { class: 'sh-h', text: `Per match: IPL ${ac && ac.season || 2026} actual vs projected` }), h('div', { class: 'sh-note', text: `${ac ? `Actual: ${ac.m || 0} matches${isNum(ac.bat_inns) ? `, ${ac.bat_inns} batting innings` : ''}${isNum(ac.bowl_inns) ? `, ${ac.bowl_inns} bowling` : ''}.` : 'Did not play in the latest IPL season.'} ${pr ? `Projected: his default role (bats ${pr.pos ?? '–'}), mean over ${pr.n || 18} matchups, including matches where he does not bat.` : 'No projection: not in a default 12.'}` }));
+  S.table(el.appendChild(h('div')), [{ key: 'k', label: '' }, { key: 'a', label: 'Actual', render: (v, r) => isNum(v) ? (r.dp === 3 ? F.pct(v, 0) : F.num(v, r.dp)) : '–' }, { key: 'b', label: 'Projected', render: (v, r) => isNum(v) ? (r.dp === 3 ? F.pct(v, 0) : F.num(v, r.dp)) : '–' }, { key: 'd', label: 'Proj − act', render: (v, r) => isNum(r.a) && isNum(r.b) && r.dp !== 3 ? F.signed(r.b - r.a, r.dp) : '' }], rows);
+}
 async function batSection(el, p) {
   const b = p.bat; if (!b) return;
   const va = b.vs_avg || {}, sd = b.sd || {};
   el.append(h('div', { class: 'sh-h ip-sech', text: 'Batting' }), h('div', { class: 'sh-note', text: IPLC + ' Value uses slot ' + (b.value.slot || '–') + ` (${F.num(b.value.exp_balls, 1)} balls per innings).` }));
   el.append(S.tiles([
-    { label: 'True SR', value: F.num(b.all.sr, 1), sub: `± ${F.num(sd.sr, 1)} · ${F.signed(va.all && va.all.sr, 1)} vs avg` },
-    { label: 'True average', value: F.num(b.all.avg, 1), sub: `± ${F.num(sd.avg, 1)}` },
-    { label: 'Out / 100 balls', value: F.num(b.all.out_pct, 2), sub: `± ${F.num(sd.out_pct, 2)} · lower better` },
-    { label: 'Run value', value: F.num(b.all.rv100, 1), sub: `per 100 balls · ${F.signed(va.all && va.all.rv100, 1)} vs avg` },
+    { label: 'True SR', value: F.num(b.all.sr, 1), sub: `±${F.num(sd.sr, 1)} · ${F.signed(va.all && va.all.sr, 1)} v avg` },
+    { label: 'True avg', value: F.num(b.all.avg, 1), sub: `± ${F.num(sd.avg, 1)}` },
+    { label: 'Outs / 100', value: F.num(b.all.out_pct, 2), sub: `±${F.num(sd.out_pct, 2)} · low = good` },
+    { label: 'Run value', value: F.num(b.all.rv100, 1), sub: `/100 · ${F.signed(va.all && va.all.rv100, 1)} v avg` },
     { label: 'Boundary %', value: F.num(b.all.bnd_pct, 1), sub: `4s ${F.num(b.all.four_pct, 1)} · 6s ${F.num(b.all.six_pct, 1)}` },
-    { label: 'Dot %', value: F.num(b.all.dot_pct, 1), sub: `non-bdy SR ${F.num(b.all.nbsr, 0)}` },
+    { label: 'Dot %', value: F.num(b.all.dot_pct, 1), sub: `NB SR ${F.num(b.all.nbsr, 0)}` },
   ]));
   const strata = [['all', 'All'], ['pp', 'Powerplay'], ['mid', 'Middle'], ['death', 'Death'], ['pace', 'vs pace'], ['spin', 'vs spin']];
   const av = (s, k) => b[s] && va[s] && isNum(b[s][k]) && isNum(va[s][k]) ? b[s][k] - va[s][k] : null;
@@ -245,7 +268,20 @@ async function batSection(el, p) {
     S.line(l2, { title: 'Dismissal risk by balls faced', series: [{ name: p.name.split(' ').slice(-1)[0], points: b.settling.map((x, i) => [i, x[1]]) }, { name: 'Average', points: D.settlingAvg.map((x, i) => [i, x[1]]) }], xFmt: xf, xLabel: 'balls faced before the ball', yFmt: 'num:1', height: 150, zero: false });
     el.append(h('div', { class: 'sh-note', text: `Middle-overs context. Runs per 100 balls and dismissals per 100 balls on the next ball, by how many he has already faced (buckets ${lab.join(', ')}).` }));
   }
-  const pr = I.proj(p.id) || (await I.loadMatchups().then(() => I.proj(p.id)).catch(() => null));
+  const bt = b.by_type || {};
+  const tys = TYPES.filter(([k]) => bt[k] && isNum(bt[k].sr));
+  if (tys.length) {
+    const av = (k, m) => bt[k].vs_avg && isNum(bt[k].vs_avg[m]) ? bt[k][m] - bt[k].vs_avg[m] : null;
+    I.vsAvg(el.appendChild(h('div', { class: 'sh-section' })), {
+      title: 'Against each bowling type', who: p.name,
+      panels: [
+        { title: 'Strike rate', fmt: 'num:0', better: 'high', rows: tys.map(([k, l, d]) => ({ label: l, v: bt[k].sr, avg: av(k, 'sr'), desc: d })) },
+        { title: 'Dismissals / 100 balls', fmt: 'num:1', better: 'low', rows: tys.map(([k, l, d]) => ({ label: l, v: bt[k].out_pct, avg: av(k, 'out_pct'), desc: d })) },
+      ],
+      legend: `Deliveries from that type only, in IPL 2024–26 conditions; splits are shrunk hard toward his overall rating. Types with under 200 reference deliveries are left out${TYPES.length > tys.length ? ' (' + TYPES.filter(t => !tys.includes(t)).map(t => t[1]).join(', ') + ')' : ''}.`,
+    });
+  }
+  await I.loadMatchups().catch(() => null); const pr = I.proj(p.id);
   if (pr && isNum(pr.runs_mean)) {
     el.append(h('div', { class: 'sh-h', text: 'A typical innings' }), h('div', { class: 'sh-note', text: `Mean over ${p._team ? p._team.short : 'his team'}'s ${pr.n} precomputed matchups (bats ${pr.pos}, default XI, 10,000 sims each). Includes the chance he does not bat.` }));
     el.append(S.tiles([{ label: 'Runs', value: F.num(pr.runs_mean, 1), sub: `${F.num(pr.balls_mean, 1)} balls` }, { label: 'Fours / sixes', value: `${F.num(pr.fours_mean, 1)} / ${F.num(pr.sixes_mean, 1)}` }, { label: 'P(bats)', value: F.pct(pr.p_bat, 0) }, { label: 'Top scorer', value: F.pct(pr.p_top_bat, 1), sub: 'for his side' }]));
@@ -267,13 +303,14 @@ async function batSection(el, p) {
 }
 async function bowlSection(el, p) {
   const w = p.bowl; if (!w) return;
+  if (w.is_bowler === false) { el.append(h('div', { class: 'sh-h ip-sech', text: 'Bowling' }), h('div', { class: 'sh-note', text: `Does not bowl in his current role, so he has no bowling value or rank (model rates exist from ${F.int(w.ipl_career ? w.ipl_career.balls : 0)} IPL balls; true economy ${F.num(w.all.econ, 2)}).` })); return; }
   const va = w.vs_avg || {}, sd = w.sd || {}, v = w.value || {};
-  el.append(h('div', { class: 'sh-h ip-sech', text: 'Bowling' }), h('div', { class: 'sh-note', text: IPLC + ` Value at his usual ${F.num(v.exp_overs, 1)} overs per match; per 4 overs ${F.signed(v.varp_4ov, 1)} runs.` }));
+  el.append(h('div', { class: 'sh-h ip-sech', text: 'Bowling' }), h('div', { class: 'sh-note', text: IPLC + ` Value at his projected ${F.num(v.exp_overs, 1)} overs per match in his current role; per 4 overs ${F.signed(v.varp_4ov, 1)} runs.` }));
   el.append(S.tiles([
-    { label: 'True economy', value: F.num(w.all.econ, 2), sub: `± ${F.num(sd.econ, 2)} · ${F.signed(va.all && va.all.econ, 2)} vs avg` },
-    { label: 'Wickets / 100', value: F.num(w.all.wkt_pct, 2), sub: `± ${F.num(sd.wkt_pct, 2)} · SR ${F.num(w.all.sr, 1)}` },
+    { label: 'True econ', value: F.num(w.all.econ, 2), sub: `±${F.num(sd.econ, 2)} · ${F.signed(va.all && va.all.econ, 2)} v avg` },
+    { label: 'Wkts / 100', value: F.num(w.all.wkt_pct, 2), sub: `±${F.num(sd.wkt_pct, 2)} · SR ${F.num(w.all.sr, 1)}` },
     { label: 'Average', value: F.num(w.all.avg, 1), sub: 'runs per wicket' },
-    { label: 'Run value / over', value: F.num(w.all.rv_over, 2), sub: `lower better · repl ${F.num(v.rep_rv_over, 2)}` },
+    { label: 'RV / over', value: F.num(w.all.rv_over, 2), sub: `low = good · repl ${F.num(v.rep_rv_over, 2)}` },
     { label: 'Dot %', value: F.num(w.all.dot_pct, 1), sub: `bdy ${F.num(w.all.bnd_pct, 1)} · 6s ${F.num(w.all.six_pct, 1)}` },
     { label: 'Wides / over', value: F.num(w.all.wides_per_over, 2), sub: isNum(w.all.nb_per_over) ? `no-balls ${F.num(w.all.nb_per_over, 3)}` : '' },
   ]));
@@ -292,7 +329,7 @@ async function bowlSection(el, p) {
   if (Array.isArray(w.phase_mix)) {
     S.bar(el.appendChild(h('div')), { title: 'Where he bowls', subtitle: 'Share of his recency-weighted balls by phase' + (pl ? `; ${t.short}'s default plan gives him ${pl.pp}/${pl.mid}/${pl.death} overs (PP/Mid/Death).` : '.'), data: I.PH.map((k, i) => ({ label: I.PH_LABEL[k], value: w.phase_mix[i], desc: I.PH_OVERS[k] })), fmt: 'pct:0', diverging: false, domain: [0, 1], barHeight: 12, rowGap: 6 });
   }
-  const pr = I.proj(p.id) || (await I.loadMatchups().then(() => I.proj(p.id)).catch(() => null));
+  await I.loadMatchups().catch(() => null); const pr = I.proj(p.id);
   if (pr && isNum(pr.overs_mean)) {
     el.append(h('div', { class: 'sh-h', text: 'A typical match' }), h('div', { class: 'sh-note', text: `Mean over ${t ? t.short : 'his team'}'s ${pr.n} precomputed matchups (default plan).` }));
     el.append(S.tiles([{ label: 'Overs', value: I.oversF(pr.overs_mean) }, { label: 'Wickets', value: F.num(pr.wkts_mean, 2), sub: `P(2+) ${F.pct(pr.pWkts['2'], 0)}` }, { label: 'Conceded', value: F.num(pr.conceded_mean, 1), sub: `econ ${F.num(pr.conceded_mean / pr.overs_mean, 2)}` }, { label: 'Top wicket-taker', value: F.pct(pr.p_top_bowl, 1), sub: 'for his side' }]));
@@ -340,14 +377,14 @@ async function overview(panel) {
   S.bar(c2.appendChild(h('div', { style: { marginTop: '10px' } })), { title: 'Neutral-ground win % vs the field', data: trows.map(t => ({ label: t.short, value: t.rating.win_pct_neutral, id: t.short, desc: t.name })), fmt: 'pct:1', center: 0.5, barHeight: 10, rowGap: 5, onClick: d => I.go('teams', { t: d.id }) });
   const cols2 = h('div', { class: 'sh-cols' }); panel.append(cols2);
   const c3 = I.card(cols2, 'Most valuable batters', 'Batting value above replacement, runs per match, players in a 2026 squad. Click a bar for the card.');
-  const c4 = I.card(cols2, 'Most valuable bowlers', 'Bowling value above replacement, runs per match at usual workload, players in a 2026 squad.');
+  const c4 = I.card(cols2, 'Most valuable bowlers', 'Bowling value above replacement, runs per match at his projected overs, players in a 2026 squad.');
   const b3 = h('div'), b4 = h('div'); c3.append(b3); c4.append(b4);
   b3.append(S.loadingEl('Loading players…')); b4.append(S.loadingEl('Loading players…'));
   const meta = await I.loadMeta().catch(() => null);
   if (meta) {
     const c5 = I.card(cols2, 'Build', 'What went into this export.');
     const sp = meta.sim || {}, par = sp.parity || {};
-    c5.append(S.kv([['Data cut-off', meta.data_cutoff], ['Last IPL match', meta.ipl_last_match], ['Built', String(meta.build_utc || '').replace('T', ' ').replace('Z', ' UTC')], ['Matches / deliveries', `${F.int(meta.counts && meta.counts.matches)} / ${F.int(meta.counts && meta.counts.deliveries)}`], ['Deliveries in the fit', F.int(meta.counts && meta.counts.deliveries_modelled)], ['Reduced / DLS excluded', F.int(meta.counts && meta.counts.matches_reduced_or_dls_excluded)], ['Recency half-life', isNum(meta.model && meta.model.half_life_years) ? meta.model.half_life_years + ' years' : '–'], ['Coefficients', F.int(meta.model && meta.model.n_coefficients)], ['JS sim speed', isNum(sp.js_node_sec_per_10k) ? F.num(sp.js_node_sec_per_10k, 2) + ' s per 10,000 matches' : '–'], ['JS vs Python parity', par.comparisons ? `${par.pass ? 'pass' : 'FAIL'}: ${par.comparisons} checks, mean |z| ${F.num(par.mean_abs_z, 2)}, max ${F.num(par.max_abs_z, 2)}` : '–'], ['1 run of margin', isNum(sp.runs_to_win_prob) ? F.pct(sp.runs_to_win_prob, 2) + ' win probability' : '–']]));
+    c5.append(S.kv([['Data cut-off', meta.data_cutoff], ['Last IPL match', meta.ipl_last_match], ['Built', String(meta.build_utc || '').replace('T', ' ').replace('Z', ' UTC')], ['Matches / deliveries', `${F.int(meta.counts && meta.counts.matches)} / ${F.int(meta.counts && meta.counts.deliveries)}`], ['Deliveries in the fit', F.int(meta.counts && meta.counts.deliveries_modelled)], ['Reduced / DLS excluded', F.int(meta.counts && meta.counts.matches_reduced_or_dls_excluded)], ['Recency half-life', isNum(meta.model && meta.model.half_life_years) ? meta.model.half_life_years + ' years' : '–'], ['Coefficients', F.int(meta.model && meta.model.n_coefficients)], ['JS sim speed', isNum(sp.js_node_sec_per_10k) ? F.num(sp.js_node_sec_per_10k, 2) + ' s per 10,000 matches' : '–'], ['JS vs Python parity', par.comparisons ? `${par.pass ? 'pass' : 'FAIL'}: ${par.comparisons} checks, mean |z| ${F.num(par.mean_abs_z, 2)}, max ${F.num(par.max_abs_z, 2)}` : '–'], ['1 run of expected margin', isNum(sp.runs_to_win_prob) ? F.pct(sp.runs_to_win_prob, 2) + ' win probability' + (sp.runs_to_win_prob_detail && sp.runs_to_win_prob_detail.pairs ? ` (simulated, ${sp.runs_to_win_prob_detail.pairs.length} matchups)` : '') : '–'], ['Match-conditions shock', isNum(sp.match_shock) ? 'SD ' + F.num(sp.match_shock, 3) + ' (logit, shared by both innings)' : '–'], ['Sims per precomputed match', D.M ? F.int(D.M.n_sims) : '20,000']]));
   }
   I.loadPlayers().then(() => {
     const top = (f, n) => D.players.filter(p => p._team && isNum(f(p))).sort((a, b) => f(b) - f(a)).slice(0, n);
@@ -371,18 +408,18 @@ async function batters(panel, sheet) {
   const tool = squadFilterTool(null, sheet, 'all');
   const status = h('span', { class: 'sh-note ip-status' });
   const rowsFor = () => sheet.get('all') === '0' ? all : all.filter(p => p._team);
-  const g = sheet.grid(panel, { columns: batCols(), groups: BAT_GROUPS.map(x => ({ id: x, label: x, hidden: ['Sample', 'IPL 2026', 'IPL career', 'Settling'].includes(x) || (x === 'IPL 2026' && !all.some(p => p._act)) })), rows: rowsFor(), sort: '-vr', label: 'Batters', csv: 'ipl-batters.csv', searchPlaceholder: 'Search batter, team, role', tools: h('span', { class: 'ip-tools' }, tool.el, status),
+  const g = sheet.grid(panel, { columns: batCols(), groups: BAT_GROUPS.map(x => ({ id: x, label: x, hidden: ['Sample', 'IPL career', 'Settling', 'vs bowl type'].includes(x) || (x === 'IPL 2026' && !all.some(p => p._act)) })), rows: rowsFor(), sort: '-vr', label: 'Batters', csv: 'ipl-batters.csv', searchPlaceholder: 'Search batter, team, role', tools: h('span', { class: 'ip-tools' }, tool.el, status),
     onRowClick: r => { navGrid = g; I.playerCard(r, { focus: 'bat', nav: { prev: () => g.step(-1), next: () => g.step(1) } }); } });
   tool.bind(g, rowsFor);
   if (!D.proj) { status.textContent = 'Loading projections…'; I.loadMatchups().then(() => { g.refresh(); status.textContent = ''; }).catch(e => { status.textContent = 'Projections unavailable: ' + e.message; }); }
 }
 async function bowlers(panel, sheet) {
   await I.loadPlayers();
-  const all = D.players.filter(p => p.bowl);
+  const all = D.players.filter(p => p.bowl && p.bowl.is_bowler !== false);
   const tool = squadFilterTool(null, sheet, 'all');
   const status = h('span', { class: 'sh-note ip-status' });
   const rowsFor = () => sheet.get('all') === '0' ? all : all.filter(p => p._team);
-  const g = sheet.grid(panel, { columns: bowlCols(), groups: BOWL_GROUPS.map(x => ({ id: x, label: x, hidden: ['Sample', 'IPL 2026', 'IPL career', 'vs hand'].includes(x) })), rows: rowsFor(), sort: '-vr', label: 'Bowlers', csv: 'ipl-bowlers.csv', searchPlaceholder: 'Search bowler, team, type', tools: h('span', { class: 'ip-tools' }, tool.el, status),
+  const g = sheet.grid(panel, { columns: bowlCols(), groups: BOWL_GROUPS.map(x => ({ id: x, label: x, hidden: ['Sample', 'IPL career', 'vs hand'].includes(x) })), rows: rowsFor(), sort: '-vr', label: 'Bowlers', csv: 'ipl-bowlers.csv', searchPlaceholder: 'Search bowler, team, type', tools: h('span', { class: 'ip-tools' }, tool.el, status),
     onRowClick: r => { navGrid = g; I.playerCard(r, { focus: 'bowl', nav: { prev: () => g.step(-1), next: () => g.step(1) } }); } });
   tool.bind(g, rowsFor);
   if (!D.proj) { status.textContent = 'Loading projections…'; I.loadMatchups().then(() => { g.refresh(); status.textContent = ''; }).catch(e => { status.textContent = 'Projections unavailable: ' + e.message; }); }
@@ -530,57 +567,62 @@ async function matchups(panel, sheet) {
 function pickTeams(sheet) {
   const T = D.teams; let a = I.team(sheet.get('a')) || T.find(t => t.short === 'MI') || T[0], b = I.team(sheet.get('b')) || T.find(t => t.short === 'CSK') || T[1];
   if (a === b) b = T.find(t => t !== a);
-  return { a, b, vk: ['A', 'B', 'n'].includes(sheet.get('v')) ? sheet.get('v') : 'A' };
+  return { a, b, vk: ['A', 'B', 'n'].includes(sheet.get('v')) ? sheet.get('v') : 'A', bf: ['A', 'B'].includes(sheet.get('t')) ? sheet.get('t') : null };
 }
 function matchPicker(sheet, onPick) {
-  const { a, b, vk } = pickTeams(sheet);
+  const { a, b, vk, bf } = pickTeams(sheet);
   const opts = D.teams.map(t => ({ value: t.short, label: `${t.short} · ${t.name}` }));
-  const sa = S.ui.select({ label: 'Team', options: opts, value: a.short, onChange: v => pick(v, sb.value, vk) });
-  const sb = S.ui.select({ label: 'Opponent', options: opts, value: b.short, onChange: v => pick(sa.value, v, vk) });
-  const ven = S.ui.segmented({ label: 'Ground', options: [{ value: 'A', label: a.short + ' home' }, { value: 'B', label: b.short + ' home' }, { value: 'n', label: 'Neutral' }], value: vk, onChange: v => pick(sa.value, sb.value, v) });
-  function pick(x, y, v) { if (x === y) y = D.teams.find(t => t.short !== x).short; onPick(x, y, v); }
-  return { el: S.ui.row(sa, sb, ven), a, b, vk };
+  const sa = S.ui.select({ label: 'Team', options: opts, value: a.short, onChange: v => pick(v, sb.value, vk, bf) });
+  const sb = S.ui.select({ label: 'Opponent', options: opts, value: b.short, onChange: v => pick(sa.value, v, vk, bf) });
+  const ven = S.ui.segmented({ label: 'Ground', options: [{ value: 'A', label: a.short + ' home' }, { value: 'B', label: b.short + ' home' }, { value: 'n', label: 'Neutral' }], value: vk, onChange: v => pick(sa.value, sb.value, v, bf) });
+  const tos = S.ui.segmented({ label: 'Bats first', options: [{ value: '', label: 'Toss unknown' }, { value: 'A', label: a.short }, { value: 'B', label: b.short }], value: bf || '', onChange: v => pick(sa.value, sb.value, vk, v || null) });
+  function pick(x, y, v, t) { if (x === y) y = D.teams.find(tt => tt.short !== x).short; onPick(x, y, v, t); }
+  return { el: S.ui.row(sa, sb, ven, tos), a, b, vk, bf };
+}
+/** the match for a picker state: exact pmfs from data/matchups/<HOST>.json; neutral grounds (and old exports) fill
+    the distributions from an in-browser simulation of the default XIs */
+async function matchFor(pk, onApprox) {
+  const { a, b, vk, bf } = pk;
+  if (vk !== 'n') {
+    const M = await I.exactMatch(a, b, vk, bf);
+    if (!M || M.exact) return M;
+    if (onApprox) onApprox(M);
+    const X = await I.exactFor(a, b, vk).catch(e => { console.warn(e); return null; });
+    return X ? I.overlay(M, X) : M;
+  }
+  if (bf) {
+    const X = await I.exactFor(a, b, 'n', bf);
+    X.tossNote = 'The export has no per-toss neutral-ground distributions, so this match is simulated in the browser.';
+    return X;
+  }
+  const M = I.preMatch(a, b, 'n'); if (!M) return null;
+  if (M.neutralOnly) return I.exactFor(a, b, 'n');
+  if (onApprox) onApprox(M);
+  const X = await I.exactFor(a, b, 'n').catch(e => { console.warn(e); return null; });
+  return X ? I.overlay(M, X) : M;
 }
 async function match(panel, sheet) {
   await I.loadMatchups(); await I.loadVenues();
   I.loadPlayers().catch(() => null);
   const ctl = h('div'), body = h('div', { class: 'sh-section ip-gap' }); panel.append(ctl, body);
   let token = 0;
+  const lk = ['ta', 'tb', 'mt', 'i1', 'pa', 'pb', 'fa', 'fb', 'sa', 'sb', 'xa', 'xb'];
   const draw = async () => {
     const my = ++token;
-    const pk = matchPicker(sheet, (x, y, v) => { sheet.set({ a: x, b: y, v: v === 'A' ? null : v }); clearLines(); draw(); });
-    const lk = ['ta', 'tb', 'mt', 'i1', 'pa', 'pb', 'fa', 'fb', 'sa', 'sb', 'sm', 'xa', 'xb', 'xm'];
-    const clearLines = () => sheet.set(Object.fromEntries(lk.map(k => [k, null])));
-    ctl.innerHTML = ''; ctl.append(h('div', { class: 'ip-ctlbar' }, pk.el, h('span', { class: 'sh-note ip-links' }, h('a', { href: I.hashFor('props', { a: pk.a.short, b: pk.b.short, v: pk.vk === 'A' ? null : pk.vk }), text: 'Player props' }), ' · ', h('a', { href: I.hashFor('sim', { a: pk.a.short, b: pk.b.short, v: pk.vk === 'B' ? pk.b.home_venue : pk.vk === 'n' ? 'neutral' : null }), text: 'Change it in the simulator' }))));
+    const pk = matchPicker(sheet, (x, y, v, t) => { sheet.set(Object.assign({ a: x, b: y, v: v === 'A' ? null : v, t }, Object.fromEntries(lk.map(k => [k, null])))); draw(); });
+    ctl.innerHTML = ''; ctl.append(h('div', { class: 'ip-ctlbar' }, pk.el, h('span', { class: 'sh-note ip-links' }, h('a', { href: I.hashFor('props', { a: pk.a.short, b: pk.b.short, v: pk.vk === 'A' ? null : pk.vk, t: pk.bf }), text: 'Player props' }), ' · ', h('a', { href: I.hashFor('sim', { a: pk.a.short, b: pk.b.short, v: pk.vk === 'B' ? pk.b.home_venue : pk.vk === 'n' ? 'neutral' : null, tw: pk.bf ? 'a' : null, td: pk.bf === 'B' ? 'bowl' : null }), text: 'Change it in the simulator' }))));
     const L = k => { const v = parseFloat(sheet.get(k)); return isFinite(v) ? v : null; };
-    const lines = Object.fromEntries(lk.map(k => [k, L(k)]));
-    const opts = { lines, onLines: o => sheet.set(o) };
-    body.innerHTML = '';
-    let M = await I.fullMatch(pk.a, pk.b, pk.vk).catch(() => null) || I.preMatch(pk.a, pk.b, pk.vk);
+    const opts = () => ({ lines: Object.fromEntries(lk.map(k => [k, L(k)])), onLines: o => sheet.set(o) });
+    body.innerHTML = ''; body.append(S.loadingEl('Loading the match…'));
+    let shown = false;
+    const M = await matchFor(pk, M0 => { if (my !== token) return; body.innerHTML = ''; I.renderMatch(body, M0, opts()); shown = true; }).catch(e => e);
     if (my !== token) return;
-    if (!M) { body.append(S.errorEl(new Error('No precomputed matchup for this pair.'))); return; }
-    if (M.neutralOnly) {
-      const pre = M;
-      body.append(S.loadingEl('Simulating the neutral-ground match in the browser…'));
-      const X = await I.exactFor(pk.a, pk.b, 'n').catch(e => e);
-      if (my !== token) return;
-      body.innerHTML = '';
-      if (X instanceof Error) { body.append(S.errorEl(X, 'Simulation failed')); return; }
-      I.renderMatch(body, X, Object.assign(opts, { context: `matchups.json carries only win probability and mean runs at a neutral ground (${pk.a.short} ${F.pct(pre.pWinA, 1)}, runs ${F.num(pre.runsA, 1)}–${F.num(pre.runsB, 1)}); everything here comes from ${F.int(X.n)} in-browser simulations of the default XIs.` }));
-      I.matchLast = { M: X, pre };
-      return;
-    }
-    I.renderMatch(body, M, opts);
+    if (M instanceof Error) { body.innerHTML = ''; body.append(S.errorEl(M, 'Could not build the match')); return; }
+    if (!M) { body.innerHTML = ''; body.append(S.errorEl(new Error('No precomputed matchup for this pair.'))); return; }
+    const sc = panel.scrollTop;
+    I.renderMatch(body, M, opts());
+    if (shown) panel.scrollTop = sc;
     I.matchLast = { M };
-    if (!M.exact) {
-      const X = await I.exactFor(pk.a, pk.b, pk.vk).catch(e => { console.warn(e); return null; });
-      if (my !== token || !X) return;
-      const sc = panel.scrollTop;
-      I.overlay(M, X);
-      I.renderMatch(body, M, Object.assign(opts, { lines: Object.fromEntries(lk.map(k => [k, L(k)])) }));
-      panel.scrollTop = sc;
-      I.matchLast = { M, X };
-    }
   };
   await draw();
   sheet.onState(draw);
@@ -635,21 +677,17 @@ async function props(panel, sheet) {
   let token = 0;
   const draw = async () => {
     const my = ++token;
-    const pk = matchPicker(sheet, (x, y, v) => { sheet.set({ a: x, b: y, v: v === 'A' ? null : v, p: null, ln: null }); draw(); });
-    ctl.innerHTML = ''; ctl.append(h('div', { class: 'ip-ctlbar' }, pk.el, h('span', { class: 'sh-note ip-links' }, h('a', { href: I.hashFor('match', { a: pk.a.short, b: pk.b.short, v: pk.vk === 'A' ? null : pk.vk }), text: 'Match sheet' }))));
-    let M2 = I.preMatch(pk.a, pk.b, pk.vk);
-    if (!M2 || M2.neutralOnly || !M2.exact) {
-      pricer.innerHTML = ''; pricer.append(S.loadingEl('Simulating this match in the browser for exact player distributions…'));
-      const X = await I.exactFor(pk.a, pk.b, pk.vk).catch(e => e);
-      if (my !== token) return;
-      if (X instanceof Error) { pricer.innerHTML = ''; pricer.append(S.errorEl(X, 'Simulation failed')); if (!M2 || M2.neutralOnly) return; }
-      else M2 = M2 && !M2.neutralOnly ? I.overlay(M2, X) : X;
-    }
+    const pk = matchPicker(sheet, (x, y, v, t) => { sheet.set({ a: x, b: y, v: v === 'A' ? null : v, t, p: null, ln: null }); draw(); });
+    ctl.innerHTML = ''; ctl.append(h('div', { class: 'ip-ctlbar' }, pk.el, h('span', { class: 'sh-note ip-links' }, h('a', { href: I.hashFor('match', { a: pk.a.short, b: pk.b.short, v: pk.vk === 'A' ? null : pk.vk, t: pk.bf }), text: 'Match sheet' }))));
+    pricer.innerHTML = ''; pricer.append(S.loadingEl(pk.vk === 'n' ? 'Simulating this neutral-ground match in the browser…' : 'Loading exact distributions…'));
+    const M2 = await matchFor(pk).catch(e => e);
+    if (my !== token) return;
+    if (M2 instanceof Error || !M2) { pricer.innerHTML = ''; pricer.append(S.errorEl(M2 || new Error('No matchup'), 'Could not build the match')); return; }
     M = M2;
     rows = [...M.A.players.map(p => ({ p, sd: 'A', team: M.a.short })), ...M.B.players.map(p => ({ p, sd: 'B', team: M.b.short }))];
     drawPricer();
     if (!grid) {
-      gwrap.append(h('div', { class: 'sh-h', text: 'Everyone in this match' }), h('div', { class: 'sh-note', text: 'Means from the precomputed matchup; medians, percentiles and 50% lines from the exact distributions. Stat groups toggle with the chips. Click a row to load him in the pricer (clicking inside a stat group also picks that stat).' }));
+      gwrap.append(h('div', { class: 'sh-h', text: 'Everyone in this match' }), h('div', { class: 'sh-note', text: 'Means from the precomputed matchup (or from the distributions when a batting-first side is chosen); medians, percentiles and 50% lines from the exact simulated distributions. Stat groups toggle with the chips. Click a row to load him in the pricer (clicking inside a stat group also picks that stat).' }));
       grid = sheet.grid(gwrap, { stateKey: 'g', height: 520, columns, groups, rows, sort: '-runs_m', csv: 'ipl-player-props.csv', footer: false, searchPlaceholder: 'Search player',
         onRowClick: r => { const sel = grid.selected(); const col = sel && sel.column ? sel.column.split('_')[0] : null; sheet.set({ p: r.p.id, ln: null, st: col && I.STATS.some(x => x[0] === col) ? (col === 'runs' ? null : col) : sheet.get('st') }); drawPricer(); pricer.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } });
       I.odds.bind(gwrap, () => grid.refresh());
@@ -692,7 +730,10 @@ async function simulator(panel, sheet) {
     };
     const tw = sheet.get('tw') === 'a' || sheet.get('tw') === 'b' ? sheet.get('tw') : '', td = sheet.get('td') === 'bowl' ? 'bowl' : 'bat';
     const batFirst = !tw ? null : (tw === 'a') === (td === 'bat') ? 'A' : 'B';
-    return { a, b, v, tw, td, batFirst, n: +(sheet.get('n') || 20000), A: side('a', a), B: side('b', b) };
+    const CO = SP.conditions || {};
+    const pitch = CO.pitch && CO.pitch[sheet.get('pi')] ? sheet.get('pi') : 'normal', dew = CO.dew && CO.dew[sheet.get('dw')] ? sheet.get('dw') : 'normal';
+    const conditions = {}; if (pitch !== 'normal') conditions.pitch = pitch; if (dew !== 'normal') conditions.dew = dew;
+    return { a, b, v, tw, td, batFirst, pitch, dew, conditions, n: +(sheet.get('n') || 20000), A: side('a', a), B: side('b', b) };
   };
   const sideDefault = sd => sd.order.join() === sd.t.order.join() && sd.ip === sd.t.impact_player && planStr(sd.plan) === planStr(sd.t.plan);
   const spec = sd => ({ name: sd.t.name, order: sd.order, plan: sd.plan.filter(x => x.pp + x.mid + x.death > 0), schedule: sideDefault(sd) ? sd.t.schedule : null });
@@ -710,11 +751,16 @@ async function simulator(panel, sheet) {
     const td = S.ui.segmented({ label: 'Chooses to', options: [{ value: 'bat', label: 'Bat' }, { value: 'bowl', label: 'Bowl' }], value: s.td, onChange: v => set({ td: v === 'bat' ? null : v }, false) });
     const sims = S.ui.select({ label: 'Simulations', options: [5000, 10000, 20000, 50000, 100000].map(v => ({ value: v, label: F.int(v) })), value: s.n, onChange: v => set({ n: v === 20000 ? null : v }, false) });
     const run = S.ui.button({ label: 'Run simulation', primary: true, onClick: () => go(true) });
-    const reset = S.ui.button({ label: 'Reset all', onClick: () => { sheet.set(Object.assign({ v: null, tw: null, td: null, n: null }, clearSides)); markStale(); drawControls(); } });
+    const reset = S.ui.button({ label: 'Reset all', onClick: () => { sheet.set(Object.assign({ v: null, tw: null, td: null, n: null, pi: null, dw: null }, clearSides)); markStale(); drawControls(); } });
+    const CO = SP.conditions || {}, lab = { normal: 'Normal', flat: 'Flat', slow_low: 'Slow / low', seaming: 'Seaming', none: 'None', heavy: 'Heavy' };
+    const ord = (g, pref) => pref.filter(k => CO[g] && CO[g][k]).concat(Object.keys(CO[g] || {}).filter(k => !pref.includes(k)));
+    const pi = CO.pitch ? S.ui.select({ label: 'Pitch', options: ord('pitch', ['flat', 'normal', 'slow_low', 'seaming']).map(k => ({ value: k, label: lab[k] || k })), value: s.pitch, onChange: v => set({ pi: v === 'normal' ? null : v }, false) }) : null;
+    const dw = CO.dew ? S.ui.select({ label: 'Dew (2nd innings)', options: ord('dew', ['none', 'normal', 'heavy']).map(k => ({ value: k, label: lab[k] || k })), value: s.dew, onChange: v => set({ dw: v === 'normal' ? null : v }, false) }) : null;
     run.classList.add('ip-run');
     const errsA = checkPlan(s.A.plan, s.A.xii).errs, errsB = checkPlan(s.B.plan, s.B.xii).errs;
     if (errsA.length || errsB.length) run.disabled = true;
-    left.append(S.ui.row(sa, sb), S.ui.row(ven, sims), S.ui.row(tw, s.tw ? td : h('span')), S.ui.row(run, reset));
+    left.append(S.ui.row(sa, sb), S.ui.row(ven, sims), pi || dw ? S.ui.row(pi || h('span'), dw || h('span')) : h('span'), S.ui.row(tw, s.tw ? td : h('span')), S.ui.row(run, reset));
+    if (pi || dw) left.append(h('div', { class: 'sh-note', text: 'Pitch and dew are scenario dials estimated from the data, not fitted to a match: flat = +1 SD of the shared match-conditions shock on every ball; slow/low = −1 SD plus the spin edge of the most spin-friendly fifth of grounds; seaming = −0.5 SD plus the pace-wicket edge of the most seam-friendly fifth; heavy / no dew = the 2nd-innings edge of the most / least chase-friendly fifth of grounds. See Method.' }));
     if (s.tw) left.append(h('div', { class: 'sh-note', text: `${s.batFirst === 'A' ? s.a.short : s.b.short} bat first.` }));
     if (errsA.length || errsB.length) left.append(h('div', { class: 'sh-note bad', text: 'Fix the bowling plan before running: ' + [...errsA.map(e => s.a.short + ': ' + e), ...errsB.map(e => s.b.short + ': ' + e)].join('; ') + '.' }));
     left.append(sideEditor(s, 'a'), sideEditor(s, 'b'));
@@ -776,18 +822,18 @@ async function simulator(panel, sheet) {
     const s = st();
     if (checkPlan(s.A.plan, s.A.xii).errs.length || checkPlan(s.B.plan, s.B.xii).errs.length) { status.textContent = 'Fix the bowling plan first.'; return; }
     const venue = s.v === 'neutral' ? null : s.v;
-    const personnel = !sideDefault(s.A) || !sideDefault(s.B), changed = personnel || !!s.batFirst;
+    const personnel = !sideDefault(s.A) || !sideDefault(s.B), changed = personnel || !!s.batFirst || Object.keys(s.conditions).length > 0;
     const bkey = [s.a.short, s.b.short, s.v, s.n].join('|');
     const needBase = changed && !baseCache.has(bkey);
-    const params = { A: spec(s.A), B: spec(s.B), opts: { venue, batFirst: s.batFirst }, sims: s.n, base: needBase ? { A: I.defTeam(s.a), B: I.defTeam(s.b), opts: { venue } } : null };
+    const params = { A: spec(s.A), B: spec(s.B), opts: { venue, batFirst: s.batFirst, conditions: Object.keys(s.conditions).length ? s.conditions : null }, sims: s.n, base: needBase ? { A: I.defTeam(s.a), B: I.defTeam(s.b), opts: { venue } } : null };
     prog.set(0); status.textContent = `Running ${F.int(s.n)} matches${needBase ? ' plus the default for comparison' : ''}…`; stale = false;
     const t0 = performance.now();
     I.simulate(params, f => { if (tok === runTok) prog.set(f); }).then(w => { if (tok !== runTok) { w.job.cancel(); const e = new Error('superseded'); e.cancelled = true; throw e; } job = w.job; return w.job.promise; }).then(r => {
       if (tok !== runTok) return;
       job = null; prog.set(1);
-      const ctxv = { venue: s.v, source: 'in-browser simulation', batFirst: s.batFirst };
-      const M = I.fromAcc(r.main, s.a, s.b, ctxv);
-      if (needBase) baseCache.set(bkey, I.fromAcc(r.base, s.a, s.b, { venue: s.v }));
+      const ctxv = { venue: s.v, source: 'in-browser simulation', batFirst: s.batFirst, conditions: s.conditions, orders: { A: s.A.order, B: s.B.order } };
+      const M = I.fromRaw(r.main, s.a, s.b, ctxv);
+      if (needBase) baseCache.set(bkey, I.fromRaw(r.base, s.a, s.b, { venue: s.v, orders: { A: s.a.order, B: s.b.order } }));
       if (!changed) baseCache.set(bkey, M);
       last = { s, M };
       const secs = (performance.now() - t0) / 1000;
@@ -811,7 +857,7 @@ async function simulator(panel, sheet) {
     }
     const gv = h('div', { class: 'sh-section ip-gap' }); res.append(gv);
     const desc = ['A', 'B'].map(k => { const sd = s[k]; if (sideDefault(sd)) return null; const outs = sd.t.xii.filter(id => !sd.xii.includes(id)).map(I.pname), ins = sd.xii.filter(id => !sd.t.xii.includes(id)).map(I.pname); return `${sd.t.short}: ${[outs.length ? 'out ' + outs.join(', ') : '', ins.length ? 'in ' + ins.join(', ') : '', sd.order.join() !== sd.t.order.join() && !outs.length ? 'batting order changed' : '', planStr(sd.plan) !== planStr(sd.t.plan) ? 'bowling plan changed' : ''].filter(Boolean).join('; ')}`; }).filter(Boolean).join('. ');
-    I.renderMatch(gv, M, { base, context: desc ? desc + '.' : '', baseNote: `Default = both default XIs and bowling plans at ${s.v === 'neutral' ? 'a neutral ground' : I.venueName(s.v)}, toss unknown, run with the same seeds (common random numbers). The SE treats the runs as independent, so it overstates the noise in the difference.` });
+    I.renderMatch(gv, M, { base, context: desc ? desc + '.' : '', baseNote: `Default = both default XIs and bowling plans at ${s.v === 'neutral' ? 'a neutral ground' : I.venueName(s.v)}, toss unknown, normal pitch and dew, run with the same seeds (common random numbers). ± is 1 SE treating the runs as independent, so it overstates the noise in the difference.` });
   }
   drawControls();
   sheet.onState(() => { drawControls(); go(); });
@@ -830,7 +876,7 @@ async function venues(panel, sheet) {
   const ipl = rows.filter(v => v.ipl_matches >= 10 && v.last_match >= '2019');
   const cols = h('div', { class: 'sh-cols' }); panel.append(cols);
   const c1 = I.card(cols, 'Runs and wickets by ground', 'Venue effects in IPL 2024–26 conditions, relative to an average ground (1.00). Right = more runs per over, up = more wickets per over. IPL grounds with ≥10 IPL matches since 2019; current home grounds labelled.');
-  S.scatter(c1.appendChild(h('div')), { points: ipl.map(v => ({ x: v.all_rpo_mult, y: v.all_wpo_mult, label: v._home || v.name.split(',')[0], id: v.venue, group: v._home ? 'Home ground' : 'Other IPL ground', desc: `${v.name}: ${F.num(v.all_rpo, 2)} runs/over, ±${F.num(v.all_rpo_mult_sd, 3)} (SD of runs multiplier); ${v.ipl_matches} IPL matches` })), groups: ['Home ground', 'Other IPL ground'], labels: ipl.filter(v => v._home).map(v => v._home), xLabel: 'runs per over vs average', yLabel: 'wickets per over vs average', xFmt: 'num:2', yFmt: 'num:2', refX: 1, refY: 1, height: 260 });
+  S.scatter(c1.appendChild(h('div')), { points: ipl.map(v => ({ x: v.all_rpo_mult, y: v.all_wpo_mult, label: v._home || v.name.split(',')[0], id: v.venue, group: v._home ? 'Home ground' : 'Other IPL ground', desc: `${v.name}${v.name_raw && v.name_raw !== v.name ? ' (' + v.name_raw + ')' : ''}: ${F.num(v.all_rpo, 2)} runs/over, ±${F.num(v.all_rpo_mult_sd, 3)} (SD of runs multiplier); ${v.ipl_matches} IPL matches` })), groups: ['Home ground', 'Other IPL ground'], labels: ipl.filter(v => v._home).map(v => v._home), xLabel: 'runs per over vs average', yLabel: 'wickets per over vs average', xFmt: 'num:2', yFmt: 'num:2', refX: 1, refY: 1, height: 260 });
   const c2 = I.card(cols, 'Chasing, pace and spin at the home grounds', 'Chase effect = 2nd-innings run rate ÷ 1st-innings run rate at this ground, relative to the average ground (>1: batting second is easier, e.g. dew). Spin − pace = spin runs multiplier minus pace runs multiplier (negative: spin is relatively harder to score off here).');
   const hr = rows.filter(v => homes.has(v.venue));
   S.bar(c2.appendChild(h('div')), { title: 'Chase effect', data: hr.map(v => ({ label: `${v._home} · ${v.city || v.name.split(',')[0]}`, value: v.inn2_rpo_mult / v.inn1_rpo_mult - 1, desc: `2nd ${F.num(v.inn2_rpo, 2)} vs 1st ${F.num(v.inn1_rpo, 2)} runs/over` })), sort: 'desc', fmt: 'spct:1', center: 0, barHeight: 10, rowGap: 5 });
@@ -840,7 +886,7 @@ async function venues(panel, sheet) {
   const m = (k, lab, desc) => ({ key: k, label: lab, get: get(k), fmt: 'num:3', heat: { center: 1, domain: [0.85, 1.15] }, desc });
   sheet.grid(gc, { height: 520, rows, sort: '-ipl_matches', csv: 'ipl-venues.csv', searchPlaceholder: 'Search ground or city', footer: false,
     columns: [
-      { key: 'name', label: 'Ground', frozen: true, width: 210 }, { key: 'city', label: 'City', type: 'text', width: 100 }, { key: '_home', label: 'Home of', type: 'text', width: 64 },
+      { key: 'name', label: 'Ground', frozen: true, width: 210, desc: 'Current ground name.' }, { key: 'name_raw', label: 'Name in data', type: 'text', width: 180, hidden: true, desc: 'Most common spelling in the cricsheet data (older names, e.g. Feroz Shah Kotla).' }, { key: 'city', label: 'City', type: 'text', width: 100 }, { key: '_home', label: 'Home of', type: 'text', width: 64 },
       { key: 'matches', label: 'Matches', fmt: 'int', desc: 'All T20 matches in the data.' }, { key: 'ipl_matches', label: 'IPL', fmt: 'int', desc: 'IPL matches.' }, { key: 'last_match', label: 'Last', type: 'text', width: 100 },
       { key: 'all_rpo', label: 'Runs/over', fmt: 'num:2', desc: 'Runs per over here in IPL 2024–26 conditions.' },
       m('all_rpo_mult', 'Runs ×', 'Runs per over relative to an average ground.'), { key: 'all_rpo_mult_sd', label: '± Runs', fmt: 'num:3', desc: 'Posterior SD of the runs multiplier.' },
@@ -880,7 +926,7 @@ async function value(panel, sheet) {
   await I.loadPlayers(); I.loadMatchups().catch(() => null);
   const rows = D.players.filter(p => p._team).map(p => ({ p, inXI: p._team.xii.includes(p.id) }));
   const cols = h('div', { class: 'sh-cols' }); panel.append(cols);
-  const c1 = I.card(cols, 'Biggest losses if replaced', 'Win probability per match his team gives up if he is swapped for a replacement-level player of his role (batting in his slot + bowling at his usual overs, converted at ' + F.pct(D.P.runs_to_wp, 2) + ' per run). Players in a default 12.');
+  const c1 = I.card(cols, 'Biggest losses if replaced', 'Win probability per match his team gives up if he is swapped for a replacement-level player of his role (batting in his slot + bowling at his projected overs, converted at ' + F.pct(D.P.runs_to_wp, 2) + ' per run). Players in a default 12.');
   const top = rows.filter(r => r.inXI).sort((a, b) => b.p.varp_wp - a.p.varp_wp).slice(0, 20);
   S.bar(c1.appendChild(h('div')), { data: top.map(r => ({ label: `${r.p.name} (${r.p._team.short})`, value: r.p.varp_wp, id: r.p.id, desc: `${F.signed(r.p.varp_runs, 1)} runs per match` })), fmt: 'pct:1', diverging: false, valueLabel: 'win probability per match', barHeight: 10, rowGap: 5, onClick: d => I.playerCard(d.id, { nav: { prev() {}, next() {} } }) });
   const c2 = I.card(cols, 'Batting value vs bowling value', 'Runs per match above replacement. All-rounders sit up and to the right. Default-12 players.');
@@ -895,8 +941,8 @@ async function value(panel, sheet) {
       { key: 'wp', label: 'Win%/m', get: r => r.p.varp_wp, fmt: 'spct:2', heat: { center: 0 }, desc: 'Win probability per match above replacement (batting + bowling).' },
       { key: 'rm', label: 'Runs/m', get: r => r.p.varp_runs, fmt: 'signed:1', heat: { center: 0 }, desc: 'Runs per match above replacement.' },
       { key: 'bv', label: 'Bat', get: r => r.p.bat ? r.p.bat.value.varp_runs : null, fmt: 'signed:1', desc: 'Batting value, runs per match, in his slot.' },
-      { key: 'wv', label: 'Bowl', get: r => r.p.bowl ? r.p.bowl.value.varp_runs : null, fmt: 'signed:1', desc: 'Bowling value, runs per match, at his usual overs.' },
-      { key: 'eo', label: 'Usual ov', get: r => r.p.bowl ? r.p.bowl.value.exp_overs : null, fmt: 'num:1', desc: 'Usual overs per match used for bowling value (career).' },
+      { key: 'wv', label: 'Bowl', get: r => r.p.bowl ? r.p.bowl.value.varp_runs : null, fmt: 'signed:1', desc: 'Bowling value, runs per match, at his projected overs (0 for non-bowlers).' },
+      { key: 'eo', label: 'Proj ov', get: r => r.p.bowl ? r.p.bowl.value.exp_overs : null, fmt: 'num:1', desc: 'Projected overs per match in his current role, used for bowling value.' },
       { key: 'slot', label: 'Slot', get: r => r.p.bat ? r.p.bat.value.slot : null, fmt: 'int' },
       { key: 'sim', label: 'Simulate', get: r => r.p.id, fmt: 'text', filter: false, render: (v, r) => { if (!r.inXI) return ''; const t = r.p._team, opp = D.teams.find(x => x !== t && x.rating.rank === (t.rating.rank === 1 ? 2 : 1)) || D.teams.find(x => x !== t); return `<a href="${I.hashFor('sim', simOutHash(t, opp, r.p.id))}">without him</a>`; }, width: 90, desc: 'Run the full simulator with him replaced.' },
     ] });
@@ -943,6 +989,7 @@ async function diagnostics(panel) {
       tu.slice().sort((a, b) => a.ll_ipl - b.ll_ipl), { highlight: r => r === best });
     c.classList.add('ip-wide');
   }
+  round2Diag(panel, Dg, sec);
   const rp = Dg.replay;
   if (rp) {
     const c2 = sec(`In-sample: re-simulating real ${rp.seasons ? rp.seasons.join(' and ') : ''} matches`, `${F.int(rp.matches)} IPL matches re-simulated ${F.int(rp.sims_per_match)} times each with the XIs, orders and venues that actually happened. The ratings were fitted on these matches, so this checks the simulator's mechanics, not forecasting skill.`);
@@ -964,9 +1011,111 @@ async function diagnostics(panel) {
       S.line(ct.appendChild(h('div')), { series: [{ name: 'Real', points: mid.map((x, i) => [x, th.actual[i]]) }, { name: 'Simulated', points: mid.map((x, i) => [x, th.sim[i]]) }], xLabel: 'first-innings total', yFmt: 'pct:0', height: 180 });
     }
   }
-  const known = ['holdout', 'tuning', 'replay'];
+  if (rp && (rp.players || rp.phase || rp.match)) {
+    const c4 = sec('In-sample: players, phases and matches', 'The same 2025–26 replay, broken down. In-sample, so these check the simulator mechanics.');
+    if (rp.match) matchCal(c4, rp.match, 'Replay, match level');
+    if (rp.phase) phaseCal(c4, rp.phase, 'Replay, runs by phase');
+    if (rp.players) playerCal(c4, rp.players, 'Replay, player lines');
+  }
+  const known = ['holdout', 'tuning', 'replay', 'oos', 'tuning_round2', 'match_shock'];
   const extra = Object.keys(Dg).filter(k => !known.includes(k));
   if (extra.length) { const c3 = sec('Further checks', 'Added by a later model export; shown as exported.'); extra.forEach(k => genericDiag(c3, k, Dg[k])); }
+}
+const T2 = x => typeof x === 'number' && isFinite(x);
+function round2Diag(panel, Dg, sec) {
+  const oo = Dg.oos;
+  if (oo) {
+    const c = sec(`Out of sample: IPL ${oo.season || 2026} matches`, `A model fitted only on data before ${oo.model_cutoff}, re-simulating every IPL ${oo.season} match ${F.int(oo.sims_per_match)} times with the real XIs, ground and batting-first side. ${oo.env_note || ''}. No market prices are used.`);
+    if (oo.match) matchCal(c, oo.match, 'Win probability and totals');
+    if (Array.isArray(oo.rows)) {
+      const rows = oo.rows, pp = rows.find(r => /1st-innings powerplay/i.test(r.metric)), i2 = rows.find(r => /2nd-innings total/i.test(r.metric));
+      const cc = I.card(c, 'Simulated vs real per innings, 2026', [pp ? `First-innings powerplay runs ${F.signed(pp.sim_mean - pp.actual_mean, 1)} (sim ${F.num(pp.sim_mean, 1)} vs real ${F.num(pp.actual_mean, 1)}).` : '', i2 ? `Second-innings totals are too tightly spread: SD ${F.num(i2.sim_sd, 1)} simulated vs ${F.num(i2.actual_sd, 1)} real, so wide chase-total lines are priced short.` : ''].join(' '));
+      cc.classList.add('ip-wide');
+      replayTable(cc, rows, oo.match && oo.match.n_matches);
+    }
+    if (oo.phase) phaseCal(c, oo.phase, 'Runs and wickets by phase, 2026');
+    if (oo.players) playerCal(c, oo.players, 'Player lines, 2026');
+    const sh = oo.shrinkage_calibration;
+    if (sh) {
+      const cs = I.card(c, 'Are the player ratings too extreme?', 'Slope of each player\'s actual deviation from an average IPL batter/bowler in 2026 on the predicted deviation, by how much he had played before the cutoff. 1 = right size; below 1 = ratings too extreme; above 1 = too timid. Dismissal slopes well below 1 mean the out-rate splits are over-stretched for small samples.');
+      cs.classList.add('ip-wide');
+      const g = h('div', { class: 'ip-two ip-two-wide' }); cs.append(g);
+      const t1 = h('div'), t2 = h('div'); g.append(t1, t2);
+      if (sh.bat) { t1.append(h('div', { class: 'ip-sub', text: 'Batters' })); S.table(t1.appendChild(h('div')), [{ key: 'bucket', label: 'Balls before' }, { key: 'n_players', label: 'Players', fmt: 'int' }, { key: 'test_balls', label: 'Test balls', fmt: 'int' }, { key: 'slope_runs', label: 'Runs slope', fmt: 'num:2' }, { key: 'slope_outs', label: 'Outs slope', fmt: 'num:2' }, { key: 'top20_pred_runs_per100', label: 'Top-20 pred', fmt: 'signed:1', desc: 'runs per 100 balls vs average, the 20 best-rated' }, { key: 'top20_act_runs_per100', label: 'Top-20 act', fmt: 'signed:1' }], sh.bat); }
+      if (sh.bowl) { t2.append(h('div', { class: 'ip-sub', text: 'Bowlers' })); S.table(t2.appendChild(h('div')), [{ key: 'bucket', label: 'Balls before' }, { key: 'n_players', label: 'Players', fmt: 'int' }, { key: 'test_balls', label: 'Test balls', fmt: 'int' }, { key: 'slope_conceded', label: 'Conceded slope', fmt: 'num:2' }, { key: 'slope_wkts', label: 'Wkts slope', fmt: 'num:2' }], sh.bowl); }
+    }
+  }
+  const t2 = Dg.tuning_round2;
+  const ms = Dg.match_shock;
+  if ((Array.isArray(t2) && t2.length) || ms) {
+    const c = sec('Round-2 design choices', 'Which model blocks were kept or rejected on the forward holdout, and the shared match-conditions shock.');
+    if (Array.isArray(t2) && t2.length) {
+      const b0 = t2[0], best = t2.slice().sort((x, y) => x.ll_ipl - y.ll_ipl)[0];
+      const diff = r => { const out = []; for (const k in r.lam || {}) if (!b0.lam || r.lam[k] !== b0.lam[k]) out.push(`${k} ${r.lam[k]}`); if (r.half_life !== b0.half_life) out.push('half-life ' + r.half_life); return out.join(', ') || 'base design'; };
+      const ct = I.card(c, 'Holdout fits of the current design', `Log loss on balls after the cutoff (lower is better). Rows differ from the first (base) fit only in the settings named. Best on IPL balls: ${diff(best)} (${F.num(best.ll_ipl, 5)}). The differences are in the fourth decimal: small.`);
+      S.table(ct.appendChild(h('div')), [{ key: 'd', label: 'Change vs base', get: diff }, { key: 'iters', label: 'Iters', fmt: 'int' }, { key: 'll_ipl', label: 'IPL log-loss', fmt: 'num:5' }, { key: 'll_all', label: 'All log-loss', fmt: 'num:5' }, { key: 'dl', label: 'Δ IPL vs base', get: r => r.ll_ipl - b0.ll_ipl, fmt: 'signed:5' }], t2, { highlight: r => r === best });
+      const kr = h('div', { class: 'sh-md ip-kr' }); ct.append(kr);
+      S.load.text('data/method.md').then(t => { const m = t.match(/\*\*Blocks tested and rejected[\s\S]*?(?=\n\n)/); if (m) kr.innerHTML = S.md(m[0]); }).catch(() => null);
+    }
+    if (ms) {
+      const cm = I.card(c, 'Shared match conditions', `Real innings in the same match run hot or cold together (residual correlation ${F.num(ms.residual_corr, 3)} across ${F.int(ms.n_matches)} IPL matches). The simulator draws one shock per match with SD ${F.num(ms.sd, 3)} on the logit scale along the recent IPL scoring direction (${F.num(ms.runs_per_ball_per_unit, 3)} runs per ball per unit), which widens total tails and tempers win probabilities.`);
+      cm.append(S.kv([['Shock SD (logit)', F.num(ms.sd, 3)], ['Residual covariance', F.num(ms.residual_cov, 4)], ['Residual correlation', F.num(ms.residual_corr, 3)], ['Runs per ball per unit', F.num(ms.runs_per_ball_per_unit, 3)], ['Matches', F.int(ms.n_matches)]]));
+    }
+  }
+}
+function replayTable(c, rows, n) {
+  S.table(c.appendChild(h('div')), [{ key: 'metric', label: 'Measure' }, { key: 'actual_mean', label: 'Real', render: (v, r) => /rate/i.test(r.metric) ? F.pct(v, 1) : F.num(v, 2) }, { key: 'sim_mean', label: 'Sim', render: (v, r) => /rate/i.test(r.metric) ? F.pct(v, 1) : F.num(v, 2) }, { key: 'd', label: 'Sim − real', render: (v, r) => /rate/i.test(r.metric) ? F.spct(r.sim_mean - r.actual_mean, 1) : F.signed(r.sim_mean - r.actual_mean, 2) }, { key: 'actual_sd', label: 'Real SD', fmt: 'num:1' }, { key: 'sim_sd', label: 'Sim SD', fmt: 'num:1' }].concat(n ? [{ key: 'z', label: 'z', get: r => (r.sim_mean - r.actual_mean) / (r.actual_sd / Math.sqrt(n)), fmt: 'signed:1', desc: 'Difference in standard errors of the real mean' }] : []), rows);
+}
+function matchCal(parent, m, title) {
+  const cv = m.t1_quantile_coverage || {}, mv = m.match_total_quantile_coverage || {};
+  const qs = ['q10', 'q25', 'q50', 'q75', 'q90'].filter(q => T2(cv[q]) || T2(mv[q]));
+  const worst = qs.map(q => [q, (cv[q] ?? NaN) - (+q.slice(1) / 100)]).filter(x => T2(x[1])).sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]))[0];
+  const base = [T2(m.t1_rmse_venue_mean) ? `venue average ${F.num(m.t1_rmse_venue_mean, 1)}` : '', T2(m.t1_rmse_overall_mean) ? `league average ${F.num(m.t1_rmse_overall_mean, 1)}` : ''].filter(Boolean).join(', ');
+  const c = I.card(parent, title, `${F.int(m.n_matches)} matches. Win-probability log loss ${F.num(m.wp_logloss, 3)} vs ${F.num(m.wp_logloss_coinflip, 3)} for a coin flip. First-innings total RMSE ${F.num(m.t1_rmse_model, 1)} runs${base ? ` (vs ${base})` : ''}, bias ${F.signed(m.t1_bias_model, 1)}.${worst && Math.abs(worst[1]) > 0.03 ? ` Coverage miss: ${F.pct(cv[worst[0]], 0)} of real first innings fell below the simulated ${worst[0].slice(1)}th percentile (should be ${worst[0].slice(1)}%)${worst[0] === 'q90' && worst[1] < 0 ? ', so the upper tail is too short' : ''}.` : ''} With ${F.int(m.n_matches)} matches each coverage share has a standard error of about ${F.pct(Math.sqrt(0.25 / m.n_matches), 0)}.`);
+  c.classList.add('ip-wide');
+  c.append(S.tiles([{ label: 'WP log loss', value: F.num(m.wp_logloss, 3), sub: 'coin flip ' + F.num(m.wp_logloss_coinflip, 3) }, { label: 'Brier', value: F.num(m.wp_brier, 3), sub: 'coin flip 0.250' }, { label: '1st-inns RMSE', value: F.num(m.t1_rmse_model, 1), sub: base || 'runs' }, { label: '1st-inns bias', value: F.signed(m.t1_bias_model, 1), sub: 'sim − real, runs' }]));
+  const g = h('div', { class: 'ip-two', style: { marginTop: '8px' } }); c.append(g);
+  const r = m.wp_reliability;
+  if (r && r.pred) { const b1 = h('div'); g.append(b1); S.scatter(b1, { title: 'Win probability reliability', points: r.pred.map((x, i) => ({ x, y: r.obs[i], label: '', desc: `${r.n[i]} matches: predicted ${F.pct(x, 1)}, won ${F.pct(r.obs[i], 1)}` })), diag: true, xDomain: [0, 1], yDomain: [0, 1], xFmt: 'pct:0', yFmt: 'pct:0', xLabel: 'predicted', yLabel: 'actual', labels: false, height: 150 }); S.table(b1.appendChild(h('div')), [{ key: 'pred', label: 'Predicted', fmt: 'pct:1' }, { key: 'obs', label: 'Won', fmt: 'pct:1' }, { key: 'n', label: 'Matches', fmt: 'int' }], r.pred.map((x, i) => ({ pred: x, obs: r.obs[i], n: r.n[i] }))); }
+  if (qs.length) { const b2 = h('div'); g.append(b2); b2.append(h('div', { class: 'ip-sub', text: 'Quantile coverage' })); S.table(b2.appendChild(h('div')), [{ key: 'q', label: 'Simulated quantile' }, { key: 't', label: '1st innings', fmt: 'pct:0' }, { key: 'm', label: 'Match total', fmt: 'pct:0' }, { key: 'want', label: 'Target', fmt: 'pct:0' }], qs.map(q => ({ q: q.slice(1) + 'th', t: cv[q], m: mv[q], want: +q.slice(1) / 100 }))); b2.append(h('div', { class: 'sh-note', text: 'Share of real totals that fell below each simulated quantile; on target = the spread is right.' })); }
+}
+function phaseCal(parent, ph, title) {
+  const n = (ph.phase || []).length, rows = Array.from({ length: n }, (_, i) => ({ inn: ph.innings[i], ph: ['Powerplay', 'Middle', 'Death'][ph.phase[i]] || ph.phase[i], sr: ph.sim_runs[i], ar: ph.act_runs[i], sw: ph.sim_wkts[i], aw: ph.act_wkts[i] }));
+  const big = rows.slice().sort((a, b) => Math.abs(b.sr - b.ar) - Math.abs(a.sr - a.ar))[0];
+  const c = I.card(parent, title, big ? `Mean per innings. Largest miss: innings ${big.inn} ${String(big.ph).toLowerCase()}, ${F.signed(big.sr - big.ar, 1)} runs (sim ${F.num(big.sr, 1)} vs real ${F.num(big.ar, 1)}).` : '');
+  c.classList.add('ip-wide');
+  S.table(c.appendChild(h('div')), [{ key: 'inn', label: 'Inns', fmt: 'int' }, { key: 'ph', label: 'Phase' }, { key: 'ar', label: 'Runs real', fmt: 'num:1' }, { key: 'sr', label: 'Sim', fmt: 'num:1' }, { key: 'd', label: 'Sim − real', get: r => r.sr - r.ar, fmt: 'signed:1' }, { key: 'aw', label: 'Wkts real', fmt: 'num:2' }, { key: 'sw', label: 'Sim', fmt: 'num:2' }], rows);
+}
+const CAL_X = { runs: 'Runs', balls: 'Balls', fours: 'Fours', sixes: 'Sixes', p30: 'P(30+)', p50: 'P(50+)', pduck: 'P(duck)', wkts: 'Wickets', conceded: 'Runs conceded', overs: 'Overs', p2w: 'P(2+ wkts)' };
+function playerCal(parent, P, title) {
+  const bf = P.bat_fit || {}, wf = P.bowl_fit || {};
+  const flag = Object.entries(Object.assign({}, bf, wf)).filter(([, v]) => v && T2(v.slope) && Math.abs(v.slope - 1) > 0.15).map(([k, v]) => `${(CAL_X[k] || k).toLowerCase()} ${F.num(v.slope, 2)}`);
+  const c = I.card(parent, title, `Actual against simulated, one point per decile of the simulated value (or per batting position), ${F.int(P.bat_n)} batter-innings and ${F.int(P.bowl_n)} bowler-innings. A fit slope of 1 means the simulated differences between players are the right size.${flag.length ? ' Off target: ' + flag.join(', ') + (wf.conceded && wf.conceded.slope < 0.85 ? ' — simulated runs-conceded spread between bowlers is too wide (cheap bowlers concede more than simulated, expensive ones less), so bowler runs-conceded lines at the extremes are too far from the middle.' : '.') : ''}`);
+  c.classList.add('ip-wide');
+  const ctl = h('div', { class: 'ui-ctl' }), out = h('div', { class: 'ip-two ip-two-wide' }); c.append(ctl, out);
+  let who = 'bat', x = 'runs', by = 'decile';
+  const draw = () => {
+    out.innerHTML = '';
+    const src = who === 'bat' ? (by === 'pos' ? P.bat_by_position : P.bat_by_decile) : P.bowl_by_decile;
+    if (!src) return;
+    const k = src.bat_pos ? 'bat_pos' : 'decile', sim = src['sim_' + x], act = src['act_' + x]; if (!sim) return;
+    const pct = /^p/.test(x), f = pct ? 'pct:0' : 'num:1';
+    const left = h('div'), right = h('div'); out.append(left, right);
+    S.scatter(left, { points: sim.map((v, i) => ({ x: v, y: act[i], label: k === 'bat_pos' ? '#' + src[k][i] : '', desc: `${k === 'bat_pos' ? 'batting position ' + src[k][i] : 'decile ' + (src[k][i] + 1)}: ${F.int(src.n[i])} innings` })), diag: true, labels: k === 'bat_pos' ? 6 : false, xFmt: f, yFmt: f, xLabel: 'simulated', yLabel: 'actual', height: 200 });
+    const fit = (who === 'bat' ? bf : wf)[x];
+    S.table(right, [{ key: 'g', label: k === 'bat_pos' ? 'Bat pos' : 'Decile' }, { key: 's', label: 'Sim', fmt: pct ? 'pct:1' : 'num:2' }, { key: 'a', label: 'Actual', fmt: pct ? 'pct:1' : 'num:2' }, { key: 'd', label: 'Act − sim', get: r => r.a - r.s, fmt: pct ? 'spct:1' : 'signed:2' }, { key: 'n', label: 'n', fmt: 'int' }], sim.map((v, i) => ({ g: k === 'bat_pos' ? src[k][i] : src[k][i] + 1, s: v, a: act[i], n: src.n[i] })));
+    if (fit) right.append(h('div', { class: 'sh-note', text: `Fit of actual on simulated: slope ${F.num(fit.slope, 2)}, intercept ${F.signed(fit.intercept, 2)}.` }));
+  };
+  const xs = () => Object.keys(CAL_X).filter(k => (who === 'bat' ? P.bat_by_decile : P.bowl_by_decile) && (who === 'bat' ? P.bat_by_decile : P.bowl_by_decile)['sim_' + k]);
+  const mkCtl = () => {
+    ctl.innerHTML = '';
+    ctl.append(S.ui.segmented({ label: 'Players', options: [{ value: 'bat', label: 'Batters' }, { value: 'bowl', label: 'Bowlers' }].filter(o => o.value === 'bat' ? P.bat_by_decile : P.bowl_by_decile), value: who, onChange: v => { who = v; x = xs()[0]; if (who === 'bowl') by = 'decile'; mkCtl(); draw(); } }));
+    ctl.append(S.ui.select({ label: 'Stat', options: xs().map(k => ({ value: k, label: CAL_X[k] })), value: x, onChange: v => { x = v; draw(); } }));
+    if (who === 'bat' && P.bat_by_position) ctl.append(S.ui.segmented({ label: 'Group by', options: [{ value: 'decile', label: 'Decile' }, { value: 'pos', label: 'Batting position' }], value: by, onChange: v => { by = v; draw(); } }));
+    const fits = Object.entries(who === 'bat' ? bf : wf);
+    if (fits.length) ctl.append(h('span', { class: 'sh-note', text: 'Slopes: ' + fits.map(([k, v]) => `${CAL_X[k] || k} ${F.num(v.slope, 2)}`).join(' · ') }));
+  };
+  mkCtl(); draw();
 }
 function relSentence(cls) {
   const worst = Object.entries(cls).filter(([k, v]) => v.bins && ['wicket', 'r0', 'r1', 'r4', 'r6', 'wide'].includes(k)).map(([k, v]) => { const i = v.bins.pred.length - 1; return [k, v.bins.obs[i] / v.bins.pred[i], v.bins.pred[i], v.bins.obs[i]]; }).sort((a, b) => Math.abs(Math.log(b[1])) - Math.abs(Math.log(a[1])))[0];
