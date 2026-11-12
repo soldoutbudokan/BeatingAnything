@@ -357,6 +357,12 @@ def main():
             d["bat"] = {s: {k: b[f"{s}_{k}"] for k in BATK} for s in ("all", "pp", "mid", "death", "pace", "spin")}
             d["bat"]["vs_avg"] = {s: {k: b[f"{s}_{k}"] - b[f"{s}_avg_{k}"] for k in ("sr", "out_pct", "rv100", "bnd_pct", "dot_pct")}
                                   for s in ("all", "pp", "mid", "death", "pace", "spin")}
+            bt_ = {}
+            for t in ("pace_R", "pace_L", "OB", "LB", "SLA", "SLW"):
+                if f"t_{t}_sr" in b.index and pd.notna(b[f"t_{t}_sr"]):
+                    bt_[t] = {k: b[f"t_{t}_{k}"] for k in ("sr", "out_pct", "rv100", "bnd_pct", "dot_pct")}
+                    bt_[t]["vs_avg"] = {k: b[f"t_{t}_{k}"] - b[f"t_{t}_avg_{k}"] for k in ("sr", "out_pct", "rv100")}
+            d["bat"]["by_type"] = bt_
             d["bat"]["sd"] = {"sr": b["sd_sr"], "out_pct": b["sd_out_pct"], "avg": b["sd_avg"], "rv100": b["sd_rv100"]}
             d["bat"]["settling"] = R["settle"].get(pid)
             v = vb.loc[pid]
@@ -484,6 +490,13 @@ def main():
     for k, r in enumerate(ranks):
         r["rating"]["rank"] = k + 1
     dump("teams.json", {"season": int(next(iter(teams.values()))["season"]), "teams": team_rows})
+
+    # ---------------- head_to_head.json (notable batter x bowler terms that the simulator applies)
+    poolset = set(pool)
+    h2h = [h for h in R.get("h2h", []) if h["batter"] in poolset and h["bowler"] in poolset]
+    dump("head_to_head.json", {"n_pairs_fitted": R.get("n_pairs_fitted", 0), "n_exported": len(h2h),
+                               "threshold": {"abs_d_sr": 5.0, "abs_d_out_pct": 0.5},
+                               "pairs": sorted(h2h, key=lambda h: -abs(h["d_sr"]))})
 
     # ---------------- matchups.json
     mrows = []

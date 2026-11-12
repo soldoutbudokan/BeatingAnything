@@ -1,4 +1,5 @@
 """Shared paths and constants for the IPL ball-by-ball model."""
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -6,6 +7,7 @@ RAW = ROOT / "data" / "raw" / "cricsheet"
 PROC = ROOT / "data" / "processed" / "ipl"
 EXPORT = ROOT / "docs" / "models" / "ipl" / "data"
 STATIC = ROOT / "models" / "ipl" / "static"
+FRAME = PROC / os.environ.get("IPL_FRAME", "frame.parquet")  # model frame (override only for side experiments)
 for p in (RAW, PROC, EXPORT, STATIC):
     p.mkdir(parents=True, exist_ok=True)
 

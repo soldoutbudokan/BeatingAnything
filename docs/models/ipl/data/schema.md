@@ -320,3 +320,31 @@ for super-over coin flips), total, pp, sixes, fours, fow1, wkts, wides, extras (
 bat2: {n, wins, total} (when batting first / second), players: {id: {runs, balls, fours, sixes, wkts,
 conceded (Hists), legal_balls, batted, out, duck, top_bat, top_bowl (counts; top_* fractional for ties),
 n_bat, n_bowl}}}`. `simMatch` is unchanged.
+
+---------------------------------------------------------------------------------------------------------
+
+## Round-3 additions (matchup types, head-to-heads, conditions)
+
+* players.json `bat.by_type[type]` for type in `pace_R` (right-arm pace), `pace_L` (left-arm pace), `OB`, `LB`,
+  `SLA`, `SLW`: `{sr, out_pct, rv100, bnd_pct, dot_pct, vs_avg: {sr, out_pct, rv100}}` in IPL 2024-26 conditions,
+  restricted to deliveries from that bowling type (present only when ≥ 200 such reference deliveries).
+* sim_params.json
+  * `batters[id].ty[type]`: per-batter bowling-type deviation (11-vector), added when the bowler's `sub` equals
+    `type`; absent = 0.
+  * `pairs[batterId][bowlerId]`: batter x bowler head-to-head offsets (11-vectors). **Empty in this build**: the
+    forward holdout found no gain from head-to-head terms (see method.md), so none are exported.
+  * `conditions[group][option] = {all?, pace?, spin?, i1?, i2?}` (11-vectors): optional user inputs.
+    Groups/options: `pitch`: `normal` (no shift), `flat`, `slow_low`, `seaming`; `dew`: `normal` (no shift),
+    `heavy`, `none`. A selected option adds `all` to every delivery, `pace`/`spin` to deliveries of that
+    bowling type, `i1`/`i2` to 1st/2nd-innings deliveries. Options combine additively across groups.
+* head_to_head.json: `{n_pairs_fitted, n_exported, threshold, pairs: [{batter, bowler, batter_name, bowler_name,
+  balls, runs, outs (raw, all T20s), d_sr, d_out_pct (model head-to-head effect at IPL-average probabilities)}]}`;
+  `n_pairs_fitted = 0` and `pairs = []` in this build.
+* sim.js / sim.py: `opts.conditions` (JS) / `conditions=` (Python), e.g. `{pitch: "slow_low", dew: "heavy"}`.
+
+Per-delivery logit (complete, both engines): base[inn][over][min(wkts,7)] + bf[phase][balls-faced bucket]
++ (2nd inns) chase[phase][rrr bucket] + env[key] + env_phase[key][phase] + venue.base + (2nd inns) venue.i2
++ spin·venue.spin + sub[s] + sub_phase[s][phase] + (left-hander)·(sub_lhb[s] + bowler.lh) + bowler.b
++ (pp) bowler.pp + (death) bowler.de + batter.b + (pp) batter.pp + (death) batter.de + spin·batter.sp
++ (balls faced < 10) batter.ea + batter.ty[s] + pairs[batter][bowler] + z·match_shock.dir
++ conditions (all + pace|spin + i1|i2); free hit: wicket class removed.

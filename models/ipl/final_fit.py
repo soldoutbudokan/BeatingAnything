@@ -11,10 +11,9 @@ from models.ipl.fit import DEFAULT_LAM, build_design, fit_model, indices, load, 
 
 
 def best_hyper():
-    p = PROC / "tuning_r2.json"  # round-2 search on the current design takes precedence
-    if not p.exists():
-        p = PROC / "tuning.json"
-    if not p.exists():
+    # the latest search on the current design takes precedence (round 3 = block tests, round 2 = shrinkage)
+    p = next((q for q in (PROC / "tuning_r3.json", PROC / "tuning_r2.json", PROC / "tuning.json") if q.exists()), None)
+    if p is None:
         return 2.5, DEFAULT_LAM, None
     res = [r for r in json.loads(p.read_text()) if r["lam"]["bat"] < 1e8]
     r = min(res, key=lambda r: r["ll_ipl"] + r["ll_all"])  # IPL holdout and all-T20 holdout weighted equally
@@ -30,7 +29,8 @@ def main(maxiter=1000):
     hd = fitr.hessian_diag()
     sd = 1.0 / np.sqrt(hd)
     out = dict(W=fitr.W, sd=sd, blocks=D.blocks, p=D.p, half_life=H, lam=lam, ref_date=str(ref.date()),
-               iters=int(fitr.res.nit), loss=float(fitr.res.fun), n=int(fitr.n), idx=idx)
+               iters=int(fitr.res.nit), loss=float(fitr.res.fun), n=int(fitr.n), idx=idx,
+               opts=getattr(fitr, "opts", None))
     with open(PROC / "model.pkl", "wb") as fh:
         pickle.dump(out, fh)
     print(f"final fit H={H} iters={out['iters']} n={out['n']:,} p={D.p:,}")

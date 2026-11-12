@@ -39,7 +39,7 @@ regression on ~2.3 million deliveries:
 | bowler subtype; subtype x phase; subtype x left-handed batter | pace vs spin overall and by phase (spin is hit harder at the death), and the hand matchup (e.g. off-spin to left-handers) |
 | competition; competition x season; both x phase | **league environment** and season run environment, overall and separately for the powerplay and the death (the post-2023 IPL Impact Player surge is concentrated in the powerplay) |
 | venue; venue x 2nd innings; venue x spin | ground effects, chasing/dew, and spin-friendliness |
-| batter: overall, powerplay, death, vs spin, first 10 balls | batter skill and its splits |
+| batter: overall, powerplay, death, vs spin, first 10 balls; vs each bowling type (right/left-arm pace, off-spin, leg-spin, slow left-arm, left-arm wrist spin) | batter skill and its splits; the type split is nested: it shrinks toward his vs-spin (spin types) or overall (pace types) rating |
 | bowler: overall, powerplay, death, vs left-handers | bowler skill and its splits |
 | batter role, league mix, role x experience; bowler role, league mix, role x experience | the **informed prior** that small samples shrink toward |
 | batter age; bowler age x pace/spin (age at the delivery, 2-year buckets) | **ageing curves** (see below) |
@@ -86,6 +86,26 @@ from that posterior. They ignore correlations with other terms, so they are some
 without a label are classed pace/spin by a gradient-boosted classifier trained on labelled bowlers
 (features: phase usage, wide/no-ball/bye rates, boundary and dot rates, share of wickets stumped / lbw /
 bowled); those rows are flagged `style_inferred`.
+
+**Blocks tested and rejected (forward holdout, log loss on all T20s / IPL only, round-3 base 1.64635 / 1.67501):**
+per-batter bowling-type splits 1.64632 / 1.67493 (kept); batter x bowler head-to-head terms (24+ balls,
+penalty 300: 1.64637 / 1.67498; penalty 1000: 1.64637 / 1.67499) — no gain at any tested strength, so the
+head-to-head variance is set to **zero** and no pair terms are exported; per-bowler split vs middle/lower-order
+batters 1.64638 / 1.67503 (rejected); day game (earlier match of a double-header) 1.64639 / 1.67498 (rejected);
+pitch wear (matches already played at the venue that season, overall and for spin) 1.64637 / 1.67492 (mixed:
+worse on all T20s, better on IPL; rejected to keep the simulator inputs simple); toss winner chose to bat
+1.64637 / 1.67500 (rejected). Fast vs medium pace is not split (labels unreliable). A separate venue x pace term
+is not needed: venue.base applies to every ball and venue.spin is the spin-vs-pace difference, so pace balls
+already carry their own venue effect.
+
+**User conditions.** The simulator optionally accepts a pitch (`flat`, `normal`, `slow_low`, `seaming`) and a
+dew setting (`none`, `normal`, `heavy`). Mapping (estimated from the data, see `sim_params.conditions`):
+`flat` = +1 SD of the match-conditions shock on every ball; `slow_low` = -1 SD plus, on spin balls, the gap
+between the spin terms of the most spin-friendly fifth of grounds (by spin wickets) and the average ground;
+`seaming` = -0.5 SD plus, on pace balls, the venue-term gap of the fifth of grounds where pace takes most
+wickets; `heavy` / `none` dew = on 2nd-innings balls, the 2nd-innings venue-term gap of the fifth of grounds
+with the largest / smallest 2nd-vs-1st innings scoring ratio. `normal` adds nothing. These are scenario
+dials, not fitted parameters of a specific match.
 
 ## 4. Player ratings ("true" stats)
 
@@ -152,6 +172,15 @@ coin flip). Outputs: win probability, totals, powerplay, score at the first wick
 player runs/balls/boundaries distributions, wickets, runs conceded, and the chance of being his side's top
 run-scorer or top wicket-taker (most wickets, then fewest runs; ties split).
 
+**Every simulated ball** (identical in `sim.py` and `sim.js`) gets the sum of: the situation base (innings,
+over, wickets down); the settling term for the striker's balls faced; chase pressure (2nd innings, required-rate
+bucket x phase); the season environment and its powerplay/death component; the venue term, the venue's
+2nd-innings term (2nd innings) and spin term (spin balls); the bowler-subtype term, its phase component and its
+extra vs a left-hander; the bowler's overall, powerplay/death and vs-left-hander terms; the striker's overall,
+powerplay/death, vs-spin, first-10-balls and vs-this-bowling-type terms; the batter x bowler head-to-head term
+(zero in this build); the match's shared conditions shock; and any user-selected pitch/dew conditions. The 11
+class probabilities are the softmax of that sum; on a free hit the bowler-wicket class is removed.
+
 `sim.js` is the same engine in JavaScript, fed by `sim_params.json`, so any lineup, order, bowling plan,
 venue or toss can be re-simulated in the browser. Python and JS agree within Monte Carlo error (see
 `meta.json.sim.parity`).
@@ -186,8 +215,8 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
 * Fielding, captaincy and keeping are not modelled separately; run outs are shared at the situation level.
 * No ball-tracking: "expected" means expected given situation, opposition, venue, league and era — not given
   line and length.
-* Batter-vs-bowler-type matchups are captured only through the batter's vs-spin split, the bowler's vs-LHB
-  split and a global subtype x hand table; no per-player off-spin vs leg-spin split.
+* Batter-vs-bowler-type matchups: per-batter splits by six bowling types (shrunk hard); bowlers have only a
+  vs-left-hander split; no per-pair head-to-head (the holdout did not support one).
 * The batting-second edge in the matchups comes from the chase-pressure terms and each ground's 2nd-innings
   (dew) term; a ground with a strong historical chasing record (e.g. Wankhede) gives a large edge.
 * Bowling plans are deterministic in the simulator (same over-by-over allocation in every sim) and do not react

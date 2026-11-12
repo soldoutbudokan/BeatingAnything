@@ -5,7 +5,8 @@
  *   const out = IPLSim.simMatch(P, teamA, teamB, {venue: "wankhede stadium", n: 10000, seed: 1});
  *
  * team = {name, order: [11 player ids], plan: [{id, pp, mid, death}, ...]}   (or schedule: [20 bowler ids])
- * opts = {venue, n, seed, batFirst: "A" | "B" | null (null = half the sims each way), env}
+ * opts = {venue, n, seed, batFirst: "A" | "B" | null (null = half the sims each way), env,
+ *         conditions: {pitch: "flat"|"normal"|"slow_low"|"seaming", dew: "none"|"normal"|"heavy"} (optional)}
  *
  * Mirrors models/ipl/sim.py. Per-ball probabilities are a softmax over 11 outcome classes whose logits are the
  * sum of the exported tables: context base[innings][over][wickets] + balls-faced(settling) + chase pressure +
@@ -129,7 +130,20 @@
   }
 
   // ---------------------------------------------------------------- innings
-  function simInnings(P, rng, n, order, sched, V, env, inn, target, maxWkts, maxOvers, track, envPh, shock) {
+  // user conditions: {group: option} -> summed {all, pace, spin, i1, i2} 11-vectors (sim_params.conditions)
+  function conditionTerms(P, conditions) {
+    if (!conditions) return null;
+    var out = {}, tbl = P.raw.conditions || {};
+    ["all", "pace", "spin", "i1", "i2"].forEach(function (k) { out[k] = new Array(NC).fill(0); });
+    Object.keys(conditions).forEach(function (g) {
+      var t = (tbl[g] || {})[conditions[g]];
+      if (!t) throw new Error("unknown condition " + g + "=" + conditions[g]);
+      Object.keys(t).forEach(function (k) { if (out[k]) for (var c = 0; c < NC; c++) out[k][c] += t[k][c]; });
+    });
+    return out;
+  }
+
+  function simInnings(P, rng, n, order, sched, V, env, inn, target, maxWkts, maxOvers, track, envPh, shock, cond) {
     maxWkts = maxWkts || 10; maxOvers = maxOvers || 20;
     var nbat = order.length, i, c, o;
     var bt = order.map(function (id) { return batterOf(P, id); });
@@ -146,8 +160,11 @@
       var mo = new Float64Array(nbat * NC);
       for (i = 0; i < nbat; i++) {
         var b = bt[i], lh = b.hand === "L" ? 1 : 0;
+        var h2h = (P.raw.pairs && P.raw.pairs[order[i]] && P.raw.pairs[order[i]][sched[o]]) || null;
         for (c = 0; c < NC; c++) {
-          var v = env[c] + (envPh ? envPh[ph][c] : 0) + V.base[c] + (inn === 2 ? V.i2[c] : 0) + spin * V.spin[c] + sub[c] + subph[c] + bw.b[c] +
+          var v = env[c] + (envPh ? envPh[ph][c] : 0) +
+            (cond ? cond.all[c] + (spin ? cond.spin[c] : cond.pace[c]) + (inn === 2 ? cond.i2[c] : cond.i1[c]) : 0) +
+            (b.ty && b.ty[bw.sub] ? b.ty[bw.sub][c] : 0) + (h2h ? h2h[c] : 0) + V.base[c] + (inn === 2 ? V.i2[c] : 0) + spin * V.spin[c] + sub[c] + subph[c] + bw.b[c] +
             (ph === 0 ? bw.pp[c] : 0) + (ph === 2 ? bw.de[c] : 0) +
             b.b[c] + (ph === 0 ? b.pp[c] : 0) + (ph === 2 ? b.de[c] : 0) + spin * b.sp[c] +
             lh * (subl[c] + bw.lh[c]);
@@ -279,17 +296,17 @@
     return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
   }
 
-  function simOneWay(P, A, B, V, env, n, rng, first, envPh) {
+  function simOneWay(P, A, B, V, env, n, rng, first, envPh, cond) {
     var sa = A.schedule || bowlingSchedule(A.plan), sb = B.schedule || bowlingSchedule(B.plan);
     var oa = A.order.slice(0, 11), ob = B.order.slice(0, 11);
     var F = first === "A" ? { k: "A", o: oa, s: sa } : { k: "B", o: ob, s: sb };
     var S = first === "A" ? { k: "B", o: ob, s: sb } : { k: "A", o: oa, s: sa };
     var shock = null, i;
     if (P.shockSd > 0) { shock = new Float64Array(n); for (i = 0; i < n; i++) shock[i] = gauss(rng) * P.shockSd; }
-    var i1 = simInnings(P, rng, n, F.o, S.s, V, env, 1, null, 10, 20, true, envPh, shock);
+    var i1 = simInnings(P, rng, n, F.o, S.s, V, env, 1, null, 10, 20, true, envPh, shock, cond);
     var tg = new Int32Array(n);
     for (i = 0; i < n; i++) tg[i] = i1.score[i] + 1;
-    var i2 = simInnings(P, rng, n, S.o, F.s, V, env, 2, tg, 10, 20, true, envPh, shock);
+    var i2 = simInnings(P, rng, n, S.o, F.s, V, env, 2, tg, 10, 20, true, envPh, shock, cond);
     var firstWins = new Float64Array(n), tie = new Uint8Array(n), tied = [];
     for (i = 0; i < n; i++) {
       if (i1.score[i] > i2.score[i]) firstWins[i] = 1;
@@ -299,10 +316,10 @@
       var m = tied.length;
       var sh2 = null;
       if (shock) { sh2 = new Float64Array(m); for (i = 0; i < m; i++) sh2[i] = shock[tied[i]]; }
-      var so1 = simInnings(P, rng, m, S.o.slice(0, 3), [deathBowler(F.s)], V, env, 1, null, 2, 1, false, envPh, sh2);
+      var so1 = simInnings(P, rng, m, S.o.slice(0, 3), [deathBowler(F.s)], V, env, 1, null, 2, 1, false, envPh, sh2, cond);
       var t2 = new Int32Array(m);
       for (i = 0; i < m; i++) t2[i] = so1.score[i] + 1;
-      var so2 = simInnings(P, rng, m, F.o.slice(0, 3), [deathBowler(S.s)], V, env, 2, t2, 2, 1, false, envPh, sh2);
+      var so2 = simInnings(P, rng, m, F.o.slice(0, 3), [deathBowler(S.s)], V, env, 2, t2, 2, 1, false, envPh, sh2, cond);
       for (i = 0; i < m; i++) {
         var fw = so2.score[i] > so1.score[i] ? 1 : 0;
         if (so2.score[i] === so1.score[i]) fw = rng() < 0.5 ? 1 : 0;
@@ -320,12 +337,12 @@
     var n = opts.n || 10000, rng = makeRng(opts.seed || 1);
     var V = (opts.venue && P.raw.venues[opts.venue]) || P.raw.venue_neutral;
     var ek = opts.env || P.raw.default_env;
-    var env = P.raw.env[ek], envPh = (P.raw.env_phase || {})[ek] || null;
+    var env = P.raw.env[ek], envPh = (P.raw.env_phase || {})[ek] || null, cond = conditionTerms(P, opts.conditions);
     var parts;
-    if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst, envPh)];
+    if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst, envPh, cond)];
     else {
       var h = Math.floor(n / 2);
-      parts = [simOneWay(P, A, B, V, env, h, rng, "A", envPh), simOneWay(P, A, B, V, env, n - h, rng, "B", envPh)];
+      parts = [simOneWay(P, A, B, V, env, h, rng, "A", envPh, cond), simOneWay(P, A, B, V, env, n - h, rng, "B", envPh, cond)];
     }
     return summarize(parts, A, B);
   }
@@ -509,12 +526,12 @@
     var n = opts.n || 10000, rng = makeRng(opts.seed || 1);
     var V = (opts.venue && P.raw.venues[opts.venue]) || P.raw.venue_neutral;
     var ek = opts.env || P.raw.default_env;
-    var env = P.raw.env[ek], envPh = (P.raw.env_phase || {})[ek] || null;
+    var env = P.raw.env[ek], envPh = (P.raw.env_phase || {})[ek] || null, cond = conditionTerms(P, opts.conditions);
     var parts;
-    if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst, envPh)];
+    if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst, envPh, cond)];
     else {
       var h = Math.floor(n / 2);
-      parts = [simOneWay(P, A, B, V, env, h, rng, "A", envPh), simOneWay(P, A, B, V, env, n - h, rng, "B", envPh)];
+      parts = [simOneWay(P, A, B, V, env, h, rng, "A", envPh, cond), simOneWay(P, A, B, V, env, n - h, rng, "B", envPh, cond)];
     }
     return rawFromParts(parts, A, B);
   }

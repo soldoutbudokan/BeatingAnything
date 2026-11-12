@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 from models.ipl.config import CLASSES, COMP_NAMES, EXPORT, K, PEOPLE, PROC, PROJ_DATE, REF, TIERS
-from models.ipl.fit import build_design, predict_eta, probs_from_eta
+from models.ipl.fit import TYPES6, build_design, predict_eta, probs_from_eta
 from models.ipl.prep import AGE_LABELS, BF_EDGES, BF_LABELS, EARLY_BF, RRR_EDGES, RRR_LABELS, SUBTYPES, age_bucket
 
 C = {c: i for i, c in enumerate(CLASSES)}
@@ -119,6 +119,9 @@ def folded_players(M, cov, styles, last_top=None, ref_date=None, proj_date=PROJ_
     BOWL["sub"] = st["bowl_subtype"].fillna("pace_U").map({s: i for i, s in enumerate(SUBTYPES)}).to_numpy()
     BOWL["spin"] = spin
     BAT["lhb"] = styles.reindex(M.players_bat)["bat_hand"].eq("L").to_numpy()
+    nb_ = len(M.players_bat)
+    BAT["ty_raw"] = M.blk("bat_type").reshape(nb_, len(TYPES6), K) if "bat_type" in M.blocks else np.zeros((nb_, len(TYPES6), K))
+    BAT["ty"] = BAT["ty_raw"] * fb[:, :, None]
     # priors for players the model has never seen: role mean, IPL tier, least-experienced bucket, unknown age
     au = na - 1
     ab = M.blk("bat_age")[au] if has_age else 0
@@ -137,7 +140,7 @@ class RefSample:
 
     def __init__(self, M, f, cov, BAT, BOWL):
         self.M, self.BAT, self.BOWL = M, BAT, BOWL
-        D, X = build_design(f, cov, *M.idx)
+        D, X = build_design(f, cov, *M.idx, opts=M.m.get("opts"))
         self.eta = np.insert(predict_eta(X, M.m["W"]), REF, 0.0, axis=1)
         self.f = f
         self.ph = f["phase"].to_numpy()
@@ -152,8 +155,23 @@ class RefSample:
         self.SUB = M.blk("sub")
         self.SUBPH = np.vstack([M.blk("sub_ph"), np.zeros((1, K))])  # last row = middle overs (reference)
         self.VSP = M.blk("venue_spin")
-        self.bterm_actual = self._bterm_rows(self.bi, self.lhb) + self._row_corr_bat(M, f)
-        self.wterm_actual = self._wterm_rows(self.wi, self.sub, self.spin) + self._row_corr_bowl(M, f)
+        self.ti = f["bowl_subtype"].astype(str).map({t: i for i, t in enumerate(TYPES6)}).fillna(-1).astype(int).to_numpy()
+        # batter's own bowling-type split on this row (full, undecayed coefficient for the real delivery)
+        self.ty_row = np.zeros((len(self.ph), K))
+        okt = (self.bi >= 0) & (self.ti >= 0)
+        self.ty_row[okt] = BAT["ty_raw"][self.bi[okt], self.ti[okt]]
+        # batter x bowler head-to-head on this row
+        self.pair_row = np.zeros((len(self.ph), K))
+        opts = M.m.get("opts") or {}
+        if "pair" in M.blocks and opts.get("pairs") is not None:
+            pairs = pd.Index(opts["pairs"])
+            pi = pairs.get_indexer((f["batter"].astype(str) + "|" + f["bowler"].astype(str)).to_numpy())
+            okp = pi >= 0
+            self.pair_row[okp] = M.blk("pair")[pi[okp]]
+        self.bterm_actual = (self._bterm_rows(self.bi, self.lhb) + self._row_corr_bat(M, f) + self.ty_row
+                             + self.pair_row)
+        self.wterm_actual = (self._wterm_rows(self.wi, self.sub, self.spin) + self._row_corr_bowl(M, f) + self.ty_row
+                             + self.pair_row)
 
     def _bterm_rows(self, bi, lhb, B=None):
         """Batter-dependent logit terms for each row (vectorised over rows)."""
@@ -227,6 +245,9 @@ class RefSample:
              + vecs["sp"] * sp[:, None] + vecs["ea"] * ea[:, None])
         wi = np.maximum(self.wi[r], 0)
         lterm = self.SUBL[self.sub[r]] + np.where((self.wi[r] >= 0)[:, None], self.BOWL["lh"][wi], 0)
+        if "ty" in vecs:
+            ti = self.ti[r]
+            t = t + np.where((ti >= 0)[:, None], vecs["ty"][np.maximum(ti, 0)], 0)
         return self.eta[r] - self.bterm_actual[r] + t + float(lhb) * lterm
 
     def eta_with_bowler(self, vecs, sub, spin, rows=None):
@@ -237,6 +258,9 @@ class RefSample:
         bi = np.maximum(self.bi[r], 0)
         spterm = np.where((self.bi[r] >= 0)[:, None], self.BAT["sp"][bi], 0) + np.where((self.vi[r] >= 0)[:, None], self.VSP[np.maximum(self.vi[r], 0)], 0)
         t = t + float(spin) * spterm
+        tnew = TYPES6.index(SUBTYPES[sub]) if SUBTYPES[sub] in TYPES6 else -1
+        if tnew >= 0:  # the real batter's split against the substituted bowler's type
+            t = t + np.where((self.bi[r] >= 0)[:, None], self.BAT["ty"][np.maximum(self.bi[r], 0), tnew], 0)
         return self.eta[r] - self.wterm_actual[r] + t
 
 
@@ -471,6 +495,7 @@ def main():
         if pid in M.bat_pos:
             i = M.bat_pos[pid]
             vec = {k: BAT[k][i] for k in ("b", "pp", "de", "sp", "ea")}
+            vec["ty"] = BAT["ty"][i]
             lh = bool(BAT["lhb"][i])
             P = softmax(R.eta_with_batter(vec, lh))
             role = cov["role_bat"].get(pid, "lower")
@@ -483,11 +508,23 @@ def main():
                 for k, v in st.items():
                     rec_[f"{s}_{k}"] = float(v)
                     rec_[f"{s}_avg_{k}"] = float(av[k])
+            # by bowling type (right/left-arm pace, off-spin, leg-spin, SLA, left-arm wrist spin)
+            for t_i, t in enumerate(TYPES6):
+                mask = R.ti == t_i
+                if mask.sum() < 200:
+                    continue
+                w = row_weights(mix, mask)
+                st = bat_stats(P, w, exs, wv)
+                av = bat_stats(P_act, w, exs, wv)
+                for k in ("sr", "out_pct", "rv100", "bnd_pct", "dot_pct"):
+                    rec_[f"t_{t}_{k}"] = float(st[k])
+                    rec_[f"t_{t}_avg_{k}"] = float(av[k])
             # posterior uncertainty: draw the player's own coefficients
             nd = 30
             dr = {k: vec[k][None] + rng.standard_normal((nd, K)) * BAT["sd_" + k][i][None] * (np.arange(K) != REF)
-                  for k in vec}
-            ets = np.stack([R.eta_with_batter({k: dr[k][d] for k in dr}, lh, sub_rows) for d in range(nd)])
+                  for k in ("b", "pp", "de", "sp", "ea")}
+            ets = np.stack([R.eta_with_batter(dict({k: dr[k][d] for k in dr}, ty=vec["ty"]), lh, sub_rows)
+                            for d in range(nd)])
             Pd = softmax(ets)
             wsub = row_weights(mix, None)[sub_rows]
             sd = bat_stats(Pd, wsub, exs, wv[sub_rows])
@@ -547,12 +584,40 @@ def main():
                names=names)
     with open(PROC / "ratings.pkl", "wb") as fh:
         pickle.dump(out, fh)
+    # notable batter x bowler head-to-heads (only if the fit has the block)
+    pair_terms, h2h = {}, []
+    opts = M.m.get("opts") or {}
+    if "pair" in M.blocks and opts.get("pairs") is not None:
+        p0 = P_act.mean(0)
+        rv = np.array([0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6], float)
+        PR = M.blk("pair")
+        dP = p0[None, :] * (PR - (PR * p0[None, :]).sum(1, keepdims=True))   # first-order change in class probs
+        d_runs = dP @ rv
+        d_out = dP[:, C["wicket"]] + exs["runout_striker"] * dP[:, C["runout"]]
+        key = f["batter"].astype(str) + "|" + f["bowler"].astype(str)
+        cls = f["cls"].astype(str)
+        raw = pd.DataFrame({"k": key, "faced": cls != "wide",
+                            "runs": np.where(cls.isin(["r1", "r2", "r3", "r4", "r6", "noball", "runout"]), f["runs_bat"], 0),
+                            "out": (cls == "wicket") | ((cls == "runout") & (f["player_out"] == f["batter"]))})
+        rg = raw.groupby("k").agg(balls=("faced", "sum"), runs=("runs", "sum"), outs=("out", "sum"))
+        for j, pk in enumerate(opts["pairs"]):
+            if abs(d_runs[j]) >= 0.05 or abs(d_out[j]) >= 0.005:
+                b_, w_ = pk.split("|")
+                pair_terms[(b_, w_)] = PR[j]
+                r_ = rg.loc[pk] if pk in rg.index else None
+                h2h.append(dict(batter=b_, bowler=w_, batter_name=names.get(b_, b_), bowler_name=names.get(w_, w_),
+                                balls=int(r_["balls"]) if r_ is not None else 0, runs=int(r_["runs"]) if r_ is not None else 0,
+                                outs=int(r_["outs"]) if r_ is not None else 0, d_sr=float(100 * d_runs[j]),
+                                d_out_pct=float(100 * d_out[j])))
+    out["h2h"] = h2h
+    out["n_pairs_fitted"] = int(len(opts.get("pairs", []) or []))
     shock = estimate_match_shock(M, f, cov, BAT, BOWL, exs)
     out["match_shock"] = shock
     with open(PROC / "ratings.pkl", "wb") as fh:
         pickle.dump(out, fh)
     write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names,
-                     match_shock={"sd": round(shock["sd"], 4), "dir": shock["dir"]})
+                     match_shock={"sd": round(shock["sd"], 4), "dir": shock["dir"]},
+                     conditions=build_conditions(M, venues, shock), pair_terms=pair_terms)
     print(f"ratings: pool={len(pool)} batters={len(bat_df)} bowlers={len(bowl_df)} venues={len(venues)}")
 
 
@@ -760,11 +825,39 @@ def estimate_match_shock(M, f, cov, BAT, BOWL, exs):
             "runs_per_ball_per_unit": d1, "n_matches": int(len(w))}
 
 
+def build_conditions(M, venues, shock):
+    """Optional user inputs for the simulator, as logit shifts estimated from between-venue / between-match
+    variation (documented in method.md):
+      pitch: flat = +1 SD of the match-conditions shock; slow_low = -1 SD plus the spin-term gap between the
+             most spin-friendly fifth of grounds and the average ground (spin deliveries); seaming = -0.5 SD plus
+             the venue-term gap of the fifth of grounds where pace takes most wickets (pace deliveries); normal = 0.
+      dew:   heavy / none = 2nd-innings venue-term gap of the fifth of grounds with the biggest / smallest
+             2nd-vs-1st-innings scoring ratio vs the average ground; normal = 0."""
+    VB, VI, VS = M.blk("venue"), M.blk("venue_i2"), M.blk("venue_spin")
+    v = venues[venues["venue"].isin(M.venue_pos)].copy()
+    v["i"] = v["venue"].map(M.venue_pos)
+    v = v[v["matches_since_2021"] >= 10]
+    def gap(block, col, top=True):
+        q = v[col].quantile(0.8 if top else 0.2)
+        sel = v[v[col] >= q] if top else v[v[col] <= q]
+        return block[sel["i"].to_numpy()].mean(0) - block[v["i"].to_numpy()].mean(0)
+    sd = float(shock.get("sd", 0.0))
+    d = np.asarray(shock.get("dir", [0.0] * K), float)
+    v["dew_ratio"] = v["inn2_rpo_mult"] / v["inn1_rpo_mult"]
+    z = np.zeros(K)
+    return {
+        "pitch": {"normal": {}, "flat": {"all": r3(sd * d)},
+                  "slow_low": {"all": r3(-sd * d), "spin": r3(gap(VS, "spin_wpo_mult"))},
+                  "seaming": {"all": r3(-0.5 * sd * d), "pace": r3(gap(VB, "pace_wpo_mult"))}},
+        "dew": {"normal": {}, "heavy": {"i2": r3(gap(VI, "dew_ratio"))}, "none": {"i2": r3(gap(VI, "dew_ratio", False))}},
+    }
+
+
 # %% sim params export
 
 
 def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names, path=None, env_alias=None,
-                     default_env="IPL|2026", match_shock=None):
+                     default_env="IPL|2026", match_shock=None, conditions=None, pair_terms=None):
     base = M.base_table()
     cs_lab = M.blocks["cs"][1]
     cs = M.blk("cs")
@@ -790,6 +883,9 @@ def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names
             i = M.bat_pos[pid]
             bats[pid] = {"b": r3(BAT["b"][i]), "pp": r3(BAT["pp"][i]), "de": r3(BAT["de"][i]),
                          "sp": r3(BAT["sp"][i]), "ea": r3(BAT["ea"][i]), "hand": "L" if BAT["lhb"][i] else "R"}
+            ty = {t: r3(BAT["ty"][i, k]) for k, t in enumerate(TYPES6) if np.abs(BAT["ty"][i, k]).max() >= 0.01}
+            if ty:
+                bats[pid]["ty"] = ty
         if pid in M.bowl_pos:
             j = M.bowl_pos[pid]
             bowls[pid] = {"b": r3(BOWL["b"][j]), "pp": r3(BOWL["pp"][j]), "de": r3(BOWL["de"][j]),
@@ -801,7 +897,12 @@ def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names
             continue
         i = M.venue_pos[v]
         ven[v] = {"base": r3(VB[i]), "i2": r3(VI[i]), "spin": r3(VS[i])}
+    pairs_out = {}
+    for (b_, w_), vec in (pair_terms or {}).items():
+        if b_ in bats and w_ in bowls:
+            pairs_out.setdefault(b_, {})[w_] = r3(vec)
     params = {
+        "pairs": pairs_out,
         "version": 1, "classes": CLASSES, "ref_class": REF,
         "base": r3(base.ravel()), "base_shape": [2, 20, 8, K],
         "bf": r3(M.blk("bf").ravel()), "bf_shape": [3, 9, K], "bf_edges": BF_EDGES[:-1], "bf_labels": BF_LABELS,
@@ -814,6 +915,7 @@ def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names
                       for i, s in enumerate(SUBTYPES)},
         "env": env, "default_env": default_env, "env_phase": env_phase,
         "match_shock": match_shock or {"sd": 0.0, "dir": [0.0] * K},
+        "conditions": conditions or {},
         "venues": ven, "venue_neutral": {"base": z, "i2": z, "spin": z},
         "batters": bats, "bowlers": bowls,
         "batter_priors": {r: {"b": r3(v), "pp": z, "de": z, "sp": z, "ea": z, "hand": "R"} for r, v in pri_b.items()},

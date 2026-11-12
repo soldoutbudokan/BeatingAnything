@@ -13,7 +13,7 @@ import pandas as pd
 import scipy.sparse as sp
 from scipy.optimize import minimize
 
-from models.ipl.config import CLASSES, K, PROC, REF, TIERS
+from models.ipl.config import CLASSES, FRAME, K, PROC, REF, TIERS
 from models.ipl.prep import AGE_LABELS, SUBTYPES, EARLY_BF, EXP_LABELS
 
 KM = K - 1
@@ -104,7 +104,22 @@ class Design:
         return self.blocks[name][0]
 
 
-def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons):
+TYPES6 = ["pace_R", "pace_L", "OB", "LB", "SLA", "SLW"]  # reliable bowling-type labels for matchup splits
+PAIR_MIN = 24  # batter x bowler pairs need this many deliveries in the fitting data to get a head-to-head term
+
+
+def design_opts(f, lam):
+    """Optional blocks are switched on by the presence of their penalty key in lam."""
+    o = {k: True for k in ("bat_type", "bowl_arch", "day", "wear", "toss", "pair") if k in lam}
+    if "pair" in lam:
+        key = f["batter"].astype(str) + "|" + f["bowler"].astype(str)
+        c = key.value_counts()
+        o["pairs"] = np.sort(c.index[c >= PAIR_MIN].to_numpy())
+    return o
+
+
+def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons, opts=None):
+    opts = opts or {}
     """Returns design (registry) and COO pieces for the frame f."""
     D = Design()
     n = len(f)
@@ -216,6 +231,35 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons)
     for s, m in [("bowl_pp", ph == 0), ("bowl_death", ph == 2), ("bowl_lhb", lhb)]:
         D.add(s, players_bowl, "bowl_split")
         put(s, wi, mask=m)
+    # ---- optional matchup / conditions blocks
+    if opts.get("bat_type"):
+        ti = f["bowl_subtype"].astype(str).map({t: i for i, t in enumerate(TYPES6)}).fillna(-1).to_numpy().astype(np.int64)
+        D.add("bat_type", [f"{p}_{t}" for p in players_bat for t in TYPES6], "bat_type")
+        put("bat_type", np.where((bi >= 0) & (ti >= 0), bi * 6 + ti, -1))
+    if opts.get("bowl_arch"):
+        lowerish = cov["role_bat"].reindex(bat_ids).isin(["middle", "lower"]).to_numpy()
+        D.add("bowl_arch", players_bowl, "bowl_arch")
+        put("bowl_arch", wi, mask=lowerish)
+    if opts.get("day"):
+        dy = f["day"].to_numpy().astype(bool)
+        D.add("day", ["day", "day_i2"], "l0")
+        put("day", np.where(dy, inn, -1))
+    if opts.get("wear"):
+        wb = f["wear_b"].to_numpy().astype(np.int64)
+        spn = f["bowl_spin"].to_numpy().astype(np.int64)
+        D.add("wear", ["wear1", "wear2", "wear1_spin", "wear2_spin"], "l0")
+        put("wear", np.where(wb > 0, wb - 1, -1))
+        put("wear", np.where((wb > 0) & (spn == 1), wb + 1, -1))
+    if opts.get("toss"):
+        tb = f["toss_bat"].to_numpy().astype(bool)
+        D.add("toss", ["tossbat_i1", "tossbat_i2"], "l0")
+        put("toss", np.where(tb, inn, -1))
+    if opts.get("pair"):
+        pairs = pd.Index(opts["pairs"])
+        key = (f["batter"].astype(str) + "|" + f["bowler"].astype(str)).to_numpy()
+        pi = pairs.get_indexer(key).astype(np.int64)
+        D.add("pair", list(pairs), "pair")
+        put("pair", pi)
     r = np.concatenate(rows)
     c = np.concatenate(cols)
     v = np.concatenate(vals)
@@ -300,7 +344,7 @@ def logloss(X, y, W):
 
 
 def load():
-    f = pd.read_parquet(PROC / "frame.parquet")
+    f = pd.read_parquet(FRAME)
     f = f[~f["reduced"]].reset_index(drop=True)
     cov = pd.read_parquet(PROC / "covariates.parquet")
     return f, cov
@@ -329,8 +373,10 @@ def fit_model(f, cov, lam, half_life, ref_date, maxiter=400, idx=None, verbose=F
     w = weights(f["date"], ref_date, half_life)
     keep = w > 0.01
     fk = f[keep].reset_index(drop=True)
-    D, X = build_design(fk, cov, *idx)
+    opts = design_opts(fk, lam)
+    D, X = build_design(fk, cov, *idx, opts=opts)
     fitr = Fitter(X, fk["y"].to_numpy(), w[keep], D, lam)
+    fitr.opts = opts
     t = time.time()
     fitr.fit(maxiter=maxiter, tol=tol)
     if verbose:

@@ -23,8 +23,8 @@ def main():
     with open(PROC / "model_holdout.pkl", "wb") as fh:
         pickle.dump(dict(W=fitr.W, sd=sd, blocks=D.blocks, p=D.p, half_life=H, lam=lam,
                          ref_date=str(train["date"].max().date()), iters=int(fitr.res.nit), loss=float(fitr.res.fun),
-                         n=int(fitr.n), idx=idx, cutoff=str(CUTOFF.date())), fh)
-    _, Xt = build_design(test, cov, *idx)
+                         n=int(fitr.n), idx=idx, cutoff=str(CUTOFF.date()), opts=fitr.opts), fh)
+    _, Xt = build_design(test, cov, *idx, opts=fitr.opts)
     P = probs_from_eta(predict_eta(Xt, fitr.W))
     out = pd.DataFrame(P.astype("float32"), columns=[f"p_{c}" for c in CLASSES])
     for c in ("y", "match_id", "innings", "runs_total", "batter", "bowler", "phase"):

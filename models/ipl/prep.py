@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 
-from models.ipl.config import CLASSES, DOB, PEOPLE, PROC, STYLES, TIER_OF, TIERS
+from models.ipl.config import CLASSES, DOB, FRAME, PEOPLE, PROC, STYLES, TIER_OF, TIERS
 
 BF_EDGES = [0, 1, 3, 6, 10, 15, 20, 30, 45, 10**6]   # balls-faced buckets: 0,1-2,3-5,6-9,10-14,15-19,20-29,30-44,45+
 BF_LABELS = ["0", "1-2", "3-5", "6-9", "10-14", "15-19", "20-29", "30-44", "45+"]
@@ -143,6 +143,20 @@ def build():
     lg = b["legal"].astype(np.int32)
     cum_w = lg.groupby(b["bowler"]).cumsum() - lg
     b["exp_bowl_row"] = (np.searchsorted(EXP_EDGES, cum_w.to_numpy(), side="right") - 1).astype(np.int8)
+    # match conditions recoverable from cricsheet (each kept in the model only if it helps the holdout):
+    #  day game = the earlier match of a double-header (two matches in one competition on one date);
+    #  wear = matches already played at the venue in this league-season (pitches wear);
+    #  toss_bat = the toss winner chose to bat (a signal of the expected pitch)
+    mm = b.drop_duplicates("match_id")[["match_id", "comp", "date", "venue", "toss_decision", "comp_season"]].copy()
+    mm["mid_num"] = pd.to_numeric(mm["match_id"], errors="coerce")
+    grp = mm.groupby(["comp", "date"], observed=True)["mid_num"]
+    mm["day"] = ((grp.transform("size") >= 2) & (mm["mid_num"] == grp.transform("min"))).astype(np.int8)
+    mm = mm.sort_values(["date", "mid_num"])
+    mm["wear_n"] = mm.groupby(["comp_season", "venue"], observed=True).cumcount()
+    mm["wear_b"] = np.select([mm["wear_n"] < 2, mm["wear_n"] < 5], [0, 1], 2).astype(np.int8)
+    mm["toss_bat"] = (mm["toss_decision"].astype(str) == "bat").astype(np.int8)
+    for c in ("day", "wear_b", "toss_bat"):
+        b[c] = b["match_id"].map(mm.set_index("match_id")[c]).fillna(0).astype(np.int8)
     # age at the time of each delivery (years); unknown DOB -> own bucket
     dob = load_dob()
     for who, col in (("batter", "age_bat_b"), ("bowler", "age_bowl_b")):
@@ -158,11 +172,11 @@ def build():
             "runs_total", "wides", "noballs", "byes", "wicket_kind", "player_out", "wkts_before",
             "score_before", "target", "bat_pos", "bat_team", "bowl_team", "reduced", "tier",
             "brun_before", "winner", "toss_winner", "toss_decision", "non_boundary", "ns_bf_before",
-            "exp_bat_row", "exp_bowl_row", "age_bat_b", "age_bowl_b"]
+            "exp_bat_row", "exp_bowl_row", "age_bat_b", "age_bowl_b", "day", "wear_b", "toss_bat"]
     b = b[cols].reset_index(drop=True)
     for c in ["comp", "comp_season", "season", "venue", "bat_hand", "bowl_subtype", "cls", "tier"]:
         b[c] = b[c].astype("category")
-    b.to_parquet(PROC / "frame.parquet", index=False)
+    b.to_parquet(FRAME, index=False)
     st.to_parquet(PROC / "styles.parquet")
     cov.to_parquet(PROC / "covariates.parquet")
     return acc

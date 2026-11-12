@@ -28,7 +28,7 @@ def map_env(train, test):
 
 
 def evaluate(fitr, idx, test, cov):
-    D, Xt = build_design(test, cov, *idx)
+    D, Xt = build_design(test, cov, *idx, opts=getattr(fitr, "opts", None))
     P = probs_from_eta(predict_eta(Xt, fitr.W))
     y = test["y"].to_numpy()
     ll = -np.log(np.clip(P[np.arange(len(y)), y], 1e-12, 1))

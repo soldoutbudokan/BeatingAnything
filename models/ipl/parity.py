@@ -16,7 +16,9 @@ def main():
     P = Params.load()
     teams = {t["name"]: t for t in json.loads((EXPORT / "teams.json").read_text())["teams"]}
     names = sorted(teams)
-    pairs = [(names[0], names[1]), (names[2], names[3]), (names[4], names[5]), (names[6], names[7]), (names[8], names[9])]
+    pairs = [(names[0], names[1]), (names[2], names[3]), (names[4], names[5]), (names[6], names[7]), (names[8], names[9]),
+             (names[1], names[6])]
+    conds = [None, None, None, None, None, {"pitch": "slow_low", "dew": "heavy"}]
     cases = []
     t_py = []
     py = []
@@ -25,9 +27,9 @@ def main():
         B = {"name": b, "order": teams[b]["order"], "plan": teams[b]["plan"]}
         v = teams[a]["home_venue"]
         t = time.time()
-        s = summarize(sim_match(P, A, B, v, n=N, seed=k + 1), A, B)
+        s = summarize(sim_match(P, A, B, v, n=N, seed=k + 1, conditions=conds[k]), A, B)
         t_py.append((time.time() - t) * 10000 / N)
-        cases.append({"A": A, "B": B, "venue": v, "n": N})
+        cases.append({"A": A, "B": B, "venue": v, "n": N, "conditions": conds[k]})
         py.append(s)
     ref = PROC / "parity_py.json"
     ref.write_text(json.dumps({"cases": cases}))
