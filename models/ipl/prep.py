@@ -119,6 +119,14 @@ def build():
     b["bowl_subtype"] = b["bowler"].map(st["bowl_subtype"]).fillna("pace_U")
     b["bowl_spin"] = b["bowler"].map(st["bowl_group"]).eq("spin")
     b["tier"] = b["comp"].astype(str).map(TIER_OF).fillna("assoc")
+    # experience at the time of each delivery (balls faced / bowled before it, all T20s): avoids the
+    # survivorship bias of using career totals (players who failed early stay "inexperienced" forever)
+    faced = (b["cls"] != "wide").astype(np.int32)
+    cum_f = faced.groupby(b["batter"]).cumsum() - faced
+    b["exp_bat_row"] = (np.searchsorted(EXP_EDGES, cum_f.to_numpy(), side="right") - 1).astype(np.int8)
+    lg = b["legal"].astype(np.int32)
+    cum_w = lg.groupby(b["bowler"]).cumsum() - lg
+    b["exp_bowl_row"] = (np.searchsorted(EXP_EDGES, cum_w.to_numpy(), side="right") - 1).astype(np.int8)
     # player covariates (career, unweighted)
     cov = player_covariates(b, st)
     cols = ["match_id", "comp", "comp_season", "season", "date", "venue", "innings", "over", "phase",
@@ -126,7 +134,8 @@ def build():
             "bat_hand", "bowl_subtype", "bowl_spin", "y", "cls", "legal", "runs_bat", "runs_extras",
             "runs_total", "wides", "noballs", "byes", "wicket_kind", "player_out", "wkts_before",
             "score_before", "target", "bat_pos", "bat_team", "bowl_team", "reduced", "tier",
-            "brun_before", "winner", "toss_winner", "toss_decision", "non_boundary", "ns_bf_before"]
+            "brun_before", "winner", "toss_winner", "toss_decision", "non_boundary", "ns_bf_before",
+            "exp_bat_row", "exp_bowl_row"]
     b = b[cols].reset_index(drop=True)
     for c in ["comp", "comp_season", "season", "venue", "bat_hand", "bowl_subtype", "cls", "tier"]:
         b[c] = b[c].astype("category")

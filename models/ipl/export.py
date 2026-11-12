@@ -101,7 +101,10 @@ def player_value(R, cov, f, teams_pos):
     out_w = pd.DataFrame(index=bowl.index)
     out_w["bowl_rv_over_mix"] = rvw
     out_w["bowl_rep_rv_over"] = rvr
-    out_w["bowl_varp"] = (rvr - rvw) * 4.0   # per 4 overs
+    exp_ov = cov["overs_per_match"].reindex(bowl.index).fillna(0).clip(0, 4).to_numpy()
+    out_w["exp_overs"] = exp_ov
+    out_w["bowl_varp_4ov"] = (rvr - rvw) * 4.0   # per 4 overs
+    out_w["bowl_varp"] = (rvr - rvw) * exp_ov   # per match at his usual workload
     return out_b, out_w, rep_b, rep_w, bp, mix
 
 
@@ -278,6 +281,7 @@ def main():
             mixw = R["mix_bowl"].loc[pid] if pid in R["mix_bowl"].index else None
             d["bowl"]["phase_mix"] = None if mixw is None else (mixw / mixw.sum()).round(3).tolist()
             d["bowl"]["value"] = {"rv_over_mix": v["bowl_rv_over_mix"], "rep_rv_over": v["bowl_rep_rv_over"],
+                                  "exp_overs": v["exp_overs"], "varp_4ov": v["bowl_varp_4ov"],
                                   "varp_runs": v["bowl_varp"], "varp_wp": v["bowl_varp"] * pdf_slope}
             d["bowl"]["pct"] = {k: float(s.get(pid, np.nan)) for k, s in pr_w.items()}
             for scope, ob, wp in (("obs_2024", obs_all_w, wpa_all_w), ("obs_ipl_2024", obs_ipl_w, wpa_ipl_w)):
@@ -318,7 +322,7 @@ def main():
         nwin = [n["p_win_A"] if n["A"] == t["name"] else 1 - n["p_win_A"] for n in neutral if t["name"] in (n["A"], n["B"])]
         sq = t["squad"]
         xi_bat = sum((pmap.get(p, {}).get("bat", {}).get("value", {}).get("varp_runs") or 0) for p in t["order"])
-        xi_bowl = sum((pmap.get(p["id"], {}).get("bowl", {}).get("value", {}).get("varp_runs") or 0) * (sum([p["pp"], p["mid"], p["death"]]) / 4)
+        xi_bowl = sum((pmap.get(p["id"], {}).get("bowl", {}).get("value", {}).get("varp_4ov") or 0) * (sum([p["pp"], p["mid"], p["death"]]) / 4)
                       for p in t["plan"])
         team_rows.append({
             "name": t["name"], "short": t["short"], "season": t["season"], "matches_in_season": t["matches"],
