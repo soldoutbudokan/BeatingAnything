@@ -875,7 +875,20 @@ def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names
         env["IPL|2024-26"] = r3(np.mean([cs[k] for k in ks], axis=0))
         env_phase["IPL|2024-26"] = ([r3(np.mean([csp[2 * k] for k in ks], axis=0)), z,
                                      r3(np.mean([csp[2 * k + 1] for k in ks], axis=0))] if csp is not None else [z, z, z])
+    env_phase_inn = {}
+    if "cs_ph_inn" in M.blocks:
+        cpi = M.blk("cs_ph_inn")
+        for lab in cs_lab:
+            if lab.startswith("IPL|"):
+                k = cs_lab.index(lab)
+                base_ph = env_phase[lab]
+                env_phase_inn[lab] = [[r3(np.asarray(base_ph[p_]) + cpi[k * 6 + i * 3 + p_]) for p_ in range(3)] for i in range(2)]
+        if recent:
+            env_phase_inn["IPL|2024-26"] = [[r3(np.mean([np.asarray(env_phase_inn[l][i][p_]) for l in recent], axis=0))
+                                            for p_ in range(3)] for i in range(2)]
     for a, b in (env_alias or {}).items():   # e.g. holdout model: unseen IPL|2026 -> IPL|2025
+        if b in env_phase_inn:
+            env_phase_inn[a] = env_phase_inn[b]
         env[a], env_phase[a] = env[b], env_phase[b]
     bats, bowls = {}, {}
     for pid in pool:
@@ -913,7 +926,7 @@ def write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names
         "sub_lhb": {s: r3(M.blk("sub_lhb")[i]) for i, s in enumerate(SUBTYPES)},
         "sub_phase": {s: [r3(M.blk("sub_ph")[i * 3 + 0]), [0.0] * K, r3(M.blk("sub_ph")[i * 3 + 2])]
                       for i, s in enumerate(SUBTYPES)},
-        "env": env, "default_env": default_env, "env_phase": env_phase,
+        "env": env, "default_env": default_env, "env_phase": env_phase, "env_phase_inn": env_phase_inn,
         "match_shock": match_shock or {"sd": 0.0, "dir": [0.0] * K},
         "conditions": conditions or {},
         "venues": ven, "venue_neutral": {"base": z, "i2": z, "spin": z},

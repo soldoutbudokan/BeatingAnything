@@ -162,7 +162,7 @@
         var b = bt[i], lh = b.hand === "L" ? 1 : 0;
         var h2h = (P.raw.pairs && P.raw.pairs[order[i]] && P.raw.pairs[order[i]][sched[o]]) || null;
         for (c = 0; c < NC; c++) {
-          var v = env[c] + (envPh ? envPh[ph][c] : 0) +
+          var v = env[c] + (envPh ? (envPh.length === 2 ? envPh[inn - 1][ph][c] : envPh[ph][c]) : 0) +
             (cond ? cond.all[c] + (spin ? cond.spin[c] : cond.pace[c]) + (inn === 2 ? cond.i2[c] : cond.i1[c]) : 0) +
             (b.ty && b.ty[bw.sub] ? b.ty[bw.sub][c] : 0) + (h2h ? h2h[c] : 0) + V.base[c] + (inn === 2 ? V.i2[c] : 0) + spin * V.spin[c] + sub[c] + subph[c] + bw.b[c] +
             (ph === 0 ? bw.pp[c] : 0) + (ph === 2 ? bw.de[c] : 0) +
@@ -337,7 +337,8 @@
     var n = opts.n || 10000, rng = makeRng(opts.seed || 1);
     var V = (opts.venue && P.raw.venues[opts.venue]) || P.raw.venue_neutral;
     var ek = opts.env || P.raw.default_env;
-    var env = P.raw.env[ek], envPh = (P.raw.env_phase || {})[ek] || null, cond = conditionTerms(P, opts.conditions);
+    var env = P.raw.env[ek], cond = conditionTerms(P, opts.conditions);
+    var envPh = (P.raw.env_phase_inn || {})[ek] || (P.raw.env_phase || {})[ek] || null;
     var parts;
     if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst, envPh, cond)];
     else {
@@ -526,7 +527,8 @@
     var n = opts.n || 10000, rng = makeRng(opts.seed || 1);
     var V = (opts.venue && P.raw.venues[opts.venue]) || P.raw.venue_neutral;
     var ek = opts.env || P.raw.default_env;
-    var env = P.raw.env[ek], envPh = (P.raw.env_phase || {})[ek] || null, cond = conditionTerms(P, opts.conditions);
+    var env = P.raw.env[ek], cond = conditionTerms(P, opts.conditions);
+    var envPh = (P.raw.env_phase_inn || {})[ek] || (P.raw.env_phase || {})[ek] || null;
     var parts;
     if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst, envPh, cond)];
     else {

@@ -32,6 +32,9 @@ class Params:
         self.sub_phase = {k: np.asarray(v, float) for k, v in raw["sub_phase"].items()}
         self.env = {k: np.asarray(v, float) for k, v in raw["env"].items()}
         self.env_phase = {k: np.asarray(v, float) for k, v in raw.get("env_phase", {}).items()}
+        # innings-specific phase environment (supersedes env_phase when present): [2][3][11]
+        for k, v in raw.get("env_phase_inn", {}).items():
+            self.env_phase[k] = np.asarray(v, float)
         self.pairs = raw.get("pairs", {})
         self.cond_tbl = raw.get("conditions", {})
         ms = raw.get("match_shock") or {"sd": 0.0, "dir": [0.0] * NC}
@@ -181,7 +184,8 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
         bw = P.bowler(bid)
         j = bix[bid]
         spin = 1.0 if bw.get("spin") else 0.0
-        const = (env + (env_ph[ph] if env_ph is not None else 0) + np.asarray(V["base"]) + (np.asarray(V["i2"]) if inn == 2 else 0) + spin * np.asarray(V["spin"])
+        eph_t = 0 if env_ph is None else (env_ph[inn - 1][ph] if env_ph.ndim == 3 else env_ph[ph])
+        const = (env + eph_t + np.asarray(V["base"]) + (np.asarray(V["i2"]) if inn == 2 else 0) + spin * np.asarray(V["spin"])
                  + P.sub[bw["sub"]] + P.sub_phase[bw["sub"]][ph] + np.asarray(bw["b"]) + (np.asarray(bw["pp"]) if ph == 0 else 0)
                  + (np.asarray(bw["de"]) if ph == 2 else 0))
         lhb_o = P.sub_lhb[bw["sub"]] + np.asarray(bw["lh"])

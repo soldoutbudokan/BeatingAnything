@@ -94,7 +94,9 @@ head-to-head variance is set to **zero** and no pair terms are exported; per-bow
 batters 1.64638 / 1.67503 (rejected); day game (earlier match of a double-header) 1.64639 / 1.67498 (rejected);
 pitch wear (matches already played at the venue that season, overall and for spin) 1.64637 / 1.67492 (mixed:
 worse on all T20s, better on IPL; rejected to keep the simulator inputs simple); toss winner chose to bat
-1.64637 / 1.67500 (rejected). Fast vs medium pace is not split (labels unreliable). A separate venue x pace term
+1.64637 / 1.67500 (rejected). League-season x innings x phase environment (to let the batting-first side's
+powerplay differ from the chaser's): converged holdout 1.64655 / 1.67490 vs 1.64631 / 1.67483 without — rejected,
+so the first-innings powerplay remains about 2 runs under-predicted in recent IPL seasons (see diagnostics). Fast vs medium pace is not split (labels unreliable). A separate venue x pace term
 is not needed: venue.base applies to every ball and venue.spin is the spin-vs-pace difference, so pace balls
 already carry their own venue effect.
 

@@ -172,6 +172,10 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons,
     put("comp_ph", np.where((ci >= 0) & (ph != 1), ci * 2 + (ph == 2), -1))
     D.add("cs_ph", [f"{c}_p{p}" for c in comp_seasons for p in (0, 2)], "cs")
     put("cs_ph", np.where((csi >= 0) & (ph != 1), csi * 2 + (ph == 2), -1))
+    if opts.get("cs_ph_inn", False):  # tested: worse on the forward holdout (see method.md), off
+        # league-season x phase x innings deviations (batting-first and chasing sides pace their innings differently)
+        D.add("cs_ph_inn", [f"{c}_i{i + 1}_p{p}" for c in comp_seasons for i in range(2) for p in (0, 1, 2)], "cs")
+        put("cs_ph_inn", np.where(csi >= 0, csi * 6 + inn * 3 + ph, -1))
     vmap = {v: i for i, v in enumerate(venues)}
     vi = f["venue"].astype(str).map(vmap).fillna(-1).to_numpy().astype(np.int64)
     D.add("venue", venues, "venue")
@@ -307,9 +311,17 @@ class Fitter:
         self.nit += 1
         return loss, g.ravel()
 
-    def fit(self, W0=None, maxiter=400, tol=1e-7):
+    def fit(self, W0=None, maxiter=400, tol=1e-7, checkpoint=None, every=50):
         th0 = np.zeros(self.p * KM) if W0 is None else W0.ravel()
-        res = minimize(self.fg, th0, jac=True, method="L-BFGS-B",
+        it = [0]
+        def cb(xk):
+            it[0] += 1
+            if checkpoint is not None and it[0] % every == 0:
+                tmp = str(checkpoint) + ".tmp.npy"
+                np.save(tmp, xk.reshape(self.p, KM))
+                import os
+                os.replace(tmp, str(checkpoint))
+        res = minimize(self.fg, th0, jac=True, method="L-BFGS-B", callback=cb,
                        options=dict(maxiter=maxiter, maxcor=15, ftol=tol, gtol=1e-6))
         self.W = res.x.reshape(self.p, KM)
         self.res = res
@@ -368,7 +380,7 @@ DEFAULT_LAM = dict(l0=1.0, cov=2.0, cell=30.0, comp=2.0, cs=200.0, venue=300.0, 
                    bat=150.0, bat_split=400.0, bowl=150.0, bowl_split=400.0)
 
 
-def fit_model(f, cov, lam, half_life, ref_date, maxiter=400, idx=None, verbose=False, tol=1e-7):
+def fit_model(f, cov, lam, half_life, ref_date, maxiter=400, idx=None, verbose=False, tol=1e-7, checkpoint=None):
     idx = idx or indices(f)
     w = weights(f["date"], ref_date, half_life)
     keep = w > 0.01
@@ -378,7 +390,14 @@ def fit_model(f, cov, lam, half_life, ref_date, maxiter=400, idx=None, verbose=F
     fitr = Fitter(X, fk["y"].to_numpy(), w[keep], D, lam)
     fitr.opts = opts
     t = time.time()
-    fitr.fit(maxiter=maxiter, tol=tol)
+    W0 = None
+    if checkpoint is not None:
+        import os
+        if os.path.exists(str(checkpoint)):
+            W0 = np.load(str(checkpoint))
+            if W0.shape != (D.p, KM):
+                W0 = None
+    fitr.fit(W0=W0, maxiter=maxiter, tol=tol, checkpoint=checkpoint)
     if verbose:
         print(f"fit n={len(fk):,} p={D.p:,} iters={fitr.res.nit} {time.time()-t:.0f}s loss={fitr.res.fun:.1f}")
     return fitr, D, idx

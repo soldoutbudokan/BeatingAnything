@@ -18,7 +18,8 @@ def main():
     train = f[f["date"] < CUTOFF].reset_index(drop=True)
     test = map_env(train, f[f["date"] >= CUTOFF].reset_index(drop=True))
     H, lam, _ = best_hyper()
-    fitr, D, _ = fit_model(train, cov, lam, H, train["date"].max(), maxiter=800, idx=idx, tol=1e-9)
+    fitr, D, _ = fit_model(train, cov, lam, H, train["date"].max(), maxiter=800, idx=idx, tol=1e-9,
+                           checkpoint=PROC / "holdout_ckpt.npy")
     sd = 1.0 / np.sqrt(fitr.hessian_diag())
     with open(PROC / "model_holdout.pkl", "wb") as fh:
         pickle.dump(dict(W=fitr.W, sd=sd, blocks=D.blocks, p=D.p, half_life=H, lam=lam,

@@ -25,14 +25,18 @@ def main(maxiter=1000):
     f, cov = load()
     H, lam, r = best_hyper()
     ref = f["date"].max()
-    fitr, D, idx = fit_model(f, cov, lam, H, ref, maxiter=maxiter, tol=1e-10)
+    fitr, D, idx = fit_model(f, cov, lam, H, ref, maxiter=maxiter, tol=1e-10,
+                             checkpoint=PROC / "final_fit_ckpt.npy")
     hd = fitr.hessian_diag()
     sd = 1.0 / np.sqrt(hd)
     out = dict(W=fitr.W, sd=sd, blocks=D.blocks, p=D.p, half_life=H, lam=lam, ref_date=str(ref.date()),
                iters=int(fitr.res.nit), loss=float(fitr.res.fun), n=int(fitr.n), idx=idx,
                opts=getattr(fitr, "opts", None))
-    with open(PROC / "model.pkl", "wb") as fh:
+    with open(PROC / "model.pkl.tmp", "wb") as fh:
         pickle.dump(out, fh)
+    import os
+    os.replace(PROC / "model.pkl.tmp", PROC / "model.pkl")
+    (PROC / "final_fit_ckpt.npy").unlink(missing_ok=True)
     print(f"final fit H={H} iters={out['iters']} n={out['n']:,} p={D.p:,}")
 
 

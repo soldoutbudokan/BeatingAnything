@@ -34,7 +34,7 @@ def main():
             if force or not path.exists():
                 print(f"[download] {url}")
                 urllib.request.urlretrieve(url, path)
-    from models.ipl import (diagnostics, export, final_fit, ingest, parity, prep, ratings, tune, wp)
+    from models.ipl import (diagnostics, export, final_fit, holdout, ingest, parity, prep, ratings, tune, tune_r2, tune_r3, wp)
     step("ingest", [PROC / "balls.parquet", PROC / "matches.parquet"], ingest.main, force, [ALL_ZIP])
     step("prep", [PROC / "frame.parquet"], prep.build, force, [PROC / "balls.parquet"])
     if "--retune" in args or not (PROC / "tuning.json").exists():
@@ -42,7 +42,11 @@ def main():
         tune.run(tune.stage2_grid())
         tune.run(tune.stage3_grid())
         tune.run(tune.stage3_converged())
+        tune_r2.tune.OUT = PROC / "tuning_r2.json"; tune.run(tune_r2.GRID)
+        tune.OUT = PROC / "tuning_r3.json"; tune.run(tune_r3.GRID)
     step("final fit", [PROC / "model.pkl"], final_fit.main, force, [PROC / "frame.parquet", PROC / "tuning.json"])
+    step("holdout model", [PROC / "model_holdout.pkl", PROC / "holdout_pred.parquet"], holdout.main, force,
+         [PROC / "frame.parquet"])
     step("win probability", [PROC / "wpa.pkl"], wp.main, force, [PROC / "frame.parquet"])
     step("ratings + sim params", [PROC / "ratings.pkl", EXPORT / "sim_params.json"], ratings.main, force, [PROC / "model.pkl"])
     step("teams, value, matchups, exports", [EXPORT / "players.json", EXPORT / "matchups.json"], export.main, force,

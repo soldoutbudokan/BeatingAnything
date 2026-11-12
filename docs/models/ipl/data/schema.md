@@ -343,8 +343,12 @@ n_bat, n_bowl}}}`. `simMatch` is unchanged.
 * sim.js / sim.py: `opts.conditions` (JS) / `conditions=` (Python), e.g. `{pitch: "slow_low", dew: "heavy"}`.
 
 Per-delivery logit (complete, both engines): base[inn][over][min(wkts,7)] + bf[phase][balls-faced bucket]
-+ (2nd inns) chase[phase][rrr bucket] + env[key] + env_phase[key][phase] + venue.base + (2nd inns) venue.i2
++ (2nd inns) chase[phase][rrr bucket] + env[key] + env_phase_inn[key][inn][phase] (or env_phase[key][phase]) + venue.base + (2nd inns) venue.i2
 + spin·venue.spin + sub[s] + sub_phase[s][phase] + (left-hander)·(sub_lhb[s] + bowler.lh) + bowler.b
 + (pp) bowler.pp + (death) bowler.de + batter.b + (pp) batter.pp + (death) batter.de + spin·batter.sp
 + (balls faced < 10) batter.ea + batter.ty[s] + pairs[batter][bowler] + z·match_shock.dir
 + conditions (all + pace|spin + i1|i2); free hit: wicket class removed.
+* sim_params.json `env_phase_inn[key]` = `[innings 1, innings 2][pp, mid, death]` 11-vectors: the phase environment
+  separately for the side batting first and the chasing side. When present it **replaces** `env_phase[key]` for
+  that key (it already includes it); `env_phase` is kept for older readers. **Not present in this build** (the
+  innings-specific term did not improve the holdout); both engines support it if a future build adds it.
