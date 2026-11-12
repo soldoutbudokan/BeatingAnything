@@ -98,15 +98,34 @@ def main():
         R = pickle.load(fh)
     h = holdout_predictions()
     cal = calibration(h, R["exs"])
-    tuning = json.loads((PROC / "tuning.json").read_text()) if (PROC / "tuning.json").exists() else []
-    tuning2 = json.loads((PROC / "tuning_r2.json").read_text()) if (PROC / "tuning_r2.json").exists() else []
+    from models.ipl.fit import DEFAULT_LAM
+    def load_t(name):
+        q = PROC / name
+        rows = json.loads(q.read_text()) if q.exists() else []
+        for r in rows:
+            diff = {k: v for k, v in r["lam"].items() if DEFAULT_LAM.get(k) != v}
+            r["label"] = f"half-life {r['half_life']}y" + ("; " + ", ".join(f"{k}={v:g}" for k, v in diff.items()) if diff else "; defaults") \
+                + ("; fully converged" if r.get("tol", 1e-7) < 1e-7 else "")
+        return rows
+    tuning, tuning2 = load_t("tuning.json"), load_t("tuning_r2.json")
+    tuning3, tuning4, tuning5 = load_t("tuning_r3.json"), load_t("tuning_r4.json"), load_t("tuning_r5.json")
+    tuning6 = load_t("tuning_r6.json")
     rep = replay_insample(P)
     from models.ipl import oos
     o = oos.main()
     diag = {"holdout": {"cutoff": str(CUTOFF.date()), **cal},
-            "tuning": [{k: r.get(k) for k in ("half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning],
-            "tuning_round2": [{k: r.get(k) for k in ("half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning2],
+            "tuning": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning],
+            "tuning_round2": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning2],
+            "tuning_round3": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning3],
+            "tuning_round4": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning4],
+            "tuning_round5": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning5],
+            "tuning_round6": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning6],
             "replay": rep, "oos": o, "match_shock": R.get("match_shock")}
+    from models.ipl import replay as rp
+    Rm = rp.run(P, (2022, 2023, 2024, 2025, 2026), n_sims=300, seed=5)
+    diag["replay"]["margin"] = {"seasons": [2022, 2023, 2024, 2025, 2026], "sims_per_match": 300, **rp.margin_table(Rm)}
+    with open(PROC / "oos.pkl", "rb") as fh:
+        diag["oos"]["margin"] = {"season": 2026, **rp.margin_table(pickle.load(fh)["R"])}
     (EXPORT / "diagnostics.json").write_text(json.dumps(diag, separators=(",", ":"), default=float))
     for r in rep["rows"]:
         print(f"{r['metric']:30s} sim {r['sim_mean']:7.2f} ({r['sim_sd']:5.1f})  actual {r['actual_mean']:7.2f} ({r['actual_sd']:5.1f})")

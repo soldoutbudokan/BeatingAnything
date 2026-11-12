@@ -35,7 +35,7 @@ regression on ~2.3 million deliveries:
 |---|---|
 | innings x over, innings x phase x wickets, innings x over x wickets | match situation: the intent/risk profile at every point of an innings (cell terms are shrunk toward the additive ones) |
 | phase x balls-faced bucket | the global **settling curve**: new batters score slower and get out more |
-| phase x required-rate bucket (2nd innings) | **chase pressure** |
+| phase x required-rate bucket (2nd innings), with extra resolution at 20-24 and 24+ an over | **chase pressure** |
 | bowler subtype; subtype x phase; subtype x left-handed batter | pace vs spin overall and by phase (spin is hit harder at the death), and the hand matchup (e.g. off-spin to left-handers) |
 | competition; competition x season; both x phase | **league environment** and season run environment, overall and separately for the powerplay and the death (the post-2023 IPL Impact Player surge is concentrated in the powerplay) |
 | venue; venue x 2nd innings; venue x spin | ground effects, chasing/dew, and spin-friendliness |
@@ -97,7 +97,15 @@ pitch wear (matches already played at the venue that season, overall and for spi
 worse on all T20s, better on IPL; rejected to keep the simulator inputs simple); toss winner chose to bat
 1.64637 / 1.67500 (rejected). League-season x innings x phase environment (to let the batting-first side's
 powerplay differ from the chaser's): converged holdout 1.64655 / 1.67490 vs 1.64631 / 1.67483 without — rejected,
-so the first-innings powerplay remains about 2 runs under-predicted in recent IPL seasons (see diagnostics). Fast vs medium pace is not split (labels unreliable). A separate venue x pace term
+so the first-innings powerplay remains about 2 runs under-predicted in recent IPL seasons (see diagnostics).
+Round 4-5 (base 1.64632 / 1.67493): league-season x 2nd-innings 1.64643 / 1.67485 (penalty 200) and 1.64662 /
+1.67477 (50) — rejected; chase pressure x wickets in hand 1.64633 / 1.67504 (30) and 1.64637 / 1.67511 (5) —
+rejected; finer required-rate buckets above 17 an over (20-24, 24+) 1.64613 / 1.67460 — **kept**. The old
+open-ended 17+ bucket under-predicted scoring in hopeless chases (sides keep swinging), but in the replay it barely
+changed the simulated margins: bat-first wins are still somewhat too wide in-sample (IPL 2022-26 replay: median
+29 vs 24 runs, mean 37.7 vs 32.8; real n = 170), driven by 220+ targets where simulated losing chases fall short by
+56 runs on average vs 43 real (n = 46). Removing the innings-level shock narrows this only slightly (mean 36.5).
+In the 2026 holdout the real margins were wider than simulated (n = 26), so no further correction was made. Fast vs medium pace is not split (labels unreliable). A separate venue x pace term
 is not needed: venue.base applies to every ball and venue.spin is the spin-vs-pace difference, so pace balls
 already carry their own venue effect.
 

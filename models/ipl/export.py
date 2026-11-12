@@ -194,6 +194,7 @@ def condition_pmfs(part, A, B):
             tm["players"][pid]["mean"] = {"runs": float(br[:, k].mean()), "balls": float(r["bat_balls"][:, k].mean()),
                                           "fours": float(r["bat_4"][:, k].mean()), "sixes": float(r["bat_6"][:, k].mean()),
                                           "p_bat": float(bt[:, k].mean()), "p_out": float(r["bat_out"][:, k].mean()),
+                                          "p_duck": float((r["bat_out"][:, k] & (br[:, k] == 0)).mean()),
                                           "p_top_bat": float(topshare[:, k].mean())}
         o = part["B" if side == "A" else "A"]
         key = o["bowl_wkts"] * 1000 - o["bowl_runs"]
@@ -312,6 +313,7 @@ def main():
         for pid, v in u.items():
             plan_overs[pid] = float(v)
     vb, vw, rep_b, rep_w, slot_bp, slot_mix = player_value(R, cov, f, teams_pos, plan_overs)
+    in_plan_ids = {p["id"] for t in teams.values() for p in t["plan"] if p["pp"] + p["mid"] + p["death"] > 0}
 
     # ---------------- matchups
     res, neutral, sec_per = run_matchups(P, teams)
@@ -444,6 +446,7 @@ def main():
             mixw = R["mix_bowl"].loc[pid] if pid in R["mix_bowl"].index else None
             d["bowl"]["phase_mix"] = None if mixw is None else (mixw / mixw.sum()).round(3).tolist()
             d["bowl"]["is_bowler"] = bool(v["is_bowler"])
+            d["bowl"]["in_plan"] = bool(pid in in_plan_ids)
             d["bowl"]["value"] = {"rv_over_mix": v["bowl_rv_over_mix"], "rep_rv_over": v["bowl_rep_rv_over"],
                                   "exp_overs": v["exp_overs"], "varp_4ov": v["bowl_varp_4ov"],
                                   "varp_runs": v["bowl_varp"], "varp_wp": v["bowl_varp"] * pdf_slope}

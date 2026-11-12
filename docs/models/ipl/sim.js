@@ -48,6 +48,8 @@
     P.base = Float64Array.from(raw.base);       // [2][20][8][11]
     P.bf = Float64Array.from(raw.bf);           // [3][9][11]
     P.chase = Float64Array.from(raw.chase);     // [3][8][11]
+    P.chaseW = raw.chase_w ? Float64Array.from(raw.chase_w) : null;  // [3][8][3 wickets-in-hand bands][11]
+    P.chaseHi = raw.chase_hi ? Float64Array.from(raw.chase_hi) : null;  // [3][2: rrr 20-24, 24+][11]
     P.bfEdges = raw.bf_edges;                   // lower edges of the 9 buckets
     P.rrrEdges = raw.rrr_edges;                 // 7 interior edges -> 8 buckets
     P.earlyBf = raw.early_bf;
@@ -204,16 +206,21 @@
           var sbf = bfArr[stk];
           var baseOff = (((inn - 1) * 20 + oo) * 8 + Math.min(wk, 7)) * NC;
           var bfb = bucketIdx(P.bfEdges, sbf), bfOff = (ph2 * 9 + bfb) * NC;
-          var chOff = -1;
+          var chOff = -1, cwOff = -1, chHiOff = -1;
           if (tgt !== null) {
             var bl = Math.max(maxOvers * 6 - legal, 1);
             var rrr = (tgt - score) * 6.0 / bl;
-            chOff = (ph2 * 8 + Math.min(Math.max(rrrIdx(P.rrrEdges, rrr), 0), 7)) * NC;
+            var rbk = Math.min(Math.max(rrrIdx(P.rrrEdges, rrr), 0), 7);
+            chOff = (ph2 * 8 + rbk) * NC;
+            if (P.chaseHi && rrr >= 20) chHiOff = (ph2 * 2 + (rrr >= 24 ? 1 : 0)) * NC;
+            if (P.chaseW) { var wih = 10 - wk; cwOff = ((ph2 * 8 + rbk) * 3 + (wih <= 3 ? 0 : (wih <= 6 ? 1 : 2))) * NC; }
           }
           var early = sbf < P.earlyBf ? 1 : 0, ea = EA[stk], mx = -1e9;
           for (c = 0; c < NC; c++) {
             var x = P.base[baseOff + c] + mo2[stk * NC + c] + P.bf[bfOff + c] + early * ea[c];
             if (chOff >= 0) x += P.chase[chOff + c];
+            if (cwOff >= 0) x += P.chaseW[cwOff + c];
+            if (chHiOff >= 0) x += P.chaseHi[chHiOff + c];
             lg[c] = x;
           }
           if (shock) { var zs = shock[s]; for (c = 0; c < NC; c++) lg[c] += zs * P.shockDir[c]; }

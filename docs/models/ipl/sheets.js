@@ -105,6 +105,7 @@ function bowlCols() {
     { key: 'inf', label: 'Inferred', group: 'Profile', type: 'cat', get: r => r.style_inferred ? 'inferred' : '', width: 64, desc: 'Pace/spin label came from a classifier, not the styles file.' },
     { key: 'rb', label: 'Workload', group: 'Profile', type: 'cat', get: r => ({ part: 'Part-time', reg: 'Regular', front: 'Frontline' })[(r.role_bowl || '').split('_')[1]] || '', width: 74, desc: 'Prior group by career overs per match: part-time (<1.5), regular (1.5–2.75), frontline (>2.75).' },
     { key: 'os', label: 'OS', group: 'Profile', type: 'cat', get: r => r.overseas ? 'OS' : '', width: 42, desc: 'Overseas player.' },
+    { key: 'inplan', label: 'In plan', group: 'Profile', type: 'cat', get: r => r.bowl && r.bowl.in_plan === true ? 'Yes' : r.bowl && r.bowl.in_plan === false && r._team ? 'No' : '', width: 60, desc: 'Has overs in his team\'s default 20-over bowling plan. "No" = squad player who bowls a little in his role (under 1 projected over) but is not in the integer plan the simulator bowls.' },
     { key: 'iplb', label: 'IPL balls', group: 'Sample', get: get('bowl.obs_ipl_2024.balls'), fmt: 'int', desc: 'Legal balls bowled in the IPL since 2024.' },
     { key: 'allb', label: 'All balls', group: 'Sample', get: get('bowl.obs_2024.balls'), fmt: 'int', desc: 'Legal balls bowled in all T20 since 2024.' },
     ...mixCols,
@@ -305,7 +306,7 @@ async function bowlSection(el, p) {
   const w = p.bowl; if (!w) return;
   if (w.is_bowler === false) { el.append(h('div', { class: 'sh-h ip-sech', text: 'Bowling' }), h('div', { class: 'sh-note', text: `Does not bowl in his current role, so he has no bowling value or rank (model rates exist from ${F.int(w.ipl_career ? w.ipl_career.balls : 0)} IPL balls; true economy ${F.num(w.all.econ, 2)}).` })); return; }
   const va = w.vs_avg || {}, sd = w.sd || {}, v = w.value || {};
-  el.append(h('div', { class: 'sh-h ip-sech', text: 'Bowling' }), h('div', { class: 'sh-note', text: IPLC + ` Value at his projected ${F.num(v.exp_overs, 1)} overs per match in his current role; per 4 overs ${F.signed(v.varp_4ov, 1)} runs.` }));
+  el.append(h('div', { class: 'sh-h ip-sech', text: 'Bowling' }), h('div', { class: 'sh-note', text: IPLC + ` Value at his projected ${F.num(v.exp_overs, 1)} overs per match in his current role; per 4 overs ${F.signed(v.varp_4ov, 1)} runs.${w.in_plan === false && p._team ? ` Not in ${p._team.short}'s default bowling plan, so he bowls no overs in the precomputed matches (add him in the Simulator).` : ''}` }));
   el.append(S.tiles([
     { label: 'True econ', value: F.num(w.all.econ, 2), sub: `±${F.num(sd.econ, 2)} · ${F.signed(va.all && va.all.econ, 2)} v avg` },
     { label: 'Wkts / 100', value: F.num(w.all.wkt_pct, 2), sub: `±${F.num(sd.wkt_pct, 2)} · SR ${F.num(w.all.sr, 1)}` },
@@ -952,7 +953,7 @@ async function value(panel, sheet) {
 
 /* ───────── Diagnostics ───────── */
 const CLS_LABEL = { wide: 'Wide', noball: 'No-ball', byes: 'Byes / leg-byes', wicket: 'Bowler wicket', runout: 'Run out', r0: 'Dot', r1: 'Single', r2: 'Two', r3: 'Three', r4: 'Four', r6: 'Six' };
-async function diagnostics(panel) {
+async function diagnostics(panel, sheet) {
   const Dg = await I.loadDiag();
   const sec = (title, note) => { panel.append(h('div', { class: 'ip-sec' }, h('div', { class: 'sh-h ip-sech', text: title }), note ? h('div', { class: 'sh-note', text: note }) : null)); const c = h('div', { class: 'sh-cols' }); panel.append(c); return c; };
   const ho = Dg.holdout || {};
@@ -992,6 +993,12 @@ async function diagnostics(panel) {
     c.classList.add('ip-wide');
   }
   round2Diag(panel, Dg, sec);
+  if ((Dg.replay && Dg.replay.margin) || (Dg.oos && Dg.oos.margin)) {
+    const cm = sec('Winning margins: simulated vs real', 'How the simulator\'s margins compare with real IPL matches: runs margins when the side batting first wins, wickets and balls to spare when the chaser wins, and how far losing chases fall short by target. These back the Winning-margin markets on the Match sheet.');
+    cm.parentNode && (cm.id = 'diag-margins');
+    if (Dg.replay && Dg.replay.margin) marginCal(cm, Dg.replay.margin, `In-sample replay, IPL ${(Dg.replay.margin.seasons || []).length ? Dg.replay.margin.seasons[0] + '–' + String(Dg.replay.margin.seasons.slice(-1)[0]).slice(2) : ''}`);
+    if (Dg.oos && Dg.oos.margin) marginCal(cm, Dg.oos.margin, `Out of sample, IPL ${Dg.oos.margin.season || 2026}`);
+  }
   const rp = Dg.replay;
   if (rp) {
     const c2 = sec(`In-sample: re-simulating real ${rp.seasons ? rp.seasons.join(' and ') : ''} matches`, `${F.int(rp.matches)} IPL matches re-simulated ${F.int(rp.sims_per_match)} times each with the XIs, orders and venues that actually happened. The ratings were fitted on these matches, so this checks the simulator's mechanics, not forecasting skill.`);
@@ -1019,9 +1026,11 @@ async function diagnostics(panel) {
     if (rp.phase) phaseCal(c4, rp.phase, 'Replay, runs by phase');
     if (rp.players) playerCal(c4, rp.players, 'Replay, player lines');
   }
-  const known = ['holdout', 'tuning', 'replay', 'oos', 'tuning_round2', 'match_shock'];
-  const extra = Object.keys(Dg).filter(k => !known.includes(k));
+  const known = ['holdout', 'tuning', 'replay', 'oos', 'match_shock', 'holdout_final'];
+  const extra = Object.keys(Dg).filter(k => !known.includes(k) && !/^tuning_round\d+$/.test(k));
   if (extra.length) { const c3 = sec('Further checks', 'Added by a later model export; shown as exported.'); extra.forEach(k => genericDiag(c3, k, Dg[k])); }
+  const jump = () => { if (sheet && sheet.get('s') === 'margins') { const t = panel.querySelector('#diag-margins'); if (t && t.previousElementSibling) panel.scrollTop = t.previousElementSibling.offsetTop - 10; } };
+  requestAnimationFrame(jump); if (sheet) sheet.onState(jump);
 }
 const T2 = x => typeof x === 'number' && isFinite(x);
 function round2Diag(panel, Dg, sec) {
@@ -1047,22 +1056,65 @@ function round2Diag(panel, Dg, sec) {
       if (sh.bowl) { t2.append(h('div', { class: 'ip-sub', text: 'Bowlers' })); S.table(t2.appendChild(h('div')), [{ key: 'bucket', label: 'Balls before' }, { key: 'n_players', label: 'Players', fmt: 'int' }, { key: 'test_balls', label: 'Test balls', fmt: 'int' }, { key: 'slope_conceded', label: 'Conceded slope', fmt: 'num:2' }, { key: 'slope_wkts', label: 'Wkts slope', fmt: 'num:2' }], sh.bowl); }
     }
   }
-  const t2 = Dg.tuning_round2;
+  const rounds = Object.keys(Dg).filter(k => /^tuning_round\d+$/.test(k)).sort((x, y) => +x.match(/\d+/)[0] - +y.match(/\d+/)[0]);
   const ms = Dg.match_shock;
-  if ((Array.isArray(t2) && t2.length) || ms) {
-    const c = sec('Round-2 design choices', 'Which model blocks were kept or rejected on the forward holdout, and the shared match-conditions shock.');
-    if (Array.isArray(t2) && t2.length) {
-      const b0 = t2[0], best = t2.slice().sort((x, y) => x.ll_ipl - y.ll_ipl)[0];
-      const diff = r => { const out = []; for (const k in r.lam || {}) if (!b0.lam || r.lam[k] !== b0.lam[k]) out.push(`${k} ${r.lam[k]}`); if (r.half_life !== b0.half_life) out.push('half-life ' + r.half_life); return out.join(', ') || 'base design'; };
-      const ct = I.card(c, 'Holdout fits of the current design', `Log loss on balls after the cutoff (lower is better). Rows differ from the first (base) fit only in the settings named. Best on IPL balls: ${diff(best)} (${F.num(best.ll_ipl, 5)}). The differences are in the fourth decimal: small.`);
-      S.table(ct.appendChild(h('div')), [{ key: 'd', label: 'Change vs base', get: diff }, { key: 'iters', label: 'Iters', fmt: 'int' }, { key: 'll_ipl', label: 'IPL log-loss', fmt: 'num:5' }, { key: 'll_all', label: 'All log-loss', fmt: 'num:5' }, { key: 'dl', label: 'Δ IPL vs base', get: r => r.ll_ipl - b0.ll_ipl, fmt: 'signed:5' }], t2, { highlight: r => r === best });
-      const kr = h('div', { class: 'sh-md ip-kr' }); ct.append(kr);
-      S.load.text('data/method.md').then(t => { const m = t.match(/\*\*Blocks tested and rejected[\s\S]*?(?=\n\n)/); if (m) kr.innerHTML = S.md(m[0]); }).catch(() => null);
+  if (rounds.length || ms || Dg.holdout_final) {
+    const c = sec('Design choices: what was kept and rejected', 'Each model block tested on the forward holdout (fit before 1 June 2025, score everything after), and the shared match-conditions shock.');
+    if (rounds.length) {
+      const toks = l => { const t = String(l || '').split(';').slice(1).join(';').split(',').map(x => x.trim()).filter(Boolean); return t; };
+      const lastR = Dg[rounds[rounds.length - 1]], final = new Set(toks(lastR[lastR.length - 1].label));
+      const BLOCK = { bowl: 'bowler shrinkage', bat: 'batter shrinkage', bat_split: 'batter split shrinkage', bowl_split: 'bowler split shrinkage', venue: 'venue shrinkage', venue2: 'venue split shrinkage', cs: 'league-season shrinkage', bat_wkt_mult: 'heavier shrinkage of batters\' dismissal rates', bat_type: 'per-batter bowling-type splits', pair: 'batter × bowler head-to-heads', bowl_arch: 'bowler split vs middle/lower-order batters', day: 'day game (first of a double-header)', wear: 'pitch wear through the season', toss: 'toss winner chose to bat', cs_i2: 'league-season × 2nd innings environment', chase_w: 'chase pressure × wickets in hand', chase_hi: 'finer required-rate buckets above 17 an over' };
+      const rows = [];
+      const r1 = Array.isArray(Dg.tuning) ? Dg.tuning.filter(e => e.label).sort((x, y) => x.ll_ipl - y.ll_ipl)[0] : null;
+      let prev = r1 ? toks(r1.label) : null, ref = r1 ? r1.ll_ipl : null;
+      rounds.forEach(rk => {
+        const R = Dg[rk]; if (!Array.isArray(R) || !R.length) return;
+        const sets = R.map(e => toks(e.label));
+        const P0 = prev || sets[0].filter(t => sets.every(x => x.includes(t)));
+        const name = t => { const [k, v] = t.split('='); return `${BLOCK[k] || k}${v != null && !/^1$/.test(v) ? ' (' + v + ')' : ''}`; };
+        R.forEach((e, i) => {
+          const test = sets[i].filter(t => !P0.includes(t));
+          const label = rk.replace('tuning_round', 'Round ');
+          if (!test.length) { rows.push({ r: label, what: 'previous configuration, refitted', setting: sets[i].join(', '), ll: e.ll_ipl, la: e.ll_all, d: isNum(ref) ? e.ll_ipl - ref : null, dec: 'base' }); return; }
+          const kept = test.every(t => final.has(t));
+          rows.push({ r: label, what: test.map(name).join(' + '), setting: sets[i].join(', '), ll: e.ll_ipl, la: e.ll_all, d: isNum(ref) ? e.ll_ipl - ref : null, dec: kept ? 'kept' : 'rejected' });
+        });
+        const k = R.map((e, i) => [e, sets[i]]).filter(([, st]) => st.every(t => final.has(t)) && st.some(t => !P0.includes(t))).sort((x, y) => x[0].ll_ipl - y[0].ll_ipl)[0];
+        if (k) { prev = k[1]; ref = k[0].ll_ipl; } else if (!prev) prev = P0;
+      });
+      const hf = Dg.holdout_final;
+      const nk = rows.filter(r => r.dec === 'kept').length, nr = rows.filter(r => r.dec === 'rejected').length;
+      const ct = I.card(c, 'Blocks tested', `${nk} kept, ${nr} rejected, from the labels in diagnostics.json (kept = the setting is in the final configuration). Log loss on balls after the cutoff, IPL only and all T20s; lower is better. Each fit is compared with the configuration kept so far (Δ IPL; negative = better on IPL balls); a block is kept only if it is in the final configuration, which also weighs all-T20 log loss and simulator realism.${hf ? ` Final configuration fitted to convergence: ${F.num(hf.ll_ipl, 5)} IPL, ${F.num(hf.ll_all, 5)} all T20s.` : ''} The gains are in the fourth decimal: single balls are mostly noise.`);
+      ct.classList.add('ip-wide');
+      S.table(ct.appendChild(h('div')), [{ key: 'r', label: 'Round' }, { key: 'what', label: 'Block tested', render: (v, r) => `<span title="${esc(r.setting)}">${esc(v)}</span>` }, { key: 'dec', label: 'Decision', render: v => v === 'kept' ? '<b>kept</b>' : esc(v) }, { key: 'll', label: 'IPL log-loss', fmt: 'num:5' }, { key: 'la', label: 'All log-loss', fmt: 'num:5' }, { key: 'd', label: 'Δ IPL', fmt: 'signed:5' }], rows);
     }
     if (ms) {
       const cm = I.card(c, 'Shared match conditions', `Real innings in the same match run hot or cold together (residual correlation ${F.num(ms.residual_corr, 3)} across ${F.int(ms.n_matches)} IPL matches). The simulator draws one shock per match with SD ${F.num(ms.sd, 3)} on the logit scale along the recent IPL scoring direction (${F.num(ms.runs_per_ball_per_unit, 3)} runs per ball per unit), which widens total tails and tempers win probabilities.${T2(ms.innings_sd) ? ` Each innings also draws its own shock (SD ${F.num(ms.innings_sd, 3)}), sized from the part of a single innings' residual variance that is neither shared with the other innings nor sampling noise${T2(ms.chase_sd) ? `; the chase-advantage spread behind the dew dial has SD ${F.num(ms.chase_sd, 3)}` : ''}.` : ''}`);
       cm.append(S.kv([['Shock SD (logit)', F.num(ms.sd, 3)], ['Innings shock SD', T2(ms.innings_sd) ? F.num(ms.innings_sd, 3) : '–'], ['Chase residual SD', T2(ms.chase_sd) ? F.num(ms.chase_sd, 3) : '–'], ['Residual covariance', F.num(ms.residual_cov, 4)], ['Residual correlation', F.num(ms.residual_corr, 3)], ['Runs per ball per unit', F.num(ms.runs_per_ball_per_unit, 3)], ['Matches', F.int(ms.n_matches)]]));
     }
+  }
+}
+function marginCal(parent, m, title) {
+  const S0 = m.sim || {}, A0 = m.actual || {}, lc = m.losing_chase_by_target || [];
+  const big = lc.filter(r => isNum(r.sim_shortfall_mean) && isNum(r.act_shortfall_mean) && (r.act_n || 0) >= 10).sort((x, y) => Math.abs(y.sim_shortfall_mean - y.act_shortfall_mean) - Math.abs(x.sim_shortfall_mean - x.act_shortfall_mean))[0];
+  const r1 = S0.bat1_win_runs || {}, a1 = A0.bat1_win_runs || {};
+  const small = isNum(a1.n) && a1.n < 60;
+  const c = I.card(parent, title, `${F.int(m.n_matches)} matches; ${F.int(a1.n)} real wins batting first and ${F.int((A0.bat2_win_wkts || {}).n)} real chases won.${small ? ` Only ${F.int(a1.n)} bat-first wins, so every real share here has a wide margin of error (±${F.pct(Math.sqrt(0.25 / a1.n), 0)} or so).` : ''} Batting-first winning margins: simulated median ${F.num((r1.q || [])[2], 0)} runs vs ${F.num((a1.q || [])[2], 0)} real, mean ${F.num(r1.mean, 1)} vs ${F.num(a1.mean, 1)}${isNum(r1.mean) && isNum(a1.mean) ? (r1.mean - a1.mean > 2 ? ', so the simulator\'s runs margins run wide and "win by 50+" lines are priced long' : r1.mean - a1.mean < -2 ? (small ? ', narrower than this small sample, which is within its noise' : ', so simulated runs margins run narrow') : ', close') : ''}.${big ? ` Biggest miss: losing chases of ${big.target_band} fall ${F.num(big.sim_shortfall_mean, 0)} runs short in the simulation vs ${F.num(big.act_shortfall_mean, 0)} in reality (${F.int(big.act_n)} real matches).` : ''}`);
+  c.classList.add('ip-wide');
+  const g = h('div', { class: 'ip-two ip-two-wide' }); c.append(g);
+  const b1 = h('div'), b2 = h('div'); g.append(b1, b2);
+  const bands = Object.keys(r1.bands || a1.bands || {});
+  if (bands.length) { b1.append(h('div', { class: 'ip-sub', text: 'Bat-first wins: share by margin' })); S.table(b1.appendChild(h('div')), [{ key: 'b', label: 'Runs' }, { key: 's', label: 'Sim', fmt: 'pct:1' }, { key: 'a', label: 'Real', fmt: 'pct:1' }, { key: 'd', label: 'Sim − real', get: r => r.s - r.a, fmt: 'spct:1' }], bands.map(k => ({ b: k, s: (r1.bands || {})[k], a: (a1.bands || {})[k] }))); }
+  const qrow = (lab, sd, ad) => sd || ad ? [{ k: lab + ' (sim)', n: sd && sd.n, m: sd && sd.mean, q: (sd && sd.q) || [] }, { k: lab + ' (real)', n: ad && ad.n, m: ad && ad.mean, q: (ad && ad.q) || [] }] : [];
+  const qr = [...qrow('Runs margin, bat-first win', r1, a1), ...qrow('Wickets in hand, chase won', S0.bat2_win_wkts, A0.bat2_win_wkts), ...qrow('Balls to spare, chase won', S0.bat2_win_balls, A0.bat2_win_balls)];
+  b2.append(h('div', { class: 'ip-sub', text: 'Quantiles' }));
+  S.table(b2.appendChild(h('div')), [{ key: 'k', label: '' }, { key: 'm', label: 'Mean', fmt: 'num:1' }].concat([10, 25, 50, 75, 90].map((p, i) => ({ key: 'q' + p, label: p + '%', fmt: 'num:0', get: r => r.q[i] }))).concat([{ key: 'n', label: 'n', fmt: 'int' }]), qr);
+  b2.append(S.kv([['Chases into the last over, sim / real', `${F.pct(S0.share_last_over, 1)} / ${F.pct(A0.share_last_over, 1)}`], ['Chasing side all out, sim / real', `${F.pct(S0.share_chase_all_out, 1)} / ${F.pct(A0.share_chase_all_out, 1)}`]].concat(isNum(S0.corr_s1_s2) ? [['Simulated correlation of the two totals', F.num(S0.corr_s1_s2, 3)]] : [])));
+  if (lc.length) {
+    const g2 = h('div', { class: 'ip-two ip-two-wide', style: { marginTop: '10px' } }); c.append(g2);
+    const l = h('div'), r = h('div'); g2.append(l, r);
+    S.line(l, { title: 'Losing chases: runs short, by target', series: [{ name: 'Real', points: lc.map((x, i) => [i, x.act_shortfall_mean]) }, { name: 'Simulated', points: lc.map((x, i) => [i, x.sim_shortfall_mean]) }], xFmt: v => Number.isInteger(v) ? (lc[v] || {}).target_band || '' : '', xLabel: 'target', yFmt: 'num:0', height: 150, zero: false });
+    S.table(r, [{ key: 'target_band', label: 'Target' }, { key: 'act_shortfall_mean', label: 'Short, real', fmt: 'num:1' }, { key: 'sim_shortfall_mean', label: 'Sim', fmt: 'num:1' }, { key: 'act_all_out', label: 'All out, real', fmt: 'pct:0' }, { key: 'sim_all_out', label: 'Sim', fmt: 'pct:0' }, { key: 'act_n', label: 'Real n', fmt: 'int' }], lc);
   }
 }
 function replayTable(c, rows, n) {

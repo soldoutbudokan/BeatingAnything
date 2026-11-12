@@ -57,7 +57,7 @@ def run(P, seasons, n_sims=400, seed=7, env_fmt="IPL|{}"):
     cov = pd.read_parquet(PROC / "covariates.parquet")
     f = f[(f["comp"].astype(str) == "IPL") & (~f["reduced"]) & f["date"].dt.year.isin(seasons)]
     rng = np.random.default_rng(seed)
-    mrows, prow_b, prow_w, phrows, agg = [], [], [], [], []
+    mrows, prow_b, prow_w, phrows, agg, margins = [], [], [], [], [], []
     ind_sim = []
     for mid, g in f.groupby("match_id", sort=False):
         if g["innings"].nunique() < 2:
@@ -88,6 +88,16 @@ def run(P, seasons, n_sims=400, seed=7, env_fmt="IPL|{}"):
                           t2_actual=t2, t2_mean=float(i2["score"].mean()),
                           match_total_actual=t1 + t2, match_total_mean=float((i1["score"] + i2["score"]).mean()),
                           **{f"mt_q{q}": float(v) for q, v in zip(QS, np.percentile(i1["score"] + i2["score"], QS))}))
+        # margins / finish (sim per draw, actual once)
+        a2w = int((~a2["wicket_kind"].astype(str).isin(["", "retired hurt", "retired not out"])).sum())
+        a2legal = int((~a2["cls"].astype(str).isin(["wide", "noball"])).sum())
+        a2last_over = int(a2["over"].max())
+        margins.append(dict(
+            sim_s1=i1["score"].astype(np.int16), sim_s2=i2["score"].astype(np.int16), sim_w2=i2["wk"].astype(np.int8),
+            sim_l2=i2["legal"].astype(np.int16), sim_r1=(i1["score"] / np.maximum(i1["legal"], 1)).astype(np.float32),
+            sim_r2=(i2["score"] / np.maximum(i2["legal"], 1)).astype(np.float32),
+            act_s1=t1, act_s2=t2, act_w2=a2w, act_l2=a2legal, act_last_over=a2last_over,
+            winner_bat1=(winner == specs[1]["team"]), winner_bat2=(winner == specs[2]["team"])))
         for inn, res, gi in ((1, i1, a1), (2, i2, a2)):
             for ph in range(3):
                 gp = gi[gi["phase"] == ph]
@@ -125,7 +135,7 @@ def run(P, seasons, n_sims=400, seed=7, env_fmt="IPL|{}"):
                                    proj_overs=float(res["bowl_balls"][:, j].mean() / 6), proj_p2w=float((w >= 2).mean()),
                                    act_wkts=a["wkts"], act_conc=a["conc"], act_overs=a["overs"], act_p2w=float(a["wkts"] >= 2)))
     return dict(matches=pd.DataFrame(mrows), bat=pd.DataFrame(prow_b), bowl=pd.DataFrame(prow_w),
-                phase=pd.DataFrame(phrows), agg=agg, ind_sim=np.concatenate(ind_sim), n_sims=n_sims, seasons=list(seasons))
+                phase=pd.DataFrame(phrows), agg=agg, margins=margins, ind_sim=np.concatenate(ind_sim), n_sims=n_sims, seasons=list(seasons))
 
 
 # %% summaries
@@ -218,3 +228,64 @@ def aggregate_rows(R):
     row("Sixes per innings", np.concatenate([a["sim_six"] for a in A]), [a["act_six"] for a in A])
     row("Fours per innings", np.concatenate([a["sim_four"] for a in A]), [a["act_four"] for a in A])
     return rows
+
+
+# %% margins
+
+RUN_BANDS = [(1, 9), (10, 19), (20, 29), (30, 49), (50, 999)]
+TARGET_BANDS = [(0, 159), (160, 189), (190, 219), (220, 999)]
+
+
+def _dist(x, bands=None):
+    x = np.asarray(x, float)
+    if len(x) == 0:
+        return None
+    out = {"n": int(len(x)), "mean": float(x.mean()), "q": [float(v) for v in np.percentile(x, (10, 25, 50, 75, 90))]}
+    if bands:
+        out["bands"] = {f"{a}-{b}" if b < 999 else f"{a}+": float(np.mean((x >= a) & (x <= b))) for a, b in bands}
+    return out
+
+
+def margin_table(R):
+    """Sim vs real: runs margin of bat-first wins, wickets / balls to spare of chase wins, last-over finishes,
+    all-out chases, losing-chase shortfall by target band, and innings run-rate residual correlation."""
+    M = R["margins"]
+    S1 = np.concatenate([m["sim_s1"] for m in M]).astype(int)
+    S2 = np.concatenate([m["sim_s2"] for m in M]).astype(int)
+    W2 = np.concatenate([m["sim_w2"] for m in M]).astype(int)
+    L2 = np.concatenate([m["sim_l2"] for m in M]).astype(int)
+    a1 = np.array([m["act_s1"] for m in M]); a2 = np.array([m["act_s2"] for m in M])
+    aw2 = np.array([m["act_w2"] for m in M]); al2 = np.array([m["act_l2"] for m in M])
+    alast = np.array([m["act_last_over"] for m in M]); ab1 = np.array([m["winner_bat1"] for m in M])
+    ab2 = np.array([m["winner_bat2"] for m in M])
+    sw1, sw2 = S1 > S2, S2 > S1
+    out = {"sim": {}, "actual": {}}
+    out["sim"]["bat1_win_runs"] = _dist(S1[sw1] - S2[sw1], RUN_BANDS)
+    out["actual"]["bat1_win_runs"] = _dist((a1 - a2)[ab1], RUN_BANDS)
+    out["sim"]["bat2_win_wkts"] = _dist(10 - W2[sw2])
+    out["actual"]["bat2_win_wkts"] = _dist((10 - aw2)[ab2])
+    out["sim"]["bat2_win_balls"] = _dist(120 - L2[sw2])
+    out["actual"]["bat2_win_balls"] = _dist((120 - al2)[ab2])
+    # decided in the last over: the chase reached the 20th over (sim: more than 114 legal balls bowled)
+    out["sim"]["share_last_over"] = float(np.mean(L2 > 114))
+    out["actual"]["share_last_over"] = float(np.mean(alast >= 19))
+    out["sim"]["share_chase_all_out"] = float(np.mean(W2 >= 10))
+    out["actual"]["share_chase_all_out"] = float(np.mean(aw2 >= 10))
+    # losing chases: shortfall (target - 1 - score) by target band
+    rows = []
+    for lo, hi in TARGET_BANDS:
+        ms = sw1 & (S1 + 1 >= lo) & (S1 + 1 <= hi)
+        ma = ab1 & (a1 + 1 >= lo) & (a1 + 1 <= hi)
+        rows.append({"target_band": f"{lo}-{hi}" if hi < 999 else f"{lo}+",
+                     "sim_n": int(ms.sum()), "sim_shortfall_mean": float(np.mean(S1[ms] - S2[ms])) if ms.any() else None,
+                     "sim_all_out": float(np.mean(W2[ms] >= 10)) if ms.any() else None,
+                     "act_n": int(ma.sum()), "act_shortfall_mean": float(np.mean((a1 - a2)[ma])) if ma.any() else None,
+                     "act_all_out": float(np.mean(aw2[ma] >= 10)) if ma.any() else None})
+    out["losing_chase_by_target"] = rows
+    # correlation of the two innings' run rates around each match's mean (sim) vs real residual correlation
+    r1 = np.concatenate([m["sim_r1"] - m["sim_r1"].mean() for m in M])
+    r2 = np.concatenate([m["sim_r2"] - m["sim_r2"].mean() for m in M])
+    out["sim"]["innings_rate_corr_within_match"] = float(np.corrcoef(r1, r2)[0, 1])
+    out["sim"]["corr_s1_s2"] = float(np.mean([np.corrcoef(m["sim_s1"], m["sim_s2"])[0, 1] for m in M]))
+    out["n_matches"] = int(len(M))
+    return out

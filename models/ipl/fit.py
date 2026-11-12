@@ -110,7 +110,7 @@ PAIR_MIN = 24  # batter x bowler pairs need this many deliveries in the fitting 
 
 def design_opts(f, lam):
     """Optional blocks are switched on by the presence of their penalty key in lam."""
-    o = {k: True for k in ("bat_type", "bowl_arch", "day", "wear", "toss", "pair", "cs_i2") if k in lam}
+    o = {k: True for k in ("bat_type", "bowl_arch", "day", "wear", "toss", "pair", "cs_i2", "chase_w", "chase_hi") if k in lam}
     if "pair" in lam:
         key = f["batter"].astype(str) + "|" + f["bowler"].astype(str)
         c = key.value_counts()
@@ -151,6 +151,18 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons,
     put("bf", ph * 9 + bfb)
     D.add("chase", [f"p{p}_rrr{r}" for p in range(3) for r in range(8)], "l0")
     put("chase", np.where(rrr >= 0, ph * 8 + rrr, -1))
+    if opts.get("chase_hi"):
+        # finer resolution inside the open-ended 17+ required-rate bucket: 20-24 and 24+ vs 17-20, by phase
+        rr = f["rrr"].to_numpy()
+        hb = np.where(rr >= 24, 1, np.where(rr >= 20, 0, -1))
+        D.add("chase_hi", [f"p{p}_{b}" for p in range(3) for b in ("rrr20-24", "rrr24+")], "chase_hi")
+        put("chase_hi", np.where((rrr >= 0) & (hb >= 0), ph * 2 + hb, -1))
+    if opts.get("chase_w"):
+        # chase pressure x wickets in hand (1-3, 4-6, 7-10): shrunk deviations from the phase x rrr table
+        wih = 10 - f["wkts_before"].to_numpy().astype(np.int64)
+        wb3 = np.select([wih <= 3, wih <= 6], [0, 1], 2)
+        D.add("chase_w", [f"p{p}_rrr{r}_wih{w}" for p in range(3) for r in range(8) for w in range(3)], "chase_w")
+        put("chase_w", np.where(rrr >= 0, (ph * 8 + rrr) * 3 + wb3, -1))
     sub = f["bowl_subtype"].astype(str).map({s: i for i, s in enumerate(SUBTYPES)}).to_numpy().astype(np.int64)
     lhb = (f["bat_hand"].astype(str) == "L").to_numpy()
     D.add("sub", SUBTYPES, "l0")
