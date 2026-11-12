@@ -13,8 +13,8 @@ import pandas as pd
 import scipy.sparse as sp
 from scipy.optimize import minimize
 
-from models.ipl.config import CLASSES, K, PROC, REF, TIERS
-from models.ipl.prep import SUBTYPES, EARLY_BF, EXP_LABELS
+from models.ipl.config import CLASSES, FRAME, K, PROC, REF, TIERS
+from models.ipl.prep import AGE_LABELS, SUBTYPES, EARLY_BF, EXP_LABELS
 
 KM = K - 1
 FREE = [k for k in range(K) if k != REF]
@@ -104,7 +104,22 @@ class Design:
         return self.blocks[name][0]
 
 
-def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons):
+TYPES6 = ["pace_R", "pace_L", "OB", "LB", "SLA", "SLW"]  # reliable bowling-type labels for matchup splits
+PAIR_MIN = 24  # batter x bowler pairs need this many deliveries in the fitting data to get a head-to-head term
+
+
+def design_opts(f, lam):
+    """Optional blocks are switched on by the presence of their penalty key in lam."""
+    o = {k: True for k in ("bat_type", "bowl_arch", "day", "wear", "toss", "pair") if k in lam}
+    if "pair" in lam:
+        key = f["batter"].astype(str) + "|" + f["bowler"].astype(str)
+        c = key.value_counts()
+        o["pairs"] = np.sort(c.index[c >= PAIR_MIN].to_numpy())
+    return o
+
+
+def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons, opts=None):
+    opts = opts or {}
     """Returns design (registry) and COO pieces for the frame f."""
     D = Design()
     n = len(f)
@@ -149,7 +164,18 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons)
     put("comp", f["comp"].astype(str).map(cmap).fillna(-1).to_numpy().astype(np.int64))
     csmap = {c: i for i, c in enumerate(comp_seasons)}
     D.add("cs", comp_seasons, "cs")
-    put("cs", f["comp_season"].astype(str).map(csmap).fillna(-1).to_numpy().astype(np.int64))
+    csi = f["comp_season"].astype(str).map(csmap).fillna(-1).to_numpy().astype(np.int64)
+    put("cs", csi)
+    # phase-specific league and league-season environment (e.g. the post-2023 IPL powerplay surge)
+    ci = f["comp"].astype(str).map(cmap).fillna(-1).to_numpy().astype(np.int64)
+    D.add("comp_ph", [f"{c}_p{p}" for c in comps for p in (0, 2)], "comp")
+    put("comp_ph", np.where((ci >= 0) & (ph != 1), ci * 2 + (ph == 2), -1))
+    D.add("cs_ph", [f"{c}_p{p}" for c in comp_seasons for p in (0, 2)], "cs")
+    put("cs_ph", np.where((csi >= 0) & (ph != 1), csi * 2 + (ph == 2), -1))
+    if opts.get("cs_ph_inn", False):  # tested: worse on the forward holdout (see method.md), off
+        # league-season x phase x innings deviations (batting-first and chasing sides pace their innings differently)
+        D.add("cs_ph_inn", [f"{c}_i{i + 1}_p{p}" for c in comp_seasons for i in range(2) for p in (0, 1, 2)], "cs")
+        put("cs_ph_inn", np.where(csi >= 0, csi * 6 + inn * 3 + ph, -1))
     vmap = {v: i for i, v in enumerate(venues)}
     vi = f["venue"].astype(str).map(vmap).fillna(-1).to_numpy().astype(np.int64)
     D.add("venue", venues, "venue")
@@ -171,12 +197,19 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons)
     put("bowl_role", rw)
     # experience prior, separately by role (a 20-ball opener is not a 20-ball tail-ender)
     ne = len(EXP_LABELS)
-    eb = cov["exp_bat"].reindex(bat_ids).fillna(0).to_numpy().astype(np.int64)
-    ew = cov["exp_bowl"].reindex(bowl_ids).fillna(0).to_numpy().astype(np.int64)
+    eb = f["exp_bat_row"].to_numpy().astype(np.int64)    # experience at the time of the delivery
+    ew = f["exp_bowl_row"].to_numpy().astype(np.int64)
     D.add("bat_exp", [f"{r}_{e}" for r in roles_bat for e in EXP_LABELS], "cov")
     put("bat_exp", rb * ne + eb)
     D.add("bowl_exp", [f"{r}_{e}" for r in roles_bowl for e in EXP_LABELS], "cov")
     put("bowl_exp", rw * ne + ew)
+    # age curves (age at the delivery): batting; bowling separately for pace and spin
+    na = len(AGE_LABELS)
+    D.add("bat_age", AGE_LABELS, "cov")
+    put("bat_age", f["age_bat_b"].to_numpy().astype(np.int64))
+    spin_row = f["bowl_spin"].to_numpy().astype(np.int64)
+    D.add("bowl_age", [f"{g}_{a}" for g in ("pace", "spin") for a in AGE_LABELS], "cov")
+    put("bowl_age", spin_row * na + f["age_bowl_b"].to_numpy().astype(np.int64))
     D.add("bat_tier", TIERS, "cov")
     D.add("bowl_tier", TIERS, "cov")
     tb = cov[["bat_tier_" + t for t in TIERS]].reindex(bat_ids).fillna(0).to_numpy()
@@ -202,6 +235,35 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons)
     for s, m in [("bowl_pp", ph == 0), ("bowl_death", ph == 2), ("bowl_lhb", lhb)]:
         D.add(s, players_bowl, "bowl_split")
         put(s, wi, mask=m)
+    # ---- optional matchup / conditions blocks
+    if opts.get("bat_type"):
+        ti = f["bowl_subtype"].astype(str).map({t: i for i, t in enumerate(TYPES6)}).fillna(-1).to_numpy().astype(np.int64)
+        D.add("bat_type", [f"{p}_{t}" for p in players_bat for t in TYPES6], "bat_type")
+        put("bat_type", np.where((bi >= 0) & (ti >= 0), bi * 6 + ti, -1))
+    if opts.get("bowl_arch"):
+        lowerish = cov["role_bat"].reindex(bat_ids).isin(["middle", "lower"]).to_numpy()
+        D.add("bowl_arch", players_bowl, "bowl_arch")
+        put("bowl_arch", wi, mask=lowerish)
+    if opts.get("day"):
+        dy = f["day"].to_numpy().astype(bool)
+        D.add("day", ["day", "day_i2"], "l0")
+        put("day", np.where(dy, inn, -1))
+    if opts.get("wear"):
+        wb = f["wear_b"].to_numpy().astype(np.int64)
+        spn = f["bowl_spin"].to_numpy().astype(np.int64)
+        D.add("wear", ["wear1", "wear2", "wear1_spin", "wear2_spin"], "l0")
+        put("wear", np.where(wb > 0, wb - 1, -1))
+        put("wear", np.where((wb > 0) & (spn == 1), wb + 1, -1))
+    if opts.get("toss"):
+        tb = f["toss_bat"].to_numpy().astype(bool)
+        D.add("toss", ["tossbat_i1", "tossbat_i2"], "l0")
+        put("toss", np.where(tb, inn, -1))
+    if opts.get("pair"):
+        pairs = pd.Index(opts["pairs"])
+        key = (f["batter"].astype(str) + "|" + f["bowler"].astype(str)).to_numpy()
+        pi = pairs.get_indexer(key).astype(np.int64)
+        D.add("pair", list(pairs), "pair")
+        put("pair", pi)
     r = np.concatenate(rows)
     c = np.concatenate(cols)
     v = np.concatenate(vals)
@@ -220,9 +282,16 @@ class Fitter:
         self.w = w.astype(np.float64)
         self.D = D
         self.n, self.p = X.shape
-        pen = np.zeros(self.p)
+        pen = np.zeros((self.p, KM))
         for name, (o, labels, key) in D.blocks.items():
             pen[o:o + len(labels)] = lam[key]
+        # optional extra shrinkage of batters' dismissal coefficients (wicket, run out classes)
+        mult = lam.get("bat_wkt_mult", 1.0)
+        if mult != 1.0:
+            cols = [FREE.index(CLASSES.index("wicket")), FREE.index(CLASSES.index("runout"))]
+            for name in ("bat", "bat_pp", "bat_death", "bat_spin", "bat_early"):
+                o, labels, _ = D.blocks[name]
+                pen[o:o + len(labels), cols] *= mult
         self.pen = pen
         self.eta = np.zeros((self.n, KM))
         self.G = np.zeros((self.n, KM))
@@ -237,14 +306,22 @@ class Fitter:
         loss = _softmax_grad(self.eta, self.y, self.w, REF, self.G, self.Hb, False)
         Xc = self.Xc
         _xtg(Xc.indptr, Xc.indices, Xc.data, self.G, self.gW)
-        loss += 0.5 * np.sum(self.pen[:, None] * W * W)
-        g = self.gW + self.pen[:, None] * W
+        loss += 0.5 * np.sum(self.pen * W * W)
+        g = self.gW + self.pen * W
         self.nit += 1
         return loss, g.ravel()
 
-    def fit(self, W0=None, maxiter=400, tol=1e-7):
+    def fit(self, W0=None, maxiter=400, tol=1e-7, checkpoint=None, every=50):
         th0 = np.zeros(self.p * KM) if W0 is None else W0.ravel()
-        res = minimize(self.fg, th0, jac=True, method="L-BFGS-B",
+        it = [0]
+        def cb(xk):
+            it[0] += 1
+            if checkpoint is not None and it[0] % every == 0:
+                tmp = str(checkpoint) + ".tmp.npy"
+                np.save(tmp, xk.reshape(self.p, KM))
+                import os
+                os.replace(tmp, str(checkpoint))
+        res = minimize(self.fg, th0, jac=True, method="L-BFGS-B", callback=cb,
                        options=dict(maxiter=maxiter, maxcor=15, ftol=tol, gtol=1e-6))
         self.W = res.x.reshape(self.p, KM)
         self.res = res
@@ -260,7 +337,7 @@ class Fitter:
         Xc.data = Xc.data ** 2
         hd = np.zeros((self.p, KM))
         _xtg(Xc.indptr, Xc.indices, Xc.data, H, hd)
-        return hd + self.pen[:, None]
+        return hd + self.pen
 
 
 def predict_eta(X, W):
@@ -279,7 +356,7 @@ def logloss(X, y, W):
 
 
 def load():
-    f = pd.read_parquet(PROC / "frame.parquet")
+    f = pd.read_parquet(FRAME)
     f = f[~f["reduced"]].reset_index(drop=True)
     cov = pd.read_parquet(PROC / "covariates.parquet")
     return f, cov
@@ -303,15 +380,24 @@ DEFAULT_LAM = dict(l0=1.0, cov=2.0, cell=30.0, comp=2.0, cs=200.0, venue=300.0, 
                    bat=150.0, bat_split=400.0, bowl=150.0, bowl_split=400.0)
 
 
-def fit_model(f, cov, lam, half_life, ref_date, maxiter=400, idx=None, verbose=False, tol=1e-7):
+def fit_model(f, cov, lam, half_life, ref_date, maxiter=400, idx=None, verbose=False, tol=1e-7, checkpoint=None):
     idx = idx or indices(f)
     w = weights(f["date"], ref_date, half_life)
     keep = w > 0.01
     fk = f[keep].reset_index(drop=True)
-    D, X = build_design(fk, cov, *idx)
+    opts = design_opts(fk, lam)
+    D, X = build_design(fk, cov, *idx, opts=opts)
     fitr = Fitter(X, fk["y"].to_numpy(), w[keep], D, lam)
+    fitr.opts = opts
     t = time.time()
-    fitr.fit(maxiter=maxiter, tol=tol)
+    W0 = None
+    if checkpoint is not None:
+        import os
+        if os.path.exists(str(checkpoint)):
+            W0 = np.load(str(checkpoint))
+            if W0.shape != (D.p, KM):
+                W0 = None
+    fitr.fit(W0=W0, maxiter=maxiter, tol=tol, checkpoint=checkpoint)
     if verbose:
         print(f"fit n={len(fk):,} p={D.p:,} iters={fitr.res.nit} {time.time()-t:.0f}s loss={fitr.res.fun:.1f}")
     return fitr, D, idx

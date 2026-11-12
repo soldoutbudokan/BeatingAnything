@@ -16,7 +16,7 @@ for (let rep = 0; rep < 3; rep++) {
   out.timings.push((Date.now() - t) / 1000);
 }
 ref.cases.forEach((c, i) => {
-  const s = IPLSim.simMatch(P, c.A, c.B, { venue: c.venue, n: c.n, seed: 7 + i, batFirst: c.batFirst || null });
+  const s = IPLSim.simMatch(P, c.A, c.B, { venue: c.venue, n: c.n, seed: 7 + i, batFirst: c.batFirst || null, conditions: c.conditions || null });
   out.cases.push(s);
 });
 fs.writeFileSync(process.argv[3], JSON.stringify(out));

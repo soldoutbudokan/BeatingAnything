@@ -5,7 +5,8 @@
  *   const out = IPLSim.simMatch(P, teamA, teamB, {venue: "wankhede stadium", n: 10000, seed: 1});
  *
  * team = {name, order: [11 player ids], plan: [{id, pp, mid, death}, ...]}   (or schedule: [20 bowler ids])
- * opts = {venue, n, seed, batFirst: "A" | "B" | null (null = half the sims each way), env}
+ * opts = {venue, n, seed, batFirst: "A" | "B" | null (null = half the sims each way), env,
+ *         conditions: {pitch: "flat"|"normal"|"slow_low"|"seaming", dew: "none"|"normal"|"heavy"} (optional)}
  *
  * Mirrors models/ipl/sim.py. Per-ball probabilities are a softmax over 11 outcome classes whose logits are the
  * sum of the exported tables: context base[innings][over][wickets] + balls-faced(settling) + chase pressure +
@@ -59,6 +60,8 @@
       P.ex[k] = { v: d.v, cp: cp };
     });
     P.qRoStriker = raw.extras.runout_striker;
+    var ms = raw.match_shock || { sd: 0, dir: new Array(NC).fill(0) };
+    P.shockSd = ms.sd; P.shockDir = ms.dir;
     return P;
   }
 
@@ -127,7 +130,20 @@
   }
 
   // ---------------------------------------------------------------- innings
-  function simInnings(P, rng, n, order, sched, V, env, inn, target, maxWkts, maxOvers, track) {
+  // user conditions: {group: option} -> summed {all, pace, spin, i1, i2} 11-vectors (sim_params.conditions)
+  function conditionTerms(P, conditions) {
+    if (!conditions) return null;
+    var out = {}, tbl = P.raw.conditions || {};
+    ["all", "pace", "spin", "i1", "i2"].forEach(function (k) { out[k] = new Array(NC).fill(0); });
+    Object.keys(conditions).forEach(function (g) {
+      var t = (tbl[g] || {})[conditions[g]];
+      if (!t) throw new Error("unknown condition " + g + "=" + conditions[g]);
+      Object.keys(t).forEach(function (k) { if (out[k]) for (var c = 0; c < NC; c++) out[k][c] += t[k][c]; });
+    });
+    return out;
+  }
+
+  function simInnings(P, rng, n, order, sched, V, env, inn, target, maxWkts, maxOvers, track, envPh, shock, cond) {
     maxWkts = maxWkts || 10; maxOvers = maxOvers || 20;
     var nbat = order.length, i, c, o;
     var bt = order.map(function (id) { return batterOf(P, id); });
@@ -144,8 +160,11 @@
       var mo = new Float64Array(nbat * NC);
       for (i = 0; i < nbat; i++) {
         var b = bt[i], lh = b.hand === "L" ? 1 : 0;
+        var h2h = (P.raw.pairs && P.raw.pairs[order[i]] && P.raw.pairs[order[i]][sched[o]]) || null;
         for (c = 0; c < NC; c++) {
-          var v = env[c] + V.base[c] + (inn === 2 ? V.i2[c] : 0) + spin * V.spin[c] + sub[c] + subph[c] + bw.b[c] +
+          var v = env[c] + (envPh ? (envPh.length === 2 ? envPh[inn - 1][ph][c] : envPh[ph][c]) : 0) +
+            (cond ? cond.all[c] + (spin ? cond.spin[c] : cond.pace[c]) + (inn === 2 ? cond.i2[c] : cond.i1[c]) : 0) +
+            (b.ty && b.ty[bw.sub] ? b.ty[bw.sub][c] : 0) + (h2h ? h2h[c] : 0) + V.base[c] + (inn === 2 ? V.i2[c] : 0) + spin * V.spin[c] + sub[c] + subph[c] + bw.b[c] +
             (ph === 0 ? bw.pp[c] : 0) + (ph === 2 ? bw.de[c] : 0) +
             b.b[c] + (ph === 0 ? b.pp[c] : 0) + (ph === 2 ? b.de[c] : 0) + spin * b.sp[c] +
             lh * (subl[c] + bw.lh[c]);
@@ -197,6 +216,7 @@
             if (chOff >= 0) x += P.chase[chOff + c];
             lg[c] = x;
           }
+          if (shock) { var zs = shock[s]; for (c = 0; c < NC; c++) lg[c] += zs * P.shockDir[c]; }
           if (free) lg[WICKET] = -50;
           if (step >= 14) { lg[WIDE] = -50; lg[NOBALL] = -50; }
           for (c = 0; c < NC; c++) if (lg[c] > mx) mx = lg[c];
@@ -269,15 +289,24 @@
     return best;
   }
 
-  function simOneWay(P, A, B, V, env, n, rng, first) {
+  function gauss(rng) { // Box-Muller
+    var u = 0, v = 0;
+    while (u === 0) u = rng();
+    v = rng();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+
+  function simOneWay(P, A, B, V, env, n, rng, first, envPh, cond) {
     var sa = A.schedule || bowlingSchedule(A.plan), sb = B.schedule || bowlingSchedule(B.plan);
     var oa = A.order.slice(0, 11), ob = B.order.slice(0, 11);
     var F = first === "A" ? { k: "A", o: oa, s: sa } : { k: "B", o: ob, s: sb };
     var S = first === "A" ? { k: "B", o: ob, s: sb } : { k: "A", o: oa, s: sa };
-    var i1 = simInnings(P, rng, n, F.o, S.s, V, env, 1, null, 10, 20, true);
+    var shock = null, i;
+    if (P.shockSd > 0) { shock = new Float64Array(n); for (i = 0; i < n; i++) shock[i] = gauss(rng) * P.shockSd; }
+    var i1 = simInnings(P, rng, n, F.o, S.s, V, env, 1, null, 10, 20, true, envPh, shock, cond);
     var tg = new Int32Array(n);
-    for (var i = 0; i < n; i++) tg[i] = i1.score[i] + 1;
-    var i2 = simInnings(P, rng, n, S.o, F.s, V, env, 2, tg, 10, 20, true);
+    for (i = 0; i < n; i++) tg[i] = i1.score[i] + 1;
+    var i2 = simInnings(P, rng, n, S.o, F.s, V, env, 2, tg, 10, 20, true, envPh, shock, cond);
     var firstWins = new Float64Array(n), tie = new Uint8Array(n), tied = [];
     for (i = 0; i < n; i++) {
       if (i1.score[i] > i2.score[i]) firstWins[i] = 1;
@@ -285,10 +314,12 @@
     }
     if (tied.length) {
       var m = tied.length;
-      var so1 = simInnings(P, rng, m, S.o.slice(0, 3), [deathBowler(F.s)], V, env, 1, null, 2, 1, false);
+      var sh2 = null;
+      if (shock) { sh2 = new Float64Array(m); for (i = 0; i < m; i++) sh2[i] = shock[tied[i]]; }
+      var so1 = simInnings(P, rng, m, S.o.slice(0, 3), [deathBowler(F.s)], V, env, 1, null, 2, 1, false, envPh, sh2, cond);
       var t2 = new Int32Array(m);
       for (i = 0; i < m; i++) t2[i] = so1.score[i] + 1;
-      var so2 = simInnings(P, rng, m, F.o.slice(0, 3), [deathBowler(S.s)], V, env, 2, t2, 2, 1, false);
+      var so2 = simInnings(P, rng, m, F.o.slice(0, 3), [deathBowler(S.s)], V, env, 2, t2, 2, 1, false, envPh, sh2, cond);
       for (i = 0; i < m; i++) {
         var fw = so2.score[i] > so1.score[i] ? 1 : 0;
         if (so2.score[i] === so1.score[i]) fw = rng() < 0.5 ? 1 : 0;
@@ -305,12 +336,14 @@
     opts = opts || {};
     var n = opts.n || 10000, rng = makeRng(opts.seed || 1);
     var V = (opts.venue && P.raw.venues[opts.venue]) || P.raw.venue_neutral;
-    var env = P.raw.env[opts.env || P.raw.default_env];
+    var ek = opts.env || P.raw.default_env;
+    var env = P.raw.env[ek], cond = conditionTerms(P, opts.conditions);
+    var envPh = (P.raw.env_phase_inn || {})[ek] || (P.raw.env_phase || {})[ek] || null;
     var parts;
-    if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst)];
+    if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst, envPh, cond)];
     else {
       var h = Math.floor(n / 2);
-      parts = [simOneWay(P, A, B, V, env, h, rng, "A"), simOneWay(P, A, B, V, env, n - h, rng, "B")];
+      parts = [simOneWay(P, A, B, V, env, h, rng, "A", envPh, cond), simOneWay(P, A, B, V, env, n - h, rng, "B", envPh, cond)];
     }
     return summarize(parts, A, B);
   }
@@ -420,6 +453,158 @@
     return out;
   }
 
+  // ---------------------------------------------------------------- raw (poolable) mode
+  // Dense integer histograms: h[v] = number of sims with value v (v >= 0). Pool runs from several workers
+  // with mergeRaw(a, b); summarizeRaw(raw) gives means / quantiles / P(>= t) from the pooled counts.
+  function hadd(h, v) { if (v < 0) v = 0; while (h.length <= v) h.push(0); h[v] += 1; }
+  function hmerge(a, b) {
+    var out = a.slice();
+    for (var i = 0; i < b.length; i++) { if (i >= out.length) out.push(0); out[i] += b[i]; }
+    return out;
+  }
+  function newTeamRaw() {
+    return { total: [], pp: [], sixes: [], fours: [], fow1: [], wkts: [], wides: [], extras: [], wins: 0, n: 0,
+             bat1: { n: 0, wins: 0, total: [] }, bat2: { n: 0, wins: 0, total: [] }, players: {} };
+  }
+  function newPlayerRaw() {
+    return { runs: [], balls: [], fours: [], sixes: [], wkts: [], conceded: [], legal_balls: 0,
+             batted: 0, out: 0, duck: 0, top_bat: 0, top_bowl: 0, n_bat: 0, n_bowl: 0 };
+  }
+
+  function rawFromParts(parts, A, B) {
+    var raw = { version: 1, n: 0, ties: 0, first_innings_total: [], match_total: [], A: newTeamRaw(), B: newTeamRaw(),
+                names: { A: A.name, B: B.name } };
+    parts.forEach(function (p) {
+      var first = p.first, second = first === "A" ? "B" : "A";
+      raw.n += p.n;
+      for (var i = 0; i < p.n; i++) {
+        raw.ties += p.tie[i];
+        var s1 = p[first].score[i], s2 = p[second].score[i];
+        hadd(raw.first_innings_total, s1);
+        hadd(raw.match_total, s1 + s2);
+      }
+      [["A", A], ["B", B]].forEach(function (pair) {
+        var side = pair[0], team = pair[1], other = side === "A" ? "B" : "A", T = raw[side], r = p[side], i, k;
+        var cond = p.first === side ? T.bat1 : T.bat2;
+        var order = team.order.slice(0, 11), nb = order.length;
+        var ro = p[other], ids = ro.bowlIds, nw = ids.length;
+        order.forEach(function (pid) { if (!T.players[pid]) T.players[pid] = newPlayerRaw(); });
+        ids.forEach(function (pid) { if (!T.players[pid]) T.players[pid] = newPlayerRaw(); });
+        for (i = 0; i < p.n; i++) {
+          var win = side === "A" ? p.winA[i] : 1 - p.winA[i];
+          T.n++; T.wins += win; cond.n++; cond.wins += win; hadd(cond.total, r.score[i]);
+          hadd(T.total, r.score[i]); hadd(T.pp, r.pp[i]); hadd(T.sixes, r.sixes[i]); hadd(T.fours, r.fours[i]);
+          hadd(T.fow1, r.fow1[i]); hadd(T.wkts, r.wk[i]); hadd(T.wides, r.wides[i]); hadd(T.extras, r.extras[i]);
+          var off = i * nb, top = -1, ntop = 0;
+          for (k = 0; k < nb; k++) if (r.batRuns[off + k] > top) top = r.batRuns[off + k];
+          for (k = 0; k < nb; k++) if (r.batted[off + k] && r.batRuns[off + k] === top) ntop++;
+          for (k = 0; k < nb; k++) {
+            var P_ = T.players[order[k]], rk = r.batRuns[off + k];
+            P_.n_bat++;
+            hadd(P_.runs, rk); hadd(P_.balls, r.batBalls[off + k]); hadd(P_.fours, r.bat4[off + k]); hadd(P_.sixes, r.bat6[off + k]);
+            P_.batted += r.batted[off + k]; P_.out += r.batOut[off + k];
+            if (r.batOut[off + k] && rk === 0) P_.duck++;
+            if (r.batted[off + k] && rk === top && ntop > 0) P_.top_bat += 1 / ntop;
+          }
+          var offw = i * nw, best = -1e9, nbst = 0;
+          for (k = 0; k < nw; k++) { var key = ro.bowlWkts[offw + k] * 1000 - ro.bowlRuns[offw + k]; if (key > best) best = key; }
+          for (k = 0; k < nw; k++) if (ro.bowlWkts[offw + k] * 1000 - ro.bowlRuns[offw + k] === best) nbst++;
+          for (k = 0; k < nw; k++) {
+            var Q = T.players[ids[k]];
+            Q.n_bowl++;
+            hadd(Q.wkts, ro.bowlWkts[offw + k]); hadd(Q.conceded, ro.bowlRuns[offw + k]); Q.legal_balls += ro.bowlBalls[offw + k];
+            if (ro.bowlWkts[offw + k] * 1000 - ro.bowlRuns[offw + k] === best) Q.top_bowl += 1 / nbst;
+          }
+        }
+      });
+    });
+    return raw;
+  }
+
+  /** Same inputs as simMatch; returns poolable integer counts (see mergeRaw / summarizeRaw). */
+  function simMatchRaw(P, A, B, opts) {
+    opts = opts || {};
+    var n = opts.n || 10000, rng = makeRng(opts.seed || 1);
+    var V = (opts.venue && P.raw.venues[opts.venue]) || P.raw.venue_neutral;
+    var ek = opts.env || P.raw.default_env;
+    var env = P.raw.env[ek], cond = conditionTerms(P, opts.conditions);
+    var envPh = (P.raw.env_phase_inn || {})[ek] || (P.raw.env_phase || {})[ek] || null;
+    var parts;
+    if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst, envPh, cond)];
+    else {
+      var h = Math.floor(n / 2);
+      parts = [simOneWay(P, A, B, V, env, h, rng, "A", envPh, cond), simOneWay(P, A, B, V, env, n - h, rng, "B", envPh, cond)];
+    }
+    return rawFromParts(parts, A, B);
+  }
+
+  function mergeTeam(a, b) {
+    var o = { n: a.n + b.n, wins: a.wins + b.wins, players: {} };
+    ["total", "pp", "sixes", "fours", "fow1", "wkts", "wides", "extras"].forEach(function (k) { o[k] = hmerge(a[k], b[k]); });
+    ["bat1", "bat2"].forEach(function (k) {
+      o[k] = { n: a[k].n + b[k].n, wins: a[k].wins + b[k].wins, total: hmerge(a[k].total, b[k].total) };
+    });
+    var ids = Object.keys(a.players).concat(Object.keys(b.players).filter(function (x) { return !(x in a.players); }));
+    ids.forEach(function (pid) {
+      var x = a.players[pid] || newPlayerRaw(), y = b.players[pid] || newPlayerRaw(), z = {};
+      ["runs", "balls", "fours", "sixes", "wkts", "conceded"].forEach(function (k) { z[k] = hmerge(x[k], y[k]); });
+      ["legal_balls", "batted", "out", "duck", "top_bat", "top_bowl", "n_bat", "n_bowl"].forEach(function (k) { z[k] = x[k] + y[k]; });
+      o.players[pid] = z;
+    });
+    return o;
+  }
+
+  /** Pool two raw results of the same matchup (e.g. from two workers with different seeds). */
+  function mergeRaw(a, b) {
+    return { version: 1, n: a.n + b.n, ties: a.ties + b.ties, names: a.names,
+             first_innings_total: hmerge(a.first_innings_total, b.first_innings_total),
+             match_total: hmerge(a.match_total, b.match_total), A: mergeTeam(a.A, b.A), B: mergeTeam(a.B, b.B) };
+  }
+
+  function hstats(h) {
+    var n = 0, s = 0, i;
+    for (i = 0; i < h.length; i++) { n += h[i]; s += i * h[i]; }
+    var q = function (pq) {
+      var target = pq / 100 * (n - 1), acc = 0;
+      for (var v = 0; v < h.length; v++) { acc += h[v]; if (acc > target) return v; }
+      return h.length - 1;
+    };
+    var ge = function (t) { var c = 0; for (var v = t; v < h.length; v++) c += h[v]; return n ? c / n : 0; };
+    return { n: n, mean: n ? s / n : 0, q: q, ge: ge, pmf: h.map(function (c) { return n ? c / n : 0; }) };
+  }
+
+  /** Convenience: summary numbers from (pooled) raw counts. Quantiles are the lower order statistic. */
+  function summarizeRaw(raw) {
+    var out = { n: raw.n, p_win_A: raw.A.wins / raw.n, p_tie: raw.ties / raw.n,
+                first_innings_total: hstats(raw.first_innings_total).mean, match_total: hstats(raw.match_total).mean };
+    ["A", "B"].forEach(function (side) {
+      var T = raw[side], st = hstats(T.total), o = { total_mean: st.mean, total_q: [5, 25, 50, 75, 95].map(st.q),
+        pp_mean: hstats(T.pp).mean, sixes_mean: hstats(T.sixes).mean, fours_mean: hstats(T.fours).mean,
+        fow1_mean: hstats(T.fow1).mean, wkts_mean: hstats(T.wkts).mean,
+        p_win_bat1: T.bat1.n ? T.bat1.wins / T.bat1.n : null, p_win_bat2: T.bat2.n ? T.bat2.wins / T.bat2.n : null,
+        players: {} };
+      Object.keys(T.players).forEach(function (pid) {
+        var p = T.players[pid], d = {};
+        if (p.n_bat) {
+          var r = hstats(p.runs);
+          d.runs_mean = r.mean; d.p_runs = {}; [10, 20, 30, 40, 50, 75, 100].forEach(function (t) { d.p_runs[String(t)] = r.ge(t); });
+          d.balls_mean = hstats(p.balls).mean; d.fours_mean = hstats(p.fours).mean; d.sixes_mean = hstats(p.sixes).mean;
+          d.p_bat = p.batted / p.n_bat; d.p_out = p.out / p.n_bat; d.p_duck = p.duck / p.n_bat; d.p_top_bat = p.top_bat / p.n_bat;
+        }
+        if (p.n_bowl) {
+          var w = hstats(p.wkts), c = hstats(p.conceded);
+          d.wkts_mean = w.mean; d.p_wkts = {}; [1, 2, 3, 4, 5].forEach(function (t) { d.p_wkts[String(t)] = w.ge(t); });
+          d.conceded_mean = c.mean; d.overs_mean = p.legal_balls / p.n_bowl / 6;
+          d.econ = p.legal_balls ? c.mean * p.n_bowl / p.legal_balls * 6 : null; d.p_top_bowl = p.top_bowl / p.n_bowl;
+        }
+        o.players[pid] = d;
+      });
+      out[side] = o;
+    });
+    return out;
+  }
+
   return { prepare: prepare, simMatch: simMatch, simInnings: simInnings, bowlingSchedule: bowlingSchedule,
-           makeRng: makeRng, summarize: summarize };
+           makeRng: makeRng, summarize: summarize,
+           simMatchRaw: simMatchRaw, mergeRaw: mergeRaw, summarizeRaw: summarizeRaw };
 });

@@ -1,0 +1,273 @@
+{
+ "build_utc": "2026-11-12T04:37:23Z",
+ "data_source": "cricsheet.org all_male_json.zip (men's T20 / IT20, 20-over matches) + register/people.csv",
+ "data_cutoff": "2026-11-03",
+ "ipl_latest_season": 2026,
+ "ipl_last_match": "2026-05-31",
+ "counts": {
+  "matches": 10819,
+  "deliveries": 2475959,
+  "deliveries_modelled": 2367886,
+  "matches_reduced_or_dls_excluded": 622,
+  "by_comp": {
+   "BBL": {
+    "matches": 662,
+    "deliveries": 153250,
+    "first": "2011-12-16",
+    "last": "2026-01-25"
+   },
+   "BPL": {
+    "matches": 469,
+    "deliveries": 111232,
+    "first": "2012-02-11",
+    "last": "2026-01-23"
+   },
+   "CPL": {
+    "matches": 445,
+    "deliveries": 103717,
+    "first": "2013-07-30",
+    "last": "2026-09-20"
+   },
+   "CTC": {
+    "matches": 314,
+    "deliveries": 71230,
+    "first": "2012-02-15",
+    "last": "2024-10-27"
+   },
+   "ETPL": {
+    "matches": 31,
+    "deliveries": 6883,
+    "first": "2026-08-26",
+    "last": "2026-09-20"
+   },
+   "ILT": {
+    "matches": 134,
+    "deliveries": 31407,
+    "first": "2023-01-13",
+    "last": "2026-01-04"
+   },
+   "IPL": {
+    "matches": 1243,
+    "deliveries": 295732,
+    "first": "2008-04-18",
+    "last": "2026-05-31"
+   },
+   "IPT": {
+    "matches": 111,
+    "deliveries": 24011,
+    "first": "2016-05-27",
+    "last": "2026-07-29"
+   },
+   "LPL": {
+    "matches": 143,
+    "deliveries": 32917,
+    "first": "2020-11-26",
+    "last": "2026-08-08"
+   },
+   "MCT": {
+    "matches": 121,
+    "deliveries": 24259,
+    "first": "2024-05-12",
+    "last": "2026-09-16"
+   },
+   "MLC": {
+    "matches": 109,
+    "deliveries": 25529,
+    "first": "2023-07-13",
+    "last": "2026-07-18"
+   },
+   "MSL": {
+    "matches": 56,
+    "deliveries": 12651,
+    "first": "2018-11-16",
+    "last": "2019-12-16"
+   },
+   "NPL": {
+    "matches": 76,
+    "deliveries": 17553,
+    "first": "2024-11-30",
+    "last": "2026-11-03"
+   },
+   "NTB": {
+    "matches": 1570,
+    "deliveries": 360545,
+    "first": "2014-05-16",
+    "last": "2026-07-18"
+   },
+   "PRO20": {
+    "matches": 6,
+    "deliveries": 1285,
+    "first": "2026-09-25",
+    "last": "2026-09-29"
+   },
+   "PSL": {
+    "matches": 357,
+    "deliveries": 83799,
+    "first": "2016-02-04",
+    "last": "2026-05-03"
+   },
+   "SAT": {
+    "matches": 130,
+    "deliveries": 29020,
+    "first": "2023-01-10",
+    "last": "2026-01-25"
+   },
+   "SMA": {
+    "matches": 695,
+    "deliveries": 158839,
+    "first": "2016-01-02",
+    "last": "2024-12-15"
+   },
+   "SSM": {
+    "matches": 270,
+    "deliveries": 61502,
+    "first": "2013-01-20",
+    "last": "2026-01-31"
+   },
+   "T20I": {
+    "matches": 1139,
+    "deliveries": 260636,
+    "first": "2005-02-17",
+    "last": "2026-11-01"
+   },
+   "T20I-A": {
+    "matches": 2738,
+    "deliveries": 609962,
+    "first": "2007-09-01",
+    "last": "2026-10-25"
+   }
+  }
+ },
+ "model": {
+  "half_life_years": 4.0,
+  "penalties": {
+   "l0": 1.0,
+   "cov": 2.0,
+   "cell": 30.0,
+   "comp": 2.0,
+   "cs": 200.0,
+   "venue": 300.0,
+   "venue2": 600.0,
+   "bat": 40,
+   "bat_split": 100,
+   "bowl": 100,
+   "bowl_split": 100,
+   "bat_type": 150.0
+  },
+  "lbfgs_iterations": 1000,
+  "n_coefficients": 1167260,
+  "ref_date": "2026-11-03"
+ },
+ "styles": {
+  "players_with_style": 8800,
+  "bowling_group_inferred": 1174
+ },
+ "sim": {
+  "python_sec_per_10k": 1.335619370142619,
+  "js_node_sec_per_10k": 0.853,
+  "parity": {
+   "comparisons": 138,
+   "max_abs_z": 3.963333333333334,
+   "share_abs_z_gt_2": 0.08695652173913043,
+   "mean_abs_z": 0.8995868078921748,
+   "pass": true
+  },
+  "runs_to_win_prob": 0.012050345366662949,
+  "runs_to_win_prob_detail": {
+   "slope": 0.012050345366662949,
+   "pairs": [
+    {
+     "A": "Chennai Super Kings",
+     "B": "Gujarat Titans",
+     "d_win": 0.04560000000000003,
+     "d_runs": 3.7061999999999955
+    },
+    {
+     "A": "Chennai Super Kings",
+     "B": "Punjab Kings",
+     "d_win": 0.0403,
+     "d_runs": 4.198599999999999
+    },
+    {
+     "A": "Gujarat Titans",
+     "B": "Punjab Kings",
+     "d_win": 0.037799999999999945,
+     "d_runs": 3.293299999999988
+    },
+    {
+     "A": "Kolkata Knight Riders",
+     "B": "Lucknow Super Giants",
+     "d_win": 0.05469999999999997,
+     "d_runs": 3.8832999999999913
+    },
+    {
+     "A": "Mumbai Indians",
+     "B": "Royal Challengers Bengaluru",
+     "d_win": 0.05239999999999995,
+     "d_runs": 3.8711999999999875
+    },
+    {
+     "A": "Royal Challengers Bengaluru",
+     "B": "Sunrisers Hyderabad",
+     "d_win": 0.052600000000000036,
+     "d_runs": 3.908999999999992
+    },
+    {
+     "A": "Lucknow Super Giants",
+     "B": "Mumbai Indians",
+     "d_win": 0.04199999999999998,
+     "d_runs": 4.230700000000013
+    },
+    {
+     "A": "Chennai Super Kings",
+     "B": "Lucknow Super Giants",
+     "d_win": 0.05229999999999996,
+     "d_runs": 4.251200000000011
+    }
+   ],
+   "delta": 0.06
+  },
+  "match_shock": 0.2042
+ },
+ "files_bytes": {
+  "diagnostics.json": 34966,
+  "head_to_head.json": 95,
+  "leagues.json": 7533,
+  "matchups/CSK.json": 766203,
+  "matchups/DC.json": 788037,
+  "matchups/GT.json": 778007,
+  "matchups/KKR.json": 789911,
+  "matchups/LSG.json": 773783,
+  "matchups/MI.json": 797084,
+  "matchups/PBKS.json": 789505,
+  "matchups/RCB.json": 794080,
+  "matchups/RR.json": 785847,
+  "matchups/SRH.json": 796854,
+  "matchups/index.json": 4878,
+  "matchups.json": 1232815,
+  "meta.json": 3840,
+  "method.md": 20247,
+  "players.json": 5436157,
+  "schema.md": 24981,
+  "sim_params.json": 967509,
+  "teams.json": 47605,
+  "venues.json": 273144
+ },
+ "total_bytes": 15913081,
+ "matchups": {
+  "files": [
+   "matchups/CSK.json",
+   "matchups/DC.json",
+   "matchups/GT.json",
+   "matchups/KKR.json",
+   "matchups/LSG.json",
+   "matchups/MI.json",
+   "matchups/PBKS.json",
+   "matchups/RCB.json",
+   "matchups/RR.json",
+   "matchups/SRH.json",
+   "matchups/index.json"
+  ],
+  "index": "matchups/index.json"
+ }
+}

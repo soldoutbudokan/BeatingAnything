@@ -1,4 +1,5 @@
 """Shared paths and constants for the IPL ball-by-ball model."""
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -6,12 +7,16 @@ RAW = ROOT / "data" / "raw" / "cricsheet"
 PROC = ROOT / "data" / "processed" / "ipl"
 EXPORT = ROOT / "docs" / "models" / "ipl" / "data"
 STATIC = ROOT / "models" / "ipl" / "static"
+FRAME = PROC / os.environ.get("IPL_FRAME", "frame.parquet")  # model frame (override only for side experiments)
 for p in (RAW, PROC, EXPORT, STATIC):
     p.mkdir(parents=True, exist_ok=True)
 
 ALL_ZIP = RAW / "all_male_json.zip"
 PEOPLE = RAW / "people.csv"
 STYLES = STATIC / "player_styles.csv"
+# dates of birth: cricketdata::player_meta (github.com/robjhyndman/cricketdata), as fetched by the styles builder
+DOB = ROOT / "data" / "raw" / "cricket_styles" / "gh" / "cricketdata_player_meta.csv"
+PROJ_DATE = "2027-04-15"  # age reference date for 2027 projections
 
 # Outcome classes (order is part of the export contract)
 CLASSES = ["wide", "noball", "byes", "wicket", "runout", "r0", "r1", "r2", "r3", "r4", "r6"]

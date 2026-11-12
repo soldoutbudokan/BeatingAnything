@@ -31,6 +31,14 @@ class Params:
         self.sub_lhb = {k: np.asarray(v, float) for k, v in raw["sub_lhb"].items()}
         self.sub_phase = {k: np.asarray(v, float) for k, v in raw["sub_phase"].items()}
         self.env = {k: np.asarray(v, float) for k, v in raw["env"].items()}
+        self.env_phase = {k: np.asarray(v, float) for k, v in raw.get("env_phase", {}).items()}
+        # innings-specific phase environment (supersedes env_phase when present): [2][3][11]
+        for k, v in raw.get("env_phase_inn", {}).items():
+            self.env_phase[k] = np.asarray(v, float)
+        self.pairs = raw.get("pairs", {})
+        self.cond_tbl = raw.get("conditions", {})
+        ms = raw.get("match_shock") or {"sd": 0.0, "dir": [0.0] * NC}
+        self.shock_sd, self.shock_dir = float(ms["sd"]), np.asarray(ms["dir"], float)
         self.ex = raw["extras"]
 
     @classmethod
@@ -126,7 +134,7 @@ def _draw(d, u):
 
 
 def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=10, max_overs=20,
-                track=True):
+                track=True, env_ph=None, shock=None, cond=None):
     """order: list of 11 batter ids; sched: list of bowler ids (len max_overs)."""
     nbat = len(order)
     bt = [P.batter(b) for b in order]
@@ -161,6 +169,8 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
     wr = np.zeros((n, nbw), int)
     ww = np.zeros((n, nbw), int)
     pp_score = np.zeros(n, int)
+    ph_runs = np.zeros((n, 3), int)
+    ph_wkts = np.zeros((n, 3), int)
     fow1 = np.full(n, -1)
     fours = np.zeros(n, int)
     sixes = np.zeros(n, int)
@@ -174,11 +184,22 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
         bw = P.bowler(bid)
         j = bix[bid]
         spin = 1.0 if bw.get("spin") else 0.0
-        const = (env + np.asarray(V["base"]) + (np.asarray(V["i2"]) if inn == 2 else 0) + spin * np.asarray(V["spin"])
+        eph_t = 0 if env_ph is None else (env_ph[inn - 1][ph] if env_ph.ndim == 3 else env_ph[ph])
+        const = (env + eph_t + np.asarray(V["base"]) + (np.asarray(V["i2"]) if inn == 2 else 0) + spin * np.asarray(V["spin"])
                  + P.sub[bw["sub"]] + P.sub_phase[bw["sub"]][ph] + np.asarray(bw["b"]) + (np.asarray(bw["pp"]) if ph == 0 else 0)
                  + (np.asarray(bw["de"]) if ph == 2 else 0))
         lhb_o = P.sub_lhb[bw["sub"]] + np.asarray(bw["lh"])
+        if cond is not None:
+            const = const + cond["all"] + (cond["spin"] if spin else cond["pace"]) + (cond["i2"] if inn == 2 else cond["i1"])
         M = const[None, :] + BB + BPH[ph] + spin * BSP + LHB[:, None] * lhb_o[None, :]
+        # per-batter bowling-type split and batter x bowler head-to-head (sparse; absent = 0)
+        for k, b in enumerate(bt):
+            ty = b.get("ty")
+            if ty and bw["sub"] in ty:
+                M[k] += np.asarray(ty[bw["sub"]])
+            h2h = P.pairs.get(order[k])
+            if h2h and bid in h2h:
+                M[k] += np.asarray(h2h[bid])
         oo = o if max_overs == 20 else 19
         lio = np.zeros(n, int)
         for step in range(30):
@@ -192,6 +213,8 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
             lg += BEA[s] * (sbf < P.early_bf)[:, None]
             bfb = np.searchsorted(P.bf_edges, sbf, side="right") - 1
             lg += P.bf[ph, bfb]
+            if shock is not None:
+                lg += shock[idx][:, None] * P.shock_dir[None, :]
             if tgt is not None:
                 bl = np.maximum(max_overs * 6 - legal[idx], 1)
                 rrr = (tgt[idx] - score[idx]) * 6.0 / bl
@@ -247,6 +270,7 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
             wides[idx] += (k == C["wide"])
             extras[idx] += np.where((k <= C["byes"]), np.where(k == C["noball"], 1, runs), 0)
             score[idx] += runs
+            ph_runs[idx, ph] += runs
             wb[idx, j] += isl
             wr[idx, j] += conc
             ww[idx, j] += (k == C["wicket"])
@@ -272,6 +296,7 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
                 fw = fow1[wi] < 0
                 fow1[wi[fw]] = score[wi[fw]]
                 wk[wi] += 1
+                ph_wkts[wi, ph] += 1
                 newb = nxt[wi]
                 can = newb < nbat
                 at_stk = stk[wi] == victim
@@ -294,11 +319,30 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
         pp_score[:] = score
     fow1 = np.where(fow1 < 0, score, fow1)
     res = dict(score=score, wk=wk, legal=legal, pp=pp_score, fow1=fow1, fours=fours, sixes=sixes,
-               wides=wides, extras=extras)
+               wides=wides, extras=extras, ph_runs=ph_runs, ph_wkts=ph_wkts)
     if track:
         res.update(bat_runs=br, bat_balls=bf, bat_4=b4, bat_6=b6, bat_out=out, batted=batted,
                    bowl_ids=bowl_ids, bowl_balls=wb, bowl_runs=wr, bowl_wkts=ww)
     return res
+
+
+# %% user conditions
+
+
+def condition_terms(P, conditions):
+    """conditions: e.g. {"pitch": "slow_low", "dew": "heavy"}; options and their logit shifts are in
+    sim_params.conditions[group][option] = {all, pace, spin, i1, i2} (any subset). Returns summed 11-vectors."""
+    if not conditions:
+        return None
+    out = {k: np.zeros(NC) for k in ("all", "pace", "spin", "i1", "i2")}
+    for g, opt in conditions.items():
+        t = P.cond_tbl.get(g, {}).get(opt)
+        if t is None:
+            raise ValueError(f"unknown condition {g}={opt}")
+        for k, v in t.items():
+            if k in out:
+                out[k] = out[k] + np.asarray(v, float)
+    return out
 
 
 # %% match
@@ -309,40 +353,47 @@ def team_inputs(P, team):
     return team["order"][:11], sched
 
 
-def sim_match(P, A, B, venue_id, n=10000, seed=0, bat_first=None, env_key=None):
+def sim_match(P, A, B, venue_id, n=10000, seed=0, bat_first=None, env_key=None, conditions=None):
     """A, B: dict(name, order=[11 ids], plan=[{id,pp,mid,death}] or schedule=[20 ids]).
     bat_first: 'A', 'B' or None (half the sims each way)."""
     rng = np.random.default_rng(seed)
     V = P.raw["venues"].get(venue_id) or P.raw["venue_neutral"]
-    env = P.env[env_key or P.raw["default_env"]]
+    ek = env_key or P.raw["default_env"]
+    env = P.env[ek]
+    eph = P.env_phase.get(ek)
     oa, sa = team_inputs(P, A)
     ob, sb = team_inputs(P, B)
     if bat_first is None:
         h = n // 2
-        r1 = sim_match(P, A, B, venue_id, h, seed * 2 + 1, "A", env_key)
-        r2 = sim_match(P, A, B, venue_id, n - h, seed * 2 + 2, "B", env_key)
+        r1 = sim_match(P, A, B, venue_id, h, seed * 2 + 1, "A", env_key, conditions)
+        r2 = sim_match(P, A, B, venue_id, n - h, seed * 2 + 2, "B", env_key, conditions)
         return _concat(r1, r2)
     first, second = ((("A", oa, sa), ("B", ob, sb)) if bat_first == "A" else (("B", ob, sb), ("A", oa, sa)))
-    i1 = sim_innings(P, rng, n, first[1], second[2], V, env, 1)
-    i2 = sim_innings(P, rng, n, second[1], first[2], V, env, 2, target=i1["score"] + 1)
+    shock = rng.standard_normal(n) * P.shock_sd if P.shock_sd > 0 else None
+    cond = condition_terms(P, conditions)
+    i1 = sim_innings(P, rng, n, first[1], second[2], V, env, 1, env_ph=eph, shock=shock, cond=cond)
+    i2 = sim_innings(P, rng, n, second[1], first[2], V, env, 2, target=i1["score"] + 1, env_ph=eph, shock=shock,
+                     cond=cond)
     s1, s2 = i1["score"], i2["score"]
     first_wins = (s1 > s2).astype(float)
     tie = s1 == s2
     if tie.any():
-        first_wins[tie] = super_over(P, rng, tie.sum(), first, second, V, env)
+        first_wins[tie] = super_over(P, rng, tie.sum(), first, second, V, env, eph,
+                                     None if shock is None else shock[tie], cond)
     out = {first[0]: i1, second[0]: i2, "first": np.full(n, first[0]), "winA": first_wins if first[0] == "A" else 1 - first_wins,
            "tie": tie}
     return out
 
 
-def super_over(P, rng, m, first, second, V, env):
+def super_over(P, rng, m, first, second, V, env, eph=None, shock=None, cond=None):
     """Simplified super over: team batting second bats first; top-3 of order; plan's top death bowler."""
     def death_bowler(team_sched):
         last5 = team_sched[15:]
         return max(set(last5), key=last5.count)
-    so1 = sim_innings(P, rng, m, second[1][:3], [death_bowler(first[2])], V, env, 1, max_wkts=2, max_overs=1, track=False)
+    so1 = sim_innings(P, rng, m, second[1][:3], [death_bowler(first[2])], V, env, 1, max_wkts=2, max_overs=1,
+                      track=False, env_ph=eph, shock=shock, cond=cond)
     so2 = sim_innings(P, rng, m, first[1][:3], [death_bowler(second[2])], V, env, 2, target=so1["score"] + 1,
-                      max_wkts=2, max_overs=1, track=False)
+                      max_wkts=2, max_overs=1, track=False, env_ph=eph, shock=shock, cond=cond)
     fw = (so2["score"] > so1["score"]).astype(float)
     t = so2["score"] == so1["score"]
     fw[t] = rng.random(t.sum()) < 0.5

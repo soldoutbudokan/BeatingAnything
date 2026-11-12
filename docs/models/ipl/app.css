@@ -1,0 +1,66 @@
+/* IPL workbook: page-specific additions on top of ../assets/sheet.css (tokens only, no hex). Mirrors wnba/app.css. */
+.ip-gap{gap:14px}
+.ip-intro .sh-md{max-width:none;font-size:13.5px}
+.ip-intro .sh-md p{margin:.3em 0 .6em;max-width:110ch}
+.ip-sub{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:8px 0 2px}
+.ip-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px 18px;min-width:0}
+.ip-two-wide{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.ip-two>*,.ip-statgrid>*,.sh-cols>*,.ip-mgrid>*{min-width:0}
+.ip-click tbody tr{cursor:pointer}
+.ip-click tbody tr:hover td{background:var(--hover)}
+.ip-click tbody tr:focus-visible{outline:2px solid var(--model);outline-offset:-2px}
+.ip-links a{color:var(--model);text-underline-offset:2px}
+.ip-legend{font-size:11.5px;margin-top:2px}
+.ip-status{margin:0 4px}
+.ip-tools{display:inline-flex;align-items:center;gap:10px}
+.ip-ctlbar{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 18px}
+.ip-ctlbar .ip-links{padding-bottom:5px}
+.ip-src{font-size:11.5px;margin-top:2px}
+.ip-ref{border-left:3px solid var(--rule);padding-left:8px}
+/* header odds toggle */
+.sh-bar .ip-odds .ui-seg button{height:20px;font-size:11.5px;padding:0 8px}
+@media (max-width:480px){.sh-bar .ip-odds .ui-seg button{padding:0 6px}}
+/* line pricer */
+.ip-lrow{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 16px;margin-bottom:6px}
+.ip-lab{display:inline-flex;flex-direction:column;gap:3px}
+.ip-line{font:inherit;font-size:13px;width:84px;height:28px;padding:0 8px;border:1px solid var(--base);border-radius:6px;background:var(--plane);color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.ip-line:focus,.ip-ov:focus{outline:2px solid var(--model);outline-offset:-1px;border-color:transparent}
+.ip-px{display:flex;flex-wrap:wrap;gap:2px 16px;font-size:12.5px;color:var(--ink2);font-variant-numeric:tabular-nums;padding-bottom:5px}
+.ip-px b{color:var(--ink);font-weight:600}
+/* custom charts */
+.sc .ip-tick{stroke:var(--ink);stroke-width:1.5}
+.sc .ip-conn{stroke:var(--axis);stroke-width:1;shape-rendering:crispEdges}
+.sc .ip-whisk{stroke:var(--ink2);stroke-width:1.5}
+.sc .ip-ctext{fill:var(--ink);font-size:10px;font-weight:600;pointer-events:none}
+.ip-mult{display:flex;flex-wrap:wrap;gap:6px 22px}
+.ip-mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:8px 18px}
+/* simulator */
+.ip-simgrid{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:14px;align-items:start;min-width:0}
+@media (max-width:1020px){.ip-simgrid{grid-template-columns:minmax(0,1fr)}}
+.ip-simctl{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ip-simout{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ip-progrow{display:flex;align-items:center;gap:12px;min-height:20px}
+.ip-progrow .ui-prog{max-width:260px}
+.ip-run{min-width:140px}
+.ip-run:disabled{opacity:.5;cursor:not-allowed}
+.ip-roster{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--rule);padding-top:10px;min-width:0}
+.ip-rhead{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ip-roster .ui-sel{max-width:100%}
+.ip-roster .ui-f{min-width:0}
+.ip-swap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) auto;gap:8px;align-items:end}
+@media (max-width:520px){.ip-swap{grid-template-columns:minmax(0,1fr)}}
+.ip-ptab td{padding:2px 6px;height:28px}
+.ip-ptab th{padding:4px 6px}
+.ip-ptab .ip-pn{white-space:normal;line-height:1.25}
+.ip-ptab tr.ip-tot td{font-weight:600}
+.ip-ov{font:inherit;font-size:12.5px;width:46px;height:24px;padding:0 4px;border:1px solid var(--base);border-radius:5px;background:var(--plane);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.ip-pricer{display:flex;flex-direction:column;gap:8px}
+.ip-pricer .ui-sel{max-width:300px}
+.ip-schema summary{cursor:pointer;font-weight:600;font-size:14px;padding:6px 0}
+.ip-schema .sh-md{margin-top:8px}
+.ip-statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px 24px;align-items:start;min-width:0}
+.ip-sec{margin-top:6px}
+.ip-sech{font-size:15.5px;margin-top:10px}
+.sh-cols>.ip-wide{grid-column:1/-1}
+#sheet-batters .sg,#sheet-bowlers .sg{position:relative}
+#sheet-batters .sg::after,#sheet-bowlers .sg::after{content:'';position:absolute;top:0;right:0;bottom:0;width:22px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--surface) 85%)}
