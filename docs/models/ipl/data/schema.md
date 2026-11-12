@@ -105,7 +105,9 @@ Conventions used throughout:
   (negative `econ`/`rv_over` good).
 * `bowl.sd`: posterior SD of `all` `{econ, wkt_pct, rv_over}`.
 * `bowl.phase_mix`: [pp, mid, death] share of his (recency-weighted) legal balls.
-* `bowl.value`: `{rv_over_mix, rep_rv_over, varp_runs, varp_wp}` — value per 4 overs in his phase mix.
+* `bowl.value`: `{rv_over_mix, rep_rv_over, exp_overs, varp_4ov, varp_runs, varp_wp}` — his and replacement
+  run value per over in his phase mix, usual overs per match (career, ≤4), value per 4 overs, and value per
+  match at his usual workload (`varp_runs`, and in win probability `varp_wp`).
 * `bowl.pct`: percentiles (higher = better): `all_econ, all_rv_over, death_econ, pp_econ, all_wkt_pct, bowl_varp`.
 * `bowl.obs_2024`, `bowl.obs_ipl_2024`: `balls` (legal), `conc`, `wkts`, `econ`, `xecon`, `runs_saved`
   (expected minus actual conceded), `wkts_vs_x`, `dot_pct`, `xdot_pct`, `wpa`, `wpa_per_match`.
@@ -126,7 +128,7 @@ Conventions used throughout:
 | plan | bowling plan `[{id, pp, mid, death}]` (whole overs per phase; totals 6/9/5, ≤4 per bowler) |
 | schedule | the 20 bowler ids, over by over, that the captain heuristic produces from `plan` |
 | squad | every player used that season: `{id, name, apps, last_app, overseas, bat_pos (weighted mean), overs_pm, ov_pp, ov_mid, ov_death (per match), in_pool}` (`in_pool` = has ratings in players.json/sim_params.json) |
-| rating | `{win_pct_neutral` (mean P(win) vs the other 9 at a neutral venue), `win_pct_home_away` (mean over the 18 home/away matchups), `runs_for`, `runs_against`, `net_runs` (mean totals across those matchups), `xi_bat_varp`, `xi_bowl_varp` (bowling VARP scaled by planned overs/4), `xi_varp`, `rank` (by win_pct_neutral)}` |
+| rating | `{win_pct_neutral` (mean P(win) vs the other 9 at a neutral venue), `win_pct_home_away` (mean over the 18 home/away matchups), `runs_for`, `runs_against`, `net_runs` (mean totals across those matchups), `xi_bat_varp`, `xi_bowl_varp` (each planned bowler's `varp_4ov` x planned overs / 4), `xi_varp`, `rank` (by win_pct_neutral)}` |
 
 ## matchups.json
 

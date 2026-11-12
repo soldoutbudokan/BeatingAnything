@@ -50,10 +50,11 @@ in the IPL end up on one scale: players who appear in both connect the leagues.
 
 **Shrinkage.** Every term has a Gaussian (ridge) penalty: a player with few balls is pulled toward the
 average of players like him: same batting role (career batting position) or bowling role (pace/spin x
-workload), same mix of leagues, and same experience bucket within that role (career deliveries <60, 60-199,
-200-599, 600-1499, 1500-3999, 4000+). The experience term matters: players who have had few chances are, on
-average, weaker than established ones, so a 20-ball newcomer regresses toward "a typical newcomer in that
-role", not toward an established average. Splits (phase,
+workload), same mix of leagues, and same experience bucket within that role. Experience is measured **at the
+time of each delivery** (T20 deliveries faced/bowled before it: <60, 60-199, 200-599, 600-1499, 1500-3999,
+4000+), so the term learns how debutants and young players actually perform, without the survivorship bias of
+career totals (players who failed early would otherwise define "inexperienced"). A player's current rating
+uses his current experience bucket. Splits (phase,
 pace/spin, hand, settling) are shrunk much harder toward zero, i.e. toward the player's own overall rating.
 
 **Recency.** Each delivery is weighted by 0.5^(age / half-life). The half-life and the penalty strengths were
@@ -143,7 +144,8 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
 
 * Batting: (his run value per 100 balls - replacement-level run value) x the balls a batter in his batting
   slot faces per IPL innings, using that slot's phase mix for both him and the replacement.
-* Bowling: (replacement run value per over - his) x 4 overs, in his own phase mix.
+* Bowling: (replacement run value per over - his) x his usual overs per match (career, capped at 4), in his
+  own phase mix (`varp_4ov` gives the same per 4 overs, for comparing specialists).
 * Replacement level: the average rating of fringe IPL players of the same role (bottom third of playing time
   among 2024-26 IPL batters in that batting-slot group; among specialist pace or spin bowlers).
 * `varp_wp`: the run value times the win-probability-per-run slope from the simulator (about 1.2-1.5% per run
@@ -178,8 +180,10 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
 * League connectivity: leagues with few shared players (some domestic and associate competitions) have less
   reliable strength estimates.
 * The super over is simplified.
-* Prior covariates (career batting position, workload, league mix, experience bucket) are computed from each
-  player's whole record. In the forward-holdout tuning this is a mild look-ahead for players who debuted
+* Prior covariates other than experience (career batting position, workload, league mix) are computed from
+  each player's whole record. In the forward-holdout tuning this is a mild look-ahead for players who debuted
   shortly before the cut-off; it does not affect the final ratings.
+* Hyper-parameters were tuned on an earlier version of the prior (career-total experience); the final model
+  uses time-of-delivery experience with the same settings. Its holdout score is in `diagnostics.json.holdout`.
 * Indian domestic cricket other than the Syed Mushtaq Ali Trophy (and SMAT seasons cricsheet lacks) is not in
   the data, so uncapped Indian players often have very small samples and lean heavily on the prior.
