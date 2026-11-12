@@ -110,12 +110,20 @@ def player_value(R, cov, f, teams_pos, plan_overs=None):
     n_apps = apps.groupby("id").size()
     ov_rec = rec[rec["legal"]].groupby("bowler").size() / 6
     usage = (ov_rec.reindex(bowl.index).fillna(0) / n_apps.reindex(bowl.index).clip(lower=1)).fillna(0).clip(0, 4)
+    in_plan = pd.Series(False, index=bowl.index)
+    if plan_overs:
+        for pid, ov in plan_overs.items():
+            if pid in in_plan.index and ov > 0:
+                in_plan[pid] = True
+    is_bowler = in_plan | ((ov_rec.reindex(bowl.index).fillna(0) * 6 >= 60) & (usage >= 0.5))
+    usage = usage.where(is_bowler, 0.0)
     if plan_overs:
         for pid, ov in plan_overs.items():
             if pid in usage.index:
                 usage[pid] = ov
     exp_ov = usage.to_numpy()
     out_w["exp_overs"] = exp_ov
+    out_w["is_bowler"] = is_bowler.to_numpy()
     out_w["bowl_varp_4ov"] = (rvr - rvw) * 4.0   # per 4 overs
     out_w["bowl_varp"] = (rvr - rvw) * exp_ov   # per match at his usual workload
     return out_b, out_w, rep_b, rep_w, bp, mix
@@ -148,20 +156,20 @@ def condition_pmfs(part, A, B):
            "p_win_A": float(part["winA"].mean()), "p_tie": float(part["tie"].mean())}
     i1 = part[first]
     i2 = part["B" if first == "A" else "A"]
-    out["first_innings_total"] = pmf(i1["score"])
-    out["match_total"] = pmf(i1["score"] + i2["score"])
+    out["first_innings_total_pmf"] = pmf(i1["score"])
+    out["match_total_pmf"] = pmf(i1["score"] + i2["score"])
     for side, team in (("A", A), ("B", B)):
         r = part[side]
-        tm = {"total": pmf(r["score"]), "pp": pmf(r["pp"]), "sixes": pmf(r["sixes"]), "fours": pmf(r["fours"]),
-              "wkts": pmf(r["wk"]), "players": {}}
+        tm = {"total_pmf": pmf(r["score"]), "pp_pmf": pmf(r["pp"]), "sixes_pmf": pmf(r["sixes"]),
+              "fours_pmf": pmf(r["fours"]), "wkts_pmf": pmf(r["wk"]), "fow1_pmf": pmf(r["fow1"]), "players": {}}
         for k, pid in enumerate(team["order"][:11]):
-            tm["players"][pid] = {"runs": pmf(r["bat_runs"][:, k]), "balls": pmf(r["bat_balls"][:, k]),
-                                  "fours": pmf(r["bat_4"][:, k]), "sixes": pmf(r["bat_6"][:, k])}
+            tm["players"][pid] = {"runs_pmf": pmf(r["bat_runs"][:, k]), "balls_pmf": pmf(r["bat_balls"][:, k]),
+                                  "fours_pmf": pmf(r["bat_4"][:, k]), "sixes_pmf": pmf(r["bat_6"][:, k])}
         o = part["B" if side == "A" else "A"]
         for j, pid in enumerate(o["bowl_ids"]):
             d = tm["players"].setdefault(pid, {})
-            d["wkts"] = pmf(o["bowl_wkts"][:, j])
-            d["conceded"] = pmf(o["bowl_runs"][:, j])
+            d["wkts_pmf"] = pmf(o["bowl_wkts"][:, j])
+            d["conceded_pmf"] = pmf(o["bowl_runs"][:, j])
         out[side] = tm
     return out
 
@@ -192,8 +200,35 @@ def run_matchups(P, teams, n_each=N_SIMS):
             raw = sim_match(P, team_spec(A), team_spec(B), None, n=N_SIMS, seed=1000 + len(neutral))
             s = summarize(raw, team_spec(A), team_spec(B))
             neutral.append(dict(A=A["name"], B=B["name"], p_win_A=s["p_win_A"], runs_A=s["A"]["total_mean"],
-                                runs_B=s["B"]["total_mean"]))
+                                runs_B=s["B"]["total_mean"], summary=s))
     return res, neutral, secs / max(2 * len(res), 1)
+
+
+def runs_to_wp(P, teams, neutral, n_pairs=8, delta=0.06, n=10000):
+    import copy
+    from models.ipl.sim import Params as _P, _concat
+    d = np.asarray(P.raw.get("match_shock", {}).get("dir") or [0] * 11, float)
+    if not np.any(d):
+        e = P.raw["env"]
+        d = np.asarray(e["IPL|2026"]) - np.asarray(e["IPL|2021"])
+        d = d / np.linalg.norm(d)
+    pairs = sorted(neutral, key=lambda x: abs(x["p_win_A"] - 0.5))[:n_pairs]
+    dw, dr, rows = [], [], []
+    for k, pr in enumerate(pairs):
+        A, B = team_spec(teams[pr["A"]]), team_spec(teams[pr["B"]])
+        out = {}
+        for sgn in (-1, 1):
+            raw = copy.deepcopy(P.raw)
+            for pid in A["order"]:
+                if pid in raw["batters"]:
+                    raw["batters"][pid]["b"] = (np.asarray(raw["batters"][pid]["b"]) + sgn * delta * d).tolist()
+            Pp = _P(raw)
+            r = summarize(sim_match(Pp, A, B, None, n=n, seed=500 + k), A, B)
+            out[sgn] = (r["p_win_A"], r["A"]["total_mean"])
+        dw.append(out[1][0] - out[-1][0])
+        dr.append(out[1][1] - out[-1][1])
+        rows.append({"A": pr["A"], "B": pr["B"], "d_win": dw[-1], "d_runs": dr[-1]})
+    return {"slope": float(np.sum(dw) / np.sum(dr)), "pairs": rows, "delta": delta}
 
 
 # %% main
@@ -232,10 +267,10 @@ def main():
 
     # ---------------- matchups
     res, neutral, sec_per = run_matchups(P, teams)
-    # runs -> win probability conversion: slope of P(win) on expected margin across neutral matchups
-    mg = np.array([n["runs_A"] - n["runs_B"] for n in neutral])
-    pw = np.array([n["p_win_A"] for n in neutral])
-    slope = float(np.polyfit(mg, pw, 1)[0]) if len(mg) > 2 else 0.012
+    # runs -> win probability: perturb one side's batting (logit shift along the scoring direction) in
+    # near-even neutral matchups and measure d P(win) / d (that side's expected total)
+    rtw = runs_to_wp(P, teams, neutral)
+    slope = rtw["slope"]
     pdf_slope = slope
 
     # ---------------- players.json
@@ -270,6 +305,10 @@ def main():
                                                                     wkts=("wkt", "sum"), inns=("m", "nunique"))
         return b, w
     rc_b, rc_w = raw_counts(f[f["date"] >= "2024-01-01"])
+    last_played = pd.concat([f.groupby("batter")["date"].max(), f.groupby("non_striker")["date"].max(),
+                             f.groupby("bowler")["date"].max()]).groupby(level=0).max()
+    last_ipl = pd.concat([ipl_f.groupby("batter")["date"].max(), ipl_f.groupby("non_striker")["date"].max(),
+                          ipl_f.groupby("bowler")["date"].max()]).groupby(level=0).max()
     s26_b, s26_w = raw_counts(ipl_f[ipl_f["date"].dt.year == int(next(iter(teams.values()))["season"])])
     # projected per-match line at the default role: mean over that team's 18 home/away matchups
     proj = {}
@@ -294,7 +333,7 @@ def main():
     pr_w["bowl_varp"] = pct(vw["bowl_varp"], pct_base_w)
 
     BATK = ["sr", "avg", "out_pct", "bnd_pct", "four_pct", "six_pct", "dot_pct", "nbsr", "rv100"]
-    BOWK = ["econ", "wkt_pct", "sr", "avg", "dot_pct", "bnd_pct", "six_pct", "wides_per_over", "rv_over"]
+    BOWK = ["econ", "wkt_pct", "sr", "avg", "dot_pct", "bnd_pct", "six_pct", "wides_per_over", "rv_over", "nb_per_over"]
     players = []
     for pid in pool:
         st = styles.loc[pid] if pid in styles.index else None
@@ -350,6 +389,7 @@ def main():
             v = vw.loc[pid]
             mixw = R["mix_bowl"].loc[pid] if pid in R["mix_bowl"].index else None
             d["bowl"]["phase_mix"] = None if mixw is None else (mixw / mixw.sum()).round(3).tolist()
+            d["bowl"]["is_bowler"] = bool(v["is_bowler"])
             d["bowl"]["value"] = {"rv_over_mix": v["bowl_rv_over_mix"], "rep_rv_over": v["bowl_rep_rv_over"],
                                   "exp_overs": v["exp_overs"], "varp_4ov": v["bowl_varp_4ov"],
                                   "varp_runs": v["bowl_varp"], "varp_wp": v["bowl_varp"] * pdf_slope}
@@ -392,6 +432,12 @@ def main():
                                "econ": g("econ")}
         else:
             d["proj_match"] = None
+        d["last_played"] = str(last_played[pid].date()) if pid in last_played.index else None
+        d["last_played_ipl"] = str(last_ipl[pid].date()) if pid in last_ipl.index else None
+        d["style_defaulted"] = {"bat_hand": d["bat_hand"] is None,
+                                "bowl_type": bool(d.get("bowl", {}).get("is_bowler")) and (d["bowl_type"] in (None, "") )}
+        if d["bat_hand"] is None:
+            d["bat_hand_used"] = "R"   # simulator default when the hand is unknown
         bv = d.get("bat", {}).get("value", {}).get("varp_runs", 0) or 0
         wv = d.get("bowl", {}).get("value", {}).get("varp_runs", 0) or 0
         d["varp_runs"] = bv + wv
@@ -400,7 +446,8 @@ def main():
     dump("players.json", {"players": players, "avg_bat": R["avg_bat"], "avg_bowl": R["avg_bowl"],
                           "settling_avg": R["settle_avg"], "settling_buckets": json.loads((EXPORT / "sim_params.json").read_text())["bf_labels"],
                           "replacement": {"bat": rep_b, "bowl": rep_w},
-                          "slot_balls": slot_bp.tolist(), "runs_to_wp": pdf_slope})
+                          "slot_balls": slot_bp.tolist(), "runs_to_wp": pdf_slope,
+                          "slot_phase_mix": slot_mix.reindex(range(1, 12)).to_numpy().round(4).tolist()})
 
     # ---------------- teams.json
     pmap = {p["id"]: p for p in players}
@@ -458,7 +505,11 @@ def main():
                       "pairs": [[r["A"], r["B"]] for r in rows]})
     dump("matchups/index.json", {"files": index})
     dump("matchups.json", {"n_sims": 2 * N_SIMS, "toss": "half the sims with each side batting first (n_sims/2 each); per-condition pmfs in matchups/<home>.json", "env": P.raw["default_env"],
-                           "matchups": mrows, "neutral": neutral})
+                           "matchups": mrows,
+                           "neutral": [{k: v for k, v in n.items() if k != "summary"} for n in neutral],
+                           "neutral_full": [{"A": n["A"], "B": n["B"], "venue": None, "n": n["summary"]["n"],
+                                             "p_win_A": n["summary"]["p_win_A"], "p_tie": n["summary"]["p_tie"],
+                                             "A_stats": n["summary"]["A"], "B_stats": n["summary"]["B"]} for n in neutral]})
 
     # ---------------- venues.json / leagues.json
     ven = R["venues"]
@@ -473,7 +524,7 @@ def main():
     dump("leagues.json", {"leagues": lg.to_dict(orient="records"),
                           "env_ipl": {k: v for k, v in P.raw["env"].items()}})
     with open(PROC / "export_state.pkl", "wb") as fh:
-        pickle.dump(dict(sec_per_matchup=sec_per, slope=pdf_slope, teams=teams), fh)
+        pickle.dump(dict(sec_per_matchup=sec_per, slope=pdf_slope, teams=teams, runs_to_wp=rtw), fh)
     print(f"export: players={len(players)} teams={len(team_rows)} matchups={len(mrows)} sim {sec_per:.2f}s/10k")
 
 

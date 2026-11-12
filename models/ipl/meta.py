@@ -19,7 +19,8 @@ def main():
     styles = pd.read_parquet(PROC / "styles.parquet")
     by_comp = m.groupby("comp").agg(matches=("match_id", "size"), first=("date", "min"), last=("date", "max"))
     balls_comp = b.groupby("comp", observed=True).size()
-    files = {p.name: p.stat().st_size for p in sorted(EXPORT.glob("*")) if p.is_file()}
+    files = {str(p.relative_to(EXPORT)): p.stat().st_size for p in sorted(EXPORT.rglob("*")) if p.is_file()}
+    mfiles = sorted(k for k in files if k.startswith("matchups/"))
     meta = {
         "build_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "data_source": "cricsheet.org all_male_json.zip (men's T20 / IT20, 20-over matches) + register/people.csv",
@@ -37,8 +38,10 @@ def main():
         "styles": {"players_with_style": int(len(styles)), "bowling_group_inferred": int(styles["style_inferred"].sum())},
         "sim": {"python_sec_per_10k": parity.get("py_sec_per_10k"), "js_node_sec_per_10k": parity.get("js_sec_per_10k_node"),
                 "parity": {k: parity.get(k) for k in ("comparisons", "max_abs_z", "share_abs_z_gt_2", "mean_abs_z", "pass")},
-                "runs_to_win_prob": st.get("slope")},
+                "runs_to_win_prob": st.get("slope"), "runs_to_win_prob_detail": st.get("runs_to_wp"),
+                "match_shock": (json.loads((EXPORT / "sim_params.json").read_text()).get("match_shock") or {}).get("sd")},
         "files_bytes": files, "total_bytes": int(sum(files.values())),
+        "matchups": {"files": mfiles, "index": "matchups/index.json"},
     }
     (EXPORT / "meta.json").write_text(json.dumps(meta, indent=1))
     print(f"meta: total export {meta['total_bytes'] / 1e6:.2f} MB")

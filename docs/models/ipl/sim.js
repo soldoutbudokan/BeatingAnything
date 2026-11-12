@@ -435,6 +435,157 @@
     return out;
   }
 
+  // ---------------------------------------------------------------- raw (poolable) mode
+  // Dense integer histograms: h[v] = number of sims with value v (v >= 0). Pool runs from several workers
+  // with mergeRaw(a, b); summarizeRaw(raw) gives means / quantiles / P(>= t) from the pooled counts.
+  function hadd(h, v) { if (v < 0) v = 0; while (h.length <= v) h.push(0); h[v] += 1; }
+  function hmerge(a, b) {
+    var out = a.slice();
+    for (var i = 0; i < b.length; i++) { if (i >= out.length) out.push(0); out[i] += b[i]; }
+    return out;
+  }
+  function newTeamRaw() {
+    return { total: [], pp: [], sixes: [], fours: [], fow1: [], wkts: [], wides: [], extras: [], wins: 0, n: 0,
+             bat1: { n: 0, wins: 0, total: [] }, bat2: { n: 0, wins: 0, total: [] }, players: {} };
+  }
+  function newPlayerRaw() {
+    return { runs: [], balls: [], fours: [], sixes: [], wkts: [], conceded: [], legal_balls: 0,
+             batted: 0, out: 0, duck: 0, top_bat: 0, top_bowl: 0, n_bat: 0, n_bowl: 0 };
+  }
+
+  function rawFromParts(parts, A, B) {
+    var raw = { version: 1, n: 0, ties: 0, first_innings_total: [], match_total: [], A: newTeamRaw(), B: newTeamRaw(),
+                names: { A: A.name, B: B.name } };
+    parts.forEach(function (p) {
+      var first = p.first, second = first === "A" ? "B" : "A";
+      raw.n += p.n;
+      for (var i = 0; i < p.n; i++) {
+        raw.ties += p.tie[i];
+        var s1 = p[first].score[i], s2 = p[second].score[i];
+        hadd(raw.first_innings_total, s1);
+        hadd(raw.match_total, s1 + s2);
+      }
+      [["A", A], ["B", B]].forEach(function (pair) {
+        var side = pair[0], team = pair[1], other = side === "A" ? "B" : "A", T = raw[side], r = p[side], i, k;
+        var cond = p.first === side ? T.bat1 : T.bat2;
+        var order = team.order.slice(0, 11), nb = order.length;
+        var ro = p[other], ids = ro.bowlIds, nw = ids.length;
+        order.forEach(function (pid) { if (!T.players[pid]) T.players[pid] = newPlayerRaw(); });
+        ids.forEach(function (pid) { if (!T.players[pid]) T.players[pid] = newPlayerRaw(); });
+        for (i = 0; i < p.n; i++) {
+          var win = side === "A" ? p.winA[i] : 1 - p.winA[i];
+          T.n++; T.wins += win; cond.n++; cond.wins += win; hadd(cond.total, r.score[i]);
+          hadd(T.total, r.score[i]); hadd(T.pp, r.pp[i]); hadd(T.sixes, r.sixes[i]); hadd(T.fours, r.fours[i]);
+          hadd(T.fow1, r.fow1[i]); hadd(T.wkts, r.wk[i]); hadd(T.wides, r.wides[i]); hadd(T.extras, r.extras[i]);
+          var off = i * nb, top = -1, ntop = 0;
+          for (k = 0; k < nb; k++) if (r.batRuns[off + k] > top) top = r.batRuns[off + k];
+          for (k = 0; k < nb; k++) if (r.batted[off + k] && r.batRuns[off + k] === top) ntop++;
+          for (k = 0; k < nb; k++) {
+            var P_ = T.players[order[k]], rk = r.batRuns[off + k];
+            P_.n_bat++;
+            hadd(P_.runs, rk); hadd(P_.balls, r.batBalls[off + k]); hadd(P_.fours, r.bat4[off + k]); hadd(P_.sixes, r.bat6[off + k]);
+            P_.batted += r.batted[off + k]; P_.out += r.batOut[off + k];
+            if (r.batOut[off + k] && rk === 0) P_.duck++;
+            if (r.batted[off + k] && rk === top && ntop > 0) P_.top_bat += 1 / ntop;
+          }
+          var offw = i * nw, best = -1e9, nbst = 0;
+          for (k = 0; k < nw; k++) { var key = ro.bowlWkts[offw + k] * 1000 - ro.bowlRuns[offw + k]; if (key > best) best = key; }
+          for (k = 0; k < nw; k++) if (ro.bowlWkts[offw + k] * 1000 - ro.bowlRuns[offw + k] === best) nbst++;
+          for (k = 0; k < nw; k++) {
+            var Q = T.players[ids[k]];
+            Q.n_bowl++;
+            hadd(Q.wkts, ro.bowlWkts[offw + k]); hadd(Q.conceded, ro.bowlRuns[offw + k]); Q.legal_balls += ro.bowlBalls[offw + k];
+            if (ro.bowlWkts[offw + k] * 1000 - ro.bowlRuns[offw + k] === best) Q.top_bowl += 1 / nbst;
+          }
+        }
+      });
+    });
+    return raw;
+  }
+
+  /** Same inputs as simMatch; returns poolable integer counts (see mergeRaw / summarizeRaw). */
+  function simMatchRaw(P, A, B, opts) {
+    opts = opts || {};
+    var n = opts.n || 10000, rng = makeRng(opts.seed || 1);
+    var V = (opts.venue && P.raw.venues[opts.venue]) || P.raw.venue_neutral;
+    var ek = opts.env || P.raw.default_env;
+    var env = P.raw.env[ek], envPh = (P.raw.env_phase || {})[ek] || null;
+    var parts;
+    if (opts.batFirst === "A" || opts.batFirst === "B") parts = [simOneWay(P, A, B, V, env, n, rng, opts.batFirst, envPh)];
+    else {
+      var h = Math.floor(n / 2);
+      parts = [simOneWay(P, A, B, V, env, h, rng, "A", envPh), simOneWay(P, A, B, V, env, n - h, rng, "B", envPh)];
+    }
+    return rawFromParts(parts, A, B);
+  }
+
+  function mergeTeam(a, b) {
+    var o = { n: a.n + b.n, wins: a.wins + b.wins, players: {} };
+    ["total", "pp", "sixes", "fours", "fow1", "wkts", "wides", "extras"].forEach(function (k) { o[k] = hmerge(a[k], b[k]); });
+    ["bat1", "bat2"].forEach(function (k) {
+      o[k] = { n: a[k].n + b[k].n, wins: a[k].wins + b[k].wins, total: hmerge(a[k].total, b[k].total) };
+    });
+    var ids = Object.keys(a.players).concat(Object.keys(b.players).filter(function (x) { return !(x in a.players); }));
+    ids.forEach(function (pid) {
+      var x = a.players[pid] || newPlayerRaw(), y = b.players[pid] || newPlayerRaw(), z = {};
+      ["runs", "balls", "fours", "sixes", "wkts", "conceded"].forEach(function (k) { z[k] = hmerge(x[k], y[k]); });
+      ["legal_balls", "batted", "out", "duck", "top_bat", "top_bowl", "n_bat", "n_bowl"].forEach(function (k) { z[k] = x[k] + y[k]; });
+      o.players[pid] = z;
+    });
+    return o;
+  }
+
+  /** Pool two raw results of the same matchup (e.g. from two workers with different seeds). */
+  function mergeRaw(a, b) {
+    return { version: 1, n: a.n + b.n, ties: a.ties + b.ties, names: a.names,
+             first_innings_total: hmerge(a.first_innings_total, b.first_innings_total),
+             match_total: hmerge(a.match_total, b.match_total), A: mergeTeam(a.A, b.A), B: mergeTeam(a.B, b.B) };
+  }
+
+  function hstats(h) {
+    var n = 0, s = 0, i;
+    for (i = 0; i < h.length; i++) { n += h[i]; s += i * h[i]; }
+    var q = function (pq) {
+      var target = pq / 100 * (n - 1), acc = 0;
+      for (var v = 0; v < h.length; v++) { acc += h[v]; if (acc > target) return v; }
+      return h.length - 1;
+    };
+    var ge = function (t) { var c = 0; for (var v = t; v < h.length; v++) c += h[v]; return n ? c / n : 0; };
+    return { n: n, mean: n ? s / n : 0, q: q, ge: ge, pmf: h.map(function (c) { return n ? c / n : 0; }) };
+  }
+
+  /** Convenience: summary numbers from (pooled) raw counts. Quantiles are the lower order statistic. */
+  function summarizeRaw(raw) {
+    var out = { n: raw.n, p_win_A: raw.A.wins / raw.n, p_tie: raw.ties / raw.n,
+                first_innings_total: hstats(raw.first_innings_total).mean, match_total: hstats(raw.match_total).mean };
+    ["A", "B"].forEach(function (side) {
+      var T = raw[side], st = hstats(T.total), o = { total_mean: st.mean, total_q: [5, 25, 50, 75, 95].map(st.q),
+        pp_mean: hstats(T.pp).mean, sixes_mean: hstats(T.sixes).mean, fours_mean: hstats(T.fours).mean,
+        fow1_mean: hstats(T.fow1).mean, wkts_mean: hstats(T.wkts).mean,
+        p_win_bat1: T.bat1.n ? T.bat1.wins / T.bat1.n : null, p_win_bat2: T.bat2.n ? T.bat2.wins / T.bat2.n : null,
+        players: {} };
+      Object.keys(T.players).forEach(function (pid) {
+        var p = T.players[pid], d = {};
+        if (p.n_bat) {
+          var r = hstats(p.runs);
+          d.runs_mean = r.mean; d.p_runs = {}; [10, 20, 30, 40, 50, 75, 100].forEach(function (t) { d.p_runs[String(t)] = r.ge(t); });
+          d.balls_mean = hstats(p.balls).mean; d.fours_mean = hstats(p.fours).mean; d.sixes_mean = hstats(p.sixes).mean;
+          d.p_bat = p.batted / p.n_bat; d.p_out = p.out / p.n_bat; d.p_duck = p.duck / p.n_bat; d.p_top_bat = p.top_bat / p.n_bat;
+        }
+        if (p.n_bowl) {
+          var w = hstats(p.wkts), c = hstats(p.conceded);
+          d.wkts_mean = w.mean; d.p_wkts = {}; [1, 2, 3, 4, 5].forEach(function (t) { d.p_wkts[String(t)] = w.ge(t); });
+          d.conceded_mean = c.mean; d.overs_mean = p.legal_balls / p.n_bowl / 6;
+          d.econ = p.legal_balls ? c.mean * p.n_bowl / p.legal_balls * 6 : null; d.p_top_bowl = p.top_bowl / p.n_bowl;
+        }
+        o.players[pid] = d;
+      });
+      out[side] = o;
+    });
+    return out;
+  }
+
   return { prepare: prepare, simMatch: simMatch, simInnings: simInnings, bowlingSchedule: bowlingSchedule,
-           makeRng: makeRng, summarize: summarize };
+           makeRng: makeRng, summarize: summarize,
+           simMatchRaw: simMatchRaw, mergeRaw: mergeRaw, summarizeRaw: summarizeRaw };
 });

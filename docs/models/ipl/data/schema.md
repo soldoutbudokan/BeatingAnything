@@ -221,3 +221,102 @@ IPLSim.bowlingSchedule(plan)  // -> 20 bowler ids (captain heuristic)
 
 `out` has the same shape as a matchups.json row's summary: `{n, p_win_A, p_tie, margin_mean_A, A: TeamStats, B: TeamStats}`.
 Players not in `sim_params.batters/bowlers` fall back to `batter_priors.middle` / `bowler_priors.pace_reg`.
+
+---------------------------------------------------------------------------------------------------------
+
+## Round-2 additions (all additive; nothing above was renamed or removed)
+
+### players.json — per Player
+
+| field | meaning |
+|---|---|
+| last_played / last_played_ipl | date of the player's most recent T20 / IPL match in the data |
+| style_defaulted | `{bat_hand: bool, bowl_type: bool}` — true when the style was unknown and the simulator uses a default |
+| bat_hand_used | present only when `bat_hand` is null: the hand the simulator assumes (`"R"`) |
+| ipl_last_season | actual line in the latest IPL season (null if he did not play): `{season, matches, bat_inns, runs, balls, outs, sr, avg, bowl_inns, wkts, overs, conceded, econ}` (keys absent when not applicable) |
+| proj_match | projected per-match line in his default team role, mean over his team's 18 home/away matchups (null if not in a default 12): `{matchups, bat_pos, runs, balls, fours, sixes, p30, p50, overs, wkts, conceded, econ}` |
+| bowl.is_bowler | false for players who do not bowl in their current role (keepers, specialist batters): exclude them from bowler lists; their `bowl.value.varp_runs` is 0 |
+| bowl[stratum].nb_per_over | no-balls per over (model rate) |
+| bowl.value.exp_overs | **projected overs per match in the current role**: the default team plan for squad players; otherwise overs bowled per match played since 2024; 0 when `is_bowler` is false |
+| bowl.value.varp_4ov | value per 4 overs (for comparing specialists regardless of workload) |
+
+Top level: `slot_phase_mix[i]` = `[pp, mid, death]` share of balls faced by batting position i+1 (IPL 2024-26).
+`runs_to_wp` is now measured by perturbation in the simulator (see meta.json `sim.runs_to_win_prob_detail`), and
+every `varp_wp` uses it.
+
+### venues.json — per Venue
+
+`name` is now the **current** ground name (e.g. "Arun Jaitley Stadium, Delhi"); `name_raw` = the most common
+cricsheet spelling. Ids are unchanged.
+
+### sim_params.json
+
+* `env_phase[key]` = 3 × 11 logit offsets (powerplay, middle = zeros, death) added on top of `env[key]` for the
+  same season key (phase-specific season environment).
+* `match_shock = {sd, dir}`: once per simulated match draw z ~ Normal(0, sd) and add `z * dir` (11-vector) to
+  every delivery's logits in both innings (and the super over): shared pitch/day conditions.
+
+Per-delivery logit (complete): previous formula `+ env_phase[key][phase] + z * match_shock.dir`.
+
+### matchups.json
+
+* `n_sims` is now 20000 per matchup (10000 with each side batting first; the summaries pool both = 50/50 toss).
+* `neutral_full`: the 45 neutral-venue matchups with the same row shape as `matchups` (`venue` = null).
+
+### matchups/index.json and matchups/<SHORT>.json (exact distributions)
+
+`matchups/index.json` = `{files: [{file, home, venue, pairs: [[A, B], ...]}]}`. One file per home team (e.g.
+`matchups/MI.json`) holding the 9 matchups played at that team's home venue; also listed in
+`meta.json.matchups.files` and `meta.json.files_bytes`.
+
+File: `{home, venue, n_sims_per_condition, trim, matchups: [{A, B, venue, home, conditions: [Cond, Cond]}]}`.
+`conditions[0]` = A batting first, `conditions[1]` = B batting first (toss: the site mixes them, e.g. 50/50).
+
+Cond: `{bat_first (team name), n, p_win_A, p_tie, first_innings_total_pmf, match_total_pmf, A: TeamPmf, B: TeamPmf}`.
+
+TeamPmf: `{total_pmf, pp_pmf, sixes_pmf, fours_pmf, wkts_pmf, fow1_pmf, players: {id: {runs_pmf, balls_pmf,
+fours_pmf, sixes_pmf, wkts_pmf, conceded_pmf}}}` (batting keys for the 11 in the order, bowling keys for the
+planned bowlers).
+
+Every `*_pmf` = `{o, p, t}`: `p[i]` = P(value = o + i) from the simulation, leading/trailing values with
+probability < 0.0005 dropped, `t` = total probability mass dropped (P(value < o) + P(value > o + len(p) - 1)).
+
+### meta.json
+
+`matchups: {files: [...], index}`, `sim.runs_to_win_prob_detail` (`{slope, delta, pairs: [{A, B, d_win, d_runs}]}`),
+`sim.match_shock` (sd). `files_bytes` now includes files in sub-folders (keys like `"matchups/MI.json"`).
+
+### diagnostics.json
+
+* `replay` (in-sample, IPL 2025-26, real XIs) gains: `players` (see PlayerCal below), `phase` (`{innings, phase,
+  sim_runs, act_runs, sim_wkts, act_wkts}` columns, mean per innings), `match` (MatchCal).
+* `oos` (holdout model fitted before 1 June 2025, IPL 2026 with real XIs/venue/batting-first side):
+  `{model_cutoff, season, sims_per_match, env_note, shrinkage_calibration, players, phase, match, rows}`.
+  * `shrinkage_calibration.bat[]`: `{bucket (training balls faced), n_players, test_balls, slope_runs, slope_outs,
+    top20_pred_runs_per100, top20_act_runs_per100, pred_runs_per100, act_runs_per100}` — slope of actual on
+    predicted player deviation from an average IPL batter (1 = well calibrated; < 1 = ratings too extreme).
+    `bowl[]`: `{bucket, n_players, test_balls, slope_conceded, slope_wkts}`.
+* PlayerCal: `bat_by_decile` / `bat_by_position` (columns `n`, `decile`|`bat_pos`, `sim_X`, `act_X` for X in
+  runs, balls, fours, sixes, p30, p50, pduck), `bat_fit[X] = {slope, intercept}` (actual on projected,
+  batter-innings), `bowl_by_decile` (X in wkts, conceded, overs, p2w), `bowl_fit`, `bat_n`, `bowl_n`.
+* MatchCal: `{n_matches, wp_logloss, wp_logloss_coinflip, wp_brier, wp_reliability {pred, obs, n},
+  t1_rmse_model, t1_bias_model, t1_rmse_venue_mean, t1_rmse_overall_mean (oos only),
+  t1_quantile_coverage {q10..q90} (share of actual 1st-innings totals below the simulated quantile),
+  match_total_quantile_coverage}`.
+* `tuning_round2`: holdout fits of the current design. `match_shock`: `{sd, dir, residual_cov, residual_corr,
+  runs_per_ball_per_unit, n_matches}`.
+
+### sim.js — poolable raw mode
+
+```js
+const raw = IPLSim.simMatchRaw(P, teamA, teamB, opts);  // same inputs as simMatch
+const pooled = IPLSim.mergeRaw(rawFromWorker1, rawFromWorker2);
+const summary = IPLSim.summarizeRaw(pooled);            // means, quantiles, P(>= t) from the counts
+```
+
+Raw = `{version, n, ties, names: {A, B}, first_innings_total: Hist, match_total: Hist, A: TeamRaw, B: TeamRaw}`.
+Hist = dense array of counts, `h[v]` = number of sims with value v (v ≥ 0). TeamRaw = `{n, wins (fractional
+for super-over coin flips), total, pp, sixes, fours, fow1, wkts, wides, extras (Hists), bat1: {n, wins, total},
+bat2: {n, wins, total} (when batting first / second), players: {id: {runs, balls, fours, sixes, wkts,
+conceded (Hists), legal_balls, batted, out, duck, top_bat, top_bowl (counts; top_* fractional for ties),
+n_bat, n_bowl}}}`. `simMatch` is unchanged.

@@ -37,11 +37,12 @@ regression on ~2.3 million deliveries:
 | phase x balls-faced bucket | the global **settling curve**: new batters score slower and get out more |
 | phase x required-rate bucket (2nd innings) | **chase pressure** |
 | bowler subtype; subtype x phase; subtype x left-handed batter | pace vs spin overall and by phase (spin is hit harder at the death), and the hand matchup (e.g. off-spin to left-handers) |
-| competition; competition x season | **league environment** and season run environment (e.g. the post-2023 IPL Impact Player scoring surge) |
+| competition; competition x season; both x phase | **league environment** and season run environment, overall and separately for the powerplay and the death (the post-2023 IPL Impact Player surge is concentrated in the powerplay) |
 | venue; venue x 2nd innings; venue x spin | ground effects, chasing/dew, and spin-friendliness |
 | batter: overall, powerplay, death, vs spin, first 10 balls | batter skill and its splits |
 | bowler: overall, powerplay, death, vs left-handers | bowler skill and its splits |
 | batter role, league mix, role x experience; bowler role, league mix, role x experience | the **informed prior** that small samples shrink toward |
+| batter age; bowler age x pace/spin (age at the delivery, 2-year buckets) | **ageing curves** (see below) |
 
 Because batter, bowler, venue, league and season terms are fitted at the same time, each is measured net of
 the others: a batter's rating is adjusted for the bowlers he faced, the grounds, the league and the era; a
@@ -56,6 +57,21 @@ time of each delivery** (T20 deliveries faced/bowled before it: <60, 60-199, 200
 career totals (players who failed early would otherwise define "inexperienced"). A player's current rating
 uses his current experience bucket. Splits (phase,
 pace/spin, hand, settling) are shrunk much harder toward zero, i.e. toward the player's own overall rating.
+
+**Age and inactivity.** Age at each delivery (from cricketdata dates of birth; unknown = own bucket) enters the
+fit as 2-year buckets, separately for batting and for pace and spin bowling. Because each player has his own
+term, the curve is identified from changes *within* players over time, which is what the delta method on
+consecutive seasons estimates, here done jointly with everything else. Caveat: with player, season and age terms
+together, the overall linear trend of the curve is pinned down only by the shrinkage (the classic age-period-
+cohort problem); the shape (rise, peak, decline) is what the data identify. Projections put every player at
+his age on 15 April 2027. A player whose last match in the IPL, T20Is or the major franchise leagues was more
+than a year ago has his individual deviation decayed by exp(-(gap - 1)/2) (gap in years) toward his prior.
+
+**Match conditions.** Both innings of a real match share conditions the model cannot see (pitch, dew, weather).
+The covariance between the two innings' residual scoring rates (actual minus expected runs per delivery, IPL
+2022-26) sizes a match-level normal shock that the simulator adds to every delivery's logits in both innings,
+along the 2021-to-2026 IPL scoring direction (more boundaries, fewer dots). It widens total-score tails and
+tempers win probabilities.
 
 **Recency.** Each delivery is weighted by 0.5^(age / half-life). The half-life and the penalty strengths were
 chosen by fitting on data before 1 June 2025 and scoring the log loss on everything after (IPL 2026 included),
@@ -144,12 +160,15 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
 
 * Batting: (his run value per 100 balls - replacement-level run value) x the balls a batter in his batting
   slot faces per IPL innings, using that slot's phase mix for both him and the replacement.
-* Bowling: (replacement run value per over - his) x his usual overs per match (career, capped at 4), in his
-  own phase mix (`varp_4ov` gives the same per 4 overs, for comparing specialists).
+* Bowling: (replacement run value per over - his) x his projected overs per match in his current role (the
+  default team plan for squad players, otherwise overs per match played since 2024), in his own phase mix.
+  Players who do not bowl in their current role (`is_bowler` false: keepers, specialist batters) get 0.
+  `varp_4ov` gives the value per 4 overs, for comparing specialists.
 * Replacement level: the average rating of fringe IPL players of the same role (bottom third of playing time
   among 2024-26 IPL batters in that batting-slot group; among specialist pace or spin bowlers).
-* `varp_wp`: the run value times the win-probability-per-run slope from the simulator (about 1.2-1.5% per run
-  in an even game).
+* `varp_wp`: the run value times the win-probability-per-run slope, measured in the simulator by shifting one
+  side's batting up and down in near-even neutral matchups and dividing the change in win probability by the
+  change in that side's expected total (meta.json `sim.runs_to_win_prob_detail`).
 * Team strength is not a sum of VARP: it comes from simulating the actual XI, so swapping a player changes it.
 
 ## 9. Diagnostics (`diagnostics.json`)
@@ -169,6 +188,8 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
   line and length.
 * Batter-vs-bowler-type matchups are captured only through the batter's vs-spin split, the bowler's vs-LHB
   split and a global subtype x hand table; no per-player off-spin vs leg-spin split.
+* The batting-second edge in the matchups comes from the chase-pressure terms and each ground's 2nd-innings
+  (dew) term; a ground with a strong historical chasing record (e.g. Wankhede) gives a large edge.
 * Bowling plans are deterministic in the simulator (same over-by-over allocation in every sim) and do not react
   to wickets or match state; batting orders do not flex (no pinch-hitters, no promoting a finisher).
 * Intent beyond the required-rate and wickets-in-hand context is not modelled (e.g. a side knowing its deep
@@ -180,6 +201,8 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
 * League connectivity: leagues with few shared players (some domestic and associate competitions) have less
   reliable strength estimates.
 * The super over is simplified.
+* Unknown batting hand defaults to right-handed and unknown bowling type to the generic pace/spin subtype; such
+  players are flagged in players.json (`style_defaulted`).
 * Prior covariates other than experience (career batting position, workload, league mix) are computed from
   each player's whole record. In the forward-holdout tuning this is a mild look-ahead for players who debuted
   shortly before the cut-off; it does not affect the final ratings.
