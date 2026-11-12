@@ -393,3 +393,26 @@ batting-first condition, without a further `by_bat_first`). `mergeRaw` pools all
 
 `bowl.value.exp_overs` for the default 12 = last season's recency-weighted overs per match **played**, scaled so
 the 12 share 20 overs (cap 4); team `plan` rebuilt from the same usage. No key changes.
+
+---------------------------------------------------------------------------------------------------------
+
+## Round-5 additions
+
+* sim_params.json `chase_hi` (shape `chase_hi_shape` = [3, 2, 11], `chase_hi_edges` = [20, 24]): extra 2nd-innings
+  logits by phase when the required rate is 20-24 (index 0) or ≥ 24 (index 1), on top of the 17+ `chase` bucket.
+  `chase_w` (shape [3][8][3][11], wickets-in-hand bands `chase_w_bands`) is supported by both engines but `null`
+  in this build (rejected on the holdout).
+  Per-delivery logit adds `+ (2nd inns, rrr ≥ 20) chase_hi[phase][rrr ≥ 24 ? 1 : 0]`.
+* players.json `bowl.in_plan`: true if the player has overs in his team's default `plan` (the 20 overs the sim
+  bowls). `is_bowler` true with `in_plan` false = bowls a little in that role (projected overs < 1) but not in the
+  integer plan.
+* matchups/<SHORT>.json `players[id].mean.p_duck` (per batting-first condition).
+* diagnostics.json: every `tuning*` entry has `label`; new `tuning_round3..tuning_round6` lists.
+  `replay.margin` (IPL 2022-26 replay, real XIs) and `oos.margin` (IPL 2026, holdout model):
+  `{n_matches, sim, actual, losing_chase_by_target}` where `sim`/`actual` = `{bat1_win_runs: Dist (+ bands 1-9,
+  10-19, 20-29, 30-49, 50+ as shares), bat2_win_wkts: Dist, bat2_win_balls: Dist, share_last_over (chase went into
+  the 20th over), share_chase_all_out}` and sim adds `innings_rate_corr_within_match`, `corr_s1_s2`;
+  Dist = `{n, mean, q: [10, 25, 50, 75, 90th percentiles]}`; `losing_chase_by_target[]` = `{target_band,
+  sim_n, sim_shortfall_mean, sim_all_out, act_n, act_shortfall_mean, act_all_out}` (bat-first wins only).
+* diagnostics.json `holdout_final` = `{ll_all, ll_ipl, note}`: forward-holdout log loss of the final configuration
+  fitted to convergence (same as `holdout.all.logloss` / `holdout.ipl.logloss`).

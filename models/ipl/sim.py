@@ -24,6 +24,8 @@ class Params:
         self.base = np.asarray(raw["base"], float).reshape(2, 20, 8, NC)
         self.bf = np.asarray(raw["bf"], float).reshape(3, 9, NC)
         self.chase = np.asarray(raw["chase"], float).reshape(3, 8, NC)
+        self.chase_w = (np.asarray(raw["chase_w"], float).reshape(3, 8, 3, NC) if raw.get("chase_w") else None)
+        self.chase_hi = (np.asarray(raw["chase_hi"], float).reshape(3, 2, NC) if raw.get("chase_hi") else None)
         self.bf_edges = np.asarray(raw["bf_edges"])
         self.rrr_edges = np.asarray(raw["rrr_edges"], float)
         self.early_bf = raw["early_bf"]
@@ -221,6 +223,15 @@ def sim_innings(P, rng, n, order, sched, venue, env, inn, target=None, max_wkts=
                 rrr = (tgt[idx] - score[idx]) * 6.0 / bl
                 rb = np.searchsorted(P.rrr_edges, rrr, side="right")
                 lg += P.chase[ph, np.clip(rb, 0, 7)]
+                if P.chase_hi is not None:  # required rate 20-24 / 24+ (finer than the 17+ bucket)
+                    hb = np.where(rrr >= 24, 1, np.where(rrr >= 20, 0, -1))
+                    m_ = hb >= 0
+                    if m_.any():
+                        lg[m_] += P.chase_hi[ph, hb[m_]]
+                if P.chase_w is not None:  # chase pressure x wickets in hand (1-3, 4-6, 7-10)
+                    wih = 10 - wk[idx]
+                    wb3 = np.where(wih <= 3, 0, np.where(wih <= 6, 1, 2))
+                    lg += P.chase_w[ph, np.clip(rb, 0, 7), wb3]
             fh = free[idx]
             lg[fh, C["wicket"]] = -50
             if step >= 14:  # pathological extras run: force a legal ball
