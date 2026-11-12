@@ -1,5 +1,5 @@
 {
- "build_utc": "2026-11-12T04:37:23Z",
+ "build_utc": "2026-11-12T05:52:32Z",
  "data_source": "cricsheet.org all_male_json.zip (men's T20 / IT20, 20-over matches) + register/people.csv",
  "data_cutoff": "2026-11-03",
  "ipl_latest_season": 2026,
@@ -163,66 +163,66 @@
   "bowling_group_inferred": 1174
  },
  "sim": {
-  "python_sec_per_10k": 1.335619370142619,
-  "js_node_sec_per_10k": 0.853,
+  "python_sec_per_10k": 1.478865146636963,
+  "js_node_sec_per_10k": 0.94,
   "parity": {
    "comparisons": 138,
-   "max_abs_z": 3.963333333333334,
-   "share_abs_z_gt_2": 0.08695652173913043,
-   "mean_abs_z": 0.8995868078921748,
+   "max_abs_z": 3.477360662044396,
+   "share_abs_z_gt_2": 0.07971014492753623,
+   "mean_abs_z": 0.7822346081014541,
    "pass": true
   },
-  "runs_to_win_prob": 0.012050345366662949,
+  "runs_to_win_prob": 0.012251994339702803,
   "runs_to_win_prob_detail": {
-   "slope": 0.012050345366662949,
+   "slope": 0.012251994339702803,
    "pairs": [
     {
-     "A": "Chennai Super Kings",
+     "A": "Delhi Capitals",
      "B": "Gujarat Titans",
-     "d_win": 0.04560000000000003,
-     "d_runs": 3.7061999999999955
+     "d_win": 0.05179999999999996,
+     "d_runs": 3.8055999999999983
     },
     {
      "A": "Chennai Super Kings",
      "B": "Punjab Kings",
-     "d_win": 0.0403,
-     "d_runs": 4.198599999999999
+     "d_win": 0.04610000000000003,
+     "d_runs": 3.7235000000000014
     },
     {
-     "A": "Gujarat Titans",
-     "B": "Punjab Kings",
-     "d_win": 0.037799999999999945,
-     "d_runs": 3.293299999999988
+     "A": "Chennai Super Kings",
+     "B": "Delhi Capitals",
+     "d_win": 0.04409999999999997,
+     "d_runs": 3.474000000000018
     },
     {
-     "A": "Kolkata Knight Riders",
-     "B": "Lucknow Super Giants",
-     "d_win": 0.05469999999999997,
-     "d_runs": 3.8832999999999913
+     "A": "Lucknow Super Giants",
+     "B": "Royal Challengers Bengaluru",
+     "d_win": 0.04099999999999998,
+     "d_runs": 3.587799999999987
     },
     {
      "A": "Mumbai Indians",
      "B": "Royal Challengers Bengaluru",
-     "d_win": 0.05239999999999995,
-     "d_runs": 3.8711999999999875
+     "d_win": 0.053700000000000025,
+     "d_runs": 3.935699999999997
     },
     {
      "A": "Royal Challengers Bengaluru",
      "B": "Sunrisers Hyderabad",
-     "d_win": 0.052600000000000036,
-     "d_runs": 3.908999999999992
+     "d_win": 0.04029999999999995,
+     "d_runs": 3.87439999999998
     },
     {
      "A": "Lucknow Super Giants",
-     "B": "Mumbai Indians",
-     "d_win": 0.04199999999999998,
-     "d_runs": 4.230700000000013
+     "B": "Sunrisers Hyderabad",
+     "d_win": 0.04650000000000004,
+     "d_runs": 4.063500000000005
     },
     {
      "A": "Chennai Super Kings",
-     "B": "Lucknow Super Giants",
-     "d_win": 0.05229999999999996,
-     "d_runs": 4.251200000000011
+     "B": "Gujarat Titans",
+     "d_win": 0.0514,
+     "d_runs": 4.134600000000006
     }
    ],
    "delta": 0.06
@@ -230,30 +230,30 @@
   "match_shock": 0.2042
  },
  "files_bytes": {
-  "diagnostics.json": 34966,
+  "diagnostics.json": 35100,
   "head_to_head.json": 95,
   "leagues.json": 7533,
-  "matchups/CSK.json": 766203,
-  "matchups/DC.json": 788037,
-  "matchups/GT.json": 778007,
-  "matchups/KKR.json": 789911,
-  "matchups/LSG.json": 773783,
-  "matchups/MI.json": 797084,
-  "matchups/PBKS.json": 789505,
-  "matchups/RCB.json": 794080,
-  "matchups/RR.json": 785847,
-  "matchups/SRH.json": 796854,
+  "matchups/CSK.json": 1081453,
+  "matchups/DC.json": 1114008,
+  "matchups/GT.json": 1098661,
+  "matchups/KKR.json": 1117258,
+  "matchups/LSG.json": 1081688,
+  "matchups/MI.json": 1129173,
+  "matchups/PBKS.json": 1120343,
+  "matchups/RCB.json": 1119273,
+  "matchups/RR.json": 1105679,
+  "matchups/SRH.json": 1125848,
   "matchups/index.json": 4878,
-  "matchups.json": 1232815,
-  "meta.json": 3840,
-  "method.md": 20247,
-  "players.json": 5436157,
-  "schema.md": 24981,
-  "sim_params.json": 967509,
-  "teams.json": 47605,
+  "matchups.json": 1241217,
+  "meta.json": 5862,
+  "method.md": 20620,
+  "players.json": 5436418,
+  "schema.md": 27312,
+  "sim_params.json": 967549,
+  "teams.json": 47925,
   "venues.json": 273144
  },
- "total_bytes": 15913081,
+ "total_bytes": 19161037,
  "matchups": {
   "files": [
    "matchups/CSK.json",

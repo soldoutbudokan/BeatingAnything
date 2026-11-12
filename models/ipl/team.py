@@ -123,7 +123,14 @@ def build(season=None):
         nbat = first.groupby("batter").size()
         bw = fi[(fi["bowl_team"] == team) & fi["match_id"].isin(mids) & fi["legal"]]
         ov = bw.groupby(["bowler", "match_id", "phase"]).size().unstack(fill_value=0).reindex(columns=[0, 1, 2], fill_value=0) / 6
-        per_match = ov.groupby(level=0).mean()
+        # overs per match PLAYED (not per match in which he bowled), recency-weighted like the selection
+        played = {}
+        for k, pl in enumerate(tm["players"]):
+            for i in json.loads(pl).get(team, []):
+                played[i] = played.get(i, 0.0) + mw[tm.loc[k, "match_id"]]
+        ovw = ov.mul(ov.index.get_level_values("match_id").map(mw).to_numpy(), axis=0)
+        num = ovw.groupby(level=0).sum()
+        per_match = num.div(pd.Series(played).reindex(num.index).clip(lower=1e-9), axis=0)
         sq["bat_pos"] = sq["id"].map(pos)
         sq["innings_batted"] = sq["id"].map(nbat).fillna(0).astype(int)
         sq["ov_pp"] = sq["id"].map(per_match[0]).fillna(0)

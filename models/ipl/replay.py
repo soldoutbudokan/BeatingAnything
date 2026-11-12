@@ -73,8 +73,10 @@ def run(P, seasons, n_sims=400, seed=7, env_fmt="IPL|{}"):
         s1, s2 = bowling_schedule(specs[1]["plan"]), bowling_schedule(specs[2]["plan"])
         n = n_sims
         shock = rng.standard_normal(n) * P.shock_sd if P.shock_sd > 0 else None
-        i1 = sim_innings(P, rng, n, specs[1]["order"], s1, V, env, 1, env_ph=eph, shock=shock)
-        i2 = sim_innings(P, rng, n, specs[2]["order"], s2, V, env, 2, target=i1["score"] + 1, env_ph=eph, shock=shock)
+        from models.ipl.sim import innings_shocks
+        sh1, sh2 = innings_shocks(P, rng, n, shock)
+        i1 = sim_innings(P, rng, n, specs[1]["order"], s1, V, env, 1, env_ph=eph, shock=sh1)
+        i2 = sim_innings(P, rng, n, specs[2]["order"], s2, V, env, 2, target=i1["score"] + 1, env_ph=eph, shock=sh2)
         winner = str(m.loc[mid, "winner"])
         a1, a2 = g[g["innings"] == 1], g[g["innings"] == 2]
         t1, t2 = int(a1["runs_total"].sum()), int(a2["runs_total"].sum())

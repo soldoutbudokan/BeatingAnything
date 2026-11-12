@@ -110,7 +110,7 @@ PAIR_MIN = 24  # batter x bowler pairs need this many deliveries in the fitting 
 
 def design_opts(f, lam):
     """Optional blocks are switched on by the presence of their penalty key in lam."""
-    o = {k: True for k in ("bat_type", "bowl_arch", "day", "wear", "toss", "pair") if k in lam}
+    o = {k: True for k in ("bat_type", "bowl_arch", "day", "wear", "toss", "pair", "cs_i2") if k in lam}
     if "pair" in lam:
         key = f["batter"].astype(str) + "|" + f["bowler"].astype(str)
         c = key.value_counts()
@@ -172,6 +172,10 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons,
     put("comp_ph", np.where((ci >= 0) & (ph != 1), ci * 2 + (ph == 2), -1))
     D.add("cs_ph", [f"{c}_p{p}" for c in comp_seasons for p in (0, 2)], "cs")
     put("cs_ph", np.where((csi >= 0) & (ph != 1), csi * 2 + (ph == 2), -1))
+    if opts.get("cs_i2"):
+        # league-season x 2nd innings (the chasing edge varies by season)
+        D.add("cs_i2", comp_seasons, "cs_i2")
+        put("cs_i2", np.where(inn == 1, csi, -1))
     if opts.get("cs_ph_inn", False):  # tested: worse on the forward holdout (see method.md), off
         # league-season x phase x innings deviations (batting-first and chasing sides pace their innings differently)
         D.add("cs_ph_inn", [f"{c}_i{i + 1}_p{p}" for c in comp_seasons for i in range(2) for p in (0, 1, 2)], "cs")

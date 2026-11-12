@@ -352,3 +352,44 @@ Per-delivery logit (complete, both engines): base[inn][over][min(wkts,7)] + bf[p
   separately for the side batting first and the chasing side. When present it **replaces** `env_phase[key]` for
   that key (it already includes it); `env_phase` is kept for older readers. **Not present in this build** (the
   innings-specific term did not improve the holdout); both engines support it if a future build adds it.
+
+---------------------------------------------------------------------------------------------------------
+
+## Round-4 additions / changes (additive)
+
+### PMF format (matchups/<SHORT>.json) — full mass
+
+Every `*_pmf` is now `{o, p, t, tl, th}` with **sum(p) = 1**: each tail whose cumulative probability is ≤ 1e-4 is cut
+and folded into the end bucket, so `p[0]` = P(value ≤ o) and `p[-1]` = P(value ≥ o + len(p) - 1); `tl` / `th` =
+mass folded into the first / last bucket, `t = tl + th`. File-level `tail_fold` = 1e-4 (`trim` kept, same value).
+Probabilities have 5 decimals.
+
+### New keys in each Cond (one batting-first condition)
+
+| key | meaning |
+|---|---|
+| match_fours_pmf, match_sixes_pmf | boundaries in the match (both innings) |
+| p_bat1_win_in_20, p_bat2_win_in_20 | P(side batting first / chasing side wins in the 20 overs); the remainder is ties (decided by super over) |
+| bat1_win_runs_pmf | margin in runs **given** the side batting first wins (null if it never does) |
+| bat2_win_wkts_pmf, bat2_win_balls_pmf | wickets in hand / legal balls to spare **given** the chaser wins |
+| A/B.fow1_pmf | score at the fall of the first wicket (full total if none fell) |
+| A/B.players[id].mean | per-condition means: batters `{runs, balls, fours, sixes, p_bat, p_out, p_top_bat}`; bowlers add `{wkts, conceded, overs, p_top_bowl}` |
+
+### sim.js raw mode (version 2)
+
+`simMatchRaw` result adds `match_fours, match_sixes, bat1_win_runs, bat2_win_wkts, bat2_win_balls` (Hists),
+`bat1_wins_in_20, bat2_wins_in_20` (counts), and `by_bat_first: {A: Raw, B: Raw}` (the same structure for each
+batting-first condition, without a further `by_bat_first`). `mergeRaw` pools all of these.
+`summarizeRaw(raw.by_bat_first.A)` gives per-toss summaries.
+
+### sim_params.json
+
+* `match_shock.innings_sd`: independent innings-level shock SD. Each innings uses
+  `z_match + z_innings` (z_innings ~ Normal(0, innings_sd), drawn separately for each innings) times `dir`.
+* `conditions.dew.heavy / none`: now sized from the spread of match-level chase residuals (see method.md);
+  same keys as before.
+
+### players.json / teams.json
+
+`bowl.value.exp_overs` for the default 12 = last season's recency-weighted overs per match **played**, scaled so
+the 12 share 20 overs (cap 4); team `plan` rebuilt from the same usage. No key changes.

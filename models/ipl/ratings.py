@@ -616,7 +616,8 @@ def main():
     with open(PROC / "ratings.pkl", "wb") as fh:
         pickle.dump(out, fh)
     write_sim_params(M, BAT, BOWL, pri_b, pri_w, ex, pool, venues, styles, names,
-                     match_shock={"sd": round(shock["sd"], 4), "dir": shock["dir"]},
+                     match_shock={"sd": round(shock["sd"], 4), "innings_sd": round(shock["innings_sd"], 4),
+                                  "dir": shock["dir"]},
                      conditions=build_conditions(M, venues, shock), pair_terms=pair_terms)
     print(f"ratings: pool={len(pool)} batters={len(bat_df)} bowlers={len(bowl_df)} venues={len(venues)}")
 
@@ -809,11 +810,20 @@ def estimate_match_shock(M, f, cov, BAT, BOWL, exs):
     Q = RefSample(M, r, cov, BAT, BOWL)
     P = softmax(Q.eta)
     x = conceded_per_row(P, exs) + P[:, C["byes"]] * exs["bye_mean"]
-    d = pd.DataFrame({"m": r["match_id"], "i": r["innings"], "x": x, "a": r["runs_total"], "n": 1})
+    # per-ball variance of runs under the model (class means; within-class spread ignored)
+    rv = np.array([exs["wide_mean"], 1 + exs["nb_bat_mean"], exs["bye_mean"], 0, exs["ro_runs_mean"], 0, 1, 2, 3, 4, 6])
+    vb = (P * rv ** 2).sum(1) - (P * rv).sum(1) ** 2
+    d = pd.DataFrame({"m": r["match_id"], "i": r["innings"], "x": x, "a": r["runs_total"], "n": 1, "v": vb})
     g = d.groupby(["m", "i"]).sum()
     g["res"] = (g["a"] - g["x"]) / g["n"]
+    g["noise"] = g["v"] / g["n"] ** 2
     w = g["res"].unstack().dropna()
+    nz = g["noise"].unstack().reindex(w.index)
     c = float(np.cov(w[1], w[2])[0, 1])
+    # innings-level excess variance beyond the shared match component and sampling noise
+    exc = [float(np.var(w[i], ddof=1) - nz[i].mean() - c) for i in (1, 2)]
+    # chase residual (2nd minus 1st innings), noise-corrected spread -> dew dial size
+    dvar = float(np.var(w[2] - w[1], ddof=1) - nz[1].mean() - nz[2].mean())
     cs_lab = M.blocks["cs"][1]
     cs = M.blk("cs")
     dvec = cs[cs_lab.index("IPL|2026")] - cs[cs_lab.index("IPL|2021")]
@@ -821,8 +831,11 @@ def estimate_match_shock(M, f, cov, BAT, BOWL, exs):
     h = 0.05
     d1 = float(np.mean(conceded_per_row(softmax(Q.eta + h * dvec), exs) - conceded_per_row(P, exs)) / h)
     sd = float(np.sqrt(max(c, 0.0)) / d1) if d1 > 0 else 0.0
-    return {"sd": sd, "dir": r3(dvec, 4), "residual_cov": c, "residual_corr": float(np.corrcoef(w[1], w[2])[0, 1]),
-            "runs_per_ball_per_unit": d1, "n_matches": int(len(w))}
+    inn_sd = float(np.sqrt(max(np.mean(exc), 0.0)) / d1) if d1 > 0 else 0.0
+    chase_sd = float(np.sqrt(max(dvar, 0.0)) / d1) if d1 > 0 else 0.0
+    return {"sd": sd, "innings_sd": inn_sd, "chase_sd": chase_sd, "dir": r3(dvec, 4), "residual_cov": c,
+            "residual_corr": float(np.corrcoef(w[1], w[2])[0, 1]), "innings_excess_var": exc,
+            "chase_residual_var_true": dvar, "runs_per_ball_per_unit": d1, "n_matches": int(len(w))}
 
 
 def build_conditions(M, venues, shock):
@@ -849,7 +862,9 @@ def build_conditions(M, venues, shock):
         "pitch": {"normal": {}, "flat": {"all": r3(sd * d)},
                   "slow_low": {"all": r3(-sd * d), "spin": r3(gap(VS, "spin_wpo_mult"))},
                   "seaming": {"all": r3(-0.5 * sd * d), "pace": r3(gap(VB, "pace_wpo_mult"))}},
-        "dew": {"normal": {}, "heavy": {"i2": r3(gap(VI, "dew_ratio"))}, "none": {"i2": r3(gap(VI, "dew_ratio", False))}},
+        # dew: 90th / 10th percentile of the (noise-corrected) match-level chase residual, on 2nd-innings balls
+        "dew": {"normal": {}, "heavy": {"i2": r3(1.2816 * float(shock.get("chase_sd", 0.0)) * d)},
+                "none": {"i2": r3(-1.2816 * float(shock.get("chase_sd", 0.0)) * d)}},
     }
 
 
