@@ -383,6 +383,9 @@
           if (foul) dur = 2 + rng.gamma(2, 1);
           dur = Math.min(dur, rem);
           var trail3 = late && lead <= -3;
+          // down 3-6 inside 24 s: nearly all threes; tied or trailing starting inside 12 s: rushed, less efficient
+          var b3 = (trail3 && rem <= 24 && lead >= -6) ? (sim.late_three_boost || 1.8) : 1.8;
+          var rush = (late && lead <= 0 && rem <= 12) ? (sim.late_rush_eff || 1) : 1;
           stealFlag = false;
           nposs++;
           var i, k;
@@ -417,10 +420,10 @@
               }
             } else {                                        // field goal attempt
               var mx = To.mix[pl], zw = wtmp;
-              for (i = 0; i < 5; i++) zw[i] = mx[i] * (trail3 && i >= 3 ? 1.8 : 1);
+              for (i = 0; i < 5; i++) zw[i] = mx[i] * (trail3 && i >= 3 ? b3 : 1);
               var z = catSample(zw, 5, rng.u()), three = z >= 3;
               add(gpid, FGA, s, 1); if (three) add(gpid, FG3A, s, 1);
-              if (rng.u() < C.Q[u][z] * clip(1 - (sim.score_effect || 0) * clip(leadAdj, -25, 25), 0.5, 1.5)) {
+              if (rng.u() < C.Q[u][z] * clip(1 - (sim.score_effect || 0) * clip(leadAdj, -25, 25), 0.5, 1.5) * rush) {
                 var v = three ? 3 : 2;
                 add(gpid, FGM, s, 1); if (three) add(gpid, FG3M, s, 1); add(gpid, PTS, s, v); score[o] += v;
                 if (rng.u() < To.and1[pl]) {

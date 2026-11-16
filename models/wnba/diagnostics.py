@@ -184,6 +184,7 @@ def main(force=False, n_sims=300):
                              best_prior=min(rm["prior_rapm_grid"], key=lambda r: r["mse"]),
                              spm_r2_weighted=rm["spm_r2_w"], note="possession points x100, test seasons 2024-26, train on prior seasons")
     D["team_ratings_oos_2026"] = team_oos(prm)
+    D["team_ratings_walkforward_2026"] = team_walkforward(prm)
     D["shot_model"] = json.loads((PROC / "shot_model.json").read_text())
     D["lineup_reconstruction"] = json.loads((PROC / "recon.json").read_text())
     D["sim_seconds"] = secs
@@ -323,6 +324,117 @@ def team_oos(prm):
                 rmse_prev_season_diff=rmse(base_prev), corr_model=float(np.corrcoef(pred, real)[0, 1]),
                 win_acc_model=float(((pred > 0) == (real > 0)).mean()), calibration_slope=slope,
                 note="ratings fit only on 2017-2025 data; uses each 2026 game's actual minutes; no market data")
+
+
+
+# %% walk-forward team ratings and the market yardstick
+def market_spreads(season=2026):
+    """ESPN-listed point spread per game (home margin implied), from the play-by-play file. Only 2026 has real
+    values (earlier files carry a 2.5 placeholder). Used as a yardstick only - nothing is fitted to it."""
+    p = pd.read_parquet(RAW / f"play_by_play_{season}.parquet", columns=["game_id", "game_spread", "home_favorite", "game_spread_available"])
+    p = p.drop_duplicates("game_id")
+    p = p[p.game_spread_available.fillna(False).astype(bool) & p.game_spread.notna()]
+    return pd.Series(np.where(p.home_favorite.astype(bool), p.game_spread, -p.game_spread), index=p.game_id.values)
+
+
+def prior_minutes(pg, games, hl=6.0):
+    """Minutes share known before tip-off: decayed mean of the player's earlier minutes this season (half-life 6
+    games played), else her previous-season mean, else 8. Still conditional on who was active."""
+    d = pg.merge(games[["game_id", "dt", "season"]].rename(columns={"season": "gs"}), on="game_id").sort_values("dt")
+    d = d[d.minutes.fillna(0) > 0]
+    prev = d.groupby(["pid", "gs"]).minutes.mean()
+    out = np.zeros(len(d))
+    for (pid, gs), ix in d.groupby(["pid", "gs"]).indices.items():
+        m = d.minutes.values[ix]
+        num = den = 0.0
+        fb = prev.get((pid, gs - 1), 8.0)
+        for j, i in enumerate(ix):
+            out[i] = (num + fb * 1.0) / (den + 1.0)  # one pseudo-game of the fallback
+            num, den = num * 0.5 ** (1 / hl) + m[j], den * 0.5 ** (1 / hl) + 1.0
+    return pd.Series(out, index=pd.MultiIndex.from_arrays([d.game_id.values, d.pid.values]))
+
+
+def team_walkforward(prm, step=0.1, season=2026, hyper=None):
+    """Ratings refitted every `step` of a season (about 2.5 weeks) on data before the cut-off, predicting the
+    games up to the next cut-off. Compared with the frozen pre-season ratings and the ESPN-listed spread on
+    the same games. Two minute inputs: the minutes actually played (knows the rotation, and blowouts), and
+    minutes shares from each player's earlier games (knowable before tip-off given the active list)."""
+    from models.wnba import rapm
+    from models.wnba.common import season_bounds, tau
+    rm = json.loads((PROC / "rapm_meta.json").read_text())
+    rm.update(hyper or {})
+    c = rapm.prepare()
+    games = pd.read_parquet(PROC / "games.parquet").dropna(subset=["home_pts"])
+    g = games[games.season == season].copy()
+    g["tau"] = tau(g.season.values, g.date.values, season_bounds(games))
+    pg = pd.read_parquet(PROC / "player_games.parquet")
+    pm = prior_minutes(pg[pg.pid > 0], games)
+    pg = pg[pg.game_id.isin(g.game_id) & (pg.minutes.fillna(0) > 0) & (pg.pid > 0)].copy()
+    pg["pmin"] = pm.reindex(pd.MultiIndex.from_arrays([pg.game_id.values, pg.pid.values])).values
+    hca, Pp = prm["context"]["hca_pts"], prm["league"]["poss_per_team_game"]
+    poss, pidx, P = c["poss"], c["pidx"], c["P"]
+    ocols, dcols = [f"o{k}" for k in range(5)], [f"d{k}" for k in range(5)]
+
+    def centred(b, t_cut):
+        q = poss[(poss.tau < t_cut) & (poss.tau >= t_cut - 1.25)]
+        wo = pd.Series(q[ocols].values.ravel()).value_counts()
+        wd = pd.Series(q[dcols].values.ravel()).value_counts()
+        O, D = pd.Series(b[:P], index=pidx), pd.Series(b[P:2 * P], index=pidx)
+        seen = pd.Index(np.unique(q[ocols + dcols].values))
+        O = (O - np.average(O.reindex(wo.index).fillna(0), weights=wo.values)).reindex(seen)
+        D = (D - np.average(D.reindex(wd.index).fillna(0), weights=wd.values)).reindex(seen)
+        return O, D
+
+    def predict(O, D, gg, mcol):
+        d = pg[pg.game_id.isin(gg.game_id)].copy()
+        d["O"], d["D"] = d.pid.map(O).fillna(-1.0), d.pid.map(D).fillna(-0.5)  # unseen players: fringe level
+        d["w"] = d[mcol] / d.groupby(["game_id", "team_id"])[mcol].transform("sum") * 5
+        d["net"] = d.w * (d.O + d.D)
+        net = d.groupby(["game_id", "team_id"]).net.sum()
+        h = net.reindex(pd.MultiIndex.from_arrays([gg.game_id, gg.home])).values
+        a = net.reindex(pd.MultiIndex.from_arrays([gg.game_id, gg.away])).values
+        return (h - a) * Pp / 100 + np.where(gg.neutral_site.fillna(False).astype(bool), 0.0, hca)
+
+    args = (rm["H"], rm["H_feat"], rm["lam_prior"], rm.get("spm_alpha", 0.3))
+    t0 = season * 1.25
+    cuts = np.arange(t0, t0 + 1.0, step)
+    preds = {k: pd.Series(np.nan, index=g.game_id.values) for k in ("wf_actual_min", "wf_prior_min", "frozen_actual_min", "frozen_prior_min")}
+    for i, tc in enumerate(cuts):
+        gg = g[(g.tau >= tc) & (g.tau < tc + step + (1e-9 if i == len(cuts) - 1 else 0))]
+        if gg.empty:
+            continue
+        b, _ = rapm.rating_at(c, tc, *args)
+        O, D = centred(b, tc)
+        if i == 0:
+            O0, D0 = O, D
+        preds["wf_actual_min"][gg.game_id.values] = predict(O, D, gg, "minutes")
+        preds["wf_prior_min"][gg.game_id.values] = predict(O, D, gg, "pmin")
+        preds["frozen_actual_min"][gg.game_id.values] = predict(O0, D0, gg, "minutes")
+        preds["frozen_prior_min"][gg.game_id.values] = predict(O0, D0, gg, "pmin")
+    real = pd.Series((g.home_pts - g.away_pts).values, index=g.game_id.values)
+    mk = market_spreads(season).reindex(real.index)
+    preds["hca_only"] = pd.Series(hca, index=real.index)
+    has_mk = bool(mk.notna().any())
+    if has_mk:
+        preds["market_spread"] = mk
+    ok = (mk.notna() if has_mk else True) & preds["wf_actual_min"].notna()
+    out = dict(n_games=int(ok.sum()), refit_every_seasons=step, n_refits=int(len(cuts)))
+    for k, v in preds.items():
+        x, y = v[ok].values, real[ok].values
+        rec = dict(rmse=float(np.sqrt(np.mean((y - x) ** 2))), mae=float(np.mean(np.abs(y - x))))
+        rec["win_acc"] = float(((x > 0) == (y > 0)).mean())
+        if k != "hca_only" and np.std(x) > 0:  # home court only varies through the odd neutral game: no slope
+            rec.update(corr=float(np.corrcoef(x, y)[0, 1]), slope=float(np.polyfit(x, y, 1)[0]))
+        out[k] = rec
+    if has_mk:
+        x = np.c_[np.ones(ok.sum()), mk[ok].values, preds["wf_prior_min"][ok].values]
+        out["margin_on_market_and_model"] = dict(zip(["intercept", "market", "wf_prior_min"],
+                                                     np.linalg.lstsq(x, real[ok].values, rcond=None)[0].tolist()))
+    out["note"] = ("2026 games. wf = ratings refitted on data before each cut-off; frozen = pre-season ratings all year. "
+                   "actual_min uses minutes played (in-game information); prior_min uses each active player's earlier minutes. "
+                   "market_spread = ESPN-listed spread from the play-by-play file, a yardstick only: nothing is fitted to it. "
+                   "Hyper-parameters were tuned on 2024-26 holdouts, so this is not a pure out-of-sample test of them.")
+    return out
 
 
 if __name__ == "__main__":

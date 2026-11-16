@@ -6,11 +6,12 @@ O > 0 = better offence, D > 0 = better defence (fewer points allowed).
 Weights: recency 0.5**(dtau/H) in 'season time' (see common.tau), x0.5 for garbage time
 (|margin| >= 20 in the 4th quarter / OT).
 Steps
-  1. Tune lambda/H by forward holdout: fit on 2017-2025, score 2026 possessions (MSE).
+  1. Tune lambda/H by forward holdout: for 2024, 2025 and 2026 fit on earlier seasons, score that season (MSE).
   2. Long-run RAPM (all seasons, mild recency) -> targets for the box prior (SPM).
   3. SPM: weighted ridge of long-run O and D on per-100 box/pbp/shot-quality features.
   4. Prior-informed RAPM: ridge shrinking toward the SPM prediction (features recency-weighted).
-     Prior strength tuned by the same forward holdout (features built from pre-2026 data only).
+     Prior strength tuned by the same forward holdout (features and SPM coefficients from data before
+     each fold's cut-off only).
   5. Four-factor RAPM (eFG on FGA, TOV per poss, ORB per rebound chance, FTA per poss), both ends.
 Outputs: data/processed/wnba/rapm_players.parquet, rapm_meta.json
 """
@@ -167,28 +168,66 @@ def predict_spm(m, F):
     return m["coef"][0] + Z @ m["coef"][1:]
 
 
+# %% fitting at a cut-off (no data from t >= t_cut): used by the holdout, the pre-2026 fit and the walk-forward
+H_LONG = 4.0  # half-life of the long-run RAPM that the box prior is trained on
+# Ridge penalty of that long-run RAPM. Fixed, not tied to the plain-RAPM tuning: the SPM is regressed on these
+# shrunken targets, so a heavier penalty compresses the prior and every rating built on it (with 3000 the
+# 2024-26 walk-forward margin slope rose from ~1.0 to ~1.1; possession MSE cannot tell the two apart).
+LAM_LONG = 1500.0
+
+
+def prepare():
+    poss, pg, shots, bounds = load()
+    pidx = player_index(poss)
+    seas = sorted(poss.season.unique())
+    return dict(poss=poss, pg=pg, shots=shots, bounds=bounds, pidx=pidx, P=len(pidx), X=design(poss, pidx),
+                y=poss.pts.values * 100.0, t=poss.tau.values, garbage=poss.garbage.values, seas=seas,
+                extra=season_extra(poss.home_off.values, poss.season.values, seas))
+
+
+def season_extra(home, season, seas, cap=None):
+    season = np.asarray(season)
+    if cap is not None:
+        season = np.minimum(season, cap)
+    return np.c_[np.asarray(home, float), (season[:, None] == np.array(seas)[None, :]).astype(float)]
+
+
+def spm_at(c, t_cut, alpha, lam=LAM_LONG, return_parts=False):
+    """Box prior (SPM) trained only on data before t_cut: long-run RAPM targets and long-run features."""
+    m = c["t"] < t_cut
+    w = weights(c["t"][m], t_cut, H_LONG, c["garbage"][m])
+    b = ridge(c["X"][m], c["y"][m], w, lam, extra=c["extra"][m])
+    P = c["P"]
+    O, D = b[:P], b[P:2 * P]
+    F = player_features(c["pg"], c["shots"], t_cut, H_LONG, pids=c["pidx"])
+    n = F.n_poss.values
+    sel = n > 300
+    wsp = np.sqrt(n[sel])
+    spmO, spmD = fit_spm(F[sel], O[sel], wsp, alpha), fit_spm(F[sel], D[sel], wsp, alpha)
+    if return_parts:
+        return spmO, spmD, dict(O=O, D=D, F=F, sel=sel, wsp=wsp)
+    return spmO, spmD
+
+
+def rating_at(c, t_cut, H, H_feat, lam_prior, alpha, spm=None):
+    """Prior-informed RAPM from data before t_cut only. Returns the full coefficient vector and the prior."""
+    spmO, spmD = spm if spm is not None else spm_at(c, t_cut, alpha)
+    m = c["t"] < t_cut
+    F = player_features(c["pg"], c["shots"], t_cut, H_feat, pids=c["pidx"])
+    prior = np.r_[predict_spm(spmO, F), predict_spm(spmD, F)]
+    b = ridge(c["X"][m], c["y"][m], weights(c["t"][m], t_cut, H, c["garbage"][m]), lam_prior, extra=c["extra"][m], prior=prior)
+    return b, prior
+
+
 # %% main fit
 def main(force=False):
     out = PROC / "rapm_players.parquet"
     if out.exists() and not force:
         print("rapm: cached")
         return
-    poss, pg, shots, bounds = load()
-    pidx = player_index(poss)
-    P = len(pidx)
-    X = design(poss, pidx)
-    y = poss.pts.values * 100.0
-    SEAS = sorted(poss.season.unique())
-
-    def season_extra(home, season, cap=None):
-        season = np.asarray(season)
-        if cap is not None:
-            season = np.minimum(season, cap)
-        return np.c_[np.asarray(home, float), (season[:, None] == np.array(SEAS)[None, :]).astype(float)]
-
-    extra = season_extra(poss.home_off.values, poss.season.values)
+    c = prepare()
+    poss, pg, shots, pidx, P, X, y, t, extra, SEAS = (c[k] for k in ("poss", "pg", "shots", "pidx", "P", "X", "y", "t", "extra", "seas"))
     i26 = 1 + SEAS.index(CUR)
-    t = poss.tau.values
     meta = {}
 
     # ---- 1. forward holdout tuning: for test seasons 2024/25/26 train on everything before, score that season
@@ -197,9 +236,10 @@ def main(force=False):
     for S in TEST:
         ts = S * 1.25
         tr, te = t < ts, (t >= ts) & (t < ts + 1.0)
-        ex_te = season_extra(poss.home_off.values[te], poss.season.values[te], cap=S - 1)
+        ex_te = season_extra(poss.home_off.values[te], poss.season.values[te], SEAS, cap=S - 1)
         folds.append((ts, tr, te, X[tr], sp.hstack([X[te], sp.csr_matrix(ex_te)]).tocsr()))
     mse_base = float(sum(np.sum((y[te] - y[tr].mean()) ** 2) for _, tr, te, _, _ in folds) / sum(te.sum() for _, _, te, _, _ in folds))
+    fold_spm, feat_cache = {}, {}
 
     def holdout(H, lam, H_feat=None):
         err, n = 0.0, 0
@@ -207,34 +247,31 @@ def main(force=False):
             w = weights(t[tr], ts, H, poss.garbage.values[tr])
             prior = None
             if H_feat is not None:
-                Ft = player_features(pg, shots, ts, H_feat, pids=pidx)
-                prior = np.r_[predict_spm(spmO, Ft), predict_spm(spmD, Ft)]
+                if (ts, H_feat) not in feat_cache:
+                    feat_cache[ts, H_feat] = player_features(pg, shots, ts, H_feat, pids=pidx)
+                Ft = feat_cache[ts, H_feat]
+                so, sd_ = fold_spm[ts]  # box prior trained before the fold's cut-off
+                prior = np.r_[predict_spm(so, Ft), predict_spm(sd_, Ft)]
             bb = ridge(Xtr, y[tr], w, lam, extra=extra[tr], prior=prior)
             err += float(np.sum((y[te] - Xte @ bb) ** 2))
             n += int(te.sum())
         return err / n
 
-    grid = [dict(H=H, lam=lam, mse=holdout(H, lam)) for H in (0.35, 0.5, 0.75, 1.0, 1.5) for lam in (400, 800, 1500, 3000)]
+    grid = [dict(H=H, lam=lam, mse=holdout(H, lam)) for H in (0.5, 0.75, 1.0, 1.5, 2.0) for lam in (400, 800, 1500, 3000, 6000)]
     gdf = pd.DataFrame(grid)
     best = gdf.loc[gdf.mse.idxmin()]
     H_best, lam_best = float(best.H), float(best.lam)
     meta["rapm_grid"] = gdf.assign(gain_vs_const=mse_base - gdf.mse).round(3).to_dict("records")
     meta["mse_const_holdout"] = mse_base
 
-    # ---- 2. long-run RAPM (targets for SPM): all seasons, slow decay (H=4)
-    w_lr = weights(t, tau_end(CUR), 4.0, poss.garbage.values)
-    b_lr, cov_lr, s2 = ridge(X, y, w_lr, lam_best, extra=extra, return_cov=True)
-    O_lr, D_lr = b_lr[:P], b_lr[P:2 * P]
-
-    # ---- 3. SPM fit on long-run features (uniform-ish H=4 to match)
-    F_lr = player_features(pg, shots, tau_end(CUR) + 1e-6, 4.0, pids=pidx)
-    nposs_lr = F_lr.n_poss.values
-    sel = nposs_lr > 300
-    wsp = np.sqrt(nposs_lr[sel])
-    best_alpha, spm_cv = None, []
+    # ---- 2-3. long-run RAPM (all seasons, slow decay) and the SPM fitted to it; ridge alpha by 5-fold CV
+    t_end = tau_end(CUR)
+    _, _, lr = spm_at(c, t_end + 1e-6, 1.0, return_parts=True)
+    O_lr, D_lr, F_lr, sel, wsp = lr["O"], lr["D"], lr["F"], lr["sel"], lr["wsp"]
+    spm_cv = []
     rng = np.random.default_rng(3)
     fold = rng.integers(0, 5, sel.sum())
-    for alpha in (0.3, 3.0, 30.0, 100.0):
+    for alpha in (0.03, 0.3, 3.0, 30.0, 100.0):
         err = 0.0
         for side, tgt in (("O", O_lr[sel]), ("D", D_lr[sel])):
             for k in range(5):
@@ -254,25 +291,25 @@ def main(force=False):
         O=float(1 - np.sum(wsp * (O_lr[sel] - fitO) ** 2) / np.sum(wsp * (O_lr[sel] - np.average(O_lr[sel], weights=wsp)) ** 2)),
         D=float(1 - np.sum(wsp * (D_lr[sel] - fitD) ** 2) / np.sum(wsp * (D_lr[sel] - np.average(D_lr[sel], weights=wsp)) ** 2)))
 
-    # ---- 4. prior-informed RAPM; tune data half-life, feature half-life and prior strength by forward holdout
+    # ---- 4. prior-informed RAPM; tune data half-life, feature half-life and prior strength by forward holdout.
+    # Each fold uses a box prior trained before its own cut-off (a prior fitted on all seasons would let the
+    # test season's results leak into its own forecast through the SPM coefficients).
+    for ts, *_ in folds:
+        fold_spm[ts] = spm_at(c, ts, best_alpha)
     grid2 = [dict(H=H, H_feat=Hf, lam=lam, mse=holdout(H, lam, Hf))
-             for H in (0.5, 0.75, 1.0) for Hf in (0.5, 1.0, 2.0) for lam in (1500, 3000, 6000)]
+             for H in (0.75, 1.0, 1.5, 2.0) for Hf in (0.5, 1.0, 2.0) for lam in (3000, 6000, 12000, 24000)]
     g2 = pd.DataFrame(grid2)
     bp = g2.loc[g2.mse.idxmin()]
     H_rapm, H_feat, lam_prior = float(bp.H), float(bp.H_feat), float(bp.lam)
     meta["prior_rapm_grid"] = g2.assign(gain_vs_const=mse_base - g2.mse).round(3).to_dict("records")
-    meta.update(H_plain=H_best, lam_plain=lam_best, H=H_rapm, H_feat=H_feat, lam_prior=lam_prior)
+    meta.update(H_plain=H_best, lam_plain=lam_best, H=H_rapm, H_feat=H_feat, lam_prior=lam_prior, spm_alpha=best_alpha, lam_long=LAM_LONG)
 
     # pre-2026 fit with the chosen hyper-parameters (used only by diagnostics for an out-of-sample check)
     ts = CUR * 1.25
-    trm = t < ts
-    Fp = player_features(pg, shots, ts, H_feat, pids=pidx)
-    prp = np.r_[predict_spm(spmO, Fp), predict_spm(spmD, Fp)]
-    bp_ = ridge(X[trm], y[trm], weights(t[trm], ts, H_rapm, poss.garbage.values[trm]), lam_prior, extra=extra[trm], prior=prp)
+    bp_, _ = rating_at(c, ts, H_rapm, H_feat, lam_prior, best_alpha, spm=fold_spm[ts])
     pd.DataFrame({"pid": pidx, "O": bp_[:P], "D": bp_[P:2 * P]}).to_parquet(PROC / "rapm_pre2026.parquet")
 
     # final fit at the cut-off
-    t_end = tau_end(CUR)
     F_now = player_features(pg, shots, t_end + 1e-6, H_feat, pids=pidx)
     prior_now = np.r_[predict_spm(spmO, F_now), predict_spm(spmD, F_now)]
     w = weights(t, t_end, H_rapm, poss.garbage.values)
@@ -322,7 +359,7 @@ def main(force=False):
     Xs = design(sd, pidx)
     ws = weights(s.tau.values, t_end, H_rapm, np.zeros(len(s), bool))
     yefg = s.made.values * (1 + 0.5 * s.pts3.values) * 100.0
-    exs = season_extra(home_sh, s.season.values)
+    exs = season_extra(home_sh, s.season.values, SEAS)
     ff["efg"] = ridge(Xs, yefg, ws, lam_best * 0.5, extra=exs)
     # shot quality: xPTS allowed / generated (selection) and make-over-expected allowed (contest)
     ff["xpts"] = ridge(Xs, s.xpts.values * 100.0, ws, lam_best, extra=exs)

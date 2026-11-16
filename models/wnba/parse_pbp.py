@@ -209,6 +209,9 @@ def build(y, stats):
     rem = p.clock_minutes * 60 + p.clock_seconds
     p["t"] = [period_start(q) for q in p.period_number] + (np.array([period_len(q) for q in p.period_number]) - rem.values)
     p["t"] = p["t"].clip(lower=0)
+    # ESPN's home_score / away_score on an event are the score AFTER that event; keep the score before it
+    p["hs_before"] = p.groupby("game_id").home_score.shift(1).fillna(0)
+    p["as_before"] = p.groupby("game_id").away_score.shift(1).fillna(0)
     H = np.full((len(p), 5), -1, dtype=np.int64)
     A = np.full((len(p), 5), -1, dtype=np.int64)
     gstart = p.groupby("game_id").indices
@@ -261,7 +264,7 @@ def summarise_possessions(p, r):
         pts=("pts", "sum"), fga=("fga", "sum"), fgm=("fgm", "sum"), fg3a=("fg3a", "sum"), fg3m=("fg3m", "sum"),
         fta=("fta", "sum"), ftm=("ftm", "sum"), tov=("tov", "sum"), orb=("orb", "sum"), ft_trips=("ft_trip", "sum"),
         first_idx=("game_play_number", "idxmin"), home_team=("home_team_id", "first"), away_team=("away_team_id", "first"),
-        hs=("home_score", "first"), as_=("away_score", "first"), season=("season", "first"), season_type=("season_type", "first"),
+        hs=("hs_before", "first"), as_=("as_before", "first"), season=("season", "first"), season_type=("season_type", "first"),
         date=("game_date", "first"),
     ).reset_index()
     # lineups at first relevant event of the possession
@@ -285,7 +288,8 @@ def summarise_possessions(p, r):
     agg["dur"] = (agg.t_end - agg.t_start).clip(lower=0)
     # empty possessions (only a rebound, e.g. heave at buzzer) are dropped
     agg["is_empty"] = (agg.fga + agg.fta + agg.tov) == 0
-    # margin from offense perspective at possession start
+    # margin from offense perspective at possession start (score before the possession's first event; using
+    # the event's own score would add a made first shot / free throw to the offence's lead)
     agg["margin"] = np.where(home_off, agg.hs - agg.as_, agg.as_ - agg.hs)
     agg["lineup_ok"] = (off5 > 0).all(1) & (def5 > 0).all(1)
     return agg.drop(columns=["first_idx"])

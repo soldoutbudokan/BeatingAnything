@@ -2,8 +2,8 @@
 
 A possession-level Monte Carlo model of WNBA games built only from public play-by-play (ESPN via the
 sportsdataverse/wehoop parquet files, 2017–2026) and ESPN's public roster endpoint. Its goal is the most
-accurate projection we can build from public data. It is **not** fitted to, or tested against, betting
-prices. All numbers below are in `diagnostics.json` / `meta.json`; this file explains what they mean.
+accurate projection we can build from public data. It is **not** fitted to betting prices; the ESPN-listed
+point spread is used once, as a yardstick for the 2026 walk-forward test (§11). All numbers below are in `diagnostics.json` / `meta.json`; this file explains what they mean.
 
 Rebuild everything: `python -m models.wnba.run_all` (each step caches; `--force` rebuilds, `--from STEP`
 rebuilds from a step, `--refresh` re-downloads the current season and rosters).
@@ -12,7 +12,7 @@ rebuilds from a step, `--refresh` re-downloads the current season and rosters).
 
 ## 1. Data and parsing (`parse_pbp.py`)
 * Seasons 2017–2026, regular season + playoffs, all-star / exhibition teams excluded. ~2,440 games,
-  ~380k possessions, ~333k field-goal attempts. 2026 is complete (Finals ended 2026-10-31).
+  ~380k possessions, ~333k field-goal attempts. 2026 is complete (last game 2026-10-29).
 * Fixes applied to the raw files: older seasons (2017–2021) record made free throws with
   `score_value = 0` and clear-path FTs under a different type label; three-point attempts are derived
   from text/shot distance where the `points_attempted` column is missing (99.9% agreement on 2026).
@@ -25,7 +25,10 @@ rebuilds from a step, `--refresh` re-downloads the current season and rosters).
 * **Possessions** are runs of one team's offensive events (FGA, non-technical FT, turnover, live
   rebound); offensive rebounds continue the possession. The lineup credited is the one on court at the
   possession's first event (so FTs after a mid-trip substitution go to the earlier lineup). Technical FTs
-  are excluded from possession points. Dead-ball rebounds after a non-final FT are ignored.
+  are excluded from possession points. Dead-ball rebounds after a non-final FT are ignored. The margin at
+  the start of a possession is the score before its first event (ESPN's score columns are the score *after*
+  each event; the first build used them directly, which added a made first shot or free throw to the
+  offence's lead on 26% of possessions).
 * **Shots** are classified into five zones from ESPN coordinates (hoop at raw (25, 0)): rim < 4 ft,
   short mid 4–14 ft, long mid ≥ 14 ft twos, corner three (≤ 9 ft above the hoop line), above-the-break three.
 
@@ -53,7 +56,12 @@ garbage time (|margin| ≥ 20 in Q4/OT) gets half weight.
    recency-weighted features) instead of toward zero. This is the `impact.O / impact.D` used everywhere.
 4. Tuning by forward holdout (train on all seasons before S, score every possession of S, for S =
    2024, 2025, 2026): data half-life **H = 1.0 season**, feature half-life **1.0**, prior strength
-   **λ = 6000**; plain RAPM λ = 1500. Prior-informed RAPM beats plain RAPM out of sample.
+   **λ = 6000**; plain RAPM H = 1.5, λ = 1500. All four sit inside their grids. In each fold the SPM
+   coefficients are also fitted only on data before the fold's cut-off; the first build fitted them on all
+   seasons, which let the test season leak into its own forecast and overstated the gain (MSE 13,794
+   reported, 13,798 without the leak; plain RAPM 13,803, constant 13,832). Prior-informed RAPM still beats
+   plain RAPM out of sample. The ridge penalty of the long-run RAPM that the SPM is trained on is fixed at
+   1500: a heavier one compresses the prior and every rating built on it.
 5. Ratings are re-centred so the 2026 possession-weighted mean O and D are 0 (league average = 0).
 6. Uncertainty: posterior SD from the ridge (residual variance × (X'WX + λ)^-1). Typical rotation
    player ≈ ±1.3 per 100 on each end.
@@ -97,11 +105,13 @@ rate (≥ 1 guard, ≤ 2 centres). Game-to-game minute SD from the player's hist
   2026 team (coach/system) residual shrunk with 800 pseudo-possessions. The league first-play time is
   then calibrated so simulated possessions match the 2026 league rate (78.8 per team).
 * **Home court, rest, travel** (`context.py`): game-margin regression with ridge team-season strengths
-  (2017–26): home court +1.53 ± 0.27 points (the team-season ridge absorbs part of it; the raw home
-  margin is +2.03). The simulator uses the possession-level RAPM home coefficient (2.58 per 100 × 78.8
-  possessions ≈ **+2.03** points), because re-simulating 2025–26 with 1.53 under-shot the real home win
-  rate. Back-to-back −1.46 ± 1.14, extra rest day +0.29 ± 0.26,
-  travel −1.28 ± 0.58 per 1,000 miles from the previous game city (time-zone change was not
+  (2017–26): home court +1.62 ± 0.28 points (the team-season ridge absorbs part of it; the raw home
+  margin outside the 2020 bubble is +2.13). The 2020 season was played in one building, so its games are
+  neutral with no travel; the first build treated ESPN's nominal home teams as hosts. The simulator uses
+  the possession-level RAPM home coefficient (2.63 per 100 × 78.8 possessions ≈ **+2.07** points), because
+  re-simulating 2025–26 with the game-level value under-shot the real home win rate.
+  Back-to-back −1.44 ± 1.14, extra rest day +0.29 ± 0.27,
+  travel −1.25 ± 0.60 per 1,000 miles from the previous game city (time-zone change was not
   significant and has the wrong sign, so it is not used). Effects are shrunk by t²/(1+t²) before use and
   split equally between the two teams' offensive targets.
 
@@ -132,19 +142,24 @@ rate (≥ 1 guard, ≤ 2 centres). Game-to-game minute SD from the player's hist
   rebound → new play (~6 s). Steals by defenders' steal rates; possessions after steals are faster.
   Technical FTs at the league rate.
 * **Late game**: last 2 minutes of Q4/OT — the leader milks the clock (~21 s), the trailer hurries (~9 s)
-  and shoots more threes when down 3+. **Intentional fouls** come from an empirical table
+  and shoots more threes when down 3+. Two end-game behaviours are set from 2017–26 Q4/OT possessions: an
+  offence down 3–6 that starts inside 24 s takes 65–88% of its shots from three (three-zone weights × 8), and
+  a tied or trailing offence that starts inside 12 s scores 0.58–0.74 points per possession against ~1.05
+  normally (make probabilities × 0.65). Together they moved one-point games from 4.4% to 3.4% of simulated
+  games (real 3.4%) and overtime from 2.8% to 3.2% (real 4.1%). **Intentional fouls** come from an empirical table
   (`sim.late_foul_table`): the probability that the trailing defence fouls at the start of a possession, by
   the offence's lead (1–15) and seconds left (≤15, 30, 45, 60, 90), measured on 2017–26 play-by-play as
   quick FT-only possessions minus the background rate of such possessions when the offence is not ahead,
-  smoothed across neighbouring leads. E.g. up 4 with ≤15 s ≈ 92%, up 1 with 30–45 s ≈ 1%, up 10 with 15–30 s
-  ≈ 24%, up 13+ ≈ 0. Fouls give 2 FTs to an offensive player weighted by usage × FT%. This replaced a hard
+  smoothed across neighbouring leads. E.g. up 1 with ≤15 s ≈ 90%, up 4 with ≤15 s ≈ 92%, up 1 with 15–30 s ≈ 59%,
+  up 1 with 30–45 s ≈ 0, up 10 with 15–30 s ≈ 20%, up 13+ ≈ 0 (the first build, with the lead measured after
+  the first free throw, had 67% for up 1 with ≤15 s). Fouls give 2 FTs to an offensive player weighted by usage × FT%. This replaced a hard
   "trailing by 1–9 in the last 45 s" rule that put artificial mass on 10-point margins. OT: 5-minute periods
   until decided (max 6).
 * **Shared game-level shocks** (same draw for both teams in a simulated game), sized from data
   (`game_effects.py`, `diagnostics.game_effects`): re-simulating 2026 games with the shocks off, the two
   teams' residual points per possession (real − simulated mean) still covary more in real games
   (cov 0.0033 vs 0.0020 within simulations, corr 0.21): officiating, conditions, shooting nights. The
-  excess sets an efficiency shock with SD ≈ 3.6 per 100 possessions added to both offensive targets.
+  excess sets an efficiency shock with SD ≈ 4.1 per 100 possessions added to both offensive targets.
   The FTA residuals covary the same way, giving a "whistle" shock (SD ≈ 0.15 on the log FT-trip rate,
   composition only — the efficiency solve keeps points per possession on target). A shared pace shock
   was estimated too, but real possession residuals are *less* variable than the simulator's own
@@ -189,9 +204,12 @@ See `schema.md` for every field. Key ones: `impact.O/D/total` (per 100, prior-in
   remove this. Players never seen in the data get a fringe-player prior.
 * **Possessions vs sim plays**: the possession definition (ORB continues possession) and lineup credit
   at the first event are standard but imperfect around FT trips with substitutions.
-* **Off-season rosters.** Rosters are each player's last 2026 team (the ESPN off-season roster endpoint
-  is incomplete; Connecticut has no current ESPN roster or team-list entry). Free agency, the 2027
-  expansion and draft are not reflected. Ages for players without an ESPN birth date are imputed.
+* **Off-season rosters.** A player's team is her last 2026 team if she is still on an ESPN roster;
+  players missing from their last team's ESPN roster (waived, released, expired hardship deals: 24 players)
+  are free agents with no default minutes. The first build kept them, which gave e.g. New York 19 and
+  Toronto 16 default minutes a game to players no longer there. Connecticut has no ESPN roster or team-list
+  entry, so its roster is everyone who appeared for it in 2026. ESPN's injury flags are not used. Free
+  agency, expansion and the draft are not reflected. Ages for players without an ESPN birth date are imputed.
 * **Minutes model** is a heuristic, not a fitted rotation model; foul trouble and injuries within a game
   are not simulated. Lineups change only on a 2-minute grid.
 * **Calibration lever**: the efficiency gap between box composition and RAPM is closed by a common
@@ -213,6 +231,30 @@ See `schema.md` for every field. Key ones: `impact.O/D/total` (per 100, prior-in
 * **Age curves** come from players with known birth dates (survivor bias) and are applied only in
   proportion to the data share of each estimate.
 * **Diagnostics are calibration checks, not backtests**: the 2025–26 re-simulation uses end-of-2026
-  parameters (in-sample). The genuinely out-of-sample checks are the forward holdouts of the skill
-  projections and RAPM and the 2026 team-rating test fitted only on 2017–25 data.
-* No market data were used anywhere.
+  parameters (in-sample). The out-of-sample checks are the forward holdouts of the skill projections and
+  RAPM, the 2026 team-rating test fitted only on 2017–25 data, and the 2026 walk-forward (§11). Even
+  those are not pure: hyper-parameters were tuned on 2024–26 holdouts, and the out-of-sample player
+  calibration keeps the full-sample four-factor defence, pace terms and league constants.
+* **Overtime is under-produced**: 3.2% of simulated 2026 games against 4.1% of real games (2017–26).
+* **No backtest of the minutes model.** The default rotation is a heuristic that has never been scored
+  against the minutes players went on to play.
+* No market data were used to fit anything.
+
+## 11. Walk-forward test and the market yardstick
+`diagnostics.team_ratings_walkforward_2026`: ratings refitted ten times through 2026 (about every 2.5 weeks)
+on data before each cut-off, predicting the next block of games from bottom-up ratings and home court.
+Minutes shares are either those actually played or, knowable before tip-off, each active player's decayed
+minutes from her earlier games.
+
+| forecast of the home margin, 353 games | RMSE | corr. | slope | winner |
+|---|---|---|---|---|
+| ESPN-listed spread | 12.61 | 0.49 | 0.95 | 70.0% |
+| refitted ratings, earlier minutes | 12.84 | 0.46 | 1.06 | 68.6% |
+| refitted ratings, actual minutes | 12.85 | 0.46 | 1.05 | 67.7% |
+| pre-season ratings, earlier minutes | 13.06 | 0.43 | 1.04 | 65.2% |
+| home court only | 14.48 | – | – | 55.2% |
+
+The spread is the listed line in ESPN's play-by-play feed (real values in 2026 only; earlier files carry a
+placeholder). The model is told who was active; the spread also reflects injuries, rest and news. Regressing
+the real margin on both gives 0.80 × spread + 0.19 × model: the model adds little beyond the line.
+Across 2024–26 the walk-forward RMSE is 12.47 and its slope is 0.99–1.06.

@@ -20,7 +20,7 @@ Game flow
     and-one, assist (shooter's assisted share x zone), block on misses, rebound contest (team-level ORB chance,
     individual credit by ORB/DRB rates), FTs. ORB -> new play (Gamma(2) mean 6 s). Steals by defender rates.
   * Late game (4th quarter/OT, last 2 min): leader milks clock, trailer hurries and shoots more threes,
-    intentional fouls when trailing by 1-9 in the last 45 s. Technical FTs at the league rate.
+    intentional fouls from the empirical lead x time table. Technical FTs at the league rate.
 """
 from __future__ import annotations
 
@@ -372,6 +372,10 @@ def simulate(prm, home, away, n_sims=10000, seed=1, opts=None, keep_games=False)
             dur = np.where(foul, 2.0 + rng.gamma(2.0, 1.0, len(j)), dur)
             dur = np.minimum(dur, rem)
             trail3 = late & (lead <= -3)
+            must3 = trail3 & (rem <= 24) & (lead >= -6)
+            # a tied or trailing offence that starts with <= 12 s scores far less than usual (0.58-0.74 points
+            # per possession against ~1.05): rushed, contested, sometimes no clean look
+            rush = np.where(late & (lead <= 0) & (rem <= 12), sim.get("late_rush_eff", 1.0), 1.0)
             steal_flag[gs] = False
             n_poss[gs] += 1
             # technical FT
@@ -449,9 +453,12 @@ def simulate(prm, home, away, n_sims=10000, seed=1, opts=None, keep_games=False)
                     m = np.nonzero(is_fga)[0]
                     mx = MIX[k[m], u[m]]
                     if trail3[k[m]].any():
-                        mx = np.where(trail3[k[m]][:, None], mx * np.array([1, 1, 1, 1.8, 1.8]), mx)
+                        # down 3+: more threes; inside the last 24 s nearly all threes (real: 65-88% of FGA)
+                        b3 = np.where(must3[k[m]], sim.get("late_three_boost", 1.8), 1.8)
+                        mx = np.where(trail3[k[m]][:, None], mx * np.stack([np.ones_like(b3)] * 3 + [b3, b3], 1), mx)
                     z = cat_sample(mx, r[m, 2])
                     qz = Q[k[m], u[m], z] * np.clip(1.0 - sim.get("score_effect", 0.0) * np.clip(lead_adj[k[m]], -25, 25), 0.5, 1.5)
+                    qz = qz * rush[k[m]]
                     made = r[m, 3] < qz
                     three = z >= 3
                     box[SI["fga"], gk[m], pid[m]] += 1

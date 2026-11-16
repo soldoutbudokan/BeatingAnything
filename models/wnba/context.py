@@ -4,6 +4,8 @@ margin_home = HCA*(not neutral) + b2b*(B2B_h - B2B_a) + rest*(R_h - R_a) + trave
               + tz*(|tz shift|_h - |tz shift|_a) + s_home,season - s_away,season + e
 Team-season strengths are ridge-penalised (lambda = 4 games). R = min(days since last game, 4) - 1.
 miles / tz shift = distance and time-zone change from the city of the team's previous game.
+The 2020 season was played in one building (Bradenton): every game is neutral with no travel. ESPN still lists a
+"home" team for those games, so without this they dilute home court and add fake city-to-city trips.
 Output: data/processed/wnba/context.json
 """
 from __future__ import annotations
@@ -15,6 +17,9 @@ import numpy as np
 import pandas as pd
 
 from models.wnba.common import CITY, PROC, haversine_miles
+
+
+BUBBLE_SEASON = 2020
 
 
 def city_of(abbr, team_id, season):
@@ -40,6 +45,7 @@ def main(force=False):
     tg["rest"] = tg.rest_days.fillna(4).clip(1, 4) - 1
     tg["miles"] = [haversine_miles(p, c) if isinstance(p, tuple) else 0.0 for p, c in zip(tg.prev_city, tg.host_city)]
     tg["tz"] = [abs(c[2] - p[2]) if isinstance(p, tuple) else 0.0 for p, c in zip(tg.prev_city, tg.host_city)]
+    tg.loc[tg.season == BUBBLE_SEASON, ["miles", "tz"]] = 0.0
     f = tg.pivot_table(index="game_id", columns="side", values=["b2b", "rest", "miles", "tz"])
     f.columns = [f"{a}_{b}" for a, b in f.columns]
     g = g.set_index("game_id").join(f).reset_index()
@@ -51,7 +57,7 @@ def main(force=False):
     Xt = np.zeros((n, T))
     Xt[np.arange(n), idx.get_indexer(ts_h)] = 1
     Xt[np.arange(n), idx.get_indexer(ts_a)] = -1
-    neutral = g.neutral_site.fillna(False).astype(bool).values
+    neutral = g.neutral_site.fillna(False).astype(bool).values | (g.season == BUBBLE_SEASON).values
     Xc = np.c_[(~neutral).astype(float), g.b2b_h - g.b2b_a, g.rest_h - g.rest_a, (g.miles_h - g.miles_a) / 1000.0, g.tz_h - g.tz_a]
     names = ["hca", "b2b", "rest_day", "travel_per_1000mi", "tz_shift"]
     X = np.c_[Xc, Xt]
@@ -68,8 +74,8 @@ def main(force=False):
     bt = np.linalg.lstsq(Xtot, yt, rcond=None)[0]
     res["total_b2b_per_team"] = float(bt[1])
     res["n_games"] = int(n)
-    res["home_win_rate"] = float((y > 0).mean())
-    res["home_margin_mean"] = float(y.mean())
+    res["home_win_rate"] = float((y[~neutral] > 0).mean())
+    res["home_margin_mean"] = float(y[~neutral].mean())
     res["b2b_share"] = float(((g.b2b_h + g.b2b_a) > 0).mean())
     res["resid_sd"] = float(np.sqrt(s2))
     out.write_text(json.dumps(res, indent=1))

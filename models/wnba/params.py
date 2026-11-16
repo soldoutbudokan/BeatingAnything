@@ -254,7 +254,11 @@ def main(force=False):
                   team_def={str(int(k)): float(v) for k, v in pace["team_def"].items()}),
         sim=dict(segment_sec=120.0, ot_segment_sec=150.0, min_cap=40.0, realloc_cap=38.0, max_c=2,
                  ff_def_weight=1.0, late_foul_sec=45.0, late_foul_max_lead=9, blowout=[[22, 300], [17, 150]], min_boost=0.0,
-                 newton_iter=4, max_ot=6, score_effect=0.0025, eff_shock_sd=0.0, whistle_sd=0.0, pace_shock_sd=0.0),
+                 newton_iter=4, max_ot=6, score_effect=0.0025, eff_shock_sd=0.0, whistle_sd=0.0, pace_shock_sd=0.0,
+                 # end game, measured on 2017-26 Q4/OT possessions: down 3-6 starting inside 24 s, 65-88% of FGA are
+                 # threes (boost 8 on the three zones gives ~80%); tied or trailing starting inside 12 s, 0.58-0.74
+                 # points per possession against ~1.05 normally
+                 late_three_boost=8.0, late_rush_eff=0.65),
         players=players,
         teams=[dict(id=int(t.team_id), abbr=t.abbr, name=t.team_display_name, color=t.team_color,
                     alt_color=t.team_alternate_color, logo=t.team_logo) for t in teams.itertuples()],

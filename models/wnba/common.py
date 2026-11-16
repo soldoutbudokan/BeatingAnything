@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 from pathlib import Path
 
 import numpy as np
@@ -17,8 +18,9 @@ except Exception:  # pragma: no cover
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw" / "wnba"
-PROC = ROOT / "data" / "processed" / "wnba"
-EXPORT = ROOT / "docs" / "models" / "wnba" / "data"
+# WNBA_PROC / WNBA_EXPORT redirect the build (e.g. to try a change without touching the published files)
+PROC = Path(os.environ.get("WNBA_PROC", ROOT / "data" / "processed" / "wnba"))
+EXPORT = Path(os.environ.get("WNBA_EXPORT", ROOT / "docs" / "models" / "wnba" / "data"))
 for _d in (RAW, PROC, EXPORT):
     _d.mkdir(parents=True, exist_ok=True)
 

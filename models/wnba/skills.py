@@ -45,8 +45,8 @@ for z, zn in enumerate(ZONES):
     RATES[f"mix_{zn}"] = (f"fga_z{z}", "fga", 50.0, f"share of FGA from {zn}")
     RATES[f"fg_{zn}"] = (f"fgm_z{z}", f"fga_z{z}", 40.0, f"FG% from {zn}")
 
-H_GRID = (0.25, 0.5, 1.0, 2.0, 4.0, 8.0)
-K_MULT = (0.0625, 0.125, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0)
+H_GRID = (0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 64.0)
+K_MULT = (0.0625, 0.125, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0)
 
 
 def load():

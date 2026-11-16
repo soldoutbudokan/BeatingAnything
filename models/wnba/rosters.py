@@ -1,8 +1,10 @@
 # %% Player bios + end-of-2026 rosters
 """
 Roster rule: a player's team is the last team she appeared for (box score, minutes > 0 or listed) in the
-2026 season (regular season + playoffs). ESPN's current (off-season) roster endpoint supplies age, birth
-date, height and position, and a flag for whether the player is on that team's ESPN roster today.
+2026 season (regular season + playoffs), provided she is still on an ESPN roster or that team has no ESPN
+roster (Connecticut). A 2026 player missing from her last team's ESPN roster was waived or released and
+becomes a free agent. ESPN's current (off-season) roster endpoint also supplies age, birth date, height
+and position.
 Players on an ESPN roster with no 2026 appearance are added to that team (no default minutes).
 Players who played in 2025 but not in 2026 and are on no ESPN roster are kept as free agents (team None)
 so the site can add them to lineups.
@@ -41,7 +43,7 @@ def main(force=False):
         print("rosters: cached")
         return
     pg = pd.read_parquet(PROC / "player_games.parquet")
-    pg = pg[pg.pid > 0 & pg.team_id.notna()]
+    pg = pg[(pg.pid > 0) & pg.team_id.notna()]
     games = pd.read_parquet(PROC / "games.parquet")
     pg = pg.merge(games[["game_id", "dt"]], on="game_id", how="left")
     played = pg[(pg.minutes.fillna(0) > 0)]
@@ -65,6 +67,11 @@ def main(force=False):
     bio["roster_source"] = np.where(bio.last_season == CUR, "last_2026_team",
                                     np.where(bio.espn_team.notna(), "espn_current_roster", "free_agent"))
     bio["on_espn_roster"] = bio.espn_team.notna()
+    # waived / released / expired hardship deals: last 2026 team has an ESPN roster and she is not on it (or
+    # on any other). Keeping them on that team gave them default minutes (up to 19 a game on one team).
+    with_roster = set(e.espn_team.dropna().astype(int))
+    bio["released_2026"] = (bio.last_season == CUR) & ~bio.on_espn_roster & bio.last_team.isin(with_roster)
+    bio.loc[bio.released_2026, "roster_source"] = "free_agent"
     bio["espn_team_differs"] = bio.espn_team.notna() & (bio.last_season == CUR) & (bio.espn_team != bio.last_team)
     # age at cut-off
     dob = pd.to_datetime(bio.dob, utc=True, errors="coerce").dt.tz_localize(None)

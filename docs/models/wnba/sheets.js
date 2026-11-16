@@ -565,7 +565,7 @@ async function injury(panel, sheet) {
 }
 
 /* ───────── Diagnostics ───────── */
-const KNOWN_DIAG = ['season_2026', 'season_2025', 'period_sd_2026', 'abs_margin_pmf_pct', 'player_calibration_insample', 'player_calibration_oos', 'winprob_reliability_oos', 'game_effects', 'aggregate', 'by_season', 'total_hist', 'margin_hist', 'star_scoring', 'star_scoring_by_player', 'teammate_pts_corr', 'skills_holdout', 'rapm_holdout', 'team_ratings_oos_2026', 'shot_model', 'lineup_reconstruction', 'sim_seconds'];
+const KNOWN_DIAG = ['season_2026', 'season_2025', 'period_sd_2026', 'abs_margin_pmf_pct', 'player_calibration_insample', 'player_calibration_oos', 'winprob_reliability_oos', 'game_effects', 'aggregate', 'by_season', 'total_hist', 'margin_hist', 'star_scoring', 'star_scoring_by_player', 'teammate_pts_corr', 'skills_holdout', 'rapm_holdout', 'team_ratings_oos_2026', 'team_ratings_walkforward_2026', 'shot_model', 'lineup_reconstruction', 'sim_seconds'];
 const pair = x => Array.isArray(x) && x.length === 2 && isNum(x[0]) ? x : null;
 async function diagnostics(panel) {
   await W.loadCore();
@@ -573,7 +573,7 @@ async function diagnostics(panel) {
   const ag = Dg.aggregate || {};
   const sec = (title, note) => { panel.append(h('div', { class: 'wn-sec' }, h('div', { class: 'sh-h wn-sech', text: title }), note ? h('div', { class: 'sh-note', text: note }) : null)); const c = h('div', { class: 'sh-cols' }); panel.append(c); return c; };
   const cols1 = sec('2026 season: does the simulator reproduce real games?', 'Every 2026 game re-simulated with the players, minutes and starters who actually played, using end-of-2026 parameters. Real first, simulated second throughout.');
-  const colsO = sec('Out of sample', 'Fitted only on data before the games being predicted. These are the honest checks; none uses market prices.');
+  const colsO = sec('Out of sample', 'Fitted only on data before the games being predicted. The ESPN-listed point spread appears once, as a yardstick; nothing is fitted to it.');
   diag2026(cols1, Dg, colsO);
   const colsP = sec('2025–26 pooled re-simulation and data quality', 'In-sample checks on both seasons together, plus how well the play-by-play was reconstructed.');
   if (ag.total_mean) {
@@ -612,8 +612,17 @@ async function diagnostics(panel) {
   }
   const oos = Dg.team_ratings_oos_2026;
   if (oos) {
-    const c = W.card(colsO, 'Out of sample: 2026 team ratings', `Ratings fitted on 2017–25 only, predicting 2026 margins from each game's actual minutes. RMSE ${F.num(oos.rmse_model, 2)} vs ${F.num(oos.rmse_prev_season_diff, 2)} for last season's point differential and ${F.num(oos.rmse_hca_only, 2)} for home court alone. No market comparison.`);
+    const c = W.card(colsO, 'Out of sample: 2026 team ratings', `Ratings fitted on 2017–25 only, predicting 2026 margins from each game's actual minutes. RMSE ${F.num(oos.rmse_model, 2)} vs ${F.num(oos.rmse_prev_season_diff, 2)} for last season's point differential and ${F.num(oos.rmse_hca_only, 2)} for home court alone.`);
     c.append(S.tiles([{ label: 'RMSE', value: F.num(oos.rmse_model, 2), sub: F.int(oos.n_games) + ' games' }, { label: 'Corr.', value: F.num(oos.corr_model, 3) }, { label: 'Winner', value: F.pct(oos.win_acc_model, 1), sub: 'picked right' }, { label: 'Slope', value: F.num(oos.calibration_slope, 3), sub: '1 = well scaled' }]));
+  }
+  const wf = Dg.team_ratings_walkforward_2026;
+  if (wf && wf.wf_prior_min) {
+    const mk = wf.market_spread;
+    const c = W.card(colsO, 'Walk-forward: 2026 margins vs the spread', `Ratings refitted ${F.int(wf.n_refits)} times through 2026 on earlier data only, predicting the next block of games. ${mk ? `The ESPN-listed spread has RMSE ${F.num(mk.rmse, 2)}; the refitted model ${F.num(wf.wf_prior_min.rmse, 2)}.` : ''}`);
+    const lab = { market_spread: 'ESPN-listed spread', wf_prior_min: 'Refit, earlier min', wf_actual_min: 'Refit, actual min', frozen_prior_min: 'Pre-season, earlier min', frozen_actual_min: 'Pre-season, actual min', hca_only: 'Home court only' };
+    S.table(c.appendChild(h('div')), [{ key: 'k', label: 'Forecast' }, { key: 'rmse', label: 'RMSE', fmt: 'num:2' }, { key: 'slope', label: 'Slope', fmt: 'num:2' }, { key: 'win', label: 'Winner', fmt: 'pct:1' }],
+      Object.keys(lab).filter(k => wf[k]).map(k => ({ k: lab[k], rmse: wf[k].rmse, slope: wf[k].slope, win: wf[k].win_acc })));
+    c.append(h('div', { class: 'sh-note', text: `${F.int(wf.n_games)} games. Refit = ratings refitted through the season; pre-season = ratings frozen before it. Minutes shares from each active player's earlier games, or as played. The model is told who was active; the spread also knows injuries, rest and news.` }));
   }
   const rh = Dg.rapm_holdout;
   if (rh) {
