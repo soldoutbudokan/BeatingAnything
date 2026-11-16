@@ -1,0 +1,20 @@
+{
+ "half_life": 4.0,
+ "lam": {
+  "l0": 1.0,
+  "cov": 2.0,
+  "cell": 30.0,
+  "comp": 2.0,
+  "cs": 200.0,
+  "venue": 300.0,
+  "venue2": 600.0,
+  "bat": 40,
+  "bat_split": 100,
+  "bowl": 100,
+  "bowl_split": 100,
+  "bat_type": 150.0,
+  "chase_hi": 1.0,
+  "cs_rw": 200.0
+ },
+ "note": "Adopted configuration. Evidence: diagnostics.json tuning rounds 1-7 (forward holdout, train before 2025-06-01)."
+}

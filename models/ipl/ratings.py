@@ -58,12 +58,14 @@ def load_people():
 # %% folded player vectors
 
 
-INACTIVE_GRACE, INACTIVE_TAU = 1.0, 2.0  # years: deviations decay as exp(-(gap - grace)/tau) after a top-league gap
+INACTIVE_GRACE, INACTIVE_TAU = 1.0, 2.0  # years: deviations decay as exp(-(gap - grace)/tau) after a gap in all T20
 
 
-def last_top_league(f):
-    top = f[f["tier"].astype(str).isin(["ipl", "intl", "top_fr", "fr2"])]
-    return pd.concat([top.groupby("batter")["date"].max(), top.groupby("bowler")["date"].max()]).groupby(level=0).max()
+def last_played(f):
+    """Last T20 of any kind in the data. The gap used to be measured from the last IPL / T20I / franchise match
+    only, which wiped the rating of anyone active in domestic or associate cricket alone; on the forward holdout
+    that cost 0.0041 nats per ball for batters (162,661 balls, SE 0.0003) and 0.0011 for bowlers."""
+    return pd.concat([f.groupby("batter")["date"].max(), f.groupby("bowler")["date"].max()]).groupby(level=0).max()
 
 
 def folded_players(M, cov, styles, last_top=None, ref_date=None, proj_date=PROJ_DATE):
@@ -435,7 +437,7 @@ def main():
     cov = pd.read_parquet(PROC / "covariates.parquet")
     styles = pd.read_parquet(PROC / "styles.parquet")
     names = load_people()
-    last_top = last_top_league(f)
+    last_top = last_played(f)
     BAT, BOWL, pri_b, pri_w = folded_players(M, cov, styles, last_top=last_top)
     ex, exs = extras_dists(f)
     ER, WV, er_scale = resources_table(f)

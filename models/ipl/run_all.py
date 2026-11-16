@@ -34,17 +34,21 @@ def main():
             if force or not path.exists():
                 print(f"[download] {url}")
                 urllib.request.urlretrieve(url, path)
-    from models.ipl import (diagnostics, export, final_fit, holdout, ingest, parity, prep, ratings, tune, tune_r2, tune_r3, wp)
+    from models.ipl import (diagnostics, export, final_fit, holdout, ingest, parity, prep, ratings, tune, tune_r2, tune_r3,
+                            tune_r4, tune_r5, tune_r6, tune_r7, wp)
     step("ingest", [PROC / "balls.parquet", PROC / "matches.parquet"], ingest.main, force, [ALL_ZIP])
     step("prep", [PROC / "frame.parquet"], prep.build, force, [PROC / "balls.parquet"])
-    if "--retune" in args or not (PROC / "tuning.json").exists():
+    if "--retune" in args or not (final_fit.HYPER.exists() or (PROC / "tuning.json").exists()):
+        tune.OUT = PROC / "tuning.json"  # importing the round modules repoints tune.OUT; reset it for round 1
         tune.run([(H, {}) for H in (4.0, 2.5, 6.0)] + tune.null_baseline())
         tune.run(tune.stage2_grid())
         tune.run(tune.stage3_grid())
         tune.run(tune.stage3_converged())
-        tune_r2.tune.OUT = PROC / "tuning_r2.json"; tune.run(tune_r2.GRID)
-        tune.OUT = PROC / "tuning_r3.json"; tune.run(tune_r3.GRID)
-    step("final fit", [PROC / "model.pkl"], final_fit.main, force, [PROC / "frame.parquet", PROC / "tuning.json"])
+        for k, mod in ((2, tune_r2), (3, tune_r3), (4, tune_r4), (5, tune_r5), (6, tune_r6), (7, tune_r7)):
+            tune.OUT = PROC / f"tuning_r{k}.json"
+            tune.run(mod.GRID)
+        # --retune only refreshes the evidence; the adopted configuration is models/ipl/static/hyper.json
+    step("final fit", [PROC / "model.pkl"], final_fit.main, force, [PROC / "frame.parquet", final_fit.HYPER])
     step("holdout model", [PROC / "model_holdout.pkl", PROC / "holdout_pred.parquet"], holdout.main, force,
          [PROC / "frame.parquet"])
     step("win probability", [PROC / "wpa.pkl"], wp.main, force, [PROC / "frame.parquet"])

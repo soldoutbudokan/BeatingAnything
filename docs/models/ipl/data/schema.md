@@ -58,8 +58,8 @@ Conventions used throughout:
 | id, name | string | cricsheet id and name |
 | team | string/null | franchise in the latest IPL season (null if not in an IPL squad) |
 | ipl_teams | [{team, from, to}] | IPL franchises played for, first/last season |
-| overseas | bool | played T20Is for a country other than India |
-| country | string/null | international team (most appearances), if any |
+| overseas | bool | country is known and is not India |
+| country | string/null | cricketdata's country for the player; otherwise the T20I side he has most appearances for; null if neither |
 | bat_hand | "R"/"L"/null | batting hand |
 | bowl_type | string/null | e.g. RF, RFM, RM, LF, LFM, LM, OB, LB, SLA, SLW, none |
 | bowl_group | "pace"/"spin"/"none"/null | |
@@ -299,7 +299,7 @@ probability < 0.0005 dropped, `t` = total probability mass dropped (P(value < o)
 * PlayerCal: `bat_by_decile` / `bat_by_position` (columns `n`, `decile`|`bat_pos`, `sim_X`, `act_X` for X in
   runs, balls, fours, sixes, p30, p50, pduck), `bat_fit[X] = {slope, intercept}` (actual on projected,
   batter-innings), `bowl_by_decile` (X in wkts, conceded, overs, p2w), `bowl_fit`, `bat_n`, `bowl_n`.
-* MatchCal: `{n_matches, wp_logloss, wp_logloss_coinflip, wp_brier, wp_reliability {pred, obs, n},
+* MatchCal: `{n_matches, wp_logloss, wp_logloss_coinflip, wp_logloss_base_rate, base_rate_p_bat1, base_rate_source, wp_logloss_minus_base_rate_se, wp_brier, wp_reliability {pred, obs, n},
   t1_rmse_model, t1_bias_model, t1_rmse_venue_mean, t1_rmse_overall_mean (oos only),
   t1_quantile_coverage {q10..q90} (share of actual 1st-innings totals below the simulated quantile),
   match_total_quantile_coverage}`.
@@ -416,3 +416,11 @@ the 12 share 20 overs (cap 4); team `plan` rebuilt from the same usage. No key c
   sim_n, sim_shortfall_mean, sim_all_out, act_n, act_shortfall_mean, act_all_out}` (bat-first wins only).
 * diagnostics.json `holdout_final` = `{ll_all, ll_ipl, note}`: forward-holdout log loss of the final configuration
   fitted to convergence (same as `holdout.all.logloss` / `holdout.ipl.logloss`).
+* diagnostics.json: `tuning_round7` (random-walk season environment, bowler shrinkage). MatchCal gains
+  `wp_logloss_base_rate` (log loss of a constant P(bat first wins) = `base_rate_p_bat1`, taken from
+  `base_rate_source`: "prior seasons" out of sample, "this sample" in the replay) and
+  `wp_logloss_minus_base_rate_se` (paired standard error of model minus that reference).
+* players.json `country` / `overseas` now come from cricketdata's player table first (fixes Afghan and uncapped
+  overseas players, previously flagged as Indian).
+* meta.json `model.penalties.cs_rw`: penalty on the difference between consecutive seasons of a league (the
+  season environment is a random walk); `cs` is then unused.

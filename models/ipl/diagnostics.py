@@ -99,9 +99,14 @@ def main():
     h = holdout_predictions()
     cal = calibration(h, R["exs"])
     from models.ipl.fit import DEFAULT_LAM
+    prev = json.loads((EXPORT / "diagnostics.json").read_text()) if (EXPORT / "diagnostics.json").exists() else {}
+
     def load_t(name):
         q = PROC / name
-        rows = json.loads(q.read_text()) if q.exists() else []
+        if not q.exists():  # searches are not re-run on every build: keep the published rows
+            k = "tuning" if name == "tuning.json" else "tuning_round" + name.split("_r")[1].split(".")[0]
+            return prev.get(k, [])
+        rows = json.loads(q.read_text())
         for r in rows:
             diff = {k: v for k, v in r["lam"].items() if DEFAULT_LAM.get(k) != v}
             r["label"] = f"half-life {r['half_life']}y" + ("; " + ", ".join(f"{k}={v:g}" for k, v in diff.items()) if diff else "; defaults") \
@@ -109,7 +114,7 @@ def main():
         return rows
     tuning, tuning2 = load_t("tuning.json"), load_t("tuning_r2.json")
     tuning3, tuning4, tuning5 = load_t("tuning_r3.json"), load_t("tuning_r4.json"), load_t("tuning_r5.json")
-    tuning6 = load_t("tuning_r6.json")
+    tuning6, tuning7 = load_t("tuning_r6.json"), load_t("tuning_r7.json")
     rep = replay_insample(P)
     from models.ipl import oos
     o = oos.main()
@@ -120,6 +125,9 @@ def main():
             "tuning_round4": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning4],
             "tuning_round5": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning5],
             "tuning_round6": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning6],
+            "tuning_round7": [{k: r.get(k) for k in ("label", "half_life", "lam", "iters", "ll_all", "ll_ipl", "n_test", "n_ipl")} for r in tuning7],
+            "holdout_final": {"ll_all": cal["all"]["logloss"], "ll_ipl": cal["ipl"]["logloss"],
+                              "note": f"final configuration fitted to convergence on data before {CUTOFF.date()}"},
             "replay": rep, "oos": o, "match_shock": R.get("match_shock")}
     from models.ipl import replay as rp
     Rm = rp.run(P, (2022, 2023, 2024, 2025, 2026), n_sims=300, seed=5)

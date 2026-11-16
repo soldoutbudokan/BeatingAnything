@@ -6,14 +6,20 @@ import pickle
 import numpy as np
 import pandas as pd
 
-from models.ipl.config import PROC
+from models.ipl.config import PROC, STATIC
 from models.ipl.fit import DEFAULT_LAM, build_design, fit_model, indices, load, predict_eta, probs_from_eta
 
 
+HYPER = STATIC / "hyper.json"  # the adopted configuration (tracked, so a fresh clone reproduces the model)
+
+
 def best_hyper():
-    # the latest search on the current design takes precedence (round 3 = block tests, round 2 = shrinkage)
-    p = next((q for q in (PROC / "tuning_r6.json", PROC / "tuning_r3.json", PROC / "tuning_r2.json", PROC / "tuning.json")
-              if q.exists()), None)
+    if HYPER.exists():
+        h = json.loads(HYPER.read_text())
+        return h["half_life"], h["lam"], h
+    # no adopted configuration: the latest search on the current design takes precedence
+    p = next((q for q in (PROC / "tuning_r7.json", PROC / "tuning_r6.json", PROC / "tuning_r3.json",
+                          PROC / "tuning_r2.json", PROC / "tuning.json") if q.exists()), None)
     if p is None:
         return 2.5, DEFAULT_LAM, None
     res = [r for r in json.loads(p.read_text()) if r["lam"]["bat"] < 1e8]
