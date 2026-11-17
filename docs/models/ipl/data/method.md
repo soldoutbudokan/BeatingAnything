@@ -286,3 +286,34 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
   uses time-of-delivery experience with the same settings. Its holdout score is in `diagnostics.json.holdout`.
 * Indian domestic cricket other than the Syed Mushtaq Ali Trophy (and SMAT seasons cricsheet lacks) is not in
   the data, so uncapped Indian players often have very small samples and lean heavily on the prior.
+
+## 11. Process backtest (`models/ipl/process.py`)
+
+A bet is placed by a process, not a model: with what was known at the time we would have projected lineups,
+which give a forecast, which is right or wrong. So forecasts are made at **information states**, and everything
+fed to the simulator is projected from what that state knows. Ratings come from a model fitted before the season.
+
+* `pre_news`: team sheets and toss unknown. Each side's 12 is its most-used players in earlier matches (this
+  season, plus last season at 0.3 weight; half-life 5 matches; at most 4 overseas), minus anyone who has since
+  appeared for another side or is listed as out in `models/ipl/static/availability.csv` by then.
+* `post_toss`: toss and the players who took part are known; batting order and bowling plan are still projected.
+* `hindsight`: real order and real overs per phase (the replay). Not knowable beforehand; it is the ceiling.
+
+IPL 2024-26, 210 decided full-length matches, win-probability log loss (coin flip 0.6931):
+
+| state | log loss | minus coin flip | favourite won | projected 12 who played |
+|---|---|---|---|---|
+| pre_news | 0.7022 | +0.0090 +/- 0.0104 | 52.4% | 80.5% |
+| post_toss | 0.6929 | -0.0002 +/- 0.0133 | 55.7% | 100% |
+| hindsight | 0.6928 | -0.0001 +/- 0.0069 vs post_toss | | |
+
+The projected 12 matches 56% of the real one in a side's first match of a season (15 matches), about 80-86%
+after that. Lineup news moves the forecast by 6.9 points on average, so it is most of the difference between
+states, but no state beats a coin flip yet. No availability news is recorded for these seasons; the file is
+the hook for it (`match_date, team, player_id, status, known_at, source`), and only rows with `known_at` before
+a state's cut-off are used.
+
+Market prices (`models/ipl/market/`): `collect.py` saves Kalshi and Polymarket responses verbatim with fetch
+times; `prices.py` reads the last price at or before each state's cut-off (pre_news = 3 hours before the start,
+post_toss = 10 minutes before; a quote more than 6 hours old counts as missing) and scores the model against
+it. The collectors have not been run: this build environment cannot reach either host.
