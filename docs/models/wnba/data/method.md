@@ -2,8 +2,8 @@
 
 A possession-level Monte Carlo model of WNBA games built only from public play-by-play (ESPN via the
 sportsdataverse/wehoop parquet files, 2017–2026) and ESPN's public roster endpoint. Its goal is the most
-accurate projection we can build from public data. It is **not** fitted to betting prices; the ESPN-listed
-point spread is used once, as a yardstick for the 2026 walk-forward test (§11). All numbers below are in `diagnostics.json` / `meta.json`; this file explains what they mean.
+accurate projection we can build from public data. It is **not** fitted to betting prices. Prices are used only to score it: the
+ESPN-listed spread in the walk-forward test (§11) and Kalshi game-winner markets in the process test (§12). All numbers below are in `diagnostics.json` / `meta.json`; this file explains what they mean.
 
 Rebuild everything: `python -m models.wnba.run_all` (each step caches; `--force` rebuilds, `--from STEP`
 rebuilds from a step, `--refresh` re-downloads the current season and rosters).
@@ -258,3 +258,55 @@ The spread is the listed line in ESPN's play-by-play feed (real values in 2026 o
 placeholder). The model is told who was active; the spread also reflects injuries, rest and news. Regressing
 the real margin on both gives 0.80 × spread + 0.19 × model: the model adds little beyond the line.
 Across 2024–26 the walk-forward RMSE is 12.47 and its slope is 0.99–1.06.
+
+## 12. Process test against Kalshi (`kalshi.py`, `process.py`, `snapshot.py`)
+What gets tested against a market is a process, not a model: at decision time T we know some things, project
+a lineup from them, the lineup and the ratings give a forecast, and the forecast misses. `process.py` replays
+that chain for all 649 games with a Kalshi game-winner market (May 2025 to October 2026) and keeps each link
+(`data/markets/wnba/process_ledger.csv.gz`, `process_lineups.csv.gz`, summary in `market_test.json`).
+
+**Prices.** `kalshi.py` reads public candlesticks and takes the home-team quote 24 h, 6 h, 1 h and 10 min
+before the ESPN tip and at tip (Kalshi's own close is the end of the game). Books are one cent wide from an
+hour out. Median volume per game was 0.1m contracts in 2025 and 1.3m in 2026.
+
+**Information tiers** for the lineup:
+* `box`: box scores of games finished by T, nothing else. P(active) depends on how many of the team's latest
+  games the player missed, with rates from earlier seasons. The only tier that is point-in-time for past
+  seasons, because no injury-report archive exists for them.
+* `oracle_active`: told who played; minutes shares still from earlier games. What perfect availability news
+  would be worth.
+* `oracle_minutes`: told the minutes played. A ceiling, not a process.
+* `news`: box + an availability report captured before T. Empty until `snapshot.py` has run through a season.
+
+Ratings are the walk-forward RAPM of §11. Win probability is a normal with SD 12.5 around the bottom-up margin.
+
+| home-win log loss | n | box only | told who played | Kalshi |
+|---|---|---|---|---|
+| 2025, 24 h before tip | 267 | 0.620 | 0.607 | 0.652 |
+| 2025, at tip | 297 | 0.609 | 0.597 | 0.608 |
+| 2026, 24 h before tip | 350 | 0.613 | 0.598 | 0.592 |
+| 2026, at tip | 350 | 0.613 | 0.598 | 0.582 |
+
+* In 2026 the market beats the box-only process by 0.031 at tip (95% interval 0.011 to 0.052). Being told who
+  played closes about half of that (0.016 left, interval −0.004 to 0.035). The rest is the market having
+  better ratings or other information.
+* The 2025 market was thin and no better than the box-only process. Flat bets against it at a 3-cent edge
+  show a profit, but the books would not have filled much; 2026 is the regime that matters, and there the
+  same bets lose 12–15% of stake (intervals include zero).
+* Lineup error an hour before tip: 9% of projected minutes went to players who did not play; 2% of real
+  minutes went to players projected for under a minute. Not knowing who plays adds 4.4 points² to a margin
+  MSE of 170. The lineup changes the projected margin by 1.7 points (SD) a game.
+* The market's move over the last day correlates 0.26 with the gap between our told-who-played and box-only
+  forecasts: part of what it learns is the availability we lack.
+
+**Forward capture.** `snapshot.py capture` stores ESPN injuries, transactions, rosters and schedule with
+every open Kalshi WNBA market and Polymarket event under one UTC stamp. `snapshot.py freeze` appends, for
+each game within 36 h, the box and news lineups, their forecasts and the Kalshi quote to
+`forecast_ledger.csv`. Grading reads only that ledger. The status-to-probability map (Out 0, Doubtful 0.1,
+Questionable 0.5, Day-To-Day 0.7, Probable 0.9) is a placeholder until a season of captures measures it.
+
+**Limits.** Hyper-parameters were tuned on 2024–26 holdouts. Home court and the 12.5 SD are full-sample
+constants. Ratings are refitted every 2.5 weeks, not daily. Only game winners are scored so far. `kalshi.py spread total`
+reads the 7,100 spread and total markets of 2026, but Kalshi's rate limit makes that a two-hour pull that has
+not been run; player props are captured going forward only. The 2026 Finals Game 7 (Oct 31) is
+missing from the play-by-play source and from every number here.

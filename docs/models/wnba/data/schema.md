@@ -155,6 +155,16 @@ All player numbers come from the same simulated games as the team scores, so the
 | winprob_reliability_oos | 2026 games, everything fitted before 2026: `n_games, logloss, brier, logloss_coinflip, logloss_home_rate, margin_slope, deciles {dec, pred, actual, n}, rating_draws_added, note` |
 | game_effects | estimates behind the shared shocks: real vs simulated within-game residual covariances of the two teams' points per possession and FTA, possession residual variances, the derived `eff_shock_sd_per100`, `whistle_sd`, `pace_shock_sd` |
 
+## market_test.json
+Process test against Kalshi game-winner markets (method §12).
+| field | meaning |
+|---|---|
+| vs_market | per decision time (`24h`, `1h`), quote (`24h`, `1h`, `10m`, `tip`) and tier (`box`, `news`, `oracle_active`, `oracle_minutes`): `n`, `logloss_model`, `logloss_market`, `logloss_diff` (model − market) with bootstrap `logloss_diff_ci`, Brier scores, `margin_rmse`, `corr_model_market`, median `spread_cents` and `quote_age_min`, flat-bet `n_bets`, `roi`, `profit_ci` (per contract, after the 7% × p × (1 − p) fee) |
+| vs_market_by_season | the same for `box` and `oracle_active`, split by season |
+| decomposition_1h | margin MSE by tier and the differences: `mse_from_not_knowing_who_plays`, `mse_from_minutes_given_who_plays`, `mse_left_with_perfect_lineup`; `lineup_shift_sd_pts`; minutes given to the wrong players per game |
+| market_move_vs_lineup_news | SD of the market's last-day move, SD of our told-who-played minus box-only win probability, their correlation |
+| by_minutes_wrong | absolute margin error by how wrong the projected lineup was |
+
 ## sim.js API
 ```
 WNBASim.simulate(params, homeSpec, awaySpec, opts) -> { game, home, away, meta }
