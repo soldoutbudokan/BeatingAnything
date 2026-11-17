@@ -110,12 +110,28 @@ PAIR_MIN = 24  # batter x bowler pairs need this many deliveries in the fitting 
 
 def design_opts(f, lam):
     """Optional blocks are switched on by the presence of their penalty key in lam."""
-    o = {k: True for k in ("bat_type", "bowl_arch", "day", "wear", "toss", "pair", "cs_i2", "chase_w", "chase_hi") if k in lam}
+    o = {k: True for k in ("bat_type", "bowl_arch", "day", "wear", "toss", "pair", "cs_i2", "chase_w", "chase_hi", "cs_rw")
+         if k in lam}
     if "pair" in lam:
         key = f["batter"].astype(str) + "|" + f["bowler"].astype(str)
         c = key.value_counts()
         o["pairs"] = np.sort(c.index[c >= PAIR_MIN].to_numpy())
     return o
+
+
+def rw_pairs(blocks):
+    """(previous, current) coefficient rows of consecutive seasons of the same league in the season blocks.
+    Labels are sorted, so a league's seasons are contiguous and in time order."""
+    o, labels, _ = blocks["cs"]
+    comp_of = [c.split("|")[0] for c in labels]
+    i = np.array([k for k in range(1, len(labels)) if comp_of[k] == comp_of[k - 1]], dtype=np.int64)
+    prev, cur = [o + i - 1], [o + i]
+    if "cs_ph" in blocks:
+        op = blocks["cs_ph"][0]
+        for k in (0, 1):
+            prev.append(op + 2 * (i - 1) + k)
+            cur.append(op + 2 * i + k)
+    return np.concatenate(prev), np.concatenate(cur)
 
 
 def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons, opts=None):
@@ -175,14 +191,15 @@ def build_design(f, cov, players_bat, players_bowl, venues, comps, comp_seasons,
     D.add("comp", comps, "comp")
     put("comp", f["comp"].astype(str).map(cmap).fillna(-1).to_numpy().astype(np.int64))
     csmap = {c: i for i, c in enumerate(comp_seasons)}
-    D.add("cs", comp_seasons, "cs")
+    cs_key = "cs_rw" if opts.get("cs_rw") else "cs"  # cs_rw: random-walk prior across a league's seasons (see Fitter)
+    D.add("cs", comp_seasons, cs_key)
     csi = f["comp_season"].astype(str).map(csmap).fillna(-1).to_numpy().astype(np.int64)
     put("cs", csi)
     # phase-specific league and league-season environment (e.g. the post-2023 IPL powerplay surge)
     ci = f["comp"].astype(str).map(cmap).fillna(-1).to_numpy().astype(np.int64)
     D.add("comp_ph", [f"{c}_p{p}" for c in comps for p in (0, 2)], "comp")
     put("comp_ph", np.where((ci >= 0) & (ph != 1), ci * 2 + (ph == 2), -1))
-    D.add("cs_ph", [f"{c}_p{p}" for c in comp_seasons for p in (0, 2)], "cs")
+    D.add("cs_ph", [f"{c}_p{p}" for c in comp_seasons for p in (0, 2)], cs_key)
     put("cs_ph", np.where((csi >= 0) & (ph != 1), csi * 2 + (ph == 2), -1))
     if opts.get("cs_i2"):
         # league-season x 2nd innings (the chasing edge varies by season)
@@ -308,6 +325,14 @@ class Fitter:
             for name in ("bat", "bat_pp", "bat_death", "bat_spin", "bat_early"):
                 o, labels, _ = D.blocks[name]
                 pen[o:o + len(labels), cols] *= mult
+        # random-walk season environment: a league's first season keeps the ridge penalty (toward the league
+        # level); every later season is penalised on its difference from the previous season instead. A plain
+        # ridge shrinks each season toward the league's long-run mean and under-fits a trending run environment.
+        self.rw = None
+        if D.blocks["cs"][2] == "cs_rw":
+            prev, cur = rw_pairs(D.blocks)
+            pen[cur] = 0.0
+            self.rw = (prev, cur, float(lam["cs_rw"]))
         self.pen = pen
         self.eta = np.zeros((self.n, KM))
         self.G = np.zeros((self.n, KM))
@@ -324,6 +349,12 @@ class Fitter:
         _xtg(Xc.indptr, Xc.indices, Xc.data, self.G, self.gW)
         loss += 0.5 * np.sum(self.pen * W * W)
         g = self.gW + self.pen * W
+        if self.rw is not None:
+            prev, cur, l = self.rw
+            d = W[cur] - W[prev]
+            loss += 0.5 * l * np.sum(d * d)
+            np.add.at(g, cur, l * d)
+            np.add.at(g, prev, -l * d)
         self.nit += 1
         return loss, g.ravel()
 
@@ -353,7 +384,12 @@ class Fitter:
         Xc.data = Xc.data ** 2
         hd = np.zeros((self.p, KM))
         _xtg(Xc.indptr, Xc.indices, Xc.data, H, hd)
-        return hd + self.pen
+        hd = hd + self.pen
+        if self.rw is not None:
+            prev, cur, l = self.rw
+            np.add.at(hd, cur, l)
+            np.add.at(hd, prev, l)
+        return hd
 
 
 def predict_eta(X, W):

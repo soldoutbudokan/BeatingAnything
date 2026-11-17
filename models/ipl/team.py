@@ -5,7 +5,7 @@ import json
 import numpy as np
 import pandas as pd
 
-from models.ipl.config import PROC
+from models.ipl.config import DOB, PEOPLE, PROC
 
 TEAM_ALIASES = {"Royal Challengers Bangalore": "Royal Challengers Bengaluru", "Kings XI Punjab": "Punjab Kings",
                 "Delhi Daredevils": "Delhi Capitals", "Rising Pune Supergiants": "Rising Pune Supergiant"}
@@ -23,14 +23,35 @@ def canon_team(t):
 # %% nationality (overseas flag) from international appearances
 
 
+def meta_country():
+    """Country per cricsheet id from cricketdata player_meta (rows whose Cricinfo id disagrees with the
+    cricsheet register are dropped, as in the styles builder). Empty if the file is absent."""
+    if not DOB.exists():
+        return pd.Series(dtype=object)
+    m = pd.read_csv(DOB, dtype=str).dropna(subset=["cricsheet_id", "country"]).drop_duplicates("cricsheet_id")
+    if PEOPLE.exists():
+        ppl = pd.read_csv(PEOPLE, dtype=str).set_index("identifier")
+        keys = ppl[[c for c in ppl.columns if c.startswith("key_cricinfo")]].reindex(m["cricsheet_id"])
+        has_key = keys.notna().any(axis=1).to_numpy()
+        match = (keys.to_numpy() == m["cricinfo_id"].to_numpy()[:, None]).any(axis=1)
+        m = m[~has_key | match]
+    return m.set_index("cricsheet_id")["country"]
+
+
 def nationality(matches):
-    intl = matches[matches["team_type"] == "international"]
+    """Player -> country. International appearances first (most frequent side), then cricketdata's country
+    takes precedence where it exists: cricsheet withholds Afghanistan matches, so Afghan players have no
+    appearances, and uncapped overseas players have none either."""
+    intl = matches[(matches["team_type"] == "international") & ~matches["team1"].str.contains("XI")
+                   & ~matches["team2"].str.contains("XI")]
     rows = []
     for pl in intl["players"]:
         for team, ids in json.loads(pl).items():
             rows += [(i, team) for i in ids]
     d = pd.DataFrame(rows, columns=["id", "team"])
     nat = d.groupby("id")["team"].agg(lambda s: s.value_counts().index[0])
+    mc = meta_country()
+    nat = mc.combine_first(nat) if len(mc) else nat
     dom = matches[matches["comp"] == "SMA"]
     smat = set()
     for pl in dom["players"]:

@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 from models.ipl.config import PROC
-from models.ipl.ratings import (Model, RefSample, extras_dists, folded_players, last_top_league, load_people,
+from models.ipl.ratings import (Model, RefSample, extras_dists, folded_players, last_played, load_people,
                                 outs_per_row, runs_per_row, softmax, write_sim_params)
 from models.ipl.replay import aggregate_rows, match_calibration, phase_table, player_calibration, run
 from models.ipl.sim import Params
@@ -26,7 +26,14 @@ def holdout_model():
     cov = pd.read_parquet(PROC / "covariates.parquet")
     styles = pd.read_parquet(PROC / "styles.parquet")
     train = f[f["date"] < CUTOFF]
-    BAT, BOWL, pb, pw = folded_players(Mh, cov, styles, last_top=last_top_league(train), ref_date=CUTOFF,
+    # experience bucket as of the cut-off (the career totals in covariates.parquet include the test period)
+    from models.ipl.prep import EXP_EDGES
+    cov = cov.copy()
+    nb = train[train["cls"].astype(str) != "wide"].groupby("batter").size().reindex(cov.index).fillna(0)
+    nw = train[train["legal"]].groupby("bowler").size().reindex(cov.index).fillna(0)
+    cov["exp_bat"] = np.searchsorted(EXP_EDGES, nb.to_numpy(), side="right") - 1
+    cov["exp_bowl"] = np.searchsorted(EXP_EDGES, nw.to_numpy(), side="right") - 1
+    BAT, BOWL, pb, pw = folded_players(Mh, cov, styles, last_top=last_played(train), ref_date=CUTOFF,
                                        proj_date="2026-04-15")
     return Mh, f, cov, styles, train, BAT, BOWL, pb, pw
 
@@ -107,6 +114,14 @@ def venue_baseline(train):
     return {"overall": overall, "venue": ((g["sum"] + k * overall) / (g["size"] + k)).to_dict()}
 
 
+def bat_first_rate(train, since="2023-01-01"):
+    """Share of decided IPL matches won by the side batting first (the no-skill win-probability forecast)."""
+    d = train[(train["comp"].astype(str) == "IPL") & (train["date"] >= since) & (train["innings"] == 1)]
+    d = d.drop_duplicates("match_id")
+    d = d[d["winner"].astype(str) != ""]
+    return float((d["winner"].astype(str) == d["bat_team"].astype(str)).mean())
+
+
 def main(n_sims=400):
     Mh, f, cov, styles, train, BAT, BOWL, pb, pw = holdout_model()
     with open(PROC / "ratings.pkl", "rb") as fh:
@@ -124,6 +139,7 @@ def main(n_sims=400):
                      match_shock=final_params.get("match_shock"))
     P = Params.load(sp_path)
     R = run(P, (2026,), n_sims=n_sims, seed=11)
+    R["base_rate_bat1"] = bat_first_rate(f[f["date"] < CUTOFF])
     res = {"model_cutoff": str(CUTOFF.date()), "season": 2026, "sims_per_match": n_sims,
            "env_note": "IPL 2026 uses the IPL 2025 season environment (the latest the holdout model saw)",
            "shrinkage_calibration": shrink, "players": player_calibration(R), "phase": phase_table(R),

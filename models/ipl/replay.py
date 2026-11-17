@@ -197,7 +197,16 @@ def match_calibration(R, baseline=None):
     bins = pd.cut(p, [0, 0.35, 0.45, 0.55, 0.65, 1])
     rel = M.assign(b=bins).groupby("b", observed=True).agg(pred=("p_bat1_win", "mean"), obs=("bat1_won", "mean"),
                                                              n=("p_bat1_win", "size"))
+    # no-skill reference that knows the chasing edge: one constant P(bat first wins). Out of sample it is the
+    # prior-seasons rate (R["base_rate_bat1"]); in sample it is this sample's own rate, which flatters it.
+    q = float(np.clip(R.get("base_rate_bat1", np.mean(y)), 1e-3, 1 - 1e-3))
+    ll_base = float(-np.mean(y * np.log(q) + (1 - y) * np.log(1 - q)))
+    # paired SE of (model - base rate) log loss: is any difference more than noise?
+    dll = -(y * np.log(p) + (1 - y) * np.log(1 - p)) + (y * np.log(q) + (1 - y) * np.log(1 - q))
     out = {"n_matches": int(len(M)), "wp_logloss": ll, "wp_logloss_coinflip": float(np.log(2)),
+           "wp_logloss_base_rate": ll_base, "base_rate_p_bat1": q,
+           "base_rate_source": "prior seasons" if "base_rate_bat1" in R else "this sample",
+           "wp_logloss_minus_base_rate_se": float(np.std(dll, ddof=1) / np.sqrt(len(dll))),
            "wp_brier": float(np.mean((p - y) ** 2)), "wp_reliability": rel.reset_index(drop=True).round(4).to_dict(orient="list"),
            "t1_rmse_model": float(np.sqrt(np.mean((M["t1_mean"] - M["t1_actual"]) ** 2))),
            "t1_bias_model": float(np.mean(M["t1_mean"] - M["t1_actual"]))}

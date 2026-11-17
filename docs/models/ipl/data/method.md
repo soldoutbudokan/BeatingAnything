@@ -17,6 +17,12 @@ tuned hyper-parameters, sim speed) are in `meta.json` and `diagnostics.json`.
   Arun Jaitley Stadium, Motera = Narendra Modi Stadium; generic names such as "County Ground" keep their city).
 * Matches with reduced overs or a DLS result are kept for counting but excluded from the model fit, because
   the over/wicket context means something different in a shortened game. Super overs are excluded from the fit.
+  Cricsheet does not always record the reduced overs, so a decided match whose first innings stopped at least an
+  over short of 20 with fewer than nine wickets down is also treated as shortened (12 matches, 10 of them Syed
+  Mushtaq Ali).
+* Coverage gaps that matter: cricsheet's Syed Mushtaq Ali Trophy coverage has thinned out (130 matches in 2018/19,
+  44 in 2022/23, 39 in 2023/24, 8 in 2024/25, none in 2025/26), so uncapped Indian players have almost no recent
+  data outside the IPL; Indian state leagues are absent; Afghanistan's internationals are withheld.
 
 ## 2. Outcome classes
 
@@ -37,7 +43,7 @@ regression on ~2.3 million deliveries:
 | phase x balls-faced bucket | the global **settling curve**: new batters score slower and get out more |
 | phase x required-rate bucket (2nd innings), with extra resolution at 20-24 and 24+ an over | **chase pressure** |
 | bowler subtype; subtype x phase; subtype x left-handed batter | pace vs spin overall and by phase (spin is hit harder at the death), and the hand matchup (e.g. off-spin to left-handers) |
-| competition; competition x season; both x phase | **league environment** and season run environment, overall and separately for the powerplay and the death (the post-2023 IPL Impact Player surge is concentrated in the powerplay) |
+| competition; competition x season; both x phase | **league environment** and season run environment, overall and separately for the powerplay and the death (the post-2023 IPL Impact Player surge is concentrated in the powerplay). Season terms follow a **random walk**: each season is shrunk toward the same league's previous season, not toward the league's long-run mean |
 | venue; venue x 2nd innings; venue x spin | ground effects, chasing/dew, and spin-friendliness |
 | batter: overall, powerplay, death, vs spin, first 10 balls; vs each bowling type (right/left-arm pace, off-spin, leg-spin, slow left-arm, left-arm wrist spin) | batter skill and its splits; the type split is nested: it shrinks toward his vs-spin (spin types) or overall (pace types) rating |
 | bowler: overall, powerplay, death, vs left-handers | bowler skill and its splits |
@@ -64,8 +70,12 @@ term, the curve is identified from changes *within* players over time, which is 
 consecutive seasons estimates, here done jointly with everything else. Caveat: with player, season and age terms
 together, the overall linear trend of the curve is pinned down only by the shrinkage (the classic age-period-
 cohort problem); the shape (rise, peak, decline) is what the data identify. Projections put every player at
-his age on 15 April 2027. A player whose last match in the IPL, T20Is or the major franchise leagues was more
-than a year ago has his individual deviation decayed by exp(-(gap - 1)/2) (gap in years) toward his prior.
+his age on 15 April 2027. A player whose last T20 of any kind in the data was more than a year ago has his
+individual deviation decayed by exp(-(gap - 1)/2) (gap in years) toward his prior. The gap used to run from his
+last IPL, T20I or franchise match, which erased the rating of anyone playing only domestic or associate cricket;
+on the forward holdout that rule cost 0.0041 nats per ball for those batters (162,661 balls, standard error
+0.0003) and 0.0011 for bowlers, so it was dropped. For players with no T20 at all for over a year the decay is
+neutral on IPL deliveries (-0.0009 +/- 0.0011 batters, -0.0007 +/- 0.0005 bowlers) and is kept.
 
 **Match conditions.** Both innings of a real match share conditions the model cannot see (pitch, dew, weather).
 The covariance between the two innings' residual scoring rates (actual minus expected runs per delivery, IPL
@@ -77,7 +87,26 @@ the residual variance of a single innings that is neither shared with the other 
 **Recency.** Each delivery is weighted by 0.5^(age / half-life). The half-life and the penalty strengths were
 chosen by fitting on data before 1 June 2025 and scoring the log loss on everything after (IPL 2026 included),
 with an unseen season given its league's latest training-season environment (exactly what a projection does).
-This is a fit-quality check, not a betting backtest. See `diagnostics.json.tuning`.
+This is a fit-quality check, not a betting backtest. See `diagnostics.json.tuning`. The adopted settings are
+stored in `models/ipl/static/hyper.json`.
+
+**How much a holdout difference means.** Paired by delivery and clustered by match, the standard error of a
+log-loss difference between two nested configurations is about 0.00002-0.00006 on all T20s (1,720 matches) and
+0.0001-0.0003 on the IPL (74 matches). The search fits stop at a loose tolerance; the same settings run to full
+convergence moved the IPL score by 0.0002. Differences below those sizes, which covers most of the block tests
+below, are not evidence either way.
+
+**Season environment as a random walk (round 7).** With a plain ridge penalty each season term is pulled toward
+its league's long-run mean. Scoring has trended up, so recent seasons were under-fitted even in-sample: the
+holdout model under-predicted the latest training season of every league (pooled runs +1.8%, sixes +4.3%; IPL
+2023 / 2024 / 2025 runs +1.3% / +2.4% / +2.0%), and then under-predicted the holdout (all T20s 150.6 actual vs
+147.5 expected runs per innings, IPL 187.4 vs 180.8). Penalising the difference between consecutive seasons of
+a league instead (penalty 200; a league's first season keeps the ridge) scores 1.64567 / 1.67352 against
+1.64613 / 1.67460: -0.00047 +/- 0.00006 on all T20s and -0.00100 +/- 0.00027 on the IPL. Penalty 50 gives
+1.64616 / 1.67363 and 800 gives 1.64564 / 1.67410. A season with no data inherits the previous season's
+level, so the 2027 projection assumes 2026 scoring; each IPL season since 2022 has out-scored the one before it,
+and the holdout still shows IPL 2026 about 2% above the 2025 level, so totals lean low if that continues.
+Stronger bowler shrinkage (penalty 200 instead of 100) was also tried: 1.64632 / 1.67463, worse.
 
 **Uncertainty.** A Laplace (diagonal-Hessian) approximation gives a posterior SD for every coefficient. Player
 uncertainty columns (`sd`) are the SD of the headline metric when the player's own coefficients are redrawn
@@ -164,7 +193,8 @@ IPL fan knows.
 
 * Squads are the players who appeared for each franchise in the latest IPL season in the data. The default
   12 (XI + Impact Player) is the 12 most-used players, weighting later matches more (half-life 5 matches),
-  with at most 4 overseas players (overseas = played T20Is for a country other than India).
+  with at most 4 overseas players. Country comes from cricketdata's player table, falling back to the side a
+  player has represented in T20Is; a player in neither is taken to be Indian.
 * Batting order: recency-weighted mean batting position. The 12th man — the Impact Player — is taken to be the
   lowest-ordered frontline bowler, who bowls but does not bat.
 * Bowling plan: each bowler's overs per phase (powerplay 1-6, middle 7-15, death 16-20) are his historical
@@ -216,6 +246,9 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
 
 * Held-out per-ball calibration (train before June 2025, score after): log loss vs a no-skill marginal
   model, per-class reliability bins, and expected vs actual runs and wickets per innings.
+* Match win probability is scored against a coin flip and against a constant chance that the side batting first
+  wins (the prior seasons' rate out of sample), with the standard error of the difference. One season is 71
+  matches: it cannot show skill at picking winners, and the model should not be read as having shown it.
 * Simulator replay of IPL 2025-26: each real match re-simulated 400 times with the real XIs, batting order of
   appearance, each bowler's real overs per phase, venue and season; compares the distribution of
   1st-innings totals, wickets, powerplay runs, chase win rate, wides/sixes/fours per innings and the
@@ -235,8 +268,10 @@ venue or toss can be re-simulated in the browser. Python and JS agree within Mon
   to wickets or match state; batting orders do not flex (no pinch-hitters, no promoting a finisher).
 * Intent beyond the required-rate and wickets-in-hand context is not modelled (e.g. a side knowing its deep
   batting lets it attack) except via the season environment.
-* Squads are the 2026 squads; auction/retention changes after the data cut-off are not known to the model.
-  Overseas status is inferred from international appearances (uncapped overseas players would be missed).
+* Squads are the 2026 squads; trades, retentions and the auction for 2027 are not in the model.
+  Overseas status needs the player to be in cricketdata's table or to have played a T20I in the data.
+* Stumpings and run outs off wides and run outs off no-balls (68 of 14,674 IPL dismissals) are counted as the
+  wide or no-ball, so the simulator produces about 0.5% too few wickets.
 * Uncertainty bands come from a diagonal Laplace approximation and understate true uncertainty.
 * Venue identity: some grounds changed surfaces or boundary sizes; the recency weighting only partly handles it.
 * League connectivity: leagues with few shared players (some domestic and associate competitions) have less

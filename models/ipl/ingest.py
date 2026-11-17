@@ -101,6 +101,7 @@ VENUE_ALIASES = {
     "providence stadium": "providence stadium",
     "warner park": "warner park", "queens park oval": "queens park oval",
     "daren sammy national cricket stadium": "daren sammy stadium",
+    "darren sammy national cricket stadium": "daren sammy stadium",
     "beausejour stadium": "daren sammy stadium",
     "sabina park": "sabina park",
     "sir vivian richards stadium": "sir vivian richards stadium",
@@ -141,12 +142,15 @@ def canon_venue(venue, city):
 
 
 # %% per-match parse
+_ZIP = None
 
 
 def parse_match(args):
     name, code_team = args
-    with zipfile.ZipFile(ALL_ZIP) as z:
-        d = json.loads(z.read(name))
+    global _ZIP
+    if _ZIP is None:  # one handle per worker: re-reading the central directory per match is slow
+        _ZIP = zipfile.ZipFile(ALL_ZIP)
+    d = json.loads(_ZIP.read(name))
     info = d["info"]
     if info.get("gender") != "male" or info.get("match_type") not in ("T20", "IT20"):
         return None
@@ -175,6 +179,7 @@ def parse_match(args):
     rows = []
     inns = d.get("innings", [])
     first_total = None
+    first_legal, first_wk = 120, 10
     reduced = False
     impact_rows = []
     match_players = {t: [pid(p) for p in ps] for t, ps in info.get("players", {}).items()}
@@ -258,8 +263,15 @@ def parse_match(args):
                     lb_in_over += 1
         if not so and inn_no == 1:
             first_total = score
+            first_legal, first_wk = legal, wk
     if not rows:
         return None
+    # a decided match whose first innings stopped at least an over short of 20 without being bowled out was
+    # shortened before or during that innings (cricsheet does not always record the reduced overs). Fewer than
+    # 9 wickets, because a side with a batter absent is all out nine down; 114 balls, because a miscounted
+    # over leaves some full innings at 119.
+    if result in ("win", "tie") and inn_no >= 2 and first_legal <= 114 and first_wk < 9:
+        reduced = True
     cols = ["innings", "super_over", "bat_team", "bowl_team", "over", "ball_in_over", "legal_before",
             "batter", "non_striker", "bowler", "batter_name", "bowler_name",
             "cls", "runs_bat", "runs_extras", "runs_total", "wides", "noballs", "byes", "penalty",
