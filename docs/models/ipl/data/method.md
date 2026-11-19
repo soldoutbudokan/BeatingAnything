@@ -314,6 +314,24 @@ the hook for it (`match_date, team, player_id, status, known_at, source`), and o
 a state's cut-off are used.
 
 Market prices (`models/ipl/market/`): `collect.py` saves Kalshi and Polymarket responses verbatim with fetch
-times; `prices.py` reads the last price at or before each state's cut-off (pre_news = 3 hours before the start,
-post_toss = 10 minutes before; a quote more than 6 hours old counts as missing) and scores the model against
-it. The collectors have not been run: this build environment cannot reach either host.
+times (Kalshi series KXIPLGAME: one IPL 2025 match and all of IPL 2026, one-minute bid / ask / last; Polymarket
+tag `ipl`: IPL 2025 fixtures, minute mids). `prices.py` reads the last price at or before each state's cut-off
+(pre_news = 3 hours before the start, post_toss = 10 minutes before; a quote more than 6 hours old counts as
+missing) and `score.py` compares the model with it on the same matches.
+
+First run, 116 matches with a price (log loss; negative difference = model better):
+
+| state | source | n | model | market | model minus market |
+|---|---|---|---|---|---|
+| pre_news | Polymarket 2025 | 44 | 0.6872 | 0.6938 | -0.0066 +/- 0.0269 |
+| post_toss | Polymarket 2025 | 45 | 0.7083 | 0.6720 | +0.0363 +/- 0.0364 |
+| pre_news | Kalshi 2026 | 71 | 0.7000 | 0.7070 | -0.0071 +/- 0.0185 |
+| post_toss | Kalshi 2026 | 71 | 0.6792 | 0.7069 | -0.0277 +/- 0.0206 |
+| pre_news | both | 115 | 0.6951 | 0.7020 | -0.0069 +/- 0.0153 |
+| post_toss | both | 116 | 0.6905 | 0.6934 | -0.0029 +/- 0.0190 |
+
+Model and market are level within noise; neither beat a coin flip over these matches (market minus coin flip
++0.0002 +/- 0.0156 at post_toss). Staking one unit whenever the model's probability beat the price paid (mid
+plus half the spread, Kalshi taker fee deducted) returned +5.0% +/- 10.3% per bet at post_toss (109 bets) and
++5.7% +/- 10.8% at pre_news (107 bets). The standard errors are larger than the returns: this is not evidence
+of an edge. Polymarket covers 45 of 69 IPL 2025 matches at these cut-offs; IPL 2024 has no market data.

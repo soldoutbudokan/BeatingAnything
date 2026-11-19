@@ -29,12 +29,17 @@ class MarketJoin(unittest.TestCase):
 
     def test_join_by_teams_and_date(self):
         p = pd.DataFrame({"match_id": ["1", "1", "2"], "date": pd.Timestamp("2026-04-01"),
-                          "team1": ["Mumbai Indians", "Mumbai Indians", "Mumbai Indians"],
-                          "team2": ["Chennai Super Kings", "Chennai Super Kings", "Gujarat Titans"],
-                          "state": ["pre_news", "post_toss", "pre_news"]})
+                          "x": 0}, index=[0, 0, 0])   # duplicate index, as after concatenating seasons
+        p = p.assign(**{"team1": "Mumbai Indians", "team2": ["Chennai Super Kings", "Chennai Super Kings", "Gujarat Titans"],
+                        "state": ["pre_news", "post_toss", "pre_news"]})
         j = join(p, self.s)
         self.assertEqual(j["market_p_team1"].tolist()[:2], [0.55, 0.60])
         self.assertTrue(np.isnan(j["market_p_team1"].iloc[2]))
+        p = pd.DataFrame({"match_id": ["1", "1", "2"], "date": pd.Timestamp("2025-04-01"),
+                          "team1": ["Mumbai Indians", "Mumbai Indians", "Mumbai Indians"],
+                          "team2": ["Chennai Super Kings", "Chennai Super Kings", "Gujarat Titans"],
+                          "state": ["pre_news", "post_toss", "pre_news"]})
+        self.assertTrue(join(p, self.s)["market_p_team1"].isna().all())   # same sides, a year apart
 
     def test_team_names(self):
         self.assertEqual(team_in("Mumbai Indians vs Chennai Super Kings"), ["Mumbai Indians", "Chennai Super Kings"])
