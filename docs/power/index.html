@@ -61,8 +61,26 @@ tr:last-child td{border-bottom:0}
 .good{color:var(--good)}.bad{color:var(--bad)}.muted{color:var(--muted)}
 .sub{font-size:11.5px;color:var(--muted);font-weight:400}
 .rank{color:var(--muted);width:1%}
+.team{display:flex;align-items:center;gap:8px}
+td.team-cell{padding-top:6px;padding-bottom:6px}
 .team b{font-weight:600}
-.team .name{color:var(--ink2);margin-left:6px}
+.team .name{color:var(--ink2)}
+.logo{width:24px;height:24px;object-fit:contain;flex:none}
+.logo.sm{width:18px;height:18px}
+.logo-gap{width:24px;flex:none}
+.inj{max-width:176px;overflow:hidden;text-overflow:ellipsis}
+.inj .maybe{color:var(--muted)}
+.outlook th.grp{text-align:center;border-bottom:0;padding-bottom:0}
+.outlook th.seed,.outlook td.seed{text-align:center;padding-left:0;padding-right:0;width:38px;min-width:38px}
+.outlook td.seed{background:color-mix(in srgb,var(--model) calc(var(--p)*70%),transparent);border-left:2px solid var(--surface)}
+.outlook td.seed.hi{font-weight:600}
+.outlook .conf td{background:var(--sunk);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:6px;padding-bottom:6px}
+.outlook td.stick,.outlook th.stick{position:sticky;left:0;background:var(--surface);z-index:1}
+.outlook .conf td.stick{background:var(--sunk)}
+.ramp{display:inline-block;width:72px;height:10px;border-radius:2px;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--model) 70%,transparent))}
+.list{list-style:none;margin:0 0 12px;padding:0;font-size:13px}
+.list li{display:flex;justify-content:space-between;gap:12px;padding:3px 0;border-top:1px solid var(--rule)}
+.list li:first-child{border-top:0}
 .rating{font-weight:600;font-size:14.5px}
 tr.row{cursor:pointer}
 tr.row:hover td,tr.row:focus-visible td,tr.row[aria-expanded="true"] td{background:var(--sunk)}
@@ -98,15 +116,16 @@ tr.row:hover .m-rating,tr.row:hover .m-title,tr.row[aria-expanded="true"] .m-rat
 .status{margin-top:12px;font-size:12.5px;color:var(--muted)}
 .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--muted);max-width:80ch}
 .empty{padding:18px;color:var(--muted);font-size:13.5px}
-@media (max-width:760px){.c-trend,.c-playoff,.team .name{display:none}.detail-grid{grid-template-columns:1fr}}
-@media (max-width:640px){.stamp{align-items:flex-start}.c-pts,.c-title,.team .sub{display:none}td,th{padding-left:6px;padding-right:6px}}
+@media (max-width:900px){.c-inj{display:none}}
+@media (max-width:760px){.c-trend,.team .name,.c-div{display:none}.detail-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.stamp{align-items:flex-start}.c-pts,.team .sub{display:none}td,th{padding-left:6px;padding-right:6px}.logo{width:20px;height:20px}.logo-gap{width:20px}}
 </style>
 </head>
 <body>
 <header class="masthead"><div class="wrap">
   <div class="brand">
     <h1>Power rankings</h1>
-    <p>Each team's chance of beating a league-average opponent on a neutral field, read off game prices at Kalshi, Polymarket, Pinnacle and DraftKings and nudged by title odds. Rebuilt every hour.</p>
+    <p>Each team's chance of beating a league-average opponent on a neutral field, read off game prices at Kalshi, Polymarket, Pinnacle and DraftKings and nudged by title odds, with the rest of the season simulated for seed odds. Rebuilt every hour.</p>
   </div>
   <div class="stamp"><div class="stamp-row"><a class="pill" href="../">Scanner</a><a class="pill" href="../models/">Models</a><a class="pill" href="https://github.com/soldoutbudokan/BeatingAnything">Repository</a>
     <button class="pill" id="theme" type="button" aria-label="Toggle colour theme">Theme</button></div>
@@ -144,6 +163,29 @@ function ago(iso) {
   return m < 1 ? 'just now' : m < 60 ? m + ' min ago' : m < 2880 ? Math.round(m / 60) + ' h ago' : Math.round(m / 1440) + ' days ago';
 }
 
+// Team logos come from ESPN's image server, sized down there. The dark set is used on the dark theme.
+const isDark = () => (document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark';
+function logo(t, cls) {
+  const src = t && ((isDark() && t.logo_dark) || t.logo);
+  if (!src) return h('span', {class: 'logo-gap'});
+  const u = new URL(src), px = 64;
+  const img = h('img', {class: 'logo' + (cls ? ' ' + cls : ''), alt: '', loading: 'lazy', decoding: 'async', width: 24, height: 24,
+    src: `${u.origin}/combiner/i?img=${u.pathname}&h=${px}&w=${px}`});
+  img.addEventListener('error', () => img.replaceWith(h('span', {class: 'logo-gap'})), {once: true});
+  return img;
+}
+const byAbbr = lg => Object.fromEntries(lg.teams.map(t => [t.abbr, t]));
+const lower = x => (x || '').toLowerCase();
+const injuryText = i => `${i.short}${i.pos ? ' ' + i.pos : ''}`;
+function injuries(t, limit) {
+  const all = t.injuries || [];
+  if (!all.length) return h('span', {class: 'muted'}, '–');
+  const shown = all.slice(0, limit);
+  return h('span', {title: all.map(i => `${i.name}, ${i.pos}: ${lower(i.status)}${i.part ? ', ' + lower(i.part) : ''}`).join('\n')},
+    shown.flatMap((i, k) => [k ? ', ' : '', h('span', {class: i.out ? null : 'maybe'}, injuryText(i) + (i.out ? '' : '?'))]),
+    all.length > limit ? ` +${all.length - limit}` : '');
+}
+
 // tooltip
 const tip = $('#tip');
 function showTip(x, y, title, rows) {
@@ -160,8 +202,8 @@ function scale(lg) {
   const vals = lg.teams.flatMap(t => [t.wp, t.title_wp]).filter(v => v != null);
   return [Math.floor(Math.min(...vals) * 20 - 1e-9) / 20, Math.ceil(Math.max(...vals) * 20 + 1e-9) / 20];
 }
-const PLOT = {w: 220, h: 24, pad: 8};
-const fitPlot = () => { PLOT.w = innerWidth < 480 ? Math.max(96, innerWidth - 270) : innerWidth < 900 ? 160 : 220; };
+const PLOT = {w: 190, h: 24, pad: 8};
+const fitPlot = () => { PLOT.w = innerWidth < 480 ? Math.max(96, innerWidth - 270) : innerWidth < 900 ? 160 : 190; };
 const px = (v, [lo, hi]) => PLOT.pad + (v - lo) / (hi - lo) * (PLOT.w - 2 * PLOT.pad);
 function plotHead(dom) {
   const g = s('svg', {width: PLOT.w, height: 14, viewBox: `0 0 ${PLOT.w} 14`, 'aria-hidden': 'true'});
@@ -185,7 +227,7 @@ function plotRow(t, dom) {
 function spark(t) {
   const v = t.spark.map(p => p[1]);
   if (v.length < 2) return h('span', {class: 'muted'}, '–');
-  const W = 84, H = 22, mid = (Math.min(...v) + Math.max(...v)) / 2, span = Math.max(0.12, Math.max(...v) - Math.min(...v)) * 1.15;
+  const W = 72, H = 22, mid = (Math.min(...v) + Math.max(...v)) / 2, span = Math.max(0.12, Math.max(...v) - Math.min(...v)) * 1.15;
   const g = s('svg', {width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': `${t.abbr} rating over ${v.length} days, from ${pct(v[0])} to ${pct(v[v.length - 1])}`});
   g.append(s('polyline', {class: 'spark', points: v.map((x, i) => `${(2 + i / (v.length - 1) * (W - 4)).toFixed(1)},${(H / 2 - (x - mid) / span * (H - 4)).toFixed(1)}`).join(' ')}));
   return g;
@@ -245,14 +287,21 @@ function tiles(lg) {
 
 function detail(t, lg, cols) {
   const next = lg.games.filter(g => g.home === t.abbr || g.away === t.abbr).slice(0, 3);
+  const sim = t.sim, seeds = lg.outlook ? lg.outlook.seeds : [];
+  const best = sim ? sim.seeds.indexOf(Math.max(...sim.seeds)) : -1;
   const facts = [['Rating', pct(t.wp)], ['Game lines alone', `${pct(t.game_wp)} (rank ${t.game_rank})`],
     ['Title odds imply', t.title_wp != null ? pct(t.title_wp) : 'no usable price'], ['Weight on title odds', pct(t.title_weight, 0)],
-    ['Title odds', pct(t.title_p)], ['Playoff odds', pct(t.playoff_p, 0)],
-    t.pts != null && ['Against an average team', `${signed(t.pts)} points`], ['Recent games in the fit', `${t.games_weight.toFixed(1)} (age-weighted)`]].filter(Boolean);
+    t.pts != null && ['Against an average team', `${signed(t.pts)} points`],
+    sim && ['Projected record', record(sim) + (sim.pts != null ? `, ${Math.round(sim.pts)} points` : '')], sim && ['Playoffs, simulated', pct(sim.playoff, 0)], ['Playoffs, Kalshi', pct(t.playoff_p, 0)],
+    sim && best >= 0 && sim.seeds[best] > 0.02 && ['Most likely place', `${seedName(lg, best)} (${pct(sim.seeds[best], 0)})`],
+    ['Title odds', pct(t.title_p)], ['Recent games in the fit', `${t.games_weight.toFixed(1)} (age-weighted)`]].filter(Boolean);
   return h('tr', {class: 'detail'}, h('td', {colspan: cols},
     h('div', {class: 'detail-grid'},
       h('div', null, h('h4', null, `${t.name}: game-market rating, last ${t.spark.length} days`), trendChart(t)),
-      h('div', null, h('h4', null, 'Breakdown'), h('dl', {class: 'kv'}, facts.flatMap(([k, v]) => [h('dt', null, k), h('dd', null, v)])),
+      h('div', null,
+        (t.injuries || []).length ? [h('h4', null, 'Key players on the injury report'), h('ul', {class: 'list'}, t.injuries.map(i =>
+          h('li', null, h('span', null, `${i.name}, ${i.pos}`, h('span', {class: 'sub'}, ' ' + i.role)), h('span', {class: i.out ? null : 'muted'}, [i.status, lower(i.part)].filter(Boolean).join(', ')))))] : null,
+        h('h4', null, 'Breakdown'), h('dl', {class: 'kv'}, facts.flatMap(([k, v]) => [h('dt', null, k), h('dd', null, v)])),
         next.length ? h('ul', {class: 'next'}, next.map(g => {
           const home = g.home === t.abbr, p = home ? g.consensus : 1 - g.consensus;
           return h('li', null, h('span', null, `${when(g.start_utc)} ${home || g.neutral ? 'vs' : 'at'} ${home ? g.away : g.home}${g.neutral ? ' (neutral)' : ''}`), h('span', null, `${pct(p, 0)} to win`));
@@ -261,7 +310,7 @@ function detail(t, lg, cols) {
 
 function rankings(lg) {
   const dom = scale(lg), hasPts = lg.teams.some(t => t.pts != null);
-  const cols = 8 + (hasPts ? 1 : 0);
+  const cols = 7 + (hasPts ? 1 : 0);
   const body = h('tbody');
   for (const t of lg.teams) {
     const open = state.open === t.abbr;
@@ -275,19 +324,18 @@ function rankings(lg) {
       onkeydown: e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } },
       onfocus: e => { if (e.target.matches(':focus-visible')) { const r = plotCell.getBoundingClientRect(); showTip(r.left + r.width / 2, r.bottom - 12, t.name, tipRows); } }, onblur: hideTip},
       h('td', {class: 'rank r'}, t.rank),
-      h('td', {class: 'team'}, h('b', null, t.abbr), h('span', {class: 'name'}, t.name), t.record ? h('span', {class: 'sub'}, ' ' + t.record) : null),
+      h('td', {class: 'team-cell'}, h('div', {class: 'team'}, logo(t), h('b', null, t.abbr), h('span', {class: 'name'}, t.name), t.record ? h('span', {class: 'sub'}, t.record) : null)),
       h('td', {class: 'r rating'}, pct(t.wp)),
       plotCell,
       hasPts ? h('td', {class: 'r c-pts'}, signed(t.pts)) : null,
       h('td', {class: 'r ' + (t.d7 == null || Math.abs(t.d7) < 0.005 ? 'muted' : t.d7 > 0 ? 'good' : 'bad')}, t.d7 == null ? '–' : `${t.d7 > 0.0005 ? '▲' : t.d7 < -0.0005 ? '▼' : ''} ${signed(100 * t.d7)}`),
       h('td', {class: 'c-trend'}, spark(t)),
-      h('td', {class: 'r c-title'}, t.title_p == null ? '–' : t.title_p < 0.003 ? '<0.3%' : pct(t.title_p)),
-      h('td', {class: 'r c-playoff'}, pct(t.playoff_p, 0)));
+      h('td', {class: 'c-inj'}, h('div', {class: 'inj'}, injuries(t, 2))));
     body.append(row);
     if (open) body.append(detail(t, lg, cols));
   }
   return h('div', {class: 'block'}, h('h3', null, `${lg.label} rankings`),
-    h('p', {class: 'note'}, 'Rating is the win probability against an average team on a neutral field. 7 days is the change in percentage points. Select a team for its trend and next games.'),
+    h('p', {class: 'note'}, 'Rating is the win probability against an average team on a neutral field. 7 days is the change in percentage points. Key players out lists a team\'s leading players on the injury report; a question mark means questionable or day-to-day. Select a team for its trend, breakdown and next games.'),
     h('div', {class: 'legend'}, h('span', {class: 'key'}, h('span', {class: 'dot', style: 'background:var(--model)'}), 'Rating'),
       h('span', {class: 'key'}, h('span', {class: 'dot', style: 'background:var(--market)'}), 'What title odds alone imply'),
       h('span', {class: 'key'}, h('span', {class: 'bar'}), 'Average team (50%)'),
@@ -296,15 +344,49 @@ function rankings(lg) {
       h('th', {class: 'r'}, '#'), h('th', null, 'Team'), h('th', {class: 'r'}, 'Rating'), h('th', {class: 'c-plot'}, plotHead(dom)),
       hasPts ? h('th', {class: 'r c-pts', title: 'Point spread against an average team on a neutral field'}, 'Points') : null,
       h('th', {class: 'r', title: 'Change in the game-market rating over 7 days, in percentage points'}, '7 days'), h('th', {class: 'c-trend'}, 'Trend'),
-      h('th', {class: 'r c-title'}, 'Title'), h('th', {class: 'r c-playoff'}, 'Playoffs'))), body)));
+      h('th', {class: 'c-inj', title: 'Key players ruled out, doubtful or on injured reserve; a question mark means questionable or day-to-day'}, 'Key players out'))), body)));
+}
+
+const GROUPS = {nfl: [['Division winners', 4], ['Wild cards', 3]], nba: [['Playoff places', 6], ['Play-in', 4]], nhl: [['Place in division', 3], ['Wild card', 2]]};
+const seedName = (lg, k) => { const s = lg.outlook.seeds[k]; return /^\d+$/.test(s) ? `seed ${s}` : s.startsWith('D') ? `${['1st', '2nd', '3rd'][+s[1] - 1]} in division` : `wild card ${s.slice(2)}`; };
+const record = sim => sim.otl != null ? `${Math.round(sim.w)}-${Math.round(sim.l)}-${Math.round(sim.otl)}` : sim.w + sim.l > 40 ? `${Math.round(sim.w)}-${Math.round(sim.l)}` : `${sim.w.toFixed(1)}-${sim.l.toFixed(1)}`;
+function outlook(lg, key) {
+  const o = lg.outlook;
+  if (!o || !lg.teams.every(t => t.sim)) return null;
+  const groups = GROUPS[key] || [[`Places`, o.seeds.length]], n = o.seeds.length, divs = key !== 'nba', cols = 6 + n + (divs ? 1 : 0);
+  const body = h('tbody');
+  for (const conf of [...new Set(lg.teams.map(t => t.conf))].sort()) {
+    body.append(h('tr', {class: 'conf'}, h('td', {class: 'stick'}, conf), h('td', {colspan: cols - 1})));
+    const teams = lg.teams.filter(t => t.conf === conf).sort((a, b) => b.sim.playoff - a.sim.playoff || (b.sim.pts ?? b.sim.w) - (a.sim.pts ?? a.sim.w));
+    for (const t of teams) {
+      const top = Math.max(...t.sim.seeds);
+      body.append(h('tr', null,
+        h('td', {class: 'team-cell stick'}, h('div', {class: 'team'}, logo(t), h('b', null, t.abbr), h('span', {class: 'name'}, t.name))),
+        divs ? h('td', {class: 'c-div muted'}, (t.div || '').replace(/^(AFC|NFC) | Division$/g, '')) : null,
+        h('td', {class: 'r'}, t.record || '–'), h('td', {class: 'r'}, record(t.sim)),
+        t.sim.seeds.map(p => h('td', {class: 'seed' + (p === top && p >= 0.2 ? ' hi' : ''), style: `--p:${p.toFixed(3)}`, title: `${(100 * p).toFixed(1)}%`}, p >= 0.995 ? '100' : p >= 0.005 ? Math.round(100 * p) : p > 0 ? h('span', {class: 'muted'}, '<1') : '')),
+        h('td', {class: 'r rating'}, pct(t.sim.playoff, 0)), h('td', {class: 'r'}, pct(t.playoff_p, 0)),
+        h('td', {class: 'r'}, t.title_p == null ? '–' : t.title_p < 0.003 ? '<0.3%' : pct(t.title_p))));
+    }
+  }
+  return h('div', {class: 'block'}, h('h3', null, 'Season outlook'),
+    h('p', {class: 'note'}, `The rest of the regular season played out ${o.sims.toLocaleString()} times from these ratings: ${o.games_left} games, ${o.priced} of them at their market price. Cells are the chance, in percent, of finishing in each place.`,
+      key === 'nba' ? ' Places 7 to 10 enter the play-in; Playoffs counts the teams that come through it.' : ''),
+    h('div', {class: 'legend'}, h('span', {class: 'key'}, h('span', {class: 'ramp'}), 'Darker is more likely'),
+      h('span', {class: 'muted'}, 'Kalshi is the market price to make the playoffs; Title is the market\'s championship chance.')),
+    h('div', {class: 'scroll'}, h('table', {class: 'outlook'}, h('thead', null,
+      h('tr', null, h('th', {class: 'stick grp', colspan: 1}), divs ? h('th', {class: 'grp c-div'}) : null, h('th', {class: 'grp', colspan: 2}),
+        groups.map(([name, span]) => h('th', {class: 'grp', colspan: span}, name)), h('th', {class: 'grp', colspan: 3})),
+      h('tr', null, h('th', {class: 'stick'}, 'Team'), divs ? h('th', {class: 'c-div'}, 'Division') : null, h('th', {class: 'r'}, 'Record'), h('th', {class: 'r', title: 'Average final record across the simulations'}, 'Projected'),
+        o.seeds.map(x => h('th', {class: 'seed'}, x)), h('th', {class: 'r'}, 'Playoffs'), h('th', {class: 'r'}, 'Kalshi'), h('th', {class: 'r'}, 'Title'))), body)));
 }
 
 function games(lg) {
-  const src = ['kalshi', 'polymarket', 'pinnacle', 'draftkings'];
+  const src = ['kalshi', 'polymarket', 'pinnacle', 'draftkings'], team = byAbbr(lg);
   const rows = lg.games.map(g => {
     const diff = g.model - g.consensus;
     return h('tr', null, h('td', null, when(g.start_utc)),
-      h('td', {class: 'team'}, h('b', null, `${g.away} ${g.neutral ? 'vs' : 'at'} ${g.home}`), g.neutral ? h('span', {class: 'sub'}, ' neutral') : null),
+      h('td', {class: 'team-cell'}, h('div', {class: 'team'}, logo(team[g.away], 'sm'), h('b', null, g.away), h('span', {class: 'muted'}, g.neutral ? 'vs' : 'at'), logo(team[g.home], 'sm'), h('b', null, g.home), g.neutral ? h('span', {class: 'sub'}, 'neutral') : null)),
       src.map(k => h('td', {class: 'r'}, g.sources[k] == null ? h('span', {class: 'muted'}, '–') : pct(g.sources[k]))),
       h('td', {class: 'r rating'}, pct(g.consensus)), h('td', {class: 'r'}, pct(g.model)),
       h('td', {class: 'r ' + (Math.abs(diff) < 0.03 ? 'muted' : '')}, signed(100 * diff)));
@@ -317,7 +399,7 @@ function games(lg) {
 }
 
 function method(lg, data) {
-  const p = (...kids) => h('p', null, ...kids), b = t => h('b', null, t), tt = lg.title;
+  const p = (...kids) => h('p', null, ...kids), b = t => h('b', null, t), tt = lg.title, key = state.league;
   const srcLine = Object.entries(data.sources).filter(([k]) => k !== 'espn').map(([k, v]) => {
     const st = v[state.league] || {};
     return `${SOURCE[k]}: ${st.error ? 'failed (' + st.error + ')' : `${st.games ?? 0} games priced this run${st.title ? ', title odds' : ''}`}`;
@@ -330,6 +412,11 @@ function method(lg, data) {
       ` The ratings reproduce the priced games to within about ${(100 * lg.fit_rmse / 4).toFixed(1)} points of win probability.`),
     p(b('Title odds. '), tt.skipped ? `Not applied this run: ${tt.skipped}.` :
       `Championship prices from ${tt.sources.map(k => SOURCE[k]).join(', ')} are averaged and divided by Kalshi's price to make the playoffs. Across the ${tt.n} teams with a real title price, that conditional title chance rises with the game rating. A team above the line is rated higher by the futures market than by its game lines, which is what a long-term injury or a slow start looks like. Up to ${pct(tt.weight_max, 0)} of that gap is added to the rating, less for long shots. Teams whose title price sits at the minimum tick keep their game rating.`),
+    lg.outlook ? p(b('Season outlook. '), `Every remaining regular-season game is played ${lg.outlook.sims.toLocaleString()} times. A game with a market price uses it; the rest use the ratings, the home advantage${lg.b2b ? ' and the back-to-back penalty' : ''}. Team strength is not held fixed: it drifts week to week as a random walk (${lg.outlook.drift} in log-odds a week, set from how fast the ratings have moved this season and from Kalshi's playoff prices), so late-season games are less certain than next week's. Standings are then seeded by the league's rules. Tie-breaks are simplified (record, then ${key === 'nhl' ? 'regulation wins' : key === 'nfl' ? 'division and conference record' : 'conference record'}, then a coin flip; no head-to-head).`,
+      lg.outlook.playoff_gap != null ? ` Simulated playoff odds sit ${(100 * lg.outlook.playoff_gap).toFixed(0)} points from Kalshi's playoff prices on a typical team; both are shown so the gaps are visible.` : '',
+      key === 'nba' ? ' The two games each NBA team plays after the in-season cup are not scheduled yet and are left out.' : '') : null,
+    p(b('Key players out. '), key === 'nfl' ? 'A team\'s passing leader, rushing leader and top two receivers by yards' : key === 'nba' ? 'A team\'s top three scorers per game' : 'A team\'s top three point scorers and its busiest goalie',
+      ', from ESPN\'s season statistics, checked against ESPN\'s injury report. Listed when out, doubtful or on injured reserve; a question mark marks questionable or day-to-day. It is a pointer to why a rating moved, not an input to it.'),
     p(b('Reading it. '), 'Game lines carry injuries, rest and starting goalies or quarterbacks, so a rating can dip for a week and recover. The 7-day change and the trend use game lines only. Days before this page started updating were rebuilt from closing prices.',
       lg.points_sd ? ` Points convert win probability at DraftKings' own spread-to-moneyline rate (a standard deviation of ${lg.points_sd.toFixed(1)}).` : ''),
     h('p', {class: 'status'}, srcLine)));
@@ -354,7 +441,8 @@ function render() {
   if (!lg) { $('#panel').replaceChildren(h('p', {class: 'empty'}, 'No league data yet.')); return; }
   $('#panel').replaceChildren(
     lg.stale ? h('div', {class: 'banner'}, `These ${lg.label} ratings were last rebuilt ${ago(lg.updated_utc)}. Too few games are priced right now (out of season), or the price sources were unreachable.`) : '',
-    tiles(lg), rankings(lg), games(lg), method(lg, data));
+    (lg.unrated || []).length ? h('div', {class: 'banner'}, `No priced games found for ${lg.unrated.join(', ')}; shown at league average.`) : '',
+    tiles(lg), rankings(lg), outlook(lg, state.league), games(lg), method(lg, data));
 }
 
 // The hourly job commits data/power.json to main. The copy served with the page waits for a Pages deploy; the raw
@@ -376,6 +464,7 @@ $('#theme').addEventListener('click', () => {
   const next = cur === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   try { localStorage.setItem('theme', next); } catch (e) {}
+  render();
 });
 addEventListener('scroll', hideTip, {passive: true});
 let resizeTimer;

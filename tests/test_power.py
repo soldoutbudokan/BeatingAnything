@@ -10,14 +10,14 @@ from unittest import mock
 from beating import power as pw
 
 NOW = datetime(2026, 11, 19, 20, 0, tzinfo=timezone.utc)
-ESPN_TEAMS = [dict(abbreviation="LAC", displayName="LA Clippers", name="Clippers", location="LA"),
-              dict(abbreviation="LAL", displayName="Los Angeles Lakers", name="Lakers", location="Los Angeles"),
-              dict(abbreviation="PHI", displayName="Philadelphia 76ers", name="76ers", location="Philadelphia"),
-              dict(abbreviation="POR", displayName="Portland Trail Blazers", name="Trail Blazers", location="Portland"),
-              dict(abbreviation="GS", displayName="Golden State Warriors", name="Warriors", location="Golden State"),
-              dict(abbreviation="MTL", displayName="Montreal Canadiens", name="Canadiens", location="Montreal"),
-              dict(abbreviation="SAC", displayName="Sacramento Kings", name="Kings", location="Sacramento"),
-              dict(abbreviation="MIN", displayName="Minnesota Vikings", name="Vikings", location="Minnesota")]
+ESPN_TEAMS = [dict(id=str(i + 1), abbreviation=a, displayName=n, name=k, location=c,
+                   logos=[dict(href=f"https://a.espncdn.com/i/teamlogos/nba/500/{a.lower()}.png", rel=["full", "default"]),
+                          dict(href=f"https://a.espncdn.com/i/teamlogos/nba/500-dark/{a.lower()}.png", rel=["full", "dark"])])
+              for i, (a, n, k, c) in enumerate([
+                  ("LAC", "LA Clippers", "Clippers", "LA"), ("LAL", "Los Angeles Lakers", "Lakers", "Los Angeles"),
+                  ("PHI", "Philadelphia 76ers", "76ers", "Philadelphia"), ("POR", "Portland Trail Blazers", "Trail Blazers", "Portland"),
+                  ("GS", "Golden State Warriors", "Warriors", "Golden State"), ("MTL", "Montreal Canadiens", "Canadiens", "Montreal"),
+                  ("SAC", "Sacramento Kings", "Kings", "Sacramento"), ("MIN", "Minnesota Vikings", "Vikings", "Minnesota")])]
 
 
 def row(home, away, start, **kw):
@@ -317,6 +317,123 @@ class Block(unittest.TestCase):
         teams = pw.Teams(ESPN_TEAMS)
         rows = [row("LAL", "LAC", NOW - timedelta(days=1), kalshi_p="0.6")]
         self.assertIsNone(pw.league_block("nba", pw.LEAGUES["nba"], rows, teams, {}, {}, {}, {}, NOW))
+
+
+class Espn2(unittest.TestCase):
+    def test_teams_match_on_id_when_abbreviations_differ(self):
+        t = pw.Teams(ESPN_TEAMS)
+        self.assertEqual(t.espn({"id": "5", "abbreviation": "GSW"}), "GS")      # another endpoint's spelling
+        self.assertEqual(t.espn({"id": 5}), "GS")
+        self.assertEqual(t.espn({"abbreviation": "LAL"}), "LAL")
+        self.assertIsNone(t.espn({"id": "999", "abbreviation": "EAST"}))        # all-star side
+        self.assertTrue(t.info["GS"]["logo"].endswith("/500/gs.png"))
+        self.assertTrue(t.info["GS"]["logo_dark"].endswith("/500-dark/gs.png"))
+
+    def test_record(self):
+        self.assertEqual(pw.record("5-1"), (5, 1))
+        self.assertEqual(pw.record("2-1-0, 0 PTS"), (2, 1))
+        self.assertEqual(pw.record(None), (0, 0))
+
+    def test_key_injuries(self):
+        players = [dict(id="1", name="Drake Maye", short="D. Maye", pos="QB", role="passing leader"),
+                   dict(id="2", name="A Runner", short="A. Runner", pos="RB", role="rushing leader"),
+                   dict(id="3", name="Jalen Wide", short="J. Wide", pos="WR", role="top receiver"),
+                   dict(id="4", name="Fit Player", short="F. Player", pos="WR", role="top receiver")]
+        report = [dict(id="2", name="A Runner", status="Questionable", part="Ankle", ret=None),
+                  dict(id=None, name="Jalen Wide", status="Injured Reserve", part="Knee", ret=None),   # matched by name
+                  dict(id="1", name="Drake Maye", status="Doubtful", part="Ankle", ret=None),
+                  dict(id="4", name="Fit Player", status="Active", part=None, ret=None),
+                  dict(id="9", name="Backup Guard", status="Out", part="Hand", ret=None)]                 # not a key player
+        got = pw.key_injuries(players, report)
+        self.assertEqual([(i["short"], i["out"]) for i in got], [("D. Maye", True), ("J. Wide", True), ("A. Runner", False)])
+        self.assertEqual(pw.key_injuries(players, []), [])
+
+
+class Season(unittest.TestCase):
+    SHAPE = {"nfl": (4, 4), "nba": (3, 5), "nhl": (2, 8)}  # divisions per conference, teams per division
+
+    def league(self, lg, played=0, games_each=12, seed=5):
+        rng = random.Random(seed)
+        divs, size = self.SHAPE[lg]
+        stand, abbrs = {}, []
+        for c in ("East", "West"):
+            for d in range(divs):
+                for k in range(size):
+                    t = f"{c[0]}{d}{k}"
+                    abbrs.append(t)
+                    w = rng.randint(0, played)
+                    stand[t] = dict(conf=c, div=f"{c} {d}", record="", w=w, l=played - w, t=0, otl=0, pts=2 * w, rw=w, div_rec=(0, 0), conf_rec=(0, 0))
+        ratings = {t: 1.0 - 2.0 * i / (len(abbrs) - 1) for i, t in enumerate(sorted(abbrs, key=lambda t: rng.random()))}
+        games = []
+        for r in range(games_each):
+            order = abbrs[:]
+            rng.shuffle(order)
+            games += [dict(home=order[i], away=order[i + 1], neutral=0, start=NOW + timedelta(days=3 + 4 * r), y=None, b2b=0) for i in range(0, len(order) - 1, 2)]
+        return abbrs, stand, games, dict(ratings=ratings, home=0.2, b2b=0.0)
+
+    def test_every_place_is_filled_exactly_once(self):
+        places = {"nfl": [1] * 7, "nba": [1] * 10, "nhl": [2, 2, 2, 1, 1]}      # per conference; NHL has two divisions
+        berths = {"nfl": 7, "nba": 8, "nhl": 8}
+        for lg in ("nfl", "nba", "nhl"):
+            abbrs, stand, games, model = self.league(lg, played=6)
+            sim = pw.simulate(lg, abbrs, stand, games, model, 0.1, NOW, n=1500)
+            for c in ("East", "West"):
+                ts = [t for t in abbrs if stand[t]["conf"] == c]
+                self.assertAlmostEqual(sum(sim[t]["playoff"] for t in ts), berths[lg], places=6, msg=lg)
+                self.assertAlmostEqual(sum(sim[t]["top"] for t in ts), 1.0, places=6, msg=lg)
+                for k, want in enumerate(places[lg]):
+                    self.assertAlmostEqual(sum(sim[t]["seeds"][k] for t in ts), want, places=6, msg=f"{lg} place {k}")
+            for t in abbrs:
+                total = sim[t]["w"] + sim[t]["l"] + (sim[t]["otl"] or 0)
+                self.assertAlmostEqual(total, 6 + 12, places=3, msg=lg)
+                if lg == "nhl":
+                    self.assertAlmostEqual(sim[t]["pts"], 2 * sim[t]["w"] + sim[t]["otl"], places=3)
+            best, worst = max(model["ratings"], key=model["ratings"].get), min(model["ratings"], key=model["ratings"].get)
+            self.assertGreater(sim[best]["playoff"], sim[worst]["playoff"] + 0.3, msg=lg)
+            self.assertGreater(sim[best]["w"], sim[worst]["w"] + 2, msg=lg)
+
+    def test_finished_season_is_settled_by_the_standings(self):
+        abbrs, stand, _, model = self.league("nfl")
+        for i, t in enumerate(abbrs):
+            stand[t].update(w=16 - (i % 16), l=1 + (i % 16), conf_rec=(12 - (i % 16) // 2, 0))
+        sim = pw.simulate("nfl", abbrs, stand, [], model, 0.1, NOW, n=200)
+        self.assertTrue(all(p in (0.0, 1.0) for t in abbrs for p in sim[t]["seeds"]))
+        self.assertEqual(sim["E00"]["seeds"][0], 1.0)                 # best record in the East
+        self.assertEqual(sim["E10"]["seeds"][1], 1.0)                 # 12-5 division winner outranks the 15-2 runner-up
+        self.assertEqual(sim["E01"]["seeds"][4], 1.0)                 # who is the first wild card
+        self.assertEqual(sim["E00"]["w"], 16.0)
+
+    def test_priced_game_uses_the_market_and_ignores_ratings(self):
+        abbrs, stand, _, model = self.league("nba")
+        strong, weak = max(model["ratings"], key=model["ratings"].get), min(model["ratings"], key=model["ratings"].get)
+        game = [dict(home=weak, away=strong, neutral=0, start=NOW + timedelta(days=1), y=pw.logit(0.9), b2b=0)]
+        sim = pw.simulate("nba", abbrs, stand, game, model, 0.3, NOW, n=4000)
+        self.assertAlmostEqual(sim[weak]["w"], 0.9, delta=0.02)
+
+    def test_drift_makes_the_favourite_less_certain(self):
+        abbrs, stand, games, model = self.league("nhl", games_each=40)
+        best = max(model["ratings"], key=model["ratings"].get)
+        still, moving = (pw.simulate("nhl", abbrs, stand, games, model, d, NOW, n=1500)[best] for d in (0.0, 0.25))
+        self.assertGreater(still["playoff"], moving["playoff"])
+        self.assertGreater(still["div"], moving["div"])
+
+    def test_remaining_games(self):
+        day = timedelta(days=1)
+        played, tonight, later, old = (row("LAL", "LAC", NOW - 2 * day), row("PHI", "LAL", NOW + timedelta(hours=3), kalshi_p="0.7000"),
+                                       row("LAL", "GS", NOW + day + timedelta(hours=3)), row("GS", "PHI", NOW - 90 * day))
+        schedule = [[r["event_id"], r["start_utc"], r["home"], r["away"], 0] for r in (played, tonight, later, old)]
+        schedule.append(["future", pw.iso(NOW + 30 * day), "POR", "SAC", 1])
+        left = pw.remaining_games(schedule, [played, tonight, later], NOW)                # `old` predates the ledger
+        self.assertEqual([(g["home"], g["away"]) for g in left], [("PHI", "LAL"), ("LAL", "GS"), ("POR", "SAC")])
+        self.assertAlmostEqual(left[0]["y"], pw.logit(0.7))
+        self.assertIsNone(left[1]["y"])
+        self.assertEqual([g["b2b"] for g in left], [0, 1, 0])                              # LAL at home on the second night
+        self.assertEqual(left[2]["neutral"], 1)
+
+    def test_overtime_rate(self):
+        self.assertAlmostEqual(pw.overtime_rate({i: dict(w=10, l=8, otl=2) for i in range(20)}), 0.2)   # 40 of 200 games
+        self.assertEqual(pw.overtime_rate({i: dict(w=10, l=4, otl=6) for i in range(20)}), 0.28)         # clipped
+        self.assertEqual(pw.overtime_rate({0: dict(w=1, l=0, otl=0)}), 0.23)
 
 
 if __name__ == "__main__":

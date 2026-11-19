@@ -2,6 +2,7 @@
 """
     python -m beating.power build     refresh prices, refit, write docs/power/data/power.json
     python -m beating.power tune      walk-forward check of the half-life and ridge on the stored closing prices
+    python -m beating.power calibrate strength drift for the season simulation against Kalshi's playoff prices
 
 A team's power rating is its win probability against a league-average opponent on a neutral field. Nothing
 here models football, basketball or hockey: every number is read off prices.
@@ -19,10 +20,22 @@ Title odds (Kalshi, Polymarket, Pinnacle futures) then nudge each rating. log(ti
 probability) is regressed on the game rating across teams; a team priced above that line is rated higher by
 the futures market than by its game lines. Up to TITLE_WEIGHT of that gap is applied, less for long shots.
 
+Season outlook. The rest of the regular season is played out SIMS times. A game with a market price uses it;
+every other game uses the ratings, with each team's strength drifting week to week as a random walk. The weekly
+drift (log-odds: NFL 0.09, NBA 0.15, NHL 0.08) sits between two estimates: how fast the stored ratings have
+moved week to week (0.09, 0.17, 0.05) and the value at which simulated playoff odds best match Kalshi's playoff
+prices (flat for the NFL, 0.15, about 0.11); `calibrate` re-checks the second. Final standings are seeded by
+each league's rules with simplified tie-breaks, giving projected records and the odds of each seed.
+
+Key players out. ESPN's season statistics pick each team's key players: its passing and rushing leaders and top
+two receivers (NFL), its top three scorers per game (NBA), its top three point scorers and its busiest goalie
+(NHL). Those names are matched against ESPN's injury report.
+
 State kept between runs (all committed, all small):
     data/markets/power/games.csv     one row per game: schedule, result, last pre-game price per source
     data/markets/power/history.csv   one row per team per day: the rating
     data/markets/power/state.json    which schedule dates have been read
+    data/markets/power/schedule.json the full regular-season schedule, re-read once a day
 Prices are only written before the scheduled start. Once the game is final, the Kalshi price is replaced by the
 last hourly candle before the start and the DraftKings price by ESPN's stored close, and the row is frozen.
 """
@@ -54,6 +67,7 @@ DATA = ROOT / "data/markets/power"
 LEDGER = DATA / "games.csv"
 HISTORY = DATA / "history.csv"
 STATE = DATA / "state.json"
+SCHEDULE = DATA / "schedule.json"
 OUT = ROOT / "docs/power/data/power.json"
 
 ET = ZoneInfo("America/New_York")
@@ -66,13 +80,13 @@ PINNACLE_KEY = "CmX2KcMrXuFmNg6YFbmTxE0y9CIrOi0R"  # public key embedded in Pinn
 LEAGUES = {
     "nfl": dict(label="NFL", espn="football/nfl", kalshi_game="KXNFLGAME", kalshi_title="KXSB", kalshi_playoff="KXNFLPLAYOFF",
                 kalshi_alias={"JAC": "JAX", "WAS": "WSH"}, pinnacle=889, polymarket_tag=450, polymarket_query="Pro Football Champion",
-                half_life=14.0, backfill_days=120, lookahead_days=9, b2b=False, points=True),
+                half_life=14.0, backfill_days=120, lookahead_days=9, b2b=False, points=True, drift=0.09),
     "nba": dict(label="NBA", espn="basketball/nba", kalshi_game="KXNBAGAME", kalshi_title="KXNBA", kalshi_playoff="KXNBAPLAYOFF",
                 kalshi_alias={"GSW": "GS", "NOP": "NO", "NYK": "NY", "SAS": "SA", "UTA": "UTAH", "WAS": "WSH"}, pinnacle=487,
-                polymarket_tag=745, polymarket_query="NBA Champion", half_life=5.0, backfill_days=60, lookahead_days=4, b2b=True, points=True),
+                polymarket_tag=745, polymarket_query="NBA Champion", half_life=5.0, backfill_days=60, lookahead_days=4, b2b=True, points=True, drift=0.15),
     "nhl": dict(label="NHL", espn="hockey/nhl", kalshi_game="KXNHLGAME", kalshi_title="KXNHL", kalshi_playoff="KXNHLPLAYOFF",
                 kalshi_alias={"UTA": "UTAH"}, pinnacle=1456, polymarket_tag=899, polymarket_query="NHL Champion",
-                half_life=5.0, backfill_days=60, lookahead_days=4, b2b=True, points=False),
+                half_life=5.0, backfill_days=60, lookahead_days=4, b2b=True, points=False, drift=0.08),
 }
 SOURCES = ("kalshi", "polymarket", "pinnacle", "draftkings")
 
@@ -88,6 +102,20 @@ TITLE_CAP = 0.6       # largest title-implied gap, in log-odds
 MIN_GAMES_PER_TEAM = 2.0  # age-weighted priced games the average team needs before a league is rated
 HISTORY_DAYS = 45
 TREND_DAYS = 7
+SIMS = 10000
+SIM_SEED = 20261119   # fixed, so hour-to-hour changes come from prices and results, not from the draw
+SCHEDULE_HOURS = 20   # re-read the season schedule when the stored copy is older than this
+SEEDS = {"nfl": ["1", "2", "3", "4", "5", "6", "7"], "nba": [str(i) for i in range(1, 11)], "nhl": ["D1", "D2", "D3", "WC1", "WC2"]}
+STATS = "https://site.api.espn.com/apis/common/v3/sports"
+# (sort key, players taken per team, positions excluded, label) for each list of key players
+KEY_PLAYERS = {
+    "nfl": [("passing.passingYards", 1, (), "passing leader"), ("rushing.rushingYards", 1, ("QB",), "rushing leader"),
+            ("receiving.receivingYards", 2, (), "top receiver")],
+    "nba": [("offensive.avgPoints", 3, (), "points a game")],
+    "nhl": [("offensive.points", 3, ("G",), "points"), ("defensive.saves", 1, (), "busiest goalie")],
+}
+OUT_STATUSES = ("out", "injured reserve", "doubtful", "suspension")
+MAYBE_STATUSES = ("day-to-day", "questionable")
 
 FIELDS = ["league", "event_id", "start_utc", "season_type", "home", "away", "neutral", "state", "home_score", "away_score", "closed",
           "kalshi_home_ticker", "kalshi_away_ticker", "kalshi_p", "kalshi_ts", "polymarket_p", "polymarket_ts",
@@ -215,10 +243,23 @@ class Teams:
     """ESPN's team list for a league, with the lookups each source needs."""
 
     def __init__(self, rows):
-        self.info = {t["abbreviation"]: dict(abbr=t["abbreviation"], name=t["displayName"], nick=t["name"], location=t["location"]) for t in rows}
+        self.info = {t["abbreviation"]: dict(abbr=t["abbreviation"], id=t.get("id"), name=t["displayName"], nick=t["name"], location=t["location"],
+                                             logo=self.logo(t, "default"), logo_dark=self.logo(t, "dark")) for t in rows}
         self.by_nick = {norm(t["nick"]): a for a, t in self.info.items()}
         self.by_name = {norm(t["name"]): a for a, t in self.info.items()}
+        self.by_id = {str(t["id"]): t["abbreviation"] for t in rows if t.get("id")}
         self.abbrs = sorted(self.info)
+
+    def espn(self, team):
+        """An ESPN team object from any endpoint. Matched on id: ESPN's own abbreviations differ between endpoints
+        (the NHL scoreboard says UTA where the team list says UTAH)."""
+        return self.by_id.get(str(team.get("id"))) or (team.get("abbreviation") if team.get("abbreviation") in self.info else None)
+
+    @staticmethod
+    def logo(team, kind):
+        """ESPN's logo for light ("default") or dark backgrounds."""
+        want = {"full", kind}
+        return next((x["href"] for x in team.get("logos") or [] if set(x.get("rel") or []) == want), None)
 
     def code(self, code, alias):
         """A Kalshi ticker code."""
@@ -241,14 +282,26 @@ def fetch_teams(cfg):
     return Teams([t["team"] for t in d["sports"][0]["leagues"][0]["teams"]])
 
 
-def fetch_standings(cfg):
-    """{abbr: {conf, record}}"""
-    d = get_json(f"{ESPN}/v2/sports/{cfg['espn']}/standings") or {}
+def record(text):
+    """(wins, losses) from "5-1" or "2-1-0, 0 PTS"."""
+    m = re.match(r"\s*(\d+)-(\d+)", text or "")
+    return (int(m.group(1)), int(m.group(2))) if m else (0, 0)
+
+
+def fetch_standings(cfg, teams):
+    """{abbr: conference, division, record text and the counts the season simulation starts from}"""
+    d = get_json(f"{ESPN}/v2/sports/{cfg['espn']}/standings?level=3") or {}
     out = {}
     for conf in d.get("children", []):
-        for e in (conf.get("standings") or {}).get("entries", []):
-            stats = {s["name"]: s.get("displayValue") for s in e.get("stats", [])}
-            out[e["team"]["abbreviation"]] = dict(conf=conf.get("abbreviation") or conf.get("name"), record=(stats.get("overall") or "").split(",")[0])
+        for div in conf.get("children", []):
+            for e in (div.get("standings") or {}).get("entries", []):
+                st = {x["name"]: x.get("displayValue") for x in e.get("stats", [])}
+                num = lambda k: float(st.get(k) or 0)  # noqa: E731
+                out[teams.espn(e["team"])] = dict(
+                    conf=conf.get("abbreviation") or conf.get("name"), div=div.get("name"),
+                    record="-".join(f"{num(k):.0f}" for k in ("wins", "losses", "ties", "otLosses") if k in ("wins", "losses") or num(k) or (k == "otLosses" and k in st)),
+                    w=num("wins"), l=num("losses"), t=num("ties"), otl=num("otLosses"), pts=num("points") if "otLosses" in st else 0.0, rw=num("regWins"),
+                    div_rec=record(st.get("vs. Div.")), conf_rec=record(st.get("vs. Conf.")))
     return out
 
 
@@ -283,9 +336,9 @@ def espn_day(cfg, day, teams):
             continue
         c = e["competitions"][0]
         side = {t["homeAway"]: t for t in c["competitors"]}
-        home, away = side["home"]["team"].get("abbreviation"), side["away"]["team"].get("abbreviation")
-        if home not in teams.info or away not in teams.info:
-            continue
+        home, away = teams.espn(side["home"]["team"]), teams.espn(side["away"]["team"])
+        if not home or not away:
+            continue  # all-star and exhibition opponents
         st = e["status"]["type"]
         state = ("off" if st["name"] in ("STATUS_POSTPONED", "STATUS_CANCELED", "STATUS_SUSPENDED") else
                  "final" if st.get("completed") else "live" if st.get("state") == "in" else "pre")
@@ -294,6 +347,83 @@ def espn_day(cfg, day, teams):
                         neutral=int(bool(c.get("neutralSite"))), state=state, home_score=side["home"].get("score", ""),
                         away_score=side["away"].get("score", ""), dk=dk_from_odds(odds[0]) if odds else None))
     return out
+
+
+def fetch_key_players(lg, cfg, teams):
+    """{abbr: [player]} from ESPN's season statistics, by the rules in KEY_PLAYERS."""
+    out = defaultdict(dict)
+    for sort, take, skip, label in KEY_PLAYERS[lg]:
+        q = urllib.parse.urlencode(dict(limit=500, sort=f"{sort}:desc", isqualified="false"))
+        d = get_json(f"{STATS}/{cfg['espn']}/statistics/byathlete?{q}") or {}
+        cat, name = sort.split(".")
+        where = {c["name"]: c.get("names") or [] for c in d.get("categories", [])}
+
+        def value(row, c, n):
+            block = next((x for x in row.get("categories", []) if x.get("name") == c), {})
+            try:
+                return float(str(block["totals"][where[c].index(n)]).replace(",", ""))
+            except (KeyError, ValueError, IndexError):
+                return 0.0
+        played = "games" if lg == "nhl" else "gamesPlayed"
+        most = defaultdict(float)
+        for row in d.get("athletes", []):
+            abbr = teams.by_id.get(str(row["athlete"].get("teamId")))
+            most[abbr] = max(most[abbr], value(row, "general", played))
+        taken = defaultdict(int)
+        for row in d.get("athletes", []):  # already in order of the sort key
+            a = row["athlete"]
+            abbr, pos = teams.by_id.get(str(a.get("teamId"))), (a.get("position") or {}).get("abbreviation")
+            # a per-game average needs a quarter of the team's games behind it
+            thin = "avg" in name and value(row, "general", played) < max(3, 0.25 * most[abbr])
+            if not abbr or pos in skip or taken[abbr] >= take or thin or value(row, cat, name) <= 0:
+                continue
+            taken[abbr] += 1
+            v = value(row, cat, name)
+            out[abbr].setdefault(str(a["id"]), dict(id=str(a["id"]), name=a.get("displayName"), short=a.get("shortName") or a.get("displayName"), pos=pos,
+                                                    role=f"{v:g} {label}" if lg != "nfl" and "goalie" not in label else label))
+    return {t: list(v.values()) for t, v in out.items()}
+
+
+def fetch_injuries(cfg, teams):
+    """{abbr: [injury]} from ESPN's league injury report."""
+    d = get_json(f"{ESPN}/site/v2/sports/{cfg['espn']}/injuries") or {}
+    out = defaultdict(list)
+    for t in d.get("injuries", []):
+        abbr = teams.by_id.get(str(t.get("id"))) or teams.name(t.get("displayName", ""))
+        for i in t.get("injuries", []):
+            a, det = i.get("athlete") or {}, i.get("details") or {}
+            aid = next((m.group(1) for x in a.get("links") or [] if (m := re.search(r"/id/(\d+)", x.get("href", "")))), None)
+            out[abbr].append(dict(id=aid, name=a.get("displayName"), status=i.get("status") or "", part=det.get("type"), ret=det.get("returnDate")))
+    return out
+
+
+def key_injuries(players, injuries):
+    """A team's season leaders who are on the injury report, players ruled out first."""
+    by_id = {i["id"]: i for i in injuries if i["id"]}
+    by_name = {norm(i["name"] or ""): i for i in injuries}
+    out = []
+    for pl in players:
+        i = by_id.get(pl["id"]) or by_name.get(norm(pl["name"] or ""))
+        status = (i or {}).get("status", "").lower()
+        if status in OUT_STATUSES or status in MAYBE_STATUSES:
+            out.append(dict(name=pl["name"], short=pl["short"], pos=pl["pos"], role=pl["role"], status=i["status"], part=i["part"], ret=i["ret"],
+                            out=status in OUT_STATUSES))
+    return sorted(out, key=lambda x: not x["out"])
+
+
+def fetch_schedule(cfg, teams):
+    """Every regular-season game, from each team's schedule: [event_id, start, home, away, neutral]."""
+    def one(abbr):
+        return (get_json(f"{ESPN}/site/v2/sports/{cfg['espn']}/teams/{teams.info[abbr]['id']}/schedule?seasontype=2") or {}).get("events", [])
+    games = {}
+    with ThreadPoolExecutor(6) as pool:
+        for events in pool.map(one, teams.abbrs):
+            for e in events:
+                c = e["competitions"][0]
+                side = {t["homeAway"]: teams.espn(t["team"]) for t in c["competitors"]}
+                if side.get("home") and side.get("away"):
+                    games[e["id"]] = [e["id"], iso(parse_time(e["date"])), side["home"], side["away"], int(bool(c.get("neutralSite")))]
+    return sorted(games.values(), key=lambda g: (g[1], g[0]))
 
 
 def espn_close(cfg, event_id):
@@ -664,6 +794,147 @@ def points_scale(rows):
     return den / num if num > 0 and den > 0 else None
 
 
+# %% season simulation
+def remaining_games(schedule, rows, now):
+    """Regular-season games still to be decided, with the market's log-odds where a game is priced."""
+    by_id = {r["event_id"]: r for r in rows}
+    starts = defaultdict(list)
+    for _, start, home, away, _ in schedule:
+        t = parse_time(start)
+        starts[home].append(t)
+        starts[away].append(t)
+    out = []
+    for eid, start, home, away, neutral in schedule:
+        row, t = by_id.get(eid), parse_time(start)
+        if row:
+            if row["state"] == "final" or int(row["season_type"] or 2) != 2:
+                continue
+            t = parse_time(row["start_utc"])
+        elif t < now - timedelta(hours=12):
+            continue  # played before the ledger's window: already in the standings
+        tired = [any(timedelta(0) < t - x <= timedelta(hours=30) for x in starts[side]) for side in (home, away)]
+        out.append(dict(home=home, away=away, neutral=int(neutral), start=t, y=consensus(row) if row else None, b2b=int(tired[0]) - int(tired[1])))
+    return out
+
+
+def rank_desc(key):
+    """Rank within each row, 0 = largest."""
+    order = np.argsort(-key, axis=1)
+    rank = np.empty_like(order)
+    np.put_along_axis(rank, order, np.broadcast_to(np.arange(key.shape[1]), key.shape), axis=1)
+    return rank
+
+
+def simulate(lg, abbrs, stand, games, model, drift, now, n=SIMS, seed=SIM_SEED, p_ot=0.23):
+    """Play out the remaining regular season n times and seed each conference.
+
+    Strength: rating + a random walk with one step of sd `drift` (log-odds) per week, the first step now. A priced
+    game uses the market's probability unchanged. Tie-breaks are simplified, with no head-to-head:
+        nfl  division: record, division record, conference record, coin. Seeds 1-4 are the division winners
+             and 5-7 the wild cards, each ordered by record, conference record, coin.
+        nba  record, conference record, coin; seeds 7-10 then play the play-in for the last two places.
+        nhl  points, regulation wins, coin. D1-D3 are a division's top three, WC1-WC2 the next two in the conference.
+    Returns {abbr: {w, l, otl, pts, playoff, seeds, div, top, playin}} with means and probabilities."""
+    rng = np.random.default_rng(seed)
+    T, G = len(abbrs), len(games)
+    idx = {t: i for i, t in enumerate(abbrs)}
+    st = [stand.get(t) or dict(conf=None, div=None, w=0, l=0, t=0, otl=0, pts=0, rw=0, div_rec=(0, 0), conf_rec=(0, 0)) for t in abbrs]
+    col = lambda f: np.array([f(x) for x in st], dtype=float)  # noqa: E731
+    r = np.array([model["ratings"][t] for t in abbrs])
+    h, a = (np.array([idx[g[k]] for g in games], dtype=int) for k in ("home", "away"))
+    week = np.array([min(60, max(0, (g["start"] - now).days // 7)) for g in games], dtype=int)
+    steps = int(week.max()) + 1 if G else 1
+    walk = np.cumsum(rng.normal(0, drift, (n, steps, T)), axis=1, dtype=np.float32) if drift > 0 else np.zeros((n, steps, T), np.float32)
+    base = r[h] - r[a] + model["home"] * (1 - np.array([g["neutral"] for g in games])) + model["b2b"] * np.array([g["b2b"] for g in games]) if G else np.zeros(0)
+    priced = np.array([g["y"] is not None for g in games], dtype=bool)
+    base = np.where(priced, [g["y"] or 0.0 for g in games], base)
+    shift = walk[:, week, h] - walk[:, week, a]
+    shift[:, priced] = 0
+    home_win = (rng.random((n, G), dtype=np.float32) < 1 / (1 + np.exp(-(base[None, :] + shift)))).astype(np.float32)
+    H, A = np.zeros((G, T), np.float32), np.zeros((G, T), np.float32)
+    H[np.arange(G), h], A[np.arange(G), a] = 1, 1
+    tally = lambda mask: (home_win * mask) @ H + ((1 - home_win) * mask) @ A  # noqa: E731  wins in the games where mask is set
+    same = lambda key: np.array([st[i][key] is not None and st[i][key] == st[j][key] for i, j in zip(h, a)], np.float32)  # noqa: E731
+    one, in_conf, in_div = np.ones(G, np.float32), same("conf"), same("div") * same("conf")
+    left = H.sum(0) + A.sum(0)
+    add = tally(one)
+    wins, losses = col(lambda x: x["w"]) + add, col(lambda x: x["l"]) + left - add
+    share = lambda won, lost, mask: (won + tally(mask)) / np.maximum(1, won + lost + mask @ H + mask @ A)  # noqa: E731
+    conf_pct = share(col(lambda x: x["conf_rec"][0]), col(lambda x: x["conf_rec"][1]), in_conf)
+    div_pct = share(col(lambda x: x["div_rec"][0]), col(lambda x: x["div_rec"][1]), in_div)
+    ties = col(lambda x: x["t"])
+    pct = (wins + 0.5 * ties) / np.maximum(1, wins + losses + ties)
+    coin = rng.random((n, T))
+    otl = pts = None
+    if lg == "nhl":
+        overtime = (rng.random((n, G), dtype=np.float32) < p_ot).astype(np.float32)
+        extra = ((1 - home_win) * overtime) @ H + (home_win * overtime) @ A   # losses that earn a point
+        otl, losses = col(lambda x: x["otl"]) + extra, losses - extra
+        pts = 2 * wins + otl
+        reg_wins = col(lambda x: x["rw"]) + (home_win * (1 - overtime)) @ H + ((1 - home_win) * (1 - overtime)) @ A
+
+    slots = len(SEEDS[lg])
+    slot = np.full((n, T), -1, dtype=int)          # seed index, -1 = out
+    playoff, div_win, top = np.zeros((n, T), bool), np.zeros((n, T), bool), np.zeros((n, T), bool)
+    rows_ = np.arange(n)
+    for c in sorted({x["conf"] for x in st if x["conf"]}):
+        ci = np.array([i for i, x in enumerate(st) if x["conf"] == c])
+        divs = [np.array([k for k, i in enumerate(ci) if st[i]["div"] == d]) for d in sorted({st[i]["div"] for i in ci})]
+        if lg == "nfl":
+            wild = pct[:, ci] + 1e-3 * conf_pct[:, ci] + 1e-6 * coin[:, ci]
+            title = pct[:, ci] + 1e-3 * div_pct[:, ci] + 1e-6 * conf_pct[:, ci] + 1e-9 * coin[:, ci]
+            won = np.zeros((n, len(ci)), bool)
+            for d in divs:
+                won[rows_, d[np.argmax(title[:, d], axis=1)]] = True
+            rank = rank_desc(wild + 10 * won)
+            div_win[:, ci] = won
+        elif lg == "nba":
+            rank = rank_desc(pct[:, ci] + 1e-4 * conf_pct[:, ci] + 1e-7 * coin[:, ci])
+        else:
+            key = pts[:, ci] + 1e-3 * reg_wins[:, ci] + 1e-6 * coin[:, ci]
+            rank = np.full((n, len(ci)), 99)
+            top3 = np.zeros((n, len(ci)), bool)
+            for d in divs:
+                in_div_rank = rank_desc(key[:, d])
+                rank[:, d] = np.where(in_div_rank < 3, in_div_rank, 99)
+                top3[:, d] = in_div_rank < 3
+            rank = np.where(top3, rank, 3 + rank_desc(key - 1e6 * top3))   # the rest are ranked across the conference
+            div_win[:, ci] = rank == 0
+            top[:, ci] = rank_desc(key) == 0
+        slot[:, ci] = np.where(rank < slots, rank, -1)
+        if lg == "nba":
+            # play-in: 7 hosts 8 for the 7th place; 9 hosts 10; the loser of the first hosts the winner of the second for the 8th
+            order = np.argsort(rank, axis=1)
+            t7, t8, t9, t10 = (ci[order[:, k]] for k in (6, 7, 8, 9))
+            power = r[None, :] + walk[:, -1, :]
+            beats = lambda x, y: rng.random(n) < 1 / (1 + np.exp(-(power[rows_, x] - power[rows_, y] + model["home"])))  # noqa: E731
+            first = beats(t7, t8)
+            seventh, loser = np.where(first, t7, t8), np.where(first, t8, t7)
+            ninth = np.where(beats(t9, t10), t9, t10)
+            eighth = np.where(beats(loser, ninth), loser, ninth)
+            playoff[:, ci] = rank < 6
+            playoff[rows_, seventh] = True
+            playoff[rows_, eighth] = True
+        else:
+            playoff[:, ci] = rank < slots
+        if lg != "nhl":
+            top[:, ci] = rank == 0
+
+    out = {}
+    for i, t in enumerate(abbrs):
+        out[t] = dict(w=float(wins[:, i].mean()), l=float(losses[:, i].mean()), otl=float(otl[:, i].mean()) if otl is not None else None,
+                      pts=float(pts[:, i].mean()) if pts is not None else None, playoff=float(playoff[:, i].mean()),
+                      seeds=[float((slot[:, i] == k).mean()) for k in range(slots)], div=float(div_win[:, i].mean()) if lg != "nba" else None,
+                      top=float(top[:, i].mean()), playin=float(((slot[:, i] >= 6) & (slot[:, i] <= 9)).mean()) if lg == "nba" else None)
+    return out
+
+
+def overtime_rate(stand):
+    """Share of NHL games decided after regulation so far: every such game leaves exactly one overtime loss."""
+    games = sum(x["w"] + x["l"] + x["otl"] for x in stand.values()) / 2
+    return min(0.28, max(0.18, sum(x["otl"] for x in stand.values()) / games)) if games >= 100 else 0.23
+
+
 # %% history
 def load_history():
     if not HISTORY.exists():
@@ -722,8 +993,8 @@ def scan_dates(state, lg, cfg, now):
     return days, {"from": str(min(lo, first)), "through": str(today - timedelta(days=3))}
 
 
-def collect(lg, cfg, ledger, state, now, status):
-    """Refresh one league's ledger rows and return (teams, standings, title boards, playoff board)."""
+def collect(lg, cfg, ledger, state, now, status, schedules):
+    """Refresh one league's ledger rows, season schedule and leaders; return what the league's build needs."""
     def attempt(source, what, fn, default=None):
         try:
             out = fn()
@@ -734,7 +1005,7 @@ def collect(lg, cfg, ledger, state, now, status):
             return default
 
     teams = fetch_teams(cfg)
-    standings = attempt("espn", "standings", lambda: fetch_standings(cfg), {}) or {}
+    standings = attempt("espn", "standings", lambda: fetch_standings(cfg, teams), {}) or {}
 
     days, new_state = scan_dates(state, lg, cfg, now)
     with ThreadPoolExecutor(6) as pool:
@@ -743,6 +1014,13 @@ def collect(lg, cfg, ledger, state, now, status):
         state[lg] = new_state
     for g in (g for r in results if r for g in r):
         upsert(ledger, lg, g, now)
+    players = attempt("espn", "key players", lambda: fetch_key_players(lg, cfg, teams), {}) or {}
+    injuries = attempt("espn", "injuries", lambda: fetch_injuries(cfg, teams), {}) or {}
+    stored = schedules.get(lg) or {}
+    if not stored.get("games") or parse_time(stored["fetched_utc"]) < now - timedelta(hours=SCHEDULE_HOURS):
+        season = attempt("espn", "season games", lambda: fetch_schedule(cfg, teams))
+        if season:
+            schedules[lg] = dict(fetched_utc=iso(now), games=season)
     status["espn"][lg] = {k: v for k, v in status["espn"][lg].items() if not k.startswith("schedule")} | {"dates": len(days)}
 
     rows = [r for (league, _), r in ledger.items() if league == lg]
@@ -781,11 +1059,12 @@ def collect(lg, cfg, ledger, state, now, status):
         "pinnacle": attempt("pinnacle", "title", lambda: pinnacle_title(pin[0], pin[1], teams), {}) if pin else {},
     }
     playoff = attempt("kalshi", "playoff", lambda: kalshi_board(cfg["kalshi_playoff"], cfg, teams), {}) or {}
-    return teams, standings, boards, playoff
+    return dict(teams=teams, standings=standings, boards=boards, playoff=playoff, players=players, injuries=injuries,
+                schedule=(schedules.get(lg) or {}).get("games") or [])
 
 
 # %% build
-def league_block(lg, cfg, rows, teams, standings, boards, playoff, hist, now):
+def league_block(lg, cfg, rows, teams, standings, boards, playoff, hist, now, players=None, injuries=None, schedule=None, drift=None):
     """Fit one league and shape its page data. Returns None when too few games are priced."""
     if cfg["b2b"]:
         add_b2b(rows)
@@ -807,6 +1086,11 @@ def league_block(lg, cfg, rows, teams, standings, boards, playoff, hist, now):
     final = {t: r - mean for t, r in final.items()}
     final_model = dict(model, ratings=final)
 
+    sim, left, drift = None, [], cfg["drift"] if drift is None else drift
+    if schedule and all((standings.get(t) or {}).get("conf") for t in teams.abbrs):
+        left = remaining_games(schedule, rows, now)
+        sim = simulate(lg, teams.abbrs, standings, left, final_model, drift, now, p_ot=overtime_rate(standings) if lg == "nhl" else 0.23)
+
     sigma = points_scale(rows) if cfg["points"] else None
     nd = statistics.NormalDist()
     today = now.strftime("%Y-%m-%d")
@@ -821,7 +1105,12 @@ def league_block(lg, cfg, rows, teams, standings, boards, playoff, hist, now):
         wp = sigmoid(final[t])
         b = blend.get(t) if blend else None
         out_teams.append(dict(
-            rank=i + 1, abbr=t, name=teams.info[t]["name"], conf=conf.get(t), record=standings.get(t, {}).get("record"),
+            rank=i + 1, abbr=t, name=teams.info[t]["name"], logo=teams.info[t]["logo"], logo_dark=teams.info[t]["logo_dark"],
+            conf=conf.get(t), div=standings.get(t, {}).get("div"), record=standings.get(t, {}).get("record"),
+            injuries=key_injuries((players or {}).get(t, []), (injuries or {}).get(t, [])),
+            sim=dict({k: (round(v, 1) if v is not None else None) for k, v in sim[t].items() if k in ("w", "l", "otl", "pts")},
+                     seeds=[round(x, 4) for x in sim[t]["seeds"]],
+                     **{k: (round(sim[t][k], 4) if sim[t][k] is not None else None) for k in ("playoff", "div", "top", "playin")}) if sim else None,
             wp=round(wp, 4), game_wp=round(sigmoid(game_r[t]), 4), game_rank=game_rank[t],
             title_wp=round(sigmoid(game_r[t] + b["gap"]), 4) if b else None, title_weight=round(b["weight"], 3) if b else 0,
             pts=round(sigma * nd.inv_cdf(wp), 1) if sigma else None, title_p=round(title[t], 4) if t in title else None,
@@ -838,6 +1127,10 @@ def league_block(lg, cfg, rows, teams, standings, boards, playoff, hist, now):
                                  model=round(predict(final_model, r["home"], r["away"], int(r["neutral"] or 0), r.get("_b2b", 0) if cfg["b2b"] else 0), 4)))
 
     priced = [r for r in rows if consensus(r) is not None]
+    both = [(sim[t]["playoff"], playoff[t]) for t in teams.abbrs if sim and t in playoff]
+    unrated = [t for t in teams.abbrs if model["n_eff"][t] == 0]
+    outlook = dict(sims=SIMS, drift=drift, games_left=len(left), priced=sum(1 for g in left if g["y"] is not None), seeds=SEEDS[lg],
+                   playoff_gap=round(math.sqrt(sum((a - b) ** 2 for a, b in both) / len(both)), 4) if both else None) if sim else None
     return dict(
         label=cfg["label"], updated_utc=iso(now), stale=False, half_life_days=cfg["half_life"],
         games_fit=len(games), games_upcoming=len(upcoming), fit_rmse=round(model["rmse"], 4),
@@ -846,7 +1139,7 @@ def league_block(lg, cfg, rows, teams, standings, boards, playoff, hist, now):
         points_sd=round(sigma, 2) if sigma else None,
         title=dict(sources=sorted(venues), weight_max=TITLE_WEIGHT, **({k: (round(v, 3) if isinstance(v, float) else v) for k, v in info.items()} if blend else {"skipped": info})),
         coverage={s: sum(1 for r in priced if s in source_probs(r)) for s in SOURCES},
-        teams=out_teams, games=upcoming)
+        outlook=outlook, unrated=unrated, teams=out_teams, games=upcoming)
 
 
 def build(leagues=None, now=None):
@@ -855,15 +1148,17 @@ def build(leagues=None, now=None):
     state = json.loads(STATE.read_text()) if STATE.exists() else {}
     state = {lg: st for lg, st in state.items() if any(league == lg for league, _ in ledger)}  # no stored games: scan again
     previous = json.loads(OUT.read_text()) if OUT.exists() else {"leagues": {}}
+    schedules = json.loads(SCHEDULE.read_text()) if SCHEDULE.exists() else {}
+    before = json.dumps(schedules, sort_keys=True)
     status = {s: defaultdict(dict) for s in ("espn",) + SOURCES}
     blocks = {}
     for lg, cfg in LEAGUES.items():
         if leagues and lg not in leagues:
             continue
         try:
-            teams, standings, boards, playoff = collect(lg, cfg, ledger, state, now, status)
+            got = collect(lg, cfg, ledger, state, now, status, schedules)
             rows = [r for (league, _), r in ledger.items() if league == lg]
-            blocks[lg] = league_block(lg, cfg, rows, teams, standings, boards, playoff, hist, now)
+            blocks[lg] = league_block(lg, cfg, rows, got.pop("teams"), got.pop("standings"), got.pop("boards"), got.pop("playoff"), hist, now, **got)
         except Exception as e:  # noqa: BLE001  keep the other leagues and the last good block
             status["espn"][lg]["error"] = f"build: {e}"[:200]
             blocks[lg] = None
@@ -878,8 +1173,10 @@ def build(leagues=None, now=None):
     save_ledger(ledger)
     save_history(hist, now)
     write_text(STATE, json.dumps(state, indent=1, sort_keys=True) + "\n")
+    if json.dumps(schedules, sort_keys=True) != before:  # about once a day
+        write_text(SCHEDULE, json.dumps(schedules, separators=(",", ":"), sort_keys=True) + "\n")
     payload = dict(generated_utc=iso(now), sources={s: {lg: dict(v) for lg, v in d.items() if v} for s, d in status.items()},
-                   params=dict(ridge=RIDGE, max_spread=MAX_SPREAD, title_weight=TITLE_WEIGHT, title_half=TITLE_HALF, trend_days=TREND_DAYS),
+                   params=dict(ridge=RIDGE, max_spread=MAX_SPREAD, title_weight=TITLE_WEIGHT, title_half=TITLE_HALF, trend_days=TREND_DAYS, sims=SIMS),
                    leagues=out_leagues)
     write_text(OUT, json.dumps(payload, separators=(",", ":")) + "\n")
     return payload
@@ -919,15 +1216,41 @@ def tune(leagues=None):
             print(f"  half-life {hl:>2}d  " + "   ".join(line) + f"   (n={n})")
 
 
+# %% calibrate
+def calibrate(leagues=None):
+    """Simulated playoff odds against Kalshi's playoff prices, for a range of weekly strength drifts. Writes nothing."""
+    now = datetime.now(timezone.utc).replace(microsecond=0)
+    ledger = load_ledger()
+    state = json.loads(STATE.read_text()) if STATE.exists() else {}
+    schedules = json.loads(SCHEDULE.read_text()) if SCHEDULE.exists() else {}
+    for lg, cfg in LEAGUES.items():
+        if leagues and lg not in leagues:
+            continue
+        got = collect(lg, cfg, ledger, state, now, {s: defaultdict(dict) for s in ("espn",) + SOURCES}, schedules)
+        rows = [r for (league, _), r in ledger.items() if league == lg]
+        args = (got.pop("teams"), got.pop("standings"), got.pop("boards"), got.pop("playoff"))
+        print(f"\n{lg}: root-mean-square gap between simulated and Kalshi playoff odds ({len(args[3])} teams priced)")
+        for drift in sorted({0.0, 0.03, 0.05, 0.075, 0.10, 0.125, 0.15, 0.20, 0.30, cfg["drift"]}):
+            b = league_block(lg, cfg, rows, *args, {}, now, drift=drift, **got)
+            if not b or not b["outlook"]:
+                print("  no simulation: too few priced games, or no schedule or standings")
+                break
+            worst = max((t for t in b["teams"] if t["playoff_p"] is not None), key=lambda t: abs(t["sim"]["playoff"] - t["playoff_p"]))
+            print(f"  drift {drift:.3f}: {100 * b['outlook']['playoff_gap']:.2f}pp   largest: {worst['abbr']} sim {100 * worst['sim']['playoff']:.0f}% vs Kalshi {100 * worst['playoff_p']:.0f}%"
+                  + ("   <- in use" if drift == cfg["drift"] else ""))
+
+
 # %% cli
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("command", choices=("build", "tune"))
+    ap.add_argument("command", choices=("build", "tune", "calibrate"))
     ap.add_argument("--leagues", default="", help="comma-separated subset of " + ",".join(LEAGUES))
     a = ap.parse_args(argv)
     leagues = [x for x in a.leagues.split(",") if x] or None
     if a.command == "tune":
         return tune(leagues)
+    if a.command == "calibrate":
+        return calibrate(leagues)
     payload = build(leagues)
     print("wrote", OUT.relative_to(ROOT), {lg: ("stale" if b["stale"] else f"{len(b['teams'])} teams, {b['games_fit']} games") for lg, b in payload["leagues"].items()})
     if not any(not b["stale"] for b in payload["leagues"].values()):
