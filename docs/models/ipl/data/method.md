@@ -381,3 +381,63 @@ little from the first run's (model 0.7006 and 0.6781 against 0.7000 and 0.6792; 
 could not be reproduced). The Polymarket 2025 rows above were not re-run: the pre-season parameter files for
 2024 and 2025 (`sim_params_roll_<year>.json`) are written by no script in the repository, and OddsPapi's
 archive does not reach those seasons.
+
+## 12. Career trend layer (`models/ipl/trend.py`)
+
+The joint model gives a player one rating, from deliveries weighted by a single 4-year half-life, and one ageing
+curve shared by everyone. This layer asks whether a rating that moves does better, in the manner of DARKO. It
+keeps the joint model for context. For each delivery it takes the model's expectation with the player's
+individual terms removed (venue, league, opposition, situation and his role, experience and age stay), sums
+actual minus expected per player, competition and month, and runs a Kalman filter over each player's months.
+Between observations the level decays toward zero, drifts by an amount that depends on his age band, and
+picks up noise in proportion to the time elapsed. Four skills have their own parameters: batting runs, batting
+dismissals, bowling runs conceded and bowling wickets.
+
+Two details matter. A month counts by its information (the model variance of its sum), not its deliveries: an
+innings ends when the batter is out, so weighting by deliveries reads a first-ball duck as a huge per-ball rate
+and biased the first version. And months, not matches, are the unit, for the same reason.
+
+**Test.** The joint model was refitted on deliveries before 1 June 2023, 2024 and 2025. For each date the filter's
+parameters were fitted on earlier months only, each player's level was frozen at the date, and the year after it
+was forecast (IPL 2024, 2025 and 2026 fall in those years). The score is the error in a player's rate over the
+year, per 100 deliveries, root mean square over players with 60 or more deliveries, against the same figure for
+the joint model's own rating. Negative is better; standard errors resample players.
+
+| skill | sample | player-seasons | rating | trend level minus rating |
+|---|---|---|---|---|
+| batting runs | all T20 | 1,526 | 15.44 | -0.03 +/- 0.11 |
+| batting runs | Indian players | 200 | 18.92 | -0.61 +/- 0.49 |
+| batting runs | overseas players | 1,326 | 14.89 | +0.07 +/- 0.09 |
+| batting runs | IPL | 233 | 19.13 | -0.25 +/- 0.44 |
+| batting dismissals | all T20 | 1,526 | 1.503 | +0.010 +/- 0.008 |
+| bowling runs | all T20 | 1,497 | 12.94 | -0.25 +/- 0.05 |
+| bowling runs | IPL | 230 | 16.82 | -0.41 +/- 0.21 |
+| bowling wickets | all T20 | 1,497 | 1.413 | -0.004 +/- 0.004 |
+| bowling wickets | IPL | 230 | 1.719 | -0.018 +/- 0.010 |
+
+Bowling economy is the one clear gain. Batting runs gain nothing overall and the IPL result changes sign by
+season: +0.86 +/- 0.35 in 2024, -0.19 +/- 0.53 in 2025, -1.69 +/- 0.93 in 2026. Dismissals and wickets are
+unchanged. Blending rating and level, with weights fitted on earlier years and scored on the two later ones
+(1,019 player-seasons), gives batting runs -0.17 +/- 0.11 on all T20s, -0.93 +/- 0.47 in the IPL and -1.10 +/-
+0.65 for Indian players, and bowling runs -0.19 +/- 0.06. The weights over all three years put Indian batters
+wholly on the level (1.0) and overseas batters half on it (0.48); bowling runs 1.0 for both; dismissals 0 and
+0.21; wickets 0.14 and 0.81.
+
+One by-product: for bowling wickets in the IPL, no rating at all scores -0.034 +/- 0.013 against the joint
+model's rating. Its bowler wicket terms carry no information a year ahead and may want more shrinkage.
+
+**Indian and overseas players.** Parameters are fitted separately for Indian players and for players from the
+other full members. The split fits better in sample at every date (log likelihood +36 to +45 for batting runs,
++8 to +15 for bowling runs, +6 to +9 for the other two, for 11 more parameters). A year ahead it is better for
+overseas batting runs (-0.10 +/- 0.02) and Indian bowling runs (-0.34 +/- 0.16), worse for Indian wickets
+(+0.018 +/- 0.007) and level elsewhere. The fitted curves differ in the same way at all three dates. A new
+Indian batter's level is about twice as uncertain (sd 21 to 22 runs per 100 balls against 11 to 12), because
+there is almost no domestic data behind him. Relative to the shared ageing curve an Indian batter loses about 2
+runs per 100 balls a year under 22, 1 a year from 31 to 33 and 2 a year from 34, where an overseas batter gains
+up to 1 under 22 and loses under 0.6 a year at every later age. Overseas players in this data are those still
+picked by franchises, so part of that is selection.
+
+**Projection.** `python -m models.ipl.trend project` writes each player's level through his career and, for the
+players of the latest IPL season, his level carried to 15 April 2027 with its sd and the blend with the joint
+model's rating. The sd is 9 to 12 runs per 100 balls for batters and 5 to 6 for bowlers, so one player's change
+is rarely more than one sd; the tested gain is in the aggregate. Nothing here feeds the simulator yet.
