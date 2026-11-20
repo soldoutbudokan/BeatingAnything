@@ -240,6 +240,49 @@ def rows_for(kind):
     return pd.DataFrame(out)
 
 
+PROP_BOX = {"pts": "points", "reb": "rebounds", "ast": "assists", "fg3m": "three_point_field_goals_made"}
+
+
+def rows_for_prop(kind):
+    """Player-prop markets ("Player: N+ stat", YES = at least strike + 0.5) with a usable quote at tip.
+    Void markets (the player did not appear) are dropped; the simulated lineup only has players who did."""
+    mk = pd.read_csv(OUT / "kalshi_markets.csv.gz", low_memory=False)
+    qt = pd.read_csv(OUT / "kalshi_quotes.csv.gz")
+    d = mk[(mk.kind == kind) & mk.pid.notna() & mk.result.isin(["yes", "no"])].merge(qt[qt.horizon == "tip"], on="ticker")
+    d = d[d.bid.notna() & d.ask.notna() & (d.ask - d.bid <= 0.10)]
+    z = np.load(OUT / "sim_players.npz")
+    sel = z["stat"] == kind
+    sim = {(int(g), int(p)): (pg_, m) for g, p, pg_, m in zip(z["game_id"][sel], z["pid"][sel], z["p_ge"][sel], z["mean"][sel])}
+    box = pd.read_parquet(PROC / "player_games.parquet")[["game_id", "pid", PROP_BOX[kind], "minutes"]]
+    act = {(int(g), int(p)): v for g, p, v in zip(box.game_id, box.pid, box[PROP_BOX[kind]])}
+    out = []
+    for r in d.itertuples():
+        key = (int(r.game_id), int(r.pid))
+        if key not in sim or key not in act or pd.isna(act[key]):
+            continue
+        k = int(np.floor(r.strike)) + 1
+        out.append(dict(game_id=r.game_id, season=r.season, ticker=r.ticker, pid=int(r.pid), strike=r.strike, p=float(sim[key][0][min(k, PK - 1)]),
+                        bid=r.bid, ask=r.ask, mid=(r.bid + r.ask) / 2, y=float(act[key] >= k), sim_mean=float(sim[key][1]),
+                        actual=float(act[key]), age_min=r.age_min, kalshi_yes=float(r.result == "yes")))
+    return pd.DataFrame(out)
+
+
+def grade_props(S):
+    for kind in PROP_BOX:
+        d = rows_for_prop(kind)
+        if len(d) < 30:
+            continue
+        core = d[(d.mid >= 0.25) & (d.mid <= 0.75)]
+        pp = d.drop_duplicates(["game_id", "pid"])
+        S[kind] = dict(all=score(d), near_the_line=score(core), n_players=int(d.pid.nunique()),
+                       outcome_agrees_with_kalshi=float((d.y == d.kalshi_yes).mean()),
+                       mean_bias=float((pp.sim_mean - pp.actual).mean()),
+                       by_price={f"{lo:.2f}-{hi:.2f}": dict(n=int(len(x)), market=float(x.mid.mean()), model=float(x.p.mean()), actual=float(x.y.mean()))
+                                 for lo, hi in ((0.02, 0.2), (0.2, 0.4), (0.4, 0.6), (0.6, 0.8), (0.8, 0.98))
+                                 for x in [d[(d.mid >= lo) & (d.mid < hi)]] if len(x)})
+    return S
+
+
 def score(d):
     """Model vs market on a set of market rows."""
     if len(d) < 30:
@@ -318,6 +361,9 @@ def grade():
                                                        model_minus_market=float((mine - line)[F.season.reindex(line.index) == s].mean()))
                                           for s in sorted(F.season.unique())})
         S[kind] = blk
+    mk = pd.read_csv(OUT / "kalshi_markets.csv.gz", low_memory=False)
+    if "pid" in mk.columns:
+        grade_props(S)
     write_json(EXPORT / "market_model_test.json", S, digits=4)
     return S
 
