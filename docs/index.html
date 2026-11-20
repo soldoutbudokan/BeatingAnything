@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BeatingAnything</title>
 <meta name="description" content="Team ratings read off betting-market prices every hour, and bottom-up IPL, Test, ODI and WNBA projection models you can open like spreadsheets.">
-<link rel="stylesheet" href="assets/sheet.css">
-<script src="assets/sheet.js"></script>
+<link rel="stylesheet" href="assets/sheet.css?v=2">
+<script src="assets/sheet.js?v=2"></script>
 <style>
 /* Contents: page-specific additions on top of assets/sheet.css (tokens only). */
 .ct-cover{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 24px;padding:4px 2px 2px}
@@ -127,7 +127,11 @@ function mini(cols, rows, hot) {
 }
 const bar = (v, max, txt, neg) => `<span class="ct-bar"><i class="${neg ? 'n' : ''}" style="width:${Math.max(2, Math.abs(v) / max * 64).toFixed(0)}px"></i><b>${txt}</b></span>`;
 function card(id, sub, status, preview, extra) {
-  const d = doc(id), base = SITE.root + d.path;
+  // A browser can hold an older assets/sheet.js for a few minutes after a deploy; a workbook that copy does not
+  // list yet is left out rather than breaking the page.
+  const d = doc(id);
+  if (!d) return '';
+  const base = SITE.root + d.path;
   return `<article class="ct-book">
     <a class="ct-bh" href="${base}"><span class="ct-ic">${ICONS[id]}</span><span class="ct-bt"><h2>${esc(d.title)}</h2><p>${esc(sub)}</p></span><span class="ct-open">Open →</span></a>
     <div class="ct-status">${status}</div>${preview}
@@ -156,6 +160,7 @@ function cricketCard(id, Sch, T, M) {
   if (!Sch || !T) return card(id, sub, 'Not published', '');
   const short = Object.fromEntries(T.teams.map(t => [t.name, t.short]));
   const fx = Sch.fixtures.filter(f => f.modelled && f.proj).slice(0, 5);
+  if (!doc(id)) return '';
   const base = SITE.root + doc(id).path;
   const rows = fx.map(f => [esc(mdy(f.date)), `<a href="${base}#sheet=match&fx=${encodeURIComponent(f.id)}" style="color:inherit;text-decoration:none"><b>${esc(short[f.A] || f.A)}</b> v <b>${esc(short[f.B] || f.B)}</b> <span class="muted">${esc(f.desc)}</span></a>`,
     pct(f.proj.p_A, 0)].concat(test ? [pct(f.proj.p_draw, 0)] : [], [pct(f.proj.p_B, 0)]));
