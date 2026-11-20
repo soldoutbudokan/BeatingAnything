@@ -1,4 +1,4 @@
-/* IPL workbook: sheet definitions. Depends on ../assets/sheet.js (Sheets) and app.js (IPL). */
+/* IPL workbook: sheet definitions. Depends on ../../assets/sheet.js (Sheets) and app.js (IPL). */
 (function () {
 'use strict';
 const S = Sheets, I = IPL, D = I.D, h = S.h, esc = S.esc, F = S.fmt, isNum = I.isNum;
@@ -15,7 +15,8 @@ function settle(arr, which, k) {
   ix.forEach(i => { const v = arr[i] && arr[i][k]; if (isNum(v)) { const ww = which === 'early' ? BW[i] : 1; s += v * ww; w += ww; } });
   return w ? s / w : null;
 }
-const teamCol = { key: 'team', label: 'Team', group: 'Profile', type: 'cat', get: r => r._team ? r._team.short : '—', width: 58, desc: 'Franchise in the 2026 IPL season (— = not in an IPL squad).' };
+const iplMark = (t, o) => t ? S.team({ abbr: t.short, name: t.name, color: S.site.colors.ipl[t.short] }, o) : '';
+const teamCol = { key: 'team', label: 'Team', group: 'Profile', type: 'cat', get: r => r._team ? r._team.short : '—', render: (v, r) => r._team ? iplMark(r._team) : '—', width: 80, desc: 'Franchise in the 2026 IPL season (— = not in an IPL squad).' };
 const nameCol = { key: 'name', label: 'Player', frozen: true, width: 160, desc: 'Click a row for the player card. Arrow keys move rows while the card is open.' };
 const mixCols = [
   { key: 'mx_ipl', label: 'IPL %', group: 'Sample', get: get('league_mix.ipl'), fmt: 'pct:0', desc: 'Share of his (recency-weighted) deliveries that came in the IPL.' },
@@ -364,7 +365,7 @@ async function overview(panel) {
   const tb = h('div'); c1.append(tb);
   const trows = D.teams.slice().sort((a, b) => b.rating.win_pct_neutral - a.rating.win_pct_neutral);
   S.table(tb, [
-    { key: 'rk', label: '#', get: r => r.rating.rank, fmt: 'int' }, { key: 'short', label: 'Team', render: (v, r) => `<a href="${I.hashFor('teams', { t: v })}" title="${esc(r.name)}">${esc(v)}</a>` },
+    { key: 'rk', label: '#', get: r => r.rating.rank, fmt: 'int' }, { key: 'short', label: 'Team', render: (v, r) => `<a class="ip-tl" href="${I.hashFor('teams', { t: v })}" title="${esc(r.name)}">${iplMark(r)}</a>` },
     { key: 'wn', label: 'Win%', get: r => r.rating.win_pct_neutral, fmt: 'pct:1', desc: 'Mean P(win) vs the other 9, neutral ground.' },
     { key: 'wh', label: 'H/A', get: r => r.rating.win_pct_home_away, fmt: 'pct:1', desc: 'Mean P(win) over the 18 home/away matchups.' },
     { key: 'rf', label: 'Runs for', get: r => r.rating.runs_for, fmt: 'num:1', desc: 'Mean simulated total scored.' }, { key: 'ra', label: 'Against', get: r => r.rating.runs_against, fmt: 'num:1', desc: 'Mean simulated total conceded.' },
@@ -414,6 +415,9 @@ async function batters(panel, sheet) {
   const g = sheet.grid(panel, { columns: batCols(), groups: BAT_GROUPS.map(x => ({ id: x, label: x, hidden: ['Sample', 'IPL career', 'Settling', 'vs bowl type'].includes(x) || (x === 'IPL 2026' && !all.some(p => p._act)) })), rows: rowsFor(), sort: '-vr', label: 'Batters', csv: 'ipl-batters.csv', searchPlaceholder: 'Search batter, team, role', tools: h('span', { class: 'ip-tools' }, tool.el, status),
     onRowClick: r => { navGrid = g; I.playerCard(r, { focus: 'bat', nav: { prev: () => g.step(-1), next: () => g.step(1) } }); } });
   tool.bind(g, rowsFor);
+  // #sheet=batters&pid=<id> opens that player's card (the site's jump search links here)
+  const openPid = () => { const id = sheet.get('pid'); if (!id) return; sheet.set({ pid: null }); navGrid = g; I.playerCard(id, { focus: 'bat', nav: { prev: () => g.step(-1), next: () => g.step(1) } }); };
+  sheet.onState(openPid); openPid();
   if (!D.proj) { status.textContent = 'Loading projections…'; I.loadMatchups().then(() => { g.refresh(); status.textContent = ''; }).catch(e => { status.textContent = 'Projections unavailable: ' + e.message; }); }
 }
 async function bowlers(panel, sheet) {
@@ -425,6 +429,9 @@ async function bowlers(panel, sheet) {
   const g = sheet.grid(panel, { columns: bowlCols(), groups: BOWL_GROUPS.map(x => ({ id: x, label: x, hidden: ['Sample', 'IPL career', 'vs hand'].includes(x) })), rows: rowsFor(), sort: '-vr', label: 'Bowlers', csv: 'ipl-bowlers.csv', searchPlaceholder: 'Search bowler, team, type', tools: h('span', { class: 'ip-tools' }, tool.el, status),
     onRowClick: r => { navGrid = g; I.playerCard(r, { focus: 'bowl', nav: { prev: () => g.step(-1), next: () => g.step(1) } }); } });
   tool.bind(g, rowsFor);
+  // #sheet=bowlers&pid=<id> opens that player's card (the site's jump search links here)
+  const openPid = () => { const id = sheet.get('pid'); if (!id) return; sheet.set({ pid: null }); navGrid = g; I.playerCard(id, { focus: 'bowl', nav: { prev: () => g.step(-1), next: () => g.step(1) } }); };
+  sheet.onState(openPid); openPid();
   if (!D.proj) { status.textContent = 'Loading projections…'; I.loadMatchups().then(() => { g.refresh(); status.textContent = ''; }).catch(e => { status.textContent = 'Projections unavailable: ' + e.message; }); }
 }
 
@@ -448,6 +455,7 @@ async function teams(panel, sheet) {
   const draw = () => {
     const t = I.team(sheet.get('t')) || D.teams.slice().sort((a, b) => a.rating.rank - b.rating.rank)[0], mode = sheet.get('mode') || 'all';
     body.innerHTML = '';
+    body.append(h('div', { class: 'ip-th', html: iplMark(t, { size: 40, name: true, abbr: false }) }));
     const i = D.teams.indexOf(t), N = D.teams.length;
     const sel = S.ui.select({ label: 'Team', options: D.teams.map(x => ({ value: x.short, label: `${x.short} · ${x.name}` })), value: t.short, onChange: v => { sheet.set({ t: v }); draw(); } });
     const prev = S.ui.button({ label: '← ' + D.teams[(i + N - 1) % N].short, onClick: () => { sheet.set({ t: D.teams[(i + N - 1) % N].short }); draw(); } });
@@ -1220,7 +1228,7 @@ async function method(panel) {
 const oddsCtl = S.ui.segmented({ options: [{ value: 'american', label: 'US' }, { value: 'decimal', label: 'Dec' }], value: I.odds.mode, onChange: v => I.odds.set(v) });
 oddsCtl.classList.add('ip-odds'); oddsCtl.title = 'Fair-odds format: American (US) or decimal';
 I.wb = S.workbook({
-  title: 'IPL projections', subtitle: 'Ball-by-ball player ratings and match simulator', hub: '../',
+  title: 'IPL projections', subtitle: 'Ball-by-ball player ratings and match simulator',
   meta: 'data/meta.json', actions: oddsCtl, defaultSheet: 'overview',
   onSheet: () => { if (S.drawer.isOpen) S.drawer.close(); },
   sheets: [

@@ -10,7 +10,7 @@
 <body>
 <script>
 /* Reference example for page builders. Everything here uses synthetic data from a seeded RNG.
-   A real sport page lives at docs/models/<sport>/index.html and loads ../assets/sheet.css + ../assets/sheet.js. */
+   A real sport page lives at docs/models/<sport>/index.html and loads ../../assets/sheet.css + ../../assets/sheet.js. */
 const S = Sheets, R = S.rng(42);
 
 /* ---------- synthetic data ---------- */
@@ -146,7 +146,7 @@ const winP = TEAMS.map((a, i) => TEAMS.map((b, j) => i === j ? null : 1 / (1 + M
 
 /* ---------- workbook ---------- */
 const wb = S.workbook({
-  title: 'Sheets demo', subtitle: 'Synthetic data, every component', hub: '../',
+  title: 'Sheets demo', subtitle: 'Synthetic data, every component',
   meta: { data_through: '2026-11-01', built_utc: new Date().toISOString().slice(0, 16) + 'Z', version: 'demo' },
   sheets: [
     { id: 'players', name: 'Players', fill: true, render(panel, sheet) {

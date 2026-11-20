@@ -1,6 +1,6 @@
 /* Sheets — a small, dependency-free framework for model "workbooks".
    Global: window.Sheets. See README.md in this folder for the API reference.
-   ES2020, no build step. Load with <script src="../assets/sheet.js"></script> (in <head> to avoid a theme flash). */
+   ES2020, no build step. Every page loads it from <site root>/assets/sheet.js, in <head> to avoid a theme flash. */
 (function (global) {
 'use strict';
 
@@ -182,7 +182,7 @@ const theme = {
   set(t) { document.documentElement.setAttribute('data-theme', t); try { localStorage.setItem('theme', t); } catch (e) {} themeListeners.forEach(f => f(t)); },
   toggle() { theme.set(theme.get() === 'dark' ? 'light' : 'dark'); },
   onChange(fn) { themeListeners.push(fn); },
-  button(cls = 'sh-pill') { return h('button', { class: cls, type: 'button', 'aria-label': 'Toggle colour theme', onclick: () => theme.toggle(), text: 'Theme' }); },
+  button(cls = 'sh-ibtn') { return h('button', { class: cls, type: 'button', 'aria-label': 'Toggle colour theme', onclick: () => theme.toggle(), text: 'Theme' }); },
 };
 
 /* ════════════════════ tooltip ════════════════════ */
@@ -395,6 +395,10 @@ document.addEventListener('pointerdown', e => { if (openPop && !openPop.contains
 
 function encState(s) { return encodeURIComponent(s).replace(/%(7C|2C|3A|2F|40|24|7E|5B|5D|3D)/gi, m => decodeURIComponent(m)); }
 function decState(s) { try { return decodeURIComponent(s.replace(/\+/g, '%20')); } catch (e) { return s; } }
+
+/** Spreadsheet column name for a 0-based index: 0 -> A, 26 -> AA. */
+function colName(j) { let s = ''; j++; while (j > 0) { const m = (j - 1) % 26; s = String.fromCharCode(65 + m) + s; j = Math.floor((j - 1) / 26); } return s; }
+let FX = null;   // formula bar of the active workbook (set by workbook())
 
 function Grid(el, opts) {
   el = resolveEl(el);
@@ -739,6 +743,16 @@ function Grid(el, opts) {
     const tr = tbody.querySelector(`tr[data-p="${p}"]`);
     const td = tr && cellEl(tr, j);
     if (td) { tr.classList.add('sg-cur'); td.classList.add('sg-sel'); } else renderBody(true);
+    fxCell();
+  }
+  /* formula bar: the selected cell, or the hovered column header */
+  const fxName = () => o.fxName || o.label || 'Sheet';
+  function fxCol(c) { return `<b>${esc(c.label)}</b>${c.group ? ` <span class="fx-eq">in</span> ${esc((groups.find(g => g.id === c.group) || {}).label || c.group)}` : ''}${c.desc ? `<span class="fx-d">${esc(c.desc)}</span>` : ''}`; }
+  function fxCell() {
+    if (!FX || !sel || !vcols[sel.j]) return;
+    const c = vcols[sel.j], first = vcols.find(x => x.type === 'text') || vcols[0], who = first && first !== c ? cellText(sel.r, first) : '';
+    const v = cellText(sel.r, c);
+    FX.pinTo(`${fxName()}!${colName(sel.j)}${sel.p + 1}`, `${who ? `<span class="fx-row">${esc(who)}</span>` : ''}<b>${esc(c.label)}</b><span class="fx-eq">=</span><code>${esc(v === '' ? '–' : v)}</code>${c.desc ? `<span class="fx-d">${esc(c.desc)}</span>` : ''}`);
   }
   function ensureVisible(p, j) {
     const { theadH, footH } = chrome(), top = p * rh, bodyH = vp.clientHeight - theadH - footH;
@@ -764,7 +778,7 @@ function Grid(el, opts) {
       case 'Home': if (e.ctrlKey || e.metaKey) p = 0; j = 0; if (p < 0) p = 0; break;
       case 'End': if (e.ctrlKey || e.metaKey) p = view.length - 1; j = vcols.length - 1; if (p < 0) p = 0; break;
       case 'Enter': moved = false; if (sel && o.onRowClick) o.onRowClick(rows[sel.r], sel.r, e); break;
-      case 'Escape': moved = false; if (drawer.isOpen) drawer.close(); else if (sel) { selAt(sel.p, sel.j, false); sel = null; renderBody(true); } break;
+      case 'Escape': moved = false; if (drawer.isOpen) drawer.close(); else if (sel) { selAt(sel.p, sel.j, false); sel = null; renderBody(true); if (FX) FX.unpin(); } break;
       default: return;
     }
     e.preventDefault();
@@ -813,6 +827,7 @@ function Grid(el, opts) {
     const th = e.target.closest('tr.sg-ch th'); clearTimeout(htT);
     if (!th) { tip.hide(); return; }
     const c = vcols[+th.dataset.j];
+    if (FX) FX.show(`${fxName()}!${colName(+th.dataset.j)}:${colName(+th.dataset.j)}`, fxCol(c));
     htT = setTimeout(() => {
       const r = th.getBoundingClientRect();
       let s = `<div class="tt-r"><b>${esc(c.label)}</b>${c.group ? `<span>${esc((groups.find(g => g.id === c.group) || {}).label || c.group)}</span>` : ''}</div>`;
@@ -821,7 +836,7 @@ function Grid(el, opts) {
       tip.show(r.left - 8, r.bottom - 6, s);
     }, 380);
   });
-  thead.addEventListener('mouseleave', () => { clearTimeout(htT); tip.hide(); });
+  thead.addEventListener('mouseleave', () => { clearTimeout(htT); tip.hide(); if (FX) FX.restore(); });
   tools.addEventListener('click', e => {
     const chip = e.target.closest('.sg-chip');
     if (chip) { const g = chip.dataset.g; hiddenGroups.has(g) ? hiddenGroups.delete(g) : hiddenGroups.add(g); layout(); renderFoot(); renderBody(true); emit(); return; }
@@ -979,12 +994,13 @@ function grid(el, opts) { return new Grid(el, opts); }
 
 /* ════════════════════ drawer ════════════════════ */
 const drawer = (() => {
-  let el, head, title, sub, body, nav, scrim, onClose, lastFocus;
+  let el, head, icon, title, sub, body, nav, scrim, onClose, lastFocus;
   function ensure() {
     if (el) return;
     title = h('h2'); sub = h('div', { class: 'sh-sub' }); nav = h('div', { class: 'sh-drawer-nav' });
     const x = h('button', { class: 'sh-drawer-x', type: 'button', 'aria-label': 'Close panel', text: '×', onclick: () => api.close() });
-    head = h('div', { class: 'sh-drawer-h' }, h('div', { style: { minWidth: 0 } }, title, sub), nav, x);
+    icon = h('div', { class: 'sh-drawer-ic', hidden: true });
+    head = h('div', { class: 'sh-drawer-h' }, icon, h('div', { style: { minWidth: 0 } }, title, sub), nav, x);
     body = h('div', { class: 'sh-drawer-b' });
     el = h('aside', { class: 'sh-drawer', 'aria-label': 'Details', 'aria-hidden': 'true' }, head, body);
     scrim = h('div', { class: 'sh-scrim', onclick: () => api.close() });
@@ -994,10 +1010,10 @@ const drawer = (() => {
   const api = {
     isOpen: false,
     get body() { ensure(); return body; },
-    /** open({title, sub, body: Node|html|fn(el), nav:{prev:fn, next:fn}, onClose, focus}) — calling again while open replaces content. */
+    /** open({title, sub, icon: trusted html, body: Node|html|fn(el), nav:{prev:fn, next:fn}, onClose, focus}) — calling again while open replaces content. */
     open(o = {}) {
       ensure();
-      title.textContent = o.title || ''; sub.textContent = o.sub || ''; sub.hidden = !o.sub;
+      title.textContent = o.title || ''; sub.textContent = o.sub || ''; sub.hidden = !o.sub; icon.innerHTML = o.icon || ''; icon.hidden = !o.icon;
       nav.innerHTML = '';
       if (o.nav) append(nav, [h('button', { class: 'sh-drawer-x', type: 'button', title: 'Previous row', 'aria-label': 'Previous row', text: '↑', onclick: o.nav.prev }), h('button', { class: 'sh-drawer-x', type: 'button', title: 'Next row', 'aria-label': 'Next row', text: '↓', onclick: o.nav.next })]);
       const st = body.scrollTop; setContent(body, o.body); if (o.keepScroll) body.scrollTop = st;
@@ -1591,6 +1607,153 @@ function simulate(o) {
   return job;
 }
 
+/* ════════════════════ site ════════════════════ */
+// Every page loads this file from <root>/assets/, so the site root is one level up. All site links are built from it,
+// which keeps them working under https://<user>.github.io/<repo>/ and under `python -m http.server` from docs/.
+const SITE_ROOT = new URL('../', ASSET_BASE).href;
+const REPO = 'https://github.com/soldoutbudokan/BeatingAnything';
+const SITE = {
+  name: 'BeatingAnything', root: SITE_ROOT, repo: REPO, research: REPO + '/tree/main/reports',
+  // IPL exports carry no logos or colours; these are the franchises' main kit colours, used for monogram badges.
+  colors: { ipl: { CSK: '#f9cd05', MI: '#004ba0', RCB: '#c8102e', KKR: '#3a225d', SRH: '#f26522', RR: '#e73895', DC: '#17479e', PBKS: '#d71920', GT: '#1c2c4c', LSG: '#2a9fd8' } },
+  docs: [
+    { id: 'contents', name: 'Contents', title: 'Contents', path: '', desc: 'Every workbook, this week\'s movers, next games',
+      sheets: [['contents', 'Contents'], ['archive', 'Archive']] },
+    { id: 'power', name: 'Power', title: 'Power rankings', path: 'power/', live: true, desc: 'NFL, NBA and NHL ratings from market prices, hourly',
+      sheets: [['nfl', 'NFL'], ['nba', 'NBA'], ['nhl', 'NHL'], ['games', 'Games'], ['method', 'Method']] },
+    { id: 'ipl', name: 'IPL', title: 'IPL projections', path: 'models/ipl/', desc: 'Ball-by-ball cricket ratings and match simulator',
+      sheets: [['overview', 'Overview'], ['batters', 'Batters'], ['bowlers', 'Bowlers'], ['teams', 'Teams'], ['matchups', 'Matchups'], ['match', 'Match'], ['props', 'Player props'], ['sim', 'Simulator'], ['venues', 'Venues'], ['leagues', 'Leagues'], ['value', 'Player value'], ['diag', 'Diagnostics'], ['method', 'Method']] },
+    { id: 'wnba', name: 'WNBA', title: 'WNBA projections', path: 'models/wnba/', desc: 'Player impact ratings and possession simulator',
+      sheets: [['overview', 'Overview'], ['players', 'Players'], ['teams', 'Teams'], ['matchups', 'Matchups'], ['game', 'Game'], ['props', 'Player props'], ['sim', 'Simulator'], ['injury', 'Injury impact'], ['diag', 'Diagnostics'], ['method', 'Method']] },
+  ],
+};
+function currentDoc() {
+  if (!location.href.startsWith(SITE_ROOT)) return null;
+  const rel = location.href.slice(SITE_ROOT.length).split('#')[0].split('?')[0].replace(/index\.html$/, '');
+  let best = null;
+  for (const d of SITE.docs) if ((d.path ? rel.startsWith(d.path) : rel === '') && (!best || d.path.length > best.path.length)) best = d;
+  return best;
+}
+const ICON = {
+  search: '<svg class="sh-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="M10.4 10.4 14 14"/></svg>',
+  out: '<svg class="sh-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5H3.5v9h9V10M9 3h4v4M13 3 7.5 8.5"/></svg>',
+  theme: '<svg class="sh-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.6"/><path d="M8 2.4a5.6 5.6 0 0 1 0 11.2z" fill="currentColor" stroke="none"/></svg>',
+};
+
+/* ════════════════════ team marks ════════════════════ */
+/** ESPN logo URLs are resized on ESPN's image server; anything else is used as given. */
+function logoUrl(src, px = 64) {
+  try { const u = new URL(src); if (/(^|\.)espncdn\.com$/.test(u.hostname) && u.pathname.startsWith('/i/')) return `${u.origin}/combiner/i?img=${u.pathname}&h=${px}&w=${px}`; } catch (e) {}
+  return src;
+}
+function inkOn(hex) { const m = /^#?([0-9a-f]{6})$/i.exec(hex || ''); if (!m) return '#fff'; const n = parseInt(m[1], 16), r = n >> 16, g = (n >> 8) & 255, b = n & 255; return (0.299 * r + 0.587 * g + 0.114 * b) > 160 ? '#14191a' : '#fff'; }
+/** HTML for a team: logo (light/dark variants follow the theme) or a coloured monogram, then abbreviation and name.
+    team({abbr, name, logo, logo_dark, color}, {size: 20, abbr: true, name: false}) */
+function teamMark(t, o = {}) {
+  if (!t) return '';
+  const z = o.size || 20, ab = t.abbr || t.short || '';
+  const img = (src, cls) => `<img class="tm-logo${cls}" src="${esc(logoUrl(src, z > 28 ? 128 : 64))}" width="${z}" height="${z}" style="width:${z}px;height:${z}px" alt="" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'">`;
+  let mark = '';
+  if (t.logo) mark = img(t.logo, t.logo_dark ? ' lt' : '') + (t.logo_dark ? img(t.logo_dark, ' dk') : '');
+  else if (t.color) { const bg = t.color[0] === '#' ? t.color : '#' + t.color; mark = `<span class="tm-badge" style="width:${z}px;height:${z}px;background:${esc(bg)};color:${inkOn(bg)};font-size:${Math.max(7, z * 0.36).toFixed(1)}px">${esc(ab.slice(0, 4))}</span>`; }
+  else if (o.gap !== false) mark = `<span style="width:${z}px;flex:0 0 auto"></span>`;
+  return `<span class="tm">${mark}${o.abbr === false ? '' : `<b>${esc(ab)}</b>`}${o.name ? `<span>${esc(t.name || '')}</span>` : ''}</span>`;
+}
+
+/* ════════════════════ jump palette ════════════════════ */
+// "/" or Ctrl/Cmd-K anywhere: search every workbook, sheet, team and player and go straight there.
+const jump = (() => {
+  let wrap, input, list, items = [], shown = [], cur = 0, dyn = null;
+  const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const it = (t, s, k, href, w = 1, extra = '') => ({ t, s, k, href, w, key: norm(t + ' ' + s + ' ' + extra) });
+  function staticItems() {
+    const out = [];
+    for (const d of SITE.docs) {
+      out.push(it(d.title, d.desc, 'Workbook', d.path, 0, d.name));
+      for (const [id, n] of d.sheets) out.push(it(`${d.name} › ${n}`, d.title, 'Sheet', d.path + '#sheet=' + id, 0.5));
+    }
+    out.push(it('Research reports', 'Dated reports and hypothesis cards on GitHub', 'Link', SITE.research, 0.6, 'github'));
+    out.push(it('Early-payout scanner (archived)', 'Not running; kept for reference', 'Archive', 'archive/early-payout/', 0.8, 'scanner'));
+    return out;
+  }
+  function loadDynamic() {
+    if (dyn) return dyn;
+    const R = p => SITE_ROOT + p, opt = { cache: 'default' };
+    const pct = v => isNum(v) ? (100 * v).toFixed(1) + '%' : '';
+    dyn = Promise.allSettled([
+      load(R('power/data/power.json'), opt).then(d => Object.entries(d.leagues).flatMap(([k, lg]) => lg.teams.map(t =>
+        it(t.name, `${lg.label} · #${t.rank} · rating ${pct(t.wp)}${t.record ? ' · ' + t.record : ''}`, lg.label + ' team', `power/#sheet=${k}&team=${t.abbr}`, 1, t.abbr)))),
+      load(R('models/wnba/data/teams.json'), opt).then(d => d.teams.map(t => it(t.name, `WNBA · net ${isNum(t.net) ? fmt.signed(t.net, 1) : ''}`, 'WNBA team', `models/wnba/#sheet=teams&t=${t.id}`, 1.1, t.abbr))),
+      load(R('models/ipl/data/teams.json'), opt).then(d => d.teams.map(t => it(t.name, `IPL · #${t.rating ? t.rating.rank : ''}`, 'IPL team', `models/ipl/#sheet=teams&t=${t.short}`, 1.1, t.short))),
+      load(R('models/wnba/data/players.json'), opt).then(d => d.players.map(p => it(p.name, `WNBA · ${p.team_abbr || 'free agent'}${p.pos ? ' · ' + p.pos : ''}`, 'WNBA player', `models/wnba/#sheet=players&pid=${p.id}`, 1.3, p.team_abbr))),
+      load(R('models/ipl/data/players.json'), opt).then(d => d.players.map(p => {
+        const bowler = p.bowl && p.bowl.is_bowler !== false && (!p.bat || ((p.bowl.value || {}).varp_runs || -9) > ((p.bat.value || {}).varp_runs || -9));
+        return it(p.name, `${p.team ? 'IPL · ' + p.team : p.country || 'T20'}${p.role_bat ? ' · ' + p.role_bat : ''}`, 'IPL player', `models/ipl/#sheet=${bowler ? 'bowlers' : 'batters'}&pid=${p.id}`, p.team ? 1.3 : 1.6, p.team);
+      })),
+    ]).then(rs => { rs.forEach(r => { if (r.status === 'fulfilled') items.push(...r.value); }); if (wrap && !wrap.hidden) search(); });
+    return dyn;
+  }
+  function search() {
+    const q = norm(input.value).trim(), here = currentDoc();
+    if (!q) {
+      shown = items.filter(x => x.k === 'Workbook' || (here && x.k === 'Sheet' && x.href.startsWith(here.path + '#'))).slice(0, 24);
+    } else {
+      const toks = q.split(/\s+/);
+      const scored = [];
+      for (const x of items) {
+        if (!toks.every(t => x.key.includes(t))) continue;
+        const tl = norm(x.t);
+        const s = (tl.startsWith(q) ? 0 : tl.split(/[\s›]+/).some(w => w.startsWith(toks[0])) ? 1 : 2) + x.w;
+        scored.push([s, tl.length, x]);
+      }
+      scored.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+      shown = scored.slice(0, 40).map(r => r[2]);
+    }
+    cur = 0; draw();
+  }
+  function draw() {
+    list.innerHTML = shown.length ? shown.map((x, i) => `<li role="none"><a role="option" href="${esc(href(x))}" data-i="${i}" aria-selected="${i === cur}"${/^https?:/.test(x.href) ? ' target="_blank" rel="noopener"' : ''}><span class="jl"><b>${esc(x.t)}</b><span>${esc(x.s)}</span></span><span class="jk">${esc(x.k)}</span></a></li>`).join('')
+      : `<li class="sh-jump-empty">${dyn && !items.some(x => x.k.endsWith('player')) ? 'Loading teams and players…' : 'No match.'}</li>`;
+  }
+  const href = x => /^https?:/.test(x.href) ? x.href : SITE_ROOT + x.href;
+  function go(x) {
+    if (!x) return;
+    const url = new URL(href(x));
+    close();
+    if (url.origin === location.origin && url.pathname === location.pathname && url.hash) { location.hash = url.hash; return; }
+    if (/^https?:/.test(x.href)) { window.open(url.href, '_blank', 'noopener'); return; }
+    location.href = url.href;
+  }
+  function move(d) { if (!shown.length) return; cur = (cur + d + shown.length) % shown.length; list.querySelectorAll('a').forEach((a, i) => a.setAttribute('aria-selected', i === cur)); const a = list.querySelector(`a[data-i="${cur}"]`); if (a) a.scrollIntoView({ block: 'nearest' }); }
+  function build() {
+    input = h('input', { type: 'search', placeholder: 'Jump to a team, player or sheet', 'aria-label': 'Jump to', autocomplete: 'off', spellcheck: 'false' });
+    list = h('ul', { class: 'sh-jump-list', role: 'listbox' });
+    const box = h('div', { class: 'sh-jump-box', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Jump to' },
+      h('label', { class: 'sh-jump-in', html: ICON.search }, input), list,
+      h('div', { class: 'sh-jump-foot', html: '<span><span class="sh-kbd">↑</span> <span class="sh-kbd">↓</span> move</span><span><span class="sh-kbd">Enter</span> open</span><span><span class="sh-kbd">Esc</span> close</span>' }));
+    wrap = h('div', { class: 'sh-jump', hidden: true }, box);
+    wrap.addEventListener('mousedown', e => { if (e.target === wrap) close(); });
+    input.addEventListener('input', search);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') { move(1); e.preventDefault(); }
+      else if (e.key === 'ArrowUp') { move(-1); e.preventDefault(); }
+      else if (e.key === 'Enter') { e.preventDefault(); go(shown[cur]); }
+      else if (e.key === 'Escape') { e.preventDefault(); close(); }
+    });
+    list.addEventListener('click', e => { const a = e.target.closest('a[data-i]'); if (!a) return; if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); go(shown[+a.dataset.i]); });
+    document.body.append(wrap);
+    items = staticItems();
+  }
+  function open() { if (!wrap) build(); wrap.hidden = false; input.value = ''; search(); input.focus(); loadDynamic(); }
+  function close() { if (wrap) wrap.hidden = true; }
+  const typing = el => el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName));
+  document.addEventListener('keydown', e => {
+    if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); wrap && !wrap.hidden ? close() : open(); return; }
+    if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey && !typing(e.target)) { e.preventDefault(); open(); }
+  });
+  return { open, close };
+})();
+
 /* ════════════════════ workbook shell ════════════════════ */
 function fmtStampDate(s) {
   if (!s) return '';
@@ -1611,24 +1774,59 @@ function parseHash() {
   for (const part of s.split('&')) { if (!part) continue; const i = part.indexOf('='); out[decState(i < 0 ? part : part.slice(0, i))] = i < 0 ? '' : decState(part.slice(i + 1)); }
   return out;
 }
-/** workbook({title, subtitle, hub, hubLabel, meta, stamp, sheets:[{id, name, render(panel, sheet), fill}], defaultSheet, actions, onSheet}) */
+/** workbook({title, subtitle, doc, meta, stamp, status, actions, sheets:[{id, name, about, render(panel, sheet), fill}], defaultSheet, onSheet})
+    doc: which site workbook this is (default: worked out from the URL). about: formula-bar text for the sheet (trusted html). */
 function workbook(o) {
   document.body.classList.add('sh-app');
   const mount = resolveEl(o.el) || document.body;
-  const stamp = h('span', { class: 'sh-stamp', title: 'Data cut-off and build' });
-  const bar = h('header', { class: 'sh-bar' },
-    o.hub !== false ? h('a', { class: 'sh-hub', href: o.hub || '../', text: '← ' + (o.hubLabel || 'Models') }) : null,
-    o.hub !== false ? h('span', { class: 'sh-sep' }) : null,
-    h('h1', { class: 'sh-title', text: o.title || document.title }),
-    o.subtitle ? h('span', { class: 'sh-sub', text: o.subtitle }) : null,
-    stamp, o.actions || null, theme.button());
+  const doc = o.doc ? SITE.docs.find(d => d.id === o.doc) : currentDoc();
+
+  // site bar
+  const docLink = d => h('a', { class: 'sh-doc', href: SITE_ROOT + d.path, 'aria-current': d === doc ? 'page' : null, title: d.desc, html: (d.live ? '<i class="sh-live" aria-hidden="true"></i>' : '') + esc(d.name) });
+  const menuBtn = h('button', { class: 'sh-menu', type: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false', text: doc ? doc.name : (o.title || 'Menu') });
+  let menuPop = null;
+  const closeMenu = () => { if (menuPop) { menuPop.remove(); menuPop = null; menuBtn.setAttribute('aria-expanded', 'false'); } };
+  menuBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    if (menuPop) { closeMenu(); return; }
+    menuPop = h('nav', { class: 'sh-menu-pop', 'aria-label': 'Workbooks' }, SITE.docs.map(d => h('a', { href: SITE_ROOT + d.path, 'aria-current': d === doc ? 'page' : null, html: (d.live ? '<i class="sh-live"></i>' : '') + `<span>${esc(d.title)}</span><small>${esc(d.sheets.length)} sheets</small>` })));
+    fileBar.append(menuPop); menuBtn.setAttribute('aria-expanded', 'true');
+  });
+  document.addEventListener('click', closeMenu);
+  const fileBar = h('header', { class: 'sh-file' },
+    h('a', { class: 'sh-brand', href: SITE_ROOT, title: 'Contents' }, h('i', { class: 'sh-logo', 'aria-hidden': 'true', html: '<b></b><b></b><b></b><b></b>' }), h('span', { text: SITE.name })),
+    menuBtn,
+    h('nav', { class: 'sh-docs', 'aria-label': 'Workbooks' }, SITE.docs.map(docLink)),
+    h('div', { class: 'sh-file-r' },
+      h('button', { class: 'sh-ibtn', type: 'button', title: 'Jump to a team, player or sheet ( / )', 'aria-label': 'Jump to', onclick: () => jump.open(), html: ICON.search + '<span class="sh-wide">Jump to</span><span class="sh-kbd sh-wide">/</span>' }),
+      h('a', { class: 'sh-ibtn', href: SITE.research, target: '_blank', rel: 'noopener', title: 'Dated research reports on GitHub', html: '<span class="sh-wide">Research</span>' + ICON.out }),
+      h('button', { class: 'sh-ibtn', type: 'button', 'aria-label': 'Toggle colour theme', title: 'Light or dark', onclick: () => theme.toggle(), html: ICON.theme })));
+
+  // formula bar
+  const nameBox = h('div', { class: 'sh-name', title: 'Sheet and cell' });
+  const fxv = h('div', { class: 'sh-fxv' });
+  const fxBar = h('div', { class: 'sh-fx' }, nameBox, h('div', { class: 'sh-fxl', 'aria-hidden': 'true', text: 'fx' }), fxv, h('div', { class: 'sh-fxa' }, o.actions || null));
+  const fx = {
+    def: ['', ''], pin: null,
+    set(n, html) { nameBox.textContent = n; fxv.innerHTML = html; fxv.title = fxv.textContent; },
+    show(n, html) { fx.set(n, html); },
+    pinTo(n, html) { fx.pin = [n, html]; fx.set(n, html); },
+    unpin() { fx.pin = null; fx.restore(); },
+    restore() { const p = fx.pin || fx.def; fx.set(p[0], p[1]); },
+    reset(n, html) { fx.def = [n, html]; fx.pin = null; fx.set(n, html); },
+  };
+  FX = fx;
+
   const main = h('main', { class: 'sh-main' });
   const tabs = h('nav', { class: 'sh-tabs', role: 'tablist', 'aria-label': 'Sheets' });
-  const root = h('div', { class: 'sh-wb' }, bar, main, tabs);
+  const stamp = h('span', { class: 'sh-stamp', title: 'Data cut-off and build' });
+  const status = h('div', { class: 'sh-status', hidden: true }, o.status || null, stamp);
+  const root = h('div', { class: 'sh-wb' }, fileBar, fxBar, main, h('footer', { class: 'sh-foot' }, tabs, status));
   mount.append(root);
   if (o.title && !document.title) document.title = o.title;
+  const defaultFx = `<b>${esc(o.title || '')}</b>${o.subtitle ? ` <span class="fx-eq">—</span> ${esc(o.subtitle)}` : ''}`;
 
-  const wb = { el: root, sheets: [], active: null };
+  const wb = { el: root, sheets: [], active: null, fx, doc };
   const byId = {};
   function writeHash(push) {
     const a = wb.active; if (!a) return;
@@ -1648,7 +1846,9 @@ function workbook(o) {
       set(obj) { for (const k in obj) { const v = obj[k]; if (v == null || v === '') delete sh.params[k]; else sh.params[k] = String(v); } if (wb.active === sh) writeHash(false); },
       onState(fn) { listeners.push(fn); },
       _notify() { listeners.forEach(f => f(sh.params)); },
-      grid: (el, opts) => grid(el, Object.assign({ state: sh, name: sh.id }, opts)),
+      grid: (el, opts) => grid(el, Object.assign({ state: sh, name: sh.id, fxName: sh.name }, opts)),
+      /** Formula-bar text while nothing is selected (trusted html). */
+      about(html) { def.about = html; if (wb.active === sh) fx.reset(`${sh.name}!A1`, html); },
     };
     tab.addEventListener('click', () => wb.activate(sh.id, { push: true }));
     tabs.append(tab); main.append(panel);
@@ -1674,27 +1874,30 @@ function workbook(o) {
     wb.active = sh;
     wb.sheets.forEach(s => { const on = s === sh; s.tab.setAttribute('aria-selected', on); s.tab.tabIndex = on ? 0 : -1; s.panel.hidden = !on; });
     sh.tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    if (prev !== sh) fx.reset(`${sh.name}!A1`, sh.def.about || defaultFx);
     if (!sh.rendered) renderSheet(sh); else if (opt.params) sh._notify();
     writeHash(opt.push && prev !== sh);
-    if (prev !== sh) { closePop(); if (o.onSheet) o.onSheet(sh.id, sh); }
+    if (prev !== sh) { closePop(); tip.hide(); if (o.onSheet) o.onSheet(sh.id, sh); }
   };
   wb.sheet = id => byId[id];
-  wb.setStamp = t => { stamp.textContent = t || ''; stamp.title = t || ''; };
+  wb.setStamp = t => { stamp.textContent = t || ''; stamp.title = t || ''; status.hidden = !t && !o.status; };
   const fromHash = () => { const p = parseHash(); const id = p.sheet; delete p.sheet; const target = byId[id] ? id : (wb.active ? wb.active.id : (o.defaultSheet || wb.sheets[0]?.id)); wb.activate(target, { params: p }); };
   addEventListener('popstate', fromHash);
   addEventListener('hashchange', fromHash);
   // stamp
   if (o.stamp) wb.setStamp(o.stamp);
   else if (o.meta && typeof o.meta === 'object') wb.setStamp(stampFromMeta(o.meta));
-  else if (o.meta) { stamp.textContent = '…'; load.optional(o.meta).then(m => { wb.meta = m; wb.setStamp(m ? stampFromMeta(m) : 'No build yet'); if (o.onMeta) o.onMeta(m); }); }
+  else if (o.meta) { wb.setStamp('…'); load.optional(o.meta).then(m => { wb.meta = m; wb.setStamp(m ? stampFromMeta(m) : 'No build yet'); if (o.onMeta) o.onMeta(m); }); }
+  if (o.status) status.hidden = false;
   fromHash();
   return wb;
 }
 
 /* ════════════════════ export ════════════════════ */
 global.Sheets = {
-  version: '1.0.0', assetBase: ASSET_BASE,
+  version: '2.0.0', assetBase: ASSET_BASE,
   workbook, grid, Grid, drawer, kv, tiles, table,
+  site: SITE, jump, team: teamMark, logoUrl, colName,
   chart: { histogram, line, bar, scatter, heatmap, spark, ladder },
   histogram, line, bar, scatter, heatmap, spark, ladder,
   ui, simulate, rng, load, LoadError, into, loadingEl, errorEl,

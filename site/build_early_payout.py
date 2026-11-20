@@ -1,7 +1,11 @@
-"""Build docs/index.html: the early-payout scanner page (GitHub Pages serves docs/).
+"""Build docs/archive/early-payout/index.html: the archived early-payout scanner page.
+
+ARCHIVED (November 2026). The scanner is not running and is no longer linked from the site's
+navigation; the page is kept, from the Contents workbook's Archive sheet, for its method and
+break-even tables. The site root (docs/index.html) is now the hand-written Contents workbook.
 
 Reads live/early-payout/picks.json and history.csv plus the payout curves and renders one
-self-contained page (no assets, stdlib only). Generated: never hand-edit docs/index.html.
+self-contained page (no assets, stdlib only). Generated: never hand-edit the output.
 
     python3 site/build_early_payout.py
 """
@@ -14,9 +18,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from beating.early_payout import CONFIG, CURVES, LIVE, decimal_to_american  # noqa: E402
 
-OUT = ROOT / "docs/index.html"
+OUT = ROOT / "docs/archive/early-payout/index.html"
 REPO = "https://github.com/soldoutbudokan/BeatingAnything"
 REPORT = f"{REPO}/blob/main/reports/early-payout-2026-09-22.md"
+REVIEW = f"{REPO}/blob/main/reports/positive-claims-recheck-2026-09-26.md"
 LABEL = {"NFL": "NFL", "NCAAF": "College football", "NBA": "NBA", "SOCCER": "Soccer"}
 
 
@@ -39,14 +44,13 @@ def build():
     data = {"picks": picks, "history": history[-400:][::-1], "rules": cfg["rules"], "promos": cfg["promos"],
             "breakeven": breakeven_rows(curves), "labels": LABEL}
     payload = json.dumps(data, separators=(",", ":")).replace("</", "<\\/")
-    page = PAGE.replace("__DATA__", payload).replace("__REPO__", REPO).replace("__REPORT__", REPORT)
+    page = PAGE.replace("__DATA__", payload).replace("__REPO__", REPO).replace("__REPORT__", REPORT).replace("__REVIEW__", REVIEW)
     if not OUT.exists() or OUT.read_text() != page:
-        OUT.parent.mkdir(exist_ok=True)
+        OUT.parent.mkdir(parents=True, exist_ok=True)
         OUT.write_text(page)
         print("wrote", OUT)
     else:
         print("unchanged", OUT)
-    (OUT.parent / ".nojekyll").touch()
 
 
 PAGE = r"""<!doctype html>
@@ -54,7 +58,7 @@ PAGE = r"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Early Payout Scanner</title>
+<title>Early-payout scanner (archived) · BeatingAnything</title>
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <style>
 :root{color-scheme:light;--plane:#f9f9f7;--surface:#fcfcfb;--sunk:#f3f2ee;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;
@@ -115,13 +119,16 @@ td a{text-decoration:underline;text-decoration-color:var(--base);text-underline-
 @media (max-width:640px){.stamp{align-items:flex-start}}
 .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--muted);max-width:80ch}
 .formula{font-family:var(--mono);background:var(--sunk);padding:10px 14px;border-radius:8px;margin-top:10px;display:inline-block}
+.archived{border:1px solid var(--rule);border-left:3px solid var(--warn);background:var(--surface);border-radius:6px;padding:10px 14px;font-size:13.5px;color:var(--ink2);margin-top:18px;max-width:80ch}
+.archived b{color:var(--ink)}
 </style>
 </head>
 <body>
 <header class="masthead"><div class="wrap">
   <div class="brand"><h1>Early Payout Scanner</h1>
-    <p>Moneylines where a book's early-payout rule turns its price into positive expected value, priced against the sharpest odds available.</p></div>
-  <div class="stamp"><div class="stamp-row"><a class="pill" href="power/">Power rankings</a><a class="pill" href="models/">Models</a><a class="pill" href="__REPO__">Repository</a>
+    <p>Moneylines where a book's early-payout rule turns its price into positive expected value, priced against the sharpest odds available.</p>
+    <p class="archived"><b>Archived, November 2026.</b> This scanner is not running and never published a scan to the site. The page is kept for its method and break-even tables; see the <a href="__REVIEW__">evidence review</a> before relying on them.</p></div>
+  <div class="stamp"><div class="stamp-row"><a class="pill" href="../../">← BeatingAnything</a><a class="pill" href="__REPO__">Repository</a>
     <button class="pill" id="theme" type="button" aria-label="Toggle colour theme">Theme</button></div>
     <div id="scanned"></div></div>
   <nav class="tabs" role="tablist">

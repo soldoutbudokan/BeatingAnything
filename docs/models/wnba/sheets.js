@@ -1,4 +1,4 @@
-/* WNBA workbook: sheet definitions. Depends on ../assets/sheet.js (Sheets) and app.js (WNBA). */
+/* WNBA workbook: sheet definitions. Depends on ../../assets/sheet.js (Sheets) and app.js (WNBA). */
 (function () {
 'use strict';
 const S = Sheets, W = WNBA, D = W.D, h = S.h, esc = S.esc, F = S.fmt, isNum = W.isNum;
@@ -27,7 +27,7 @@ const rc = (k, fmt, extra) => Object.assign({ key: 'r_' + k, label: RATE_DEFS[k]
 const ff = (k, label, desc, rev) => ({ key: 'ff_' + k, label, group: 'Four factors', get: get('four_factor.' + k), fmt: 'signed:2', heat: { center: 0, reverse: !!rev }, desc });
 const PCOLS = [
   { key: 'name', label: 'Player', frozen: true, width: 168, desc: 'Click a row for the player card. Arrow keys move rows while the card is open.' },
-  { key: 'team', label: 'Team', group: 'Profile', type: 'cat', get: r => r.team_abbr || 'FA', width: 58, desc: 'End-of-2026 team (last 2026 team, else ESPN roster). FA = played 2025, not 2026, on no roster.' },
+  { key: 'team', label: 'Team', group: 'Profile', type: 'cat', get: r => r.team_abbr || 'FA', render: (v, r) => { const t = r.team != null ? W.team(r.team) : null; return t ? S.team(t) : esc(v); }, width: 76, desc: 'End-of-2026 team (last 2026 team, else ESPN roster). FA = played 2025, not 2026, on no roster.' },
   { key: 'pos', label: 'Pos', group: 'Profile', type: 'cat', get: r => r.pos_group, width: 50, desc: 'Position group used by the model (G/F/C).' },
   { key: 'age', label: 'Age', group: 'Profile', fmt: 'num:1', get: get('age'), cls: (v, r) => r.age_imputed ? 'dim' : '', desc: 'Age at data cut-off. Grey = imputed from first season.' },
   { key: 'ht', label: 'Height', group: 'Profile', get: get('height_in'), fmt: W.heightText, width: 62, cls: (v, r) => r.height_imputed ? 'dim' : '', desc: 'Height. Grey = imputed (position mean).' },
@@ -193,7 +193,7 @@ async function overview(panel) {
   const tb = h('div'); c1.append(tb);
   const trows = D.teams.slice().sort((a, b) => b.net - a.net).map((t, i) => Object.assign({ rk: i + 1 }, t));
   S.table(tb, [
-    { key: 'rk', label: '#', fmt: 'int' }, { key: 'abbr', label: 'Team', render: (v, r) => `<a href="${W.hashFor('teams', { t: v })}" title="${esc(r.name)}">${esc(v)}</a>` },
+    { key: 'rk', label: '#', fmt: 'int' }, { key: 'abbr', label: 'Team', render: (v, r) => `<a class="wn-tl" href="${W.hashFor('teams', { t: v })}" title="${esc(r.name)}">${S.team(r)}</a>` },
     { key: 'ortg', label: 'ORtg', fmt: 'num:1', desc: 'Points scored per 100 possessions vs an average defence.' }, { key: 'drtg', label: 'DRtg', fmt: 'num:1', desc: 'Points allowed per 100 possessions vs an average offence (lower is better).' },
     { key: 'net', label: 'Net', fmt: 'signed:1', desc: 'ORtg − DRtg.' }, { key: 'pace_sim', label: 'Pace', fmt: 'num:1', desc: 'Mean simulated possessions per team per game in its matchups.' },
     { key: 'sim_avg_win_prob', label: 'Win%', get: r => r.sim_avg_win_prob ?? r.proj_win_pct_vs_league, fmt: 'pct:1', desc: 'Mean simulated win probability over its 28 matchups (14 home, 14 away).' },
@@ -226,6 +226,9 @@ async function players(panel, sheet) {
   const cols = PCOLS.map(c => c.key === 'a3pg' && !rows.some(r => r._act && isNum(r._act.fg3m)) ? Object.assign({}, c, { hidden: true }) : c);
   playerGrid = sheet.grid(panel, { columns: cols, groups: PGROUPS, rows, sort: '-tot', label: 'Players', csv: 'wnba-players.csv', searchPlaceholder: 'Search player or team', tools: status,
     onRowClick: r => W.playerCard(r, { prev: () => playerGrid.step(-1), next: () => playerGrid.step(1) }), rowClass: r => r.team == null ? 'wn-fa' : '' });
+  // #sheet=players&pid=<id> opens that player's card (the site's jump search links here)
+  const openPid = () => { const id = sheet.get('pid'); if (!id) return; sheet.set({ pid: null }); const p = W.player(id); if (p) W.playerCard(p, { prev: () => playerGrid.step(-1), next: () => playerGrid.step(1) }); };
+  sheet.onState(openPid); openPid();
   if (!rows.some(r => r._proj)) {
     status.textContent = 'Loading projected lines…';
     W.loadMatchups().then(() => { playerGrid.setRows(rows); status.textContent = ''; }).catch(e => { status.textContent = 'Projected lines unavailable: ' + e.message; });
@@ -239,6 +242,7 @@ async function teams(panel, sheet) {
   const draw = () => {
     const t = W.team(sheet.get('t')) || D.teams[0], mode = sheet.get('mode') || 'net';
     body.innerHTML = '';
+    body.append(h('div', { class: 'wn-th', html: S.team(t, { size: 40, name: true, abbr: false }) }));
     const sel = S.ui.select({ label: 'Team', options: D.teams.map(x => ({ value: x.abbr, label: `${x.abbr} · ${x.name}` })), value: t.abbr, onChange: v => { sheet.set({ t: v }); draw(); } });
     const md = S.ui.segmented({ label: 'Decompose', options: [{ value: 'net', label: 'Net' }, { value: 'off', label: 'Offence' }, { value: 'def', label: 'Defence' }], value: mode, onChange: v => { sheet.set({ mode: v === 'net' ? null : v }); draw(); } });
     const i = D.teams.indexOf(t);
@@ -789,7 +793,7 @@ async function method(panel) {
 const oddsCtl = S.ui.segmented({ options: [{ value: 'american', label: 'US' }, { value: 'decimal', label: 'Dec' }], value: W.odds.mode, onChange: v => W.odds.set(v) });
 oddsCtl.classList.add('wn-odds'); oddsCtl.title = 'Fair-odds format: American (US) or decimal';
 W.wb = S.workbook({
-  title: 'WNBA projections', subtitle: 'Bottom-up player ratings, possession simulator', hub: '../',
+  title: 'WNBA projections', subtitle: 'Bottom-up player ratings, possession simulator',
   meta: 'data/meta.json', actions: oddsCtl, defaultSheet: 'overview',
   sheets: [
     { id: 'overview', name: 'Overview', render: overview },
