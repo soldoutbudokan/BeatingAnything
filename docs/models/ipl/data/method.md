@@ -335,3 +335,49 @@ Model and market are level within noise; neither beat a coin flip over these mat
 plus half the spread, Kalshi taker fee deducted) returned +5.0% +/- 10.3% per bet at post_toss (109 bets) and
 +5.7% +/- 10.8% at pre_news (107 bets). The standard errors are larger than the returns: this is not evidence
 of an edge. Polymarket covers 45 of 69 IPL 2025 matches at these cut-offs; IPL 2024 has no market data.
+
+Second run, IPL 2026 with Pinnacle and Betfair Exchange (`collect.py oddspapi`, key in `ODDSPAPIKEY`). OddsPapi's
+free plan serves every price change since January 2026 for both: Pinnacle's decimal odds, and Betfair's best
+back price on each side. A price is the mid of what backing team 1 costs (1 / odds1) and what backing team 2
+leaves for it (1 - 1 / odds2); the spread between them is Pinnacle's margin (median 3.9 points) or the gap
+between the exchange's two back prices (0.4). Kalshi's bid-ask is 1.0. `join` now returns one row per source, so
+a match is scored against each. Of the 71 decided full-length matches Betfair prices 70 (the opener's series
+stops the day before), Pinnacle 67 at pre_news and 69 at post_toss (quote withdrawn or over six hours old), and
+Kalshi 70 (it listed no game market for the final).
+
+| state | source | n | model | market | model minus market |
+|---|---|---|---|---|---|
+| pre_news | Kalshi | 70 | 0.7006 | 0.7072 | -0.0067 +/- 0.0188 |
+| pre_news | Pinnacle | 67 | 0.6964 | 0.7027 | -0.0062 +/- 0.0187 |
+| pre_news | Betfair | 70 | 0.7000 | 0.7091 | -0.0091 +/- 0.0180 |
+| post_toss | Kalshi | 70 | 0.6781 | 0.7032 | -0.0250 +/- 0.0207 |
+| post_toss | Pinnacle | 69 | 0.6734 | 0.6965 | -0.0231 +/- 0.0201 |
+| post_toss | Betfair | 70 | 0.6780 | 0.6915 | -0.0135 +/- 0.0187 |
+
+On the matches all three price (log loss; "gap" is the mean absolute difference from Betfair's price, in points):
+
+| state | n | forecast | log loss | minus Betfair | gap |
+|---|---|---|---|---|---|
+| pre_news | 66 | model | 0.6969 | -0.0114 +/- 0.0188 | 5.9 |
+| pre_news | 66 | Kalshi | 0.7054 | -0.0029 +/- 0.0043 | 1.4 |
+| pre_news | 66 | Pinnacle | 0.7038 | -0.0045 +/- 0.0031 | 1.0 |
+| pre_news | 66 | Betfair | 0.7083 | | |
+| post_toss | 68 | model | 0.6746 | -0.0182 +/- 0.0189 | 6.4 |
+| post_toss | 68 | Kalshi | 0.7036 | +0.0108 +/- 0.0041 | 1.4 |
+| post_toss | 68 | Pinnacle | 0.6986 | +0.0058 +/- 0.0043 | 1.4 |
+| post_toss | 68 | Betfair | 0.6928 | | |
+
+The model is still level with every market within one or two standard errors, and no market beat a coin flip
+over the season (Betfair at post_toss: -0.0017 +/- 0.0170). The three markets sit within 1.4 points of each
+other. Ten minutes before the start Betfair scored better than Kalshi by 0.0108 +/- 0.0041 on the same matches;
+three hours out the order is reversed and inside the noise. That is one of several comparisons on 68 matches, so
+it is a lead to test on another season, not a finding. Flat stakes at any edge (Betfair's 5% commission on
+winnings deducted) returned at post_toss +6.4% +/- 12.7% at Betfair (67 bets), +8.2% +/- 13.3% at Kalshi (66)
+and +9.6% +/- 13.7% at Pinnacle (58); at pre_news +12.7% +/- 13.0%, +5.3% +/- 13.8% and +8.9% +/- 15.1%. These
+are the same matches bet three times, not three results, and none is evidence of an edge.
+
+This run's forecasts come from a rebuild on the 19 November cricsheet download, so its Kalshi rows differ a
+little from the first run's (model 0.7006 and 0.6781 against 0.7000 and 0.6792; 70 matches against 71, which
+could not be reproduced). The Polymarket 2025 rows above were not re-run: the pre-season parameter files for
+2024 and 2025 (`sim_params_roll_<year>.json`) are written by no script in the repository, and OddsPapi's
+archive does not reach those seasons.

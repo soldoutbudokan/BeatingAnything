@@ -1,4 +1,5 @@
-"""Raw capture of IPL match-winner markets from Kalshi and Polymarket (public read endpoints, no key).
+"""Raw capture of IPL match-winner markets: Kalshi and Polymarket (public read endpoints, no key) and, through
+OddsPapi (free plan, key in ODDSPAPIKEY), Pinnacle and Betfair Exchange.
 
 Every response is saved verbatim with its fetch time under data/raw/markets/<source>/, so the normaliser
 (prices.py) can change without re-fetching. Checked against live responses on 2026-11-19:
@@ -6,12 +7,18 @@ Every response is saved verbatim with its fetch time under data/raw/markets/<sou
               one-minute candles (bid, ask, last) live under /historical/.
   Polymarket  tag `ipl`, 89 closed events with a game start time, all IPL 2025; minute price history per
               outcome token from the CLOB.
+  OddsPapi    tournament 2472, 75 fixtures (all of IPL 2026; history starts January 2026). /historical-odds is
+              every price change per outcome, is not counted against the plan's 250 requests a month, and has a
+              five-second cooldown. Market 271 is the winner including a super over: outcome 271 is
+              participant 1, 272 participant 2. Pinnacle prices are its decimal odds. Betfair Exchange prices
+              are the best back price and its size, one outcome per request, before and during play.
 
-python -m models.ipl.market.collect kalshi|polymarket
+python -m models.ipl.market.collect kalshi|polymarket|oddspapi
 """
 # %% imports
 import gzip
 import json
+import os
 import sys
 import time
 import urllib.error
@@ -28,6 +35,11 @@ GAMMA = "https://gamma-api.polymarket.com"
 CLOB = "https://clob.polymarket.com"
 KALSHI_SERIES = ("KXIPLGAME",)   # also listed: KXIPLTOTAL, KXIPLTEAMTOTAL, KXIPLFIRST6, KXIPLSIX, KXIPLFOUR
 FRANCHISES = set(SHORT) | set(TEAM_ALIASES)
+ODDSPAPI = "https://api.oddspapi.io/v4"
+ODDSPAPI_IPL = 2472              # tournamentId (sportId 27, cricket)
+ODDSPAPI_SINCE = "2026-01-01"    # the archive starts here
+ODDSPAPI_BOOKS = {"pinnacle": (None,), "betfair-ex": (271, 272)}   # outcomeId per request; None = all outcomes
+ODDSPAPI_COOLDOWN = 5.2          # seconds between /historical-odds requests
 PAUSE = 0.3                      # seconds between requests
 CANDLE_SPAN = 2 * 86400          # seconds of one-minute candles per request
 
@@ -52,11 +64,19 @@ def get(url, params=None):
     raise RuntimeError(f"gave up on {url}")
 
 
-def save(source, name, url, payload):
+def save(source, name, url, payload, gz=False):
     d = RAW / source
     d.mkdir(parents=True, exist_ok=True)
-    (d / f"{name}.json").write_text(json.dumps({"fetched_at": datetime.now(timezone.utc).isoformat(), "url": url,
-                                                "payload": payload}))
+    text = json.dumps({"fetched_at": datetime.now(timezone.utc).isoformat(), "url": url, "payload": payload})
+    if gz:
+        (d / f"{name}.json.gz").write_bytes(gzip.compress(text.encode()))
+    else:
+        (d / f"{name}.json").write_text(text)
+
+
+def load(path):
+    """A saved capture, gzipped or not."""
+    return json.loads(gzip.decompress(path.read_bytes()) if path.suffix == ".gz" else path.read_text())
 
 
 def epoch(iso):
@@ -145,5 +165,36 @@ def polymarket(refresh=False):
     print(f"polymarket: {len(events)} events, {n} markets captured")
 
 
+# %% OddsPapi: fixtures -> every price change at Pinnacle and Betfair Exchange
+
+
+def oddspapi(refresh=False):
+    key = os.environ["ODDSPAPIKEY"]   # sent as a query parameter; never written to the saved url
+    fx_path = RAW / "oddspapi" / f"fixtures_{ODDSPAPI_IPL}.json"
+    if fx_path.exists() and not refresh:
+        fixtures = load(fx_path)["payload"]
+    else:   # the one counted request
+        span = {"tournamentId": ODDSPAPI_IPL, "from": f"{ODDSPAPI_SINCE}T00:00:00Z",
+                "to": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}
+        fixtures = get(f"{ODDSPAPI}/fixtures", dict(span, apiKey=key))
+        save("oddspapi", f"fixtures_{ODDSPAPI_IPL}", f"{ODDSPAPI}/fixtures?" + urllib.parse.urlencode(span), fixtures)
+    n = 0
+    for fx in sorted(fixtures, key=lambda x: x["startTime"]):
+        fid, done = fx["fixtureId"], fx["statusId"] == 2
+        if fx["statusId"] == 3 or ((RAW / "oddspapi" / f"market_{fid}.json.gz").exists() and not refresh and done):
+            continue   # cancelled, or finished and already captured
+        odds = {}
+        for book, outcomes in ODDSPAPI_BOOKS.items():
+            odds[book] = []
+            for o in outcomes:
+                odds[book].append(get(f"{ODDSPAPI}/historical-odds", {"fixtureId": fid, "bookmakers": book, "outcomeId": o,
+                                                                      "apiKey": key}))
+                time.sleep(ODDSPAPI_COOLDOWN)
+        save("oddspapi", f"market_{fid}", f"{ODDSPAPI}/historical-odds?fixtureId={fid}",
+             {"fixture": fx, "settled": done, "odds": odds}, gz=True)
+        n += 1
+    print(f"oddspapi: {len(fixtures)} fixtures, {n} captured")
+
+
 if __name__ == "__main__":
-    {"kalshi": kalshi, "polymarket": polymarket}[sys.argv[1]](refresh="--refresh" in sys.argv)
+    {"kalshi": kalshi, "polymarket": polymarket, "oddspapi": oddspapi}[sys.argv[1]](refresh="--refresh" in sys.argv)
