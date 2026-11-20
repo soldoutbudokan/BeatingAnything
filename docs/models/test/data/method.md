@@ -81,6 +81,7 @@ backtest.
 
 | variant | half-life | log loss | v base | SE | verdict |
 |---|---|---|---|---|---|
+| base | 6 | 1.09787 | | | |
 | no player terms | 6 | 1.10071 | +0.00284 | 0.00048 | worse |
 | half-life 9 | 9 | 1.09767 | -0.00020 | 0.00006 | better |
 | half-life 14 | 14 | 1.09760 | -0.00027 | 0.00011 | better |

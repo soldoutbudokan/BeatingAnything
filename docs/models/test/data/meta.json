@@ -1,5 +1,5 @@
 {
- "build_utc": "2026-11-20T13:03:39Z",
+ "build_utc": "2026-11-20T13:17:59Z",
  "format": "Test cricket",
  "data_source": "cricsheet.org tests_male_json.zip (men's Test matches, ball by ball) + register/people.csv; fixtures from ESPN",
  "data_cutoff": "2026-10-28",
@@ -23,8 +23,8 @@
    "West Indies",
    "Zimbabwe"
   ],
-  "fixtures": 19,
-  "fixtures_modelled": 18
+  "fixtures": 24,
+  "fixtures_modelled": 23
  },
  "model": {
   "half_life_years": 14.0,
@@ -53,19 +53,19 @@
  },
  "sim": {
   "engine": "docs/models/cricket/sim.js (one engine: browser and build)",
-  "node_sec_per_1000_matches": 1.32
+  "node_sec_per_1000_matches": 1.19
  },
- "schedule_generated_utc": "2026-11-20T13:03:00Z",
+ "schedule_generated_utc": "2026-11-20T13:12:15Z",
  "files_bytes": {
   "diagnostics.json": 7624,
   "ids.json": 16348,
-  "method.md": 17386,
+  "method.md": 17415,
   "players.json": 1331444,
-  "schedule.json": 65932,
+  "schedule.json": 84365,
   "schema.md": 4350,
   "sim_params.json": 454458,
   "teams.json": 66068,
   "venues.json": 79829
  },
- "total_bytes": 2043439
+ "total_bytes": 2061901
 }

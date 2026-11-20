@@ -17,6 +17,7 @@ def tuning_lines(rows):
     out = []
     for r in rows:
         if r.get("d_vs_base") is None:
+            out.append(f"| {r['name']} | {r['half_life']:g} | {r['ll']:.5f} | | | |")
             continue
         d, se = r["d_vs_base"], r["d_se"]
         verdict = "better" if d < -2 * se else ("worse" if d > 2 * se else "no clear difference")

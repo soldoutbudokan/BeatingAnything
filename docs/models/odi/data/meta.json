@@ -1,5 +1,5 @@
 {
- "build_utc": "2026-11-20T13:03:38Z",
+ "build_utc": "2026-11-20T13:17:58Z",
  "format": "One-day internationals",
  "data_source": "cricsheet.org odis_male_json.zip (men's ODI matches, ball by ball) + register/people.csv; fixtures from ESPN",
  "data_cutoff": "2026-11-02",
@@ -67,13 +67,13 @@
  },
  "sim": {
   "engine": "docs/models/cricket/sim.js (one engine: browser and build)",
-  "node_sec_per_1000_matches": 0.18
+  "node_sec_per_1000_matches": 0.17
  },
- "schedule_generated_utc": "2026-11-20T13:02:47Z",
+ "schedule_generated_utc": "2026-11-20T13:12:03Z",
  "files_bytes": {
   "diagnostics.json": 7887,
   "ids.json": 34687,
-  "method.md": 15189,
+  "method.md": 15218,
   "players.json": 2868116,
   "schedule.json": 94466,
   "schema.md": 4098,
@@ -81,5 +81,5 @@
   "teams.json": 131311,
   "venues.json": 140763
  },
- "total_bytes": 4140198
+ "total_bytes": 4140227
 }
