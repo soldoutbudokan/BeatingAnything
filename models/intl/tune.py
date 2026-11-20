@@ -1,0 +1,95 @@
+"""Walk-forward tuning of recency half-life, shrinkage strengths and optional blocks (fit quality, not a backtest).
+
+Two folds per format: train on everything before a cut-off, score per-ball log loss on the window after it.
+Each variant is compared with the base configuration ball by ball, with a standard error clustered by match.
+Usage: python -m models.intl.tune odi|test [round]
+"""
+# %% imports
+import json
+import sys
+import time
+
+import numpy as np
+import pandas as pd
+
+from models.intl.config import FORMATS
+from models.intl.fit import build_design, fit_model, indices, load, logloss_rows, map_env
+
+NO_PLAYERS = dict(bat=1e9, bat_split=1e9, bat_type=1e9, bowl=1e9, bowl_split=1e9)
+
+
+def grid(fmt, rnd):
+    H = fmt.default_half_life
+    if rnd == 1:
+        g = [("base", H, {}), ("no player terms", H, NO_PLAYERS), ("half-life 3", 3.0, {}), ("half-life 9", 9.0, {}),
+             ("half-life 14", 14.0, {}), ("players looser", H, dict(bat=20, bowl=50)),
+             ("players tighter", H, dict(bat=80, bowl=200)), ("splits looser", H, dict(bat_split=50, bowl_split=50, bat_type=75)),
+             ("splits tighter", H, dict(bat_split=300, bowl_split=300, bat_type=450)),
+             ("season walk looser", H, dict(rw=50)), ("season walk tighter", H, dict(rw=800)),
+             ("no other-format prior", H, dict(xf=None)), ("venue looser", H, dict(venue=100, venue2=200)),
+             ("venue tighter", H, dict(venue=1000, venue2=2000)), ("team prior tighter", H, dict(team=30))]
+        if fmt.key == "odi":
+            g += [("chase x wickets in hand", H, dict(chase_w=30.0)), ("no old-powerplay terms", H, dict(pp_old=None))]
+        else:
+            g += [("match-state looser", H, dict(sit=1.0)), ("match-state tighter", H, dict(sit=10.0))]
+        return g
+    return []
+
+
+def run(key, rnd=1, extra=None):
+    fmt = FORMATS[key]
+    out = fmt.proc / f"tuning_r{rnd}.json"
+    f = load(key)
+    idx = indices(f)
+    results = json.loads(out.read_text()) if out.exists() else []
+    done = {r["name"] for r in results}
+    todo = [g for g in (extra or grid(fmt, rnd)) if g[0] not in done]
+    if not todo:
+        return results
+    folds = []
+    for lo, hi in fmt.cutoffs:
+        lo, hi = pd.Timestamp(lo), pd.Timestamp(hi)
+        train = f[f["date"] < lo].reset_index(drop=True)
+        test = map_env(train, f[(f["date"] >= lo) & (f["date"] < hi)].reset_index(drop=True))
+        folds.append((train, test))
+    base_ll, base_W = None, [None] * len(folds)
+    if "base" in done:   # reload the base losses for paired comparisons
+        cache = np.load(fmt.proc / f"tuning_r{rnd}_base.npz", allow_pickle=True)
+        base_ll = [cache[f"ll{k}"] for k in range(len(folds))]
+        base_W = [cache[f"W{k}"] for k in range(len(folds))]
+    for name, H, over in todo:
+        lam = {k: v for k, v in dict(fmt.default_lam, **over).items() if v is not None}
+        t = time.time()
+        lls, its = [], []
+        for k, (train, test) in enumerate(folds):
+            fitr, D, _ = fit_model(train, fmt, lam, H, train["date"].max(), idx=idx, maxiter=400, tol=1e-7, W0=base_W[k])
+            _, Xt = build_design(test, idx, fmt, lam)
+            ll, _ = logloss_rows(Xt, test["y"].to_numpy(), fitr.W)
+            lls.append(ll)
+            its.append(int(fitr.res.nit))
+            if name == "base":
+                base_W[k] = fitr.W.copy()
+        if name == "base":
+            base_ll = lls
+            np.savez(fmt.proc / f"tuning_r{rnd}_base.npz", **{f"ll{k}": v for k, v in enumerate(lls)},
+                     **{f"W{k}": v for k, v in enumerate(base_W)})
+        r = dict(name=name, half_life=H, lam=lam, iters=its, secs=round(time.time() - t),
+                 ll=float(np.concatenate(lls).mean()), ll_folds=[float(x.mean()) for x in lls],
+                 n_balls=[int(len(x)) for x in lls])
+        if base_ll is not None and name != "base":
+            d = np.concatenate(lls) - np.concatenate(base_ll)
+            mid = np.concatenate([t_["match_id"].to_numpy() for _, t_ in folds])
+            g = pd.DataFrame({"m": mid, "d": d}).groupby("m")["d"].agg(["sum", "size"])
+            nm = len(g)
+            r["d_vs_base"] = float(d.mean())
+            r["d_se"] = float(np.sqrt(nm / (nm - 1) * np.sum((g["sum"] - d.mean() * g["size"]) ** 2)) / len(d))
+            r["n_matches"] = int(nm)
+        results.append(r)
+        out.write_text(json.dumps(results, indent=1))
+        print(f"{key} r{rnd} {name}: ll={r['ll']:.5f} folds={[round(x, 5) for x in r['ll_folds']]} "
+              f"d={r.get('d_vs_base', 0):+.5f}+/-{r.get('d_se', 0):.5f} it={its} {r['secs']}s", flush=True)
+    return results
+
+
+if __name__ == "__main__":
+    run(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else 1)
