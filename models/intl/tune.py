@@ -2,6 +2,7 @@
 
 Two folds per format: train on everything before a cut-off, score per-ball log loss on the window after it.
 Each variant is compared with the base configuration ball by ball, with a standard error clustered by match.
+Round 3 adds team form to the best of rounds 1-2.
 Usage: python -m models.intl.tune odi|test [round | adopt]
 """
 # %% imports
@@ -16,6 +17,7 @@ from models.intl.config import FORMATS
 from models.intl.fit import build_design, fit_model, indices, load, logloss_rows, map_env
 
 NO_PLAYERS = dict(bat=1e9, bat_split=1e9, bat_type=1e9, bowl=1e9, bowl_split=1e9)
+TEAM_FORM_WALKS = (100, 300, 30, 1000)
 
 
 def grid(fmt, rnd):
@@ -34,6 +36,12 @@ def grid(fmt, rnd):
               ("splits looser", H, dict(bat_split=50, bowl_split=50, bat_type=75)),
               ("splits tighter", H, dict(bat_split=300, bowl_split=300, bat_type=450))]
         return g
+    if rnd == 3:
+        # round 3: the best of rounds 1-2 plus team form, at four strengths of the year-to-year walk
+        prev = [r for k in (1, 2) for r in json.loads((fmt.proc / f"tuning_r{k}.json").read_text()) if r["lam"].get("bat", 0) < 1e8]
+        best = min(prev, key=lambda r: r["ll"])
+        over = dict({k: None for k in fmt.default_lam if k not in best["lam"]}, **best["lam"])
+        return [(f"team form, walk {w}", best["half_life"], dict(over, tf=30.0, rw_tf=float(w))) for w in TEAM_FORM_WALKS]
     # round 2: everything round 1 supported, taken together, then a few steps further along the same axes
     r1 = {r["name"]: r for r in json.loads((fmt.proc / "tuning_r1.json").read_text())}
     better = lambda n: n in r1 and r1[n].get("d_vs_base", 0) < -1.5 * r1[n].get("d_se", 1)
@@ -82,13 +90,14 @@ def run(key, rnd=1, extra=None):
     for name, H, over in todo:
         lam = {k: v for k, v in dict(fmt.default_lam, **over).items() if v is not None}
         t = time.time()
-        lls, its = [], []
+        lls, its, probs = [], [], {}
         for k, (train, test) in enumerate(folds):
             fitr, D, _ = fit_model(train, fmt, lam, H, train["date"].max(), idx=idx, maxiter=400 if rnd == 1 else 600,
                                    tol=1e-7 if rnd == 1 else 1e-9, W0=base_W[k])
             _, Xt = build_design(test, idx, fmt, lam)
-            ll, _ = logloss_rows(Xt, test["y"].to_numpy(), fitr.W)
+            ll, P = logloss_rows(Xt, test["y"].to_numpy(), fitr.W)
             lls.append(ll)
+            probs[f"P{k}"] = P.astype(np.float32)
             its.append(int(fitr.res.nit))
             if name == "base":
                 base_W[k] = fitr.W.copy()
@@ -107,6 +116,8 @@ def run(key, rnd=1, extra=None):
             r["d_vs_base"] = float(d.mean())
             r["d_se"] = float(np.sqrt(nm / (nm - 1) * np.sum((g["sum"] - d.mean() * g["size"]) ** 2)) / len(d))
             r["n_matches"] = int(nm)
+        if rnd == 3:   # per-ball probabilities, for calibration by team
+            np.savez_compressed(fmt.proc / f"tuning_r3_{name.replace(', ', '_').replace(' ', '_')}.npz", **probs)
         results.append(r)
         out.write_text(json.dumps(results, indent=1))
         print(f"{key} r{rnd} {name}: ll={r['ll']:.5f} folds={[round(x, 5) for x in r['ll_folds']]} "
@@ -119,7 +130,7 @@ def adopt(key):
     from models.intl.config import STATIC
     fmt = FORMATS[key]
     rows = []
-    for rnd in (1, 2):
+    for rnd in (1, 2, 3):
         p = fmt.proc / f"tuning_r{rnd}.json"
         if p.exists():
             rows += [dict(r, round=rnd) for r in json.loads(p.read_text()) if r["lam"].get("bat", 0) < 1e8]

@@ -18,11 +18,20 @@ from models.intl.config import (AGE_LABELS, CLASSES, FORMATS, K, LEAD3_EDGES, MO
 from models.ipl.fit import Design, Fitter, predict_eta, probs_from_eta, weights  # noqa: F401  (re-exported)
 
 KM = K - 1
-RW_BLOCKS = {"cs": 1, "cs_spin": 1, "gs": 1, "gs_ph": 2, "gs_spin": 1}   # block -> columns per season label
+RW_BLOCKS = {"cs": 1, "cs_spin": 1, "gs": 1, "gs_ph": 2, "gs_spin": 1, "bat_tf": 1, "bowl_tf": 1}   # block -> columns per label
 XF_LEVELS = 4
 
 
 # %% design
+
+
+def team_year(f, side):
+    """'team|year' label of the batting or bowling side on each ball (team form). map_env writes the column on a
+    test fold, where a year the training data has not seen takes the side's latest training year."""
+    col = f"{side}_ty"
+    if col in f.columns:
+        return f[col].astype(str).to_numpy()
+    return (f[f"{side}_team"].astype(str) + "|" + f["year"].astype(str)).to_numpy()
 
 
 def indices(f):
@@ -33,8 +42,9 @@ def indices(f):
     comp_seasons = sorted(f["comp_season"].astype(str).unique())
     years = sorted(f["year"].astype(str).unique())
     teams = sorted(set(f["bat_team"].astype(str).unique()) | set(f["bowl_team"].astype(str).unique()))
+    team_years = sorted(set(team_year(f, "bat")) | set(team_year(f, "bowl")))
     return dict(bat=players_bat, bowl=players_bowl, venues=venues, comps=comps, comp_seasons=comp_seasons, years=years,
-                teams=teams)
+                teams=teams, team_years=team_years)
 
 
 def build_design(f, idx, fmt, lam):
@@ -186,6 +196,11 @@ def build_design(f, idx, fmt, lam):
     put("bat_team", cat("bat_team", idx["teams"]))
     D.add("bowl_team", idx["teams"], "team")
     put("bowl_team", cat("bowl_team", idx["teams"]))
+    if "tf" in lam:   # team form: each side's batting and bowling level as a random walk over its years
+        tyi = {c: i for i, c in enumerate(idx["team_years"])}
+        for side in ("bat", "bowl"):
+            D.add(f"{side}_tf", idx["team_years"], "tf")
+            put(f"{side}_tf", pd.Series(team_year(f, side)).map(tyi).fillna(-1).to_numpy().astype(np.int64))
     if "xf" in lam:
         for pre, name in (("xb", "bat_xf"), ("xw", "bowl_xf")):
             D.add(name, [f"x{k}" for k in range(1, XF_LEVELS)] + ["rate_a", "rate_o"], "xf")
@@ -219,14 +234,15 @@ def build_design(f, idx, fmt, lam):
 
 def rw_pairs(blocks):
     """(previous, current) coefficient rows of consecutive labels in each random-walk block. cs / cs_spin: a
-    host country's seasons (labels 'country|season' are sorted, so contiguous and in time order); gs*: years."""
+    host country's seasons; bat_tf / bowl_tf: a team's years (labels 'group|season' are sorted, so each group is
+    contiguous and in time order); gs*: years."""
     prev, cur, key = [], [], []
     for name, width in RW_BLOCKS.items():
         if name not in blocks:
             continue
         o, labels, pen = blocks[name]
         m = len(labels) // width
-        if name.startswith("cs"):
+        if name.startswith("cs") or name.endswith("_tf"):
             grp = [l.split("|")[0] for l in labels]
             i = np.array([k for k in range(1, m) if grp[k] == grp[k - 1]], dtype=np.int64)
         else:
@@ -246,7 +262,8 @@ class RWFitter(Fitter):
         super().__init__(X, y, w, D, lam)
         prev, cur, key = rw_pairs(D.blocks)
         self.pen[cur] = 0.0
-        self.rw_l = np.array([lam["rw"] if k == "cs" else lam.get("rw_gs", lam["rw"]) for k in key])[:, None]
+        walk = {"cs": lam["rw"], "tf": lam.get("rw_tf", lam["rw"])}
+        self.rw_l = np.array([walk.get(k, lam.get("rw_gs", lam["rw"])) for k in key])[:, None]
         self.rw_idx = (prev, cur)
 
     def fg(self, theta):
@@ -300,13 +317,18 @@ def fit_model(f, fmt, lam, half_life, ref_date, idx=None, maxiter=500, tol=1e-7,
 
 
 def map_env(train, test):
-    """A host-country season the training data has not seen takes that country's latest training season, and an
-    unseen year the latest training year: what a projection does."""
+    """A host-country season the training data has not seen takes that country's latest training season, an
+    unseen year the latest training year, and a team's unseen year that team's latest training year: what a
+    projection does."""
     last = train.sort_values("date").groupby("country", observed=True)["comp_season"].last().astype(str)
     seen = set(train["comp_season"].astype(str).unique())
     cs = test["comp_season"].astype(str)
     test = test.copy()
     test["comp_season"] = pd.Categorical([c if c in seen else last.get(c.split("|")[0], c) for c in cs])
+    seen_ty = set(team_year(train, "bat")) | set(team_year(train, "bowl"))
+    last_ty = {l.split("|")[0]: l for l in sorted(seen_ty)}
+    for side in ("bat", "bowl"):
+        test[f"{side}_ty"] = [l if l in seen_ty else last_ty.get(l.split("|")[0], l) for l in team_year(test, side)]
     ymax = train["year"].astype(str).max()
     test["year"] = pd.Categorical(np.minimum(test["year"].astype(str).to_numpy(), ymax))
     return test

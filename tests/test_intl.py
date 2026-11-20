@@ -124,6 +124,29 @@ class RandomWalkFitter(unittest.TestCase):
         self.assertEqual(F.pen[o + 1, 0], 0.0)
         self.assertEqual(F.pen[o + 2, 0], 5.0)
 
+    def test_team_form_walks_within_a_team_at_its_own_strength(self):
+        D = Design()
+        D.add("cs", ["Aus|2024/25"], "cs")
+        D.add("bat_tf", ["Aus|2024", "Aus|2025", "Ban|2023", "Ban|2025", "Ban|2026"], "tf")
+        X = sp.csr_matrix((np.ones(6, np.float32), (np.arange(6), np.arange(6))), shape=(6, D.p))
+        F = RWFitter(X, np.zeros(6, np.int64), np.ones(6), D, {"cs": 5.0, "tf": 2.0, "rw": 7.0, "rw_tf": 11.0})
+        prev, cur = F.rw_idx
+        self.assertEqual(list(zip(prev.tolist(), cur.tolist())), [(1, 2), (3, 4), (4, 5)])
+        self.assertTrue((F.rw_l == 11.0).all())
+        self.assertEqual([F.pen[k, 0] for k in range(1, 6)], [2.0, 0.0, 2.0, 0.0, 0.0])
+
+    def test_a_teams_unseen_year_takes_its_latest_training_year(self):
+        import pandas as pd
+        from models.intl.fit import map_env
+        mk = lambda rows: pd.DataFrame(rows, columns=["date", "country", "comp_season", "year", "bat_team", "bowl_team"])
+        train = mk([("2024-01-01", "India", "India|2023/24", "2024", "India", "Bangladesh"),
+                    ("2025-03-01", "India", "India|2024/25", "2025", "India", "England")])
+        test = map_env(train, mk([("2026-02-01", "India", "India|2025/26", "2026", "Bangladesh", "India"),
+                                  ("2026-02-01", "India", "India|2025/26", "2026", "Ireland", "India")]))
+        self.assertEqual(list(test["bat_ty"]), ["Bangladesh|2024", "Ireland|2026"])   # a side never seen keeps its label
+        self.assertEqual(list(test["bowl_ty"]), ["India|2025", "India|2025"])
+        self.assertEqual(list(test["year"].astype(str)), ["2025", "2025"])
+
 
 @unittest.skipIf(shutil.which("node") is None, "node not installed")
 class Engine(unittest.TestCase):
