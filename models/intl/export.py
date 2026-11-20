@@ -10,7 +10,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from models.intl.config import FORMATS, FULL_MEMBERS, META_RDA, ROLES_BAT, ROLES_BOWL, TYPES6
+from models.intl.config import FORMATS, FULL_MEMBERS, REGION, ROLES_BAT, ROLES_BOWL, TYPES6
 from models.intl.fit import load
 from models.intl.ratings import load_people
 from models.intl.simrun import run_jobs
@@ -35,19 +35,6 @@ def rnd(x, d=3):
 
 def dump(fmt, name, obj, d=3):
     (fmt.export / name).write_text(json.dumps(rnd(obj, d), separators=(",", ":"), allow_nan=False))
-
-
-def display_names(ids, short):
-    """Full names from cricketdata where it has them, cricsheet's scorecard names otherwise."""
-    out = dict(short)
-    if META_RDA.exists():
-        import pyreadr
-        m = list(pyreadr.read_r(str(META_RDA)).values())[0].dropna(subset=["cricsheet_id"]).drop_duplicates("cricsheet_id")
-        full = m.set_index("cricsheet_id")["name"].dropna().to_dict()
-        for i in ids:
-            if i in full and isinstance(full[i], str) and len(full[i]) > 2:
-                out[i] = full[i]
-    return out
 
 
 def raw_counts(d):
@@ -113,7 +100,7 @@ def main(key):
     pool = R["pool"]
     teams = build_teams(key)
     squad_ids = {s["id"] for t in teams.values() for s in t["squad"]}
-    names = display_names(set(pool) | squad_ids, short)
+    names = short   # scorecard names ("JE Root"), as in the T20 workbook
     bat, bowl = R["bat"], R["bowl"]
     cur_team = {}
     for col, tcol in (("batter", "bat_team"), ("bowler", "bowl_team")):
@@ -203,7 +190,7 @@ def main(key):
         for s in t["squad"]:
             s["name"] = names.get(s["id"], s["id"])
         rows.append(dict(t, rating=ratings[t["name"]]))
-    dump(fmt, "teams.json", {"teams": rows, "pairs_neutral": pairs, "rating_sims": RATING_SIMS})
+    dump(fmt, "teams.json", {"teams": rows, "pairs_neutral": pairs, "rating_sims": RATING_SIMS, "region_of": REGION})
 
     # ---------------- venues.json
     ven = R["venues"]

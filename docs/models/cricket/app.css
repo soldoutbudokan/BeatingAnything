@@ -1,0 +1,52 @@
+/* Test / ODI workbooks: page-specific additions on top of ../assets/sheet.css (tokens only, no hex). */
+.ck-intro{font-size:13.5px;max-width:120ch;color:var(--ink2);margin:0}
+.ck-intro b{color:var(--ink)}
+.ck-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px;min-width:0}
+.ck-two>*,.sh-cols>*{min-width:0}
+.ck-sub{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:8px 0 2px}
+.ck-links a,.ck-link{color:var(--model);text-underline-offset:2px;cursor:pointer}
+.sh-bar .ck-odds .ui-seg button{height:20px;font-size:11.5px;padding:0 8px}
+/* schedule */
+.ck-chip{display:inline-block;font-size:11px;line-height:16px;padding:0 6px;border-radius:8px;border:1px solid var(--rule);color:var(--ink2);white-space:nowrap}
+.ck-chip.live{border-color:var(--good);color:var(--good)}
+.ck-chip.off{color:var(--muted)}
+.ck-bar3{display:flex;height:10px;border-radius:3px;overflow:hidden;min-width:90px;background:var(--sunk)}
+.ck-bar3 i{display:block;height:100%}
+.ck-bar3 .a{background:var(--s1)}
+.ck-bar3 .d{background:var(--div-mid)}
+.ck-bar3 .b{background:var(--s2)}
+.ck-legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11.5px;color:var(--ink2)}
+.ck-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+/* simulator */
+.ck-simgrid{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:14px;align-items:start;min-width:0}
+@media (max-width:1040px){.ck-simgrid{grid-template-columns:minmax(0,1fr)}}
+.ck-simctl,.ck-simout{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ck-fx{border-left:3px solid var(--model);padding:2px 0 2px 10px}
+.ck-fx .t{font-weight:600;font-size:14.5px}
+.ck-progrow{display:flex;align-items:center;gap:12px;min-height:20px}
+.ck-progrow .ui-prog{max-width:260px}
+.ck-run{min-width:140px}
+.ck-run:disabled{opacity:.5;cursor:not-allowed}
+.ck-roster{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--rule);padding-top:10px;min-width:0}
+.ck-rhead{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ck-roster .ui-sel{max-width:100%}
+.ck-roster .ui-f{min-width:0}
+.ck-swap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) auto;gap:8px;align-items:end}
+@media (max-width:520px){.ck-swap{grid-template-columns:minmax(0,1fr)}}
+.ck-ptab{width:100%}
+.ck-ptab td{padding:2px 4px;height:28px}
+.ck-ptab th{padding:4px 6px}
+.ck-ptab .ck-pn{white-space:normal;line-height:1.25}
+.ck-ptab tr.ck-tot td{font-weight:600}
+.ck-ov{font:inherit;font-size:12.5px;width:48px;height:24px;padding:0 4px;border:1px solid var(--base);border-radius:5px;background:var(--plane);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.ck-line{font:inherit;font-size:13px;width:92px;height:28px;padding:0 8px;border:1px solid var(--base);border-radius:6px;background:var(--plane);color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+.ck-line:focus,.ck-ov:focus{outline:2px solid var(--model);outline-offset:-1px;border-color:transparent}
+.ck-lrow{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 16px}
+.ck-lab{display:inline-flex;flex-direction:column;gap:3px}
+.ck-px{display:flex;flex-wrap:wrap;gap:2px 16px;font-size:12.5px;color:var(--ink2);font-variant-numeric:tabular-nums;padding-bottom:5px}
+.ck-px b{color:var(--ink);font-weight:600}
+.ck-res3{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.ck-click tbody tr{cursor:pointer}
+.ck-click tbody tr:hover td{background:var(--hover)}
+.ck-sech{font-size:15px;margin:6px 0 0}
+.ck-note{border-left:3px solid var(--rule);padding-left:8px}

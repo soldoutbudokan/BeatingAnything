@@ -1,0 +1,50 @@
+name: Cricket schedule (twice daily)
+on:
+  schedule:
+    - cron: '41 3,15 * * *'
+  workflow_dispatch:
+jobs:
+  refresh:
+    # Standard hosted runners in public repos are free. Stop if repo becomes private.
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    concurrency:
+      group: cricket-schedule
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install numpy and pandas at the pinned versions
+        run: python -m pip install "$(grep '^numpy==' requirements-lock.txt)" "$(grep '^pandas==' requirements-lock.txt)"
+      - name: Fetch fixtures and simulate each
+        # needs only the published exports under docs/models/{test,odi}/data; the simulator runs under node
+        run: python -m models.intl.schedule odi test
+      - name: Publish the schedules
+        run: |
+          git config user.name 'BeatingAnything cricket schedule'
+          git config user.email 'beatinganything-cricket-schedule@users.noreply.github.com'
+          git add docs/models/test/data/schedule.json docs/models/odi/data/schedule.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'cricket: schedule refresh'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Run summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          for k in ("test", "odi"):
+              d = json.load(open(f"docs/models/{k}/data/schedule.json"))
+              fx = d["fixtures"]
+              print(f"- **{k}**: {len(fx)} fixtures, {sum(1 for f in fx if f.get('proj'))} simulated, fetched {d['generated_utc']}")
+          PY

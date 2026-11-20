@@ -20,6 +20,9 @@ from models.intl.team import integer_plan, share_plan
 from models.ipl.ingest import canon_venue
 
 API = "https://site.api.espn.com/apis/site/v2/sports/cricket"
+NOW = lambda: datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+RAW_KEYS = ("id", "league", "fmt", "date", "start_utc", "end_utc", "series", "desc", "status", "status_text", "teams",
+            "venue_name", "city", "country_raw", "seen_utc")
 CLASS = {"1": "test", "2": "odi"}                 # ESPN internationalClassId -> format (men's internationals)
 TEAM_ALIASES = {"USA": "United States of America", "U.S.A.": "United States of America",
                 "United States": "United States of America", "UAE": "United Arab Emirates", "U.A.E.": "United Arab Emirates",
@@ -87,10 +90,15 @@ def fixtures_of(lg, today, days):
         day = datetime.strptime(ds, "%Y-%m-%d").date()
         if day < lo or day > hi or (skip_until and day <= skip_until):
             continue
-        try:
-            sb = get(f"{API}/{lg['id']}/scoreboard?dates={ds.replace('-', '')}")
-        except RuntimeError as e:
-            print("warn:", e)
+        sb = None
+        for attempt in range(2):   # ESPN answers 502 in bursts: one slow retry before giving the date up
+            try:
+                sb = get(f"{API}/{lg['id']}/scoreboard?dates={ds.replace('-', '')}")
+                break
+            except RuntimeError as e:
+                print("warn:", e)
+                time.sleep(8)
+        if sb is None:
             continue
         evs = sb.get("events", [])
         for ev in evs:
@@ -110,7 +118,7 @@ def fixtures_of(lg, today, days):
                 "status_text": (comp.get("status") or {}).get("summary") or st.get("detail") or "",
                 "teams": [norm_team(t["team"].get("displayName")) for t in teams],
                 "venue_name": ven.get("fullName") or "", "city": (ven.get("address") or {}).get("city") or "",
-                "country_raw": (ven.get("address") or {}).get("country") or "",
+                "country_raw": (ven.get("address") or {}).get("country") or "", "seen_utc": NOW(),
             }
         if len(evs) == 1 and (((evs[0].get("competitions") or [{}])[0].get("class") or {}).get("internationalClassId") == "1"):
             skip_until = day + timedelta(days=4)
@@ -220,8 +228,11 @@ def build(key, raw_fixtures, sim=True):
         vid = map_venue(fx, by_id, by_city, country)
         if vid and not country:
             country = by_id[vid]["country"]
+        if b == country:   # home side first
+            a, b = b, a
         r = {k: fx[k] for k in ("id", "fmt", "date", "start_utc", "end_utc", "series", "desc", "status", "status_text",
                                 "venue_name", "city")}
+        r["raw"] = {k: fx.get(k) for k in RAW_KEYS}   # lets the next run keep this fixture if the feed drops out
         r.update({"A": a, "B": b, "country": country, "venue": vid if vid in sp["venues"] else None,
                   "home": "A" if a == country else ("B" if b == country else None),
                   "env_known": country in sp["env"], "url": f"https://www.espncricinfo.com/ci/engine/match/{fx['id']}.html"})
@@ -283,6 +294,22 @@ def main(argv):
     print(f"series={len(leagues)} fixtures={len(fixtures)}")
     if not fixtures:
         raise SystemExit("no fixtures fetched: leaving the published schedule untouched")
+    # a series the feed failed on this run keeps its published fixtures until they are over
+    kept = 0
+    for k in FORMATS:
+        p = FORMATS[k].export / "schedule.json"
+        if not p.exists():
+            continue
+        for r in json.loads(p.read_text()).get("fixtures", []):
+            raw = r.get("raw")
+            if not raw or str(raw["id"]) in fixtures:
+                continue
+            last_day = datetime.strptime(raw["date"], "%Y-%m-%d").date() + timedelta(days=5 if raw["fmt"] == "test" else 1)
+            if last_day >= today:
+                fixtures[str(raw["id"])] = raw
+                kept += 1
+    if kept:
+        print(f"kept {kept} published fixtures the feed did not return this run")
     for k in keys:
         build(k, list(fixtures.values()), sim="--no-sim" not in argv)
 

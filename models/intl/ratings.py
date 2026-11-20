@@ -764,12 +764,16 @@ def write_sim_params(M, f, BAT, BOWL, pri_b, pri_w, ex, pool, venues, shock, sty
     for c in M.idx["comps"]:
         e = M.env(c)
         env[c] = {"all": r3(e["all"]), "spin": r3(e["spin"]), "ph": [r3(e["ph"][0]), z, r3(e["ph"][2])], "season": e["season"]}
-    # default for a host the model has no ground in: the mean of the full-member host environments
-    fmc = [c for c in M.idx["comps"] if c in FULL_MEMBERS]
-    env["_default"] = {"all": r3(np.mean([np.asarray(env[c]["all"]) for c in fmc], axis=0)),
-                       "spin": r3(np.mean([np.asarray(env[c]["spin"]) for c in fmc], axis=0)),
-                       "ph": [r3(np.mean([np.asarray(env[c]["ph"][0]) for c in fmc], axis=0)), z,
-                              r3(np.mean([np.asarray(env[c]["ph"][2]) for c in fmc], axis=0))], "season": None}
+    # default (neutral ground, or a host the model has no ground in): the full-member host environments averaged
+    # by how many matches each has staged since the reference date, i.e. where the format is actually played
+    mm = pd.read_parquet(fmt.proc / "matches.parquet")
+    hosted = mm[mm["date"] >= fmt.ref_since].groupby("country").size()
+    fmc = [c for c in M.idx["comps"] if c in FULL_MEMBERS and hosted.get(c, 0) > 0]
+    wts = np.array([hosted[c] for c in fmc], float)
+    wts /= wts.sum()
+    avg = lambda get: r3(np.sum([w * np.asarray(get(env[c])) for w, c in zip(wts, fmc)], axis=0))
+    env["_default"] = {"all": avg(lambda e: e["all"]), "spin": avg(lambda e: e["spin"]),
+                       "ph": [avg(lambda e: e["ph"][0]), z, avg(lambda e: e["ph"][2])], "season": None}
     bats, bowls = {}, {}
     for pid in pool:
         if pid in M.pos["bat"]:

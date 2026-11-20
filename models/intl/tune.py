@@ -33,7 +33,30 @@ def grid(fmt, rnd):
         else:
             g += [("match-state looser", H, dict(sit=1.0)), ("match-state tighter", H, dict(sit=10.0))]
         return g
-    return []
+    # round 2: everything round 1 supported, taken together, then a few steps further along the same axes
+    r1 = {r["name"]: r for r in json.loads((fmt.proc / "tuning_r1.json").read_text())}
+    better = lambda n: n in r1 and r1[n].get("d_vs_base", 0) < -1.5 * r1[n].get("d_se", 1)
+    not_worse = lambda n: n in r1 and r1[n].get("d_vs_base", 1) <= 0.5 * r1[n].get("d_se", 0)
+    hl = [r for n, r in r1.items() if n == "base" or n.startswith("half-life")]
+    H2 = min(hl, key=lambda r: r["ll"])["half_life"]
+    over = {}
+    for n, o in (("season walk tighter", dict(rw=800)), ("season walk looser", dict(rw=50)),
+                 ("venue tighter", dict(venue=1000, venue2=2000)), ("venue looser", dict(venue=100, venue2=200)),
+                 ("team prior tighter", dict(team=30)), ("players tighter", dict(bat=80, bowl=200)),
+                 ("players looser", dict(bat=20, bowl=50)), ("splits tighter", dict(bat_split=300, bowl_split=300, bat_type=450)),
+                 ("splits looser", dict(bat_split=50, bowl_split=50, bat_type=75)), ("match-state tighter", dict(sit=10.0)),
+                 ("match-state looser", dict(sit=1.0)), ("chase x wickets in hand", dict(chase_w=30.0))):
+        if better(n):
+            over.update(o)
+    for n, k in (("no other-format prior", "xf"), ("no old-powerplay terms", "pp_old")):
+        if not_worse(n):   # a block that does not pay for itself is left out
+            over[k] = None
+    g = [("combined", H2, dict(over))]
+    if over.get("rw") == 800:
+        g += [("combined, season walk 3000", H2, dict(over, rw=3000)), ("combined, season walk 10000", H2, dict(over, rw=10000))]
+    g += [("combined, half-life x1.5", round(H2 * 1.5, 1), dict(over)), ("combined, year walk looser", H2, dict(over, rw_gs=50)),
+          ("combined, year walk tighter", H2, dict(over, rw_gs=3000))]
+    return g
 
 
 def run(key, rnd=1, extra=None):
@@ -53,8 +76,8 @@ def run(key, rnd=1, extra=None):
         test = map_env(train, f[(f["date"] >= lo) & (f["date"] < hi)].reset_index(drop=True))
         folds.append((train, test))
     base_ll, base_W = None, [None] * len(folds)
-    if "base" in done:   # reload the base losses for paired comparisons
-        cache = np.load(fmt.proc / f"tuning_r{rnd}_base.npz", allow_pickle=True)
+    if "base" in done or rnd > 1:   # reload the round-1 base losses for paired comparisons (and as a warm start)
+        cache = np.load(fmt.proc / "tuning_r1_base.npz", allow_pickle=True)
         base_ll = [cache[f"ll{k}"] for k in range(len(folds))]
         base_W = [cache[f"W{k}"] for k in range(len(folds))]
     for name, H, over in todo:
@@ -62,7 +85,8 @@ def run(key, rnd=1, extra=None):
         t = time.time()
         lls, its = [], []
         for k, (train, test) in enumerate(folds):
-            fitr, D, _ = fit_model(train, fmt, lam, H, train["date"].max(), idx=idx, maxiter=400, tol=1e-7, W0=base_W[k])
+            fitr, D, _ = fit_model(train, fmt, lam, H, train["date"].max(), idx=idx, maxiter=400 if rnd == 1 else 600,
+                                   tol=1e-7 if rnd == 1 else 1e-9, W0=base_W[k])
             _, Xt = build_design(test, idx, fmt, lam)
             ll, _ = logloss_rows(Xt, test["y"].to_numpy(), fitr.W)
             lls.append(ll)
@@ -71,7 +95,7 @@ def run(key, rnd=1, extra=None):
                 base_W[k] = fitr.W.copy()
         if name == "base":
             base_ll = lls
-            np.savez(fmt.proc / f"tuning_r{rnd}_base.npz", **{f"ll{k}": v for k, v in enumerate(lls)},
+            np.savez(fmt.proc / "tuning_r1_base.npz", **{f"ll{k}": v for k, v in enumerate(lls)},
                      **{f"W{k}": v for k, v in enumerate(base_W)})
         r = dict(name=name, half_life=H, lam=lam, iters=its, secs=round(time.time() - t),
                  ll=float(np.concatenate(lls).mean()), ll_folds=[float(x.mean()) for x in lls],

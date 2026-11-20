@@ -136,8 +136,6 @@ def build(key):
             bm["x"] = bm["balls"] / bm["tb"] * bm["w"]        # share of the side's overs in the phase
         num = bm.groupby(["bowler", "phase"])["x"].sum().unstack(fill_value=0.0).reindex(columns=[0, 1, 2], fill_value=0.0)
         usage = {pid: (num.loc[pid] / max(played.get(pid, 0.0), 1e-9)).tolist() for pid in num.index}
-        if key == "test":   # a phase the side did not bowl in a match still counts as played: rescale by exposure
-            pass
         spin_of = lambda pid: bool(styles["bowl_group"].get(pid) == "spin")
 
         def plan_for(xi):
@@ -156,18 +154,21 @@ def build(key):
 
         def lineup(row):
             xi = list(row.xi)[:11]
-            return {"xi": xi, "order": xi, "plan": plan_for(xi), "from_match": row.match_id, "date": str(row.date.date()),
+            # batting order: mean order of appearance over each player's last ten innings for the side (cricsheet's
+            # team sheet is not always in batting order); a player yet to bat goes after the rest, bowlers last
+            key = {p: (float(pos[p]) if p in pos.index else 12.0 + sum(usage.get(p, [0, 0, 0])), k) for k, p in enumerate(xi)}
+            order = sorted(xi, key=lambda p: key[p])
+            return {"xi": xi, "order": order, "plan": plan_for(xi), "from_match": row.match_id, "date": str(row.date.date()),
                     "venue": row.venue, "country": row.country}
 
+        tb = first[(first["bat_team"].astype(str) == team) & (first["date"] >= since)]
+        pos = tb.groupby("batter")["bat_pos"].apply(lambda s: s.tail(10).mean())
         last = tm.iloc[-1]
         by_region = {}
         for reg in ("asia", "sena", "other"):
             rr = tm[(tm["region"] == reg) & (tm["date"] >= ref - pd.DateOffset(months=REGION_MONTHS))]
             if len(rr):
                 by_region[reg] = lineup(rr.iloc[-1])
-        # batting position (mean order of appearance over the last ten innings) for the squad table
-        tb = first[(first["bat_team"].astype(str) == team) & (first["date"] >= since)]
-        pos = tb.groupby("batter")["bat_pos"].apply(lambda s: s.tail(10).mean())
         squad = [{"id": pid, "apps": a[0], "last_app": a[1], "bat_pos": None if pid not in pos.index else round(float(pos[pid]), 1),
                   "usage": None if pid not in usage else [round(float(x), 3) for x in usage[pid]]}
                  for pid, a in sorted(app.items(), key=lambda kv: (-kv[1][0], kv[0]))]
