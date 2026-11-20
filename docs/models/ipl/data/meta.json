@@ -1,5 +1,5 @@
 {
- "build_utc": "2026-11-16T22:46:31Z",
+ "build_utc": "2026-11-20T00:35:02Z",
  "data_source": "cricsheet.org all_male_json.zip (men's T20 / IT20, 20-over matches) + register/people.csv",
  "data_cutoff": "2026-11-03",
  "ipl_latest_season": 2026,
@@ -247,15 +247,15 @@
   "matchups/SRH.json": 1133239,
   "matchups/index.json": 4878,
   "matchups.json": 1241571,
-  "meta.json": 5879,
-  "method.md": 25022,
+  "meta.json": 5887,
+  "method.md": 31760,
   "players.json": 5453399,
   "schema.md": 30016,
   "sim_params.json": 1031430,
   "teams.json": 47928,
   "venues.json": 272180
  },
- "total_bytes": 19350556,
+ "total_bytes": 19357302,
  "matchups": {
   "files": [
    "matchups/CSK.json",
