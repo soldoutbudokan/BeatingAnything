@@ -1,0 +1,51 @@
+name: Power rankings (hourly)
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+jobs:
+  rebuild:
+    # Standard hosted runners in public repos are free. Stop if repo becomes private.
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    concurrency:
+      group: power-rankings
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numpy at the pinned version
+        run: python -m pip install "$(grep '^numpy==' requirements-lock.txt)"
+      - name: Refresh prices and refit
+        run: python -m beating.power build
+      - name: Publish data and price ledger
+        run: |
+          git config user.name 'BeatingAnything power rankings'
+          git config user.email 'beatinganything-power-rankings@users.noreply.github.com'
+          git add docs/power/data data/markets/power
+          if ! git diff --cached --quiet; then
+            git commit -m 'power: hourly rebuild'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Run summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d = json.load(open("docs/power/data/power.json"))
+          print(f"Built {d['generated_utc']}")
+          for lg, b in d["leagues"].items():
+              top = ", ".join(f"{t['abbr']} {100 * t['wp']:.1f}%" for t in b["teams"][:5])
+              print(f"- **{b['label']}** ({'stale' if b['stale'] else str(b['games_fit']) + ' games'}): {top}")
+          for s, v in d["sources"].items():
+              errs = [f"{lg}: {x['error']}" for lg, x in v.items() if x.get("error")]
+              if errs:
+                  print(f"- {s} errors: " + "; ".join(errs))
+          PY
