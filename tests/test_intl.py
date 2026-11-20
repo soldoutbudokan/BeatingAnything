@@ -153,6 +153,33 @@ class Engine(unittest.TestCase):
         self.assertEqual(sum(a["hists"]["A.t1"]), n)
         return s
 
+    def neutral_sits_between_home_and_away(self, key, n, tol_runs):
+        """A neutral ground must not be a different game from a hosted one (it once was for Tests, when separate
+        batting-home and bowling-home terms absorbed a shared level that a neutral simulation then dropped)."""
+        ex = ROOT / "docs" / "models" / key / "data"
+        if not (ex / "sim_params.json").exists() or not (ex / "teams.json").exists():
+            self.skipTest(f"{key} exports not built")
+        teams = json.loads((ex / "teams.json").read_text())["teams"]
+        spec = lambda t: {"name": t["name"], "order": t["default"]["order"], "plan": t["default"]["plan"]}
+        jobs = [{"id": str(h), "A": spec(teams[0]), "B": spec(teams[1]), "n": n, "seed": 11,
+                 "opts": {"country": "_default", "home": h, "batFirst": "A"}} for h in ("A", None, "B")]
+        with tempfile.TemporaryDirectory() as td:
+            jp, op = Path(td) / "j.json", Path(td) / "o.json"
+            jp.write_text(json.dumps({"params": str(ex / "sim_params.json"), "jobs": jobs}))
+            subprocess.run(["node", str(ROOT / "models" / "intl" / "sim_cli.js"), str(jp), str(op)], check=True)
+            res = {r["id"]: r["summary"] for r in json.loads(op.read_text())["results"]}
+        tot = {h: res[h]["A"]["t1_mean"] for h in res}
+        win = {h: res[h]["p_A"] for h in res}
+        self.assertGreater(win["A"], win["B"])   # home advantage has the right sign
+        self.assertTrue(min(tot["A"], tot["B"]) - tol_runs <= tot["None"] <= max(tot["A"], tot["B"]) + tol_runs, tot)
+        self.assertTrue(win["B"] - 0.04 <= win["None"] <= win["A"] + 0.04, win)
+
+    def test_odi_neutral_ground(self):
+        self.neutral_sits_between_home_and_away("odi", 4000, 8)
+
+    def test_test_neutral_ground(self):
+        self.neutral_sits_between_home_and_away("test", 1500, 15)
+
     def test_odi_match(self):
         s = self.check("odi", 400)
         self.assertEqual(s["p_draw"], 0.0)
