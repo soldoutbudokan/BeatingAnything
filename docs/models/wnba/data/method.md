@@ -329,3 +329,21 @@ before tip. Summary in `market_model_test.json`; forecasts in `data/markets/wnba
   trailing estimate lagged it; the market's line was 1.4 under.
 * 2025 game winners (297 games, thin books): model 0.599, Kalshi 0.608. Spread and total markets start in 2026.
 * Still full-sample: four-factor defence, pace terms, home court, shock sizes, score effect, hyper-parameters.
+
+**Player props** ("Player: N+ stat", 2026, same simulations, last quote before tip; books about 3 cents wide):
+
+| stat | markets | players | model log loss | Kalshi log loss | gap (95% interval) | weight on model in a blend | flat-bet return |
+|---|---|---|---|---|---|---|---|
+| points | 4,981 | 88 | 0.566 | 0.557 | 0.008 (0.001 to 0.016) | 0.45 | +2.3% (−1.6 to +6.3) |
+| rebounds | 3,184 | 64 | 0.601 | 0.592 | 0.009 (−0.001 to 0.019) | 0.36 | +1.5% (−3.5 to +6.7) |
+| threes | 2,439 | 60 | 0.642 | 0.629 | 0.012 (0.004 to 0.021) | 0.12 | −3.6% (−10.2 to +2.0) |
+| assists | 1,330 | 47 | 0.722 | 0.693 | 0.029 (0.013 to 0.046) | 0.21 | −1.8% (−7.4 to +4.2) |
+
+* Behind the price on all four, and the gap is distinguishable from zero for points, threes and assists.
+  No bet return is.
+* The model is low on the players who have markets: 0.76 points, 0.33 assists, 0.12 rebounds and 0.07 threes
+  a game under what they produced. In every price band from 20 to 80 cents the model's probability sits 2–7
+  points under the market's, and the market is the one closer to what happened. This is the compression
+  already listed in §10 (actual on projected points slope 1.10) plus the lagging scoring environment.
+* Points is where the model adds most to the price (blend weight 0.45). Assists is the weakest stat.
+* Prop markets exist only for regular rotation players, and void when the player does not appear.

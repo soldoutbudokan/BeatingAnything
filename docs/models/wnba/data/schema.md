@@ -165,6 +165,15 @@ Process test against Kalshi game-winner markets (method §12).
 | market_move_vs_lineup_news | SD of the market's last-day move, SD of our told-who-played minus box-only win probability, their correlation |
 | by_minutes_wrong | absolute margin error by how wrong the projected lineup was |
 
+## market_model_test.json
+Simulator vs Kalshi at the last quote before tip (method §13). `sim_bias`: simulated minus actual margin and total.
+Per market kind (`ml`, `spread`, `total`, `pts`, `reb`, `ast`, `fg3m`): `all`, `by_season` and `near_the_line` (market
+mid 0.25–0.75), each with `n_markets`, `n_games`, `logloss_model`, `logloss_market`, `logloss_diff` and its
+game-bootstrapped `logloss_diff_ci`, `blend_weights` (logistic regression of the outcome on both logits), and
+flat-bet `n_bets`, `roi`, `roi_ci`. Spread and total add `line` (RMSE of the market's central line and of the
+model mean). Props add `n_players`, `mean_bias` (simulated minus actual per player-game) and `by_price`
+(market, model and actual frequency by price band).
+
 ## sim.js API
 ```
 WNBASim.simulate(params, homeSpec, awaySpec, opts) -> { game, home, away, meta }
