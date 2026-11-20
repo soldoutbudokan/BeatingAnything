@@ -1,20 +1,24 @@
-# Sheets: workbook framework for the model pages
+# Sheets: workbook framework for the site
 
-`sheet.css` + `sheet.js` turn a static page into a spreadsheet-style workbook: named sheets with tabs along the bottom, a fast virtualised grid, inline-SVG charts, simulator controls, a markdown renderer, a cached data loader and a Web Worker runner. There are no dependencies and no build step. Everything is ES2020 and every URL is relative, so pages work under `https://<user>.github.io/<repo>/models/...` and under `python -m http.server` from `docs/`.
+`sheet.css` + `sheet.js` turn a static page into a spreadsheet-style workbook: a site bar with one tab per workbook, a formula bar, named sheets with tabs along the bottom, a fast virtualised grid, inline-SVG charts, simulator controls, a markdown renderer, a cached data loader and a Web Worker runner. There are no dependencies and no build step. Everything is ES2020 and every URL is relative, so pages work under `https://<user>.github.io/<repo>/...` and under `python -m http.server` from `docs/`. Every page on the site uses it: Contents (`docs/index.html`), Power rankings (`docs/power/`) and the model workbooks.
 
-`demo.html` in this folder is the reference example. It uses every component on synthetic data. Open it at `http://localhost:8000/models/assets/demo.html` after `cd docs && python -m http.server`. Copy from it.
+`demo.html` in this folder is the reference example. It uses every component on synthetic data. Open it at `http://localhost:8000/assets/demo.html` after `cd docs && python -m http.server`. Copy from it.
 
 ```
-docs/models/
-  index.html            hub (reads ipl/data/meta.json, wnba/data/meta.json)
-  assets/sheet.css      all styles + theme tokens
-  assets/sheet.js       window.Sheets
-  assets/sim-worker.js  generic module worker used by Sheets.simulate (do not edit per sport)
-  assets/demo.html      reference workbook
-  ipl/index.html        ← sport page (you write this)
-  ipl/sim.js            ← sport simulator module (optional)
-  ipl/data/*.json       ← model exports
+docs/
+  index.html                 Contents workbook (site root)
+  power/index.html           Power rankings workbook
+  assets/sheet.css           all styles + theme tokens
+  assets/sheet.js            window.Sheets, including the site config (SITE: workbooks, their sheets, links)
+  assets/fonts/              IBM Plex Sans and Mono, self-hosted (OFL)
+  assets/sim-worker.js       generic module worker used by Sheets.simulate (do not edit per sport)
+  assets/demo.html           reference workbook
+  models/ipl/index.html      ← sport page (you write this)
+  models/ipl/sim.js          ← sport simulator module (optional)
+  models/ipl/data/*.json     ← model exports
 ```
+
+**Adding a workbook.** Add an entry to `SITE.docs` in `sheet.js` (id, name, title, path, desc, sheets). The site bar, the phone menu and the jump search read that list, so the new workbook appears on every page.
 
 ## Contents
 
@@ -43,8 +47,8 @@ docs/models/
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>IPL projections</title>
-<link rel="stylesheet" href="../assets/sheet.css">
-<script src="../assets/sheet.js"></script>   <!-- in <head>: applies the saved theme before first paint -->
+<link rel="stylesheet" href="../../assets/sheet.css">
+<script src="../../assets/sheet.js"></script>   <!-- in <head>: applies the saved theme before first paint -->
 </head>
 <body>
 <script>
@@ -66,22 +70,24 @@ S.workbook({
 </html>
 ```
 
-The body is replaced by a full-height app: a header bar, the active sheet, and tabs along the bottom. Nothing scrolls the page itself. Each sheet panel scrolls vertically, and the grid scrolls inside itself.
+The body is replaced by a full-height app: the site bar (brand, one tab per workbook, Jump to, Research, theme), the formula bar, the active sheet, and sheet tabs with the build stamp along the bottom. Nothing scrolls the page itself. Each sheet panel scrolls vertically, and the grid scrolls inside itself.
 
 ## 2. Workbook
 
 ```js
 const wb = Sheets.workbook({
-  title, subtitle,          // header text
-  hub: '../',               // link back to the hub (false to hide); hubLabel: 'Models'
+  title, subtitle,          // shown in the formula bar while nothing is selected
+  doc: 'ipl',               // which SITE.docs entry this is (default: worked out from the URL)
   meta: 'data/meta.json',   // URL or object -> stamp via Sheets.stampFromMeta(); onMeta(meta) callback
   stamp: 'Data to …',       // explicit stamp text (overrides meta)
-  actions: element,         // optional extra element(s) in the header, left of the theme toggle
+  actions: element,         // optional control(s) at the right end of the formula bar (e.g. an odds toggle)
+  status: element,          // optional extra element in the status area, left of the stamp
   defaultSheet: 'batters',
   onSheet(id, sheet) {},    // called when the active sheet changes
-  sheets: [{ id, name, fill, render(panel, sheet) }],
+  sheets: [{ id, name, fill, about, render(panel, sheet) }],   // about: formula-bar html for the sheet
 });
 wb.activate('teams');  wb.sheet('teams');  wb.setStamp('…');  wb.meta /* loaded meta.json */
+wb.fx.pinTo('Teams!B4', html); wb.fx.unpin();   // write to the formula bar yourself (trusted html)
 ```
 
 - **render(panel, sheet)** runs the first time a sheet is opened. It may be `async`. A loading state shows until it resolves, and if it throws or rejects, the panel shows a readable error instead.
@@ -102,6 +108,7 @@ wb.activate('teams');  wb.sheet('teams');  wb.setStamp('…');  wb.meta /* loade
 | `sheet.params` | The current state object. |
 | `sheet.onState(fn)` | Called with `params` when the hash changes (back/forward, or a pasted link). |
 | `sheet.grid(el, opts)` | `Sheets.grid` bound to this sheet's URL state. The grid reads its state from the hash on creation and writes changes back. |
+| `sheet.about(html)` | Set the formula-bar text shown while nothing is selected. |
 | `sheet.panel`, `sheet.id`, `sheet.wb` | |
 
 Each sheet remembers its own state while you switch tabs. With two grids on one sheet, give each one a `stateKey` (for example `'b'`) so their keys don't collide (`b.sort=…`).
@@ -172,6 +179,8 @@ const grid = sheet.grid(panel, {          // or Sheets.grid(el, opts) without UR
   copyText: (v, row) => …,      // what Ctrl/Cmd+C copies (default: the formatted value)
 }
 ```
+
+**Formula bar.** Selecting a cell shows `Sheet!C12` in the name box and the row, column, value and the column's `desc` in the formula bar; hovering a header shows the column's definition. Write `desc` for every column: it is the page's documentation.
 
 **Interaction.** Click a header to sort (numbers sort high to low first; a third click clears the sort). Shift-click adds a secondary sort, and the header shows its priority. The funnel icon on a header opens the filter: min/max for numbers (percent formats are typed in percent), a checklist with counts for categories, "contains" for text. Active filters appear as removable chips in the toolbar. The search box matches every word against the text and category columns. Group chips show and hide column groups. **Download CSV** exports the filtered, sorted, visible view with raw values. The footer shows the mean of the filtered rows (Σ marks a sum).
 
@@ -440,16 +449,19 @@ job.then(result => …);   job.catch(err => …);   job.cancel();   job.elapsed 
 Sheets.theme.get(); Sheets.theme.set('dark'); Sheets.theme.toggle(); Sheets.theme.onChange(fn); Sheets.theme.button()
 Sheets.tip.show(clientX, clientY, Sheets.tip.html('Header', [{ value: '12.3%', label: 'P(over)', key: 'b1' }], 'note')); Sheets.tip.hide();
 Sheets.h('div', { class: 'sh-card', onclick: fn, style: { gap: '8px' } }, child, 'text')   // DOM helper
+Sheets.team({ abbr, name, logo, logo_dark, color }, { size: 20, name: true })   // logo (themed) or coloured monogram + abbreviation, as html
+Sheets.jump.open()   // the "/" search over workbooks, sheets, teams and players
+Sheets.site          // SITE config: root URL, workbooks and their sheets, IPL team colours
 Sheets.esc(str)  Sheets.debounce(fn, ms)  Sheets.rng(seed)  Sheets.stats.mean/sd/quantile/extent
 ```
 
-The theme toggle saves to `localStorage['theme']` (the same key as the scanner page). Without a saved choice the OS preference applies.
+The theme toggle saves to `localStorage['theme']`, shared by every page on the site. Without a saved choice the OS preference applies.
 
 **Layout classes** for panel content: `sh-card` (bordered surface), `sh-cols` (responsive grid of cards, 420px minimum), `sh-row` (wrapping flex row), `sh-section`, `sh-h` (section heading), `sh-note` (secondary text), `ui-ctl` (control bar), and on text `num`, `muted`, `ink2`, `good`, `bad`, `warn`.
 
 ## 13. Design rules
 
-- **Tokens.** These are the scanner page's tokens (`--plane --surface --sunk --ink --ink2 --muted --rule --base --model --good --bad --warn`, `--sans`, `--mono`) plus chart tokens: categorical `--s1…--s8` in fixed order, `--heat-pos/neg/seq` for cell backgrounds, `--div-pos/neg/mid` for diverging marks, and `--grid` and `--axis`. Each has a light and a dark value. Use the tokens; never hard-code hex in a page.
+- **Tokens.** `--plane --surface --sunk --chrome --ink --ink2 --muted --rule --base --accent --model --good --bad --warn`, `--sans` (IBM Plex Sans), `--mono` (IBM Plex Mono). `--accent` (green) is interface colour only: selection, current tab, focus, links. `--model` (blue) is data plus chart tokens: categorical `--s1…--s8` in fixed order, `--heat-pos/neg/seq` for cell backgrounds, `--div-pos/neg/mid` for diverging marks, and `--grid` and `--axis`. Each has a light and a dark value. Use the tokens; never hard-code hex in a page.
 - **Colour has a job.** Categorical colour shows identity, in fixed order and never cycled. Sequential (blue) shows magnitude, and diverging (blue/red around a grey midpoint) shows sign. Status colours (`good`/`bad`/`warn`) are only for state. Keep scatter and multi-line charts to three groups or fewer, and fold the rest into "Other" or small multiples.
 - **Text uses ink tokens, not series colours.** Heat cells mix toward the surface so the ink stays readable in both themes.
 - **Numbers** are tabular and right-aligned. Use the true minus sign (the formatters do this). Large standalone figures (tiles) use proportional digits.

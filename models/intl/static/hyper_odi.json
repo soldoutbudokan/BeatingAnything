@@ -1,0 +1,22 @@
+{
+ "half_life": 9.0,
+ "lam": {
+  "l0": 1.0,
+  "cov": 2.0,
+  "cell": 30.0,
+  "comp": 5.0,
+  "cs": 200.0,
+  "rw": 3000,
+  "gs": 20.0,
+  "venue": 1000,
+  "venue2": 2000,
+  "bat": 40.0,
+  "bat_split": 100.0,
+  "bat_type": 150.0,
+  "bowl": 100.0,
+  "bowl_split": 100.0,
+  "team": 30,
+  "sit": 3.0
+ },
+ "note": "Adopted: round 2 'combined, season walk 3000', walk-forward log loss 1.33982 (-0.00141 +/- 0.00025 against the base). Evidence: Diagnostics sheet, tuning table."
+}
