@@ -79,12 +79,17 @@ def norm_team(t):
 def discover(today, days):
     """Series (ESPN leagues) with men's Tests or ODIs between today and today + days."""
     leagues = {}
-    for off in range(0, days + 1, 6):
+    for off in range(0, days + 1, 3):
         d = (today + timedelta(days=off)).strftime("%Y%m%d")
-        try:
-            panel = get(f"{API}/scorepanel?dates={d}")
-        except RuntimeError as e:
-            print("warn:", e)
+        panel = None
+        for attempt in range(2):   # the feed fails in bursts: one slow retry, then the neighbouring dates cover the gap
+            try:
+                panel = get(f"{API}/scorepanel?dates={d}")
+                break
+            except RuntimeError as e:
+                print("warn:", e)
+                time.sleep(5)
+        if panel is None:
             continue
         for s in panel.get("scores", []):
             lg = (s.get("leagues") or [{}])[0]
@@ -305,7 +310,10 @@ def main(argv):
     leagues = discover(today, days)
     fixtures = {}
     for lg in leagues.values():
-        fixtures.update(fixtures_of(lg, today, days))
+        for k, v in fixtures_of(lg, today, days).items():
+            # a Test sits in its tour's series and in the World Test Championship: keep the tour's name
+            if k not in fixtures or "Championship" in (fixtures[k]["series"] or ""):
+                fixtures[k] = v
     print(f"series={len(leagues)} fixtures={len(fixtures)}")
     if not fixtures:
         raise SystemExit("no fixtures fetched: leaving the published schedule untouched")

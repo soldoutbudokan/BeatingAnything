@@ -125,7 +125,8 @@ def replay(fmt, f):
         country = r.country if r.country in sp["env"] else "_default"
         home = "A" if first == r.country else ("B" if second == r.country else None)
         jobs.append({"id": r.match_id, "A": spec[first], "B": spec[second], "n": REPLAY_SIMS, "seed": 17 + len(jobs),
-                     "opts": {"venue": venue, "country": country, "home": home, "batFirst": "A"}, "hists": ["A.t1", "B.t1"]})
+                     "opts": {"venue": venue, "country": country, "home": home, "batFirst": "A"},
+                     "hists": ["A.t1", "B.t1", "match.total"]})
         a = {"t1A": inns[0]["runs"], "t1B": inns[1]["runs"], "wA": inns[0]["wkts"], "wB": inns[1]["wkts"],
              "decA": inns[0]["declared"], "aoA": inns[0]["wkts"] >= 10 - inns[0].get("absent", 0),
              "result": "draw" if r.result == "draw" else ("tie" if r.result == "tie" else ("A" if r.winner == first else "B")),
@@ -152,6 +153,19 @@ def replay(fmt, f):
         mu = (v * h).sum() / h.sum()
         sd_sim.append(np.sqrt(((v - mu) ** 2 * h).sum() / h.sum()))
     pit = np.array(pit)
+
+    def total_sd(path, means):
+        """SD of a simulated quantity over the whole replay: spread within each match plus spread of the match means."""
+        within = []
+        for i in A.index:
+            h = np.asarray(res[i]["hists"][path], float)
+            v = np.arange(len(h))
+            mu = (v * h).sum() / h.sum()
+            within.append(((v - mu) ** 2 * h).sum() / h.sum())
+        return float(np.sqrt(np.mean(within) + np.var(means)))
+
+    # do the two sides' first innings move together as much as in real matches? (the shared pitch)
+    corr_real = float(np.corrcoef(A["t1A"], A["t1B"])[0, 1])
     pA = g(lambda s: s["p_A"])
     won = (A["result"] == "A").to_numpy().astype(float)
     rows = [
@@ -163,6 +177,7 @@ def replay(fmt, f):
         {"metric": "First innings: overs", "actual": A["ov1"].mean(), "sim": g(lambda s: s["A"]["overs1_mean"]).mean()},
         {"metric": "Side batting first wins (%)", "actual": 100 * won.mean(), "sim": 100 * pA.mean()},
         {"metric": "Match runs", "actual": A["runs"].mean(), "sim": g(lambda s: s["match_runs"]).mean()},
+        {"metric": "Match runs: SD", "actual": A["runs"].std(), "sim": total_sd("match.total", g(lambda s: s["match_runs"]))},
     ]
     if key == "test":
         rows += [

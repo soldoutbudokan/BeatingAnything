@@ -42,7 +42,7 @@ additive terms**, all estimated together in one penalised multinomial logistic r
 | batting side at home; bowling side at home; each x spin | **home advantage** (a neutral ground is the reference) |
 | batter: overall, powerplay, death, v spin, first 15 balls, away from home; v each of six bowling types | batter skill and its splits. The by-type split is shrunk hardest |
 | bowler: overall, powerplay, death, v left-handers, away from home | bowler skill and its splits |
-| batter role, role x experience, age, team, other-format record; the same for bowlers | the **prior** a small sample shrinks toward |
+| batter role, role x experience, age, team; the same for bowlers | the **prior** a small sample shrinks toward |
 
 Phases are the powerplay (overs 1-10), middle (11-40) and death (41-50).
 
@@ -52,13 +52,13 @@ the others. A batter's rating is adjusted for the bowlers he faced, where he fac
 **Shrinkage.** Every term carries a ridge penalty. A player with few balls is pulled toward players like him: the
 same batting role (from his batting position) or bowling role (pace or spin, by workload), the same experience, the
 same age band and the same national side. The team term matters in internationals: an unknown Australian is a
-better bet than an unknown player from a side that loses more. A player new to ODIs also inherits a prior from his Test record.
+better bet than an unknown player from a side that loses more. A prior from the player's Test record was tested and did not improve the holdout, so it is left out.
 
 **Nothing looks ahead.** Role, experience, age and team are measured as of each delivery (role from the innings he
 has played so far, experience from the balls he has faced or bowled so far). The holdout therefore never sees a
 player's future, and "inexperienced" is not defined by players who failed and were dropped.
 
-**Recency.** Each delivery is weighted by 0.5^(age / 5 years).
+**Recency.** Each delivery is weighted by 0.5^(age / 9 years).
 
 **Inactivity.** A player with no international in either format for over a year has his individual rating decayed
 toward his prior by exp(-(gap - 1) / 2), gap in years.
@@ -69,7 +69,7 @@ rating redraws his own coefficients from it. It ignores the other terms, so it i
 ## 4. How the settings were chosen
 
 Two walk-forward folds: train on everything before a cut-off, score per-ball log loss on the window after it
-(). An unseen
+(2024-07-01 to 2025-06-12: 56,537 balls, 104 matches; 2025-07-01 to 2026-11-02: 74,639 balls, 135 matches). An unseen
 season takes its country's latest training season, which is what a projection does. Each variant is compared with
 the base ball by ball, with a standard error clustered by match. This is a check of fit quality, not a betting
 backtest.
@@ -92,26 +92,36 @@ backtest.
 | team prior tighter | 5 | 1.34113 | -0.00010 | 0.00005 | no clear difference |
 | chase x wickets in hand | 5 | 1.34135 | +0.00012 | 0.00006 | no clear difference |
 | no old-powerplay terms | 5 | 1.34121 | -0.00002 | 0.00003 | no clear difference |
+| round 2: combined | 9 | 1.33996 | -0.00127 | 0.00020 | better |
+| round 2: combined, season walk 3000 (adopted) | 9 | 1.33982 | -0.00141 | 0.00025 | better |
 
-Adopted: half-life 5 years; penalties bat 40, bat_split 100, bat_type 150, bowl 100, bowl_split 100, cell 30, comp 5, cov 2, cs 200, gs 20, l0 1, pp_old 1, rw 200, sit 3, team 5, venue 300, venue2 600, xf 2.
+Adopted: half-life 9 years; penalties bat 40, bat_split 100, bat_type 150, bowl 100, bowl_split 100, cell 30, comp 5, cov 2, cs 200, gs 20, l0 1, rw 3000, team 30, venue 1000, venue2 2000.
 
-On the holdout the adopted model scores nan nats per ball against nan for outcome
-frequencies alone. It expected nan runs and nan wickets per innings; the innings
-produced nan and nan.
+On the holdout the adopted model scores 1.3398 nats per ball against 1.3991 for outcome
+frequencies alone. It expected 236.7 runs and 8.17 wickets per innings; the innings
+produced 236.7 and 7.72.
 
 ## 5. Conditions the model cannot see
 
 Both sides of a match share a pitch and weather. The model measures that as the covariance between the two sides'
-residual scoring and wicket rates (actual minus expected, per ball), on the holdout so that fitted ground and season
-terms cannot soak it up. It becomes a match-level shock on two axes of the logits, scoring shots and wickets, drawn
-once per simulated match and applied to every ball. What is left of the variance of a single innings after
-sampling noise and the shared part becomes an innings-level shock. This build:
+residual runs and wickets (actual minus expected, summed over each innings), on recent matches between full members.
+It becomes a match-level shock on two axes of the logits, scoring shots and wickets, drawn once per simulated match
+and applied to every ball. What is left of an innings' residual variance after sampling noise and the shared part
+becomes an innings-level shock. The estimate is in-sample: fitted ground and season terms absorb part of a match's
+conditions, so the match-level spread is if anything understated. This build:
 
-* Match shock, scoring axis (SD, log-odds): 0.100 (about +12.29 runs per 50 overs)
-* Match shock, wicket axis (SD, log-odds): 0.013 (wicket rate x 1.01 at +1 SD)
-* Innings shock, scoring axis (SD): 0.081
-* Innings shock, wicket axis (SD): 0.262
-* Cross-team correlation of scoring residuals: 0.18 of the innings variance
+* Match shock, scoring axis (SD, log-odds): 0.127 (about +15.61 runs per 50 overs)
+* Match shock, wicket axis (SD, log-odds): 0.055 (wicket rate x 1.06 at +1 SD)
+* Innings shock, scoring axis (SD): 0.065
+* Innings shock, wicket axis (SD): 0.099
+* Share of the unexplained scoring variance that both sides share: 0.88
+* Same calculation on the walk-forward holdout (match scoring / match wicket / innings scoring / innings wicket SD): 0.173 / 0.065 / 0.061 / 0.266 from 254 innings; noisier, and it includes the error of ratings projected forward
+
+**Home advantage.** ODIs are played on neutral ground often enough (World Cups, the UAE, associate events) to fit a batting-at-home and a bowling-at-home term separately, each with a spin part. Each player also has his own shrunk away-from-home split.
+Australia, India, England, Pakistan against each other in average conditions, 10,000 simulated matches a pairing and setting: the same two XIs with one side at home, on neutral ground, and away.
+
+* Win probability at home / neutral / away: 57.6% / 49.6% / 41.7%
+* Total batting first at home / neutral / away: 292 / 284 / 274
 
 **Pitch dial.** The simulator's pitch options move along those axes: *flat* is one match SD easier to score on and
 harder to take wickets on, *hard to bat on* the reverse, *green seamer* adds the pace-wicket gap between the most
@@ -168,30 +178,31 @@ Each match is re-simulated with the real XIs, batting order of appearance, each 
 
 | quantity | real | simulated |
 |---|---|---|
-| First innings of the match: mean total | 259.3 | 258.1 |
-| First innings of the match: SD of totals | 69.6 | 74.9 |
-| First innings: wickets lost | 8.4 | 8.1 |
-| First innings: all out (%) | 43.7 | 43.1 |
-| First innings: overs | 47.8 | 47.3 |
-| Side batting first wins (%) | 46.7 | 47.6 |
-| Match runs | 480.9 | 481.4 |
-| Tie (%) | 0.9 | 0.9 |
-| First innings: runs in overs 1-10 | 48.2 | 47.2 |
+| First innings of the match: mean total | 259.3 | 256.4 |
+| First innings of the match: SD of totals | 69.6 | 69.6 |
+| First innings: wickets lost | 8.4 | 8.3 |
+| First innings: all out (%) | 43.7 | 43.2 |
+| First innings: overs | 47.8 | 47.6 |
+| Side batting first wins (%) | 46.7 | 47.2 |
+| Match runs | 480.9 | 479.5 |
+| Match runs: SD | 117.3 | 122.6 |
+| Tie (%) | 0.9 | 0.8 |
+| First innings: runs in overs 1-10 | 48.2 | 47.0 |
 
 Pre-match win probability of the side batting first, in fifths:
 
 | model said | matches | mean prediction | won |
 |---|---|---|---|
-| 5-31% | 66 | 23% | 18% |
-| 32-43% | 63 | 38% | 29% |
-| 43-52% | 65 | 47% | 45% |
-| 52-63% | 65 | 58% | 66% |
-| 64-98% | 64 | 73% | 77% |
+| 9-31% | 65 | 22% | 18% |
+| 31-42% | 64 | 37% | 33% |
+| 42-51% | 66 | 46% | 39% |
+| 51-63% | 63 | 58% | 70% |
+| 64-92% | 65 | 73% | 74% |
 
 ## 11. Known weaknesses
 
 * No market comparison has been run. Nothing here shows the model beats a price.
-* Afghanistan is missing from the data. Associates play few matches and lean on their priors.
+* Afghanistan is missing from the data. Associates play few matches and lean on their priors. On the holdout the model expected +11% wickets in matches with an associate side and +1% in matches between full members: treat associate projections with care.
 * No ball tracking: "expected" means expected given the situation, opposition, ground and era, not line and length.
 * Fielding, keeping and captaincy are not modelled separately.
 * Day and day-night matches are not distinguished beyond each ground's second-innings term.
@@ -199,6 +210,6 @@ Pre-match win probability of the side batting first, in fifths:
 * Bowling plans are fixed before the match and do not react to it. Batting orders do not flex.
 * Default XIs are the last XI a side picked. Injuries, rest and retirements since then are not known until an
   announced XI arrives.
-* A player's rating in a format rests on that format alone plus a prior from his Test record. T20 form is not used.
+* A player's rating in a format rests on that format alone. T20 form is not used.
 * The season and year environments are frozen at their latest values for projections.
 * Uncertainty bands understate the true uncertainty.

@@ -155,6 +155,22 @@ async function match(panel, sheet) {
       bd.append(tr);
     });
     bd.append(h('tr', { class: 'ck-tot' }, h('td', { text: isTest ? 'Total' : 'Total (need 10 / 30 / 10)' }), ...ck.tot.map((v, i) => h('td', { class: 'n' + (!isTest && v !== [10, 30, 10][i] ? ' bad' : ''), text: isTest ? F.num(v, 0) + '%' : String(v) })), h('td')));
+    if (!isTest && ck.errs.length) {
+      // top up or trim each phase to 10 / 30 / 10 within the 10-over cap, favouring whoever already bowls most in it
+      const fill = () => {
+        const P = sd.plan.filter(x => sd.order.includes(x.id)).map(x => Object.assign({}, x));
+        sd.order.forEach(id => { const p = CK.player(id); if (!P.some(x => x.id === id) && p && p.bowl && p.bowl.role && !/part/.test(p.bowl.role)) P.push({ id, pp: 0, mid: 0, death: 0 }); });
+        CK.PH.forEach((q, i) => {
+          let t = P.reduce((a, x) => a + (+x[q] || 0), 0), guard = 0;
+          while (t !== [10, 30, 10][i] && guard++ < 300) {
+            if (t < [10, 30, 10][i]) { const c = P.filter(x => tot(x) < 10).sort((x, y) => (y[q] || 0) - (x[q] || 0) || tot(x) - tot(y))[0]; if (!c) break; c[q] = (c[q] || 0) + 1; t++; }
+            else { const c = P.filter(x => (x[q] || 0) > 0).sort((x, y) => (x[q] || 0) - (y[q] || 0))[0]; if (!c) break; c[q]--; t--; }
+          }
+        });
+        put({ plan: P });
+      };
+      box.append(h('div', { class: 'ck-rhead' }, h('span', { class: 'sh-note bad', text: 'The overs no longer add up.' }), S.ui.button({ label: 'Fill the overs', onClick: fill })));
+    }
     box.append(h('div', { class: 'ui-l', text: 'Bowling plan' }), h('div', { class: 'sh-note', text: isTest ? 'Share (%) of the side\'s overs while the ball is new (its first 20 overs), in the middle (21–55) and old (56–80). Each column is rescaled to 100%. Spells are drawn from these shares, so no two simulated innings are bowled the same way.' : 'Whole overs per phase: powerplay (1–10), middle (11–40), death (41–50). At most 10 a bowler.' }), h('div', { class: 'sh-tbl-wrap' }, tb));
     return box;
   }
