@@ -190,7 +190,7 @@
     var nw = ids.length, raw = P.raw, ha = raw.ha;
     var bt = order.map(function (id) { return batterOf(P, id, bat); });
     var bw = ids.map(function (id) { return bowlerOf(P, id, bowl); });
-    var S = new Float64Array(nb * nw * 3 * NC);
+    var S = new Float64Array(nb * nw * 3 * NC), edge = batHome ? 1 : (bowlHome ? -1 : 0);
     for (i = 0; i < nb; i++) for (j = 0; j < nw; j++) {
       var b = bt[i], w = bw[j], spin = w.spin ? 1 : 0, lh = b.hand === 'L' ? 1 : 0;
       var sub = raw.sub[w.sub], subl = raw.sub_lhb[w.sub], ty = b.ty && b.ty[w.sub];
@@ -199,9 +199,12 @@
         for (c = 0; c < NC; c++) {
           var v = C.env.all[c] + eph[c] + C.V.base[c] + sub[c] + subph[c] + w.b[c] + b.b[c] + C.cond.all[c] +
             (p === 0 ? w.pp[c] + b.pp[c] : 0) + (p === 2 ? w.de[c] + b.de[c] : 0) +
-            (bowlHome ? ha.bowl_home[c] : w.aw[c]) + (batHome ? ha.bat_home[c] : b.aw[c]) +
+            (bowlHome ? 0 : w.aw[c]) + (batHome ? 0 : b.aw[c]) +
             (ty ? ty[c] : 0) + lh * (subl[c] + w.lh[c]);
-          if (spin) v += C.env.spin[c] + C.V.spin[c] + b.sp[c] + C.cond.spin[c] + (batHome ? ha.bat_home_spin[c] : 0) + (bowlHome ? ha.bowl_home_spin[c] : 0);
+          // home advantage: Tests carry one signed edge (batting side at home +1, bowling side -1), ODIs a term each way
+          if (ha.edge) v += edge * (ha.edge[c] + (spin ? ha.edge_spin[c] : 0));
+          else v += (batHome ? ha.bat_home[c] + (spin ? ha.bat_home_spin[c] : 0) : 0) + (bowlHome ? ha.bowl_home[c] + (spin ? ha.bowl_home_spin[c] : 0) : 0);
+          if (spin) v += C.env.spin[c] + C.V.spin[c] + b.sp[c] + C.cond.spin[c];
           else v += C.cond.pace[c];
           S[off + c] = v;
         }

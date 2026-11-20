@@ -42,6 +42,7 @@ def main(key):
     rp_rows = "\n".join(f"| {r['metric']} | {r['actual']:.1f} | {r['sim']:.1f} |" for r in rp.get("rows", []))
     cal = "\n".join(f"| {c['bin']} | {c['n']} | {100 * c['pred']:.0f}% | {100 * c['obs']:.0f}% |" for c in rp.get("result_calibration", []))
     shock = "\n".join(f"* {a}: {b}" for a, b in (dg.get("shock") or {}).get("rows", []))
+    home = "\n".join(f"* {a}: {b}" for a, b in (dg.get("home") or {}).get("rows", []))
     flow = "\n".join(f"* {a}: {b}" for a, b in (dg.get("flow") or {}).get("rows", []))
     used = lambda k: k in lam
     holdout_line = "" if not ho else (
@@ -151,6 +152,11 @@ once per simulated match and applied to every ball. What is left of the variance
 sampling noise and the shared part becomes an innings-level shock. This build:
 
 {shock}
+
+**Home advantage.** {'Tests are almost never played on neutral ground, so a batting-at-home and a bowling-at-home term cannot be told apart from the overall level. The model carries one signed home edge instead (plus its spin part): it helps the home side with bat and ball by the same amount on the logit scale, and a neutral ground sits half-way.' if test else 'ODIs are played on neutral ground often enough (World Cups, the UAE, associate events) to fit a batting-at-home and a bowling-at-home term separately, each with a spin part.'} Each player also has his own shrunk away-from-home split.
+{(dg.get('home') or {}).get('note', '')}
+
+{home}
 
 **Pitch dial.** The simulator's pitch options move along those axes: *flat* is one match SD easier to score on and
 harder to take wickets on, *hard to bat on* the reverse, *green seamer* adds the pace-wicket gap between the most

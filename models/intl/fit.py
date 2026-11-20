@@ -149,13 +149,22 @@ def build_design(f, idx, fmt, lam):
     put("venue_late", vi, mask=late)
     D.add("venue_spin", idx["venues"], "venue2")
     put("venue_spin", vi, mask=spin)
-    # ---- home advantage (neutral ground is the reference)
+    # ---- home advantage
     bh, wh = f["bat_home"].to_numpy(), f["bowl_home"].to_numpy()
-    D.add("ha", ["bat_home", "bowl_home", "bat_home_spin", "bowl_home_spin"], "l0")
-    put("ha", np.zeros(n, np.int64), mask=bh)
-    put("ha", np.ones(n, np.int64), mask=wh)
-    put("ha", np.full(n, 2), mask=bh & spin)
-    put("ha", np.full(n, 3), mask=wh & spin)
+    if fmt.key == "test":
+        # Tests are almost never played on neutral ground, so a batting-home and a bowling-home term cannot be told
+        # apart from the intercept (their sum is 1 on nearly every ball). One signed home edge instead: +1 when
+        # the batting side is at home, -1 when the bowling side is, and a neutral ground sits half-way.
+        edge = bh.astype(np.float32) - wh.astype(np.float32)
+        D.add("ha", ["home_edge", "home_edge_spin"], "l0")
+        put("ha", np.zeros(n, np.int64), mask=edge != 0, v=edge)
+        put("ha", np.ones(n, np.int64), mask=(edge != 0) & spin, v=edge)
+    else:
+        D.add("ha", ["bat_home", "bowl_home", "bat_home_spin", "bowl_home_spin"], "l0")
+        put("ha", np.zeros(n, np.int64), mask=bh)
+        put("ha", np.ones(n, np.int64), mask=wh)
+        put("ha", np.full(n, 2), mask=bh & spin)
+        put("ha", np.full(n, 3), mask=wh & spin)
     # ---- priors: role, experience by role, age, team, the other format's record
     rb = f["role_bat_row"].to_numpy().astype(np.int64)
     rw = f["role_bowl_row"].to_numpy().astype(np.int64)

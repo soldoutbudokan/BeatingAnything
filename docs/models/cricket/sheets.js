@@ -399,6 +399,11 @@ async function diagnostics(panel) {
     c.append(h('div', { class: 'sh-note', text: Dg.shock.note }));
     c.append(S.kv(Dg.shock.rows.map(r => [r[0], r[1]]), { cols: 2 }));
   }
+  if (Dg.home) {
+    const c = card('Home advantage as the simulator plays it');
+    c.append(h('div', { class: 'sh-note', text: Dg.home.note }));
+    c.append(S.kv(Dg.home.rows.map(r => [r[0], r[1]])));
+  }
   if (Dg.flow) {
     const c = card('Declarations, follow-on and time');
     c.append(S.kv(Dg.flow.rows.map(r => [r[0], r[1]]), { cols: 2 }));

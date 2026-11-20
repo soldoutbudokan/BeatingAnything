@@ -189,6 +189,34 @@ def first10(fr, ids):
     return d.groupby("match_id")["runs_total"].sum().mean()
 
 
+# %% home advantage as the simulator plays it
+
+
+def home_edge(fmt):
+    """The top four sides against each other in average conditions, each pairing played with one side at home,
+    on neutral ground and with the other at home. A neutral ground should sit between the two."""
+    teams = json.loads((fmt.export / "teams.json").read_text())["teams"][:4]
+    spec = lambda t: {"name": t["name"], "order": t["default"]["order"], "plan": t["default"]["plan"]}
+    n = 3000 if fmt.key == "test" else 10000
+    jobs = []
+    for i in range(len(teams)):
+        for j in range(i + 1, len(teams)):
+            for home in ("A", None, "B"):
+                jobs.append({"id": f"{i}|{j}|{home}", "A": spec(teams[i]), "B": spec(teams[j]), "n": n, "seed": 900 + len(jobs),
+                             "opts": {"country": "_default", "home": home}})
+    res = run_jobs(fmt.export / "sim_params.json", jobs)
+    acc = {"home": [], "neutral": [], "away": []}
+    for jb in jobs:
+        s = res[jb["id"]]["summary"]
+        home = jb["opts"]["home"]
+        for side, other in (("A", "B"), ("B", "A")):
+            k = "neutral" if home is None else ("home" if home == side else "away")
+            acc[k].append((s["p_" + side], s["p_draw"], (s["first"][side] or {}).get("inn1_mean")))
+    m = lambda k, c: float(np.mean([r[c] for r in acc[k] if r[c] is not None]))
+    return {"teams": [t["name"] for t in teams], "sims": n,
+            "win": {k: m(k, 0) for k in acc}, "draw": {k: m(k, 1) for k in acc}, "bat_first_total": {k: m(k, 2) for k in acc}}
+
+
 # %% main
 
 
@@ -215,6 +243,14 @@ def main(key):
                  ["Match shock, wicket axis (SD, log-odds)", f"{np.sqrt(Sm[1, 1]):.3f} (wicket rate x {np.exp(np.sqrt(Sm[1, 1])):.2f} at +1 SD)"],
                  ["Innings shock, scoring axis (SD)", f"{np.sqrt(Si[0, 0]):.3f}"], ["Innings shock, wicket axis (SD)", f"{np.sqrt(Si[1, 1]):.3f}"],
                  ["Cross-team correlation of scoring residuals", f"{sh['C_match'][0][0] / max(sh['C_total'][0][0], 1e-12):.2f} of the innings variance"]]}
+    he = home_edge(fmt)
+    out["home"] = {
+        "note": (f"{', '.join(he['teams'])} against each other in average conditions, {he['sims']:,} simulated matches a pairing "
+                 "and setting: the same two XIs with one side at home, on neutral ground, and away."),
+        "rows": [["Win probability at home / neutral / away", " / ".join(f"{100 * he['win'][k]:.1f}%" for k in ("home", "neutral", "away"))],
+                 ["Total batting first at home / neutral / away", " / ".join(f"{he['bat_first_total'][k]:.0f}" for k in ("home", "neutral", "away"))]]
+                + ([["Draw at home or away / neutral", f"{100 * he['draw']['home']:.1f}% / {100 * he['draw']['neutral']:.1f}%"]] if key == "test" else []),
+        "values": he}
     if key == "test":
         fl = json.loads((fmt.export / "sim_params.json").read_text())["flow"]
         out["flow"] = {"rows": [[f"Innings {k}: declared / all innings since 2010", f"{v['declared']} / {v['innings']} (model expects {v['expected']})"]
@@ -240,6 +276,7 @@ def main(key):
     print(f"{key}: diagnostics replay matches={rp['matches']} brier={rp['brier']:.4f} (base rate {rp['brier_base_rate']:.4f})")
     for r in rp["rows"]:
         print(f"   {r['metric']}: real {r['actual']:.2f} sim {r['sim']:.2f}")
+    print("   home edge", out["home"]["rows"])
     print("   PIT", [round(x, 3) for x in rp["pit"]])
     print("   win-prob fifths", [(c["bin"], c["n"], round(c["pred"], 3), round(c["obs"], 3)) for c in rp["result_calibration"]])
 

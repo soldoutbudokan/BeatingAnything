@@ -222,7 +222,8 @@ class Ref:
         self.eta = np.asarray(X @ M.W)
         cb, cw = M.cols(BAT_BLOCKS), M.cols(BOWL_BLOCKS)
         ha_o = M.blocks["ha"][0]
-        cw = np.concatenate([cw, [ha_o + 2, ha_o + 3]])
+        signed = len(M.blocks["ha"][1]) == 2   # Tests: one signed home edge (+ its spin part); ODIs: four columns
+        cw = np.concatenate([cw, [ha_o + 1] if signed else [ha_o + 2, ha_o + 3]])
         self.eta_nobat = self.eta - np.asarray(X[:, cb] @ M.W[cb])
         self.eta_nobowl = self.eta - np.asarray(X[:, cw] @ M.W[cw])
         ce = M.cols(ENV_BLOCKS)
@@ -250,7 +251,8 @@ class Ref:
         self.lterm = M.blk("sub_lhb")[self.sub] + z(M.blk("bowl_lhb"), self.wi)
         self.spterm = (z(M.blk("bat_spin"), self.bi) + z(M.blk("venue_spin"), self.vi) + z(M.blk("comp_spin"), self.ci)
                        + z(M.blk("cs_spin"), self.csi) + z(M.blk("gs_spin"), self.yi)
-                       + M.blk("ha")[2] * f["bat_home"].to_numpy()[:, None] + M.blk("ha")[3] * f["bowl_home"].to_numpy()[:, None])
+                       + (M.blk("ha")[1] * (f["bat_home"].to_numpy().astype(float) - f["bowl_home"].to_numpy())[:, None] if signed
+                          else M.blk("ha")[2] * f["bat_home"].to_numpy()[:, None] + M.blk("ha")[3] * f["bowl_home"].to_numpy()[:, None]))
         if fmt.key == "test":
             self.spterm = self.spterm + M.blk("mo_spin")[f["mo_b"].to_numpy()]
             self.spell_b = f["spell_b"].to_numpy()
@@ -803,7 +805,8 @@ def write_sim_params(M, f, BAT, BOWL, pri_b, pri_w, ex, pool, venues, shock, sty
         "sub": {s: r3(M.blk("sub")[i]) for i, s in enumerate(SUBTYPES)},
         "sub_lhb": {s: r3(M.blk("sub_lhb")[i]) for i, s in enumerate(SUBTYPES)},
         "sub_phase": {s: [r3(sub_ph[i * 3]), z, r3(sub_ph[i * 3 + 2])] for i, s in enumerate(SUBTYPES)},
-        "ha": {"bat_home": r3(ha[0]), "bowl_home": r3(ha[1]), "bat_home_spin": r3(ha[2]), "bowl_home_spin": r3(ha[3])},
+        "ha": ({"edge": r3(ha[0]), "edge_spin": r3(ha[1])} if len(ha) == 2 else
+               {"bat_home": r3(ha[0]), "bowl_home": r3(ha[1]), "bat_home_spin": r3(ha[2]), "bowl_home_spin": r3(ha[3])}),
         "env": env, "venues": ven, "venue_neutral": {"base": z, "late": z, "spin": z, "country": None},
         "batters": bats, "bowlers": bowls,
         "batter_priors": {r: r3(v) for r, v in pri_b.items()}, "bowler_priors": {r: r3(v) for r, v in pri_w.items()},
