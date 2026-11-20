@@ -20,7 +20,7 @@ def tuning_lines(rows):
             continue
         d, se = r["d_vs_base"], r["d_se"]
         verdict = "better" if d < -2 * se else ("worse" if d > 2 * se else "no clear difference")
-        out.append(f"| {r['name']} | {r['half_life']:g} | {r['ll']:.5f} | {d:+.5f} | {se:.5f} | {verdict} |")
+        out.append(f"| {r['name']}{' (adopted)' if r.get('adopted') else ''} | {r['half_life']:g} | {r['ll']:.5f} | {d:+.5f} | {se:.5f} | {verdict} |")
     return "\n".join(out)
 
 

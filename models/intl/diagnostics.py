@@ -55,13 +55,15 @@ def holdout(fmt, f, exs):
 
 
 def tuning(fmt):
+    H, lam = hyper(fmt)
     rows = []
     for k in (1, 2, 3):
         p = fmt.proc / f"tuning_r{k}.json"
         if p.exists():
             for r in json.loads(p.read_text()):
                 rows.append({"name": r["name"] if k == 1 else f"round {k}: {r['name']}", "half_life": r["half_life"], "ll": r["ll"],
-                             "d_vs_base": r.get("d_vs_base"), "d_se": r.get("d_se"), "ll_folds": r["ll_folds"]})
+                             "d_vs_base": r.get("d_vs_base"), "d_se": r.get("d_se"), "ll_folds": r["ll_folds"],
+                             "adopted": bool(r["half_life"] == H and r["lam"] == lam)})
     return rows
 
 

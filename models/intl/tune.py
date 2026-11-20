@@ -21,17 +21,18 @@ NO_PLAYERS = dict(bat=1e9, bat_split=1e9, bat_type=1e9, bowl=1e9, bowl_split=1e9
 def grid(fmt, rnd):
     H = fmt.default_half_life
     if rnd == 1:
-        g = [("base", H, {}), ("no player terms", H, NO_PLAYERS), ("half-life 3", 3.0, {}), ("half-life 9", 9.0, {}),
-             ("half-life 14", 14.0, {}), ("players looser", H, dict(bat=20, bowl=50)),
-             ("players tighter", H, dict(bat=80, bowl=200)), ("splits looser", H, dict(bat_split=50, bowl_split=50, bat_type=75)),
-             ("splits tighter", H, dict(bat_split=300, bowl_split=300, bat_type=450)),
-             ("season walk looser", H, dict(rw=50)), ("season walk tighter", H, dict(rw=800)),
-             ("no other-format prior", H, dict(xf=None)), ("venue looser", H, dict(venue=100, venue2=200)),
-             ("venue tighter", H, dict(venue=1000, venue2=2000)), ("team prior tighter", H, dict(team=30))]
+        # ordered so the variants round 2 depends on most come first
+        g = [("base", H, {}), ("no player terms", H, NO_PLAYERS), ("half-life 9", 9.0, {}), ("half-life 14", 14.0, {}),
+             ("season walk tighter", H, dict(rw=800)), ("no other-format prior", H, dict(xf=None)),
+             ("team prior tighter", H, dict(team=30)), ("venue tighter", H, dict(venue=1000, venue2=2000))]
         if fmt.key == "odi":
             g += [("chase x wickets in hand", H, dict(chase_w=30.0)), ("no old-powerplay terms", H, dict(pp_old=None))]
         else:
-            g += [("match-state looser", H, dict(sit=1.0)), ("match-state tighter", H, dict(sit=10.0))]
+            g += [("match-state tighter", H, dict(sit=10.0)), ("match-state looser", H, dict(sit=1.0))]
+        g += [("half-life 3", 3.0, {}), ("season walk looser", H, dict(rw=50)), ("venue looser", H, dict(venue=100, venue2=200)),
+              ("players looser", H, dict(bat=20, bowl=50)), ("players tighter", H, dict(bat=80, bowl=200)),
+              ("splits looser", H, dict(bat_split=50, bowl_split=50, bat_type=75)),
+              ("splits tighter", H, dict(bat_split=300, bowl_split=300, bat_type=450))]
         return g
     # round 2: everything round 1 supported, taken together, then a few steps further along the same axes
     r1 = {r["name"]: r for r in json.loads((fmt.proc / "tuning_r1.json").read_text())}
