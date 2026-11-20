@@ -36,6 +36,7 @@ N_SIMS = 2000
 STEP = 0.1
 ENV_HL = 0.25
 M_LO, M_HI, T_LO, T_HI = -70, 70, 90, 270
+PK = 61  # player-stat survival functions are kept for 0..60
 FEE, EDGE = 0.07, 0.03
 RATE_KEYS = ["usg", "tov", "sfd", "trip3", "and1", "ftp", "ast", "astd", "orb", "drb", "stl", "blk", "pf"] + \
             [f"mix_{z}" for z in ZONES] + [f"fg_{z}" for z in ZONES]
@@ -112,8 +113,17 @@ def _sim_block(args):
         m, t = sc[:, 0] - sc[:, 1], sc[:, 0] + sc[:, 1]
         mh = np.bincount(np.clip(m, M_LO, M_HI).astype(int) - M_LO, minlength=M_HI - M_LO + 1)
         th = np.bincount(np.clip(t, T_LO, T_HI).astype(int) - T_LO, minlength=T_HI - T_LO + 1)
+        # per player: P(stat >= k), k = 0..PK-1, for the prop markets
+        from models.wnba.sim import SI
+        b, pl = r["box"], []
+        ids = list(r["home"].ids) + list(r["away"].ids)
+        for j, pid in enumerate(ids):
+            for st, key in (("pts", "pts"), ("reb", None), ("ast", "ast"), ("fg3m", "fg3m")):
+                x = (b[SI["orb"], :, j] + b[SI["drb"], :, j]) if key is None else b[SI[key], :, j]
+                c = np.bincount(np.clip(x, 0, PK - 1).astype(int), minlength=PK) / len(x)
+                pl.append((gid, int(pid), st, float(x.mean()), (1 - np.cumsum(c) + c).astype(np.float32)))
         out.append((gid, float((m > 0).mean()), float(m.mean()), float(m.std()), float(t.mean()), float(t.std()),
-                    float(r["n_poss"].mean() / 2), mh.astype(np.int32), th.astype(np.int32)))
+                    float(r["n_poss"].mean() / 2), mh.astype(np.int32), th.astype(np.int32), pl))
     return out
 
 
@@ -158,6 +168,9 @@ def run_sims(seasons=(2025, 2026), workers=3):
     F.assign(tip=F.tip.astype(str)).round(4).to_csv(OUT / "sim_forecasts.csv.gz", index=False)
     np.savez_compressed(OUT / "sim_dists.npz", game_id=np.array([r[0] for r in res]), margin=np.stack([r[7] for r in res]),
                         total=np.stack([r[8] for r in res]), m_lo=M_LO, t_lo=T_LO, n_sims=N_SIMS)
+    pl = [x for r in res for x in r[9]]
+    np.savez_compressed(OUT / "sim_players.npz", game_id=np.array([x[0] for x in pl]), pid=np.array([x[1] for x in pl]),
+                        stat=np.array([x[2] for x in pl]), mean=np.array([x[3] for x in pl], np.float32), p_ge=np.stack([x[4] for x in pl]))
     (OUT / "sim_environments.json").write_text(json.dumps(envs))
     print(f"market_test sim: {len(F)} games")
 
