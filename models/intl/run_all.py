@@ -4,7 +4,8 @@
 
 Steps are cached on their output files; --force rebuilds everything downstream of the download and --retune
 re-runs the walk-forward search (slow: about 1.5 hours a format on 4 cores). The adopted configuration is
-models/intl/static/hyper_<format>.json; a retune only refreshes the evidence shown under Diagnostics.
+models/intl/static/hyper_<format>.json; a retune only refreshes the evidence shown under Diagnostics, unless that
+file is deleted first (`python -m models.intl.tune <format> adopt` writes it from the search).
 
 Needs numpy, pandas, scipy, numba, scikit-learn, pyarrow, pyreadr (not in requirements-lock.txt: use a
 virtualenv) and node on the PATH for the simulator.
@@ -57,6 +58,8 @@ def main(argv):
         if "--retune" in args or not (pr / "tuning_r1.json").exists():
             for rnd in (1, 2):
                 tune.run(k, rnd)
+            if not (final_fit.STATIC / f"hyper_{k}.json").exists():
+                tune.adopt(k)   # a tracked hyper file is never overwritten: delete it to adopt a new search
         step(f"{k}: final fit", [pr / "model.pkl"], lambda k=k: final_fit.main(k), force, [pr / "frame.parquet", final_fit.STATIC / f"hyper_{k}.json"])
         step(f"{k}: walk-forward holdout", [pr / "holdout_eta.npz"], lambda k=k: holdout.main(k), force, [pr / "frame.parquet", final_fit.STATIC / f"hyper_{k}.json"])
         step(f"{k}: ratings + sim params", [pr / "ratings.pkl", ex / "sim_params.json"], lambda k=k: ratings.main(k), force,

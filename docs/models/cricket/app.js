@@ -54,8 +54,9 @@ CK.pname = id => D.names.get(id) || String(id);
 CK.player = id => D.pById.get(id) || null;
 CK.venueName = id => { const v = D.vById.get(id); return v ? v.name : String(id || ''); };
 /** a side's lineup for a host country: its most recent XI in those conditions, else its latest XI */
-CK.lineupFor = (t, country) => (t.by_region && t.by_region[D.regionOf[country] || 'other']) || t.default;
-const dateStr = s => { if (!s) return ''; const d = new Date(s + 'T00:00:00Z'); return isNaN(d) ? s : d.toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }); };
+CK.lineupFor = (t, country) => (country && t.by_region && t.by_region[D.regionOf[country] || 'other']) || t.default;
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const dateStr = s => { if (!s) return ''; const d = new Date(s + 'T00:00:00Z'); return isNaN(d) ? s : `${DAYS[d.getUTCDay()]} ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
 CK.dateStr = dateStr;
 
 /* ════════ distributions from raw simulator counts ════════ */

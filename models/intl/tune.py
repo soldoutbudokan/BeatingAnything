@@ -2,7 +2,7 @@
 
 Two folds per format: train on everything before a cut-off, score per-ball log loss on the window after it.
 Each variant is compared with the base configuration ball by ball, with a standard error clustered by match.
-Usage: python -m models.intl.tune odi|test [round]
+Usage: python -m models.intl.tune odi|test [round | adopt]
 """
 # %% imports
 import json
@@ -52,10 +52,8 @@ def grid(fmt, rnd):
         if not_worse(n):   # a block that does not pay for itself is left out
             over[k] = None
     g = [("combined", H2, dict(over))]
-    if over.get("rw") == 800:
-        g += [("combined, season walk 3000", H2, dict(over, rw=3000)), ("combined, season walk 10000", H2, dict(over, rw=10000))]
-    g += [("combined, half-life x1.5", round(H2 * 1.5, 1), dict(over)), ("combined, year walk looser", H2, dict(over, rw_gs=50)),
-          ("combined, year walk tighter", H2, dict(over, rw_gs=3000))]
+    if over.get("rw") == 800:   # the tighter walk won in round 1: try one step further
+        g.append(("combined, season walk 3000", H2, dict(over, rw=3000)))
     return g
 
 
@@ -115,5 +113,27 @@ def run(key, rnd=1, extra=None):
     return results
 
 
+def adopt(key):
+    """Write the configuration with the best holdout score to models/intl/static/hyper_<format>.json."""
+    from models.intl.config import STATIC
+    fmt = FORMATS[key]
+    rows = []
+    for rnd in (1, 2):
+        p = fmt.proc / f"tuning_r{rnd}.json"
+        if p.exists():
+            rows += [dict(r, round=rnd) for r in json.loads(p.read_text()) if r["lam"].get("bat", 0) < 1e8]
+    best = min(rows, key=lambda r: r["ll"])
+    out = {"half_life": best["half_life"], "lam": best["lam"],
+           "note": (f"Adopted: round {best['round']} '{best['name']}', walk-forward log loss {best['ll']:.5f} "
+                    f"({best.get('d_vs_base', 0):+.5f} +/- {best.get('d_se', 0):.5f} against the base). "
+                    "Evidence: Diagnostics sheet, tuning table.")}
+    (STATIC / f"hyper_{key}.json").write_text(json.dumps(out, indent=1))
+    print(f"{key}: adopted {best['name']} (round {best['round']}) H={best['half_life']} ll={best['ll']:.5f}")
+    return out
+
+
 if __name__ == "__main__":
-    run(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else 1)
+    if len(sys.argv) > 2 and sys.argv[2] == "adopt":
+        adopt(sys.argv[1])
+    else:
+        run(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else 1)

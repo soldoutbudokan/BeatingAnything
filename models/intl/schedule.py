@@ -33,6 +33,20 @@ CARIBBEAN = {"Jamaica", "Barbados", "Trinidad and Tobago", "Trinidad & Tobago", 
              "Saint Lucia", "St Lucia", "St. Lucia", "Grenada", "Dominica", "Saint Kitts and Nevis", "St Kitts and Nevis",
              "St. Kitts and Nevis", "Saint Vincent and the Grenadines", "St Vincent and the Grenadines", "St Vincent"}
 SIMS = {"test": 6000, "odi": 10000}
+# hours ahead of UTC (standard time is close enough to put a start on the right local day)
+UTC_OFFSET = {"New Zealand": 13, "Australia": 10, "Papua New Guinea": 10, "Malaysia": 8, "Hong Kong": 8, "Bangladesh": 6,
+              "Nepal": 5.75, "India": 5.5, "Sri Lanka": 5.5, "Pakistan": 5, "United Arab Emirates": 4, "Oman": 4, "Kenya": 3,
+              "South Africa": 2, "Zimbabwe": 2, "Namibia": 2, "Netherlands": 1, "England": 0, "Ireland": 0, "Scotland": 0,
+              "West Indies": -4, "United States of America": -5, "Canada": -5}
+
+
+def local_date(start_utc, country, fallback):
+    """First day of the match on the ground's own calendar."""
+    try:
+        t = datetime.fromisoformat(start_utc.replace("Z", "+00:00")) + timedelta(hours=UTC_OFFSET.get(country, 0))
+        return t.strftime("%Y-%m-%d")
+    except (AttributeError, ValueError):
+        return fallback
 BAT_SLOT_ROLE = ["open", "open", "top", "top", "middle", "middle", "middle", "lower", "lower", "tail", "tail"]
 
 
@@ -230,6 +244,7 @@ def build(key, raw_fixtures, sim=True):
             country = by_id[vid]["country"]
         if b == country:   # home side first
             a, b = b, a
+        fx = dict(fx, date=local_date(fx["start_utc"], country, fx["date"]))
         r = {k: fx[k] for k in ("id", "fmt", "date", "start_utc", "end_utc", "series", "desc", "status", "status_text",
                                 "venue_name", "city")}
         r["raw"] = {k: fx.get(k) for k in RAW_KEYS}   # lets the next run keep this fixture if the feed drops out

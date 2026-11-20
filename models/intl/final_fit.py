@@ -23,7 +23,7 @@ def hyper(fmt):
     return fmt.default_half_life, dict(fmt.default_lam)
 
 
-def main(key, maxiter=1000, tol=1e-10, out_name="model.pkl", before=None):
+def main(key, maxiter=800, tol=1e-9, out_name="model.pkl", before=None):
     fmt = FORMATS[key]
     f = load(key)
     idx = None
@@ -45,4 +45,4 @@ def main(key, maxiter=1000, tol=1e-10, out_name="model.pkl", before=None):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else 1000)
+    main(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else 800)

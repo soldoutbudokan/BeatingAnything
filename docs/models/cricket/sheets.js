@@ -16,7 +16,7 @@ async function schedule(panel, sheet) {
   const bar = r => { const p = r.proj; if (!p) return ''; const t = p.p_A + p.p_B + p.p_draw || 1; return `<span class="ck-bar3" title="${S.esc(r.A)} ${F.pct(p.p_A, 0)}${isTest ? ' · draw ' + F.pct(p.p_draw, 0) : ''} · ${S.esc(r.B)} ${F.pct(p.p_B, 0)}"><i class="a" style="width:${100 * p.p_A / t}%"></i><i class="d" style="width:${100 * p.p_draw / t}%"></i><i class="b" style="width:${100 * p.p_B / t}%"></i></span>`; };
   const status = r => r.status === 'in' ? '<span class="ck-chip live">In progress</span>' : !r.modelled ? '<span class="ck-chip off">Not modelled</span>' : '<span class="ck-chip">Upcoming</span>';
   const cols = [
-    { key: 'date', label: 'Date', type: 'text', width: 124, frozen: true, desc: 'First day (local).', render: v => S.esc(CK.dateStr(v)) },
+    { key: 'date', label: 'Date', type: 'text', width: 128, frozen: true, desc: 'First day (local).', render: v => S.esc(CK.dateStr(v)) },
     { key: 'match', label: 'Match', type: 'text', width: 210, frozen: true, get: r => `${r.A} v ${r.B}`, desc: 'Home side first when the ground is in one side\'s country.' },
     { key: 'desc', label: 'Game', type: 'text', width: 96 },
     { key: 'st', label: 'Status', type: 'cat', width: 104, get: r => r.status === 'in' ? 'In progress' : r.modelled ? 'Upcoming' : 'Not modelled', render: (v, r) => status(r) },
@@ -39,7 +39,7 @@ async function schedule(panel, sheet) {
     { key: 'toss', label: 'Toss', group: 'Fixture', type: 'text', width: 170, get: r => r.toss ? `${CK.short(r.toss.winner)} won, chose to ${r.toss.decision}` : null },
   ];
   const tools = h('span', { class: 'ck-links' }, h('a', { href: CK.matchHash({}), text: 'Custom match →', onclick: e => { e.preventDefault(); WB.activate('match', { push: true, params: {} }); } }));
-  const grid = sheet.grid(panel, { height: 'auto', columns: cols, rows: fx, sort: 'date', csv: `${CK.FMT}-schedule.csv`, footer: false, tools, searchPlaceholder: 'Search sides, grounds, series',
+  const grid = sheet.grid(panel, { height: 'auto', frozen: innerWidth < 640 ? 1 : 2, columns: cols, rows: fx, sort: 'date', csv: `${CK.FMT}-schedule.csv`, footer: false, tools, searchPlaceholder: 'Search sides, grounds, series',
     rowClass: r => r.modelled ? '' : 'dim',
     onRowClick: r => { if (!r.modelled) return; WB.activate('match', { push: true, params: { fx: String(r.id) } }); } });
   CK.odds.bind(panel, () => grid.setRows(fx));
@@ -281,15 +281,29 @@ function openBowler(p, grid) {
       el.append(S.kv(kv));
     } });
 }
+/** rows + a toolbar toggle: players with no match in the last two years are hidden until asked for */
+function activeFilter(sheet, all, apply) {
+  const latest = D.players.reduce((m, p) => (p.last_played && p.last_played > m ? p.last_played : m), '');
+  const cut = new Date(new Date(latest + 'T00:00:00Z') - 730 * 864e5).toISOString().slice(0, 10);
+  const active = all.filter(p => p.last_played && p.last_played >= cut);
+  const rows = () => (sheet.get('all') === '1' ? all : active);
+  const tog = S.ui.toggle({ label: `Include inactive (${all.length - active.length})`, value: sheet.get('all') === '1', onChange: v => { sheet.set({ all: v ? '1' : null }); apply(rows()); } });
+  tog.title = `Players with no ${NAME} since ${cut}.`;
+  return { rows, tools: tog };
+}
 async function batters(panel, sheet) {
   await CK.load();
-  const rows = D.players.filter(p => p.bat && p.bat.career && p.bat.career.balls >= (isTest ? 120 : 60));
-  const g = sheet.grid(panel, { columns: batCols(), rows, sort: '-rv', csv: `${CK.FMT}-batters.csv`, groups: ['Rating', 'Splits', 'Phases', 'By bowling type', 'Career', 'Recent'].map(id => ({ id, label: id, hidden: id === 'By bowling type' })), onRowClick: r => openBatter(r, g) });
+  const all = D.players.filter(p => p.bat && p.bat.career && p.bat.career.balls >= (isTest ? 120 : 60));
+  let g = null;
+  const f = activeFilter(sheet, all, r => g.setRows(r));
+  g = sheet.grid(panel, { columns: batCols(), rows: f.rows(), sort: '-rv', csv: `${CK.FMT}-batters.csv`, tools: f.tools, groups: ['Rating', 'Splits', 'Phases', 'By bowling type', 'Career', 'Recent'].map(id => ({ id, label: id, hidden: id === 'By bowling type' })), onRowClick: r => openBatter(r, g) });
 }
 async function bowlers(panel, sheet) {
   await CK.load();
-  const rows = D.players.filter(p => p.bowl && p.bowl.career && p.bowl.career.balls >= (isTest ? 300 : 120));
-  const g = sheet.grid(panel, { columns: bowlCols(), rows, sort: '-rv', csv: `${CK.FMT}-bowlers.csv`, onRowClick: r => openBowler(r, g) });
+  const all = D.players.filter(p => p.bowl && p.bowl.career && p.bowl.career.balls >= (isTest ? 300 : 120));
+  let g = null;
+  const f = activeFilter(sheet, all, r => g.setRows(r));
+  g = sheet.grid(panel, { columns: bowlCols(), rows: f.rows(), sort: '-rv', csv: `${CK.FMT}-bowlers.csv`, tools: f.tools, onRowClick: r => openBowler(r, g) });
 }
 
 /* ───────── Teams ───────── */

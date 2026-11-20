@@ -10,7 +10,7 @@ import numpy as np
 
 from models.intl.config import FORMATS, REGION
 from models.intl.flow import decl_features
-from models.intl.schedule import lineup, map_venue, norm_country, norm_team, venue_index
+from models.intl.schedule import lineup, local_date, map_venue, norm_country, norm_team, venue_index
 from models.intl.team import integer_plan, share_plan
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +48,11 @@ class ScheduleMapping(unittest.TestCase):
         self.assertEqual(norm_country("Wales"), "England")
         self.assertEqual(norm_team("U.S.A."), "United States of America")
         self.assertEqual(REGION["India"], "asia")
+
+    def test_start_is_dated_on_the_grounds_own_calendar(self):
+        self.assertEqual(local_date("2026-11-26T22:00Z", "New Zealand", "x"), "2026-11-27")   # 11:00 next day in Christchurch
+        self.assertEqual(local_date("2027-03-01T14:00Z", "West Indies", "x"), "2027-03-01")
+        self.assertEqual(local_date(None, "India", "2027-01-05"), "2027-01-05")
 
     def test_ground_falls_back_to_the_city(self):
         venues = [{"venue": "lords", "city": "London", "country": "England", "matches": 40},
