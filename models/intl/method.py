@@ -45,6 +45,12 @@ def main(key):
     home = "\n".join(f"* {a}: {b}" for a, b in (dg.get("home") or {}).get("rows", []))
     flow = "\n".join(f"* {a}: {b}" for a, b in (dg.get("flow") or {}).get("rows", []))
     used = lambda k: k in lam
+    grp = {g["group"]: g for g in ho.get("groups", [])}
+    assoc = ""
+    if "With an associate side" in grp and "Between full members" in grp:
+        a_, f_ = grp["With an associate side"], grp["Between full members"]
+        assoc = (f" On the holdout the model expected {100 * (a_['wkts_ratio'] - 1):+.0f}% wickets in matches with an associate side "
+                 f"and {100 * (f_['wkts_ratio'] - 1):+.0f}% in matches between full members: treat associate projections with care.")
     holdout_line = "" if not ho else (
         f"On the holdout the adopted model scores {ho['logloss']:.4f} nats per ball against {ho['logloss_marginal']:.4f} for outcome\n"
         f"frequencies alone. It expected {ho['innings_runs_expected']:.1f} runs and {ho['innings_wkts_expected']:.2f} wickets per innings; the innings\n"
@@ -248,7 +254,7 @@ Pre-match win probability of the side batting first, in fifths:
 ## {'12' if test else '11'}. Known weaknesses
 
 * No market comparison has been run. Nothing here shows the model beats a price.
-* Afghanistan is missing from the data. Associates play few matches and lean on their priors.
+* Afghanistan is missing from the data. Associates play few matches and lean on their priors.{assoc}
 * No ball tracking: "expected" means expected given the situation, opposition, ground and era, not line and length.
 * Fielding, keeping and captaincy are not modelled separately.
 * {'Day-night Tests are not flagged in the data and are treated like any other.' if test else 'Day and day-night matches are not distinguished beyond each ground' + chr(39) + 's second-innings term.'}

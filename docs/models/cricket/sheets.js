@@ -374,7 +374,12 @@ async function diagnostics(panel) {
     c.append(h('div', { class: 'sh-note', text: `Trained before each cut-off, scored on the window after it (${H.folds.map(f => `${f.from} to ${f.to}: ${F.int(f.balls)} balls, ${f.matches} matches`).join('; ')}).` }));
     c.append(S.tiles([{ label: 'Model', value: F.num(H.logloss, 4), sub: 'nats per ball' }, { label: 'Outcome frequencies only', value: F.num(H.logloss_marginal, 4) }, { label: 'Gain', value: F.num(H.logloss_marginal - H.logloss, 4), sub: 'nats per ball' },
       { label: 'Runs per innings', value: `${F.num(H.innings_runs_expected, 1)} / ${F.num(H.innings_runs_actual, 1)}`, sub: 'expected / actual' }, { label: 'Wickets per innings', value: `${F.num(H.innings_wkts_expected, 2)} / ${F.num(H.innings_wkts_actual, 2)}`, sub: 'expected / actual' }]));
-    S.table(c.appendChild(h('div')), [{ key: 'cls', label: 'Outcome' }, { key: 'pred', label: 'Predicted', fmt: 'pct:2' }, { key: 'obs', label: 'Observed', fmt: 'pct:2' }, { key: 'slope', label: 'Top fifth: predicted', fmt: 'pct:2', desc: 'Mean prediction in the fifth of deliveries where the model gives this outcome its highest chance.' }, { key: 'slope_obs', label: 'Top fifth: observed', fmt: 'pct:2' }, { key: 'lo', label: 'Bottom fifth: predicted', fmt: 'pct:2' }, { key: 'lo_obs', label: 'Bottom fifth: observed', fmt: 'pct:2' }], H.classes);
+    if (H.groups && H.groups.length) {
+      c.append(h('div', { class: 'ck-sub', text: 'Expected over actual on the holdout, by who is playing (1.00 = calibrated)' }));
+      S.table(c.appendChild(h('div')), [{ key: 'group', label: '' }, { key: 'balls', label: 'Balls', fmt: 'int' }, { key: 'runs_ratio', label: 'Runs', fmt: 'num:3' }, { key: 'wkts_ratio', label: 'Wickets', fmt: 'num:3' }, { key: 'logloss', label: 'Log loss', fmt: 'num:4' }], H.groups);
+    }
+    c.append(h('div', { class: 'ck-sub', text: 'Each outcome: predicted and observed frequency' }));
+        S.table(c.appendChild(h('div')), [{ key: 'cls', label: 'Outcome' }, { key: 'pred', label: 'Predicted', fmt: 'pct:2' }, { key: 'obs', label: 'Observed', fmt: 'pct:2' }, { key: 'slope', label: 'Top fifth: predicted', fmt: 'pct:2', desc: 'Mean prediction in the fifth of deliveries where the model gives this outcome its highest chance.' }, { key: 'slope_obs', label: 'Top fifth: observed', fmt: 'pct:2' }, { key: 'lo', label: 'Bottom fifth: predicted', fmt: 'pct:2' }, { key: 'lo_obs', label: 'Bottom fifth: observed', fmt: 'pct:2' }], H.classes);
   }
   if (Dg.tuning && Dg.tuning.length) {
     const c = card('Configurations tried on the holdout');

@@ -10,7 +10,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from models.intl.config import CLASSES, FORMATS, REF
+from models.intl.config import CLASSES, FORMATS, FULL_MEMBERS, REF
 from models.intl.final_fit import hyper
 from models.intl.fit import load, probs_from_eta
 from models.intl.ratings import C, total_row
@@ -44,13 +44,23 @@ def holdout(fmt, f, exs):
     inn = pd.DataFrame({"k": r["match_id"].astype(str) + "|" + r["inn"].astype(str), "x": total_row(P, exs),
                         "a": r["runs_total"].to_numpy(), "w": P[:, C["wicket"]] + P[:, C["runout"]],
                         "wa": np.isin(y, [C["wicket"], C["runout"]])}).groupby("k").sum()
+    # the same check split by who is playing: matches between full members, and matches with an associate side
+    fm = (r["bat_team"].astype(str).isin(FULL_MEMBERS) & r["bowl_team"].astype(str).isin(FULL_MEMBERS)).to_numpy()
+    groups = []
+    for lab, msk in (("Between full members", fm), ("With an associate side", ~fm)):
+        if msk.sum() < 2000:
+            continue
+        xr, xw = total_row(P[msk], exs).sum(), (P[msk][:, C["wicket"]] + P[msk][:, C["runout"]]).sum()
+        ar, aw = r.loc[msk, "runs_total"].sum(), np.isin(y[msk], [C["wicket"], C["runout"]]).sum()
+        groups.append({"group": lab, "balls": int(msk.sum()), "runs_ratio": float(xr / ar), "wkts_ratio": float(xw / aw),
+                       "logloss": float(-np.mean(np.log(np.clip(P[msk][np.arange(int(msk.sum())), y[msk]], 1e-12, 1))))})
     folds = []
     for k, (lo, hi) in enumerate(fmt.cutoffs):
         rk = r[z["fold"] == k]
         folds.append({"from": lo, "to": str(rk["date"].max().date()) if len(rk) else hi, "balls": int(len(rk)),
                       "matches": int(rk["match_id"].nunique())})
     return {"logloss": ll, "logloss_marginal": float(-np.mean(np.log(freq[y]))), "n_balls": int(len(y)), "folds": folds,
-            "classes": cls, "innings_runs_expected": float(inn["x"].mean()), "innings_runs_actual": float(inn["a"].mean()),
+            "classes": cls, "groups": groups, "innings_runs_expected": float(inn["x"].mean()), "innings_runs_actual": float(inn["a"].mean()),
             "innings_wkts_expected": float(inn["w"].mean()), "innings_wkts_actual": float(inn["wa"].mean())}
 
 
@@ -228,9 +238,11 @@ def main(key):
     with open(fmt.proc / "ratings.pkl", "rb") as fh:
         R = pickle.load(fh)
     H, lam = hyper(fmt)
+    with open(fmt.proc / "model.pkl", "rb") as fh:
+        used = {b[2] for b in pickle.load(fh)["blocks"].values()} | {"rw", "rw_gs"}   # penalties this format's design uses
     sh = R["shock"]
     out = {"holdout": holdout(fmt, f, R["exs"]), "tuning": tuning(fmt),
-           "adopted": f"half-life {H:g} years; penalties " + ", ".join(f"{k} {v:g}" for k, v in sorted(lam.items())),
+           "adopted": f"half-life {H:g} years; penalties " + ", ".join(f"{k} {v:g}" for k, v in sorted(lam.items()) if k in used),
            "replay": replay(fmt, f)}
     G = np.asarray(sh["G"])
     Sm, Si = np.asarray(sh["S_match"]), np.asarray(sh["S_inn"])
