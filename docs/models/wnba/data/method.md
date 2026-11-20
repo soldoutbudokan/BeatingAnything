@@ -306,7 +306,26 @@ each game within 36 h, the box and news lineups, their forecasts and the Kalshi 
 Questionable 0.5, Day-To-Day 0.7, Probable 0.9) is a placeholder until a season of captures measures it.
 
 **Limits.** Hyper-parameters were tuned on 2024–26 holdouts. Home court and the 12.5 SD are full-sample
-constants. Ratings are refitted every 2.5 weeks, not daily. Only game winners are scored so far. `kalshi.py spread total`
-reads the 7,100 spread and total markets of 2026, but Kalshi's rate limit makes that a two-hour pull that has
-not been run; player props are captured going forward only. The 2026 Finals Game 7 (Oct 31) is
+constants. Ratings are refitted every 2.5 weeks, not daily. Player props are captured going forward only. The 2026 Finals Game 7 (Oct 31) is
 missing from the play-by-play source and from every number here.
+
+## 13. Model test against Kalshi: win, spread, total (`market_test.py`)
+News set aside: each team's active list is who appeared, minutes from earlier games. The full simulator runs
+2,000 times per game with ratings, skills, usage and the league scoring environment (points per 100 and pace,
+half-life a quarter season) refitted on data before one of ten cut-offs a season. Scored at the last quote
+before tip. Summary in `market_model_test.json`; forecasts in `data/markets/wnba/sim_forecasts.csv.gz`.
+
+| 2026, 352 games | markets | model log loss | Kalshi log loss | gap (95% interval) | weight on model in a blend | flat-bet return |
+|---|---|---|---|---|---|---|
+| game winner | 352 | 0.597 | 0.582 | 0.016 (−0.004 to 0.036) | 0.18 | −11% (−27 to +5) |
+| spread, all strikes | 3,153 | 0.565 | 0.555 | 0.010 (−0.005 to 0.024) | 0.24 | −3% (−15 to +9) |
+| total, all strikes | 2,669 | 0.624 | 0.613 | 0.010 (−0.009 to 0.028) | 0.33 | +2% (−9 to +14) |
+
+* As a point forecast the market's central spread has RMSE 12.66 against the model's 12.81 (correlation
+  0.92; regressing the margin on both gives 0.69 × market + 0.31 × model). For totals 18.63 against 18.97.
+* The model is behind on all three by a similar, small amount, and no gap is distinguishable from zero on
+  one season. Nor is any bet return. This is the model with a perfect active list, so a real process does worse.
+* Totals ran 2.9 points under in 2026 because the scoring environment rose through the year and the
+  trailing estimate lagged it; the market's line was 1.4 under.
+* 2025 game winners (297 games, thin books): model 0.599, Kalshi 0.608. Spread and total markets start in 2026.
+* Still full-sample: four-factor defence, pace terms, home court, shock sizes, score effect, hyper-parameters.

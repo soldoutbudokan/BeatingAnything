@@ -1,11 +1,11 @@
-/* Test / ODI workbooks: page-specific additions on top of ../assets/sheet.css (tokens only, no hex). */
+/* Test / ODI workbooks: page-specific additions on top of ../../assets/sheet.css (tokens only, no hex). */
 .ck-intro{font-size:13.5px;max-width:120ch;color:var(--ink2);margin:0}
 .ck-intro b{color:var(--ink)}
 .ck-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px;min-width:0}
 .ck-two>*,.sh-cols>*{min-width:0}
 .ck-sub{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:8px 0 2px}
 .ck-links a,.ck-link{color:var(--model);text-underline-offset:2px;cursor:pointer}
-.sh-bar .ck-odds .ui-seg button{height:20px;font-size:11.5px;padding:0 8px}
+.sh-fxa .ck-odds .ui-seg button{height:20px;font-size:11.5px;padding:0 8px}
 /* schedule */
 .ck-chip{display:inline-block;font-size:11px;line-height:16px;padding:0 6px;border-radius:8px;border:1px solid var(--rule);color:var(--ink2);white-space:nowrap}
 .ck-chip.live{border-color:var(--good);color:var(--good)}

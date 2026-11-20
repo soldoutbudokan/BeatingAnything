@@ -1,4 +1,4 @@
-/* Test / ODI workbooks: the sheets. Loaded after app.js (window.CK). */
+/* Test / ODI workbooks: the sheets. Depends on ../../assets/sheet.js (Sheets) and app.js (window.CK). */
 (function () {
 'use strict';
 const S = Sheets, h = S.h, F = S.fmt, CK = window.CK, D = CK.D, isTest = CK.isTest, isNum = CK.isNum, fp = CK.fp;
@@ -313,6 +313,9 @@ async function batters(panel, sheet) {
   let g = null;
   const f = activeFilter(sheet, all, r => g.setRows(r));
   g = sheet.grid(panel, { columns: batCols(), rows: f.rows(), sort: '-rv', csv: `${CK.FMT}-batters.csv`, tools: f.tools, groups: ['Rating', 'Splits', 'Phases', 'By bowling type', 'Career', 'Recent'].map(id => ({ id, label: id, hidden: id === 'By bowling type' })), onRowClick: r => openBatter(r, g) });
+  // #sheet=batters&pid=<id> opens that player's card (the site's jump search links here)
+  const openPid = () => { const p = CK.player(sheet.get('pid')); if (!sheet.get('pid')) return; sheet.set({ pid: null }); if (p && p.bat) openBatter(p, null); };
+  sheet.onState(openPid); openPid();
 }
 async function bowlers(panel, sheet) {
   await CK.load();
@@ -320,10 +323,12 @@ async function bowlers(panel, sheet) {
   let g = null;
   const f = activeFilter(sheet, all, r => g.setRows(r));
   g = sheet.grid(panel, { columns: bowlCols(), rows: f.rows(), sort: '-rv', csv: `${CK.FMT}-bowlers.csv`, tools: f.tools, onRowClick: r => openBowler(r, g) });
+  const openPid = () => { const p = CK.player(sheet.get('pid')); if (!sheet.get('pid')) return; sheet.set({ pid: null }); if (p && p.bowl) openBowler(p, null); else if (p && p.bat) openBatter(p, null); };
+  sheet.onState(openPid); openPid();
 }
 
 /* ───────── Teams ───────── */
-async function teams(panel) {
+async function teams(panel, sheet) {
   await CK.load();
   panel.append(h('p', { class: 'ck-intro', html: `Each side's default XI against every other on a neutral ground in average conditions (${F.int(D.T.rating_sims || 0)} simulated matches a pair). Team strength is not a sum of player ratings: it comes from playing the XI ball by ball. <b>Click a side</b> for its XI and bowling plan.` }));
   const rows = D.teams.map(t => Object.assign({ t }, t.rating, { name: t.name, short: t.short }));
@@ -342,6 +347,9 @@ async function teams(panel) {
   (D.T.pairs_neutral || []).forEach(p => { const i = ix.get(p.A), j = ix.get(p.B); if (i == null || j == null) return; const dec = p.p_A + p.p_B || 1; M[i][j] = p.p_A / dec; M[j][i] = p.p_B / dec; });
   S.heatmap(panel.appendChild(h('div', { class: 'sh-card' })), { title: `Row side beats column side${isTest ? ' (draws left out)' : ''}, neutral ground`, rows: D.teams.map(t => t.short), cols: D.teams.map(t => t.short), values: M, center: 0.5, domain: [0.1, 0.9], fmt: 'pct:0', valueLabel: 'win probability', maxCell: 46,
     onCell: (i, j) => { if (i !== j) WB.activate('match', { push: true, params: { a: D.teams[i].short, b: D.teams[j].short, g: 'n' } }); } });
+  // #sheet=teams&t=<short> opens that side's card
+  const openT = () => { const t = CK.team(sheet.get('t')); if (!sheet.get('t')) return; sheet.set({ t: null }); if (t) openTeam(t); };
+  sheet.onState(openT); openT();
 }
 function openTeam(t) {
   S.drawer.open({ title: t.name, sub: `Rank ${t.rating.rank} · last ${NAME} ${t.last_match}`, body: el => {
@@ -435,12 +443,13 @@ async function diagnostics(panel) {
 function method(panel) { return S.loadMarkdown(panel.appendChild(h('div')), 'data/method.md'); }
 
 /* ───────── workbook ───────── */
-const oddsSeg = S.ui.segmented({ options: [{ value: 'american', label: 'American' }, { value: 'decimal', label: 'Decimal' }], value: CK.odds.mode, onChange: v => CK.odds.set(v) });
-oddsSeg.classList.add('ck-odds');
+const oddsSeg = S.ui.segmented({ options: [{ value: 'american', label: 'US' }, { value: 'decimal', label: 'Dec' }], value: CK.odds.mode, onChange: v => CK.odds.set(v) });
+oddsSeg.classList.add('ck-odds'); oddsSeg.title = 'Fair-odds format: American (US) or decimal';
 WB = CK.wb = S.workbook({
   title: isTest ? 'Test cricket projections' : 'ODI projections',
   subtitle: 'Ball-by-ball ratings and match simulator',
   meta: 'data/meta.json', actions: oddsSeg, defaultSheet: 'schedule',
+  onSheet: () => { if (S.drawer.isOpen) S.drawer.close(); },
   sheets: [
     { id: 'schedule', name: 'Schedule', render: schedule },
     { id: 'match', name: 'Match', render: match },

@@ -1,6 +1,6 @@
 # %% Kalshi WNBA markets: listings, game matching and pre-game quotes at fixed horizons
 """
-python -m models.wnba.kalshi [ml] [spread] [total] [--refresh]
+python -m models.wnba.kalshi [ml] [spread] [total] [pts] [reb] [ast] [fg3m] [--refresh]
 
 Public market data only (no key). Kalshi keeps recent markets under /markets and older ones under
 /historical/markets; both are read. Game-winner markets go back to July 2025.
@@ -31,7 +31,9 @@ from models.wnba.common import PROC, RAW, ROOT
 API = "https://api.elections.kalshi.com/trade-api/v2"
 RAWK = RAW / "kalshi"
 OUT = ROOT / "data" / "markets" / "wnba"
-SERIES = {"ml": "KXWNBAGAME", "spread": "KXWNBASPREAD", "total": "KXWNBATOTAL"}
+SERIES = {"ml": "KXWNBAGAME", "spread": "KXWNBASPREAD", "total": "KXWNBATOTAL",
+          "pts": "KXWNBAPTS", "reb": "KXWNBAREB", "ast": "KXWNBAAST", "fg3m": "KXWNBA3PT"}
+PROPS = ("pts", "reb", "ast", "fg3m")
 HORIZONS_H = {"24h": 24.0, "6h": 6.0, "1h": 1.0, "tip": 0.0}
 PAUSE = 0.12  # seconds between requests (well under the public read limit)
 
@@ -102,18 +104,28 @@ def list_markets(kind, refresh=False):
     return out
 
 
+def _norm(name):
+    import unicodedata
+    n = unicodedata.normalize("NFKD", str(name)).encode("ascii", "ignore").decode().lower()
+    return "".join(ch for ch in n if ch.isalpha())
+
+
 def market_table(kind, refresh=False):
     """One row per market with the game it belongs to and what YES means."""
     ms = list_markets(kind, refresh)
     g = pd.read_parquet(PROC / "games.parquet")[["game_id", "dt", "home", "away", "home_pts", "away_pts", "season"]].reset_index(drop=True)
     g["tip"] = pd.to_datetime(g.dt, utc=True)
+    names = None
+    if kind in PROPS:  # player name -> ESPN id, within each game
+        pgm = pd.read_parquet(PROC / "player_games.parquet")[["game_id", "pid", "athlete_display_name"]].dropna()
+        names = {(int(g_), _norm(n)): int(p) for g_, p, n in zip(pgm.game_id, pgm.pid, pgm.athlete_display_name)}
     rows = []
     for m in ms:
         title = m.get("title") or ""
         sub = m.get("yes_sub_title") or ""
         rule = m.get("rules_primary") or ""
         # the two teams: from the rule text "... in the A vs B women's Pro Basketball game ..."
-        pair = [t for t in TEAM if f"{t} vs" in rule or f"vs {t}" in rule]
+        pair = [t for t in TEAM if f"{t} vs" in rule or f"vs {t}" in rule or f"{t} at " in rule or f" at {t}" in rule]
         if len(pair) != 2:
             continue
         ids = {TEAM[p] for p in pair}
@@ -133,7 +145,10 @@ def market_table(kind, refresh=False):
             tip=gm.tip, yes_team=yes_team, yes_is_home=(yes_team == gm.home) if yes_team else None,
             strike=num(m, "floor_strike"), title=title, result=m.get("result"), volume=num(m, "volume_fp", "volume"),
             open_time=m.get("open_time"), close_time=m.get("close_time")))
-    return pd.DataFrame(rows)
+        if names is not None:  # "Arike Ogunbowale: 10+ points" -> player; YES = at least strike + 0.5
+            player = title.split(":")[0].strip()
+            rows[-1].update(player=player, pid=names.get((int(gm.game_id), _norm(player))))
+    return pd.DataFrame(rows) if rows else pd.DataFrame(columns=["ticker", "game_id", "season", "kind", "tier", "tip", "yes_is_home", "volume"])
 
 
 # %% candlesticks -> quotes

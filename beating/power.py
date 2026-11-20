@@ -1,6 +1,7 @@
 # %% Market-implied power rankings for the NFL, NBA and NHL
 """
     python -m beating.power build     refresh prices, refit, write docs/power/data/power.json
+                                      (--min-age 50: do nothing if that file is under 50 minutes old)
     python -m beating.power tune      walk-forward check of the half-life and ridge on the stored closing prices
     python -m beating.power calibrate strength drift for the season simulation against Kalshi's playoff prices
 
@@ -1241,18 +1242,31 @@ def calibrate(leagues=None):
 
 
 # %% cli
+def data_age_minutes(now=None):
+    """Minutes since the published data was built; None when there is none to read."""
+    try:
+        built = parse_time(json.loads(OUT.read_text())["generated_utc"])
+    except (OSError, ValueError, KeyError):
+        return None
+    return ((now or datetime.now(timezone.utc)) - built).total_seconds() / 60
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("command", choices=("build", "tune", "calibrate"))
     ap.add_argument("--leagues", default="", help="comma-separated subset of " + ",".join(LEAGUES))
+    ap.add_argument("--min-age", type=float, default=0, metavar="MINUTES", help="build: do nothing if the published data is newer than this")
     a = ap.parse_args(argv)
     leagues = [x for x in a.leagues.split(",") if x] or None
     if a.command == "tune":
         return tune(leagues)
     if a.command == "calibrate":
         return calibrate(leagues)
+    age = data_age_minutes()
+    if a.min_age and age is not None and age < a.min_age:
+        return print(f"published data is {age:.0f} minutes old, under {a.min_age:g}: nothing to do")
     payload = build(leagues)
-    print("wrote", OUT.relative_to(ROOT), {lg: ("stale" if b["stale"] else f"{len(b['teams'])} teams, {b['games_fit']} games") for lg, b in payload["leagues"].items()})
+    print("wrote", OUT.name, {lg: ("stale" if b["stale"] else f"{len(b['teams'])} teams, {b['games_fit']} games") for lg, b in payload["leagues"].items()})
     if not any(not b["stale"] for b in payload["leagues"].values()):
         sys.exit("no league could be rebuilt")
 

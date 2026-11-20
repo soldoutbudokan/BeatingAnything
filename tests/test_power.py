@@ -436,5 +436,22 @@ class Season(unittest.TestCase):
         self.assertEqual(pw.overtime_rate({0: dict(w=1, l=0, otl=0)}), 0.23)
 
 
+class Cli(unittest.TestCase):
+    def test_min_age_skips_a_fresh_build(self):
+        with tempfile.TemporaryDirectory() as d, mock.patch.object(pw, "OUT", Path(d) / "power.json"), mock.patch.object(pw, "build") as build:
+            self.assertIsNone(pw.data_age_minutes())
+            pw.OUT.write_text(json.dumps({"generated_utc": pw.iso(NOW - timedelta(minutes=30))}))
+            self.assertAlmostEqual(pw.data_age_minutes(NOW), 30.0)
+            with mock.patch.object(pw, "data_age_minutes", return_value=30.0):
+                pw.main(["build", "--min-age", "50"])
+                build.assert_not_called()
+                build.return_value = {"leagues": {"nfl": {"stale": False, "teams": [], "games_fit": 0}}}
+                pw.main(["build", "--min-age", "20"])        # old enough
+                pw.main(["build"])                            # a manual run always builds
+                self.assertEqual(build.call_count, 2)
+            pw.OUT.write_text("not json")
+            self.assertIsNone(pw.data_age_minutes())
+
+
 if __name__ == "__main__":
     unittest.main()
