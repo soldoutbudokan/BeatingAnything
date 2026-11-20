@@ -2,8 +2,8 @@
 
 Two folds per format: train on everything before a cut-off, score per-ball log loss on the window after it.
 Each variant is compared with the base configuration ball by ball, with a standard error clustered by match.
-Round 3 adds team form to the best of rounds 1-2.
-Usage: python -m models.intl.tune odi|test [round | adopt]
+Round 3 tests team form and further player shrinkage on the best of rounds 1-2.
+Usage: python -m models.intl.tune odi|test [round [name filter] | adopt]
 """
 # %% imports
 import json
@@ -37,11 +37,20 @@ def grid(fmt, rnd):
               ("splits tighter", H, dict(bat_split=300, bowl_split=300, bat_type=450))]
         return g
     if rnd == 3:
-        # round 3: the best of rounds 1-2 plus team form, at four strengths of the year-to-year walk
+        # round 3, on the best of rounds 1-2: team form at four strengths of the year-to-year walk, then the
+        # player shrinkage steps round 1 did not reach
+        r1 = {r["name"] for r in json.loads((fmt.proc / "tuning_r1.json").read_text())}
         prev = [r for k in (1, 2) for r in json.loads((fmt.proc / f"tuning_r{k}.json").read_text()) if r["lam"].get("bat", 0) < 1e8]
         best = min(prev, key=lambda r: r["ll"])
+        H3 = best["half_life"]
         over = dict({k: None for k in fmt.default_lam if k not in best["lam"]}, **best["lam"])
-        return [(f"team form, walk {w}", best["half_life"], dict(over, tf=30.0, rw_tf=float(w))) for w in TEAM_FORM_WALKS]
+        g = [(f"team form, walk {w}", H3, dict(over, tf=30.0, rw_tf=float(w))) for w in TEAM_FORM_WALKS]
+        for n, o in (("players looser", dict(bat=20, bowl=50)), ("players much looser", dict(bat=10, bowl=25)),
+                     ("players tighter", dict(bat=80, bowl=200)), ("splits looser", dict(bat_split=50, bowl_split=50, bat_type=75)),
+                     ("splits tighter", dict(bat_split=300, bowl_split=300, bat_type=450))):
+            if n not in r1:
+                g.append((f"round-2 best, {n}", H3, dict(over, **o)))
+        return g
     # round 2: everything round 1 supported, taken together, then a few steps further along the same axes
     r1 = {r["name"]: r for r in json.loads((fmt.proc / "tuning_r1.json").read_text())}
     better = lambda n: n in r1 and r1[n].get("d_vs_base", 0) < -1.5 * r1[n].get("d_se", 1)
@@ -148,4 +157,6 @@ if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[2] == "adopt":
         adopt(sys.argv[1])
     else:
-        run(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else 1)
+        rnd = int(sys.argv[2]) if len(sys.argv) > 2 else 1
+        only = sys.argv[3] if len(sys.argv) > 3 else ""   # optional: variants whose name contains this text
+        run(sys.argv[1], rnd, [g for g in grid(FORMATS[sys.argv[1]], rnd) if only in g[0]] if only else None)
