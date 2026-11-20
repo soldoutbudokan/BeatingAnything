@@ -1,0 +1,70 @@
+{
+ "build_utc": "2026-11-20T00:56:36Z",
+ "format": "Test cricket",
+ "data_source": "cricsheet.org tests_male_json.zip (men's Test matches, ball by ball) + register/people.csv; fixtures from ESPN",
+ "data_cutoff": "2026-10-28",
+ "n_players": 367,
+ "counts": {
+  "matches": 899,
+  "matches_excluded_shortened": 0,
+  "deliveries_modelled": 1730523,
+  "first_match": "2001-12-19",
+  "teams": [
+   "Australia",
+   "Bangladesh",
+   "England",
+   "ICC World XI",
+   "India",
+   "Ireland",
+   "New Zealand",
+   "Pakistan",
+   "South Africa",
+   "Sri Lanka",
+   "West Indies",
+   "Zimbabwe"
+  ],
+  "fixtures": 13,
+  "fixtures_modelled": 13
+ },
+ "model": {
+  "half_life_years": 6.0,
+  "penalties": {
+   "l0": 1.0,
+   "cov": 2.0,
+   "cell": 30.0,
+   "comp": 5.0,
+   "cs": 200.0,
+   "rw": 200.0,
+   "gs": 20.0,
+   "venue": 300.0,
+   "venue2": 600.0,
+   "bat": 40.0,
+   "bat_split": 100.0,
+   "bat_type": 150.0,
+   "bowl": 100.0,
+   "bowl_split": 100.0,
+   "team": 5.0,
+   "sit": 3.0,
+   "xf": 2.0
+  },
+  "lbfgs_iterations": 120,
+  "n_coefficients": 186840,
+  "ref_date": "2026-10-28"
+ },
+ "sim": {
+  "engine": "docs/models/cricket/sim.js (one engine: browser and build)",
+  "node_sec_per_1000_matches": 0.95
+ },
+ "schedule_generated_utc": "2026-11-20T00:56:03Z",
+ "files_bytes": {
+  "diagnostics.json": 3238,
+  "ids.json": 16348,
+  "method.md": 15306,
+  "players.json": 1331409,
+  "schedule.json": 43361,
+  "sim_params.json": 444369,
+  "teams.json": 66089,
+  "venues.json": 79804
+ },
+ "total_bytes": 1999924
+}
