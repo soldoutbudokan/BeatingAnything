@@ -238,13 +238,18 @@ def main(key):
     unit = "runs per over" if key == "test" else "runs per 50 overs"
     out["shock"] = {
         "note": (f"Estimated on {sh['source']}: {sh['n_innings']} innings, {sh['n_pairs']} cross-team innings pairs. Both sides of a "
-                 "match share a pitch and weather; the covariance of their residual scoring and wicket rates sizes a match-level "
-                 "shock on a scoring axis and a wicket axis, and what is left of the within-innings variance after sampling "
-                 "noise sizes an innings-level shock. Both are drawn in every simulated match."),
+                 "match share a pitch and weather; the covariance of their residual runs and wickets sizes a match-level "
+                 "shock on a scoring axis and a wicket axis, and what is left of an innings' residual variance after sampling "
+                 "noise sizes an innings-level shock. Both are drawn in every simulated match. The fitted ground and season "
+                 "terms absorb part of a match's conditions in-sample, so the match-level spread is if anything understated."),
         "rows": [["Match shock, scoring axis (SD, log-odds)", f"{np.sqrt(Sm[0, 0]):.3f} (about {np.sqrt(Sm[0, 0]) * G[0, 0] * per:+.2f} {unit})"],
                  ["Match shock, wicket axis (SD, log-odds)", f"{np.sqrt(Sm[1, 1]):.3f} (wicket rate x {np.exp(np.sqrt(Sm[1, 1])):.2f} at +1 SD)"],
                  ["Innings shock, scoring axis (SD)", f"{np.sqrt(Si[0, 0]):.3f}"], ["Innings shock, wicket axis (SD)", f"{np.sqrt(Si[1, 1]):.3f}"],
-                 ["Cross-team correlation of scoring residuals", f"{sh['C_match'][0][0] / max(sh['C_total'][0][0], 1e-12):.2f} of the innings variance"]]}
+                 ["Share of the unexplained scoring variance that both sides share", f"{sh['C_match'][0][0] / max(sh['C_total'][0][0], 1e-12):.2f}"]]
+        + ([["Same calculation on the walk-forward holdout (match scoring / match wicket / innings scoring / innings wicket SD)",
+             " / ".join(f"{sh['holdout']['summary'][k]:.3f}" for k in ("match_sd_r", "match_sd_w", "inn_sd_r", "inn_sd_w"))
+             + f" from {sh['holdout']['n_innings']} innings; noisier, and it includes the error of ratings projected forward"]]
+           if sh.get("holdout") else [])}
     he = home_edge(fmt)
     out["home"] = {
         "note": (f"{', '.join(he['teams'])} against each other in average conditions, {he['sims']:,} simulated matches a pairing "

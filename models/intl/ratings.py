@@ -640,58 +640,59 @@ def venue_table(M, R, exs):
 # %% match and innings shocks (conditions the per-ball model cannot see)
 
 
-def shock_rows(M, f):
-    """Deliveries and logits for the shock estimate. Out-of-sample where a walk-forward holdout exists (the
-    fitted season and ground terms absorb part of a match's conditions in-sample, which would understate the
-    match-level spread); otherwise recent in-sample deliveries."""
+def shock_rows(M, f, holdout=False):
+    """Deliveries and logits for the shock estimate: recent in-sample deliveries, or the walk-forward holdout."""
     fmt = M.fmt
-    hp = fmt.proc / "holdout_eta.npz"
-    if hp.exists():
+    if holdout:
+        hp = fmt.proc / "holdout_eta.npz"
+        if not hp.exists():
+            return None
         z = np.load(hp, allow_pickle=True)
-        rows = f.iloc[z["row"]].reset_index(drop=True)
-        return rows, np.insert(z["eta"], REF, 0.0, axis=1), "walk-forward holdout"
+        return f.iloc[z["row"]].reset_index(drop=True), np.insert(z["eta"], REF, 0.0, axis=1), "walk-forward holdout"
     r = f[f["date"] >= "2019-01-01"].reset_index(drop=True)
     D, X = build_design(r, M.idx, fmt, M.lam)
     return r, np.asarray(X @ M.W), "in-sample since 2019"
 
 
-def estimate_shock(M, f, exs):
-    """Both sides of a match share a pitch and weather the model cannot see. Two shock axes on the logits: a
-    scoring axis (every scoring shot against the dot ball) and a wicket axis (the bowler-wicket class). Their
-    match-level covariance is solved from the cross-team covariance of innings residuals (runs and wickets per
-    ball, actual minus expected); the innings-level part is what is left of the within-innings variance after
-    sampling noise and the shared part."""
+def shock_axes():
+    dir_r = np.zeros(K)
+    dir_r[[C["r1"], C["r2"], C["r3"], C["r4"], C["r6"]]] = 1.0
+    dir_w = np.zeros(K)
+    dir_w[C["wicket"]] = 1.0
+    return dir_r, dir_w
+
+
+def shock_fit(M, r, eta, exs, source):
+    """Two shock axes on the logits: scoring (every scoring shot against the dot ball) and wickets (the
+    bowler-wicket class). For each innings take the residual runs and wickets (actual minus expected, summed
+    over its balls) and their sampling covariance under the model. A shock z shifts an innings' expected counts
+    by n G z, so  sum(residual residual' - sampling cov) / sum(n^2) = G (S_match + S_innings) G', and the same
+    ratio over cross-team pairs of innings in a match, sum(residual_a residual_b') / sum(n_a n_b), isolates
+    G S_match G'. Ratios of sums keep a 25-over collapse from counting like a full innings."""
     fmt = M.fmt
-    r, eta, source = shock_rows(M, f)
     fm = (r["bat_team"].astype(str).isin(FULL_MEMBERS) & r["bowl_team"].astype(str).isin(FULL_MEMBERS)).to_numpy()
     r, eta = r[fm].reset_index(drop=True), eta[fm]
     P = softmax(eta)
     xr = total_row(P, exs)
     xw = P[:, C["wicket"]] + P[:, C["runout"]]
     rv = np.array([exs["wide_mean"], 1 + exs["nb_bat_mean"], exs["bye_mean"], 0, exs["ro_runs_mean"], 0, 1, 2, 3, 4, 6])
-    var_r = (P * rv ** 2).sum(1) - xr ** 2
-    var_w = xw * (1 - xw)
-    cov_rw = -xr * xw + P[:, C["runout"]] * exs["ro_runs_mean"]
-    d = pd.DataFrame({"m": r["match_id"], "i": r["inn"], "t": r["bat_team"].astype(str), "n": 1.0, "ar": r["runs_total"].astype(float),
-                      "aw": r["cls"].astype(str).isin(["wicket", "runout"]).astype(float), "xr": xr, "xw": xw,
-                      "vr": var_r, "vw": var_w, "vrw": cov_rw})
+    d = pd.DataFrame({"m": r["match_id"], "i": r["inn"], "t": r["bat_team"].astype(str), "n": 1.0,
+                      "rr": r["runs_total"].astype(float) - xr, "rw": r["cls"].astype(str).isin(["wicket", "runout"]).astype(float) - xw,
+                      "vr": (P * rv ** 2).sum(1) - xr ** 2, "vw": xw * (1 - xw), "vrw": -xr * xw + P[:, C["runout"]] * exs["ro_runs_mean"]})
     g = d.groupby(["m", "i", "t"]).sum().reset_index()
-    g = g[g["n"] >= 120]
-    g["er"], g["ew"] = (g["ar"] - g["xr"]) / g["n"], (g["aw"] - g["xw"]) / g["n"]
+    g = g[g["n"] >= 60]
+    den = float((g["n"] ** 2).sum())
+    Ct = np.array([[((g["rr"] ** 2) - g["vr"]).sum(), ((g["rr"] * g["rw"]) - g["vrw"]).sum()],
+                   [0.0, ((g["rw"] ** 2) - g["vw"]).sum()]]) / den
+    Ct[1, 0] = Ct[0, 1]
     pairs = g.merge(g, on="m", suffixes=("_a", "_b"))
     pairs = pairs[(pairs["i_a"] < pairs["i_b"]) & (pairs["t_a"] != pairs["t_b"])]
-    Cm = np.array([[np.mean(pairs["er_a"] * pairs["er_b"]), np.mean(pairs["er_a"] * pairs["ew_b"] + pairs["ew_a"] * pairs["er_b"]) / 2],
-                   [0, np.mean(pairs["ew_a"] * pairs["ew_b"])]])
+    denp = float((pairs["n_a"] * pairs["n_b"]).sum())
+    Cm = np.array([[(pairs["rr_a"] * pairs["rr_b"]).sum(), (pairs["rr_a"] * pairs["rw_b"] + pairs["rw_a"] * pairs["rr_b"]).sum() / 2],
+                   [0.0, (pairs["rw_a"] * pairs["rw_b"]).sum()]]) / denp
     Cm[1, 0] = Cm[0, 1]
-    Ct = np.cov(np.vstack([g["er"], g["ew"]]))
-    noise = np.array([[np.mean(g["vr"] / g["n"] ** 2), np.mean(g["vrw"] / g["n"] ** 2)], [0, np.mean(g["vw"] / g["n"] ** 2)]])
-    noise[1, 0] = noise[0, 1]
-    Ci = Ct - noise - Cm
-    # shock axes
-    dir_r = np.zeros(K)
-    dir_r[[C["r1"], C["r2"], C["r3"], C["r4"], C["r6"]]] = 1.0
-    dir_w = np.zeros(K)
-    dir_w[C["wicket"]] = 1.0
+    Ci = Ct - Cm
+    dir_r, dir_w = shock_axes()
     h = 0.05
     G = np.zeros((2, 2))   # d(runs, wickets per ball) / d(z_r, z_w)
     for k, dv in enumerate((dir_r, dir_w)):
@@ -705,23 +706,36 @@ def estimate_shock(M, f, exs):
         S = (S + S.T) / 2
         val, vec = np.linalg.eigh(S)
         S = (vec * np.clip(val, 0, None)) @ vec.T
-        L = np.linalg.cholesky(S + 1e-9 * np.eye(2))
-        return S, L
+        return S, np.linalg.cholesky(S + 1e-9 * np.eye(2))
 
     Sm, Lm = to_z(Cm)
     Si, Li = to_z(Ci)
     summary = {"match_sd_r": round(float(np.sqrt(Sm[0, 0])), 3), "match_sd_w": round(float(np.sqrt(Sm[1, 1])), 3),
                "inn_sd_r": round(float(np.sqrt(Si[0, 0])), 3), "inn_sd_w": round(float(np.sqrt(Si[1, 1])), 3)}
-    # chase residual (ODI): second minus first innings scoring residual, noise removed -> size of the dew dial
+    # chase residual (ODI): second minus first innings scoring residual per ball, sampling noise removed -> dew dial
     chase_sd = 0.0
     if fmt.key == "odi":
-        w = g.pivot_table(index="m", columns="i", values="er").dropna()
-        nz = g.assign(v=g["vr"] / g["n"] ** 2).pivot_table(index="m", columns="i", values="v").reindex(w.index)
+        gg = g.assign(e=g["rr"] / g["n"], v=g["vr"] / g["n"] ** 2)
+        w = gg.pivot_table(index="m", columns="i", values="e").dropna()
+        nz = gg.pivot_table(index="m", columns="i", values="v").reindex(w.index)
         dvar = float(np.var(w[2] - w[1], ddof=1) - nz[1].mean() - nz[2].mean())
         chase_sd = float(np.sqrt(max(dvar, 0.0)) / G[0, 0])
     return {"dir_r": dir_r, "dir_w": dir_w, "L_match": Lm, "L_inn": Li, "S_match": Sm, "S_inn": Si, "G": G,
-            "C_match": Cm, "C_total": Ct, "C_noise": noise, "n_innings": int(len(g)), "n_pairs": int(len(pairs)),
+            "C_match": Cm, "C_total": Ct, "n_innings": int(len(g)), "n_pairs": int(len(pairs)),
             "chase_sd": chase_sd, "summary": summary, "source": source}
+
+
+def estimate_shock(M, f, exs):
+    """Both sides of a match share a pitch and weather the model cannot see. The simulator's shocks are sized on
+    recent in-sample deliveries (the larger sample). The same calculation on the walk-forward holdout is kept
+    for comparison: it is noisier, and it also contains the error of ratings projected forward."""
+    r, eta, source = shock_rows(M, f)
+    out = shock_fit(M, r, eta, exs, source)
+    ho = shock_rows(M, f, holdout=True)
+    if ho is not None:
+        h = shock_fit(M, ho[0], ho[1], exs, ho[2])
+        out["holdout"] = {"summary": h["summary"], "n_innings": h["n_innings"], "n_pairs": h["n_pairs"]}
+    return out
 
 
 def build_conditions(M, venues, shock):

@@ -146,10 +146,11 @@ Adopted: {dg.get('adopted', '')}.
 ## 5. Conditions the model cannot see
 
 Both sides of a match share a pitch and weather. The model measures that as the covariance between the two sides'
-residual scoring and wicket rates (actual minus expected, per ball), on the holdout so that fitted ground and season
-terms cannot soak it up. It becomes a match-level shock on two axes of the logits, scoring shots and wickets, drawn
-once per simulated match and applied to every ball. What is left of the variance of a single innings after
-sampling noise and the shared part becomes an innings-level shock. This build:
+residual runs and wickets (actual minus expected, summed over each innings), on recent matches between full members.
+It becomes a match-level shock on two axes of the logits, scoring shots and wickets, drawn once per simulated match
+and applied to every ball. What is left of an innings' residual variance after sampling noise and the shared part
+becomes an innings-level shock. The estimate is in-sample: fitted ground and season terms absorb part of a match's
+conditions, so the match-level spread is if anything understated. This build:
 
 {shock}
 
